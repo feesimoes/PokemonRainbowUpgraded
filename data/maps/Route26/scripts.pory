@@ -1,7 +1,52 @@
 mapscripts Route26_MapScripts {
 }
 
+script Picknicker_Jamie_Route26_Battle {
+    trainerbattle_single(TRAINER_PICKNICKER_JAMIE_ROUTE26, format("Do you have rare Pokémon from Kanto?\nShow me, show me!"), format("Yup, that's definitely a rare Pokémon!"))
+    msgbox(format("It's too bad I don't have a Pokédex.\nI wish I could get one!"))
+    closemessage
+    releaseall
+    end
+}
 
+script TRIGGER_SCRIPT_TEST_1 {
+    lockall
+    playse(SE_PIN)
+    applymovement(4, movement_camper1)
+    waitmovement(0)
+    if (var(VAR_TEMP_6) == 2) {
+        msgbox(format("You again?\pNah this time we battle for real!"))
+        trainerbattle_no_intro(TRAINER_RUIN_MANIAC_LAWSON, format("Damn, I lost the battle…"))
+        closemessage
+        setvar(VAR_TEMP_5, 1) // THis will prevent it from triggering again.
+        releaseall
+        end
+    }
+    msgbox(format("Hey I think we should battle..\pWhat do you think?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        msgbox(format("Alright lets do this!"))
+        trainerbattle_no_intro(TRAINER_RUIN_MANIAC_LAWSON, format("Damn, I lost the battle…"))
+    }
+    else {
+        msgbox(format("Eh, you suck."))
+        closemessage
+        setvar(VAR_TEMP_6, 2)
+        setvar(VAR_TEMP_5, 0) // But also allows for extra chat options if you trigger the same again.
+        releaseall
+        end
+    }
+    msgbox(format("Hey man that was a crazy battle, I cannot beleieve you won."))
+    closemessage
+    setvar(VAR_TEMP_5, 1) // THis will prevent it from triggering again.
+    releaseall
+    end
+}
+
+movement movement_camper1 {
+    emote_double_exclamation_mark
+    step_end
+}
 
 script Test_Script_1 {
     lock
