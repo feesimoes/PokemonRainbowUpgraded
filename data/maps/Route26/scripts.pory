@@ -1,0 +1,48 @@
+mapscripts Route26_MapScripts {
+}
+
+
+
+script Test_Script_1 {
+    lock
+    msgbox(format("PLACEHOLDER TEXT.")) //format("") will automatically format the font so you don't need to do \p \n \l and format it constantly.
+    closemessage
+    release
+    end
+}
+
+
+script Test_Movement_Script_1 {
+    lock
+    playse(SE_PIN)
+    applymovement(1, movement_RocketRunAway1)
+    applymovement(2, movement_RocketRunAway1)
+    applymovement(3, movement_RocketRunAway1)
+    msgbox(format("AAAAH!"))
+    waitmovement(0)
+    msgbox(format("Run away!"))
+    closemessage
+    playse(SE_FLEE)
+    applymovement(1, movement_RocketRunAway2)
+    applymovement(2, movement_RocketRunAway2)
+    applymovement(3, movement_RocketRunAway2)
+    waitmovement(0)
+
+    setflag(FLAG_TEMP_1) //Make sure a Flag is set to the objects on the map you want to disappear.
+    removeobject(1)
+    removeobject(2)
+    removeobject(3)
+    release
+    end
+}
+
+movement movement_RocketRunAway1 {
+    emote_exclamation_mark
+    jump_in_place_down
+    step_end
+}
+
+movement movement_RocketRunAway2 {
+    walk_fast_down * 5
+    step_end
+}
