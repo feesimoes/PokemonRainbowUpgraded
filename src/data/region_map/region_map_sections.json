@@ -1129,20 +1129,20 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_SPECIAL_AREA",
-      "name": "CELADON DEPT.",
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0
-    },
-    {
       "id": "MAPSEC_ROUTE_26",
       "name": "ROUTE 26",
       "x": 1,
       "y": 8,
       "width": 1,
       "height": 5
+    },
+    {
+      "id": "MAPSEC_SPECIAL_AREA",
+      "name": "CELADON DEPT.",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
     }
   ]
 }
