@@ -358,8 +358,7 @@
       "x": 8,
       "y": 3,
       "width": 1,
-      "height": 1,
-      "name_clone": true
+      "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_10_POKECENTER",
@@ -367,8 +366,7 @@
       "x": 18,
       "y": 3,
       "width": 1,
-      "height": 1,
-      "name_clone": true
+      "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_1",
@@ -608,8 +606,7 @@
       "x": 0,
       "y": 0,
       "width": 1,
-      "height": 1,
-      "name_clone": true
+      "height": 1
     },
     {
       "id": "MAPSEC_DIGLETTS_CAVE",
@@ -1001,8 +998,7 @@
       "x": 0,
       "y": 0,
       "width": 1,
-      "height": 1,
-      "name_clone": true
+      "height": 1
     },
     {
       "id": "MAPSEC_DOTTED_HOLE",
@@ -1139,6 +1135,14 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_ROUTE_26",
+      "name": "ROUTE 26",
+      "x": 1,
+      "y": 8,
+      "width": 1,
+      "height": 5
     }
   ]
 }

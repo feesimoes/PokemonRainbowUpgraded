@@ -23,6 +23,11 @@
       "map": "MAP_VIRIDIAN_CITY",
       "offset": -10,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE26",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -44,18 +49,18 @@
   ],
   "warp_events": [
     {
+      "x": 6,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE22_WEST_ENTRANCE_1F",
+      "dest_warp_id": "0"
+    },
+    {
       "x": 8,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 9,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
-      "dest_warp_id": "2"
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -117,11 +122,31 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 7,
-      "y": 12,
+      "x": 14,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route22_EventScript_LeagueGateSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_REVIVE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE22_REVIVE",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 2,
+      "elevation": 0,
+      "item": "ITEM_SUPER_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE22_SUPER_POTION",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

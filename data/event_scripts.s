@@ -1360,3 +1360,12 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/Route22_WestEntrance_1F/scripts.inc"
+	.include "data/maps/Route22_WestEntrance_1F/text.inc"
+
+	.include "data/maps/Route22_WestEntrance_2F/scripts.inc"
+	.include "data/maps/Route22_WestEntrance_2F/text.inc"
+
+	.include "data/maps/Route26/scripts.inc"
+	.include "data/maps/Route26/text.inc"

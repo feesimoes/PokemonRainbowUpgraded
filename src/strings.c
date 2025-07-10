@@ -793,6 +793,7 @@ const u8 gText_RegionMap_AreaDesc_SeafoamIslands[] = _("A pair of islands that i
 const u8 gText_RegionMap_AreaDesc_PokemonTower[] = _("A tower that houses the graves of\ncountless POKéMON.\nMany people visit it daily to pay\ntheir respects to the fallen.");
 const u8 gText_RegionMap_AreaDesc_CeruleanCave[] = _("A mysterious cave that is filled\nwith terribly tough POKéMON.\nIt is so dangerous, the POKéMON\nLEAGUE is in charge of it.");
 const u8 gText_RegionMap_AreaDesc_PowerPlant[] = _("A power plant that was abandoned\nyears ago, though some of the\nmachines still work. It is infested\nwith electric POKéMON.");
+const u8 gText_RegionMap_AreaDesc_Route26[] = _("A long road that connects the\nPOKéMON LEAGUE to VICTORY ROAD.\nIt is a popular route for TRAINERS\nwho want to test their skills.");
 const u8 gText_RegionMap_AreaDesc_MtEmber[] = _("Supposedly an inactive volcano.\nHowever, there are persistent\nreports that the peak blazes\nwith fire at night.");
 const u8 gText_RegionMap_AreaDesc_BerryForest[] = _("A forest on a small islet off the\ncoast of THREE ISLAND. BERRIES\ngrow wildly in profusion, quickly\nreplenishing those that fall off.");
 const u8 gText_RegionMap_AreaDesc_IcefallCave[] = _("A cave which is covered by water\nand ice on FOUR ISLAND.\nIt seems like the end of the cave\nis connected to the ocean.");

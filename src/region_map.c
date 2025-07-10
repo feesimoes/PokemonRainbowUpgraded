@@ -678,7 +678,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_CERULEAN_CAVE,
         .name = sMapsecName_CERULEAN_CAVE,
         .desc = gText_RegionMap_AreaDesc_CeruleanCave
-    }, {
+    },  {
         .id = MAPSEC_POWER_PLANT,
         .name = sMapsecName_POWER_PLANT,
         .desc = gText_RegionMap_AreaDesc_PowerPlant
@@ -864,6 +864,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_23            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE23),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_24            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE24),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_25            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE25),                               HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_26            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE26),                               HEAL_LOCATION_NONE},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
