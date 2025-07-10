@@ -18,7 +18,8 @@ script Test_Movement_Script_1 {
     applymovement(1, movement_RocketRunAway1)
     applymovement(2, movement_RocketRunAway1)
     applymovement(3, movement_RocketRunAway1)
-    msgbox(format("AAAAH!"))
+    playbgm(MUS_JESSIE_JAMES_THEME, FALSE)
+    msgbox(format("It's that twerp!"))
     waitmovement(0)
     msgbox(format("Run away!"))
     closemessage

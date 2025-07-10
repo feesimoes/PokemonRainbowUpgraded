@@ -62,4 +62,4 @@ prefabs.json
 .vscode/*.*
 *.js
 *.sym
-tools/poryscript/poryscript.exe
+tools/poryscript/poryscript
