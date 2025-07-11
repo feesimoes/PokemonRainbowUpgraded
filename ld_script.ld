@@ -965,6 +965,7 @@ SECTIONS {
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
         sound/songs/midi/mus_kanto_route_gate.o(.rodata);
         sound/songs/midi/mus_jessie_james_theme.o(.rodata);
+        sound/songs/midi/mus_route26.o(.rodata);
     } > ROM =0
 
     lib_rodata :

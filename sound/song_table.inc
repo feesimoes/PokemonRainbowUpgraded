@@ -348,6 +348,7 @@ gSongTable::
 	song mus_teachy_tv_menu, 0, 0
 	song mus_kanto_route_gate, 0, 0
 	song mus_jessie_james_theme, 0, 0
+	song mus_route26, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

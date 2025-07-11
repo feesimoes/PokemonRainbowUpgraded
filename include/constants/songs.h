@@ -354,6 +354,7 @@
 #define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
 #define MUS_KANTO_ROUTE_GATE	  347 // MUS_KANTO_ROUTE_GATE
 #define MUS_JESSIE_JAMES_THEME	  348 // MUS_JESSIE_JAMES_THEME
+#define MUS_ROUTE26	              349 // MUS_ROUTE26
 
 #define MUS_NONE                    0xFFFF
 

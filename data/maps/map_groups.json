@@ -437,7 +437,8 @@
   ],
   "gMapGroup_IndoorRoute6": [
     "Route6_NorthEntrance",
-    "Route6_UnusedHouse"
+    "Route6_UnusedHouse",
+    "Route26_North_House"
   ],
   "gMapGroup_IndoorRoute7": [
     "Route7_EastEntrance"

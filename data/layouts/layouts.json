@@ -4416,6 +4416,18 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/Route26/border.bin",
       "blockdata_filepath": "data/layouts/Route26/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE26_NORTH_HOUSE",
+      "name": "Route26_North_House_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route26_North_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route26_North_House/map.bin"
     }
   ]
 }
