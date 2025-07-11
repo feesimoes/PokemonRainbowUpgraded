@@ -35,8 +35,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 23,
-      "y": 25,
+      "x": 21,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROUTE5_POKEMON_DAY_CARE",
       "dest_warp_id": "1"
@@ -65,6 +65,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route5_EventScript_UndergroundPathSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 23,
+      "elevation": 0,
+      "item": "ITEM_EXP_SHARE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE5_EXP_SHARE",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }
