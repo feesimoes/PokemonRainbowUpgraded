@@ -967,6 +967,7 @@ SECTIONS {
         sound/songs/midi/mus_jessie_james_theme.o(.rodata);
         sound/songs/midi/mus_route26.o(.rodata);
         sound/songs/midi/mus_poke_mart.o(.rodata);
+        sound/songs/midi/mus_vs_team_rocket.o(.rodata);
     } > ROM =0
 
     lib_rodata :

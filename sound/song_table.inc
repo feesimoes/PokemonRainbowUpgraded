@@ -350,6 +350,7 @@ gSongTable::
 	song mus_jessie_james_theme, 0, 0
 	song mus_route26, 0, 0
 	song mus_poke_mart, 0, 0
+	song mus_vs_team_rocket, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0
