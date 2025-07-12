@@ -1,0 +1,189 @@
+raw `
+Route1_MapScripts::
+	.byte 0
+
+Route1_EventScript_MartClerk::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_POTION_ON_ROUTE_1, Route1_EventScript_AlreadyGotPotion
+	msgbox Route1_Text_WorkAtPokeMartTakeSample
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	checkitemspace ITEM_POTION
+	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
+	bufferitemname STR_VAR_2, ITEM_POTION
+	playfanfare MUS_LEVEL_UP
+	message Text_ObtainedTheX
+	waitmessage
+	waitfanfare
+	additem ITEM_POTION
+	msgbox Route1_Text_PutPotionAway
+	call EventScript_RestorePrevTextColor
+	setflag FLAG_GOT_POTION_ON_ROUTE_1
+	release
+	end
+
+Route1_EventScript_AlreadyGotPotion::
+	msgbox Route1_Text_ComeSeeUsIfYouNeedPokeBalls
+	release
+	end
+
+Route1_EventScript_Boy::
+	msgbox Route1_Text_CanJumpFromLedges, MSGBOX_NPC
+	end
+
+Route1_EventScript_RouteSign::
+	msgbox Route1_Text_RouteSign, MSGBOX_SIGN
+	end
+`
+
+const Route1_Rival = 0x04
+const Route1_HoOh = 0x03
+
+script Route1_HoOh_Event_Direct {
+    setvar(VAR_TEMP_0, 1)
+    applymovement(Route1_Rival, move_face_down)
+    waitmovement
+    playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+    msgbox(format("{RIVAL}: Hey, {PLAYER}!\pYou're just getting here?\n"), MSGBOX_NPC)
+    waitmessage
+    msgbox(format("I already have at least 6 different Pokémon!\pThat's right! While you've been slacking off,\n"), MSGBOX_NPC)
+    waitmessage
+    msgbox(format("I've been training hard!\pCome on, I'll take you on!\n"), MSGBOX_NPC)
+    waitmessage
+    fadeoutbgm(1)
+    msgbox(format("{RIVAL}: Huh? What was that?\n"), MSGBOX_NPC)
+    playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
+    waitmessage
+    playse(SE_PIN)
+    applymovement(Route1_Rival, exclaimation_mark)
+    waitmovement
+    applymovement(Route1_Rival, move_face_left_fast)
+    waitmovement
+    applymovement(Route1_HoOh, move_right_16)
+    waitmovement
+    msgbox(format("{RIVAL}: No way! What is that thing?\pI've never seen anything like it!\n"), MSGBOX_NPC)
+    waitmessage
+    applymovement(Route1_HoOh, move_left_16)
+    waitmovement
+    msgbox(format("No! It's getting away!\pGet back here!\n"), MSGBOX_NPC)
+    waitmessage
+    applymovement(Route1_Rival, move_up_1)
+    waitmovement
+    applymovement(Route1_Rival, run_left_16)
+    waitmovement
+    setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)
+    playbgm(MUS_ROUTE1, TRUE)
+    release
+    end
+}
+
+script Route1_HoOh_Event_Move_Rival_1_Left {
+    if (flag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
+        lock
+        applymovement(Route1_Rival, move_left_1)
+        goto(Route1_HoOh_Event_Direct)
+        release
+        end
+    }
+}
+
+script Route1_HoOh_Event_Move_Rival_2_Left {
+    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
+        lock
+        applymovement(Route1_Rival, move_left_2)
+        goto(Route1_HoOh_Event_Direct)
+        release
+        end
+    }
+}
+
+script Route1_HoOh_Event_Move_Rival_3_Left {
+    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
+        lock
+        applymovement(Route1_Rival, move_left_3)
+        goto(Route1_HoOh_Event_Direct)
+        release
+        end
+    }
+}
+
+script Route1_HoOh_Event_Move_Rival_4_Left {
+    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
+        lock
+        applymovement(Route1_Rival, move_left_4)
+        goto(Route1_HoOh_Event_Direct)
+        release
+        end
+    }
+}
+
+script Route1_HoOh_Event_Move_Rival_5_Left {
+    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
+        lock
+        applymovement(Route1_Rival, move_left_5)
+        goto(Route1_HoOh_Event_Direct)
+        release
+        end
+    }
+}
+
+movement move_face_player {
+    face_player
+    step_end
+}
+
+movement move_face_down {
+    face_down
+    step_end
+}
+
+movement exclaimation_mark {
+    emote_exclamation_mark
+    step_end
+}
+
+movement move_up_1 {
+    walk_up
+    step_end
+}
+
+movement move_face_left_fast {
+    face_left_fast
+    step_end
+}
+
+movement move_left_1 {
+    walk_left
+    step_end
+}
+movement move_left_2 {
+    walk_left * 2
+    step_end
+}
+movement move_left_3 {
+    walk_left * 3
+    step_end
+}
+movement move_left_4 {
+    walk_left * 4
+    step_end
+}
+
+movement move_left_5 {
+    walk_left * 5
+    step_end
+}
+
+movement move_left_16 {
+    walk_left * 16
+    step_end
+}
+movement run_left_16 {
+    walk_faster_left * 16
+    step_end
+}
+
+movement move_right_16 {
+    walk_right * 16
+    step_end
+}

@@ -582,6 +582,7 @@
 
 // Story flags
 #define STORY_FLAGS_START 0x230
+
 #define FLAG_GOT_POTION_ON_ROUTE_1                       0x230
 #define FLAG_GOT_TM34_FROM_SURGE                         0x231
 #define FLAG_GOT_FOSSIL_FROM_MT_MOON                     0x232
@@ -793,8 +794,8 @@
 #define FLAG_NO_ROOM_FOR_JOYFUL_GAME_CORNER_MOON_STONE   0x2FE
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
-// Unused?
-#define FLAG_0x300               0x300
+// Rainbow Story flags
+#define FLAG_ROUTE1_HO_OH_EVENT_HAPPENED                 0x300
 #define FLAG_0x301               0x301
 #define FLAG_0x302               0x302
 #define FLAG_0x303               0x303
