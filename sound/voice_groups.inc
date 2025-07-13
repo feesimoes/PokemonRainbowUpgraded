@@ -8156,12 +8156,12 @@ voicegroup191::
 voicegroup192::
 	voice_keysplit_all voicegroup191
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 204, 51, 242
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_piano1_72, 255, 250, 0, 221
+	voice_keysplit voicegroup003, KeySplitTable1
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 165, 180, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 137, 154, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_piano1_72, 255, 250, 0, 221
+	voice_keysplit voicegroup003, KeySplitTable1
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
@@ -8210,12 +8210,12 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 255, 0, 255, 0
 	voice_programmable_wave 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_trumpet_72, 255, 0, 193, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_trumpet_72, 255, 0, 193, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_51, 255, 0, 255, 165
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_trumpet_72, 255, 0, 193, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 255, 0, 218, 165
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 255, 0, 218, 165
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup006, KeySplitTable4
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup007, KeySplitTable5
+	voice_keysplit voicegroup007, KeySplitTable5
 	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127

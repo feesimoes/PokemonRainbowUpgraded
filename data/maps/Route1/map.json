@@ -55,7 +55,6 @@
       "flag": "0"
     },
     {
-      "local_id": "Route1_HoOh",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HO_OH",
       "x": 3,
@@ -70,7 +69,6 @@
       "flag": "FLAG_ROUTE1_HO_OH_EVENT_HAPPENED"
     },
     {
-      "local_id": "Route1_Rival",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 21,

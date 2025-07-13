@@ -439,8 +439,7 @@ Route1_HoOh_Event_Direct_Text_1:
 # 49 "data/maps/Route1/scripts.pory"
 	.string "I already have at least 6 different\n"
 	.string "Pokémon!\p"
-	.string "That's right! While you've been slacking\n"
-	.string "off,\n"
+	.string "Yup! While you've been slacking off,\n"
 	.string "$"
 
 Route1_HoOh_Event_Direct_Text_2:

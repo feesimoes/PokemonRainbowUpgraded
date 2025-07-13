@@ -46,7 +46,7 @@ script Route1_HoOh_Event_Direct {
     playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
     msgbox(format("{RIVAL}: Hey, {PLAYER}!\pYou're just getting here?\n"), MSGBOX_NPC)
     waitmessage
-    msgbox(format("I already have at least 6 different Pokémon!\pThat's right! While you've been slacking off,\n"), MSGBOX_NPC)
+    msgbox(format("I already have at least 6 different Pokémon!\pYup! While you've been slacking off,\n"), MSGBOX_NPC)
     waitmessage
     msgbox(format("I've been training hard!\pCome on, I'll take you on!\n"), MSGBOX_NPC)
     waitmessage
