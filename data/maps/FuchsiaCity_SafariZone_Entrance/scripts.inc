@@ -130,6 +130,7 @@ FuchsiaCity_SafariZone_Entrance_EventScript_TryEnterSafariZone::
 	special EnterSafariMode
 	setvar VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 2
 	warp MAP_SAFARI_ZONE_CENTER, 255, 26, 30
+	clearflag FLAG_SYS_WILD_GO_MODE
 	waitstate
 	end
 

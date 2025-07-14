@@ -368,7 +368,7 @@ static void WaitForMonSelection(void)
     }
 }
 
-static void OpenBagAndChooseItem(void)
+static void GOOpenBagAndChooseItem(void)
 {
     if (!gPaletteFade.active)
     {
@@ -1874,7 +1874,7 @@ static void OakOldManHandleChooseItem(void)
     s32 i;
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+    gBattlerControllerFuncs[gActiveBattler] = GOOpenBagAndChooseItem;
     gBattlerInMenuId = gActiveBattler;
     for (i = 0; i < 3; ++i)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][i + 1];

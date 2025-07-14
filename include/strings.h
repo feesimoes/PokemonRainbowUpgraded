@@ -940,6 +940,10 @@ extern const u8 gText_FrameType[];
 extern const u8 gTextJP_Type[];
 extern const u8 gText_PickSwitchCancel[];
 
+extern const u8 gText_WildBattleMode[];
+extern const u8 gText_WildBattleModeGO[];
+extern const u8 gText_WildBattleModeStandard[];
+
 // evolution_scene
 extern const u8 gText_PkmnIsEvolving[];
 extern const u8 gText_CongratsPkmnEvolved[];
@@ -1545,5 +1549,8 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 extern const u8 gText_PokeSum_EggOrigin_NicePlace[];
 extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
+
+extern const u8 gText_GOMenu[];
+extern const u8 gText_GOChosenBall[];
 
 #endif //GUARD_STRINGS_H

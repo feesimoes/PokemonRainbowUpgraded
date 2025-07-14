@@ -163,6 +163,12 @@ static const u8 *const sBattleStyleOptions[] =
     gText_BattleStyleSet
 };
 
+static const u8 *const sBattleModeOptions[] =
+{
+    gText_WildBattleModeGO,
+    gText_WildBattleModeStandard
+};
+
 static const u8 *const sSoundOptions[] =
 {
     gText_SoundMono, 

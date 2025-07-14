@@ -357,6 +357,7 @@
 #define MUS_ROUTE26	              349 // MUS_ROUTE26
 #define MUS_POKE_MART	          350 // MUS_POKE_MART
 #define MUS_VS_TEAM_ROCKET	      351 // MUS_VS_TEAM_ROCKET
+#define MUS_VS_SAFARI_WILD	      352 // MUS_VS_SAFARI_WILD
 
 #define MUS_NONE                    0xFFFF
 

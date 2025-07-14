@@ -107,6 +107,7 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void);
 static void ReturnFromBattleToOverworld(void);
 static void TryEvolvePokemon(void);
 static void WaitForEvoSceneToFinish(void);
+static void HandleAction_ThrowBall(void);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -575,6 +576,7 @@ static void (*const sTurnActionsFuncsTable[])(void) =
     [B_ACTION_TRY_FINISH]             = HandleAction_TryFinish,
     [B_ACTION_FINISHED]               = HandleAction_ActionFinished,
     [B_ACTION_NOTHING_FAINTED]        = HandleAction_NothingIsFainted,
+    [B_ACTION_THROW_BALL]             = HandleAction_ThrowBall,
 };
 
 static void (*const sEndTurnFuncsTable[])(void) =
@@ -2256,6 +2258,7 @@ static void BattleStartClearSetData(void)
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
 
     gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+    gBattleScripting.battleMode = gSaveBlock2Ptr->optionsBattleMode;
 
     gMultiHitCounter = 0;
     gBattleOutcome = 0;
@@ -2558,7 +2561,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
 
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
-        if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+        if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI || gBattleTypeFlags & BATTLE_TYPE_GO)
             && GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         {
             ptr = (u8 *)&gBattleMons[gActiveBattler];
@@ -2794,7 +2797,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI || gBattleTypeFlags & BATTLE_TYPE_GO))
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
@@ -3183,6 +3186,35 @@ static void HandleTurnActionSelectionState(void)
                         *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                         return;
                     }
+                    else if (gBattleTypeFlags & BATTLE_TYPE_GO)
+                    {
+                        //Greater than ID 12 is not a ball
+                        if (gLastUsedItem > 12)
+                        {
+                            gLastUsedItem = 4; //Poke Ball
+                        }
+                        if (gLastUsedItem == 4)
+                        {
+                            gLastUsedItem = 3; //Great Ball
+                        }
+                        if (gLastUsedItem == 3)
+                        {
+                            gLastUsedItem = 2; //Ultra Ball
+                        }
+                        if (gLastUsedItem == 2)
+                        {
+                            gLastUsedItem = 1; //Master Ball
+                        }
+                        if (gLastUsedItem == 1)
+                        {
+                            gLastUsedItem = 5;
+                        }
+                        if (gLastUsedItem >= 5)
+                        {
+                            gLastUsedItem++;
+                        }
+                        gSelectionBattleScripts[gActiveBattler] = BattleScript_PrintCurrentBall;
+                    }
                     else
                     {
                         BtlController_EmitChooseItem(0, gBattleStruct->battlerPartyOrders[gActiveBattler]);
@@ -3530,7 +3562,7 @@ static void SetActionsAndBattlersTurnOrder(void)
     s32 turnOrderId = 0;
     s32 i, j;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI || gBattleTypeFlags & BATTLE_TYPE_GO)
     {
         for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
         {
@@ -3821,7 +3853,7 @@ static void HandleEndTurn_FinishBattle(void)
 {
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
-        if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_LINK)))
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_SAFARI | BATTLE_TYPE_GO | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_LINK)))
         {
             for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
             {
@@ -4327,6 +4359,22 @@ static void HandleAction_Run(void)
     }
 }
 
+static void HandleAction_ThrowBall(void)
+{
+    gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
+    gBattle_BG0_X = 0;
+    gBattle_BG0_Y = 0;
+    if (gLastUsedItem <= ITEM_PREMIER_BALL)
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[gLastUsedItem];
+    }
+    else {
+        gLastUsedItem = ITEM_POKE_BALL;
+        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_POKE_BALL];
+    }
+    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+}
+
 static void HandleAction_WatchesCarefully(void)
 {
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
@@ -4360,19 +4408,37 @@ static void HandleAction_WatchesCarefully(void)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MON_WATCHING;
         }
     }
-    gBattlescriptCurrInstr = gBattlescriptsForSafariActions[0];
-    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    if (GetGOModeFlag())
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForGOActions[0];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
+    else {
+        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[0];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
 }
 
 static void HandleAction_SafariZoneBallThrow(void)
 {
-    gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    --gNumSafariBalls;
-    gLastUsedItem = ITEM_SAFARI_BALL;
-    gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_SAFARI_BALL];
-    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    if (GetGOModeFlag())
+    {
+        gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
+        gBattle_BG0_X = 0;
+        gBattle_BG0_Y = 0;
+        gLastUsedItem = ITEM_POKE_BALL;
+        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_POKE_BALL];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
+    else {
+        gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
+        gBattle_BG0_X = 0;
+        gBattle_BG0_Y = 0;
+        --gNumSafariBalls;
+        gLastUsedItem = ITEM_SAFARI_BALL;
+        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_SAFARI_BALL];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
 }
 
 static void HandleAction_ThrowBait(void)
@@ -4387,8 +4453,15 @@ static void HandleAction_ThrowBait(void)
     gBattleStruct->safariCatchFactor >>= 1;
     if (gBattleStruct->safariCatchFactor <= 2)
         gBattleStruct->safariCatchFactor = 3;
-    gBattlescriptCurrInstr = gBattlescriptsForSafariActions[2];
-    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    if (GetGOModeFlag())
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForGOActions[2];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
+    else {
+        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[2];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
 }
 
 static void HandleAction_ThrowRock(void)
@@ -4403,8 +4476,16 @@ static void HandleAction_ThrowRock(void)
     gBattleStruct->safariCatchFactor <<= 1;
     if (gBattleStruct->safariCatchFactor > 20)
         gBattleStruct->safariCatchFactor = 20;
-    gBattlescriptCurrInstr = gBattlescriptsForSafariActions[1];
-    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    if (GetGOModeFlag())
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForGOActions[1];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[1];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+    }
 }
 
 static void HandleAction_SafariZoneRun(void)
@@ -4420,10 +4501,19 @@ static void HandleAction_OldManBallThrow(void)
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker])
-    gBattlescriptCurrInstr = gBattlescriptsForSafariActions[3];
-    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
-    gActionsByTurnOrder[1] = B_ACTION_FINISHED;
+    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
+    if (GetGOModeFlag())
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForGOActions[3];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+        gActionsByTurnOrder[1] = B_ACTION_FINISHED;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = gBattlescriptsForSafariActions[3];
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+        gActionsByTurnOrder[1] = B_ACTION_FINISHED;
+    }
 }
 
 static void HandleAction_TryFinish(void)

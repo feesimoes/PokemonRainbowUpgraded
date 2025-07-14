@@ -796,22 +796,22 @@
 
 // Rainbow Story flags
 #define FLAG_ROUTE1_HO_OH_EVENT_HAPPENED                 0x300
-#define FLAG_0x301               0x301
-#define FLAG_0x302               0x302
-#define FLAG_0x303               0x303
-#define FLAG_0x304               0x304
-#define FLAG_0x305               0x305
-#define FLAG_0x306               0x306
-#define FLAG_0x307               0x307
-#define FLAG_0x308               0x308
-#define FLAG_0x309               0x309
-#define FLAG_0x30A               0x30A
-#define FLAG_0x30B               0x30B
-#define FLAG_0x30C               0x30C
-#define FLAG_0x30D               0x30D
-#define FLAG_0x30E               0x30E
-#define FLAG_0x30F               0x30F
-#define FLAG_0x310               0x310
+#define FLAG_0x301                                       0x301
+#define FLAG_0x302                                       0x302
+#define FLAG_0x303                                       0x303
+#define FLAG_0x304                                       0x304
+#define FLAG_0x305                                       0x305
+#define FLAG_0x306                                       0x306
+#define FLAG_0x307                                       0x307
+#define FLAG_0x308                                       0x308
+#define FLAG_0x309                                       0x309
+#define FLAG_0x30A                                       0x30A
+#define FLAG_0x30B                                       0x30B
+#define FLAG_0x30C                                       0x30C
+#define FLAG_0x30D                                       0x30D
+#define FLAG_0x30E                                       0x30E
+#define FLAG_0x30F                                       0x30F
+#define FLAG_0x310                                       0x310
 #define FLAG_0x311               0x311
 #define FLAG_0x312               0x312
 #define FLAG_0x313               0x313
@@ -1338,7 +1338,7 @@
 #define FLAG_SYS_SPECIAL_WILD_BATTLE                                (SYS_FLAGS + 0x7)
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
-#define FLAG_0x809                                                  (SYS_FLAGS + 0x9)
+#define FLAG_SYS_WILD_GO_MODE                                       (SYS_FLAGS + 0x9)
 #define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)

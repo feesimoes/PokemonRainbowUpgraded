@@ -250,7 +250,13 @@ static void DoStandardWildBattle(void)
     FreezeObjectEvents();
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
-    gBattleTypeFlags = 0;
+    if (GetGOModeFlag())
+    {
+        gBattleTypeFlags = BATTLE_TYPE_GO;
+    }
+    else {
+        gBattleTypeFlags = 0;
+    }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -831,6 +837,10 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 
 void ConfigureAndSetUpOneTrainerBattle(u8 trainerEventObjId, const u8 *trainerScript)
 {
+    if (GetGOModeFlag())
+    {
+        FlagClear(FLAG_SYS_WILD_GO_MODE);
+    }
     gSelectedObjectEvent = trainerEventObjId;
     gSpecialVar_LastTalked = gObjectEvents[trainerEventObjId].localId;
     BattleSetup_ConfigureTrainerBattle(trainerScript + 1);

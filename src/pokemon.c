@@ -5855,6 +5855,10 @@ static u16 GetBattleBGM(void)
         return MUS_RS_VS_TRAINER;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return MUS_RS_VS_TRAINER;
+    if (gBattleTypeFlags & BATTLE_TYPE_GO)
+        return MUS_VS_SAFARI_WILD;
+    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+        return MUS_VS_SAFARI_WILD;
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)

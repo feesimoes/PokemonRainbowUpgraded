@@ -38,5 +38,6 @@
 #define HELPCONTEXT_BEDROOM_PC_MAILBOX     34
 #define HELPCONTEXT_UNUSED                 35
 #define HELPCONTEXT_COUNT                  36
+#define HELPCONTEXT_GO_BATTLE              37 // For GO battles, not Safari Zone
 
 #endif //GUARD_CONSTANTS_HELP_SYSTEM_H

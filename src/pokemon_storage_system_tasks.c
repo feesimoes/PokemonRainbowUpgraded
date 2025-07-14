@@ -1309,6 +1309,8 @@ static void Task_ReleaseMon(u8 taskId)
         {
             PrintStorageMessage(MSG_BYE_BYE);
             gStorage->state++;
+            PlayFanfare(MUS_OBTAIN_ITEM);
+            AddBagItem(ITEM_RARE_CANDY, 1);
         }
         break;
     case 5:

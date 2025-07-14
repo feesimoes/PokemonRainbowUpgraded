@@ -46,6 +46,8 @@
 #define B_ACTION_FINISHED                  12
 #define B_ACTION_CANCEL_PARTNER            12 // when choosing an action
 #define B_ACTION_NOTHING_FAINTED           13 // when choosing an action
+#define B_ACTION_THROW_BALL                14 // GO mode
+#define B_ACTION_SWITCH_BALL               15 // GO mode
 #define B_ACTION_NONE                      0xFF
 
 #define MAX_TRAINER_ITEMS 4
@@ -515,6 +517,7 @@ struct BattleScripting
     bool8 statAnimPlayed;
     u8 getexpState;
     u8 battleStyle;
+    u8 battleMode;
     u8 drawlvlupboxState;
     u8 learnMoveState;
     u8 pursuitDoublesAttacker;

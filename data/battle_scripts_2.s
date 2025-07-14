@@ -51,6 +51,12 @@ gBattlescriptsForSafariActions::
 	.4byte BattleScript_ThrowBait
 	.4byte BattleScript_LeftoverWallyPrepToThrow
 
+gBattlescriptsForGOActions::
+	.4byte BattleScript_WatchesCarefully
+	.4byte BattleScript_ThrowRock
+	.4byte BattleScript_ThrowBait
+	.4byte BattleScript_LeftoverWallyPrepToThrow
+
 BattleScript_ThrowBall::
 	jumpifbattletype BATTLE_TYPE_OLD_MAN_TUTORIAL, BattleScript_OldManThrowBall
 	jumpifbattletype BATTLE_TYPE_POKEDUDE, BattleScript_PokedudeThrowBall
@@ -73,6 +79,13 @@ BattleScript_ThrowSafariBall::
 BattleScript_SuccessBallThrow::
 	jumpifhalfword CMP_EQUAL, gLastUsedItem, ITEM_SAFARI_BALL, BattleScript_SafariNoIncGameStat
 	incrementgamestat GAME_STAT_POKEMON_CAPTURES
+	jumpifnotbattletype BATTLE_TYPE_GO, BattleScript_SafariNoIncGameStat
+	jumpifbattletype BATTLE_TYPE_GO, BattleScript_GiveCaptureExp
+
+BattleScript_GiveCaptureExp::
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_TARGET
+
 BattleScript_SafariNoIncGameStat::
 	printstring STRINGID_GOTCHAPKMNCAUGHT
 	trysetcaughtmondexflags BattleScript_CaughtPokemonSkipNewDex
@@ -80,6 +93,7 @@ BattleScript_SafariNoIncGameStat::
 	waitstate
 	setbyte gBattleCommunication, 0
 	displaydexinfo
+
 BattleScript_CaughtPokemonSkipNewDex::
 	printstring STRINGID_GIVENICKNAMECAPTURED
 	waitstate
