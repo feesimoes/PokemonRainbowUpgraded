@@ -1,0 +1,32 @@
+{
+  "id": "MAP_ROUTE26_OCEAN",
+  "name": "Route26_Ocean",
+  "layout": "LAYOUT_ROUTE26_OCEAN",
+  "music": "MUS_ROUTE26",
+  "region_map_section": "MAPSEC_ROUTE_26_OCEAN",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE26",
+      "offset": -96,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": -12,
+      "direction": "right"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

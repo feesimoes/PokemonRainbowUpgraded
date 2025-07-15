@@ -9,6 +9,14 @@ script Picknicker_Jamie_Route26_Battle {
     end
 }
 
+script Kanto_Biker_Dialogue {
+    lock
+    msgbox(format("You're from KANTO, aren't you?\pMe too, I'm part of the KANTO RIDER FEDERATION!\pIt's a shame though, all Pokémon\non this route aren't considered\nlegit by the INDIGO LEAGUE..."))
+    closemessage
+    releaseall
+    end
+}
+
 script TRIGGER_SCRIPT_TEST_1 {
     lockall
     playse(SE_PIN)

@@ -4428,6 +4428,18 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/Route26_North_House/border.bin",
       "blockdata_filepath": "data/layouts/Route26_North_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE26_OCEAN",
+      "name": "Route26_Ocean_Layout",
+      "width": 48,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/Route26_Ocean/border.bin",
+      "blockdata_filepath": "data/layouts/Route26_Ocean/map.bin"
     }
   ]
 }

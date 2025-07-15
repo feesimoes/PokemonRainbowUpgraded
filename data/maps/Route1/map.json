@@ -91,7 +91,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "Route1_HoOh_Event_Move_Rival_1_Left"
     },
     {
@@ -100,7 +100,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "Route1_HoOh_Event_Move_Rival_2_Left"
     },
     {
@@ -109,7 +109,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "Route1_HoOh_Event_Move_Rival_3_Left"
     },
     {
@@ -118,7 +118,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "Route1_HoOh_Event_Move_Rival_4_Left"
     },
     {
@@ -127,7 +127,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "Route1_HoOh_Event_Move_Rival_5_Left"
     }
   ],

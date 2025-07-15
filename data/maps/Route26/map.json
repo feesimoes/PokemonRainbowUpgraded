@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE22",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE26_OCEAN",
+      "offset": 96,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -88,7 +93,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Test_Script_1",
+      "script": "Kanto_Biker_Dialogue",
       "flag": "0"
     },
     {

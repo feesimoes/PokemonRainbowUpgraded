@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE21_SOUTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE26_OCEAN",
+      "offset": 12,
+      "direction": "left"
     }
   ],
   "object_events": [

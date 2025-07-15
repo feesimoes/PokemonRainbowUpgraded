@@ -1,5 +1,10 @@
 Route22_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Route22_Unlock_Fly
 	.byte 0
+
+Route22_Unlock_Fly::
+	setworldmapflag FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE
+	end
 
 Route22_EventScript_EarlyRivalTriggerTop::
 	lockall

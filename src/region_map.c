@@ -860,10 +860,12 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_19            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE19),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_20            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE20),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_21            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE21_NORTH),                         HEAL_LOCATION_NONE},
-    [MAPSEC_ROUTE_22            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE22),                               HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_22            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE22),                               HEAL_LOCATION_ROUTE22},
+    [MAPSEC_ROUTE_22_FRONT_GATE - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE22),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_23            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE23),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_24            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE24),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_25            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE25),                               HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_26            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE26),                               HEAL_LOCATION_NONE},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -934,7 +936,6 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    [MAPSEC_ROUTE_26            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE26),                               HEAL_LOCATION_NONE},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1032,18 +1033,24 @@ static void InitRegionMapType(void)
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
-        // Mapsec is in Sevii Islands, determine which map to use
-        while (region == REGIONMAP_KANTO)
+        if (gMapHeader.regionMapSectionId >= KANTO_MAPSEC_CONTINUE)
         {
-            for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
+            region = REGIONMAP_KANTO;
+        }
+        else {
+            // Mapsec is in Sevii Islands, determine which map to use
+            while (region == REGIONMAP_KANTO)
             {
-                if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
+                for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
                 {
-                    region = j + 1;
-                    break;
+                    if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
+                    {
+                        region = j + 1;
+                        break;
+                    }
                 }
+                j++;
             }
-            j++;
         }
     }
     sRegionMap->selectedRegion = region;
@@ -1134,18 +1141,18 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 5:
         LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
-        break;
+        return TRUE;
     case 6:
         LZ77UnCompWram(sSevii123_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
-        break;
+        return TRUE;
     case 7:
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);
-        break;
+        return TRUE;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
-        break;
+        return TRUE;
     default:
-        LZ77UnCompWram(sBackground_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
+        LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
     }
     sRegionMap->loadGfxState++;
@@ -2996,8 +3003,10 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_10_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ROUTE_22:
+        return FlagGet(FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
-        return MAPSECTYPE_NONE;
+        return MAPSECTYPE_ROUTE;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3365,7 +3374,7 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
     case REGIONMAP_SEVII67:
         return sRegionMapSections_Sevii67[layer][y][x];
     default:
-        return MAPSEC_NONE;
+        return sRegionMapSections_Kanto[layer][y][x];
     }
 }
 

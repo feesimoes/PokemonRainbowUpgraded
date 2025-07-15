@@ -1372,3 +1372,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route26_North_House/scripts.inc"
 	.include "data/maps/Route26_North_House/text.inc"
+
+	.include "data/maps/Route26_Ocean/scripts.inc"
+	.include "data/maps/Route26_Ocean/text.inc"

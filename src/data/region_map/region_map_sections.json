@@ -539,9 +539,9 @@
     {
       "id": "MAPSEC_ROUTE_22",
       "name": "ROUTE 22",
-      "x": 2,
+      "x": 3,
       "y": 8,
-      "width": 2,
+      "width": 1,
       "height": 1
     },
     {
@@ -1129,12 +1129,28 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_26",
-      "name": "ROUTE 26",
-      "x": 1,
+      "id": "MAPSEC_ROUTE_22_FRONT_GATE",
+      "name": "ROUTE 22",
+      "x": 2,
       "y": 8,
       "width": 1,
-      "height": 5
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_26",
+      "name": "ROUTE 26",
+      "x": 2,
+      "y": 9,
+      "width": 1,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_ROUTE_26_OCEAN",
+      "name": "ROUTE 26",
+      "x": 3,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_SPECIAL_AREA",
