@@ -866,6 +866,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_24            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE24),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_25            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE25),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_26            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE26),                               HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_27            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE27),                               HEAL_LOCATION_NONE},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -1033,7 +1034,7 @@ static void InitRegionMapType(void)
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
-        if (gMapHeader.regionMapSectionId >= KANTO_MAPSEC_CONTINUE)
+        if (gMapHeader.regionMapSectionId >= MAPSEC_ROUTE_22_FRONT_GATE)
         {
             region = REGIONMAP_KANTO;
         }

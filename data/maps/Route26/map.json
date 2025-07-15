@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE26_OCEAN",
       "offset": 96,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE27",
+      "offset": 80,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -222,6 +227,13 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE26",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE26_NORTH_HOUSE",
       "dest_warp_id": "0"
     }
   ],

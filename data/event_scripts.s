@@ -1375,3 +1375,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route26_Ocean/scripts.inc"
 	.include "data/maps/Route26_Ocean/text.inc"
+
+	.include "data/maps/Route27/scripts.inc"
+	.include "data/maps/Route27/text.inc"
