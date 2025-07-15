@@ -4452,6 +4452,18 @@
       "secondary_tileset": "gTileset_VermilionCity",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin"
+    },
+    {
+      "id": "LAYOUT_TOHJO_FALLS_1F",
+      "name": "TohjoFalls_1F_Layout",
+      "width": 40,
+      "height": 29,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TohjoFalls_1F/border.bin",
+      "blockdata_filepath": "data/layouts/TohjoFalls_1F/map.bin"
     }
   ]
 }

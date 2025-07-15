@@ -1317,9 +1317,11 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
 
 void SetPlayerInvisibility(bool8 invisible)
 {
-    gObjectEvents[gPlayerAvatar.objectEventId].invisible = invisible;
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    {
+        gObjectEvents[gPlayerAvatar.objectEventId].invisible = invisible;
         gSprites[gObjectEvents[gPlayerAvatar.objectEventId].fieldEffectSpriteId].invisible = invisible;
+    }
 }
 
 void StartPlayerAvatarSummonMonForFieldMoveAnim(void)

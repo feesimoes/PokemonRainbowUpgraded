@@ -36,7 +36,22 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 46,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_TOHJO_FALLS_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_TOHJO_FALLS_1F",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

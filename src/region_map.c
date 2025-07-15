@@ -1142,16 +1142,12 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 5:
         LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
-        return TRUE;
     case 6:
         LZ77UnCompWram(sSevii123_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
-        return TRUE;
     case 7:
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);
-        return TRUE;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
-        return TRUE;
     default:
         LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;

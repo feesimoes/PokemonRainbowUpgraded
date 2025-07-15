@@ -1,6 +1,7 @@
 #include "global.h"
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
+#include "field_player_avatar.h"
 
 static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_POND_WATER]         = TRUE,
@@ -594,9 +595,15 @@ bool8 MetatileBehavior_IsHotSprings(u8 metatileBehavior)
 bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_WATERFALL)
+    {
+        SetPlayerInvisibility(TRUE);
         return TRUE;
+    }
     else
+    {
+        SetPlayerInvisibility(FALSE);
         return FALSE;
+    }
 }
 
 bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior) { return FALSE; }

@@ -1,0 +1,14 @@
+mapscripts TohjoFalls_1F_MapScripts {}
+
+script Rocket_Grunt_Fiddling_With_Radio_Text {
+    lock
+    applymovement(1, TohjohFallsMovementFacePlayer)
+    msgbox(format("I'm setting something up here\nto boost radio signals.\pGet lost, kid!"))
+    release
+    end
+}
+
+movement TohjohFallsMovementFacePlayer {
+    face_player
+    step_end
+}

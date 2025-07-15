@@ -1378,3 +1378,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route27/scripts.inc"
 	.include "data/maps/Route27/text.inc"
+
+	.include "data/maps/TohjoFalls_1F/scripts.inc"
+	.include "data/maps/TohjoFalls_1F/text.inc"
