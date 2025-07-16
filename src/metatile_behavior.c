@@ -596,12 +596,10 @@ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_WATERFALL)
     {
-        SetPlayerInvisibility(TRUE);
         return TRUE;
     }
     else
     {
-        SetPlayerInvisibility(FALSE);
         return FALSE;
     }
 }
