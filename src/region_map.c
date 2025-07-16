@@ -1047,7 +1047,7 @@ static void InitRegionMapType(void)
         {
             region = REGIONMAP_KANTO;
         }
-        else if (gMapHeader.regionMapSectionId == MAPSEC_NEW_BARK_TOWN)
+        else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
         {
             region = REGIONMAP_JOHTO;
         }
