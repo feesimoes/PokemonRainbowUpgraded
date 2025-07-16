@@ -660,10 +660,6 @@ static void SpriteCB_HealthBoxOther(struct Sprite *sprite)
 {
     u8 healthboxSpriteId = sprite->sHealthboxSpriteId;
 
-    if (GetGOModeFlag())
-    {
-        SetHealthboxSpriteInvisible(healthboxSpriteId);
-    }
     sprite->x = gSprites[healthboxSpriteId].x + 64;
     sprite->y = gSprites[healthboxSpriteId].y;
 
@@ -860,10 +856,6 @@ void UpdateHpTextInHealthbox(u8 healthboxSpriteId, s16 value, u8 maxOrCurrent)
                           1 * TILE_SIZE_4BPP);
             }
         }
-    }
-    if (FLAG_SYS_WILD_GO_MODE)
-    {
-        RemoveWindowOnHealthbox(windowId);
     }
 }
 
@@ -1760,16 +1752,13 @@ static void UpdateSafariBallsTextOnHealthbox(u8 healthboxSpriteId)
     u32 windowId, spriteTileNum;
     u8 *windowTileData;
 
-    if (GetGOModeFlag())
+    if (GetSafariZoneFlag())
     {
-        if (GetSafariZoneFlag())
-        {
-            windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gText_SafariBalls, 0, 3, &windowId);
-            spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
-            TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x40) + spriteTileNum, windowTileData, 6);
-            TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x800) + spriteTileNum, windowTileData + 0xC0, 2);
-            RemoveWindowOnHealthbox(windowId);
-        }
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gText_SafariBalls, 0, 3, &windowId);
+        spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
+        TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x40) + spriteTileNum, windowTileData, 6);
+        TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x800) + spriteTileNum, windowTileData + 0xC0, 2);
+        RemoveWindowOnHealthbox(windowId);
     }
     else 
     {
@@ -1810,78 +1799,72 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
     s32 maxHp, currHp;
     u8 battlerId = gSprites[healthboxSpriteId].sBattlerId;
 
-    if (GetGOModeFlag())
+    if (GetSafariZoneFlag())
     {
-        if (GetSafariZoneFlag())
+        if (elementId == HEALTHBOX_ALL && !IsDoubleBattle())
+            GetBattlerSide(battlerId); // Pointless function call.
+
+        if (GetBattlerSide(gSprites[healthboxSpriteId].sBattlerId) == B_SIDE_PLAYER)
         {
-            if (elementId == HEALTHBOX_ALL && !IsDoubleBattle())
-                GetBattlerSide(battlerId); // Pointless function call.
+            u8 isDoubles;
 
-            if (GetBattlerSide(gSprites[healthboxSpriteId].sBattlerId) == B_SIDE_PLAYER)
+            if (elementId == HEALTHBOX_LEVEL || elementId == HEALTHBOX_ALL)
+                UpdateLvlInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_LEVEL));
+            if (elementId == HEALTHBOX_CURRENT_HP || elementId == HEALTHBOX_ALL)
+                UpdateHpTextInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_HP), HP_CURRENT);
+            if (elementId == HEALTHBOX_MAX_HP || elementId == HEALTHBOX_ALL)
+                UpdateHpTextInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_MAX_HP), HP_MAX);
+            if (elementId == HEALTHBOX_HEALTH_BAR || elementId == HEALTHBOX_ALL)
             {
-                u8 isDoubles;
-
-                if (elementId == HEALTHBOX_LEVEL || elementId == HEALTHBOX_ALL)
-                    UpdateLvlInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_LEVEL));
-                if (elementId == HEALTHBOX_CURRENT_HP || elementId == HEALTHBOX_ALL)
-                    UpdateHpTextInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_HP), HP_CURRENT);
-                if (elementId == HEALTHBOX_MAX_HP || elementId == HEALTHBOX_ALL)
-                    UpdateHpTextInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_MAX_HP), HP_MAX);
-                if (elementId == HEALTHBOX_HEALTH_BAR || elementId == HEALTHBOX_ALL)
-                {
-                    LoadBattleBarGfx(0);
-                    maxHp = GetMonData(mon, MON_DATA_MAX_HP);
-                    currHp = GetMonData(mon, MON_DATA_HP);
-                    SetBattleBarStruct(battlerId, healthboxSpriteId, maxHp, currHp, 0);
-                    MoveBattleBar(battlerId, healthboxSpriteId, HEALTH_BAR, 0);
-                }
-                isDoubles = IsDoubleBattle();
-                if (!isDoubles && (elementId == HEALTHBOX_EXP_BAR || elementId == HEALTHBOX_ALL))
-                {
-                    u16 species;
-                    u32 exp, currLevelExp;
-                    s32 currExpBarValue, maxExpBarValue;
-                    u8 level;
-
-                    LoadBattleBarGfx(3);
-                    species = GetMonData(mon, MON_DATA_SPECIES);
-                    level = GetMonData(mon, MON_DATA_LEVEL);
-                    exp = GetMonData(mon, MON_DATA_EXP);
-                    currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
-                    currExpBarValue = exp - currLevelExp;
-                    maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
-                    SetBattleBarStruct(battlerId, healthboxSpriteId, maxExpBarValue, currExpBarValue, isDoubles);
-                    MoveBattleBar(battlerId, healthboxSpriteId, EXP_BAR, 0);
-                }
-                if (elementId == HEALTHBOX_NICK || elementId == HEALTHBOX_ALL)
-                    UpdateNickInHealthbox(healthboxSpriteId, mon);
-                if (elementId == HEALTHBOX_STATUS_ICON || elementId == HEALTHBOX_ALL)
-                    UpdateStatusIconInHealthbox(healthboxSpriteId);
-                if (elementId == HEALTHBOX_SAFARI_ALL_TEXT)
-                    UpdateSafariBallsTextOnHealthbox(healthboxSpriteId);
-                if (elementId == HEALTHBOX_SAFARI_ALL_TEXT || elementId == HEALTHBOX_SAFARI_BALLS_TEXT)
-                    UpdateLeftNoOfBallsTextOnHealthbox(healthboxSpriteId);
+                LoadBattleBarGfx(0);
+                maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+                currHp = GetMonData(mon, MON_DATA_HP);
+                SetBattleBarStruct(battlerId, healthboxSpriteId, maxHp, currHp, 0);
+                MoveBattleBar(battlerId, healthboxSpriteId, HEALTH_BAR, 0);
             }
-            else
+            isDoubles = IsDoubleBattle();
+            if (!isDoubles && (elementId == HEALTHBOX_EXP_BAR || elementId == HEALTHBOX_ALL))
             {
-                if (elementId == HEALTHBOX_LEVEL || elementId == HEALTHBOX_ALL)
-                    UpdateLvlInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_LEVEL));
-                if (elementId == HEALTHBOX_HEALTH_BAR || elementId == HEALTHBOX_ALL)
-                {
-                    LoadBattleBarGfx(0);
-                    maxHp = GetMonData(mon, MON_DATA_MAX_HP);
-                    currHp = GetMonData(mon, MON_DATA_HP);
-                    SetBattleBarStruct(battlerId, healthboxSpriteId, maxHp, currHp, 0);
-                    MoveBattleBar(battlerId, healthboxSpriteId, HEALTH_BAR, 0);
-                }
-                if (elementId == HEALTHBOX_NICK || elementId == HEALTHBOX_ALL)
-                    UpdateNickInHealthbox(healthboxSpriteId, mon);
-                if (elementId == HEALTHBOX_STATUS_ICON || elementId == HEALTHBOX_ALL)
-                    UpdateStatusIconInHealthbox(healthboxSpriteId);
+                u16 species;
+                u32 exp, currLevelExp;
+                s32 currExpBarValue, maxExpBarValue;
+                u8 level;
+
+                LoadBattleBarGfx(3);
+                species = GetMonData(mon, MON_DATA_SPECIES);
+                level = GetMonData(mon, MON_DATA_LEVEL);
+                exp = GetMonData(mon, MON_DATA_EXP);
+                currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+                currExpBarValue = exp - currLevelExp;
+                maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
+                SetBattleBarStruct(battlerId, healthboxSpriteId, maxExpBarValue, currExpBarValue, isDoubles);
+                MoveBattleBar(battlerId, healthboxSpriteId, EXP_BAR, 0);
             }
+            if (elementId == HEALTHBOX_NICK || elementId == HEALTHBOX_ALL)
+                UpdateNickInHealthbox(healthboxSpriteId, mon);
+            if (elementId == HEALTHBOX_STATUS_ICON || elementId == HEALTHBOX_ALL)
+                UpdateStatusIconInHealthbox(healthboxSpriteId);
+            if (elementId == HEALTHBOX_SAFARI_ALL_TEXT)
+                UpdateSafariBallsTextOnHealthbox(healthboxSpriteId);
+            if (elementId == HEALTHBOX_SAFARI_ALL_TEXT || elementId == HEALTHBOX_SAFARI_BALLS_TEXT)
+                UpdateLeftNoOfBallsTextOnHealthbox(healthboxSpriteId);
         }
-        else {
-            //Ignore if in GO wild mode
+        else
+        {
+            if (elementId == HEALTHBOX_LEVEL || elementId == HEALTHBOX_ALL)
+                UpdateLvlInHealthbox(healthboxSpriteId, GetMonData(mon, MON_DATA_LEVEL));
+            if (elementId == HEALTHBOX_HEALTH_BAR || elementId == HEALTHBOX_ALL)
+            {
+                LoadBattleBarGfx(0);
+                maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+                currHp = GetMonData(mon, MON_DATA_HP);
+                SetBattleBarStruct(battlerId, healthboxSpriteId, maxHp, currHp, 0);
+                MoveBattleBar(battlerId, healthboxSpriteId, HEALTH_BAR, 0);
+            }
+            if (elementId == HEALTHBOX_NICK || elementId == HEALTHBOX_ALL)
+                UpdateNickInHealthbox(healthboxSpriteId, mon);
+            if (elementId == HEALTHBOX_STATUS_ICON || elementId == HEALTHBOX_ALL)
+                UpdateStatusIconInHealthbox(healthboxSpriteId);
         }
     }
     else {
@@ -2231,23 +2214,17 @@ static void DrawHealthbarOntoScreen(struct TestingBar *barInfo, s32 *currValue, 
     u16 tiles[B_HEALTHBAR_NUM_TILES];
     u8 i;
 
-    if (FLAG_SYS_WILD_GO_MODE)
-    {
-        //ignore if in GO mode
-    }
-    else {
-        CalcBarFilledPixels(barInfo->maxValue,
-                            barInfo->oldValue,
-                            barInfo->receivedValue,
-                            currValue,
-                            filledPixels,
-                            B_HEALTHBAR_NUM_TILES);
+    CalcBarFilledPixels(barInfo->maxValue,
+                        barInfo->oldValue,
+                        barInfo->receivedValue,
+                        currValue,
+                        filledPixels,
+                        B_HEALTHBAR_NUM_TILES);
 
-        for (i = 0; i < ARRAY_COUNT(tiles); i++)
-            tiles[i] = (barInfo->pal << 12) | (barInfo->tileOffset + filledPixels[i]);
+    for (i = 0; i < ARRAY_COUNT(tiles); i++)
+        tiles[i] = (barInfo->pal << 12) | (barInfo->tileOffset + filledPixels[i]);
 
-        CopyToBgTilemapBufferRect_ChangePalette(bg, tiles, x, y, 6, 1, 17);
-    }
+    CopyToBgTilemapBufferRect_ChangePalette(bg, tiles, x, y, 6, 1, 17);
 }
 
 static u8 GetReceivedValueInPixels(s32 oldValue, s32 receivedValue, s32 maxValue, u8 totalPixels)

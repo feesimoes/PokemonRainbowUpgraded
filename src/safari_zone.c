@@ -14,11 +14,6 @@ bool32 GetSafariZoneFlag(void)
     return FlagGet(FLAG_SYS_SAFARI_MODE);
 }
 
-bool32 GetGOModeFlag(void)
-{
-    return FlagGet(FLAG_SYS_WILD_GO_MODE);
-}
-
 void SetSafariZoneFlag(void)
 {
     FlagSet(FLAG_SYS_SAFARI_MODE);

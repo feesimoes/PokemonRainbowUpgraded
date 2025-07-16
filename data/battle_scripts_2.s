@@ -79,8 +79,6 @@ BattleScript_ThrowSafariBall::
 BattleScript_SuccessBallThrow::
 	jumpifhalfword CMP_EQUAL, gLastUsedItem, ITEM_SAFARI_BALL, BattleScript_SafariNoIncGameStat
 	incrementgamestat GAME_STAT_POKEMON_CAPTURES
-	jumpifnotbattletype BATTLE_TYPE_GO, BattleScript_SafariNoIncGameStat
-	jumpifbattletype BATTLE_TYPE_GO, BattleScript_GiveCaptureExp
 
 BattleScript_GiveCaptureExp::
 	setbyte sGIVEEXP_STATE, 0
