@@ -1113,7 +1113,7 @@ static void Task_OakSpeech_Init(u8 taskId)
         CreateNidoranFSprite(taskId);
         LoadTrainerPic(OAK_PIC, 0);
         CreatePikachuOrPlatformSprites(taskId, SPRITE_TYPE_PLATFORM);
-        PlayBGM(MUS_ROUTE24);
+        PlayBGM(MUS_WELCOME);
         BeginNormalPaletteFade(PALETTES_ALL, 5, 16, 0, RGB_BLACK);
         tTimer = 80;
         ShowBg(2);

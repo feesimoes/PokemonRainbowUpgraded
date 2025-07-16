@@ -359,6 +359,7 @@
 #define MUS_VS_TEAM_ROCKET	      351 // MUS_VS_TEAM_ROCKET
 #define MUS_VS_SAFARI_WILD	      352 // MUS_VS_SAFARI_WILD
 #define MUS_TOHJO_FALLS 	      353 // MUS_TOHJO_FALLS
+#define MUS_WELCOME      	      354 // MUS_WELCOME
 
 #define MUS_NONE                    0xFFFF
 
