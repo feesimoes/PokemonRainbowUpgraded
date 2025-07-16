@@ -1,0 +1,17 @@
+mapscripts Route27_Rest_House_MapScripts {  
+}
+
+script Route27_Rest_Lady_Heals_Party {
+    lock
+    applymovement(1, RestLadyFacesPlayer)
+    msgbox(format("Oh my! A visitor?\nWe don't have any nearby facilities.\pOh, I know!\nPlease rest here!"))
+    call(EventScript_OutOfCenterPartyHeal)
+    msgbox(format("I hope you feel fully rested!\nYou're welcome to stop by again."))
+    release
+    end
+}
+
+movement RestLadyFacesPlayer {
+    face_player
+    step_end
+}

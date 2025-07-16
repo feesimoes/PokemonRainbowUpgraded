@@ -167,6 +167,14 @@
       "y": 6,
       "respawn_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VIRIDIAN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE27",
+      "map": "MAP_ROUTE27",
+      "x": 41,
+      "y": 28,
+      "respawn_map": "MAP_ROUTE27_REST_HOUSE",
+      "respawn_npc": "1"
     }
   ]
 }

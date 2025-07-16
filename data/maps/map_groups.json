@@ -42,7 +42,9 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_IndoorRoute26",
+    "gMapGroup_IndoorRoute27"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -308,7 +310,8 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
     "Route26_Ocean",
-    "Route27"
+    "Route27",
+    "NewBarkTown"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -440,8 +443,7 @@
   ],
   "gMapGroup_IndoorRoute6": [
     "Route6_NorthEntrance",
-    "Route6_UnusedHouse",
-    "Route26_North_House"
+    "Route6_UnusedHouse"
   ],
   "gMapGroup_IndoorRoute7": [
     "Route7_EastEntrance"
@@ -561,5 +563,11 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute": [
     "SevenIsland_SevaultCanyon_House"
+  ],
+  "gMapGroup_IndoorRoute26": [
+    "Route26_North_House"
+  ],
+  "gMapGroup_IndoorRoute27": [
+    "Route27_Rest_House"
   ]
 }

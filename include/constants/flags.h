@@ -1466,8 +1466,8 @@
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        (SYS_FLAGS + 0xC2)
 
 #define FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE                          (SYS_FLAGS + 0xC3)
-#define FLAG_WORLD_MAP_ROUTE26                                      (SYS_FLAGS + 0xC4)
-#define FLAG_0x8C5                                                  (SYS_FLAGS + 0xC5)
+#define FLAG_WORLD_MAP_ROUTE27_REST_HOUSE                           (SYS_FLAGS + 0xC4)
+#define FLAG_WORLD_MAP_TOHJO_FALLS                                  (SYS_FLAGS + 0xC5)
 #define FLAG_0x8C6                                                  (SYS_FLAGS + 0xC6)
 #define FLAG_0x8C7                                                  (SYS_FLAGS + 0xC7)
 #define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)

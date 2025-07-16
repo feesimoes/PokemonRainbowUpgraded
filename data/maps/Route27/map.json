@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE26",
       "offset": -80,
       "direction": "right"
+    },
+    {
+      "map": "MAP_NEW_BARK_TOWN",
+      "offset": 11,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -50,6 +55,13 @@
       "elevation": 0,
       "dest_map": "MAP_TOHJO_FALLS_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 41,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE27_REST_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

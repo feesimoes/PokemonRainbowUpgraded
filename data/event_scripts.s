@@ -1381,3 +1381,9 @@ Text_TestMsg::
 
 	.include "data/maps/TohjoFalls_1F/scripts.inc"
 	.include "data/maps/TohjoFalls_1F/text.inc"
+
+	.include "data/maps/NewBarkTown/scripts.inc"
+	.include "data/maps/NewBarkTown/text.inc"
+
+	.include "data/maps/Route27_Rest_House/scripts.inc"
+	.include "data/maps/Route27_Rest_House/text.inc"

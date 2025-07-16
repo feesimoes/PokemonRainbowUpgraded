@@ -985,7 +985,16 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 static u16 GetLocationMusic(struct WarpData * warp)
 {
-    return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+    if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_SILPH_CO)
+    {
+        if (FlagGet(FLAG_HIDE_SILPH_ROCKETS))
+        {
+            return MUS_KANTO_ROUTE_GATE;
+        }
+    }
+    else {
+        return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+    }
 }
 
 static u16 GetCurrLocationDefaultMusic(void)

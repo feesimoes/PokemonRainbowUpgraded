@@ -7,6 +7,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "task.h"
+#include "event_data.h"
 
 struct Fanfare
 {
