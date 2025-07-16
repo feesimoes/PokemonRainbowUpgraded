@@ -1387,3 +1387,15 @@ Text_TestMsg::
 
 	.include "data/maps/Route27_Rest_House/scripts.inc"
 	.include "data/maps/Route27_Rest_House/text.inc"
+
+	.include "data/maps/NewBarkTown_EthansHouse/scripts.inc"
+	.include "data/maps/NewBarkTown_EthansHouse/text.inc"
+
+	.include "data/maps/NewBarkTown_LyrasHouse/scripts.inc"
+	.include "data/maps/NewBarkTown_LyrasHouse/text.inc"
+
+	.include "data/maps/NewBarkTown_FriendHouse/scripts.inc"
+	.include "data/maps/NewBarkTown_FriendHouse/text.inc"
+
+	.include "data/maps/NewBarkTown_ProfessorElmsLab/scripts.inc"
+	.include "data/maps/NewBarkTown_ProfessorElmsLab/text.inc"

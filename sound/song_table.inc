@@ -354,6 +354,7 @@ gSongTable::
 	song mus_vs_safari_wild, 0, 0
 	song mus_tohjo_falls, 0, 0
 	song mus_welcome, 0, 0
+	song mus_new_bark_town, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

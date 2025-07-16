@@ -31,6 +31,7 @@ enum {
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
+    REGIONMAP_JOHTO,
     REGIONMAP_COUNT
 };
 
@@ -425,6 +426,7 @@ static const u32 sDungeonIcon[] = INCBIN_U32("graphics/region_map/dungeon_icon.4
 static const u32 sFlyIcon[] = INCBIN_U32("graphics/region_map/fly_icon.4bpp.lz");
 static const u32 sBackground_Gfx[] = INCBIN_U32("graphics/region_map/background.4bpp.lz");
 static const u32 sBackground_Tilemap[] = INCBIN_U32("graphics/region_map/background.bin.lz");
+static const u32 sJohto_Tilemap[] = INCBIN_U32("graphics/region_map/johto.bin.lz");
 
 static const struct BgTemplate sRegionMapBgTemplates[] = {
     {
@@ -589,7 +591,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_RIXY_CHAMBER,
         MAPSEC_VIAPOIS_CHAMBER,
         MAPSEC_NONE
-    }
+    },
 };
 
 ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPERM_COUNT] = {
@@ -714,6 +716,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_DOTTED_HOLE,
         .name = sMapsecName_DOTTED_HOLE,
         .desc = gText_RegionMap_AreaDesc_DottedHole
+    }, {
+        .id = MAPSEC_TOHJO_FALLS,
+        .name = sMapsecName_TOHJO_FALLS,
+        .desc = gText_RegionMap_AreaDesc_Tohjo_Falls
     }
 };
 
@@ -824,6 +830,7 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sevii_123.h"
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
+#include "data/region_map/region_map_layout_johto.h"
 
 static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_PALLET_TOWN         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_PALLET_TOWN},
@@ -868,6 +875,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_26            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE26),                               HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_27            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE27),                               HEAL_LOCATION_ROUTE27},
     [MAPSEC_ROUTE_27_REST_HOUSE - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE27),                               HEAL_LOCATION_NONE},
+    [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_NEW_BARK_TOWN),                         HEAL_LOCATION_NEW_BARK_TOWN},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -1029,15 +1037,19 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
+    sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
-        if (gMapHeader.regionMapSectionId >= MAPSEC_ROUTE_22_FRONT_GATE)
+        //Still in Kanto
+        if (gMapHeader.regionMapSectionId != MAPSEC_NEW_BARK_TOWN)
         {
             region = REGIONMAP_KANTO;
+        }
+        else if (gMapHeader.regionMapSectionId == MAPSEC_NEW_BARK_TOWN)
+        {
+            region = REGIONMAP_JOHTO;
         }
         else {
             // Mapsec is in Sevii Islands, determine which map to use
@@ -1149,6 +1161,8 @@ static bool8 LoadRegionMapGfx(void)
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
+    case 9:
+        LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
     default:
         LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
@@ -3005,6 +3019,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_27:
         return FlagGet(FLAG_WORLD_MAP_ROUTE27_REST_HOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_NEW_BARK_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_ROUTE;
     default:
@@ -3081,7 +3097,7 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     case MAPSEC_BIRTH_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TOHJO_FALLS:
-        return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+        return FlagGet(FLAG_WORLD_MAP_TOHJO_FALLS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3375,6 +3391,8 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Sevii45[layer][y][x];
     case REGIONMAP_SEVII67:
         return sRegionMapSections_Sevii67[layer][y][x];
+    case REGIONMAP_JOHTO:
+        return sRegionMapSections_Johto[layer][y][x];
     default:
         return sRegionMapSections_Kanto[layer][y][x];
     }

@@ -175,6 +175,14 @@
       "y": 28,
       "respawn_map": "MAP_ROUTE27_REST_HOUSE",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_NEW_BARK_TOWN",
+      "map": "MAP_NEW_BARK_TOWN",
+      "x": 9,
+      "y": 9,
+      "respawn_map": "MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB",
+      "respawn_npc": "1"
     }
   ]
 }

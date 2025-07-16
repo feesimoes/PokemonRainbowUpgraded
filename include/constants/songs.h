@@ -360,6 +360,7 @@
 #define MUS_VS_SAFARI_WILD	      352 // MUS_VS_SAFARI_WILD
 #define MUS_TOHJO_FALLS 	      353 // MUS_TOHJO_FALLS
 #define MUS_WELCOME      	      354 // MUS_WELCOME
+#define MUS_NEW_BARK_TOWN      	  355 // MUS_NEW_BARK_TOWN
 
 #define MUS_NONE                    0xFFFF
 

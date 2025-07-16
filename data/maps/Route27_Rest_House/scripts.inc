@@ -1,10 +1,6 @@
 Route27_Rest_House_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Route27_UnlockFly
 	.byte 0
 
-Route27_UnlockFly::
-	setworldmapflag FLAG_WORLD_MAP_ROUTE27_REST_HOUSE
-	end
 
 Route27_Rest_Lady_Heals_Party::
 # 5 "data/maps/Route27_Rest_House/scripts.pory"

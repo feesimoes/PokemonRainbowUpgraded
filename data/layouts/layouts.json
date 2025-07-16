@@ -4488,6 +4488,54 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/Route27_Rest_House/border.bin",
       "blockdata_filepath": "data/layouts/Route27_Rest_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_ETHANS_HOUSE",
+      "name": "NewBarkTown_EthansHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/NewBarkTown_EthansHouse/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown_EthansHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_LYRAS_HOUSE",
+      "name": "NewBarkTown_LyrasHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/NewBarkTown_LyrasHouse/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown_LyrasHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_FRIEND_HOUSE",
+      "name": "NewBarkTown_FriendHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/NewBarkTown_FriendHouse/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown_FriendHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB",
+      "name": "NewBarkTown_ProfessorElmsLab_Layout",
+      "width": 13,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/NewBarkTown_ProfessorElmsLab/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown_ProfessorElmsLab/map.bin"
     }
   ]
 }

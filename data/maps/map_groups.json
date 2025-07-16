@@ -44,7 +44,8 @@
     "gMapGroup_IndoorSixIslandRoute",
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_IndoorRoute26",
-    "gMapGroup_IndoorRoute27"
+    "gMapGroup_IndoorRoute27",
+    "gMapGroup_IndoorNewBark"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -569,5 +570,11 @@
   ],
   "gMapGroup_IndoorRoute27": [
     "Route27_Rest_House"
+  ],
+  "gMapGroup_IndoorNewBark": [
+    "NewBarkTown_EthansHouse",
+    "NewBarkTown_LyrasHouse",
+    "NewBarkTown_FriendHouse",
+    "NewBarkTown_ProfessorElmsLab"
   ]
 }

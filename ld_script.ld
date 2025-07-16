@@ -971,6 +971,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_safari_wild.o(.rodata);
         sound/songs/midi/mus_tohjo_falls.o(.rodata);
         sound/songs/midi/mus_welcome.o(.rodata);
+        sound/songs/midi/mus_new_bark_town.o(.rodata);
     } > ROM =0
 
     lib_rodata :

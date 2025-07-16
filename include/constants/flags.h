@@ -796,7 +796,7 @@
 
 // Rainbow Story flags
 #define FLAG_ROUTE1_HO_OH_EVENT_HAPPENED                 0x300
-#define FLAG_0x301                                       0x301
+#define FLAG_NEW_BARK_TOWN_GOT_JOHTO_MAP                 0x301
 #define FLAG_0x302                                       0x302
 #define FLAG_0x303                                       0x303
 #define FLAG_0x304                                       0x304
@@ -1468,7 +1468,7 @@
 #define FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE                          (SYS_FLAGS + 0xC3)
 #define FLAG_WORLD_MAP_ROUTE27_REST_HOUSE                           (SYS_FLAGS + 0xC4)
 #define FLAG_WORLD_MAP_TOHJO_FALLS                                  (SYS_FLAGS + 0xC5)
-#define FLAG_0x8C6                                                  (SYS_FLAGS + 0xC6)
+#define FLAG_WORLD_MAP_NEW_BARK_TOWN                                (SYS_FLAGS + 0xC6)
 #define FLAG_0x8C7                                                  (SYS_FLAGS + 0xC7)
 #define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)
 #define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
