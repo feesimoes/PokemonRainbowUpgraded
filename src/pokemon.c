@@ -36,6 +36,7 @@
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
+#include "constants/region_map_sections.h"
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
 #define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
@@ -5876,7 +5877,13 @@ static u16 GetBattleBGM(void)
             return MUS_VS_TRAINER;
         }
     }
-    return MUS_VS_WILD;
+    if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+    {
+        return MUS_VS_WILD_JOHTO;
+    }
+    else {
+        return MUS_VS_WILD;
+    }
 }
 
 void PlayBattleBGM(void)

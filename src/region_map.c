@@ -1043,7 +1043,7 @@ static void InitRegionMapType(void)
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
         //Still in Kanto
-        if (gMapHeader.regionMapSectionId != MAPSEC_NEW_BARK_TOWN)
+        if (gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
         {
             region = REGIONMAP_KANTO;
         }

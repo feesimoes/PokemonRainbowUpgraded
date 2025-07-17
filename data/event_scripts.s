@@ -1399,3 +1399,6 @@ Text_TestMsg::
 
 	.include "data/maps/NewBarkTown_ProfessorElmsLab/scripts.inc"
 	.include "data/maps/NewBarkTown_ProfessorElmsLab/text.inc"
+
+	.include "data/maps/Route29/scripts.inc"
+	.include "data/maps/Route29/text.inc"

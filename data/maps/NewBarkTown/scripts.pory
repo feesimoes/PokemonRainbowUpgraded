@@ -31,7 +31,7 @@ script EthansHouse_Sign {
 script LadyWarningAboutGrassOutsideOfNewBarkTown
 {   
     lock
-    applymovement(2, Movement_NewBarkTown_Face_Player)
+    applymovement(1, Movement_NewBarkTown_Face_Player)
     msgbox(format("You shouldn't go walking into\ntall grass with no POKéMON.\pIt's not safe like that."))
     release
     end
@@ -40,7 +40,7 @@ script LadyWarningAboutGrassOutsideOfNewBarkTown
 script LittleGirlWonderingWhereYouAreFrom
 {   
     lock
-    applymovement(4, Movement_NewBarkTown_Face_Player)
+    applymovement(3, Movement_NewBarkTown_Face_Player)
     msgbox(format("Hey mister! Where are you from?\nPALLET TOWN? Where is that?\pOh, that's in KANTO?!\nI never knew!"))
     release
     end
@@ -49,7 +49,7 @@ script LittleGirlWonderingWhereYouAreFrom
 script GentlemanIsTiredOfThisPlace
 {   
     lock
-    applymovement(3, Movement_NewBarkTown_Face_Player)
+    applymovement(2, Movement_NewBarkTown_Face_Player)
     msgbox(format("I've travelled the world.\nIt doesn't matter where you go.\pBut it's important to have\nculture that welcomes you."))
     release
     end

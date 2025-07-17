@@ -1,10 +1,6 @@
 NewBarkTown_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD NewBarkTown_Unlock_Fly
 	.byte 0
 
-NewBarkTown_Unlock_Fly::
-	setworldmapflag FLAG_WORLD_MAP_NEW_BARK_TOWN
-	end
 
 ProfessorElmsLab_Sign::
 # 4 "data/maps/NewBarkTown/scripts.pory"
@@ -50,7 +46,7 @@ LadyWarningAboutGrassOutsideOfNewBarkTown::
 # 33 "data/maps/NewBarkTown/scripts.pory"
 	lock
 # 34 "data/maps/NewBarkTown/scripts.pory"
-	applymovement 2, Movement_NewBarkTown_Face_Player
+	applymovement 1, Movement_NewBarkTown_Face_Player
 # 35 "data/maps/NewBarkTown/scripts.pory"
 	msgbox LadyWarningAboutGrassOutsideOfNewBarkTown_Text_0
 # 36 "data/maps/NewBarkTown/scripts.pory"
@@ -62,7 +58,7 @@ LittleGirlWonderingWhereYouAreFrom::
 # 42 "data/maps/NewBarkTown/scripts.pory"
 	lock
 # 43 "data/maps/NewBarkTown/scripts.pory"
-	applymovement 4, Movement_NewBarkTown_Face_Player
+	applymovement 3, Movement_NewBarkTown_Face_Player
 # 44 "data/maps/NewBarkTown/scripts.pory"
 	msgbox LittleGirlWonderingWhereYouAreFrom_Text_0
 # 45 "data/maps/NewBarkTown/scripts.pory"
@@ -74,7 +70,7 @@ GentlemanIsTiredOfThisPlace::
 # 51 "data/maps/NewBarkTown/scripts.pory"
 	lock
 # 52 "data/maps/NewBarkTown/scripts.pory"
-	applymovement 3, Movement_NewBarkTown_Face_Player
+	applymovement 2, Movement_NewBarkTown_Face_Player
 # 53 "data/maps/NewBarkTown/scripts.pory"
 	msgbox GentlemanIsTiredOfThisPlace_Text_0
 # 54 "data/maps/NewBarkTown/scripts.pory"
