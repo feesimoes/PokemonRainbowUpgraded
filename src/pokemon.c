@@ -5874,7 +5874,13 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
         default:
-            return MUS_VS_TRAINER;
+            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+            {
+                return MUS_VS_TRAINER_JOHTO;
+            }
+            else {
+                return MUS_VS_TRAINER;
+            }
         }
     }
     if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)

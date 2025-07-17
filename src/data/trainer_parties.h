@@ -10873,3 +10873,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerJamieRoute26[] 
         .species = SPECIES_MAREEP,
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterJoeyRoute30[] = {
+    {
+        .iv = 100,
+        .lvl = 27,
+        .species = SPECIES_RATTATA,
+    }
+};

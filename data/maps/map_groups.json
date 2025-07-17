@@ -45,7 +45,8 @@
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_IndoorRoute26",
     "gMapGroup_IndoorRoute27",
-    "gMapGroup_IndoorNewBark"
+    "gMapGroup_IndoorNewBark",
+    "gMapGroup_IndoorCherrygrove"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -313,7 +314,9 @@
     "SevenIsland_TanobyRuins",
     "Route26_Ocean",
     "Route27",
-    "NewBarkTown"
+    "NewBarkTown",
+    "CherrygroveCity",
+    "Route30"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -577,5 +580,8 @@
     "NewBarkTown_LyrasHouse",
     "NewBarkTown_FriendHouse",
     "NewBarkTown_ProfessorElmsLab"
+  ],
+  "gMapGroup_IndoorCherrygrove": [
+    "Cherrygrove_PokemonCenter"
   ]
 }

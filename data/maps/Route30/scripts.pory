@@ -1,0 +1,10 @@
+mapscripts Route30_MapScripts {}
+
+script Route30_EventScript_Youngster_Joey_Battle
+{
+    trainerbattle_single(TRAINER_YOUNGSTER_JOEY_ROUTE_30, format("All right, a KANTO kid!\nCheck out my top-percentage POKéMON!"), format("My RATTATA is different from\nregular RATTATA, but I lost..."))
+    msgbox(format("So what did you think of my RATTATA?\nBet they don't raise 'em like that in KANTO!"))
+    closemessage
+    releaseall
+    end
+}

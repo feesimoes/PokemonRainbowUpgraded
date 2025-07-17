@@ -1402,3 +1402,12 @@ Text_TestMsg::
 
 	.include "data/maps/Route29/scripts.inc"
 	.include "data/maps/Route29/text.inc"
+
+	.include "data/maps/CherrygroveCity/scripts.inc"
+	.include "data/maps/CherrygroveCity/text.inc"
+
+	.include "data/maps/Cherrygrove_PokemonCenter/scripts.inc"
+	.include "data/maps/Cherrygrove_PokemonCenter/text.inc"
+
+	.include "data/maps/Route30/scripts.inc"
+	.include "data/maps/Route30/text.inc"

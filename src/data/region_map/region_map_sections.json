@@ -1198,7 +1198,11 @@
     },
     {
       "id": "MAPSEC_CHERRYGROVE_CITY",
-      "name": "CHERRYGROVE CITY"
+      "name": "CHERRYGROVE CITY",
+      "x": 15,
+      "y": 11,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_30",
@@ -1339,10 +1343,6 @@
     {
       "id": "MAPSEC_PAL_PARK",
       "name": "PAL PARK"
-    },
-    {
-      "id": "MAPSEC_ROUTE_49",
-      "name": "ROUTE 49"
     },
     {
       "id": "MAPSEC_BATTLE_RESORT",

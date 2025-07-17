@@ -362,6 +362,7 @@
 #define MUS_WELCOME      	      354 // MUS_WELCOME
 #define MUS_NEW_BARK_TOWN      	  355 // MUS_NEW_BARK_TOWN
 #define MUS_VS_WILD_JOHTO      	  356 // MUS_VS_WILD_JOHTO
+#define MUS_VS_TRAINER_JOHTO      357 // MUS_VS_TRAINER_JOHTO
 
 #define MUS_NONE                    0xFFFF
 
