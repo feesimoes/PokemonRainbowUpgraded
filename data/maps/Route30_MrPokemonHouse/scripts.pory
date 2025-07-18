@@ -1,0 +1,128 @@
+mapscripts Route30_MrPokemonHouse_MapScripts {}
+
+movement Movement_ProfessorOakSpotsPlayer {
+    face_left
+    emote_exclamation_mark
+    step_end
+}
+
+movement Movement_ProfessorOakWalksCloser {
+    walk_slow_left * 2
+    step_end    
+}
+
+movement Movement_Mr_Pokemon_FacesPlayer {
+    face_player
+    step_end
+}
+
+movement Movement_ProfessorOakWalksToTablePlayerNorth {
+    walk_up
+    walk_left * 3
+    face_player
+    step_end
+}
+
+movement Movement_ProfessorOakWalksToTablePlayerSouth {
+    walk_down * 2
+    walk_left * 4
+    face_player
+    step_end
+}
+movement Movement_ProfessorOakWalksToTablePlayerLeft {
+    walk_up
+    walk_left * 5
+    face_player
+    step_end
+}
+
+movement Movement_Player_Faces_Down {
+    face_down
+    step_end
+}
+
+movement Movement_Player_Faces_Right {
+    face_right
+    step_end
+}
+
+movement Movement_Player_Faces_Up {
+    face_up
+    step_end
+}
+
+script Event_Talking_To_Professor_Oak_If_Busy {
+    lock
+    msgbox(format("PROF. OAK: Haha! This is great!\nYes, this should go in here...\pPut that in this...\nBut I can't forget this..."))
+    release
+    end   
+}
+
+script Event_Talking_To_Mr_Pokemon {
+    if (flag(FLAG_SYS_NATIONAL_DEX))
+    {
+        lock
+        applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
+        msgbox(format("MR POKéMON: Life is delightful!\nAlways, new discoveries to be made!"))
+        release
+        end
+    }
+    else {
+        lock
+        applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
+        msgbox(format("Hello, hello! You must be {PLAYER}.\nPROF. OAK has told me about you.\pI hear you are working on\ncompiling a detailed POKéDEX."))
+        msgbox(format("MR POKéMON: I am MR. POKéMON.\nThere's something I want you to have."))
+        waitmessage
+        specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+        if (var(VAR_RESULT) == 6)
+        {
+            msgbox(format("Please come back when you\nhave room in your party for it."))
+            release
+            end
+        }
+        else {
+            giveegg(SPECIES_TOGEPI)
+        }
+        msgbox(format("MR POKéMON: I got it from a couple\nwho run a POKéMON DAY-CARE\pnear GOLDENROD CITY.\nPlease take good care of it!"))
+        waitmessage
+        applymovement(2, Movement_ProfessorOakSpotsPlayer)
+        waitmovement
+        playbgm(MUS_OAK, FALSE)
+        msgbox(format("PROF. OAK: {PLAYER}?\nWhat are you doing here?"))
+        waitmessage
+        applymovement(2, Movement_ProfessorOakWalksCloser)
+        waitmovement
+        getplayerxy(VAR_TEMP_8, VAR_TEMP_9)
+        if (var(VAR_TEMP_8) == 3 && var(VAR_TEMP_9) == 5)
+        {
+            applymovement(2, Movement_ProfessorOakWalksToTablePlayerNorth)
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Right)
+        }
+        elif (var(VAR_TEMP_8) == 3 && var(VAR_TEMP_9) == 7)
+        {
+            applymovement(2, Movement_ProfessorOakWalksToTablePlayerSouth)
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Down)
+        }
+        elif (var(VAR_TEMP_8) == 2 && var(VAR_TEMP_9) == 6)
+        {
+            applymovement(2, Movement_ProfessorOakWalksToTablePlayerLeft)
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Up)
+        }
+        waitmovement
+        msgbox(format("PROF. OAK: It's been a while\nsince you started your journey.\pThere's no doubt you are talented\nas a POKéMON TRAINER.\pIt's time for your POKéDEX\nto match who you are.\pLet me see your POKéDEX..."))
+        waitmessage
+        special(EnableNationalPokedex)
+        msgbox(format("PROF. OAK: Now, {PLAYER}, it won't be\neasy to complete the POKéDEX.\pHowever, I am sure you will\nmake an honest attempt on my behalf!"))
+        waitmessage
+        msgbox(format("Oh, time flies!\nI have a radio show to set up at GOLDENROD CITY.\pYou must be heading for VIOLET CITY.\nI will let the POKéMON LEAGUE HQ\pknow you are adventuring here\nin JOHTO."))
+        waitmessage
+        msgbox(format("Good luck in your journey\n{PLAYER}, I must be going!"))
+        waitmessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        playbgm(MUS_ROUTE_30, TRUE)
+        release
+        end
+    }
+}

@@ -974,6 +974,7 @@ SECTIONS {
         sound/songs/midi/mus_new_bark_town.o(.rodata);
         sound/songs/midi/mus_vs_wild_johto.o(.rodata);
         sound/songs/midi/mus_vs_trainer_johto.o(.rodata);
+        sound/songs/midi/mus_route30.o(.rodata);
     } > ROM =0
 
     lib_rodata :

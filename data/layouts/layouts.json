@@ -4584,6 +4584,18 @@
       "secondary_tileset": "gTileset_CeruleanCity",
       "border_filepath": "data/layouts/Route30/border.bin",
       "blockdata_filepath": "data/layouts/Route30/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE30_MR_POKEMON_HOUSE",
+      "name": "Route30_MrPokemonHouse_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeaCottage",
+      "border_filepath": "data/layouts/Route30_MrPokemonHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route30_MrPokemonHouse/map.bin"
     }
   ]
 }

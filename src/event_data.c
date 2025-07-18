@@ -33,6 +33,8 @@ EWRAM_DATA u16 gSpecialVar_MonBoxPos = 0;
 EWRAM_DATA u16 gSpecialVar_TextColor = 0;
 EWRAM_DATA u16 gSpecialVar_PrevTextColor = 0;
 EWRAM_DATA u16 gSpecialVar_0x8014 = 0;
+EWRAM_DATA u16 gSpecialVar_0x8015 = 0;
+EWRAM_DATA u16 gSpecialVar_0x8016 = 0;
 EWRAM_DATA u8 sSpecialFlags[SPECIAL_FLAGS_SIZE] = {};
 
 COMMON_DATA u16 gLastQuestLogStoredFlagOrVarIdx = 0;

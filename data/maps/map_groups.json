@@ -46,7 +46,8 @@
     "gMapGroup_IndoorRoute26",
     "gMapGroup_IndoorRoute27",
     "gMapGroup_IndoorNewBark",
-    "gMapGroup_IndoorCherrygrove"
+    "gMapGroup_IndoorCherrygrove",
+    "gMapGroup_IndoorRoute30"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -583,5 +584,8 @@
   ],
   "gMapGroup_IndoorCherrygrove": [
     "Cherrygrove_PokemonCenter"
+  ],
+  "gMapGroup_IndoorRoute30": [
+    "Route30_MrPokemonHouse"
   ]
 }

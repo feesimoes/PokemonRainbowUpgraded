@@ -1411,3 +1411,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route30/scripts.inc"
 	.include "data/maps/Route30/text.inc"
+
+	.include "data/maps/Route30_MrPokemonHouse/scripts.inc"
+	.include "data/maps/Route30_MrPokemonHouse/text.inc"
