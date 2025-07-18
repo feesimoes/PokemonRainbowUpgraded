@@ -975,6 +975,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_wild_johto.o(.rodata);
         sound/songs/midi/mus_vs_trainer_johto.o(.rodata);
         sound/songs/midi/mus_route30.o(.rodata);
+        sound/songs/midi/mus_cherrygrove.o(.rodata);
     } > ROM =0
 
     lib_rodata :

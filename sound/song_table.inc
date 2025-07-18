@@ -358,6 +358,7 @@ gSongTable::
 	song mus_vs_wild_johto, 0, 0
 	song mus_vs_trainer_johto, 0, 0
 	song mus_route30, 0, 0
+	song mus_cherrygrove, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -1206,7 +1206,11 @@
     },
     {
       "id": "MAPSEC_ROUTE_30",
-      "name": "ROUTE 30"
+      "name": "ROUTE 30",
+      "x": 15,
+      "y": 7,
+      "width": 1,
+      "height": 4
     },
     {
       "id": "MAPSEC_ROUTE_31",

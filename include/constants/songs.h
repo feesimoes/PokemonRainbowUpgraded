@@ -363,7 +363,8 @@
 #define MUS_NEW_BARK_TOWN      	  355 // MUS_NEW_BARK_TOWN
 #define MUS_VS_WILD_JOHTO      	  356 // MUS_VS_WILD_JOHTO
 #define MUS_VS_TRAINER_JOHTO      357 // MUS_VS_TRAINER_JOHTO
-#define MUS_ROUTE_30              358 // MUS_ROUTE_30
+#define MUS_ROUTE_30              358 // MUS_ROUTE30
+#define MUS_CHERRYGROVE           359 // MUS_CHERRYGROVE
 
 #define MUS_NONE                    0xFFFF
 
