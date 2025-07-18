@@ -12,3 +12,10 @@ movement TohjohFallsMovementFacePlayer {
     face_player
     step_end
 }
+
+script GiovanniBattleEvent {
+    trainerbattle_single(TRAINER_BOSS_GIOVANNI_3, format("GIOVANNI: Fwahahaha!\nWelcome to my hideout!\pYou have found me again.\nThis time, I'm not holding back!\pFor your insolence,\nyou shall feel a world of pain!"), format("Argh! I lost... again?!"))
+    msgbox(format("GIOVANNI: Haha!\nThis isn't over, {PLAYER}!\pI have pressing matters\nto attend to in GOLDENROD CITY.\pFarewell."))
+    releaseall
+    end
+}

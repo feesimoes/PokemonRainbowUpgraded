@@ -1308,9 +1308,9 @@ static void Task_ReleaseMon(u8 taskId)
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintStorageMessage(MSG_BYE_BYE);
-            gStorage->state++;
-            PlayFanfare(MUS_OBTAIN_ITEM);
             AddBagItem(ITEM_RARE_CANDY, 1);
+            PlayFanfare(MUS_OBTAIN_ITEM);
+            gStorage->state++;
         }
         break;
     case 5:

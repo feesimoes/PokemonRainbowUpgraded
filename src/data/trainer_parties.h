@@ -10881,3 +10881,43 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterJoeyRoute30[] =
         .species = SPECIES_RATTATA,
     }
 };
+
+
+static const struct TrainerMonNoItemCustomMoves sParty_BossGiovanni3[] = {
+    {
+        .iv = 0,
+        .lvl = 42,
+        .species = SPECIES_RHYHORN,
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 0,
+        .lvl = 39,
+        .species = SPECIES_DIGLETT,
+        .moves = {MOVE_SLASH, MOVE_SAND_TOMB, MOVE_MUD_SLAP, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 0,
+        .lvl = 42,
+        .species = SPECIES_NIDOQUEEN,
+        .moves = {MOVE_BODY_SLAM, MOVE_DOUBLE_KICK, MOVE_POISON_STING, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 0,
+        .lvl = 42,
+        .species = SPECIES_NIDOKING,
+        .moves = {MOVE_THRASH, MOVE_DOUBLE_KICK, MOVE_POISON_STING, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 0,
+        .lvl = 46,
+        .species = SPECIES_RHYDON,
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 0,
+        .lvl = 53,
+        .species = SPECIES_DUGTRIO,
+        .moves = {MOVE_SLASH, MOVE_SAND_TOMB, MOVE_MUD_SLAP, MOVE_EARTHQUAKE},
+    }
+};
