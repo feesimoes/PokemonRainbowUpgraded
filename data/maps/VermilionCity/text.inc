@@ -56,6 +56,9 @@ VermilionCity_Text_VermilionHarbor::
 VermilionCity_Text_WelcomeToTheSSAnne::
     .string "Welcome to the S.S. ANNE!$"
 
+VermilionCity_Text_WelcomeToVermilionHarbor::
+    .string "Welcome to VERMILION HARBOR!$"
+
 VermilionCity_Text_DoYouHaveATicket::
     .string "Welcome to the S.S. ANNE!\p"
     .string "Excuse me, do you have a ticket?$"

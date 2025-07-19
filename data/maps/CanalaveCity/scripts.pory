@@ -1,0 +1,22 @@
+mapscripts CanalaveCity_MapScripts {}
+
+script CanalaveCity_Gym_Sign {
+    lock
+    msgbox(format("CANALAVE CITY GYM\nLEADER: BYRON\pThe Man with the STEEL Body!"))
+    release
+    end
+}
+
+script CanalaveCity_SailorEldritchHouse_Sign {
+    lock
+    msgbox(format("SAILOR ELDRITCH'S HOUSE"))
+    release
+    end
+}
+
+script CanalaveCity_Sign {
+    lock
+    msgbox(format("CANALAVE CITY\nCargo Port"))
+    release
+    end
+}

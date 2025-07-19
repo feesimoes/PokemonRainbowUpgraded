@@ -1397,6 +1397,14 @@
       "name": "DRAGONS DEN"
     },
     {
+      "id": "MAPSEC_CANALAVE_CITY",
+      "name": "CANALAVE CITY",
+      "x": 0,
+      "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
       "id": "MAPSEC_SPECIAL_AREA",
       "name": "CELADON DEPT.",
       "x": 0,

@@ -4596,6 +4596,18 @@
       "secondary_tileset": "gTileset_SeaCottage",
       "border_filepath": "data/layouts/Route30_MrPokemonHouse/border.bin",
       "blockdata_filepath": "data/layouts/Route30_MrPokemonHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_CANALAVE_CITY",
+      "name": "CanalaveCity_Layout",
+      "width": 36,
+      "height": 72,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_VermilionCity",
+      "border_filepath": "data/layouts/CanalaveCity/border.bin",
+      "blockdata_filepath": "data/layouts/CanalaveCity/map.bin"
     }
   ]
 }

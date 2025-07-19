@@ -33,6 +33,10 @@ VermilionCity_EventScript_Woman::
 	msgbox VermilionCity_Text_GrimerMultipliesInSludge, MSGBOX_NPC
 	end
 
+VermilionCity_EventScript_Harbor_NPC::
+	msgbox VermilionCity_Text_WelcomeToVermilionHarbor, MSGBOX_NPC
+	end
+
 VermilionCity_EventScript_OldMan1::
 	lock
 	faceplayer

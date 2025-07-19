@@ -1414,3 +1414,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route30_MrPokemonHouse/scripts.inc"
 	.include "data/maps/Route30_MrPokemonHouse/text.inc"
+
+	.include "data/maps/CanalaveCity/scripts.inc"
+	.include "data/maps/CanalaveCity/text.inc"

@@ -138,6 +138,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionCity_EventScript_OaksAide",
       "flag": "FLAG_HIDE_VERMILION_CITY_OAKS_AIDE"
+    },
+    {
+      "local_id": "LOCALID_JOHTO_SINNOH_FERRY_SAILOR",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 35,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermilionCity_EventScript_Harbor_NPC",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -210,6 +225,27 @@
       "elevation": 0,
       "dest_map": "MAP_VERMILION_CITY_GYM",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 36,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_SSANNE_EXTERIOR",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 37,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_SSANNE_EXTERIOR",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 35,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_SSANNE_EXTERIOR",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

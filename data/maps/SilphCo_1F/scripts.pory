@@ -1,0 +1,48 @@
+raw `
+SilphCo_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SilphCo_1F_OnTransition
+	.byte 0
+
+SilphCo_1F_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_SILPH_CO_1F
+	end
+
+SilphCo_1F_EventScript_Receptionist::
+	msgbox SilphCo_1F_Text_WelcomePresidentInBoardroom, MSGBOX_NPC
+	end
+
+SilphCo_1F_EventScript_FloorSign::
+	msgbox SilphCo_1F_Text_FloorSign, MSGBOX_SIGN
+	end
+
+`
+
+movement Movement_Cynthia_Faces_Player {
+    face_player
+    step_end
+}
+
+script SilphCo_1F_EventScript_CynthiaEncounter {
+    lock
+    applymovement(2, Movement_Cynthia_Faces_Player)
+    waitmovement
+    playbgm(MUS_CYNTHIA, TRUE)
+    msgbox(format("Oh, is that a POKéDEX?\nYou must be helping PROF. OAK?\pWhat's your name?\p...Oh? Aren't you the same {PLAYER}\nwho drove TEAM ROCKET out of here?"))
+    waitmessage
+    msgbox(format("My name is CYNTHIA,\nI'm a TRAINER just like you."))
+    waitmessage
+    msgbox(format("You seem to be strong\nand respectable TRAINER...\p...OK, it's decided!\pI want to give you this!"))
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    waitfanfare
+    msgbox(format("CYNTHIA: Try using this PASS\nat the VERMILION HARBOR.\pI will let the POKéMON LEAGUE HQ\nknow that you have received this."))
+    waitmessage
+    msgbox(format("CYNTHIA: I hope to see you again\nsoon, {PLAYER}! Maybe in battle?\pSee you later!"))
+    waitmessage
+    fadenewbgm(MUS_KANTO_ROUTE_GATE)
+    setflag(FLAG_SINNOH_PASS_OBTAINED)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(2)
+    fadescreen(FADE_FROM_BLACK)
+    release
+    end
+}

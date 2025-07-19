@@ -31,6 +31,7 @@ enum {
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
+    REGIONMAP_SINNOH,
     REGIONMAP_JOHTO,
     REGIONMAP_COUNT
 };
@@ -96,7 +97,7 @@ struct RegionMap
 {
     u8 mapName[19];
     u8 dungeonName[19];
-    u16 layouts[REGIONMAP_COUNT + 1][600];
+    u16 layouts[REGIONMAP_COUNT + 1][600 + 400];
     // Inefficiency: these should be u8 or have half the elements each
     u16 bgTilemapBuffers[3][BG_SCREEN_SIZE];
     u8 type; // REGIONMAP_TYPE_*
@@ -427,6 +428,7 @@ static const u32 sFlyIcon[] = INCBIN_U32("graphics/region_map/fly_icon.4bpp.lz")
 static const u32 sBackground_Gfx[] = INCBIN_U32("graphics/region_map/background.4bpp.lz");
 static const u32 sBackground_Tilemap[] = INCBIN_U32("graphics/region_map/background.bin.lz");
 static const u32 sJohto_Tilemap[] = INCBIN_U32("graphics/region_map/johto.bin.lz");
+static const u32 sSinnoh_Tilemap[] = INCBIN_U32("graphics/region_map/sinnoh.bin.lz");
 
 static const struct BgTemplate sRegionMapBgTemplates[] = {
     {
@@ -831,6 +833,7 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
 #include "data/region_map/region_map_layout_johto.h"
+#include "data/region_map/region_map_layout_sinnoh.h"
 
 static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_PALLET_TOWN         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_PALLET_TOWN},
@@ -1047,9 +1050,17 @@ static void InitRegionMapType(void)
         {
             region = REGIONMAP_KANTO;
         }
-        else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+        //In Johto
+        else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
         {
+            j = REGIONMAP_JOHTO;
             region = REGIONMAP_JOHTO;
+        }
+        //In Sinnoh
+        else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_SPECIAL_AREA)
+        {
+            j = REGIONMAP_SINNOH;
+            region = REGIONMAP_SINNOH;
         }
         else {
             // Mapsec is in Sevii Islands, determine which map to use
@@ -1163,6 +1174,8 @@ static bool8 LoadRegionMapGfx(void)
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
     case 9:
         LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
+    case 10:
+        LZ77UnCompWram(sSinnoh_Tilemap, sRegionMap->layouts[REGIONMAP_SINNOH]);
     default:
         LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
@@ -3021,6 +3034,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE27_REST_HOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NEW_BARK_TOWN:
         return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CANALAVE_CITY:
+        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_ROUTE;
     default:
@@ -3393,8 +3408,10 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Sevii67[layer][y][x];
     case REGIONMAP_JOHTO:
         return sRegionMapSections_Johto[layer][y][x];
+    case REGIONMAP_SINNOH:
+        return sRegionMapSections_Sinnoh[layer][y][x];
     default:
-        return sRegionMapSections_Kanto[layer][y][x];
+        return MAPSEC_NONE;
     }
 }
 

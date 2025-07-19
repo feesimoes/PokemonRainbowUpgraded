@@ -979,6 +979,8 @@ SECTIONS {
         sound/songs/midi/mus_route29.o(.rodata);
         sound/songs/midi/mus_vs_team_rocket_admin.o(.rodata);
         sound/songs/midi/mus_vs_team_rocket_boss.o(.rodata);
+        sound/songs/midi/mus_cynthia.o(.rodata);
+        sound/songs/midi/mus_canalave.o(.rodata);
     } > ROM =0
 
     lib_rodata :

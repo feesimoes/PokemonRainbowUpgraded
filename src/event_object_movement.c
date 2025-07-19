@@ -206,7 +206,7 @@ const u8 gReflectionEffectPaletteMap[16] = {
     [PALSLOT_NPC_3_REFLECTION]       = PALSLOT_NPC_3_REFLECTION,
     [PALSLOT_NPC_4_REFLECTION]       = PALSLOT_NPC_4_REFLECTION,
     [PALSLOT_NPC_SPECIAL]            = PALSLOT_NPC_SPECIAL_REFLECTION,
-    [PALSLOT_NPC_SPECIAL_REFLECTION] = PALSLOT_NPC_SPECIAL_REFLECTION
+    [PALSLOT_NPC_SPECIAL_REFLECTION] = PALSLOT_NPC_SPECIAL_REFLECTION,
 };
 
 static const struct SpriteTemplate gCameraSpriteTemplate = {
@@ -497,7 +497,6 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
     {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_SEAGALLOP},
-    {},
 };
 
 static const u16 sPlayerReflectionPaletteTags[] = {

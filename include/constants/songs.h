@@ -368,6 +368,8 @@
 #define MUS_ROUTE_29              360 // MUS_ROUTE29
 #define MUS_VS_TEAM_ROCKET_ADMIN  361 // MUS_VS_TEAM_ROCKET_ADMIN
 #define MUS_VS_TEAM_ROCKET_BOSS   362 // MUS_VS_TEAM_ROCKET_BOSS
+#define MUS_CYNTHIA               363 // MUS_CYNTHIA
+#define MUS_CANALAVE              364 // MUS_CANALAVE
 
 #define MUS_NONE                    0xFFFF
 

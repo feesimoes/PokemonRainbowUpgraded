@@ -108,69 +108,12 @@ Movement_NewBarkTown_MovePlayerDown:
 # 77 "data/maps/NewBarkTown/scripts.pory"
 	step_end
 
-Event_MovePlayeUpSpottedByBill::
-# 81 "data/maps/NewBarkTown/scripts.pory"
-	goto_if_unset FLAG_NEW_BARK_TOWN_GOT_JOHTO_MAP, Event_MovePlayeUpSpottedByBill_1
-	return
-
-Event_MovePlayeUpSpottedByBill_1:
-# 83 "data/maps/NewBarkTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_NewBarkTown_MovePlayerUp
-	return
-
-
-Event_MovePlayerDownSpottedByBill::
-# 88 "data/maps/NewBarkTown/scripts.pory"
-	goto_if_unset FLAG_NEW_BARK_TOWN_GOT_JOHTO_MAP, Event_MovePlayerDownSpottedByBill_1
-	return
-
-Event_MovePlayerDownSpottedByBill_1:
-# 90 "data/maps/NewBarkTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_NewBarkTown_MovePlayerDown
-	return
-
-
-# 94 "data/maps/NewBarkTown/scripts.pory"
+# 80 "data/maps/NewBarkTown/scripts.pory"
 Movement_Bill_Leaves_New_Bark_Town:
-# 95 "data/maps/NewBarkTown/scripts.pory"
+# 81 "data/maps/NewBarkTown/scripts.pory"
 	walk_left
-# 96 "data/maps/NewBarkTown/scripts.pory"
+# 82 "data/maps/NewBarkTown/scripts.pory"
 	step_end
-
-Event_BillGivesYouTheJohtoMap::
-# 100 "data/maps/NewBarkTown/scripts.pory"
-	goto_if_unset FLAG_NEW_BARK_TOWN_GOT_JOHTO_MAP, Event_BillGivesYouTheJohtoMap_1
-	return
-
-Event_BillGivesYouTheJohtoMap_1:
-# 102 "data/maps/NewBarkTown/scripts.pory"
-	lock
-# 103 "data/maps/NewBarkTown/scripts.pory"
-	applymovement 1, Movement_NewBarkTown_Bill_Spots_Player
-# 104 "data/maps/NewBarkTown/scripts.pory"
-	msgbox Event_BillGivesYouTheJohtoMap_Text_0
-# 110 "data/maps/NewBarkTown/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-# 111 "data/maps/NewBarkTown/scripts.pory"
-	playfanfare MUS_OBTAIN_KEY_ITEM
-# 112 "data/maps/NewBarkTown/scripts.pory"
-	msgbox Event_BillGivesYouTheJohtoMap_Text_1, MSGBOX_AUTOCLOSE
-# 113 "data/maps/NewBarkTown/scripts.pory"
-	setflag FLAG_NEW_BARK_TOWN_GOT_JOHTO_MAP
-# 114 "data/maps/NewBarkTown/scripts.pory"
-	call EventScript_RestorePrevTextColor
-# 115 "data/maps/NewBarkTown/scripts.pory"
-	msgbox Event_BillGivesYouTheJohtoMap_Text_2
-# 116 "data/maps/NewBarkTown/scripts.pory"
-	waitmessage
-# 117 "data/maps/NewBarkTown/scripts.pory"
-	applymovement 1, Movement_Bill_Leaves_New_Bark_Town
-# 118 "data/maps/NewBarkTown/scripts.pory"
-	waitmovement
-# 119 "data/maps/NewBarkTown/scripts.pory"
-	release
-	end
-
 
 ProfessorElmsLab_Sign_Text_0:
 # 5 "data/maps/NewBarkTown/scripts.pory"
@@ -208,28 +151,3 @@ GentlemanIsTiredOfThisPlace_Text_0:
 	.string "It doesn't matter where you go.\p"
 	.string "But it's important to have\n"
 	.string "culture that welcomes you.$"
-
-Event_BillGivesYouTheJohtoMap_Text_0:
-# 104 "data/maps/NewBarkTown/scripts.pory"
-	.string "BILL: Oh, hey there, {PLAYER}!\p"
-	.string "Remember me? It sure is nice\n"
-	.string "seeing you here!\p"
-	.string "Is this your first visit?\n"
-	.string "Do you know what you just did?\p"
-	.string "You just took your first\n"
-	.string "step into the JOHTO region!\p"
-	.string "You're really lucky, too!\n"
-	.string "I bet your old TOWN MAP\p"
-	.string "needs an upgrade!\n"
-	.string "Give me one second!$"
-
-Event_BillGivesYouTheJohtoMap_Text_1:
-# 112 "data/maps/NewBarkTown/scripts.pory"
-	.string "{PLAYER} received an extra page\n"
-	.string "for the TOWN MAP!$"
-
-Event_BillGivesYouTheJohtoMap_Text_2:
-# 115 "data/maps/NewBarkTown/scripts.pory"
-	.string "BILL: Well, I'll catch you later!\n"
-	.string "You should visit GOLDENROD CITY\l"
-	.string "sometime!$"
