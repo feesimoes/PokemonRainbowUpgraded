@@ -21,10 +21,10 @@
 #define MAP_HEIGHT 15
 
 #define CANCEL_BUTTON_X 21
-#define CANCEL_BUTTON_Y 13
+#define CANCEL_BUTTON_Y 14
 
-#define SWITCH_BUTTON_X 21
-#define SWITCH_BUTTON_Y 11
+#define SWITCH_BUTTON_X 18
+#define SWITCH_BUTTON_Y 14
 
 enum {
     REGIONMAP_KANTO,
@@ -611,7 +611,7 @@ ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPER
     [REGIONMAP_TYPE_FLY] = 
     {
         [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE, 
+        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
         [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
         [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE 
     }
@@ -1174,12 +1174,6 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
-        break;
-    case 9:
-        LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
-        break;
-    case 10:
-        LZ77UnCompWram(sSinnoh_Tilemap, sRegionMap->layouts[REGIONMAP_SINNOH]);
         break;
     default:
         LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
@@ -3042,7 +3036,7 @@ static u8 GetMapsecType(u8 mapsec)
     case MAPSEC_CANALAVE_CITY:
         return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
-        return MAPSECTYPE_ROUTE;
+        return MAPSECTYPE_NONE;
     default:
         return MAPSECTYPE_ROUTE;
     }

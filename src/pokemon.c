@@ -5870,7 +5870,14 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_BOSS:
             return MUS_VS_TEAM_ROCKET_BOSS;
         case TRAINER_CLASS_TEAM_ROCKET:
-            return MUS_VS_TEAM_ROCKET;
+            if (StringCompare("GRUNT", gTrainers[gTrainerBattleOpponent_A].trainerName) == TRUE)
+            {
+                return MUS_VS_TEAM_ROCKET;
+            }
+            else
+            {
+                return MUS_VS_TEAM_ROCKET_ADMIN;
+            }
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:

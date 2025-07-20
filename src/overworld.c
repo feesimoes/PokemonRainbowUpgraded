@@ -993,7 +993,7 @@ static u16 GetLocationMusic(struct WarpData * warp)
             return MUS_KANTO_ROUTE_GATE;
         }
         else {
-            return MUS_SILPH;
+            return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
         }
     }
     else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_LAVENDER_TOWN)
@@ -1001,10 +1001,32 @@ static u16 GetLocationMusic(struct WarpData * warp)
         //Marowak's spirit was calmed, got the Poke Flute from Mr. Fuji
         if (FlagGet(FLAG_GOT_POKE_FLUTE))
         {
-            return MUS_LAVENDER_PEACE;   
+            if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music == MUS_POKE_CENTER)
+            {
+                return MUS_POKE_CENTER;   
+            }
+            else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music == MUS_POKE_MART)
+            {
+                return MUS_POKE_MART;   
+            }
+            else {
+                return MUS_LAVENDER_PEACE;   
+            }
         }
         else {
-            return MUS_LAVENDER;
+            return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+        }
+    }
+    //If Team Rocket is driven out of kanto entirely
+    else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_VIRIDIAN_FOREST) 
+    {
+        if (FlagGet(FLAG_HIDE_MISC_KANTO_ROCKETS))
+        {
+            return MUS_VIRIDIAN_FOREST_PEACE;
+        }
+        else 
+        {
+            return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
         }
     }
     else {

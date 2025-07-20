@@ -1011,7 +1011,7 @@
     {
       "id": "MAPSEC_BIRTH_ISLAND",
       "name": "BIRTH ISLAND",
-      "x": 18,
+      "x": 15,
       "y": 13,
       "width": 1,
       "height": 1
@@ -1371,6 +1371,42 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_ROUTE_201",
+      "name": "ROUTE 201"
+    },
+    {
+      "id": "MAPSEC_ROUTE_202",
+      "name": "ROUTE 202"
+    },
+    {
+      "id": "MAPSEC_ROUTE_203",
+      "name": "ROUTE 203"
+    },
+    {
+      "id": "MAPSEC_ROUTE_204",
+      "name": "ROUTE 204"
+    },
+    {
+      "id": "MAPSEC_ROUTE_205",
+      "name": "ROUTE 205"
+    },
+    {
+      "id": "MAPSEC_ROUTE_206",
+      "name": "ROUTE 206"
+    },
+    {
+      "id": "MAPSEC_ROUTE_207",
+      "name": "ROUTE 207"
+    },
+    {
+      "id": "MAPSEC_ROUTE_208",
+      "name": "ROUTE 208"
+    },
+    {
+      "id": "MAPSEC_ROUTE_209",
+      "name": "ROUTE 209"
     }
   ]
 }

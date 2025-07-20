@@ -366,6 +366,7 @@ gSongTable::
 	song mus_canalave, 0, 0
 	song mus_lavender_peace, 0, 0
 	song mus_lavender_peace_intro, 0, 0
+	song mus_viridian_forest_peace, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0
