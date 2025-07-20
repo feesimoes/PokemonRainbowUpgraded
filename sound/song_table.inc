@@ -364,6 +364,8 @@ gSongTable::
 	song mus_vs_team_rocket_boss, 0, 0
 	song mus_cynthia, 0, 0
 	song mus_canalave, 0, 0
+	song mus_lavender_peace, 0, 0
+	song mus_lavender_peace_intro, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -31,9 +31,6 @@
       "id": "MAPSEC_MAUVILLE_CITY"
     },
     {
-      "id": "MAPSEC_RUSTBORO_CITY"
-    },
-    {
       "id": "MAPSEC_FORTREE_CITY"
     },
     {
@@ -172,16 +169,10 @@
       "id": "MAPSEC_MT_CHIMNEY"
     },
     {
-      "id": "MAPSEC_SAFARI_ZONE"
-    },
-    {
       "id": "MAPSEC_BATTLE_FRONTIER"
     },
     {
       "id": "MAPSEC_PETALBURG_WOODS"
-    },
-    {
-      "id": "MAPSEC_RUSTURF_TUNNEL"
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP"
@@ -205,9 +196,6 @@
       "id": "MAPSEC_SHOAL_CAVE"
     },
     {
-      "id": "MAPSEC_SEAFLOOR_CAVERN"
-    },
-    {
       "id": "MAPSEC_UNDERWATER_128"
     },
     {
@@ -218,9 +206,6 @@
     },
     {
       "id": "MAPSEC_CAVE_OF_ORIGIN"
-    },
-    {
-      "id": "MAPSEC_SOUTHERN_ISLAND"
     },
     {
       "id": "MAPSEC_FIERY_PATH"
@@ -235,13 +220,7 @@
       "id": "MAPSEC_JAGGED_PASS2"
     },
     {
-      "id": "MAPSEC_SEALED_CHAMBER"
-    },
-    {
       "id": "MAPSEC_UNDERWATER_SEALED_CHAMBER"
-    },
-    {
-      "id": "MAPSEC_SCORCHED_SLAB"
     },
     {
       "id": "MAPSEC_ISLAND_CAVE"
@@ -257,9 +236,6 @@
     },
     {
       "id": "MAPSEC_SKY_PILLAR"
-    },
-    {
-      "id": "MAPSEC_SECRET_BASE"
     },
     {
       "id": "MAPSEC_DYNAMIC"
@@ -929,30 +905,6 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_SEVII_ISLE_22",
-      "name": "SEVII ISLE 22",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 3
-    },
-    {
-      "id": "MAPSEC_SEVII_ISLE_23",
-      "name": "SEVII ISLE 23",
-      "x": 3,
-      "y": 14,
-      "width": 6,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_SEVII_ISLE_24",
-      "name": "SEVII ISLE 24",
-      "x": 2,
-      "y": 12,
-      "width": 1,
-      "height": 3
-    },
-    {
       "id": "MAPSEC_NAVEL_ROCK",
       "name": "NAVEL ROCK",
       "x": 10,
@@ -1402,6 +1354,14 @@
       "x": 0,
       "y": 8,
       "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_218",
+      "name": "ROUTE 218",
+      "x": 1,
+      "y": 8,
+      "width": 3,
       "height": 1
     },
     {

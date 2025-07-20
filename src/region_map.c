@@ -575,9 +575,6 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_CANYON_ENTRANCE,
         MAPSEC_SEVAULT_CANYON,
         MAPSEC_TANOBY_RUINS,
-        MAPSEC_SEVII_ISLE_22,
-        MAPSEC_SEVII_ISLE_23,
-        MAPSEC_SEVII_ISLE_24,
         MAPSEC_TRAINER_TOWER_2,
         MAPSEC_DOTTED_HOLE,
         MAPSEC_PATTERN_BUSH,
@@ -613,8 +610,8 @@ ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPER
     },
     [REGIONMAP_TYPE_FLY] = 
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
+        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE, 
         [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
         [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE 
     }
@@ -924,9 +921,6 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_CANYON_ENTRANCE     - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  HEAL_LOCATION_NONE},
     [MAPSEC_SEVAULT_CANYON      - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_SEVAULT_CANYON),           HEAL_LOCATION_NONE},
     [MAPSEC_TANOBY_RUINS        - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_TANOBY_RUINS),             HEAL_LOCATION_NONE},
-    [MAPSEC_SEVII_ISLE_22       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    [MAPSEC_SEVII_ISLE_23       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    [MAPSEC_SEVII_ISLE_24       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_NAVEL_ROCK          - KANTO_MAPSEC_START] = {MAP(MAP_NAVEL_ROCK_EXTERIOR),                   HEAL_LOCATION_NONE},
     [MAPSEC_MT_EMBER            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_BERRY_FOREST        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -949,6 +943,8 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_CANALAVE_CITY       - KANTO_MAPSEC_START] = {MAP(MAP_CANALAVE_CITY),                         HEAL_LOCATION_CANALAVE_CITY},
+    [MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START] = {MAP(MAP_CHERRYGROVE_CITY),                      HEAL_LOCATION_CHERRYGROVE_CITY},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1040,7 +1036,6 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
@@ -1057,10 +1052,14 @@ static void InitRegionMapType(void)
             region = REGIONMAP_JOHTO;
         }
         //In Sinnoh
-        else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_SPECIAL_AREA)
+        else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_NONE)
         {
-            j = REGIONMAP_SINNOH;
             region = REGIONMAP_SINNOH;
+            while (region == REGIONMAP_SINNOH)
+            {
+                j = REGIONMAP_SINNOH;
+                break;
+            }
         }
         else {
             // Mapsec is in Sevii Islands, determine which map to use
@@ -1166,16 +1165,22 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 5:
         LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
+        break;
     case 6:
         LZ77UnCompWram(sSevii123_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
+        break;
     case 7:
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);
+        break;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
+        break;
     case 9:
         LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
+        break;
     case 10:
         LZ77UnCompWram(sSinnoh_Tilemap, sRegionMap->layouts[REGIONMAP_SINNOH]);
+        break;
     default:
         LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
@@ -3850,7 +3855,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     u8 *dst;
     u16 i;
     u16 idx;
-    if ((idx = mapsec - KANTO_MAPSEC_START) <= MAPSEC_SPECIAL_AREA - KANTO_MAPSEC_START)
+    if ((idx = mapsec - KANTO_MAPSEC_START) < MAPSEC_NONE - KANTO_MAPSEC_START)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);

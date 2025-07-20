@@ -981,6 +981,8 @@ SECTIONS {
         sound/songs/midi/mus_vs_team_rocket_boss.o(.rodata);
         sound/songs/midi/mus_cynthia.o(.rodata);
         sound/songs/midi/mus_canalave.o(.rodata);
+        sound/songs/midi/mus_lavender_peace.o(.rodata);
+        sound/songs/midi/mus_lavender_peace_intro.o(.rodata);
     } > ROM =0
 
     lib_rodata :

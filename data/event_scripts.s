@@ -1417,3 +1417,6 @@ Text_TestMsg::
 
 	.include "data/maps/CanalaveCity/scripts.inc"
 	.include "data/maps/CanalaveCity/text.inc"
+
+	.include "data/maps/Route_218/scripts.inc"
+	.include "data/maps/Route_218/text.inc"

@@ -191,6 +191,14 @@
       "y": 5,
       "respawn_map": "MAP_CHERRYGROVE_CITY",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_CANALAVE_CITY",
+      "map": "MAP_CANALAVE_CITY",
+      "x": 24,
+      "y": 20,
+      "respawn_map": "MAP_CANALAVE_CITY",
+      "respawn_npc": "1"
     }
   ]
 }

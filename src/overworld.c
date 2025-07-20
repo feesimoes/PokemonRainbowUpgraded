@@ -987,9 +987,24 @@ static u16 GetLocationMusic(struct WarpData * warp)
 {
     if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_SILPH_CO)
     {
+        //Team Rocket was driven out of Silph Co.
         if (FlagGet(FLAG_HIDE_SILPH_ROCKETS))
         {
             return MUS_KANTO_ROUTE_GATE;
+        }
+        else {
+            return MUS_SILPH;
+        }
+    }
+    else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_LAVENDER_TOWN)
+    {
+        //Marowak's spirit was calmed, got the Poke Flute from Mr. Fuji
+        if (FlagGet(FLAG_GOT_POKE_FLUTE))
+        {
+            return MUS_LAVENDER_PEACE;   
+        }
+        else {
+            return MUS_LAVENDER;
         }
     }
     else {
