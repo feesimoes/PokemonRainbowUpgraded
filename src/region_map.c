@@ -97,7 +97,7 @@ struct RegionMap
 {
     u8 mapName[19];
     u8 dungeonName[19];
-    u16 layouts[REGIONMAP_COUNT + 1][600 + 400];
+    u16 layouts[REGIONMAP_COUNT + 1][600];
     // Inefficiency: these should be u8 or have half the elements each
     u16 bgTilemapBuffers[3][BG_SCREEN_SIZE];
     u8 type; // REGIONMAP_TYPE_*
@@ -603,8 +603,8 @@ ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPER
     },
     [REGIONMAP_TYPE_WALL] = 
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
+        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE, 
         [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
         [MAPPERM_HAS_FLY_DESTINATIONS] = FALSE
     },
@@ -1029,6 +1029,7 @@ static void InitRegionMapType(void)
         sRegionMap->mainTask = Task_RegionMap;
         break;
     case REGIONMAP_TYPE_FLY:
+        sRegionMap->permissions[MAPPERM_HAS_FLY_DESTINATIONS] = TRUE; 
         sRegionMap->mainTask = Task_FlyMap;
         break;
     }
@@ -1036,49 +1037,51 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
+    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
+    {
+        sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;    
+    }
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
-        //Still in Kanto
-        if (gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
+        // Mapsec is in Sevii Islands, determine which map to use
+        while (region == REGIONMAP_KANTO)
         {
-            region = REGIONMAP_KANTO;
-        }
-        //In Johto
-        else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
-        {
-            j = REGIONMAP_JOHTO;
-            region = REGIONMAP_JOHTO;
-        }
-        //In Sinnoh
-        else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_NONE)
-        {
-            region = REGIONMAP_SINNOH;
-            while (region == REGIONMAP_SINNOH)
+            for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
             {
-                j = REGIONMAP_SINNOH;
-                break;
-            }
-        }
-        else {
-            // Mapsec is in Sevii Islands, determine which map to use
-            while (region == REGIONMAP_KANTO)
-            {
-                for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
+                if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
                 {
-                    if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
-                    {
-                        region = j + 1;
-                        break;
-                    }
+                    region = j + 1;
+                    break;
                 }
-                j++;
             }
+            j++;
         }
     }
+    
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
+
+    //Still in Kanto
+    if (gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
+    {
+        sRegionMap->selectedRegion = REGIONMAP_KANTO;
+        sRegionMap->playersRegion = REGIONMAP_KANTO;
+    }
+    //In Johto
+    else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
+    {
+        sRegionMap->selectedRegion = REGIONMAP_JOHTO;
+        sRegionMap->playersRegion = REGIONMAP_JOHTO;
+    }
+    //In Sinnoh
+    else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_NONE)
+    {
+        sRegionMap->selectedRegion = REGIONMAP_SINNOH;
+        sRegionMap->playersRegion = REGIONMAP_SINNOH;
+    }
+
 }
 
 static void CB2_OpenRegionMap(void)
@@ -1157,15 +1160,29 @@ static bool8 LoadRegionMapGfx(void)
     case 3:
         DecompressAndCopyTileDataToVram(0, sRegionMap_Gfx, 0, 0, 0);
         if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+        {
             DecompressAndCopyTileDataToVram(1, sBackground_Gfx, 0, 0, 0);
+        }
         break;
     case 4:
         if (FreeTempTileDataBuffersIfPossible() == TRUE)
+        {
             return FALSE;
+        }
         break;
     case 5:
-        LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
-        break;
+        if (sRegionMap->playersRegion == REGIONMAP_JOHTO)
+        {
+            LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
+        }
+        else if (sRegionMap->playersRegion == REGIONMAP_SINNOH)
+        {
+            LZ77UnCompWram(sSinnoh_Tilemap, sRegionMap->layouts[REGIONMAP_SINNOH]);
+        }
+        else {
+            LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
+            break;
+        }
     case 6:
         LZ77UnCompWram(sSevii123_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
         break;
@@ -1176,7 +1193,7 @@ static bool8 LoadRegionMapGfx(void)
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
         break;
     default:
-        LZ77UnCompWram(sMapEdge_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
+        LZ77UnCompWram(sBackground_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
     }
     sRegionMap->loadGfxState++;
@@ -1307,18 +1324,77 @@ static void Task_RegionMap(u8 taskId)
         }
         break;
     case 4:
-        if (GetRegionMapPermission(MAPPERM_HAS_OPEN_ANIM) == TRUE)
+        if (sRegionMap->permissions[MAPPERM_HAS_FLY_DESTINATIONS] == TRUE)
         {
-            DoMapCloseAnim(taskId);
-            // FIXME: goto required to match
-            // sRegionMap->mainState++;
-            goto INCREMENT_MAIN_STATE_AND_BREAK;
+            switch (GetRegionMapInput())
+            {
+            case MAP_INPUT_MOVE_START:
+            case MAP_INPUT_MOVE_CONT:
+                break;
+            case MAP_INPUT_CANCEL:
+                sFlyMap->state = 6;
+                break;
+            case MAP_INPUT_MOVE_END:
+                if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED)
+                    PlaySE(SE_DEX_PAGE);
+                else
+                    PlaySEForSelectedMapsec();
+                ResetCursorSnap();
+                DisplayCurrentMapName();
+                DisplayCurrentDungeonName();
+                DrawDungeonNameBox();
+                if (GetMapCursorX() == CANCEL_BUTTON_X && GetMapCursorY() == CANCEL_BUTTON_Y)
+                {
+                    PlaySE(SE_M_SPIT_UP);
+                    PrintTopBarTextRight(gText_RegionMap_AButtonCancel);
+                }
+                else if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN)
+                {
+                    PrintTopBarTextRight(gText_RegionMap_AButtonOK);
+                }
+                else
+                {
+                    PrintTopBarTextRight(gText_RegionMap_Space);
+                }
+                break;
+            case MAP_INPUT_A_BUTTON:
+                if ((GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN) && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
+                {
+                    switch (GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
+                    {
+                    case MAP_TYPE_UNDERGROUND:
+                    case MAP_TYPE_INDOOR:
+                        sFlyMap->selectedDestination = FALSE;
+                        sFlyMap->state++;
+                        break;
+                    default:
+                        PlaySE(SE_USE_ITEM);
+                        sFlyMap->selectedDestination = TRUE;
+                        sFlyMap->state++;
+                        break;
+                    }
+                }
+                break;
+            case MAP_INPUT_SWITCH:
+                InitSwitchMapMenu(GetSelectedRegionMap(), taskId, SaveMainMapTask);
+                break;
+            }
+            break;
         }
-        else
+        else 
         {
-            sRegionMap->mainState++;
+            if (GetRegionMapPermission(MAPPERM_HAS_OPEN_ANIM) == TRUE)
+            {
+                DoMapCloseAnim(taskId);
+                sRegionMap->mainState++;
+                //goto INCREMENT_MAIN_STATE_AND_BREAK;
+            }
+            else
+            {
+                sRegionMap->mainState++;
+            }
+            break;
         }
-        break;
     case 5:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
     INCREMENT_MAIN_STATE_AND_BREAK:
@@ -1542,9 +1618,9 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
     }
     if (sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] == TRUE)
     {
-        WriteSequenceToBgTilemapBuffer(0, 0x0F0, 0x18, 14, 3, 1, 0x3, 0x001);
-        WriteSequenceToBgTilemapBuffer(0, 0x100, 0x18, 15, 3, 1, 0x3, 0x001);
-        WriteSequenceToBgTilemapBuffer(0, 0x110, 0x18, 16, 3, 1, 0x3, 0x001);
+        //WriteSequenceToBgTilemapBuffer(0, 0x0F0, 0x18, 14, 3, 1, 0x3, 0x001);
+        //WriteSequenceToBgTilemapBuffer(0, 0x100, 0x18, 15, 3, 1, 0x3, 0x001);
+        //WriteSequenceToBgTilemapBuffer(0, 0x110, 0x18, 16, 3, 1, 0x3, 0x001);
     }
     if (sSwitchMapMenu != NULL)
         whichMap = sSwitchMapMenu->currentSelection;

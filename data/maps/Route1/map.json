@@ -114,7 +114,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
       "x": 24,
-      "y": 18,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
