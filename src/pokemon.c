@@ -5865,6 +5865,15 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
+            //Have all 8 badges, this is a Kanto gym leader rematch
+            if (FlagGet(FLAG_BADGE08_GET))
+            {
+                return MUS_VS_GYM_LEADER_REMATCH;
+            }
+            else
+            {
+                return MUS_VS_GYM_LEADER;
+            }
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_BOSS:

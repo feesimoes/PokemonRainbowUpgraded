@@ -749,12 +749,13 @@
 #define TRAINER_PICKNICKER_JAMIE_ROUTE26         743
 #define TRAINER_YOUNGSTER_JOEY_ROUTE_30          744
 #define TRAINER_BOSS_GIOVANNI_3                  745
+#define TRAINER_LEADER_BROCK_2                   746
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             746
+#define NUM_TRAINERS                             747
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

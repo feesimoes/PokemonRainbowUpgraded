@@ -10882,7 +10882,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterJoeyRoute30[] =
     }
 };
 
-
 static const struct TrainerMonNoItemCustomMoves sParty_BossGiovanni3[] = {
     {
         .iv = 0,
@@ -10920,4 +10919,43 @@ static const struct TrainerMonNoItemCustomMoves sParty_BossGiovanni3[] = {
         .species = SPECIES_DUGTRIO,
         .moves = {MOVE_SLASH, MOVE_SAND_TOMB, MOVE_MUD_SLAP, MOVE_EARTHQUAKE},
     }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock2[] = {
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_ONIX,
+        .moves = {MOVE_SPIKES, MOVE_IRON_TAIL, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_KABUTOPS,
+        .moves = {MOVE_AERIAL_ACE, MOVE_ROCK_SLIDE, MOVE_MUDDY_WATER, MOVE_BRICK_BREAK},
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_OMASTAR,
+        .moves = {MOVE_BLIZZARD, MOVE_HYDRO_PUMP, MOVE_SEISMIC_TOSS, MOVE_REFLECT},
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_AERODACTYL,
+        .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_IRON_TAIL},
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_GOLEM,
+        .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_PUNCH, MOVE_THUNDER_PUNCH},
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_RELICANTH,
+        .moves = {MOVE_ROCK_SMASH, MOVE_EARTHQUAKE, MOVE_REST, MOVE_MUDDY_WATER},
+    },
 };

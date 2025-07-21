@@ -984,6 +984,7 @@ SECTIONS {
         sound/songs/midi/mus_lavender_peace.o(.rodata);
         sound/songs/midi/mus_lavender_peace_intro.o(.rodata);
         sound/songs/midi/mus_viridian_forest_peace.o(.rodata);
+        sound/songs/midi/mus_vs_gym_leader_rematch.o(.rodata);
     } > ROM =0
 
     lib_rodata :

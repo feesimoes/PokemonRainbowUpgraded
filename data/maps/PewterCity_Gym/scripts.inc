@@ -5,6 +5,7 @@ PewterCity_Gym_EventScript_Brock::
 	famechecker FAMECHECKER_BROCK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	trainerbattle_single TRAINER_LEADER_BROCK, PewterCity_Gym_Text_BrockIntro, PewterCity_Gym_Text_BrockDefeat, PewterCity_Gym_EventScript_DefeatedBrock, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM39_FROM_BROCK, PewterCity_Gym_EventScript_GiveTM39
+	goto_if_set FLAG_BADGE08_GET, PewterCity_Gym_Event_BrockRematchBattleCheck_HaveAllKantoBadges
 	msgbox PewterCity_Gym_Text_BrockPostBattle
 	release
 	end
@@ -79,4 +80,26 @@ PewterCity_Gym_EventScript_GymStatue::
 PewterCity_Gym_EventScript_GymStatuePostVictory::
 	msgbox PewterCity_Gym_Text_GymStatuePlayerWon
 	releaseall
+	end
+
+PewterCity_Gym_Event_BrockPostBattle_HaveBadge02::
+	msgbox PewterCity_Gym_Text_BrockPostBattle_HaveBadge02
+	release
+	end
+
+PewterCity_Gym_Event_BrockRematchBattleCheck_HaveAllKantoBadges::
+	goto_if_set FLAG_SYS_VS_SEEKER_CHARGING, PewterCity_Gym_EventScript_BrockRematchBattleCheckFailed_ComeBackLater
+	trainerbattle_single TRAINER_LEADER_BROCK_2, PewterCity_Gym_Text_BrockIntro_2, PewterCity_Gym_Text_BrockDefeat_2, PewterCity_Gym_EventScript_DefeatedBrock_2, NO_MUSIC
+	release
+	end
+
+PewterCity_Gym_EventScript_DefeatedBrock_2::
+	msgbox PewterCity_Gym_Text_DefeatedBrock_2
+	cleartrainerflag TRAINER_LEADER_BROCK_2
+	release
+	end
+
+PewterCity_Gym_EventScript_BrockRematchBattleCheckFailed_ComeBackLater::
+	msgbox PewterCity_Gym_Text_BrockRematchBattleCheckFailed_ComeBackLater
+	release
 	end

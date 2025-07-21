@@ -62,6 +62,14 @@ PewterCity_Gym_Text_BrockPostBattle::
     .string "Go to the GYM in CERULEAN and test\n"
     .string "your abilities.$"
 
+PewterCity_Gym_Text_BrockPostBattle_HaveBadge02::
+    .string "Oh hey, how are you doing?\n"
+    .string "You have MISTY'S badge?\p"
+    .string "I seriously underestimated\n"
+    .string "your abilities as a TRAINER!\p"
+    .string "Don't you worry, {PLAYER}!\n"
+    .string "You will be a POKéMON MASTER!$"
+
 PewterCity_Gym_Text_DontHaveRoomForThis::
     .string "You don't have room for this.$"
 
@@ -120,3 +128,23 @@ PewterCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+PewterCity_Gym_Text_BrockRematchBattleCheckFailed_ComeBackLater::
+    .string "You sure look different from when\n"
+    .string "we first met! I have a request...\p"
+    .string "Please, come back in a bit! I'll\n"
+    .string "explain the details later!$"
+
+PewterCity_Gym_Text_BrockIntro_2::
+    .string "You sure look different from when\n"
+    .string "we first met! I have a request...\p"
+    .string "Please, allow me the privilege of\n"
+    .string "facing you in battle, once again!\p"
+    .string "Allow me to show you the true\nrock-hard strength of my POKéMON!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+PewterCity_Gym_Text_BrockDefeat_2::
+    .string "I really enjoyed the battle with\n"
+    .string "you again, {PLAYER}!$"
+
+PewterCity_Gym_Text_DefeatedBrock_2::
+    .string "Please battle me every day so I\n"
+    .string "can grow even stronger!$"
