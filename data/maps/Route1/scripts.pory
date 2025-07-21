@@ -35,99 +35,131 @@ Route1_EventScript_RouteSign::
 	msgbox Route1_Text_RouteSign, MSGBOX_SIGN
 	end
 `
-
-const Route1_Rival = 0x04
+const Route1_Misty = 0x08
 const Route1_HoOh = 0x03
 
-script Route1_HoOh_Event_Direct {
-    setvar(VAR_TEMP_0, 1)
-    applymovement(Route1_Rival, move_face_down)
-    waitmovement
-    playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
-    msgbox(format("{RIVAL}: Hey, {PLAYER}!\pYou're just getting here?\n"), MSGBOX_NPC)
+script Route1_Spearows_Bite {
+    lock
+    playmoncry(SPECIES_SPEAROW, CRY_MODE_NORMAL)
+    msgbox(format("It's a wild POKéMON!\nDarn! Couldn't ID it!\p"))
+    setweather(WEATHER_RAIN)
+    doweather
+    msgbox(format("Ow!\nIt gave you a vicious PECK!"))
     waitmessage
-    msgbox(format("I already have at least 6 different Pokémon!\pYup! While you've been slacking off,\n"), MSGBOX_NPC)
-    waitmessage
-    msgbox(format("I've been training hard!\pCome on, I'll take you on!\n"), MSGBOX_NPC)
-    waitmessage
-    fadeoutbgm(1)
-    msgbox(format("{RIVAL}: Huh? What was that?\n"), MSGBOX_NPC)
-    playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
-    waitmessage
-    playse(SE_PIN)
-    applymovement(Route1_Rival, exclaimation_mark)
-    waitmovement
-    applymovement(Route1_Rival, move_face_left_fast)
-    waitmovement
-    applymovement(Route1_HoOh, move_right_16)
-    waitmovement
-    msgbox(format("{RIVAL}: No way! What is that thing?\pI've never seen anything like it!\n"), MSGBOX_NPC)
-    waitmessage
-    applymovement(Route1_HoOh, move_left_16)
-    waitmovement
-    msgbox(format("No! It's getting away!\pGet back here!\n"), MSGBOX_NPC)
-    waitmessage
-    applymovement(Route1_Rival, move_up_1)
-    waitmovement
-    applymovement(Route1_Rival, run_left_16)
-    waitmovement
-    setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)
-    playbgm(MUS_ROUTE1, TRUE)
     release
     end
 }
 
-script Route1_HoOh_Event_Move_Rival_1_Left {
-    if (flag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
-        lock
-        applymovement(Route1_Rival, move_left_1)
-        goto(Route1_HoOh_Event_Direct)
-        release
-        end
-    }
+script Route1_Misty_Thinks_You_Are_Rival {
+    lock
+    applymovement(Route1_Misty, Route1_Movement_Face_Player)
+    setweather(WEATHER_RAIN)
+    doweather
+    msgbox(format("Argh! How annoying!\n...Oh? Well, welcome back, pest!\pAre you returning my BIKE?"), MSGBOX_YESNO)
+    msgbox(format("...Huh? I appreciate that\nunexpected honesty, but...\pSorry, I've had a rough day!\nSome loser took off with my BIKE!"))
+    setweather(WEATHER_RAIN_THUNDERSTORM)
+    doweather
+    msgbox(format("I can't seem to reel in any\ngood POKéMON here either!\pIt's getting a bit dark, too, so\nI'll probably head back to CERULEAN."))
+    msgbox(format("You're a new face!\nUh huh...\pOK, so you're {PLAYER}!\nI'll remember that!\pI'm MISTY! Here, come with me!\nI could show you to VIRIDIAN CITY!"))
+    waitmessage
+    applymovement(Route1_Misty, Route1_Movement_Walk_Up_9)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_9)
+    waitmovement
+    msgbox(format("Argh!\nWhat's with these FLYING POKéMON?\pI can't find any WATER types!"))
+    waitmessage
+    playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
+    waitmoncry
+    setweather(WEATHER_SUNNY)
+    doweather
+    applymovement(Route1_Misty, Route1_Movement_Walk_Right_3)
+    waitmovement
+    applymovement(Route1_Misty, Route1_Movement_Walk_Up_1)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_1)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Right_3)
+    waitmovement
+    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
+    waitmovement
+    msgbox(format("Well, would you look at that?\nThe rain has finally let up!\pCome on, just a bit more to go!"))
+    waitmessage
+    closemessage
+    applymovement(Route1_Misty, Route1_Movement_Walk_Left_2)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Left_2)
+    waitmovement
+    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
+    waitmovement
+    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
+    waitmovement
+    applymovement(Route1_Misty, Route1_Movement_Walk_Right_18)
+    waitmovement
+    msgbox(format("I'm all the way over here,\nSLOWPOKE! By the big red building!"))
+    closemessage
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_7)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Left_18)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
+    waitmovement
+    msgbox(format("We're here!\nThis is the POKéMON CENTER.\pNURSE JOY is always happy to heal\nYour POKéMON to full health!\pThe best part is that it's free!"))
+    waitmessage
+    msgbox(format("I'm gonna go over to the POKéMART!\nI definitely need to stock up\pon supplies now, since ROUTE 1.\nOK, see ya!\pBe sure to meet lots of POKéMON!"))
+    applymovement(10, Route1_Movement_Walk_Right_18)
+    waitmessage
+    waitmovement
+    removeobject(10)
+    setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)
+    release
+    end
 }
 
-script Route1_HoOh_Event_Move_Rival_2_Left {
-    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
-        lock
-        applymovement(Route1_Rival, move_left_2)
-        goto(Route1_HoOh_Event_Direct)
-        release
-        end
-    }
+movement Route1_Movement_Walk_Left_2 {
+    walk_left * 2
+    step_end
 }
 
-script Route1_HoOh_Event_Move_Rival_3_Left {
-    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
-        lock
-        applymovement(Route1_Rival, move_left_3)
-        goto(Route1_HoOh_Event_Direct)
-        release
-        end
-    }
+movement Route1_Movement_Walk_Right_3 {
+    walk_right * 3
+    step_end
 }
 
-script Route1_HoOh_Event_Move_Rival_4_Left {
-    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
-        lock
-        applymovement(Route1_Rival, move_left_4)
-        goto(Route1_HoOh_Event_Direct)
-        release
-        end
-    }
+movement Route1_Movement_Walk_Left_18 {
+    walk_left * 18
+    step_end
 }
 
-script Route1_HoOh_Event_Move_Rival_5_Left {
-    if (flag(!FLAG_ROUTE1_HO_OH_EVENT_HAPPENED) == FALSE) {
-        lock
-        applymovement(Route1_Rival, move_left_5)
-        goto(Route1_HoOh_Event_Direct)
-        release
-        end
-    }
+movement Route1_Movement_Walk_Right_18 {
+    walk_right * 18
+    step_end
 }
 
-movement move_face_player {
+movement Route1_Movement_Walk_Up_1 {
+    walk_up
+    step_end
+}
+
+movement Route1_Movement_Walk_Up_5 {
+    walk_up * 5
+    step_end
+}
+
+movement Route1_Movement_Walk_Up_7 {
+    walk_up * 7
+    step_end
+}
+
+movement Route1_Movement_Walk_Up_9 {
+    walk_up * 9
+    step_end
+}
+
+movement Route1_Movement_Face_Player {
     face_player
     step_end
 }

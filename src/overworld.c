@@ -53,6 +53,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "constants/weather.h"
 
 #define PLAYER_LINK_STATE_IDLE 0x80
 #define PLAYER_LINK_STATE_BUSY 0x81
@@ -1027,6 +1028,20 @@ static u16 GetLocationMusic(struct WarpData * warp)
         else 
         {
             return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+        }
+    }
+    //If Route 1 event has been completed, change weather and music to be more appropriate.
+    else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_ROUTE_1)
+    {
+        if (FlagGet(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED))
+        {
+            return MUS_ROUTE1;
+        }
+        else 
+        {
+            gWeatherPtr->currWeather = WEATHER_SHADE;
+            gWeatherPtr->nextWeather = WEATHER_SHADE;
+            return MUS_ROUTE1_STORM;
         }
     }
     else {

@@ -24,3 +24,9 @@ ViridianCity_Mart_Text_GotToBuySomePotions::
     .string "You never know when your POKéMON\n"
     .string "will need quick healing.$"
 
+ViridianCity_Text_Misty_Busy_Shopping::
+    .string "Hi... I'm still shopping!\p"
+    .string "Besides, didn't the clerk just\n"
+    .string "ask you to deliver that thing?\p"
+    .string "Come on, {PLAYER}! Don't be a\n"
+    .string "SLOWPOKE!$"

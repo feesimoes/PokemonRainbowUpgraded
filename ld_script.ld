@@ -986,6 +986,7 @@ SECTIONS {
         sound/songs/midi/mus_viridian_forest_peace.o(.rodata);
         sound/songs/midi/mus_vs_gym_leader_rematch.o(.rodata);
         sound/songs/midi/mus_vs_elite_four.o(.rodata);
+        sound/songs/midi/mus_route1_storm.o(.rodata);
     } > ROM =0
 
     lib_rodata :

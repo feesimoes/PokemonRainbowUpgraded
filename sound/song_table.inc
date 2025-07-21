@@ -369,6 +369,7 @@ gSongTable::
 	song mus_viridian_forest_peace, 0, 0
 	song mus_vs_gym_leader_rematch, 0, 0
 	song mus_vs_elite_four, 0, 0
+	song mus_route1_storm, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

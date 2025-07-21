@@ -33,6 +33,10 @@ ViridianCity_Mart_EventScript_ParcelScene::
 	releaseall
 	end
 
+ViridianCity_Mart_Misty_Busy_Shopping::
+	msgbox ViridianCity_Text_Misty_Busy_Shopping, MSGBOX_NPC
+	end
+
 ViridianCity_Mart_Movement_ApproachCounter::
 	walk_up
 	walk_up
