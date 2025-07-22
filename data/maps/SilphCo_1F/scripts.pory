@@ -31,7 +31,7 @@ script SilphCo_1F_EventScript_CynthiaEncounter {
     waitmessage
     msgbox(format("My name is CYNTHIA,\nI'm a TRAINER just like you."))
     waitmessage
-    msgbox(format("You seem to be strong\nand respectable TRAINER...\p...OK, it's decided!\pI want to give you this!"))
+    msgbox(format("You seem to be a strong\nand respectable TRAINER...\p...OK, it's decided!\pI want to give you this!"))
     playfanfare(MUS_OBTAIN_KEY_ITEM)
     waitfanfare
     msgbox(format("CYNTHIA: Try using this PASS\nat the VERMILION HARBOR.\pI will let the POKéMON LEAGUE HQ\nknow that you have received this."))

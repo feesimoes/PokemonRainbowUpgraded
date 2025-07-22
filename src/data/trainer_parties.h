@@ -10959,3 +10959,42 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock2[] = {
         .moves = {MOVE_ROCK_SMASH, MOVE_EARTHQUAKE, MOVE_REST, MOVE_MUDDY_WATER},
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderRival[] = {
+    {
+        .iv = 255,
+        .lvl = 55,
+        .species = SPECIES_EXEGGUTOR,
+        .moves = {MOVE_RAZOR_LEAF, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_REFLECT},
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_ARCANINE,
+        .moves = {MOVE_ROAR, MOVE_DRAGON_RAGE, MOVE_FIRE_BLAST, MOVE_EXTREME_SPEED},
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_RHYDON,
+        .moves = {MOVE_MEGAHORN, MOVE_ROCK_SLIDE, MOVE_THUNDER_SHOCK, MOVE_EARTHQUAKE},
+    },
+    {
+        .iv = 255,
+        .lvl = 52,
+        .species = SPECIES_GYARADOS,
+        .moves = {MOVE_ICE_PUNCH, MOVE_WATERFALL, MOVE_DRAGON_DANCE, MOVE_RETURN},
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_MACHAMP,
+        .moves = {MOVE_DYNAMIC_PUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_THUNDER_PUNCH},
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_PIDGEOT,
+        .moves = {MOVE_RETURN, MOVE_WHIRLWIND, MOVE_AERIAL_ACE, MOVE_MIRROR_MOVE},
+    },
+};

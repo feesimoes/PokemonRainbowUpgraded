@@ -5868,7 +5868,14 @@ static u16 GetBattleBGM(void)
             //Have all 8 badges, this is a Kanto gym leader rematch
             if (FlagGet(FLAG_BADGE08_GET))
             {
-                return MUS_VS_GYM_LEADER_REMATCH;
+                if (gTrainers[gTrainerBattleOpponent_A].trainerPic == TRAINER_PIC_CHAMPION_RIVAL)
+                {
+                    return MUS_VS_GYM_LEADER_RIVAL;
+                }
+                else 
+                {
+                    return MUS_VS_GYM_LEADER_REMATCH;
+                }
             }
             else
             {

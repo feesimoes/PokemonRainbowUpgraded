@@ -3,7 +3,7 @@
   "name": "Route_218",
   "layout": "LAYOUT_ROUTE_218",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ROUTE_218",
+  "region_map_section": "MAPSEC_SINNOH_ROUTES",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -92,7 +92,15 @@
       "flag": "FLAG_TEMP_12"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CANALAVE_CITY",
+      "dest_warp_id": "10"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

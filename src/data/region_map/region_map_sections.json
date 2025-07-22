@@ -148,21 +148,6 @@
       "id": "MAPSEC_ROUTE_134"
     },
     {
-      "id": "MAPSEC_UNDERWATER_124"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_125"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_126"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_127"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_SOOTOPOLIS"
-    },
-    {
       "id": "MAPSEC_GRANITE_CAVE"
     },
     {
@@ -196,9 +181,6 @@
       "id": "MAPSEC_SHOAL_CAVE"
     },
     {
-      "id": "MAPSEC_UNDERWATER_128"
-    },
-    {
       "id": "MAPSEC_VICTORY_ROAD"
     },
     {
@@ -218,9 +200,6 @@
     },
     {
       "id": "MAPSEC_JAGGED_PASS2"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_SEALED_CHAMBER"
     },
     {
       "id": "MAPSEC_ISLAND_CAVE"
@@ -1357,14 +1336,6 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_218",
-      "name": "ROUTE 218",
-      "x": 1,
-      "y": 8,
-      "width": 3,
-      "height": 1
-    },
-    {
       "id": "MAPSEC_SPECIAL_AREA",
       "name": "CELADON DEPT.",
       "x": 0,
@@ -1373,40 +1344,8 @@
       "height": 0
     },
     {
-      "id": "MAPSEC_ROUTE_201",
-      "name": "ROUTE 201"
-    },
-    {
-      "id": "MAPSEC_ROUTE_202",
-      "name": "ROUTE 202"
-    },
-    {
-      "id": "MAPSEC_ROUTE_203",
-      "name": "ROUTE 203"
-    },
-    {
-      "id": "MAPSEC_ROUTE_204",
-      "name": "ROUTE 204"
-    },
-    {
-      "id": "MAPSEC_ROUTE_205",
-      "name": "ROUTE 205"
-    },
-    {
-      "id": "MAPSEC_ROUTE_206",
-      "name": "ROUTE 206"
-    },
-    {
-      "id": "MAPSEC_ROUTE_207",
-      "name": "ROUTE 207"
-    },
-    {
-      "id": "MAPSEC_ROUTE_208",
-      "name": "ROUTE 208"
-    },
-    {
-      "id": "MAPSEC_ROUTE_209",
-      "name": "ROUTE 209"
+      "id": "MAPSEC_SINNOH_ROUTES",
+      "name": "SINNOH"
     }
   ]
 }

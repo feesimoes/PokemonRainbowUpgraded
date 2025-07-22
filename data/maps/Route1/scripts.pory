@@ -62,12 +62,14 @@ script Route1_Misty_Thinks_You_Are_Rival {
     msgbox(format("I can't seem to reel in any\ngood POKéMON here either!\pIt's getting a bit dark, too, so\nI'll probably head back to CERULEAN."))
     msgbox(format("You're a new face!\nUh huh...\pOK, so you're {PLAYER}!\nI'll remember that!\pI'm MISTY! Here, come with me!\nI could show you to VIRIDIAN CITY!"))
     waitmessage
+    closemessage
     applymovement(Route1_Misty, Route1_Movement_Walk_Up_9)
     waitmovement
     applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_9)
     waitmovement
     msgbox(format("Argh!\nWhat's with these FLYING POKéMON?\pI can't find any WATER types!"))
     waitmessage
+    closemessage
     playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
     waitmoncry
     setweather(WEATHER_SUNNY)

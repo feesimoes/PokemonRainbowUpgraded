@@ -99,7 +99,7 @@ SilphCo_1F_EventScript_CynthiaEncounter_Text_1:
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_2:
 # 34 "data/maps/SilphCo_1F/scripts.pory"
-	.string "You seem to be strong\n"
+	.string "You seem to be a strong\n"
 	.string "and respectable TRAINER...\p"
 	.string "...OK, it's decided!\p"
 	.string "I want to give you this!$"

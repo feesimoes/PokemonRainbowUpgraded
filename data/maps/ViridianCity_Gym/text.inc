@@ -169,3 +169,52 @@ ViridianCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
+ViridianCity_Gym_Text_Rival_Get_Out_Of_My_Way::
+    .string "{RIVAL}: Out of my way!\n"
+    .string "I'm on LEAGUE buisness!$"
+
+ViridianCity_Gym_Text_Rival_Is_The_New_Leader::
+    .string "Yo, {PLAYER}!\n"
+    .string "What took you so long?\p"
+    .string "Finally got all 8 BADGES?\n"
+    .string "Haha! Not that I care!\p"
+    .string "I beat the CHAMPION already!\n"
+    .string "That's right!\p"
+    .string "I'm the toughest trainer in\n"
+    .string "KANTO! But no big deal, pal!\p"
+    .string "Anyways, I'm doing business.\n"
+    .string "Smell ya later!$"
+
+ViridianCity_Gym_Text_RivalIntro::
+    .string "{RIVAL}: {PLAYER}? you want\n"
+    .string "to challenge me or something?\p"
+    .string "Heh!\n"
+    .string "These GYM LEADERS are all weak!\p"
+    .string "Hey, but don't worry about it!\n"
+    .string "You know me, pal!\p"
+    .string "I'll be sure to make your POKéMON\n"
+    .string "faint! Ready, {PLAYER}?{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+ViridianCity_Gym_Text_RivalDefeat::
+    .string "Haha! I was going easy on you!$"
+
+ViridianCity_Gym_Text_RivalPostDefeat::
+    .string "Smell ya later!$"
+
+ViridianCity_Gym_Text_Rival_Smell_Ya_Later::
+    .string "{RIVAL}: {PLAYER}? you want\n"
+    .string "to challenge me or something?\p"
+    .string "Heh!\n"
+    .string "Go walk around for a bit!\p"
+    .string "While you go do that, I'll\n"
+    .string "consider your battle request.\p"
+    .string "Smell ya later!$"
+
+ViridianCity_Gym_Text_Rival_Defeated_Smell_Ya_Later::
+    .string "...Listen, you.\n"
+    .string "I was able to beat LANCE.\p"
+    .string "If a complete weakling like\n"
+    .string "you can beat a team like that...\p"
+    .string "Haha, well... I hate to say it!\n"
+    .string "I'll keep defending my title!\p"
+    .string "Don't get any stupid ideas!$"

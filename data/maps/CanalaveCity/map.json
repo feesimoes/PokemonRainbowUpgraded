@@ -162,6 +162,13 @@
       "elevation": 0,
       "dest_map": "MAP_CANALAVE_CITY",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 61,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE_218",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

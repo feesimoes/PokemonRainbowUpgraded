@@ -10,8 +10,108 @@ ViridianCity_Gym_EventScript_Giovanni::
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_VIRIDIAN_GIOVANNI
 	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Place_Rival_Right_5_Tiles
+	waitmovement
+	clearflag FLAG_HIDE_VIRIDIAN_RIVAL
+	playbgm MUS_ENCOUNTER_RIVAL, 0
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Make_Rival_Visible
+	waitmovement
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Down_4_Tiles
+	waitmovement
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Left_5_Tiles
+	waitmovement
+	getplayerxy VAR_TEMP_8, VAR_TEMP_9
+	compare VAR_TEMP_8, 2
+	goto_if_eq ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay
+	goto ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now
+	end
+
+ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay::
+	msgbox ViridianCity_Gym_Text_Rival_Get_Out_Of_My_Way
+	waitmessage
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Walk_Player_Left_1
+	waitmovement
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Face_Player_Right
+	waitmovement
+	goto ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now
+	end
+
+ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now::
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Run_Rival_Up_4_Tiles
+	waitmovement
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Face_Rival_Down
+	waitmovement
+	msgbox ViridianCity_Gym_Text_Rival_Is_The_New_Leader
 	release
 	end
+
+ViridianCity_Gym_EventScript_Rival::
+	goto_if_set FLAG_SYS_VS_SEEKER_CHARGING, ViridianCity_Gym_EventScript_VS_SEEKER_Charging_Smell_Ya_Later
+	trainerbattle_single TRAINER_LEADER_RIVAL, ViridianCity_Gym_Text_RivalIntro, ViridianCity_Gym_Text_RivalDefeat, ViridianCity_Gym_EventScript_DefeatedRival, NO_MUSIC
+	msgbox ViridianCity_Gym_Text_RivalPostDefeat
+	cleartrainerflag TRAINER_LEADER_RIVAL
+	release
+	end
+
+ViridianCity_Gym_EventScript_VS_SEEKER_Charging_Smell_Ya_Later::
+	msgbox ViridianCity_Gym_Text_Rival_Smell_Ya_Later
+	release
+	end
+
+ViridianCity_Gym_EventScript_DefeatedRival::
+	msgbox ViridianCity_Gym_Text_Rival_Defeated_Smell_Ya_Later
+	release
+	end
+
+ViridianCity_Gym_Movement_Face_Rival_Down::
+	face_down
+	step_end
+
+ViridianCity_Gym_Movement_Run_Rival_Up_4_Tiles::
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+ViridianCity_Gym_Movement_Face_Player_Right::
+	face_right
+	step_end
+
+ViridianCity_Gym_Movement_Walk_Player_Left_1::
+	walk_left
+	step_end
+
+ViridianCity_Gym_Movement_Walk_Rival_Up_2_Tiles::
+	walk_up
+	walk_up
+	step_end
+
+ViridianCity_Gym_Movement_Walk_Rival_Left_5_Tiles::
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+ViridianCity_Gym_Movement_Walk_Rival_Down_4_Tiles::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+ViridianCity_Gym_Movement_Place_Rival_Right_5_Tiles::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+ViridianCity_Gym_Movement_Make_Rival_Visible::
+	set_visible
+	step_end
 
 ViridianCity_Gym_EventScript_DefeatedGiovanni::
 	famechecker FAMECHECKER_GIOVANNI, 3

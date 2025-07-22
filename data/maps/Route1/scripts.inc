@@ -115,481 +115,485 @@ Route1_Misty_Thinks_You_Are_Rival::
 # 64 "data/maps/Route1/scripts.pory"
 	waitmessage
 # 65 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_9
+	closemessage
 # 66 "data/maps/Route1/scripts.pory"
-	waitmovement
+	applymovement 0x08, Route1_Movement_Walk_Up_9
 # 67 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_9
+	waitmovement
 # 68 "data/maps/Route1/scripts.pory"
-	waitmovement
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_9
 # 69 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_4
-# 70 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 71 "data/maps/Route1/scripts.pory"
-	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
-# 72 "data/maps/Route1/scripts.pory"
-	waitmoncry
-# 73 "data/maps/Route1/scripts.pory"
-	setweather WEATHER_SUNNY
-# 74 "data/maps/Route1/scripts.pory"
-	doweather
-# 75 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Right_3
-# 76 "data/maps/Route1/scripts.pory"
 	waitmovement
+# 70 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_4
+# 71 "data/maps/Route1/scripts.pory"
+	waitmessage
+# 72 "data/maps/Route1/scripts.pory"
+	closemessage
+# 73 "data/maps/Route1/scripts.pory"
+	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
+# 74 "data/maps/Route1/scripts.pory"
+	waitmoncry
+# 75 "data/maps/Route1/scripts.pory"
+	setweather WEATHER_SUNNY
+# 76 "data/maps/Route1/scripts.pory"
+	doweather
 # 77 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_1
+	applymovement 0x08, Route1_Movement_Walk_Right_3
 # 78 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 79 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_1
+	applymovement 0x08, Route1_Movement_Walk_Up_1
 # 80 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 81 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Right_3
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_1
 # 82 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 83 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Right_3
 # 84 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 85 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 86 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 87 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 88 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 89 "data/maps/Route1/scripts.pory"
-	closemessage
-# 90 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Left_2
-# 91 "data/maps/Route1/scripts.pory"
 	waitmovement
+# 89 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_5
+# 90 "data/maps/Route1/scripts.pory"
+	waitmessage
+# 91 "data/maps/Route1/scripts.pory"
+	closemessage
 # 92 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_2
+	applymovement 0x08, Route1_Movement_Walk_Left_2
 # 93 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 94 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_2
 # 95 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 96 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 97 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 98 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 99 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 100 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Right_18
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 101 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 102 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_6
+	applymovement 0x08, Route1_Movement_Walk_Right_18
 # 103 "data/maps/Route1/scripts.pory"
-	closemessage
-# 104 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_7
-# 105 "data/maps/Route1/scripts.pory"
 	waitmovement
+# 104 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_6
+# 105 "data/maps/Route1/scripts.pory"
+	closemessage
 # 106 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_18
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_7
 # 107 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 108 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_18
 # 109 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 110 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_7
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 111 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 112 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_8
-# 113 "data/maps/Route1/scripts.pory"
-	applymovement 10, Route1_Movement_Walk_Right_18
-# 114 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 115 "data/maps/Route1/scripts.pory"
 	waitmovement
+# 112 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_7
+# 113 "data/maps/Route1/scripts.pory"
+	waitmessage
+# 114 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_8
+# 115 "data/maps/Route1/scripts.pory"
+	applymovement 10, Route1_Movement_Walk_Right_18
 # 116 "data/maps/Route1/scripts.pory"
-	removeobject 10
+	waitmessage
 # 117 "data/maps/Route1/scripts.pory"
-	setflag FLAG_ROUTE1_HO_OH_EVENT_HAPPENED
+	waitmovement
 # 118 "data/maps/Route1/scripts.pory"
+	removeobject 10
+# 119 "data/maps/Route1/scripts.pory"
+	setflag FLAG_ROUTE1_HO_OH_EVENT_HAPPENED
+# 120 "data/maps/Route1/scripts.pory"
 	release
 	end
 
 
-# 122 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Left_2:
-# 123 "data/maps/Route1/scripts.pory"
-	walk_left
-# 123 "data/maps/Route1/scripts.pory"
-	walk_left
 # 124 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Left_2:
+# 125 "data/maps/Route1/scripts.pory"
+	walk_left
+# 125 "data/maps/Route1/scripts.pory"
+	walk_left
+# 126 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 127 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Right_3:
-# 128 "data/maps/Route1/scripts.pory"
-	walk_right
-# 128 "data/maps/Route1/scripts.pory"
-	walk_right
-# 128 "data/maps/Route1/scripts.pory"
-	walk_right
 # 129 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Right_3:
+# 130 "data/maps/Route1/scripts.pory"
+	walk_right
+# 130 "data/maps/Route1/scripts.pory"
+	walk_right
+# 130 "data/maps/Route1/scripts.pory"
+	walk_right
+# 131 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 132 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Left_18:
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
-# 133 "data/maps/Route1/scripts.pory"
-	walk_left
 # 134 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Left_18:
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 135 "data/maps/Route1/scripts.pory"
+	walk_left
+# 136 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 137 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Right_18:
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
-# 138 "data/maps/Route1/scripts.pory"
-	walk_right
 # 139 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Right_18:
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 140 "data/maps/Route1/scripts.pory"
+	walk_right
+# 141 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 142 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Up_1:
-# 143 "data/maps/Route1/scripts.pory"
-	walk_up
 # 144 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Up_1:
+# 145 "data/maps/Route1/scripts.pory"
+	walk_up
+# 146 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 147 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Up_5:
-# 148 "data/maps/Route1/scripts.pory"
-	walk_up
-# 148 "data/maps/Route1/scripts.pory"
-	walk_up
-# 148 "data/maps/Route1/scripts.pory"
-	walk_up
-# 148 "data/maps/Route1/scripts.pory"
-	walk_up
-# 148 "data/maps/Route1/scripts.pory"
-	walk_up
 # 149 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Up_5:
+# 150 "data/maps/Route1/scripts.pory"
+	walk_up
+# 150 "data/maps/Route1/scripts.pory"
+	walk_up
+# 150 "data/maps/Route1/scripts.pory"
+	walk_up
+# 150 "data/maps/Route1/scripts.pory"
+	walk_up
+# 150 "data/maps/Route1/scripts.pory"
+	walk_up
+# 151 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 152 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Up_7:
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
-# 153 "data/maps/Route1/scripts.pory"
-	walk_up
 # 154 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Up_7:
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 155 "data/maps/Route1/scripts.pory"
+	walk_up
+# 156 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 157 "data/maps/Route1/scripts.pory"
-Route1_Movement_Walk_Up_9:
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
-# 158 "data/maps/Route1/scripts.pory"
-	walk_up
 # 159 "data/maps/Route1/scripts.pory"
-	step_end
-
-# 162 "data/maps/Route1/scripts.pory"
-Route1_Movement_Face_Player:
-# 163 "data/maps/Route1/scripts.pory"
-	face_player
-# 164 "data/maps/Route1/scripts.pory"
-	step_end
-
-# 167 "data/maps/Route1/scripts.pory"
-move_face_down:
-# 168 "data/maps/Route1/scripts.pory"
-	face_down
-# 169 "data/maps/Route1/scripts.pory"
-	step_end
-
-# 172 "data/maps/Route1/scripts.pory"
-exclaimation_mark:
-# 173 "data/maps/Route1/scripts.pory"
-	emote_exclamation_mark
-# 174 "data/maps/Route1/scripts.pory"
-	step_end
-
-# 177 "data/maps/Route1/scripts.pory"
-move_up_1:
-# 178 "data/maps/Route1/scripts.pory"
+Route1_Movement_Walk_Up_9:
+# 160 "data/maps/Route1/scripts.pory"
 	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 160 "data/maps/Route1/scripts.pory"
+	walk_up
+# 161 "data/maps/Route1/scripts.pory"
+	step_end
+
+# 164 "data/maps/Route1/scripts.pory"
+Route1_Movement_Face_Player:
+# 165 "data/maps/Route1/scripts.pory"
+	face_player
+# 166 "data/maps/Route1/scripts.pory"
+	step_end
+
+# 169 "data/maps/Route1/scripts.pory"
+move_face_down:
+# 170 "data/maps/Route1/scripts.pory"
+	face_down
+# 171 "data/maps/Route1/scripts.pory"
+	step_end
+
+# 174 "data/maps/Route1/scripts.pory"
+exclaimation_mark:
+# 175 "data/maps/Route1/scripts.pory"
+	emote_exclamation_mark
+# 176 "data/maps/Route1/scripts.pory"
+	step_end
+
 # 179 "data/maps/Route1/scripts.pory"
+move_up_1:
+# 180 "data/maps/Route1/scripts.pory"
+	walk_up
+# 181 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 182 "data/maps/Route1/scripts.pory"
-move_face_left_fast:
-# 183 "data/maps/Route1/scripts.pory"
-	face_left_fast
 # 184 "data/maps/Route1/scripts.pory"
+move_face_left_fast:
+# 185 "data/maps/Route1/scripts.pory"
+	face_left_fast
+# 186 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 187 "data/maps/Route1/scripts.pory"
-move_left_1:
-# 188 "data/maps/Route1/scripts.pory"
-	walk_left
 # 189 "data/maps/Route1/scripts.pory"
-	step_end
-
+move_left_1:
+# 190 "data/maps/Route1/scripts.pory"
+	walk_left
 # 191 "data/maps/Route1/scripts.pory"
-move_left_2:
-# 192 "data/maps/Route1/scripts.pory"
-	walk_left
-# 192 "data/maps/Route1/scripts.pory"
-	walk_left
+	step_end
+
 # 193 "data/maps/Route1/scripts.pory"
-	step_end
-
+move_left_2:
+# 194 "data/maps/Route1/scripts.pory"
+	walk_left
+# 194 "data/maps/Route1/scripts.pory"
+	walk_left
 # 195 "data/maps/Route1/scripts.pory"
-move_left_3:
-# 196 "data/maps/Route1/scripts.pory"
-	walk_left
-# 196 "data/maps/Route1/scripts.pory"
-	walk_left
-# 196 "data/maps/Route1/scripts.pory"
-	walk_left
+	step_end
+
 # 197 "data/maps/Route1/scripts.pory"
-	step_end
-
+move_left_3:
+# 198 "data/maps/Route1/scripts.pory"
+	walk_left
+# 198 "data/maps/Route1/scripts.pory"
+	walk_left
+# 198 "data/maps/Route1/scripts.pory"
+	walk_left
 # 199 "data/maps/Route1/scripts.pory"
-move_left_4:
-# 200 "data/maps/Route1/scripts.pory"
-	walk_left
-# 200 "data/maps/Route1/scripts.pory"
-	walk_left
-# 200 "data/maps/Route1/scripts.pory"
-	walk_left
-# 200 "data/maps/Route1/scripts.pory"
-	walk_left
+	step_end
+
 # 201 "data/maps/Route1/scripts.pory"
+move_left_4:
+# 202 "data/maps/Route1/scripts.pory"
+	walk_left
+# 202 "data/maps/Route1/scripts.pory"
+	walk_left
+# 202 "data/maps/Route1/scripts.pory"
+	walk_left
+# 202 "data/maps/Route1/scripts.pory"
+	walk_left
+# 203 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 204 "data/maps/Route1/scripts.pory"
-move_left_5:
-# 205 "data/maps/Route1/scripts.pory"
-	walk_left
-# 205 "data/maps/Route1/scripts.pory"
-	walk_left
-# 205 "data/maps/Route1/scripts.pory"
-	walk_left
-# 205 "data/maps/Route1/scripts.pory"
-	walk_left
-# 205 "data/maps/Route1/scripts.pory"
-	walk_left
 # 206 "data/maps/Route1/scripts.pory"
+move_left_5:
+# 207 "data/maps/Route1/scripts.pory"
+	walk_left
+# 207 "data/maps/Route1/scripts.pory"
+	walk_left
+# 207 "data/maps/Route1/scripts.pory"
+	walk_left
+# 207 "data/maps/Route1/scripts.pory"
+	walk_left
+# 207 "data/maps/Route1/scripts.pory"
+	walk_left
+# 208 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 209 "data/maps/Route1/scripts.pory"
-move_left_16:
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
-# 210 "data/maps/Route1/scripts.pory"
-	walk_left
 # 211 "data/maps/Route1/scripts.pory"
-	step_end
-
+move_left_16:
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
+# 212 "data/maps/Route1/scripts.pory"
+	walk_left
 # 213 "data/maps/Route1/scripts.pory"
-run_left_16:
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 214 "data/maps/Route1/scripts.pory"
-	walk_faster_left
-# 215 "data/maps/Route1/scripts.pory"
 	step_end
 
-# 218 "data/maps/Route1/scripts.pory"
-move_right_16:
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
-# 219 "data/maps/Route1/scripts.pory"
-	walk_right
+# 215 "data/maps/Route1/scripts.pory"
+run_left_16:
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 216 "data/maps/Route1/scripts.pory"
+	walk_faster_left
+# 217 "data/maps/Route1/scripts.pory"
+	step_end
+
 # 220 "data/maps/Route1/scripts.pory"
+move_right_16:
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 221 "data/maps/Route1/scripts.pory"
+	walk_right
+# 222 "data/maps/Route1/scripts.pory"
 	step_end
 
 Route1_Spearows_Bite_Text_0:
@@ -633,24 +637,24 @@ Route1_Misty_Thinks_You_Are_Rival_Text_3:
 	.string "I could show you to VIRIDIAN CITY!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_4:
-# 69 "data/maps/Route1/scripts.pory"
+# 70 "data/maps/Route1/scripts.pory"
 	.string "Argh!\n"
 	.string "What's with these FLYING POKéMON?\p"
 	.string "I can't find any WATER types!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_5:
-# 87 "data/maps/Route1/scripts.pory"
+# 89 "data/maps/Route1/scripts.pory"
 	.string "Well, would you look at that?\n"
 	.string "The rain has finally let up!\p"
 	.string "Come on, just a bit more to go!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_6:
-# 102 "data/maps/Route1/scripts.pory"
+# 104 "data/maps/Route1/scripts.pory"
 	.string "I'm all the way over here,\n"
 	.string "SLOWPOKE! By the big red building!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_7:
-# 110 "data/maps/Route1/scripts.pory"
+# 112 "data/maps/Route1/scripts.pory"
 	.string "We're here!\n"
 	.string "This is the POKéMON CENTER.\p"
 	.string "NURSE JOY is always happy to heal\n"
@@ -658,7 +662,7 @@ Route1_Misty_Thinks_You_Are_Rival_Text_7:
 	.string "The best part is that it's free!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_8:
-# 112 "data/maps/Route1/scripts.pory"
+# 114 "data/maps/Route1/scripts.pory"
 	.string "I'm gonna go over to the POKéMART!\n"
 	.string "I definitely need to stock up\p"
 	.string "on supplies now, since ROUTE 1.\n"
