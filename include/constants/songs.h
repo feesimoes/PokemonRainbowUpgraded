@@ -377,6 +377,8 @@
 #define MUS_VS_ELITE_FOUR         369 // MUS_VS_ELITE_FOUR
 #define MUS_ROUTE1_STORM          370 // MUS_ROUTE1_STORM
 #define MUS_VS_GYM_LEADER_RIVAL   371 // MUS_VS_GYM_LEADER_RIVAL
+#define MUS_KANTO_EMOTION         372 // MUS_KANTO_EMOTION
+#define MUS_SAFARI_ZONE           373 // MUS_SAFARI_ZONE
 
 #define MUS_NONE                    0xFFFF
 
