@@ -1,6 +1,14 @@
 mapscripts Route26_MapScripts {
 }
 
+script Route26_Professor_Oak_Battle {
+    trainerbattle_single(TRAINER_PKMN_PROF_PROF_OAK, format("Ah, {PLAYER}!\nGood to see you.\pBeyond this gate here is the\nROUTE 28, it leads to MT. SILVER.\pIt's home to the toughest\nPOKéEMON! But...\pI need to test if you\nhave what it takes!"), format("So, you are ready...!"))
+    msgbox(format("Very well, {PLAYER}!\nI'd have expected nothing less.\pPlease proceed to MT. SILVER!\nPlease, take care in your journey!"))
+    closemessage
+    releaseall
+    end
+}
+
 script Picknicker_Jamie_Route26_Battle {
     trainerbattle_single(TRAINER_PICKNICKER_JAMIE_ROUTE26, format("Do you have rare Pokémon from Kanto?\nShow me, show me!"), format("Yup, that's definitely a rare Pokémon!"))
     msgbox(format("It's too bad I don't have a Pokédex.\nI wish I could get one!"))
