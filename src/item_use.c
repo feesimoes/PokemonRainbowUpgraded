@@ -38,6 +38,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+#include "pokenav.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 
@@ -63,6 +64,8 @@ static void Task_UseRepel(u8 taskId);
 static void RemoveUsedItem(void);
 static void Task_UsedBlackWhiteFlute(u8 taskId);
 static void ItemUseOnFieldCB_EscapeRope(u8 taskId);
+static void UsePokeNavPlusFromBag(void);
+static void Task_UsePokeNavPlusFromField(u8 taskId);
 static void UseTownMapFromBag(void);
 static void Task_UseTownMapFromField(u8 taskId);
 static void UseFameCheckerFromBag(void);
@@ -646,6 +649,37 @@ void Task_UseDigEscapeRopeOnField(u8 taskId)
     DestroyTask(taskId);
 }
 
+void FieldUseFunc_PokeNavPlus(u8 taskId)
+{
+    if (gTasks[taskId].data[3] == 0)
+    {
+        ItemMenu_SetExitCallback(UsePokeNavPlusFromBag);
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        StopPokemonLeagueLightingEffectTask();
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_UsePokeNavPlusFromField;
+    }
+}
+
+static void UsePokeNavPlusFromBag(void)
+{
+    CB2_InitPokeNav();   
+}
+
+static void Task_UsePokeNavPlusFromField(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetFieldCallback2ForItemUse();
+        CB2_InitPokeNav();   
+        DestroyTask(taskId);
+    }
+}
+
 void FieldUseFunc_TownMap(u8 taskId)
 {
     if (gTasks[taskId].data[3] == 0)
@@ -727,6 +761,12 @@ void FieldUseFunc_VsSeeker(u8 taskId)
         sItemUseOnFieldCB = Task_VsSeeker_0;
         SetUpItemUseOnFieldCallback(taskId);
     }
+}
+
+void FieldUseFunc_RockClimb(u8 taskId)
+{
+    Bag_BeginCloseWin0Animation();
+    ItemMenu_StartFadeToExitCallback(taskId);
 }
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)

@@ -360,8 +360,7 @@ u32 FieldEffectStart(u8 fldeff)
     u32 result;
     FieldEffectActiveListAdd(fldeff);
     script = gFieldEffectScriptPointers[fldeff];
-    while (sFldEffScrcmdTable[*script](&script, &result))
-        ;
+    while (sFldEffScrcmdTable[*script](&script, &result));
     return result;
 }
 
@@ -2971,6 +2970,10 @@ static void UseSurfEffect_3(struct Task *task);
 static void UseSurfEffect_4(struct Task *task);
 static void UseSurfEffect_5(struct Task *task);
 
+u8 FldEff_UseRockClimb(void);
+static void Task_FldEffUseRockClimb(u8 taskId);
+static void UseRockClimbEffect(struct Task *task);
+
 static void (*const sUseSurfEffectFuncs[])(struct Task *) = {
     UseSurfEffect_1,
     UseSurfEffect_2,
@@ -2978,6 +2981,21 @@ static void (*const sUseSurfEffectFuncs[])(struct Task *) = {
     UseSurfEffect_4,
     UseSurfEffect_5,
 };
+
+static void (*const sUseRockClimbEffectFuncs[])(struct Task *) = {
+    UseRockClimbEffect,
+};
+
+u8 FldEff_UseRockClimb(void)
+{
+    u8 taskId = CreateTask(Task_FldEffUseRockClimb, 0xff);
+    gTasks[taskId].data[15] = gFieldEffectArguments[0];
+    return FALSE;
+}
+static void Task_FldEffUseRockClimb(u8 taskId)
+{
+    sUseRockClimbEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
+}
 
 u8 FldEff_UseSurf(void)
 {
@@ -2992,6 +3010,27 @@ u8 FldEff_UseSurf(void)
 static void Task_FldEffUseSurf(u8 taskId)
 {
     sUseSurfEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
+}
+
+static void UseRockClimbEffect(struct Task *task)
+{
+    struct ObjectEvent * objectEvent;
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    PlayerGetDestCoords(&task->data[1], &task->data[2]);
+    PlaySE(SE_LEDGE);
+    MoveCoords(gObjectEvents[gPlayerAvatar.objectEventId].movementDirection, &task->data[1], &task->data[2]);
+    ObjectEventSetHeldMovement(objectEvent, GetJump2MovementAction(objectEvent->movementDirection));
+    gFieldEffectArguments[0] = task->data[1];
+    gFieldEffectArguments[1] = task->data[2];
+    gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
+    ObjectEventSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(objectEvent->movementDirection));
+    UnfreezeObjectEvents();
+    UnlockPlayerFieldControls();
+    FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
+    DestroyTask(FindTaskIdByFunc(Task_FldEffUseRockClimb));
+    task->data[0]++;
 }
 
 static void UseSurfEffect_1(struct Task *task)

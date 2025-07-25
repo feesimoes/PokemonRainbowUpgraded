@@ -903,6 +903,7 @@ Text_RestoredPkmnToFullHealth::
 	.string "full health.$"
 
 	.include "data/text/surf.inc"
+	.include "data/text/rockclimb.inc"
 
 @ Unused, from R/S
 Text_DoorOpenedFarAway::
@@ -1075,6 +1076,7 @@ Common_ShowEasyChatScreen::
 	return
 
 	.include "data/scripts/surf.inc"
+	.include "data/scripts/rockclimb.inc"
 	.include "data/scripts/set_gym_trainers.inc"
 	.include "data/scripts/bag_full.inc"
 
@@ -1420,3 +1422,12 @@ Text_TestMsg::
 
 	.include "data/maps/Route_218/scripts.inc"
 	.include "data/maps/Route_218/text.inc"
+
+	.include "data/maps/Route46/scripts.inc"
+	.include "data/maps/Route46/text.inc"
+
+	.include "data/maps/CanalaveCity_Gym_1F/scripts.inc"
+	.include "data/maps/CanalaveCity_Gym_1F/text.inc"
+
+	.include "data/maps/SaffronCity_MagnetTrainStation/scripts.inc"
+	.include "data/maps/SaffronCity_MagnetTrainStation/text.inc"

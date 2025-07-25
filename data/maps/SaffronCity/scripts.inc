@@ -39,6 +39,14 @@ SaffronCity_EventScript_RocketGrunt7::
 	msgbox SaffronCity_Text_WeCanExploitMonsAroundWorld, MSGBOX_NPC
 	end
 
+SaffronCity_EventScript_RocketGrunt8::
+	msgbox SaffronCity_Text_WhyStopAtKanto, MSGBOX_NPC
+	end
+
+SaffronCity_EventScript_MagnetTrainStationSign::
+	msgbox SaffronCity_Text_MagnetTrainStationSign, MSGBOX_SIGN
+	end
+
 SaffronCity_EventScript_DoorGuardGrunt::
 	lock
 	goto_if_set FLAG_RESCUED_MR_FUJI, SaffronCity_EventScript_DoorGuardAsleep

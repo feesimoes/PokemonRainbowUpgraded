@@ -1043,7 +1043,7 @@ static void InitRegionMapType(void)
     }
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
-    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
+    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START && gMapHeader.regionMapSectionId < MAPSEC_ROUTE_22_FRONT_GATE)
     {
         // Mapsec is in Sevii Islands, determine which map to use
         while (region == REGIONMAP_KANTO)
@@ -1059,29 +1059,27 @@ static void InitRegionMapType(void)
             j++;
         }
     }
-    
+
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
-
-    //Still in Kanto
-    if (gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
-    {
-        sRegionMap->selectedRegion = REGIONMAP_KANTO;
-        sRegionMap->playersRegion = REGIONMAP_KANTO;
-    }
+    
     //In Johto
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
+    if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
     {
         sRegionMap->selectedRegion = REGIONMAP_JOHTO;
         sRegionMap->playersRegion = REGIONMAP_JOHTO;
     }
     //In Sinnoh
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_NONE)
+    else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId < MAPSEC_SPECIAL_AREA)
     {
         sRegionMap->selectedRegion = REGIONMAP_SINNOH;
         sRegionMap->playersRegion = REGIONMAP_SINNOH;
     }
-
+    //Still in Kanto
+    else {
+        sRegionMap->selectedRegion = REGIONMAP_KANTO;
+        sRegionMap->playersRegion = REGIONMAP_KANTO;
+    }
 }
 
 static void CB2_OpenRegionMap(void)

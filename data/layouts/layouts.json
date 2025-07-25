@@ -4620,6 +4620,42 @@
       "secondary_tileset": "gTileset_SaffronCity",
       "border_filepath": "data/layouts/Route_218/border.bin",
       "blockdata_filepath": "data/layouts/Route_218/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE46",
+      "name": "Route46_Layout",
+      "width": 24,
+      "height": 72,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Route46/border.bin",
+      "blockdata_filepath": "data/layouts/Route46/map.bin"
+    },
+    {
+      "id": "LAYOUT_CANALAVE_CITY_GYM_1F",
+      "name": "CanalaveCity_Gym_1F_Layout",
+      "width": 26,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PowerPlant",
+      "border_filepath": "data/layouts/CanalaveCity_Gym_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CanalaveCity_Gym_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAFFRON_CITY_MAGNET_TRAIN_STATION",
+      "name": "SaffronCity_MagnetTrainStation_Layout",
+      "width": 24,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PowerPlant",
+      "border_filepath": "data/layouts/SaffronCity_MagnetTrainStation/border.bin",
+      "blockdata_filepath": "data/layouts/SaffronCity_MagnetTrainStation/map.bin"
     }
   ]
 }

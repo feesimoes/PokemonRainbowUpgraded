@@ -47,7 +47,8 @@
     "gMapGroup_IndoorRoute27",
     "gMapGroup_IndoorNewBark",
     "gMapGroup_IndoorCherrygrove",
-    "gMapGroup_IndoorRoute30"
+    "gMapGroup_IndoorRoute30",
+    "gMapGroup_IndoorCanalave"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -319,7 +320,8 @@
     "CherrygroveCity",
     "Route30",
     "CanalaveCity",
-    "Route_218"
+    "Route_218",
+    "Route46"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -433,7 +435,8 @@
     "SaffronCity_PokemonCenter_1F",
     "SaffronCity_PokemonCenter_2F",
     "SaffronCity_MrPsychicsHouse",
-    "SaffronCity_PokemonTrainerFanClub"
+    "SaffronCity_PokemonTrainerFanClub",
+    "SaffronCity_MagnetTrainStation"
   ],
   "gMapGroup_IndoorRoute2": [
     "Route2_ViridianForest_SouthEntrance",
@@ -589,5 +592,8 @@
   ],
   "gMapGroup_IndoorRoute30": [
     "Route30_MrPokemonHouse"
+  ],
+  "gMapGroup_IndoorCanalave": [
+    "CanalaveCity_Gym_1F"
   ]
 }

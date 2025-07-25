@@ -23,6 +23,11 @@
       "map": "MAP_CHERRYGROVE_CITY",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE46",
+      "offset": 40,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -85,24 +90,24 @@
   ],
   "warp_events": [
     {
-      "x": 55,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE29",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 53,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29",
+      "dest_map": "MAP_ROUTE46",
       "dest_warp_id": "0"
     },
     {
       "x": 54,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE29",
+      "dest_map": "MAP_ROUTE46",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 55,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE46",
       "dest_warp_id": "0"
     }
   ],

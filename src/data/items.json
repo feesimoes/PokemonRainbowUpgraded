@@ -6057,6 +6057,38 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "POKéNAV PLUS",
+      "itemId": "ITEM_POKE_NAV_PLUS",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A very helpful and convenient\\nnavigational system, which has been\\nimproved by SILPH CO.",
+      "importance": 1,
+      "registrability": 1,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_PokeNavPlus",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "EXPLORER KIT",
+      "itemId": "ITEM_ROCK_CLIMB_KIT",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A helpful set of adventuring tools\\nthat can scale rocky ledges.\\nIt also helps with mining.",
+      "importance": 1,
+      "registrability": 1,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_RockClimb",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

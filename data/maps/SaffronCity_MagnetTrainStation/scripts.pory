@@ -1,0 +1,8 @@
+mapscripts SaffronCity_MagnetTrainStation_MapScripts {}
+
+script SaffronCity_MagnetTrainStation_EventScript_Rodolfo {
+    if (!flag(FLAG_HIDE_VIRIDIAN_GIOVANNI))
+    {
+        
+    }
+}

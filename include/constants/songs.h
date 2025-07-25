@@ -379,6 +379,8 @@
 #define MUS_VS_GYM_LEADER_RIVAL   371 // MUS_VS_GYM_LEADER_RIVAL
 #define MUS_KANTO_EMOTION         372 // MUS_KANTO_EMOTION
 #define MUS_SAFARI_ZONE           373 // MUS_SAFARI_ZONE
+#define MUS_ROUTE_32              374 // MUS_ROUTE32
+#define MUS_ROUTE_46              375 // MUS_ROUTE46
 
 #define MUS_NONE                    0xFFFF
 

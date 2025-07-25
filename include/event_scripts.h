@@ -1239,6 +1239,8 @@ extern const u8 EventScript_FieldPoison[];
 extern const u8 EventScript_EggHatch[];
 extern const u8 EventScript_DoFallWarp[];
 
+extern const u8 EventScript_UseRockClimb[];
+
 // overworld
 
 extern const u8 EventScript_ResetEliteFourEnd[];

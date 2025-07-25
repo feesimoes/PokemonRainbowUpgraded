@@ -50,6 +50,7 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition * positio
 static const struct BgEvent *GetBackgroundEventAtPosition(struct MapHeader *, u16, u16, u8);
 static const u8 *GetInteractedMetatileScript(struct MapPosition * position, u8 metatileBehavior, u8 playerDirection);
 static const u8 *GetInteractedWaterScript(struct MapPosition * position, u8 metatileBehavior, u8 playerDirection);
+static const u8 *GetInteractedLedgeScript(struct MapPosition * position, u8 metatileBehavior, u8 playerDirection);
 static bool8 TryStartStepBasedScript(struct MapPosition * position, u16 metatileBehavior, u16 playerDirection);
 static bool8 TryStartCoordEventScript(struct MapPosition * position);
 static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior);
@@ -401,6 +402,10 @@ static const u8 *GetInteractionScript(struct MapPosition *position, u8 metatileB
     if (script != NULL)
         return script;
 
+    script = GetInteractedLedgeScript(position, metatileBehavior, direction);
+    if (script != NULL)
+        return script;
+
     return NULL;
 }
 
@@ -596,6 +601,30 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_PokecenterSign;
     }
     return NULL;
+}
+
+static const u8 *GetInteractedLedgeScript(struct MapPosition *unused1, u8 metatileBehavior, u8 direction)
+{
+    if (MetatileBehavior_IsJumpNorth(metatileBehavior) == TRUE && FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT) == TRUE)
+    {
+        return EventScript_UseRockClimb;
+    }
+    else if (MetatileBehavior_IsJumpWest(metatileBehavior) == TRUE && FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT) == TRUE)
+    {
+        return EventScript_UseRockClimb;
+    }
+    else if (MetatileBehavior_IsJumpEast(metatileBehavior) == TRUE && FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT) == TRUE)
+    {
+        return EventScript_UseRockClimb;
+    }
+    else if (MetatileBehavior_IsJumpSouth(metatileBehavior) == TRUE && FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT) == TRUE)
+    {
+        return EventScript_UseRockClimb;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metatileBehavior, u8 direction)

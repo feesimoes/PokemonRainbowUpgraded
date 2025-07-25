@@ -33,48 +33,6 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 7,
-      "y": 17,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Test_Movement_Script_1",
-      "flag": "FLAG_TEMP_1"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 9,
-      "y": 17,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Test_Movement_Script_1",
-      "flag": "FLAG_TEMP_1"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MEOWTH",
-      "x": 8,
-      "y": 16,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Test_Movement_Script_1",
-      "flag": "FLAG_TEMP_1"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 19,
       "y": 15,
@@ -90,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 14,
+      "x": 10,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
@@ -225,7 +183,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route26_Professor_Oak_Battle",
-      "flag": "0"
+      "flag": "FLAG_HIDE_PROF_OAK_RT26"
     }
   ],
   "warp_events": [

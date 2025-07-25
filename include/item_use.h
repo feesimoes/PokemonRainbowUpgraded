@@ -25,6 +25,7 @@ void FieldUseFunc_TeachyTv(u8 taskId);
 void FieldUseFunc_Repel(u8 taskId);
 void FieldUseFunc_BlackWhiteFlute(u8 taskId);
 void FieldUseFunc_TownMap(u8 taskId);
+void FieldUseFunc_PokeNavPlus(u8 taskId);
 void FieldUseFunc_FameChecker(u8 taskId);
 void FieldUseFunc_VsSeeker(u8 taskId);
 void BattleUseFunc_PokeBallEtc(u8 taskId);
@@ -41,5 +42,6 @@ void ItemUseOutOfBattle_Itemfinder(u8 taskId);
 void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseEscapeRopeOnCurrMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
+void FieldUseFunc_RockClimb(u8 taskId);
 
 #endif //GUARD_ITEM_USE_H

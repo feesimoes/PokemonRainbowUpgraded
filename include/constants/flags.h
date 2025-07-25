@@ -191,7 +191,7 @@
 
 // Unused?
 #define FLAG_HIDE_VIRIDIAN_RIVAL 0x0AF
-#define FLAG_HIDE_PROF_OAK_RT23  0x0B0
+#define FLAG_HIDE_PROF_OAK_RT26  0x0B0
 #define FLAG_0x0B1               0x0B1
 #define FLAG_0x0B2               0x0B2
 #define FLAG_0x0B3               0x0B3
@@ -1470,8 +1470,8 @@
 #define FLAG_WORLD_MAP_TOHJO_FALLS                                  (SYS_FLAGS + 0xC5)
 #define FLAG_WORLD_MAP_NEW_BARK_TOWN                                (SYS_FLAGS + 0xC6)
 #define FLAG_SINNOH_PASS_OBTAINED                                   (SYS_FLAGS + 0xC7)
-#define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)
-#define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
+#define FLAG_OBTAINED_ROCK_CLIMB_KIT                                (SYS_FLAGS + 0xC8)
+#define FLAG_OBTAINED_MUSIC_PLAYER                                  (SYS_FLAGS + 0xC9)
 #define FLAG_0x8CA                                                  (SYS_FLAGS + 0xCA)
 #define FLAG_0x8CB                                                  (SYS_FLAGS + 0xCB)
 #define FLAG_0x8CC                                                  (SYS_FLAGS + 0xCC)

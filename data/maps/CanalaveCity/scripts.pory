@@ -1,5 +1,14 @@
 mapscripts CanalaveCity_MapScripts {}
 
+script CanalaveCity_GiveRockClimbKit
+{
+    lock
+    msgbox(format("That's BYRON'S badge!\nNot bad for a KANTONIAN!\pHere, take this!"))
+    setflag(FLAG_OBTAINED_ROCK_CLIMB_KIT)
+    release
+    end
+}
+
 script CanalaveCity_Gym_Sign {
     lock
     msgbox(format("CANALAVE CITY GYM\nLEADER: BYRON\pThe Man with the STEEL Body!"))

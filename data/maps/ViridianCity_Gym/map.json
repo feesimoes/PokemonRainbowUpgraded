@@ -195,7 +195,17 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "ViridianCity_Gym_EventScript_Check_Hide_Rival"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -216,7 +226,7 @@
     {
       "type": "hidden_item",
       "x": 2,
-      "y": 3,
+      "y": 5,
       "elevation": 3,
       "item": "ITEM_MACHO_BRACE",
       "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE",

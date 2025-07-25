@@ -990,6 +990,8 @@ SECTIONS {
         sound/songs/midi/mus_vs_gym_leader_rival.o(.rodata);
         sound/songs/midi/mus_kanto_emotion.o(.rodata);
         sound/songs/midi/mus_safari_zone.o(.rodata);
+        sound/songs/midi/mus_route32.o(.rodata);
+        sound/songs/midi/mus_route46.o(.rodata);
     } > ROM =0
 
     lib_rodata :

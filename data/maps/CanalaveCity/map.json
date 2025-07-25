@@ -90,6 +90,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 8,
+      "y": 30,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CanalaveCity_GiveRockClimbKit",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -104,7 +118,7 @@
       "x": 6,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY",
+      "dest_map": "MAP_CANALAVE_CITY_GYM_1F",
       "dest_warp_id": "0"
     },
     {

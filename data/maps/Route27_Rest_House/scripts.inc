@@ -14,15 +14,17 @@ Route27_Rest_Lady_Heals_Party::
 # 9 "data/maps/Route27_Rest_House/scripts.pory"
 	msgbox Route27_Rest_Lady_Heals_Party_Text_1
 # 10 "data/maps/Route27_Rest_House/scripts.pory"
+	setworldmapflag FLAG_WORLD_MAP_ROUTE27_REST_HOUSE
+# 11 "data/maps/Route27_Rest_House/scripts.pory"
 	release
 	end
 
 
-# 14 "data/maps/Route27_Rest_House/scripts.pory"
-RestLadyFacesPlayer:
 # 15 "data/maps/Route27_Rest_House/scripts.pory"
-	face_player
+RestLadyFacesPlayer:
 # 16 "data/maps/Route27_Rest_House/scripts.pory"
+	face_player
+# 17 "data/maps/Route27_Rest_House/scripts.pory"
 	step_end
 
 Route27_Rest_Lady_Heals_Party_Text_0:

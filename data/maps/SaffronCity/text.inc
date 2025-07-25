@@ -26,6 +26,15 @@ SaffronCity_Text_WeCanExploitMonsAroundWorld::
     .string "exploit POKéMON around the world!\p"
     .string "We'll get stinking rich, yeahah!$"
 
+SaffronCity_Text_WhyStopAtKanto::
+    .string "Why should we stop at KANTO?\n"
+    .string "C'mon... get 'er done at SILPH!\p"
+    .string "We've got a world to take over!$"
+
+SaffronCity_Text_MagnetTrainStation::
+    .string "KANTO-JOHTO MAGNET TRAIN LINE\n"
+    .string "SAFFRON CITY STATION$"
+
 SaffronCity_Text_YouBeatTeamRocket::
     .string "You beat TEAM ROCKET all alone?\n"
     .string "That's amazing!$"
