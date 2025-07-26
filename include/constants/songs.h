@@ -381,6 +381,8 @@
 #define MUS_SAFARI_ZONE           373 // MUS_SAFARI_ZONE
 #define MUS_ROUTE_32              374 // MUS_ROUTE32
 #define MUS_ROUTE_46              375 // MUS_ROUTE46
+#define MUS_GYM_SINNOH            376 // MUS_GYM_SINNOH
+#define MUS_VS_GYM_LEADER_SINNOH  377 // MUS_VS_GYM_LEADER_SINNOH
 
 #define MUS_NONE                    0xFFFF
 

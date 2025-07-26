@@ -11030,3 +11030,42 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderRival[] = {
         .moves = {MOVE_RETURN, MOVE_WHIRLWIND, MOVE_AERIAL_ACE, MOVE_MIRROR_MOVE},
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderByron[] = {
+    {
+        .iv = 255,
+        .lvl = 53,
+        .species = SPECIES_SKARMORY,
+        .moves = {MOVE_STEEL_WING, MOVE_SPIKES, MOVE_IRON_DEFENSE, MOVE_TAUNT},
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_CRUNCH},
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_MAGNETON,
+        .moves = {MOVE_THUNDERBOLT, MOVE_FLASH, MOVE_LIGHT_SCREEN, MOVE_MAGNITUDE},
+    },
+    {
+        .iv = 255,
+        .lvl = 61,
+        .species = SPECIES_AGGRON,
+        .moves = {MOVE_THUNDER, MOVE_HEADBUTT, MOVE_EARTHQUAKE, MOVE_IRON_TAIL},
+    },
+    {
+        .iv = 255,
+        .lvl = 61,
+        .species = SPECIES_LAPRAS,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_ROAR, MOVE_ICE_BEAM, MOVE_ANCIENT_POWER},
+    },
+    {
+        .iv = 255,
+        .lvl = 62,
+        .species = SPECIES_ARMALDO,
+        .moves = {MOVE_BODY_SLAM, MOVE_ROAR, MOVE_ROCK_TOMB, MOVE_ANCIENT_POWER},
+    },
+};

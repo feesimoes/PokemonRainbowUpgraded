@@ -31,7 +31,7 @@ SaffronCity_Text_WhyStopAtKanto::
     .string "C'mon... get 'er done at SILPH!\p"
     .string "We've got a world to take over!$"
 
-SaffronCity_Text_MagnetTrainStation::
+SaffronCity_Text_MagnetTrainStationSign::
     .string "KANTO-JOHTO MAGNET TRAIN LINE\n"
     .string "SAFFRON CITY STATION$"
 

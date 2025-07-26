@@ -992,6 +992,8 @@ SECTIONS {
         sound/songs/midi/mus_safari_zone.o(.rodata);
         sound/songs/midi/mus_route32.o(.rodata);
         sound/songs/midi/mus_route46.o(.rodata);
+        sound/songs/midi/mus_gym_sinnoh.o(.rodata);
+        sound/songs/midi/mus_vs_gym_leader_sinnoh.o(.rodata);
     } > ROM =0
 
     lib_rodata :

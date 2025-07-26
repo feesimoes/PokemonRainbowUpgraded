@@ -1,1 +1,39 @@
 mapscripts CanalaveCity_Gym_1F_MapScripts {}
+
+script CanalaveCity_Gym_1F_Statue 
+{
+    if (flag(FLAG_OBTAINED_ROCK_CLIMB_KIT))
+    {
+        msgbox(format("CANALAVE CITY GYM\nLEADER: BYRON\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+        release
+        end
+    }
+    else
+    {
+        msgbox(format("CANALAVE CITY GYM\nLEADER: BYRON\pWINNING TRAINERS:\n{RIVAL}"))
+        release
+        end
+    }
+}
+
+script CanalaveCity_Gym_1F_Gym_Tip_Guy 
+{   
+    applymovement(LOCALID_CANALAVE_GYM_GUY, Movement_CanalaveCity_Gym_1F_Gym_Tip_Guy_Face_Player)
+    if (flag(FLAG_OBTAINED_ROCK_CLIMB_KIT))
+    {
+        msgbox(format("Phew! That was an intense battle!\nI knew you could do it!"))
+        release
+        end
+    }
+    else
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nBYRON uses STEEL type POKéMON!\pOriginally discovered in JOHTO, you'd\nbetter use FIRE, FIGHTING, or GROUND-types!"))
+        release
+        end
+    }
+}
+
+movement Movement_CanalaveCity_Gym_1F_Gym_Tip_Guy_Face_Player {
+    face_player
+    step_end
+}

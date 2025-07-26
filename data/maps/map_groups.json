@@ -594,6 +594,9 @@
     "Route30_MrPokemonHouse"
   ],
   "gMapGroup_IndoorCanalave": [
-    "CanalaveCity_Gym_1F"
+    "CanalaveCity_Gym_1F",
+    "CanalaveCity_Gym_2F",
+    "CanalaveCity_Gym_3F",
+    "CanalaveCity_Gym_4F"
   ]
 }

@@ -1431,3 +1431,12 @@ Text_TestMsg::
 
 	.include "data/maps/SaffronCity_MagnetTrainStation/scripts.inc"
 	.include "data/maps/SaffronCity_MagnetTrainStation/text.inc"
+
+	.include "data/maps/CanalaveCity_Gym_2F/scripts.inc"
+	.include "data/maps/CanalaveCity_Gym_2F/text.inc"
+
+	.include "data/maps/CanalaveCity_Gym_3F/scripts.inc"
+	.include "data/maps/CanalaveCity_Gym_3F/text.inc"
+
+	.include "data/maps/CanalaveCity_Gym_4F/scripts.inc"
+	.include "data/maps/CanalaveCity_Gym_4F/text.inc"

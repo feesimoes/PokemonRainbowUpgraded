@@ -5865,8 +5865,8 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
-            //Have all 8 badges, this is a Kanto gym leader rematch
-            if (FlagGet(FLAG_BADGE08_GET))
+            //Have all 8 badges and on a Kanto map, this is a Kanto gym leader rematch
+            if (FlagGet(FLAG_BADGE08_GET) && gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
             {
                 if (gTrainers[gTrainerBattleOpponent_A].trainerPic == TRAINER_PIC_CHAMPION_RIVAL)
                 {
@@ -5876,6 +5876,11 @@ static u16 GetBattleBGM(void)
                 {
                     return MUS_VS_GYM_LEADER_REMATCH;
                 }
+            }
+            //On a Sinnoh map, this is a Sinnoh gym leader battle
+            else if (gMapHeader.regionMapSectionId > MAPSEC_DRAGONS_DEN)
+            {
+                return MUS_VS_GYM_LEADER_SINNOH;
             }
             else
             {

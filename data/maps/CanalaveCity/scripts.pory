@@ -4,7 +4,8 @@ script CanalaveCity_GiveRockClimbKit
 {
     lock
     msgbox(format("That's BYRON'S badge!\nNot bad for a KANTONIAN!\pHere, take this!"))
-    setflag(FLAG_OBTAINED_ROCK_CLIMB_KIT)
+    clearflag(FLAG_OBTAINED_ROCK_CLIMB_KIT)
+    cleartrainerflag(TRAINER_LEADER_BYRON)
     release
     end
 }

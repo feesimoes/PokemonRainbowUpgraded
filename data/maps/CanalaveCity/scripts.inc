@@ -8,38 +8,40 @@ CanalaveCity_GiveRockClimbKit::
 # 6 "data/maps/CanalaveCity/scripts.pory"
 	msgbox CanalaveCity_GiveRockClimbKit_Text_0
 # 7 "data/maps/CanalaveCity/scripts.pory"
-	setflag FLAG_OBTAINED_ROCK_CLIMB_KIT
+	clearflag FLAG_OBTAINED_ROCK_CLIMB_KIT
 # 8 "data/maps/CanalaveCity/scripts.pory"
+	cleartrainerflag TRAINER_LEADER_BYRON
+# 9 "data/maps/CanalaveCity/scripts.pory"
 	release
 	end
 
 
 CanalaveCity_Gym_Sign::
-# 13 "data/maps/CanalaveCity/scripts.pory"
-	lock
 # 14 "data/maps/CanalaveCity/scripts.pory"
-	msgbox CanalaveCity_Gym_Sign_Text_0
+	lock
 # 15 "data/maps/CanalaveCity/scripts.pory"
+	msgbox CanalaveCity_Gym_Sign_Text_0
+# 16 "data/maps/CanalaveCity/scripts.pory"
 	release
 	end
 
 
 CanalaveCity_SailorEldritchHouse_Sign::
-# 20 "data/maps/CanalaveCity/scripts.pory"
-	lock
 # 21 "data/maps/CanalaveCity/scripts.pory"
-	msgbox CanalaveCity_SailorEldritchHouse_Sign_Text_0
+	lock
 # 22 "data/maps/CanalaveCity/scripts.pory"
+	msgbox CanalaveCity_SailorEldritchHouse_Sign_Text_0
+# 23 "data/maps/CanalaveCity/scripts.pory"
 	release
 	end
 
 
 CanalaveCity_Sign::
-# 27 "data/maps/CanalaveCity/scripts.pory"
-	lock
 # 28 "data/maps/CanalaveCity/scripts.pory"
-	msgbox CanalaveCity_Sign_Text_0
+	lock
 # 29 "data/maps/CanalaveCity/scripts.pory"
+	msgbox CanalaveCity_Sign_Text_0
+# 30 "data/maps/CanalaveCity/scripts.pory"
 	release
 	end
 
@@ -51,16 +53,16 @@ CanalaveCity_GiveRockClimbKit_Text_0:
 	.string "Here, take this!$"
 
 CanalaveCity_Gym_Sign_Text_0:
-# 14 "data/maps/CanalaveCity/scripts.pory"
+# 15 "data/maps/CanalaveCity/scripts.pory"
 	.string "CANALAVE CITY GYM\n"
 	.string "LEADER: BYRON\p"
 	.string "The Man with the STEEL Body!$"
 
 CanalaveCity_SailorEldritchHouse_Sign_Text_0:
-# 21 "data/maps/CanalaveCity/scripts.pory"
+# 22 "data/maps/CanalaveCity/scripts.pory"
 	.string "SAILOR ELDRITCH'S HOUSE$"
 
 CanalaveCity_Sign_Text_0:
-# 28 "data/maps/CanalaveCity/scripts.pory"
+# 29 "data/maps/CanalaveCity/scripts.pory"
 	.string "CANALAVE CITY\n"
 	.string "Cargo Port$"
