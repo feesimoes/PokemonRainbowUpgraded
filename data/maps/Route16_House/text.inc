@@ -8,7 +8,7 @@ Route16_House_Text_FoundMySecretRetreat::
 
 Route16_House_Text_ReceivedHM02FromGirl::
     .string "{PLAYER} received the\n"
-    .string "WORLD MAP from the girl.$"
+    .string "POKéNAV from the girl.$"
 
 Route16_House_Text_ExplainHM02::
     .string "It's a wonderfully convenient\n"

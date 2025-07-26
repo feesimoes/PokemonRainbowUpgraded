@@ -9,6 +9,7 @@ Route16_House_EventScript_Woman::
 	checkitemspace ITEM_POKE_NAV_PLUS
 	goto_if_eq VAR_RESULT, FALSE, Route16_House_EventScript_NoRoomForHM02
 	giveitem_msg Route16_House_Text_ReceivedHM02FromGirl, ITEM_POKE_NAV_PLUS
+	giveitem ITEM_HM02_FLY, 1
 	msgbox Route16_House_Text_ExplainHM02
 	setflag FLAG_GOT_HM02
 	release
