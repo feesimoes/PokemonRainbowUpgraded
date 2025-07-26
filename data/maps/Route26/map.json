@@ -104,7 +104,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 5,
+      "x": 8,
       "y": 107,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -118,7 +118,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 3,
+      "x": 15,
       "y": 109,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -132,7 +132,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 7,
+      "x": 17,
       "y": 109,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -146,11 +146,11 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 13,
-      "y": 97,
+      "x": 17,
+      "y": 67,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_DOWN_AND_UP",
-      "movement_range_x": 3,
+      "movement_range_x": 0,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",

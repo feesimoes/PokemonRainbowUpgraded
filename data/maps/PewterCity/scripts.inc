@@ -428,6 +428,14 @@ PewterCity_EventScript_Lass::
 	msgbox PewterCity_Text_ClefairyCameFromMoon, MSGBOX_NPC
 	end
 
+PewterCity_EventScript_MuseumGuide2::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_ThisIsTheMuseum
+	closemessage
+	release
+	end
+
 PewterCity_EventScript_MuseumGuide::
 	lock
 	faceplayer
