@@ -39,6 +39,8 @@
 #include "constants/songs.h"
 #include "constants/field_weather.h"
 #include "pokenav.h"
+#include "constants/vars.h"
+#include "event_scripts.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 
@@ -552,14 +554,11 @@ static void Task_InitTeachyTvFromField(u8 taskId)
 
 void FieldUseFunc_Repel(u8 taskId)
 {
-    if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
-    {
-        PlaySE(SE_REPEL);
-        gTasks[taskId].func = Task_UseRepel;
-    }
-    else
-        // An earlier repel is still in effect
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
+    PlaySE(SE_REPEL);
+    gTasks[taskId].func = Task_UseRepel;
+    //else
+    //An earlier repel is still in effect
+    //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
 static void Task_UseRepel(u8 taskId)
@@ -567,9 +566,11 @@ static void Task_UseRepel(u8 taskId)
     if (!IsSEPlaying())
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
-        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        VarSet(VAR_REPEL_STEP_COUNT, VarGet(VAR_REPEL_STEP_COUNT) + ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
         RemoveUsedItem();
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
+        ScriptContext_SetupScript(EventScript_UseAnotherRepelFromBag);
+        ScriptContext_RunScript();
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsStepsRemaining, Task_ReturnToBagFromContextMenu);
     }
 }
 
@@ -578,7 +579,7 @@ static void RemoveUsedItem(void)
     RemoveBagItem(gSpecialVar_ItemId, 1);
     Pocket_CalculateNItemsAndMaxShowed(ItemId_GetPocket(gSpecialVar_ItemId));
     PocketCalculateInitialCursorPosAndItemsAbove(ItemId_GetPocket(gSpecialVar_ItemId));
-    CopyItemName(gSpecialVar_ItemId, gStringVar2);
+    CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
 }
 

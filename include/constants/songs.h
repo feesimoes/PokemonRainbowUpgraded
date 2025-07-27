@@ -383,6 +383,9 @@
 #define MUS_ROUTE_46              375 // MUS_ROUTE46
 #define MUS_GYM_SINNOH            376 // MUS_GYM_SINNOH
 #define MUS_VS_GYM_LEADER_SINNOH  377 // MUS_VS_GYM_LEADER_SINNOH
+#define MUS_VS_RODOLFO            378 // MUS_VS_RODOLFO
+#define MUS_LEGEND_TRAINER        379 // MUS_VS_RODOLFO
+#define MUS_VS_PROF_OAK           380 // MUS_VS_PROF_OAK
 
 #define MUS_NONE                    0xFFFF
 

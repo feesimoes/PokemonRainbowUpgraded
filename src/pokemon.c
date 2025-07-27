@@ -5902,6 +5902,8 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
+        case TRAINER_CLASS_PKMN_TRAINER:
+            return MUS_VS_RODOLFO;
         default:
             if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
             {

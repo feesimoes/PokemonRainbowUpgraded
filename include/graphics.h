@@ -2592,6 +2592,7 @@ extern const u32 gTrainerFrontPic_RuinManiac[];
 extern const u32 gTrainerFrontPic_Lady[];
 extern const u32 gTrainerFrontPic_Painter[];
 extern const u32 gTrainerFrontPic_LeaderByron[];
+extern const u32 gTrainerFrontPic_TrainerRodolfo[];
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -2746,6 +2747,7 @@ extern const u32 gTrainerPalette_RuinManiac[];
 extern const u32 gTrainerPalette_Lady[];
 extern const u32 gTrainerPalette_Painter[];
 extern const u32 gTrainerPalette_LeaderByron[];
+extern const u32 gTrainerPalette_TrainerRodolfo[];
 
 extern const u8 gMenuInfoElements_Gfx[];
 extern const u16 gMenuInfoElements1_Pal[];

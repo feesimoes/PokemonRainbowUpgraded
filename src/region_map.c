@@ -679,10 +679,14 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_CERULEAN_CAVE,
         .name = sMapsecName_CERULEAN_CAVE,
         .desc = gText_RegionMap_AreaDesc_CeruleanCave
-    },  {
+    }, {
         .id = MAPSEC_POWER_PLANT,
         .name = sMapsecName_POWER_PLANT,
         .desc = gText_RegionMap_AreaDesc_PowerPlant
+    }, {
+        .id = MAPSEC_VERMILION_HARBOR,
+        .name = sMapsecName_VERMILION_HARBOR,
+        .desc = gText_RegionMap_AreaDesc_VermilionHarbor
     }, {
         .id = MAPSEC_MT_EMBER,
         .name = sMapsecName_MT__EMBER,
@@ -878,7 +882,8 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_NEW_BARK_TOWN),                         HEAL_LOCATION_NEW_BARK_TOWN},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_SSANNE_EXTERIOR),                       HEAL_LOCATION_VERMILION_HARBOR},
+    [MAPSEC_VERMILION_HARBOR    - KANTO_MAPSEC_START] = {MAP(MAP_SSANNE_EXTERIOR),                       HEAL_LOCATION_VERMILION_HARBOR},
     [MAPSEC_UNDERGROUND_PATH    - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_UNDERGROUND_PATH_2  - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_DIGLETTS_CAVE       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -3071,6 +3076,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_LAVENDER_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_VERMILION_CITY:
         return FlagGet(FLAG_WORLD_MAP_VERMILION_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_VERMILION_HARBOR:
+        return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_CELADON_CITY:
         return FlagGet(FLAG_WORLD_MAP_CELADON_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_FUCHSIA_CITY:
@@ -3186,6 +3193,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TOHJO_FALLS:
         return FlagGet(FLAG_WORLD_MAP_TOHJO_FALLS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_VERMILION_HARBOR:
+        return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }

@@ -1170,7 +1170,9 @@ extern const u8 CableClub_Text_YouMayBattleHere[];
 extern const u8 CableClub_Text_CanMakeBerryPowder[];
 extern const u8 EventScript_PC[];
 
+// repel
 extern const u8 EventScript_RepelWoreOff[];
+extern const u8 EventScript_UseAnotherRepelFromBag[];
 
 // battle_message
 extern const u8 Text_MonSentToBoxInSomeonesPC[];

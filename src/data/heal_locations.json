@@ -199,6 +199,14 @@
       "y": 20,
       "respawn_map": "MAP_CANALAVE_CITY",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VERMILION_HARBOR",
+      "map": "MAP_SSANNE_EXTERIOR",
+      "x": 52,
+      "y": 6,
+      "respawn_map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_VERMILION_NURSE"
     }
   ]
 }

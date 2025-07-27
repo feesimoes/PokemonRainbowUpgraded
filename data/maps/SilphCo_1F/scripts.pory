@@ -23,26 +23,37 @@ movement Movement_Cynthia_Faces_Player {
 }
 
 script SilphCo_1F_EventScript_CynthiaEncounter {
-    lock
-    applymovement(2, Movement_Cynthia_Faces_Player)
-    waitmovement
-    playbgm(MUS_CYNTHIA, TRUE)
-    msgbox(format("Oh, is that a POKéDEX?\nYou must be helping PROF. OAK?\pWhat's your name?\p...Oh? Aren't you the same {PLAYER}\nwho drove TEAM ROCKET out of here?"))
-    waitmessage
-    msgbox(format("My name is CYNTHIA,\nI'm a TRAINER just like you."))
-    waitmessage
-    msgbox(format("You seem to be a strong\nand respectable TRAINER...\p...OK, it's decided!\pI want to give you this!"))
-    playfanfare(MUS_OBTAIN_KEY_ITEM)
-    waitfanfare
-    msgbox(format("CYNTHIA: Try using this PASS\nat the VERMILION HARBOR.\pI will let the POKéMON LEAGUE HQ\nknow that you have received this."))
-    waitmessage
-    msgbox(format("CYNTHIA: I hope to see you again\nsoon, {PLAYER}! Maybe in battle?\pSee you later!"))
-    waitmessage
-    fadenewbgm(MUS_KANTO_ROUTE_GATE)
-    setflag(FLAG_SINNOH_PASS_OBTAINED)
-    fadescreen(FADE_TO_BLACK)
-    removeobject(2)
-    fadescreen(FADE_FROM_BLACK)
-    release
-    end
+    if (flag(FLAG_HIDE_SILPH_ROCKETS))
+    {
+        lock
+        applymovement(2, Movement_Cynthia_Faces_Player)
+        waitmovement
+        playbgm(MUS_CYNTHIA, TRUE)
+        msgbox(format("Oh, is that a POKéDEX?\nYou must be helping PROF. OAK!\pSo, what's your name?\p...Oh! Aren't you the same {PLAYER}\nwho drove TEAM ROCKET out of here?"))
+        waitmessage
+        msgbox(format("My name is CYNTHIA,\nI'm a TRAINER just like you."))
+        waitmessage
+        msgbox(format("You seem to be a strong\nand respectable TRAINER...\p...OK, it's decided!"))
+        msgbox(format("Now, I know I'm asking a big favor\nof you, but you are very capable.\pPlease visit VERMILION HARBOR'S\neasternmost port.\pThere will be a ferry to SINNOH."))
+        waitmessage
+        msgbox(format("I'm truly grateful for your actions\nhere at SILPH CO.\pNow, SINNOH is an entirely different\nregion due far north of KANTO.\pBe prepared for a lengthy journey\n...Oh, and bring warm clothes!\pWe'll meet again soon, {PLAYER}!"))
+        waitmessage
+        closemessage
+        fadenewbgm(MUS_KANTO_ROUTE_GATE)
+        setflag(FLAG_SINNOH_PASS_OBTAINED)
+        fadescreen(FADE_TO_BLACK)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+    }
+    else
+    {
+        lock
+        applymovement(2, Movement_Cynthia_Faces_Player)
+        waitmovement
+        msgbox(format("Oh, hello...\nWait, no, you aren't with SILPH...\pI'm sorry, I thought you were the\nperson I was here to interview..."))
+        release
+        end
+    }
 }

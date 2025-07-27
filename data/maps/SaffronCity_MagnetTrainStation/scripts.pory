@@ -1,8 +1,38 @@
 mapscripts SaffronCity_MagnetTrainStation_MapScripts {}
 
 script SaffronCity_MagnetTrainStation_EventScript_Rodolfo {
-    if (!flag(FLAG_HIDE_VIRIDIAN_GIOVANNI))
+    lock
+    faceplayer
+    if (flag(FLAG_HIDE_SILPH_ROCKETS))
     {
-        
+        msgbox(format("Hey, good job on beating TEAM\nROCKET! Uh, well I mean...\pTechnically, you didn't beat them\n...not yet, anyways.\pYou did drive them out of SAFFRON\nand SILPH..."))
+        waitmessage
+        msgbox(format("Anyways, I'm RODOLFO!\nSo, uh, you're {PLAYER}? Yeah, I know.\pHah! That look on your face!\nyou should've seen it!\pI mean, you're obviously becoming\npretty well-known in KANTO, duh."))
+        waitmessage
+        msgbox(format("I've got something for you, {PLAYER}!\nBut you have to beat me in battle!\pReady?"), MSGBOX_YESNO)
+        waitmessage
+        if (var(VAR_RESULT) == NO)
+        {
+            msgbox(format("Well, you're a lucky TRAINER!\nCan you believe I even asked?\pYou can go prepare, I'll just be...\nhere... (Hmm, that kinda rhymes!)"))
+            waitmessage
+            closemessage
+            release
+            end
+        }
+        else
+        {
+            trainerbattle_single(TRAINER_RODOLFO, format("No, wait!\nI don't have a catchy phrase yet!"), format("Uh, I lost...\nBut, how did you like my battle theme?"), format("Alright, you've earned this!"))
+            waitmessage
+            closemessage
+            //giveitem(ITEM_MUSIC_PLAYER, 1)
+            setflag(FLAG_OBTAINED_MUSIC_PLAYER)
+            playfanfare(MUS_OBTAIN_KEY_ITEM)
+            waitfanfare
+            waitmessage
+            closemessage
+            msgbox(format("Pretty cool looking, huh?\nBut yeah, the MUSIC PLAYER is neat!"))
+            waitmessage
+            closemessage
+        }
     }
 }

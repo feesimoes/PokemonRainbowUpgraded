@@ -994,6 +994,9 @@ SECTIONS {
         sound/songs/midi/mus_route46.o(.rodata);
         sound/songs/midi/mus_gym_sinnoh.o(.rodata);
         sound/songs/midi/mus_vs_gym_leader_sinnoh.o(.rodata);
+        sound/songs/midi/mus_vs_rodolfo.o(.rodata);
+        sound/songs/midi/mus_legend_trainer_challenge.o(.rodata);
+        sound/songs/midi/mus_vs_prof_oak.o(.rodata);
     } > ROM =0
 
     lib_rodata :

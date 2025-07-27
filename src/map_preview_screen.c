@@ -138,6 +138,14 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
         .palptr = sSeafoamIslandsMapPreviewPalette
     },
+    [MPS_VERMILION_HARBOR] = {
+        .mapsec = MAPSEC_VERMILION_HARBOR,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_SSANNE_EXTERIOR,
+        .tilesptr = sSeafoamIslandsMapPreviewTiles,
+        .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
+        .palptr = sSeafoamIslandsMapPreviewPalette
+    },
     [MPS_POKEMON_MANSION] = {
         .mapsec = MAPSEC_POKEMON_MANSION,
         .type = MPS_TYPE_FOREST,

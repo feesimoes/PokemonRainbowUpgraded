@@ -41,7 +41,7 @@ const Route1_HoOh = 0x03
 script Route1_Spearows_Bite {
     lock
     playmoncry(SPECIES_SPEAROW, CRY_MODE_NORMAL)
-    msgbox(format("It's a wild POKéMON!\nDarn! Couldn't ID it!\p"))
+    msgbox(format("It's a wild POKéMON!\nDarn! No way to ID it!"))
     setweather(WEATHER_RAIN)
     doweather
     msgbox(format("Ow!\nIt gave you a vicious PECK!"))
@@ -57,6 +57,7 @@ script Route1_Misty_Thinks_You_Are_Rival {
     doweather
     msgbox(format("Argh! How annoying!\n...Oh? Well, welcome back, pest!\pAre you returning my BIKE?"), MSGBOX_YESNO)
     msgbox(format("...Huh? I appreciate that\nunexpected honesty, but...\pSorry, I've had a rough day!\nSome loser took off with my BIKE!"))
+    closemessage
     setweather(WEATHER_RAIN_THUNDERSTORM)
     doweather
     msgbox(format("I can't seem to reel in any\ngood POKéMON here either!\pIt's getting a bit dark, too, so\nI'll probably head back to CERULEAN."))
@@ -67,9 +68,6 @@ script Route1_Misty_Thinks_You_Are_Rival {
     waitmovement
     applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_9)
     waitmovement
-    msgbox(format("Argh!\nWhat's with these FLYING POKéMON?\pI can't find any WATER types!"))
-    waitmessage
-    closemessage
     playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
     waitmoncry
     setweather(WEATHER_SUNNY)
@@ -111,9 +109,11 @@ script Route1_Misty_Thinks_You_Are_Rival {
     waitmovement
     msgbox(format("We're here!\nThis is the POKéMON CENTER.\pNURSE JOY is always happy to heal\nYour POKéMON to full health!\pThe best part is that it's free!"))
     waitmessage
+    closemessage
     msgbox(format("I'm gonna go over to the POKéMART!\nI definitely need to stock up\pon supplies now, since ROUTE 1.\nOK, see ya!\pBe sure to meet lots of POKéMON!"))
-    applymovement(10, Route1_Movement_Walk_Right_18)
     waitmessage
+    closemessage
+    applymovement(10, Route1_Movement_Walk_Right_18)
     waitmovement
     removeobject(10)
     setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)

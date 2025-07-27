@@ -105,119 +105,119 @@ Route1_Misty_Thinks_You_Are_Rival::
 # 59 "data/maps/Route1/scripts.pory"
 	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_1
 # 60 "data/maps/Route1/scripts.pory"
-	setweather WEATHER_RAIN_THUNDERSTORM
+	closemessage
 # 61 "data/maps/Route1/scripts.pory"
-	doweather
+	setweather WEATHER_RAIN_THUNDERSTORM
 # 62 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_2
-# 63 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_3
-# 64 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 65 "data/maps/Route1/scripts.pory"
-	closemessage
-# 66 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_9
-# 67 "data/maps/Route1/scripts.pory"
-	waitmovement
-# 68 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_9
-# 69 "data/maps/Route1/scripts.pory"
-	waitmovement
-# 70 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_4
-# 71 "data/maps/Route1/scripts.pory"
-	waitmessage
-# 72 "data/maps/Route1/scripts.pory"
-	closemessage
-# 73 "data/maps/Route1/scripts.pory"
-	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
-# 74 "data/maps/Route1/scripts.pory"
-	waitmoncry
-# 75 "data/maps/Route1/scripts.pory"
-	setweather WEATHER_SUNNY
-# 76 "data/maps/Route1/scripts.pory"
 	doweather
-# 77 "data/maps/Route1/scripts.pory"
+# 63 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_2
+# 64 "data/maps/Route1/scripts.pory"
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_3
+# 65 "data/maps/Route1/scripts.pory"
+	waitmessage
+# 66 "data/maps/Route1/scripts.pory"
+	closemessage
+# 67 "data/maps/Route1/scripts.pory"
+	applymovement 0x08, Route1_Movement_Walk_Up_9
+# 68 "data/maps/Route1/scripts.pory"
+	waitmovement
+# 69 "data/maps/Route1/scripts.pory"
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_9
+# 70 "data/maps/Route1/scripts.pory"
+	waitmovement
+# 71 "data/maps/Route1/scripts.pory"
+	playmoncry SPECIES_HO_OH, CRY_MODE_NORMAL
+# 72 "data/maps/Route1/scripts.pory"
+	waitmoncry
+# 73 "data/maps/Route1/scripts.pory"
+	setweather WEATHER_SUNNY
+# 74 "data/maps/Route1/scripts.pory"
+	doweather
+# 75 "data/maps/Route1/scripts.pory"
 	applymovement 0x08, Route1_Movement_Walk_Right_3
+# 76 "data/maps/Route1/scripts.pory"
+	waitmovement
+# 77 "data/maps/Route1/scripts.pory"
+	applymovement 0x08, Route1_Movement_Walk_Up_1
 # 78 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 79 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_1
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_1
 # 80 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 81 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_1
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Right_3
 # 82 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 83 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Right_3
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 84 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 85 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 86 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 87 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_4
 # 88 "data/maps/Route1/scripts.pory"
-	waitmovement
-# 89 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_5
-# 90 "data/maps/Route1/scripts.pory"
 	waitmessage
-# 91 "data/maps/Route1/scripts.pory"
+# 89 "data/maps/Route1/scripts.pory"
 	closemessage
-# 92 "data/maps/Route1/scripts.pory"
+# 90 "data/maps/Route1/scripts.pory"
 	applymovement 0x08, Route1_Movement_Walk_Left_2
+# 91 "data/maps/Route1/scripts.pory"
+	waitmovement
+# 92 "data/maps/Route1/scripts.pory"
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_2
 # 93 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 94 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_2
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 95 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 96 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 97 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 98 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	applymovement 0x08, Route1_Movement_Walk_Up_5
 # 99 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 100 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Up_5
+	applymovement 0x08, Route1_Movement_Walk_Right_18
 # 101 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 102 "data/maps/Route1/scripts.pory"
-	applymovement 0x08, Route1_Movement_Walk_Right_18
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_5
 # 103 "data/maps/Route1/scripts.pory"
-	waitmovement
-# 104 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_6
-# 105 "data/maps/Route1/scripts.pory"
 	closemessage
-# 106 "data/maps/Route1/scripts.pory"
+# 104 "data/maps/Route1/scripts.pory"
 	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_7
+# 105 "data/maps/Route1/scripts.pory"
+	waitmovement
+# 106 "data/maps/Route1/scripts.pory"
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_18
 # 107 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 108 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Left_18
+	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
 # 109 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 110 "data/maps/Route1/scripts.pory"
-	applymovement LOCALID_PLAYER, Route1_Movement_Walk_Up_5
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_6
 # 111 "data/maps/Route1/scripts.pory"
-	waitmovement
+	waitmessage
 # 112 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_7
+	closemessage
 # 113 "data/maps/Route1/scripts.pory"
-	waitmessage
+	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_7
 # 114 "data/maps/Route1/scripts.pory"
-	msgbox Route1_Misty_Thinks_You_Are_Rival_Text_8
-# 115 "data/maps/Route1/scripts.pory"
-	applymovement 10, Route1_Movement_Walk_Right_18
-# 116 "data/maps/Route1/scripts.pory"
 	waitmessage
+# 115 "data/maps/Route1/scripts.pory"
+	closemessage
+# 116 "data/maps/Route1/scripts.pory"
+	applymovement 10, Route1_Movement_Walk_Right_18
 # 117 "data/maps/Route1/scripts.pory"
 	waitmovement
 # 118 "data/maps/Route1/scripts.pory"
@@ -599,8 +599,7 @@ move_right_16:
 Route1_Spearows_Bite_Text_0:
 # 44 "data/maps/Route1/scripts.pory"
 	.string "It's a wild POKéMON!\n"
-	.string "Darn! Couldn't ID it!\p"
-	.string "$"
+	.string "Darn! No way to ID it!$"
 
 Route1_Spearows_Bite_Text_1:
 # 47 "data/maps/Route1/scripts.pory"
@@ -621,14 +620,14 @@ Route1_Misty_Thinks_You_Are_Rival_Text_1:
 	.string "Some loser took off with my BIKE!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_2:
-# 62 "data/maps/Route1/scripts.pory"
+# 63 "data/maps/Route1/scripts.pory"
 	.string "I can't seem to reel in any\n"
 	.string "good POKéMON here either!\p"
 	.string "It's getting a bit dark, too, so\n"
 	.string "I'll probably head back to CERULEAN.$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_3:
-# 63 "data/maps/Route1/scripts.pory"
+# 64 "data/maps/Route1/scripts.pory"
 	.string "You're a new face!\n"
 	.string "Uh huh...\p"
 	.string "OK, so you're {PLAYER}!\n"
@@ -637,32 +636,26 @@ Route1_Misty_Thinks_You_Are_Rival_Text_3:
 	.string "I could show you to VIRIDIAN CITY!$"
 
 Route1_Misty_Thinks_You_Are_Rival_Text_4:
-# 70 "data/maps/Route1/scripts.pory"
-	.string "Argh!\n"
-	.string "What's with these FLYING POKéMON?\p"
-	.string "I can't find any WATER types!$"
-
-Route1_Misty_Thinks_You_Are_Rival_Text_5:
-# 89 "data/maps/Route1/scripts.pory"
+# 87 "data/maps/Route1/scripts.pory"
 	.string "Well, would you look at that?\n"
 	.string "The rain has finally let up!\p"
 	.string "Come on, just a bit more to go!$"
 
-Route1_Misty_Thinks_You_Are_Rival_Text_6:
-# 104 "data/maps/Route1/scripts.pory"
+Route1_Misty_Thinks_You_Are_Rival_Text_5:
+# 102 "data/maps/Route1/scripts.pory"
 	.string "I'm all the way over here,\n"
 	.string "SLOWPOKE! By the big red building!$"
 
-Route1_Misty_Thinks_You_Are_Rival_Text_7:
-# 112 "data/maps/Route1/scripts.pory"
+Route1_Misty_Thinks_You_Are_Rival_Text_6:
+# 110 "data/maps/Route1/scripts.pory"
 	.string "We're here!\n"
 	.string "This is the POKéMON CENTER.\p"
 	.string "NURSE JOY is always happy to heal\n"
 	.string "Your POKéMON to full health!\p"
 	.string "The best part is that it's free!$"
 
-Route1_Misty_Thinks_You_Are_Rival_Text_8:
-# 114 "data/maps/Route1/scripts.pory"
+Route1_Misty_Thinks_You_Are_Rival_Text_7:
+# 113 "data/maps/Route1/scripts.pory"
 	.string "I'm gonna go over to the POKéMART!\n"
 	.string "I definitely need to stock up\p"
 	.string "on supplies now, since ROUTE 1.\n"

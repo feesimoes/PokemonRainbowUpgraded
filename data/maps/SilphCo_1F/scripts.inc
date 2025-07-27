@@ -40,27 +40,38 @@ Movement_Cynthia_Faces_Player:
 
 SilphCo_1F_EventScript_CynthiaEncounter::
 # 26 "data/maps/SilphCo_1F/scripts.pory"
+	goto_if_set FLAG_HIDE_SILPH_ROCKETS, SilphCo_1F_EventScript_CynthiaEncounter_1
+# 52 "data/maps/SilphCo_1F/scripts.pory"
 	lock
-# 27 "data/maps/SilphCo_1F/scripts.pory"
+# 53 "data/maps/SilphCo_1F/scripts.pory"
 	applymovement 2, Movement_Cynthia_Faces_Player
-# 28 "data/maps/SilphCo_1F/scripts.pory"
+# 54 "data/maps/SilphCo_1F/scripts.pory"
 	waitmovement
+# 55 "data/maps/SilphCo_1F/scripts.pory"
+	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_5
+# 56 "data/maps/SilphCo_1F/scripts.pory"
+	release
+	end
+
+SilphCo_1F_EventScript_CynthiaEncounter_1:
+# 28 "data/maps/SilphCo_1F/scripts.pory"
+	lock
 # 29 "data/maps/SilphCo_1F/scripts.pory"
-	playbgm MUS_CYNTHIA, TRUE
+	applymovement 2, Movement_Cynthia_Faces_Player
 # 30 "data/maps/SilphCo_1F/scripts.pory"
-	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_0
+	waitmovement
 # 31 "data/maps/SilphCo_1F/scripts.pory"
-	waitmessage
+	playbgm MUS_CYNTHIA, TRUE
 # 32 "data/maps/SilphCo_1F/scripts.pory"
-	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_1
+	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_0
 # 33 "data/maps/SilphCo_1F/scripts.pory"
 	waitmessage
 # 34 "data/maps/SilphCo_1F/scripts.pory"
-	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_2
+	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_1
 # 35 "data/maps/SilphCo_1F/scripts.pory"
-	playfanfare MUS_OBTAIN_KEY_ITEM
+	waitmessage
 # 36 "data/maps/SilphCo_1F/scripts.pory"
-	waitfanfare
+	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_2
 # 37 "data/maps/SilphCo_1F/scripts.pory"
 	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_3
 # 38 "data/maps/SilphCo_1F/scripts.pory"
@@ -70,49 +81,62 @@ SilphCo_1F_EventScript_CynthiaEncounter::
 # 40 "data/maps/SilphCo_1F/scripts.pory"
 	waitmessage
 # 41 "data/maps/SilphCo_1F/scripts.pory"
-	fadenewbgm MUS_KANTO_ROUTE_GATE
+	closemessage
 # 42 "data/maps/SilphCo_1F/scripts.pory"
-	setflag FLAG_SINNOH_PASS_OBTAINED
+	fadenewbgm MUS_KANTO_ROUTE_GATE
 # 43 "data/maps/SilphCo_1F/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	setflag FLAG_SINNOH_PASS_OBTAINED
 # 44 "data/maps/SilphCo_1F/scripts.pory"
-	removeobject 2
+	fadescreen FADE_TO_BLACK
 # 45 "data/maps/SilphCo_1F/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	removeobject 2
 # 46 "data/maps/SilphCo_1F/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 47 "data/maps/SilphCo_1F/scripts.pory"
 	release
 	end
 
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_0:
-# 30 "data/maps/SilphCo_1F/scripts.pory"
+# 32 "data/maps/SilphCo_1F/scripts.pory"
 	.string "Oh, is that a POKéDEX?\n"
-	.string "You must be helping PROF. OAK?\p"
-	.string "What's your name?\p"
-	.string "...Oh? Aren't you the same {PLAYER}\n"
+	.string "You must be helping PROF. OAK!\p"
+	.string "So, what's your name?\p"
+	.string "...Oh! Aren't you the same {PLAYER}\n"
 	.string "who drove TEAM ROCKET out of here?$"
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_1:
-# 32 "data/maps/SilphCo_1F/scripts.pory"
+# 34 "data/maps/SilphCo_1F/scripts.pory"
 	.string "My name is CYNTHIA,\n"
 	.string "I'm a TRAINER just like you.$"
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_2:
-# 34 "data/maps/SilphCo_1F/scripts.pory"
+# 36 "data/maps/SilphCo_1F/scripts.pory"
 	.string "You seem to be a strong\n"
 	.string "and respectable TRAINER...\p"
-	.string "...OK, it's decided!\p"
-	.string "I want to give you this!$"
+	.string "...OK, it's decided!$"
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_3:
 # 37 "data/maps/SilphCo_1F/scripts.pory"
-	.string "CYNTHIA: Try using this PASS\n"
-	.string "at the VERMILION HARBOR.\p"
-	.string "I will let the POKéMON LEAGUE HQ\n"
-	.string "know that you have received this.$"
+	.string "Now, I know I'm asking a big favor\n"
+	.string "of you, but you are very capable.\p"
+	.string "Please visit VERMILION HARBOR'S\n"
+	.string "easternmost port.\p"
+	.string "There will be a ferry to SINNOH.$"
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_4:
 # 39 "data/maps/SilphCo_1F/scripts.pory"
-	.string "CYNTHIA: I hope to see you again\n"
-	.string "soon, {PLAYER}! Maybe in battle?\p"
-	.string "See you later!$"
+	.string "I'm truly grateful for your actions\n"
+	.string "here at SILPH CO.\p"
+	.string "Now, SINNOH is an entirely different\n"
+	.string "region due far north of KANTO.\p"
+	.string "Be prepared for a lengthy journey\n"
+	.string "...Oh, and bring warm clothes!\p"
+	.string "We'll meet again soon, {PLAYER}!$"
+
+SilphCo_1F_EventScript_CynthiaEncounter_Text_5:
+# 55 "data/maps/SilphCo_1F/scripts.pory"
+	.string "Oh, hello...\n"
+	.string "Wait, no, you aren't with SILPH...\p"
+	.string "I'm sorry, I thought you were the\n"
+	.string "person I was here to interview...$"

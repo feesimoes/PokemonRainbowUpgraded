@@ -11069,3 +11069,42 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderByron[] = {
         .moves = {MOVE_BODY_SLAM, MOVE_ROAR, MOVE_ROCK_TOMB, MOVE_ANCIENT_POWER},
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_TrainerRodolfo[] = {
+    {
+        .iv = 255,
+        .lvl = 37,
+        .species = SPECIES_SWAMPERT,
+        .moves = {MOVE_SURF, MOVE_WATERFALL, MOVE_WHIRLPOOL, MOVE_HYDRO_PUMP},
+    },
+    {
+        .iv = 255,
+        .lvl = 40,
+        .species = SPECIES_BLAZIKEN,
+        .moves = {MOVE_BLAZE_KICK, MOVE_FIRE_PUNCH, MOVE_FIRE_SPIN, MOVE_DYNAMIC_PUNCH},
+    },
+    {
+        .iv = 255,
+        .lvl = 39,
+        .species = SPECIES_SCEPTILE,
+        .moves = {MOVE_LEAF_BLADE, MOVE_GIGA_DRAIN, MOVE_RAZOR_LEAF, MOVE_LEECH_SEED},
+    },
+    {
+        .iv = 255,
+        .lvl = 41,
+        .species = SPECIES_SWELLOW,
+        .moves = {MOVE_WING_ATTACK, MOVE_FLY, MOVE_REST, MOVE_AERIAL_ACE},
+    },
+    {
+        .iv = 255,
+        .lvl = 40,
+        .species = SPECIES_MILTANK,
+        .moves = {MOVE_DOUBLE_EDGE, MOVE_BRICK_BREAK, MOVE_HEADBUTT, MOVE_ROLLOUT},
+    },
+    {
+        .iv = 255,
+        .lvl = 43,
+        .species = SPECIES_LICKITUNG,
+        .moves = {MOVE_ANCIENT_POWER, MOVE_SCREECH, MOVE_SMOKESCREEN, MOVE_ROLLOUT},
+    },
+};
