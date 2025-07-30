@@ -48,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 10,
+      "x": 13,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
@@ -172,6 +172,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PROF_OAK_RT26",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
       "x": 8,
@@ -198,7 +199,7 @@
       "x": 8,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE26",
+      "dest_map": "MAP_ROUTE26_NORTH_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
@@ -224,8 +225,8 @@
       "x": 10,
       "y": 6,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "NULL"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route26_Reception_Sign"
     },
     {
       "type": "sign",

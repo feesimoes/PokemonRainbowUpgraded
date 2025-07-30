@@ -18,6 +18,7 @@ script CanalaveCity_Gym_1F_Statue
 
 script CanalaveCity_Gym_1F_Gym_Tip_Guy 
 {   
+    lock
     applymovement(LOCALID_CANALAVE_GYM_GUY, Movement_CanalaveCity_Gym_1F_Gym_Tip_Guy_Face_Player)
     if (flag(FLAG_OBTAINED_ROCK_CLIMB_KIT))
     {
@@ -33,7 +34,24 @@ script CanalaveCity_Gym_1F_Gym_Tip_Guy
     }
 }
 
-movement Movement_CanalaveCity_Gym_1F_Gym_Tip_Guy_Face_Player {
+movement Movement_CanalaveCity_Gym_1F_Gym_Tip_Guy_Face_Player 
+{
     face_player
     step_end
+}
+
+script CanalaveCity_Gym_1F_BlackBelt_Ricky_Battle
+{
+    trainerbattle_single(TRAINER_BLACK_BELT_RICKY, format("Huah! Welcome to SINNOH!\nBut I have bad news...\pYou entered my line of sight!\nI'll be sending you back!"), format("I kept going and crashed!\nYou're something, kid!"))
+    msgbox(format("Alright, I underestimated you...\nWelcome to SINNOH!"))
+    release
+    end
+}
+
+script CanalaveCity_Gym_1F_CoolTrainer_Breanna_Battle
+{
+    trainerbattle_single(TRAINER_COOLTRAINER_BREANNA, format("What's a KANTONIAN doing here,\nwandering around these halls?"), format("I thought you were lost..."))
+    msgbox(format("BYRON won't go easy on you!"))
+    release
+    end
 }

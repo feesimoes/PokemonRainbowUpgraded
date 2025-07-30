@@ -26154,6 +26154,578 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE46",
+          "base_label": "gRoute46_FireRed",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 2,
+                "max_level": 2,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_SPEAROW"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_SPEAROW"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_JIGGLYPUFF"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 2,
+                "max_level": 2,
+                "species": "SPECIES_PHANPY"
+              },
+              {
+                "min_level": 2,
+                "max_level": 2,
+                "species": "SPECIES_PHANPY"
+              },
+              {
+                "min_level": 2,
+                "max_level": 2,
+                "species": "SPECIES_PHANPY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_CHERRYGROVE_CITY",
+          "base_label": "gCherrygroveCity_FireRed",
+          "water_mons": {
+            "encounter_rate": 2,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 24,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 15,
+                "max_level": 19,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 20,
+                "max_level": 24,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 20,
+                "max_level": 24,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 20,
+                "max_level": 24,
+                "species": "SPECIES_TENTACRUEL"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 10,
+                "max_level": 15,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 15,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_STARYU"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_CORSOLA"
+              },
+              {
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_KINGLER"
+              },
+              {
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_STARYU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 46,
+                "species": "SPECIES_CORSOLA"
+              },
+              {
+                "min_level": 40,
+                "max_level": 47,
+                "species": "SPECIES_CORSOLA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B3F",
+          "base_label": "gTohjoFalls_B3F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 56,
+                "max_level": 63,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 57,
+                "max_level": 61,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 62,
+                "max_level": 62,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 63,
+                "max_level": 63,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 51,
+                "max_level": 59,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 59,
+                "max_level": 65,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 43,
+                "max_level": 55,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 50,
+                "max_level": 56,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 61,
+                "max_level": 68,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 68,
+                "max_level": 72,
+                "species": "SPECIES_GOLBAT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B4F",
+          "base_label": "gTohjoFalls_B4F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 57,
+                "max_level": 63,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 58,
+                "max_level": 61,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 62,
+                "max_level": 62,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 63,
+                "max_level": 63,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 64,
+                "max_level": 64,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 52,
+                "max_level": 59,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 60,
+                "max_level": 65,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 44,
+                "max_level": 55,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 51,
+                "max_level": 56,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 62,
+                "max_level": 68,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 69,
+                "max_level": 72,
+                "species": "SPECIES_GOLBAT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B5F",
+          "base_label": "gTohjoFalls_B5F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 58,
+                "max_level": 63,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 59,
+                "max_level": 61,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 63,
+                "max_level": 63,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 64,
+                "max_level": 64,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 66,
+                "max_level": 66,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 67,
+                "max_level": 67,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 68,
+                "max_level": 68,
+                "species": "SPECIES_DUSCLOPS"
+              },
+              {
+                "min_level": 69,
+                "max_level": 69,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 68,
+                "max_level": 68,
+                "species": "SPECIES_LOUDRED"
+              },
+              {
+                "min_level": 67,
+                "max_level": 68,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 68,
+                "max_level": 72,
+                "species": "SPECIES_GOLBAT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B6F",
+          "base_label": "gTohjoFalls_B6F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 59,
+                "max_level": 63,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 60,
+                "max_level": 61,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 64,
+                "max_level": 64,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 66,
+                "max_level": 66,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 67,
+                "max_level": 67,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 68,
+                "max_level": 68,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 69,
+                "max_level": 69,
+                "species": "SPECIES_DUSCLOPS"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_LOUDRED"
+              },
+              {
+                "min_level": 69,
+                "max_level": 69,
+                "species": "SPECIES_LOUDRED"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_CHIMECHO"
+              },
+              {
+                "min_level": 69,
+                "max_level": 72,
+                "species": "SPECIES_GOLBAT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B7F",
+          "base_label": "gTohjoFalls_B7F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 42,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 32,
+                "max_level": 33,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 30,
+                "max_level": 33,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 31,
+                "max_level": 33,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 22,
+                "max_level": 25,
+                "species": "SPECIES_SHUPPET"
+              },
+              {
+                "min_level": 21,
+                "max_level": 27,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 31,
+                "max_level": 39,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_DUSKULL"
+              },
+              {
+                "min_level": 23,
+                "max_level": 39,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 21,
+                "max_level": 29,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 32,
+                "max_level": 33,
+                "species": "SPECIES_CHIMECHO"
+              },
+              {
+                "min_level": 24,
+                "max_level": 28,
+                "species": "SPECIES_CHIMECHO"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_TOHJO_FALLS_B8F",
+          "base_label": "gTohjoFalls_B8F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 12,
+                "max_level": 21,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 11,
+                "max_level": 17,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_DIGLETT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 7,
+                "species": "SPECIES_EKANS"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_DROWZEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_DROWZEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 3,
+                "max_level": 7,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 3,
+                "max_level": 7,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_NIDORAN_F"
+              }
+            ]
+          }
         }
       ]
     }

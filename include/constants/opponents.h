@@ -753,12 +753,23 @@
 #define TRAINER_LEADER_RIVAL                     747
 #define TRAINER_LEADER_BYRON                     748
 #define TRAINER_RODOLFO                          749
+#define TRAINER_BLACK_BELT_RICKY                 750
+#define TRAINER_LEADER_WALKER                    751
+#define TRAINER_COOLTRAINER_BREANNA              752
+#define TRAINER_BLACK_BELT_DAVID                 753
+#define TRAINER_HIKER_GARY                       754
+#define TRAINER_LASS_PORCHIA                     755
+#define TRAINER_HIKER_JACKSON                    756
+#define TRAINER_COOLTRAINER_CESAR                757
+#define TRAINER_TEAM_ROCKET_GRUNT_52             758
+#define TRAINER_TEAM_ROCKET_ADMIN_3              759
+#define TRAINER_TEAM_ROCKET_GRUNT_53             760
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             750
+#define NUM_TRAINERS                             761
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

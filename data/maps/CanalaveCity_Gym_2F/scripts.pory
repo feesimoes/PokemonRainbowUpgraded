@@ -1,1 +1,25 @@
 mapscripts CanalaveCity_Gym_2F_MapScripts {}
+
+script CanalaveCity_Gym_2F_BlackBelt_David_Battle
+{
+    trainerbattle_single(TRAINER_BLACK_BELT_DAVID, format("Hyah!\nHah, what?!\pCan't you see I'm training?"), format("You interruped my training!\nNow all my POKéMON fainted!"))
+    msgbox(format("Gah!\nThe audacity of this KANTONIAN!"))
+    release
+    end
+}
+
+script CanalaveCity_Gym_2F_Hiker_Gary_Battle
+{
+    trainerbattle_single(TRAINER_HIKER_GARY, format("Heh, I know your dirty secret!\nYou love to battle!\p...With POKéMON, of course!"), format("Yep, I knew you liked battling!"))
+    msgbox(format("I know you like to battle.\nBe sure to say thank you!"))
+    release
+    end
+}
+
+script CanalaveCity_Gym_2F_Lass_Porchia_Battle
+{
+    trainerbattle_single(TRAINER_LASS_PORCHIA, format("Um, did you just touch me?\n...\pJust kidding! I touched you! Haha,\nYou're it!"), format("Argh! Why did my plan fail?"))
+    msgbox(format("Please leave me alone!"))
+    release
+    end
+}

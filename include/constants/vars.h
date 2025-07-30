@@ -191,7 +191,7 @@
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
-#define VAR_0x408C                 0x408C
+#define VAR_MAP_SCENE_ROUTE28      0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F
@@ -332,7 +332,7 @@
 #define VAR_MON_BOX_POS            0x8011
 #define VAR_TEXT_COLOR             0x8012
 #define VAR_PREV_TEXT_COLOR        0x8013
-#define VAR_0x8014                 0x8014 // Unknown/unused
+#define VAR_EXPLORER_KIT           0x8014 // Unknown/unused, initially
 
 #define SPECIAL_VARS_END           0x8016
 

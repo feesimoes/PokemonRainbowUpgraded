@@ -63,7 +63,7 @@ script Event_Talking_To_Mr_Pokemon {
     {
         lock
         applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
-        msgbox(format("MR POKéMON: Life is delightful!\nAlways, new discoveries to be made!"))
+        msgbox(format("MR. POKéMON: Life is delightful!\nAlways, new discoveries to be made!"))
         release
         end
     }
@@ -71,7 +71,7 @@ script Event_Talking_To_Mr_Pokemon {
         lock
         applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
         msgbox(format("Hello, hello! You must be {PLAYER}.\nPROF. OAK has told me about you.\pI hear you are working on\ncompiling a detailed POKéDEX."))
-        msgbox(format("MR POKéMON: I am MR. POKéMON.\nThere's something I want you to have."))
+        msgbox(format("MR. POKéMON: I am MR. POKéMON.\nThere's something I want you to have."))
         waitmessage
         specialvar(VAR_RESULT, CalculatePlayerPartyCount)
         if (var(VAR_RESULT) == 6)
@@ -83,7 +83,7 @@ script Event_Talking_To_Mr_Pokemon {
         else {
             giveegg(SPECIES_TOGEPI)
         }
-        msgbox(format("MR POKéMON: I got it from a couple\nwho run a POKéMON DAY-CARE\pnear GOLDENROD CITY.\nPlease take good care of it!"))
+        msgbox(format("MR. POKéMON: I got it from a couple\nwho run a POKéMON DAY-CARE\pnear GOLDENROD CITY.\nPlease take good care of it!"))
         waitmessage
         applymovement(2, Movement_ProfessorOakSpotsPlayer)
         waitmovement

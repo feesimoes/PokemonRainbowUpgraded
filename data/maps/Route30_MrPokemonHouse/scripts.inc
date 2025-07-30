@@ -262,7 +262,7 @@ Event_Talking_To_Professor_Oak_If_Busy_Text_0:
 
 Event_Talking_To_Mr_Pokemon_Text_0:
 # 66 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	.string "MR POKéMON: Life is delightful!\n"
+	.string "MR. POKéMON: Life is delightful!\n"
 	.string "Always, new discoveries to be made!$"
 
 Event_Talking_To_Mr_Pokemon_Text_1:
@@ -274,7 +274,7 @@ Event_Talking_To_Mr_Pokemon_Text_1:
 
 Event_Talking_To_Mr_Pokemon_Text_2:
 # 74 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	.string "MR POKéMON: I am MR. POKéMON.\n"
+	.string "MR. POKéMON: I am MR. POKéMON.\n"
 	.string "There's something I want you to have.$"
 
 Event_Talking_To_Mr_Pokemon_Text_3:
@@ -284,7 +284,7 @@ Event_Talking_To_Mr_Pokemon_Text_3:
 
 Event_Talking_To_Mr_Pokemon_Text_4:
 # 86 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	.string "MR POKéMON: I got it from a couple\n"
+	.string "MR. POKéMON: I got it from a couple\n"
 	.string "who run a POKéMON DAY-CARE\p"
 	.string "near GOLDENROD CITY.\n"
 	.string "Please take good care of it!$"

@@ -47,6 +47,11 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
             if (FlagGet(flagId))
                 nBadges++;
         }
+        //Sinnoh Badge 1
+        if (FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT))
+        {
+            nBadges++;
+        }
         *dest++ = nBadges + CHAR_0;
         *dest++ = 10; // 'こ'
         *dest++ = EOS;

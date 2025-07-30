@@ -1,1 +1,35 @@
 mapscripts Route27_MapScripts {}
+
+script Route26_This_Way_Map_Sign
+{
+    msgbox(format("KANTO ROUTE 26:\nRough mountain road, tests TRAINERS."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Map_Sign
+{
+    msgbox(format("KANTO ROUTE 27:\nConnects KANTO to JOHTO."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_TohjoFalls_Sign
+{
+    msgbox(format("TOHJO FALLS\nThe waterfall linking KANTO to JOHTO."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Fat_Man
+{
+    lock
+    faceplayer
+    msgbox(format("Hey!\nYou know what you just did?\pYou just took your first\nstep in KANTO!\pCheck your map!\n...\p...\n...\p...Oh, if you're from KANTO,\nthis is pretty awkward...\pSorry..."))
+    closemessage
+    releaseall
+    end
+}

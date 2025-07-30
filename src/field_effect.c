@@ -28,6 +28,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "constants/region_map_sections.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -2992,6 +2993,7 @@ u8 FldEff_UseRockClimb(void)
     gTasks[taskId].data[15] = gFieldEffectArguments[0];
     return FALSE;
 }
+
 static void Task_FldEffUseRockClimb(u8 taskId)
 {
     sUseRockClimbEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);

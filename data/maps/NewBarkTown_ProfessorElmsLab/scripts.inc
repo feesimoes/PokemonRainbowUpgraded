@@ -1,3 +1,7 @@
 NewBarkTown_ProfessorElmsLab_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, NewBarkTown_ProfessorElmsLab_OnTransition
 	.byte 0
 
+NewBarkTown_ProfessorElmsLab_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_NEW_BARK_TOWN
+	end

@@ -5862,6 +5862,8 @@ static u16 GetBattleBGM(void)
     {
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
+        case TRAINER_CLASS_PKMN_PROF:
+            return MUS_VS_PROF_OAK;
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
@@ -5903,11 +5905,18 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
         case TRAINER_CLASS_PKMN_TRAINER:
-            return MUS_VS_RODOLFO;
+            if (StringCompare("RODOLFO", gTrainers[gTrainerBattleOpponent_A].trainerName) == TRUE)
+            {
+                return MUS_VS_RODOLFO;
+            }
         default:
-            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
             {
                 return MUS_VS_TRAINER_JOHTO;
+            }
+            else if (gMapHeader.regionMapSectionId > MAPSEC_DRAGONS_DEN)
+            {
+                return MUS_VS_TRAINER_SINNOH;
             }
             else {
                 return MUS_VS_TRAINER;

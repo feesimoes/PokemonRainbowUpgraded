@@ -997,6 +997,9 @@ SECTIONS {
         sound/songs/midi/mus_vs_rodolfo.o(.rodata);
         sound/songs/midi/mus_legend_trainer_challenge.o(.rodata);
         sound/songs/midi/mus_vs_prof_oak.o(.rodata);
+        sound/songs/midi/mus_vs_trainer_sinnoh.o(.rodata);
+        sound/songs/midi/mus_music_menu.o(.rodata);
+        sound/songs/midi/mus_tohjo_falls_depths.o(.rodata);
     } > ROM =0
 
     lib_rodata :

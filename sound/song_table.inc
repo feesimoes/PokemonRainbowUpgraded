@@ -380,6 +380,9 @@ gSongTable::
 	song mus_vs_rodolfo, 0, 0
 	song mus_legend_trainer_challenge, 0, 0
 	song mus_vs_prof_oak, 0, 0
+	song mus_vs_trainer_sinnoh, 0, 0
+	song mus_music_menu, 0, 0
+	song mus_tohjo_falls_depths, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -1,0 +1,51 @@
+{
+  "id": "MAP_TOHJO_FALLS_B8F_LAIR",
+  "name": "TohjoFalls_B8F_Lair",
+  "layout": "LAYOUT_TOHJO_FALLS_B8F_LAIR",
+  "music": "MUS_TOHJO_FALLS_DEPTHS",
+  "region_map_section": "MAPSEC_TOHJO_FALLS",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_TOHJO_FALLS_B8F",
+      "offset": 6,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_TOHJOFALLS_GIOVANNI",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
+      "x": 19,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TohjoFalls_B8F_Lair_Giovanni_Battle",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_TOHJO_FALLS_B8F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

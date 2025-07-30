@@ -49,8 +49,7 @@ CanalaveCity_Sign::
 CanalaveCity_GiveRockClimbKit_Text_0:
 # 6 "data/maps/CanalaveCity/scripts.pory"
 	.string "That's BYRON'S badge!\n"
-	.string "Not bad for a KANTONIAN!\p"
-	.string "Here, take this!$"
+	.string "Sorry, but... it's MINE now!$"
 
 CanalaveCity_Gym_Sign_Text_0:
 # 15 "data/maps/CanalaveCity/scripts.pory"

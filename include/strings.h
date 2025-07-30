@@ -655,6 +655,10 @@ extern const u8 gText_BigGirl[];
 extern const u8 gText_Son[];
 extern const u8 gText_Daughter[];
 extern const u8 gText_NowOn[];
+extern const u8 gText_B8F[];
+extern const u8 gText_B7F[];
+extern const u8 gText_B6F[];
+extern const u8 gText_B5F[];
 extern const u8 gText_B4F[];
 extern const u8 gText_B3F[];
 extern const u8 gText_B2F[];
@@ -1554,5 +1558,6 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
 extern const u8 gText_GOMenu[];
 extern const u8 gText_GOChosenBall[];
+extern const u8 gText_UsedFlashLight[];
 
 #endif //GUARD_STRINGS_H

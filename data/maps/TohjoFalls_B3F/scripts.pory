@@ -1,0 +1,8 @@
+mapscripts TohjoFalls_B3F_MapScripts
+{   
+    MAP_SCRIPT_ON_LOAD
+    {
+        fadedefaultbgm()
+        setvar(VAR_EXPLORER_KIT, -3)
+    }
+}

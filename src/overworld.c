@@ -1252,7 +1252,7 @@ bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
 {
     if (music == MUS_CYCLING || music == MUS_SURF)
     {
-        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU || gMapHeader.regionMapSectionId == MAPSEC_TOHJO_FALLS)
+        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU)
             return FALSE;
     }
     return TRUE;

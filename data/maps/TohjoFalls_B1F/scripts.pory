@@ -1,0 +1,25 @@
+mapscripts TohjoFalls_B1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setvar(VAR_EXPLORER_KIT, -1)
+    }
+}
+
+script TohjoFalls_B1F_RocketGruntBattle
+{
+    trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_52, format("What's a kid like you doing\nso far away from home?\pDon't you miss your mommy?"), format("Oh no...\nYou're {PLAYER}, aren't you?"))
+    msgbox(format("At least I don't need to\nraise any alarm... Phew...\pIf you could ROCK CLIMB or\ngo UNDERGROUND, we'd be done for.\pBut I'm so glad that something\nlike that doesn't exist yet."))
+    closemessage
+    releaseall
+    end
+}
+
+script TohjoFalls_B1F_RocketAdminBattle
+{
+    trainerbattle_single(TRAINER_TEAM_ROCKET_ADMIN_3, format("What are you doing here?!\nMy associate didn't sound an alarm?!\p{PLAYER}, this is as far as\nyou'll go!"), format("Why didn't my associate tell me\nyou were here?! Argh!"))
+    msgbox(format("Oh, for pete's sake...\nGet lost!\pAre you trying to rub your\nwinning smirk in my face?!\pThere's nothing up there, anyways!\nHahahahaha!\pI'm definitely guarding nothing...\nScram!"))
+    closemessage
+    releaseall
+    end
+}

@@ -1,14 +1,100 @@
 mapscripts SaffronCity_MagnetTrainStation_MapScripts {}
 
+script SaffronCity_MagnetTrainStation_EventScript_Lass
+{
+    lock
+    faceplayer
+    if (flag(FLAG_OBTAINED_MUSIC_PLAYER))
+    {
+        msgbox(format("Oh, thank goodness!\nThat annoying guy is gone!\pI can use the MAGNET TRAIN!"))
+    }   
+    else
+    {
+        msgbox(format("There's an annoying guy blocking\nthat MAGNET TRAIN entrance...\pI do wish someone would do\nsomething about this!"))
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SaffronCity_MagnetTrainStation_EventScript_Fat_Man
+{
+    lock
+    faceplayer
+    if (flag(FLAG_OBTAINED_MUSIC_PLAYER))
+    {
+        msgbox(format("Have you been to JOHTO?\nI heard this from a friend...\pBut TEAM ROCKET is operating there\nas well, harming the SLOWPOKE.\pNo crime is too wicked for\nthem, those nasty goons!"))
+    }   
+    else
+    {
+        msgbox(format("That guy there seems to be\nblocking the entrance...\pHe keeps telling people to check\nout the HOENN REGION, because...\pApparently, he came from there?\nHe's weird."))
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SaffronCity_MagnetTrainStation_EventScript_Scientist
+{
+    lock
+    faceplayer
+    if (flag(FLAG_OBTAINED_MUSIC_PLAYER))
+    {
+        msgbox(format("I'm relieved the MAGNET TRAIN\nis back up and running.\pTEAM ROCKET seems to be gone, too."))
+    }   
+    else
+    {
+        msgbox(format("I'm an expert in sciences\nand technologies. But, uh...\pMy studies could have never\nprepared me for a yapping MANIAC."))
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SaffronCity_MagnetTrainStation_EventScript_Boy
+{
+    lock
+    faceplayer
+    if (flag(FLAG_OBTAINED_MUSIC_PLAYER))
+    {
+        msgbox(format("I'm so glad that guy is gone."))
+    }   
+    else
+    {
+        msgbox(format("There's a guy blocking the\nMAGNET TRAIN entrance! Honestly...\pI just want him to shut up!\nHe's the worst! TEAM ROCKET'S better!"))
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SaffronCity_MagnetTrainStation_EventScript_Attendant
+{
+    lock
+    faceplayer
+    msgbox(format("Hello. May I please see your\nMAGNET TRAIN PASS?\p...I'm terribly sorry, seems like\nyou don't have one yet."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
 script SaffronCity_MagnetTrainStation_EventScript_Rodolfo {
     lock
     faceplayer
+    call_if_defeated(TRAINER_RODOLFO, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle)
     if (flag(FLAG_HIDE_SILPH_ROCKETS))
     {
         msgbox(format("Hey, good job on beating TEAM\nROCKET! Uh, well I mean...\pTechnically, you didn't beat them\n...not yet, anyways.\pYou did drive them out of SAFFRON\nand SILPH..."))
         waitmessage
+        closemessage
         msgbox(format("Anyways, I'm RODOLFO!\nSo, uh, you're {PLAYER}? Yeah, I know.\pHah! That look on your face!\nyou should've seen it!\pI mean, you're obviously becoming\npretty well-known in KANTO, duh."))
         waitmessage
+        closemessage
         msgbox(format("I've got something for you, {PLAYER}!\nBut you have to beat me in battle!\pReady?"), MSGBOX_YESNO)
         waitmessage
         if (var(VAR_RESULT) == NO)
@@ -21,18 +107,41 @@ script SaffronCity_MagnetTrainStation_EventScript_Rodolfo {
         }
         else
         {
-            trainerbattle_single(TRAINER_RODOLFO, format("No, wait!\nI don't have a catchy phrase yet!"), format("Uh, I lost...\nBut, how did you like my battle theme?"), format("Alright, you've earned this!"))
-            waitmessage
-            closemessage
-            //giveitem(ITEM_MUSIC_PLAYER, 1)
-            setflag(FLAG_OBTAINED_MUSIC_PLAYER)
-            playfanfare(MUS_OBTAIN_KEY_ITEM)
-            waitfanfare
-            waitmessage
-            closemessage
-            msgbox(format("Pretty cool looking, huh?\nBut yeah, the MUSIC PLAYER is neat!"))
-            waitmessage
-            closemessage
+            trainerbattle_single(TRAINER_RODOLFO, format("No, wait!\nI don't have a catchy phrase yet!"), format("Uh, I lost...\nBut, how did you like my battle theme?"))
+            release
+            end
         }
     }
+    else
+    {
+        msgbox(format("Hey, good job on beating TEAM\nROCKET! Uh, well I mean...\pTechnically, you didn't beat them\n...not yet, anyways.\pYou did drive them out of SAFFRON..."))
+        waitmessage
+        msgbox(format("Yeah, but, anyways...\nyou should come back later!\pDrive 'em out of SILPH,\nthen, we'll talk!"))
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+script SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle
+{
+    msgbox(format("Wow, you defeated me, huh?\nThat's crazy. Anyways!\pThat thing I had for you...\nIt's called a MUSIC PLAYER!\pHere ya go!"))
+    waitmessage
+    closemessage
+    setflag(FLAG_OBTAINED_MUSIC_PLAYER)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    giveitem(ITEM_MUSIC_PLAYER, 1)
+    waitfanfare
+    msgbox(format("That MUSIC PLAYER is a device that\nlets you play music.\pBut, here's the catch!\nIt's like a POKéDEX, but for music.\pWhich means, it'll only work if you\npreviously heard it, or unlocked it."))
+    waitmessage
+    closemessage
+    msgbox(format("So, yeah, that's the basics!\nI'm gonna be in GOLDENROD CITY.\pCome see me if you somehow\nunlock every piece of music!"))
+    waitmessage
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(LOCALID_RODOLFO)
+    fadescreen(FADE_FROM_BLACK)
+    release
+    end
 }

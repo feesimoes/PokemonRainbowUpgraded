@@ -17,6 +17,7 @@
 #define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
 #define TRAINER_ENCOUNTER_MUSIC_INTERVIEWER 12
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
+#define TRAINER_ENCOUNTER_MUSIC_LEGEND      14 // Very strong "legendary" trainers
 
 #define TRAINER_PIC_AQUA_LEADER_ARCHIE      0
 #define TRAINER_PIC_AQUA_GRUNT_M            1
@@ -168,6 +169,7 @@
 #define TRAINER_PIC_PAINTER               147
 #define TRAINER_PIC_LEADER_BYRON          148
 #define TRAINER_PIC_RODOLFO               149
+#define TRAINER_PIC_LEADER_WALKER         150
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0

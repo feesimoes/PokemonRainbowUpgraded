@@ -1,0 +1,17 @@
+mapscripts TohjoFalls_B2F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        fadedefaultbgm()
+        setvar(VAR_EXPLORER_KIT, -2)
+    }
+}
+
+script TohjoFalls_B2F_RocketGruntBattle
+{
+    trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_53, format("Please, stop digging holes into\nour incredibly evil operation!"), format("Oh no...\nPlease, don't tell me... I lost..."))
+    msgbox(format("Please, go back home.\nI beg of you, it's much safer.\pI wish I could go home, myself...\nI'm scared, too..."))
+    closemessage
+    releaseall
+    end
+}

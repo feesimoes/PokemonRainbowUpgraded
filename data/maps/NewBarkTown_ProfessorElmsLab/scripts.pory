@@ -1,1 +1,3 @@
-mapscripts NewBarkTown_ProfessorElmsLab_MapScripts {}
+mapscripts NewBarkTown_ProfessorElmsLab_MapScripts
+{
+}

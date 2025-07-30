@@ -1,1 +1,17 @@
 mapscripts CanalaveCity_Gym_3F_MapScripts {}
+
+script CanalaveCity_Gym_3F_Hiker_Jackson_Battle
+{
+    trainerbattle_single(TRAINER_HIKER_JACKSON, format("I just love being up high!"), format("This place leaves me speechless!"))
+    msgbox(format("Getting lost yet?"))
+    release
+    end
+}
+
+script CanalaveCity_Gym_3F_CoolTrainer_Cesar_Battle
+{
+    trainerbattle_single(TRAINER_COOLTRAINER_CESAR, format("Yo, I'm feeling ready!\nYeah, I'm so ready!\pCome on!"), format("Dude... Not cool!"))
+    msgbox(format("You totally ruined my vibe!\nBut your vibe is going strong!"))
+    release
+    end
+}

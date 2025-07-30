@@ -43,5 +43,6 @@ void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseEscapeRopeOnCurrMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void FieldUseFunc_RockClimb(u8 taskId);
+void FieldUseFunc_MusicPlayer(u8 taskId);
 
 #endif //GUARD_ITEM_USE_H

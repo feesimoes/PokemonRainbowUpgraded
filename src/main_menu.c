@@ -667,7 +667,15 @@ static void PrintBadgeCount(void)
     for (flagId = FLAG_BADGE01_GET; flagId < FLAG_BADGE01_GET + 8; flagId++)
     {
         if (FlagGet(flagId))
+        {
             nbadges++;
+        }
+    }
+    
+    //Sinnoh Badge 1
+    if (FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT))
+    {
+        nbadges++;
     }
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 66, sTextColor2, -1, gText_Badges);
     ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEADING_ZEROS, 1);

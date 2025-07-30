@@ -1242,9 +1242,9 @@ extern const u8 EventScript_EggHatch[];
 extern const u8 EventScript_DoFallWarp[];
 
 extern const u8 EventScript_UseRockClimb[];
+extern const u8 EventScript_ExplorerKitDig[];
 
 // overworld
-
 extern const u8 EventScript_ResetEliteFourEnd[];
 extern const u8 CableClub_EventScript_DoLinkRoomExit[];
 extern const u8 CableClub_EventScript_TooBusyToNotice[];
@@ -1264,5 +1264,8 @@ extern const u8 TradeCenter_EventScript_Chair0[];
 extern const u8 TradeCenter_EventScript_Chair1[];
 extern const u8 TradeCenter_ConfirmLeaveRoom[];
 extern const u8 TradeCenter_TerminateLink[];
+
+//Music player
+extern const u8 EventScript_UseMusicPlayer[];
 
 #endif //GUARD_EVENT_SCRIPTS_H

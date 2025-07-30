@@ -577,6 +577,10 @@ const u8 gText_B1F[] = _("B1F");
 const u8 gText_B2F[] = _("B2F");
 const u8 gText_B3F[] = _("B3F");
 const u8 gText_B4F[] = _("B4F");
+const u8 gText_B5F[] = _("B5F");
+const u8 gText_B6F[] = _("B6F");
+const u8 gText_B7F[] = _("B7F");
+const u8 gText_B8F[] = _("B8F");
 const u8 gText_Rooftop[] = _("ROOFTOP");
 const u8 gText_NowOn[] = _("Now on:");
 const u8 gText_LinkedGamePlay[] = _("LINKED GAME PLAY");
@@ -1339,5 +1343,6 @@ const u8 gText_Receive[] = _("RECEIVE");
 const u8 gText_Send[] = _("SEND");
 const u8 gText_Toss[] = _("TOSS");
 const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK");
+const u8 gText_UsedFlashLight[] = _("{PLAYER} used the EXPLORER KIT.\nIt got a little brighter.");
 
 static const u8 sText_SelectedBallType[] = _("{B_PLAYER_NAME} has a {B_LAST_ITEM} in their hand!");

@@ -1362,6 +1362,7 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+	.include "data/scripts/musicplayer.inc"
 
 	.include "data/maps/Route22_WestEntrance_1F/scripts.inc"
 	.include "data/maps/Route22_WestEntrance_1F/text.inc"
@@ -1440,3 +1441,45 @@ Text_TestMsg::
 
 	.include "data/maps/CanalaveCity_Gym_4F/scripts.inc"
 	.include "data/maps/CanalaveCity_Gym_4F/text.inc"
+
+	.include "data/maps/CanalaveCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/CanalaveCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/CanalaveCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/CanalaveCity_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/Route31/scripts.inc"
+	.include "data/maps/Route31/text.inc"
+
+	.include "data/maps/VioletCity/scripts.inc"
+	.include "data/maps/VioletCity/text.inc"
+
+	.include "data/maps/Route26_NorthEntrance/scripts.inc"
+	.include "data/maps/Route26_NorthEntrance/text.inc"
+
+	.include "data/maps/TohjoFalls_B1F/scripts.inc"
+	.include "data/maps/TohjoFalls_B1F/text.inc"
+
+	.include "data/maps/TohjoFalls_B2F/scripts.inc"
+	.include "data/maps/TohjoFalls_B2F/text.inc"
+
+	.include "data/maps/TohjoFalls_B3F/scripts.inc"
+	.include "data/maps/TohjoFalls_B3F/text.inc"
+
+	.include "data/maps/TohjoFalls_B4F/scripts.inc"
+	.include "data/maps/TohjoFalls_B4F/text.inc"
+
+	.include "data/maps/TohjoFalls_B5F/scripts.inc"
+	.include "data/maps/TohjoFalls_B5F/text.inc"
+
+	.include "data/maps/TohjoFalls_B6F/scripts.inc"
+	.include "data/maps/TohjoFalls_B6F/text.inc"
+
+	.include "data/maps/TohjoFalls_B7F/scripts.inc"
+	.include "data/maps/TohjoFalls_B7F/text.inc"
+
+	.include "data/maps/TohjoFalls_B8F/scripts.inc"
+	.include "data/maps/TohjoFalls_B8F/text.inc"
+
+	.include "data/maps/TohjoFalls_B8F_Lair/scripts.inc"
+	.include "data/maps/TohjoFalls_B8F_Lair/text.inc"

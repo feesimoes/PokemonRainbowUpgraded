@@ -3,7 +3,7 @@ mapscripts CanalaveCity_MapScripts {}
 script CanalaveCity_GiveRockClimbKit
 {
     lock
-    msgbox(format("That's BYRON'S badge!\nNot bad for a KANTONIAN!\pHere, take this!"))
+    msgbox(format("That's BYRON'S badge!\nSorry, but... it's MINE now!"))
     clearflag(FLAG_OBTAINED_ROCK_CLIMB_KIT)
     cleartrainerflag(TRAINER_LEADER_BYRON)
     release

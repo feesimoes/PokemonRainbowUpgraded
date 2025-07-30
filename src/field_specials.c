@@ -735,6 +735,10 @@ static const struct WindowTemplate sElevatorCurrentFloorWindowTemplate = {
 };
 
 static const u8 *const sFloorNamePointers[] = {
+    gText_B8F,
+    gText_B7F,
+    gText_B6F,
+    gText_B5F,
     gText_B4F,
     gText_B3F,
     gText_B2F,

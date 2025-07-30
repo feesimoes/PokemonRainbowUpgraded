@@ -1,3 +1,8 @@
 Cherrygrove_PokemonCenter_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Cherrygrove_PokemonCenter_OnTransition
 	.byte 0
+
+Cherrygrove_PokemonCenter_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_CHERRYGROVE_CITY
+	end
 

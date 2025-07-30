@@ -182,7 +182,7 @@
       "x": 9,
       "y": 9,
       "respawn_map": "MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB",
-      "respawn_npc": "1"
+      "respawn_npc": "LOCALID_PROF_ELM"
     },
     {
       "id": "HEAL_LOCATION_CHERRYGROVE_CITY",
@@ -207,6 +207,14 @@
       "y": 6,
       "respawn_map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VERMILION_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VIOLET_CITY",
+      "map": "MAP_VIOLET_CITY",
+      "x": 43,
+      "y": 58,
+      "respawn_map": "MAP_VIOLET_CITY",
+      "respawn_npc": "1"
     }
   ]
 }

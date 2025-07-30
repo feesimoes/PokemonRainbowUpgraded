@@ -41,6 +41,8 @@
 #include "pokenav.h"
 #include "constants/vars.h"
 #include "event_scripts.h"
+#include "list_menu.h"
+#include "music_player.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 
@@ -74,6 +76,17 @@ static void UseFameCheckerFromBag(void);
 static void Task_UseFameCheckerFromField(u8 taskId);
 static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
+static void MusicTask_HandleMenuInput_Main(u8 taskId);
+static void Action_Sound_ME(u8 taskId);
+static void Action_Sound_BGM(u8 taskId);
+static void Task_UseMusicPlayerFromBag(void);
+static void Task_UseMusicPlayerFromField(u8 taskId);
+static void Task_UseExplorerKitFromField(u8 taskId);
+
+static const u8 sText_Sound_SFX[] =    _("Jingles…{CLEAR_TO 110}{RIGHT_ARROW}");
+static const u8 sText_Sound_SFX_ID[] = _("Jingle: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
+static const u8 sText_Sound_BGM[] =    _("Music…{CLEAR_TO 110}{RIGHT_ARROW}");
+static const u8 sText_Sound_BGM_ID[] = _("Music: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -132,6 +145,20 @@ static const u8 sUnused[] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
+
+#define MUSIC_BGM_LIST \
+        X() \
+
+#define X(songId) static const u8 sBGMName_##songId[] = _(#songId);
+MUSIC_BGM_LIST
+#undef X
+
+#define X(songId) sBGMName_##songId,
+static const u8 *const sBGMNames[] =
+{
+    MUSIC_BGM_LIST
+};
+#undef X
 
 static void (*const sExitCallbackByItemType[])(void) = {
     [ITEM_TYPE_PARTY_MENU - 1] = CB2_ShowPartyMenuForItemUse,
@@ -764,11 +791,123 @@ void FieldUseFunc_VsSeeker(u8 taskId)
     }
 }
 
+//Explorer Kit Digging/Climbing Functions
 void FieldUseFunc_RockClimb(u8 taskId)
 {
-    Bag_BeginCloseWin0Animation();
-    ItemMenu_StartFadeToExitCallback(taskId);
+    //From Bag
+    if (gTasks[taskId].data[3] == 0)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_UsedFlashLight);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
+        PlaySE(SE_M_REFLECT);
+        FlagSet(FLAG_SYS_FLASH_ACTIVE);
+        ScriptContext_SetupScript(EventScript_FldEffFlash);
+    }
+    //From Field
+    else
+    {
+        gTasks[taskId].func = Task_UseExplorerKitFromField;
+    }
 }
+
+static void Task_UseExplorerKitFromField(u8 taskId)
+{
+    SetFieldCallback2ForItemUse();
+    ScriptContext_SetupScript(EventScript_ExplorerKitDig);
+    DestroyTask(taskId);
+}
+
+void FieldUseFunc_MusicPlayer(u8 taskId)
+{
+    FadeOutBGM(1);
+    if (gTasks[taskId].data[3] == 0)
+    {
+        ItemMenu_SetExitCallback(Task_UseMusicPlayerFromBag);
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        StopPokemonLeagueLightingEffectTask();
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_UseMusicPlayerFromField;
+    }
+    PlayBGM(MUS_MUSIC_MENU);
+}
+
+static void Task_UseMusicPlayerFromBag(void)
+{
+    //UseFameChecker(CB2_MusicPlayerFromStartMenu);
+}
+
+static void Task_UseMusicPlayerFromField(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetFieldCallback2ForItemUse();
+        //UseMusicPlayer(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+static void MusicTask_HandleMenuInput_Main(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        ScriptContext_Enable();
+    }
+}
+
+enum SoundMenu
+{
+    SOUND_MENU_ITEMS_BGM,
+    SOUND_MENU_ITEMS_ME
+};
+
+static const struct ListMenuItem sMusicMenu_Items_Sound[] =
+{
+    [SOUND_MENU_ITEMS_BGM]  = {sText_Sound_BGM,  SOUND_MENU_ITEMS_BGM},
+    [SOUND_MENU_ITEMS_ME]   = {sText_Sound_SFX,  SOUND_MENU_ITEMS_ME},
+};
+
+static void (*const sMusicMenu_Actions_Sound[])(u8) =
+{
+    [SOUND_MENU_ITEMS_BGM]  = Action_Sound_BGM,
+    [SOUND_MENU_ITEMS_ME]   = Action_Sound_ME
+};
+
+static void Action_Sound_BGM(u8 taskId)
+{
+
+}
+
+static void Action_Sound_ME(u8 taskId)
+{
+
+}
+
+static const struct ListMenuTemplate sMusicMenu_ListTemplate_Main =
+{
+    .items = sMusicMenu_Items_Sound,
+    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
+    .totalItems = ARRAY_COUNT(sMusicMenu_Items_Sound),
+};
+
+static const struct WindowTemplate sMusicMenuWindowTemplateMain =
+{
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = WINDOW_WIDTH,
+    .height = WINDOW_HEIGHT,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
 {
