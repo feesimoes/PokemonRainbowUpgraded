@@ -1,0 +1,28 @@
+mapscripts MtMoon_Square_MapScripts 
+{    
+    MAP_SCRIPT_ON_LOAD
+    {
+        fadedefaultbgm()
+        setvar(VAR_EXPLORER_KIT, 1)
+    }
+}
+
+script MtMoon_Square_Sign
+{  
+    lock
+    msgbox(format("This is MT. MOON SQUARE.\nPlease don't litter.\pPut trash where it belongs!"))
+    waitmessage
+    closemessage
+    releaseall
+    end
+}
+
+script MtMoon_Square_Shop_Sign
+{
+    lock
+    msgbox(format("MT. MOON SQUARE -\nSOUVENIR SHOP"))
+    waitmessage
+    closemessage
+    releaseall
+    end
+}

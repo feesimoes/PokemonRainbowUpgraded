@@ -31,6 +31,7 @@ EventScript_ExplorerKitDig::
 	goto_if_eq VAR_EXPLORER_KIT, -6, EventScript_FallDownDugHole_Tohjo_Falls_B6F
 	goto_if_eq VAR_EXPLORER_KIT, -7, EventScript_FallDownDugHole_Tohjo_Falls_B7F
 	goto_if_eq VAR_EXPLORER_KIT, -8, EventScript_NothingHappened
+	goto_if_eq VAR_EXPLORER_KIT, -9, EventScript_NothingHappened
 	releaseall
 	end
 EventScript_ExplorerKitEnd::
@@ -49,6 +50,7 @@ EventScript_EscapeUpPrompt::
 	goto_if_eq VAR_EXPLORER_KIT, -6, EventScript_EscapeUpDugHole_Tohjo_Falls_B6F
 	goto_if_eq VAR_EXPLORER_KIT, -7, EventScript_EscapeUpDugHole_Tohjo_Falls_B7F
 	goto_if_eq VAR_EXPLORER_KIT, -8, EventScript_EscapeUpDugHole_Tohjo_Falls_B8F
+	goto_if_eq VAR_EXPLORER_KIT, -9, EventScript_EscapeUpToSecret_Mt_Moon_Square
 	releaseall
 	end
 EventScript_ReleaseExplorerKit::
@@ -155,5 +157,12 @@ EventScript_EscapeUpDugHole_Tohjo_Falls_B8F::
 	lockall
 	playse SE_WARP_OUT
 	warphole MAP_TOHJO_FALLS_B7F
+	releaseall
+	end
+
+EventScript_EscapeUpToSecret_Mt_Moon_Square::
+	lockall
+	playse SE_WARP_OUT
+	warphole MAP_MT_MOON_SQUARE
 	releaseall
 	end

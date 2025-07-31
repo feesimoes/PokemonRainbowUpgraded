@@ -5905,12 +5905,12 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
         case TRAINER_CLASS_PKMN_TRAINER:
+        default:
             if (StringCompare("RODOLFO", gTrainers[gTrainerBattleOpponent_A].trainerName) == TRUE)
             {
                 return MUS_VS_RODOLFO;
             }
-        default:
-            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
+            else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
             {
                 return MUS_VS_TRAINER_JOHTO;
             }

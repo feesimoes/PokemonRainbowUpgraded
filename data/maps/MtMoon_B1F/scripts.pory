@@ -1,0 +1,7 @@
+mapscripts MtMoon_B1F_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setvar(VAR_EXPLORER_KIT, -9)
+    }
+}

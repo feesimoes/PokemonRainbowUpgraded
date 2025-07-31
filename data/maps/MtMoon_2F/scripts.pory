@@ -1,0 +1,8 @@
+mapscripts MtMoon_2F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        fadedefaultbgm()
+        setvar(VAR_EXPLORER_KIT, 1)
+    }
+}

@@ -15,8 +15,10 @@ TohjoFalls_B8F_Lair_Giovanni_Battle::
 # 11 "data/maps/TohjoFalls_B8F_Lair/scripts.pory"
 	msgbox TohjoFalls_B8F_Lair_Giovanni_Battle_Text_2
 # 12 "data/maps/TohjoFalls_B8F_Lair/scripts.pory"
-	waitmessage
+	cleartrainerflag TRAINER_BOSS_GIOVANNI_3
 # 13 "data/maps/TohjoFalls_B8F_Lair/scripts.pory"
+	waitmessage
+# 14 "data/maps/TohjoFalls_B8F_Lair/scripts.pory"
 	closemessage
 	return
 

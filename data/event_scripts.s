@@ -1483,3 +1483,12 @@ Text_TestMsg::
 
 	.include "data/maps/TohjoFalls_B8F_Lair/scripts.inc"
 	.include "data/maps/TohjoFalls_B8F_Lair/text.inc"
+
+	.include "data/maps/MtMoon_Square/scripts.inc"
+	.include "data/maps/MtMoon_Square/text.inc"
+
+	.include "data/maps/MtMoon_2F/scripts.inc"
+	.include "data/maps/MtMoon_2F/text.inc"
+
+	.include "data/maps/MtMoon_Square_Shop/scripts.inc"
+	.include "data/maps/MtMoon_Square_Shop/text.inc"

@@ -448,7 +448,8 @@
   ],
   "gMapGroup_IndoorRoute4": [
     "Route4_PokemonCenter_1F",
-    "Route4_PokemonCenter_2F"
+    "Route4_PokemonCenter_2F",
+    "MtMoon_Square_Shop"
   ],
   "gMapGroup_IndoorRoute5": [
     "Route5_PokemonDayCare",
@@ -614,6 +615,8 @@
     "TohjoFalls_B6F",
     "TohjoFalls_B7F",
     "TohjoFalls_B8F",
-    "TohjoFalls_B8F_Lair"
+    "TohjoFalls_B8F_Lair",
+    "MtMoon_Square",
+    "MtMoon_2F"
   ]
 }

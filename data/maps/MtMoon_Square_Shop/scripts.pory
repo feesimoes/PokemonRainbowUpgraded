@@ -1,0 +1,11 @@
+mapscripts MtMoon_Square_Shop_MapScripts {}
+
+script MtMoon_Square_Shop_Old_Man
+{
+    lock
+    msgbox(format("Hello... You came here to\nsee the CLEFAIRY dance?\pOutside, there is a big crater,\nwhich is hard to miss.\pBut they only dance at night.\nHmm...\pCome to think of it, when was\nthe last time I saw sunset?"))
+    waitmessage
+    closemessage
+    releaseall
+    end
+}

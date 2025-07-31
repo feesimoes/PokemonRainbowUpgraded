@@ -9,6 +9,7 @@ script TohjoFalls_B8F_Lair_Giovanni_Battle
 {
     trainerbattle_single(TRAINER_BOSS_GIOVANNI_3, format("Take a look around you... {PLAYER}.\nBeing here, it is no easy feat.\pFor that, I commend you.\n...But.\pI take it you're here due\nto the lies you saw past.\pVery well! You want the truth?\nSo be it!"), format("Hah! Excellent...\nIf you can defeat my MEWTWO, well..."))
     msgbox(format("Ha!\nThat was truly an intense fight...\pYou have won, again!\n...But we'll meet again!"))
+    cleartrainerflag(TRAINER_BOSS_GIOVANNI_3)
     waitmessage
     closemessage
 }
