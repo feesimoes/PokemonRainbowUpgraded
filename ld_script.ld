@@ -1000,6 +1000,14 @@ SECTIONS {
         sound/songs/midi/mus_vs_trainer_sinnoh.o(.rodata);
         sound/songs/midi/mus_music_menu.o(.rodata);
         sound/songs/midi/mus_tohjo_falls_depths.o(.rodata);
+        sound/songs/midi/mus_route23_gate.o(.rodata);
+        sound/songs/midi/mus_route23_badge1.o(.rodata);
+        sound/songs/midi/mus_route23_badge2.o(.rodata);
+        sound/songs/midi/mus_route23_badge3.o(.rodata);
+        sound/songs/midi/mus_route23_badge4.o(.rodata);
+        sound/songs/midi/mus_route23_badge5.o(.rodata);
+        sound/songs/midi/mus_route23_badge6.o(.rodata);
+        sound/songs/midi/mus_route23_badge7.o(.rodata);
     } > ROM =0
 
     lib_rodata :

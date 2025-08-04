@@ -1,7 +1,3 @@
 CanalaveCity_PokemonCenter_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, CanalaveCity_PokemonCenter_1F_OnTransition
 	.byte 0
 
-CanalaveCity_PokemonCenter_1F_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_CANALAVE_CITY
-	end

@@ -400,7 +400,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SAPPHIRE]       = {gItemIcon_Gem, gItemIconPalette_Sapphire},
     [ITEM_POKE_NAV_PLUS]  = {gItemIcon_PokeNavPlus, gItemIconPalette_PokeNavPlus},
     [ITEM_ROCK_CLIMB_KIT] = {gItemIcon_ExplorerKit, gItemIconPalette_ExplorerKit},
-    [ITEM_MUSIC_PLAYER]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_MUSIC_PLAYER]   = {gItemIcon_MusicPlayer, gItemIconPalette_MusicPlayer},
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

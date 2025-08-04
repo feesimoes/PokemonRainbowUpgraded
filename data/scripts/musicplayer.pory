@@ -1,0 +1,59 @@
+script EventScript_UseMusicPlayer
+{
+    lockall
+    switch (var(VAR_MUSIC_PLAYER_TRACK))
+    {
+        case 0:
+            msgbox(format("Song 0: Music Player Menu Theme\nUnlocks: When using MUSIC PLAYER."))
+            waitmessage
+        default:
+            msgbox(format("???:\nTrack unknown... Going back to Track 0."))
+            waitmessage
+            closemessage
+            setvar(VAR_MUSIC_PLAYER_TRACK, 0)
+            call(EventScript_UseMusicPlayer)
+    }
+    end
+}
+
+script EventScript_PromptPlaySong 
+{
+    lockall
+    msgbox(format("Play this song?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, EventScript_UseMusicPlayer)
+    end
+}
+
+script EventScript_TryPlayMusic
+{
+    lockall
+    switch (var(VAR_MUSIC_PLAYER_TRACK))
+    {
+        case 0:
+            playbgm(MUS_MUSIC_MENU, FALSE)
+            msgbox(format("Playing: Music Player Menu Theme\nHG/SS Goldenrod City (FR/LG Remix)"))
+            waitmessage
+            closemessage
+    }
+    end
+}
+
+script EventScript_MusicPlayerGuide 
+{
+    lockall
+    msgbox(format("Welcome to the MUSIC PLAYER,\n{PLAYER}! Here's the controls...\pPress A to PLAY, B to QUIT\n<- Previous, Next ->\pEnjoy the music!\n- RODOLFO"))
+    waitmessage
+    closemessage
+    call(EventScript_UseMusicPlayer)
+    end
+}
+
+script EventScript_ExitMusicPlayer
+{
+    fadedefaultbgm
+    msgbox(format("Closing the MUSIC PLAYER..."))
+    waitmessage
+    closemessage
+    releaseall
+    end
+}

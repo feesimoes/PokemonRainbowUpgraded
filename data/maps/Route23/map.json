@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "offset": 0,
+      "offset": -11,
       "direction": "up"
     },
     {
@@ -141,8 +141,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 18,
-      "y": 28,
+      "x": 6,
+      "y": 19,
       "elevation": 3,
       "dest_map": "MAP_VICTORY_ROAD_2F",
       "dest_warp_id": "6"
@@ -568,8 +568,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 18,
+      "x": 15,
+      "y": 16,
       "elevation": 3,
       "item": "ITEM_LUM_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LUM_BERRY",
@@ -608,8 +608,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 9,
-      "y": 8,
+      "x": 18,
+      "y": 29,
       "elevation": 3,
       "item": "ITEM_MAX_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ELIXIR",

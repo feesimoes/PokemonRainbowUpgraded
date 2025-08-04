@@ -16,6 +16,14 @@ IndigoPlateau_Exterior_OnFrame::
 	map_script_2 VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 1, IndigoPlateau_Exterior_EventScript_Credits
 	.2byte 0
 
+IndigoPlateau_Exterior_Event_Message_Sign::
+	msgbox IndigoPlateau_Exterior_Text_Sign, MSGBOX_SIGN
+	end
+
+IndigoPlateau_Exterior_Text_Sign::
+	.string "INDIGO PLATEAU\n"
+	.string "The Ultimate Goal of TRAINERS!\p"
+	.string "POKéMON LEAGUE HQ$"
 
 @ After beating the champion, you are warped to the main
 @ entrance of Indigo Plateau. This script starts running

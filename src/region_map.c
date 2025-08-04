@@ -249,9 +249,9 @@ struct MapIconSprite
 struct MapIcons
 {
     u8 dungeonIconTiles[0x40];
-    u8 flyIconTiles[0x100];
-    struct MapIconSprite dungeonIcons[25];
-    struct MapIconSprite flyIcons[25];
+    u8 flyIconTiles[0x400];
+    struct MapIconSprite dungeonIcons[100];
+    struct MapIconSprite flyIcons[100];
     u8 region; // Never read
     u8 unused_1[2];
     u8 state;
@@ -880,6 +880,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_27            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE27),                               HEAL_LOCATION_ROUTE27},
     [MAPSEC_ROUTE_27_REST_HOUSE - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE27),                               HEAL_LOCATION_NONE},
     [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_NEW_BARK_TOWN),                         HEAL_LOCATION_NEW_BARK_TOWN},
+    [MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START] = {MAP(MAP_CHERRYGROVE_CITY),                      HEAL_LOCATION_CHERRYGROVE_CITY},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_SSANNE_EXTERIOR),                       HEAL_LOCATION_VERMILION_HARBOR},
@@ -949,7 +950,6 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_CANALAVE_CITY       - KANTO_MAPSEC_START] = {MAP(MAP_CANALAVE_CITY),                         HEAL_LOCATION_CANALAVE_CITY},
-    [MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START] = {MAP(MAP_CHERRYGROVE_CITY),                      HEAL_LOCATION_CHERRYGROVE_CITY},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -3934,7 +3934,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     u8 *dst;
     u16 i;
     u16 idx;
-    if ((idx = mapsec - KANTO_MAPSEC_START) < MAPSEC_NONE - KANTO_MAPSEC_START)
+    if ((idx = mapsec - KANTO_MAPSEC_START) < MAPSEC_COUNT - KANTO_MAPSEC_START)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);

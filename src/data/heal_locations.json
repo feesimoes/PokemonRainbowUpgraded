@@ -75,8 +75,8 @@
     {
       "id": "HEAL_LOCATION_INDIGO_PLATEAU",
       "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "x": 11,
-      "y": 7,
+      "x": 22,
+      "y": 19,
       "respawn_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LEAGUE_NURSE"
     },
@@ -189,8 +189,8 @@
       "map": "MAP_CHERRYGROVE_CITY",
       "x": 50,
       "y": 5,
-      "respawn_map": "MAP_CHERRYGROVE_CITY",
-      "respawn_npc": "1"
+      "respawn_map": "MAP_CHERRYGROVE_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_CHERRYGROVE_NURSE"
     },
     {
       "id": "HEAL_LOCATION_CANALAVE_CITY",

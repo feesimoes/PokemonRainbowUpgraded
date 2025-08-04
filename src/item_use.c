@@ -80,13 +80,8 @@ static void MusicTask_HandleMenuInput_Main(u8 taskId);
 static void Action_Sound_ME(u8 taskId);
 static void Action_Sound_BGM(u8 taskId);
 static void Task_UseMusicPlayerFromBag(void);
-static void Task_UseMusicPlayerFromField(u8 taskId);
+static void Task_UseMusicPlayerFromField(void);
 static void Task_UseExplorerKitFromField(u8 taskId);
-
-static const u8 sText_Sound_SFX[] =    _("Jingles…{CLEAR_TO 110}{RIGHT_ARROW}");
-static const u8 sText_Sound_SFX_ID[] = _("Jingle: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
-static const u8 sText_Sound_BGM[] =    _("Music…{CLEAR_TO 110}{RIGHT_ARROW}");
-static const u8 sText_Sound_BGM_ID[] = _("Music: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -145,20 +140,6 @@ static const u8 sUnused[] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
-
-#define MUSIC_BGM_LIST \
-        X() \
-
-#define X(songId) static const u8 sBGMName_##songId[] = _(#songId);
-MUSIC_BGM_LIST
-#undef X
-
-#define X(songId) sBGMName_##songId,
-static const u8 *const sBGMNames[] =
-{
-    MUSIC_BGM_LIST
-};
-#undef X
 
 static void (*const sExitCallbackByItemType[])(void) = {
     [ITEM_TYPE_PARTY_MENU - 1] = CB2_ShowPartyMenuForItemUse,
@@ -819,95 +800,56 @@ static void Task_UseExplorerKitFromField(u8 taskId)
 
 void FieldUseFunc_MusicPlayer(u8 taskId)
 {
-    FadeOutBGM(1);
+    //From Bag
     if (gTasks[taskId].data[3] == 0)
     {
         ItemMenu_SetExitCallback(Task_UseMusicPlayerFromBag);
         ItemMenu_StartFadeToExitCallback(taskId);
     }
+    //From Field
     else
     {
-        StopPokemonLeagueLightingEffectTask();
-        FadeScreen(FADE_TO_BLACK, 0);
-        gTasks[taskId].func = Task_UseMusicPlayerFromField;
+        DestroyTask(taskId);
+        ScriptContext_SetupScript(EventScript_UseMusicPlayer);
+        //Play song, display hint
+        if (JOY_NEW(A_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            ScriptContext_SetupScript(EventScript_PromptPlaySong);
+        }
+        //Exit
+        else if (JOY_NEW(B_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            ScriptContext_SetupScript(EventScript_ExitMusicPlayer);
+        }
+        //Left/Previous Song
+        else if (JOY_NEW(DPAD_LEFT))
+        {
+            if (VarGet(VAR_MUSIC_PLAYER_TRACK) > 0)
+            {
+                PlaySE(SE_BAG_POCKET);
+                VarSet(VAR_MUSIC_PLAYER_TRACK, VarGet(VAR_MUSIC_PLAYER_TRACK) - 1);
+            }
+        }
+        //Right/Next Song
+        else if (JOY_NEW(DPAD_RIGHT))
+        {
+            PlaySE(SE_BAG_POCKET);
+            VarSet(VAR_MUSIC_PLAYER_TRACK, VarGet(VAR_MUSIC_PLAYER_TRACK) + 1);
+        }
     }
-    PlayBGM(MUS_MUSIC_MENU);
 }
 
 static void Task_UseMusicPlayerFromBag(void)
 {
-    //UseFameChecker(CB2_MusicPlayerFromStartMenu);
-}
-
-static void Task_UseMusicPlayerFromField(u8 taskId)
-{
-    if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        SetFieldCallback2ForItemUse();
-        //UseMusicPlayer(CB2_ReturnToField);
-        DestroyTask(taskId);
-    }
-}
-
-static void MusicTask_HandleMenuInput_Main(u8 taskId)
-{
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-    }
-    else if (JOY_NEW(B_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        ScriptContext_Enable();
-    }
-}
-
-enum SoundMenu
-{
-    SOUND_MENU_ITEMS_BGM,
-    SOUND_MENU_ITEMS_ME
-};
-
-static const struct ListMenuItem sMusicMenu_Items_Sound[] =
-{
-    [SOUND_MENU_ITEMS_BGM]  = {sText_Sound_BGM,  SOUND_MENU_ITEMS_BGM},
-    [SOUND_MENU_ITEMS_ME]   = {sText_Sound_SFX,  SOUND_MENU_ITEMS_ME},
-};
-
-static void (*const sMusicMenu_Actions_Sound[])(u8) =
-{
-    [SOUND_MENU_ITEMS_BGM]  = Action_Sound_BGM,
-    [SOUND_MENU_ITEMS_ME]   = Action_Sound_ME
-};
-
-static void Action_Sound_BGM(u8 taskId)
-{
 
 }
 
-static void Action_Sound_ME(u8 taskId)
+static void Task_UseMusicPlayerFromField(void)
 {
-
+    
 }
-
-static const struct ListMenuTemplate sMusicMenu_ListTemplate_Main =
-{
-    .items = sMusicMenu_Items_Sound,
-    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
-    .totalItems = ARRAY_COUNT(sMusicMenu_Items_Sound),
-};
-
-static const struct WindowTemplate sMusicMenuWindowTemplateMain =
-{
-    .bg = 0,
-    .tilemapLeft = 1,
-    .tilemapTop = 1,
-    .width = WINDOW_WIDTH,
-    .height = WINDOW_HEIGHT,
-    .paletteNum = 15,
-    .baseBlock = 1,
-};
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
 {

@@ -1,7 +1,8 @@
 mapscripts TohjoFalls_1F_MapScripts 
 {
-    MAP_SCRIPT_ON_TRANSITION
+    MAP_SCRIPT_ON_LOAD
     {
+        setworldmapflag(FLAG_WORLD_MAP_TOHJO_FALLS)
         setvar(VAR_EXPLORER_KIT, 0)
     }
 }

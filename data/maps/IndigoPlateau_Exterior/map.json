@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE23",
-      "offset": 0,
+      "offset": 11,
       "direction": "down"
     }
   ],
@@ -25,8 +25,8 @@
       "local_id": "LOCALID_CREDITS_RIVAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
-      "x": 11,
-      "y": 6,
+      "x": 22,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -40,8 +40,8 @@
       "local_id": "LOCALID_CREDITS_PROF_OAK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
-      "x": 11,
-      "y": 6,
+      "x": 22,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -54,13 +54,22 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 6,
+      "x": 22,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "IndigoPlateau_Exterior_Event_Message_Sign"
+    }
+  ]
 }

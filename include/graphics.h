@@ -3292,6 +3292,8 @@ extern const u32 gItemIcon_PokeNavPlus[];
 extern const u32 gItemIconPalette_PokeNavPlus[];
 extern const u32 gItemIcon_ExplorerKit[];
 extern const u32 gItemIconPalette_ExplorerKit[];
+extern const u32 gItemIcon_MusicPlayer[];
+extern const u32 gItemIconPalette_MusicPlayer[];
 
 // battle_anim_utility_funcs
 extern const u32 gFile_graphics_battle_anims_masks_curse_sheet[];

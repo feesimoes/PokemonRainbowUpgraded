@@ -717,3 +717,6 @@ const u32 gItemIconPalette_PokeNavPlus[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_ExplorerKit[] = INCBIN_U32("graphics/items/icons/explorerkit.4bpp.lz");
 const u32 gItemIconPalette_ExplorerKit[] = INCBIN_U32("graphics/items/icon_palettes/explorerkit.gbapal.lz");
+
+const u32 gItemIcon_MusicPlayer[] = INCBIN_U32("graphics/items/icons/music_player.4bpp.lz");
+const u32 gItemIconPalette_MusicPlayer[] = INCBIN_U32("graphics/items/icon_palettes/music_player.gbapal.lz");
