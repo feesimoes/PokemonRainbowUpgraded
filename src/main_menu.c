@@ -677,9 +677,23 @@ static void PrintBadgeCount(void)
     {
         nbadges++;
     }
+    //Johto Badge 1
+    if (FlagGet(FLAG_JOHTO_BADGE01_GET))
+    {
+        nbadges++;
+    }
+
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 66, sTextColor2, -1, gText_Badges);
-    ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEADING_ZEROS, 1);
-    StringAppend(ptr, gTextJPDummy_Ko);
+    //ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEADING_ZEROS, 1);
+    if (nbadges > 9)
+    {
+        ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEFT_ALIGN, 2);
+    }
+    else
+    {
+        ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEADING_ZEROS, 1);
+        StringAppend(ptr, gTextJPDummy_Ko);
+    }
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 62, 66, sTextColor2, -1, strbuf);
 }
 

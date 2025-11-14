@@ -1,0 +1,13 @@
+mapscripts Route29_NorthEntrance_MapScripts 
+{
+    
+}
+
+script Route29_NorthEntrance_Guard_Dialogue
+{
+    lock
+    msgbox(format("Head north into ROUTE 46,\nalthough, it's pointless.\pYou might as well just turn back\ninto ROUTE 29 anyways."))
+    closemessage
+    releaseall
+    end   
+}

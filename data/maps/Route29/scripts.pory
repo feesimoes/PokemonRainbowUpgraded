@@ -1,1 +1,46 @@
-mapscripts Route29_MapScripts {}
+mapscripts Route29_MapScripts
+{
+
+}
+
+script Route29_Police_Dialogue
+{
+    lock
+    applymovement(3, Movement_Route29_NPC_Face_Player)
+    msgbox(format("If someone tries throwing a POKé BALL\nat your POKéMON in battle...\pStay on guard! Block the BALL!\nReport them as well, they are thieves."))
+    closemessage
+    releaseall
+    end  
+}
+
+script Route29_Youngster_Dude_Dialogue
+{
+    lock
+    applymovement(2, Movement_Route29_NPC_Face_Player)
+    msgbox(format("POKéMON hide in the grass.\nWho knows when they'll pop out...?"))
+    closemessage
+    releaseall
+    end  
+}
+
+script Route29_Signpost
+{
+    msgbox(format("ROUTE 29 -\nNovice road, scented by freshly cut grass."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route29_Sign_To_Cherrygrove
+{
+    msgbox(format("CHERRYGROVE CITY is up ahead -\nLeaving ROUTE 29 westward."))
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_Route29_NPC_Face_Player
+{
+    face_player
+    step_end    
+}

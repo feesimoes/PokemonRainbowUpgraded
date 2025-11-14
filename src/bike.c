@@ -8,6 +8,7 @@
 #include "overworld.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
+#include "constants/region_map_sections.h"
 
 static u8 GetBikeTransitionId(u8 *, u16, u16);
 static void Bike_SetBikeStill(void);
@@ -323,10 +324,22 @@ void GetOnOffBike(u8 flags)
     else
     {
         SetPlayerAvatarTransitionFlags(flags);
-        if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING))
+        //Johto maps
+        if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
         {
-            Overworld_SetSavedMusic(MUS_CYCLING);
-            Overworld_ChangeMusicTo(MUS_CYCLING);
+            if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING_JOHTO))
+            {
+                Overworld_SetSavedMusic(MUS_CYCLING_JOHTO);
+                Overworld_ChangeMusicTo(MUS_CYCLING_JOHTO);
+            }
+        }
+        //Default to Kanto cycling music
+        else {
+            if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING))
+            {
+                Overworld_SetSavedMusic(MUS_CYCLING);
+                Overworld_ChangeMusicTo(MUS_CYCLING);
+            }
         }
     }
 }

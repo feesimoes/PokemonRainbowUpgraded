@@ -5879,6 +5879,12 @@ static u16 GetBattleBGM(void)
                     return MUS_VS_GYM_LEADER_REMATCH;
                 }
             }
+            //On a Johto map, this is a Johto gym leader battle
+            else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
+            {
+                return MUS_VS_GYM_LEADER_JOHTO;
+            }
+            
             //On a Sinnoh map, this is a Sinnoh gym leader battle
             else if (gMapHeader.regionMapSectionId > MAPSEC_DRAGONS_DEN)
             {
@@ -5893,20 +5899,24 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_BOSS:
             return MUS_VS_TEAM_ROCKET_BOSS;
         case TRAINER_CLASS_TEAM_ROCKET:
-            if (StringCompare("GRUNT", gTrainers[gTrainerBattleOpponent_A].trainerName) == TRUE)
+            if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameGrunt)
             {
                 return MUS_VS_TEAM_ROCKET;
             }
-            else
+            else if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameAdmin)
             {
                 return MUS_VS_TEAM_ROCKET_ADMIN;
+            }
+            else
+            {
+                return MUS_VS_TEAM_ROCKET;
             }
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
         case TRAINER_CLASS_PKMN_TRAINER:
         default:
-            if (StringCompare("RODOLFO", gTrainers[gTrainerBattleOpponent_A].trainerName) == TRUE)
+            if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameRodolfo)
             {
                 return MUS_VS_RODOLFO;
             }

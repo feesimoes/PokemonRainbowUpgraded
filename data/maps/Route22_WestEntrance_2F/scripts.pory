@@ -1,0 +1,34 @@
+mapscripts Route22_WestEntrance_2F_MapScripts {
+}
+
+script Route22_WestEntrance_2F_Police_Dialogue {
+    lock
+    applymovement(3, Movement_Route22_WestEntrance_2F_NPC_Face_Player)
+    msgbox(format("Look out for yourself\nas well as for others.\pThe line between good and evil\nis not always easy to tell."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route22_WestEntrance_2F_Fat_Man_Dialogue {
+    lock
+    applymovement(1, Movement_Route22_WestEntrance_2F_NPC_Face_Player)
+    msgbox(format("I've heard from some folks\nof a region further south.\pSomewhat neighboring us in JOHTO,\napparently."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route22_WestEntrance_2F_Old_Man_Dialogue {
+    lock
+    applymovement(2, Movement_Route22_WestEntrance_2F_NPC_Face_Player)
+    msgbox(format("Recent developments are astounding!\nBack in my day, you see...\pNobody would have thought of\na realm above the sky!"))
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_Route22_WestEntrance_2F_NPC_Face_Player {
+    face_player
+    step_end
+}

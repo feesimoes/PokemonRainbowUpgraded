@@ -11271,3 +11271,150 @@ static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt53[] = {
         .species = SPECIES_BANETTE,
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_FishermanBradley[] = {
+    {
+        .iv = 50,
+        .lvl = 9,
+        .species = SPECIES_MAGIKARP,
+    },
+    {
+        .iv = 50,
+        .lvl = 10,
+        .species = SPECIES_MAGIKARP,
+    },
+    {
+        .iv = 50,
+        .lvl = 9,
+        .species = SPECIES_TENTACOOL,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_FishermanJacob[] = {
+    {
+        .iv = 50,
+        .lvl = 11,
+        .species = SPECIES_MAGIKARP,
+    },
+    {
+        .iv = 50,
+        .lvl = 9,
+        .species = SPECIES_WOOPER,
+    },
+    {
+        .iv = 50,
+        .lvl = 10,
+        .species = SPECIES_CORSOLA,
+    },
+    {
+        .iv = 50,
+        .lvl = 12,
+        .species = SPECIES_CHINCHOU,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerFalkner[] = {
+    {
+        .iv = 50,
+        .lvl = 56,
+        .species = SPECIES_PIDGEOT,
+    },
+    {
+        .iv = 50,
+        .lvl = 52,
+        .species = SPECIES_PELIPPER,
+    },
+    {
+        .iv = 50,
+        .lvl = 48,
+        .species = SPECIES_MURKROW,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperAbe[] = {
+    {
+        .iv = 50,
+        .lvl = 52,
+        .species = SPECIES_NOCTOWL,
+    },
+    {
+        .iv = 50,
+        .lvl = 46,
+        .species = SPECIES_PIDGEOT,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerMegan[] = {
+    {
+        .iv = 50,
+        .lvl = 14,
+        .species = SPECIES_BULBASAUR,
+    },
+    {
+        .iv = 50,
+        .lvl = 16,
+        .species = SPECIES_IVYSAUR,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperJose[] = {
+    {
+        .iv = 50,
+        .lvl = 40,
+        .species = SPECIES_FARFETCHD,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerBlake[] = {
+    {
+        .iv = 50,
+        .lvl = 13,
+        .species = SPECIES_MAGNEMITE,
+    },
+    {
+        .iv = 50,
+        .lvl = 11,
+        .species = SPECIES_WOOPER,
+    },
+    {
+        .iv = 50,
+        .lvl = 11,
+        .species = SPECIES_EXEGGCUTE,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerErin[] = {
+    {
+        .iv = 50,
+        .lvl = 46,
+        .species = SPECIES_BELLOSSOM,
+    },
+    {
+        .iv = 50,
+        .lvl = 48,
+        .species = SPECIES_RAPIDASH,
+    },
+    {
+        .iv = 50,
+        .lvl = 39,
+        .species = SPECIES_SUNFLORA,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_HikerBailey[] = {
+    {
+        .iv = 50,
+        .lvl = 24,
+        .species = SPECIES_GEODUDE,
+    },
+    {
+        .iv = 50,
+        .lvl = 32,
+        .species = SPECIES_GRAVELER,
+    },
+    {
+        .iv = 50,
+        .lvl = 41,
+        .species = SPECIES_GOLEM,
+    },
+};

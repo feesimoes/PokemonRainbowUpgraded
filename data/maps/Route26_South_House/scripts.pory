@@ -1,0 +1,33 @@
+mapscripts Route26_South_House_MapScripts {}
+
+movement movement_route26_south_house_npc_face_player {
+    face_player
+    step_end
+}
+
+script Route26_South_House_Twins_Mom_Dialogue {
+    lock
+    applymovement(1, movement_route26_south_house_npc_face_player)
+    msgbox(format("Hello, hello!\nSo good of you to stop by!\pMy twin daughters love raising EEVEE.\nPlease, have a word with them!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_South_House_Sunday_Twin_Dialogue {
+    lock
+    applymovement(2, movement_route26_south_house_npc_face_player)
+    msgbox(format("EEVEE can evolve if given\na SUN STONE!\pYou gotta admit it's cute!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_South_House_Wednesday_Twin_Dialogue {
+    lock
+    applymovement(3, movement_route26_south_house_npc_face_player)
+    msgbox(format("EEVEE will evolve if given\na MOON STONE...\pYou know, those otherworldly rocks.\nIt's from eternal darkness..."))
+    closemessage
+    releaseall
+    end
+}

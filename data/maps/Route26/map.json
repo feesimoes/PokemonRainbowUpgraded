@@ -56,7 +56,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Kanto_Biker_Dialogue",
+      "script": "Route26_Kanto_Biker_Dialogue",
       "flag": "0"
     },
     {
@@ -65,12 +65,12 @@
       "x": 14,
       "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_BlackBelt_Dialogue",
       "flag": "0"
     },
     {
@@ -84,7 +84,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_Hiker_Dialogue",
       "flag": "0"
     },
     {
@@ -98,7 +98,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_Deep_Lass_Dialogue",
       "flag": "0"
     },
     {
@@ -112,7 +112,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_Fisher_Dialogue",
       "flag": "0"
     },
     {
@@ -126,7 +126,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Fisherman_Bradley_Route26_Battle",
       "flag": "0"
     },
     {
@@ -140,7 +140,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Fisherman_Jacob_Route26_Battle",
       "flag": "0"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_Deep_Youngster_Dialogue",
       "flag": "0"
     },
     {
@@ -168,7 +168,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route26_Old_Man_Dialogue",
       "flag": "0"
     },
     {
@@ -208,6 +208,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE26_NORTH_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 70,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE26_SOUTH_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -218,7 +225,7 @@
       "y": 39,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "NULL"
+      "script": "Route26_Path_Sign"
     },
     {
       "type": "sign",
@@ -231,10 +238,10 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 54,
+      "y": 50,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "NULL"
+      "script": "Route26_Move_Reminder_Sign"
     }
   ]
 }

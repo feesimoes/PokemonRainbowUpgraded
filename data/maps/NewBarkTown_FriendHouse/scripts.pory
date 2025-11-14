@@ -1,1 +1,20 @@
-mapscripts NewBarkTown_FriendHouse_MapScripts {}
+mapscripts NewBarkTown_FriendHouse_MapScripts
+{
+
+}
+
+script NewBarkTown_FriendHouse_Man_Dialogue
+{
+    lock
+    applymovement(1, Movement_FriendHouse_Man_FacesPlayer)
+    msgbox(format("I enjoy the little moments of\nquiet, here and there.\pThe neighbors' kids can be very\nloud, sometimes."))
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_FriendHouse_Man_FacesPlayer
+{
+    face_player
+    step_end    
+}

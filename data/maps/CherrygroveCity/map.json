@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE30",
       "offset": 25,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE32_BAY",
+      "offset": -65,
+      "direction": "left"
     }
   ],
   "object_events": [

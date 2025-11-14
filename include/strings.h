@@ -1560,4 +1560,8 @@ extern const u8 gText_GOMenu[];
 extern const u8 gText_GOChosenBall[];
 extern const u8 gText_UsedFlashLight[];
 
+extern const u8 gString_TrainerNameGrunt[];
+extern const u8 gString_TrainerNameAdmin[];
+extern const u8 gString_TrainerNameRodolfo[];
+
 #endif //GUARD_STRINGS_H

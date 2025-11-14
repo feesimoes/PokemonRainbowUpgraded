@@ -4624,7 +4624,7 @@
     {
       "id": "LAYOUT_ROUTE46",
       "name": "Route46_Layout",
-      "width": 24,
+      "width": 28,
       "height": 72,
       "border_width": 2,
       "border_height": 2,
@@ -4896,6 +4896,126 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/MtMoon_Square_Shop/border.bin",
       "blockdata_filepath": "data/layouts/MtMoon_Square_Shop/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE32",
+      "name": "Route32_Layout",
+      "width": 48,
+      "height": 148,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SaffronCity",
+      "border_filepath": "data/layouts/Route32/border.bin",
+      "blockdata_filepath": "data/layouts/Route32/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE32_BAY",
+      "name": "Route32_Bay_Layout",
+      "width": 64,
+      "height": 112,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SaffronCity",
+      "border_filepath": "data/layouts/Route32_Bay/border.bin",
+      "blockdata_filepath": "data/layouts/Route32_Bay/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE26_SOUTH_HOUSE",
+      "name": "Route26_South_House_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route26_South_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route26_South_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE32_BAY_BOUNTY_HOUSE",
+      "name": "Route32_Bay_Bounty_House_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route32_Bay_Bounty_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route32_Bay_Bounty_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_DARK_CAVE_1F",
+      "name": "DarkCave_1F_Layout",
+      "width": 82,
+      "height": 66,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DarkCave_1F/border.bin",
+      "blockdata_filepath": "data/layouts/DarkCave_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE31_VIOLET_CITY_ENTRANCE",
+      "name": "Route31_VioletCityEntrance_Layout",
+      "width": 13,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route31_VioletCityEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route31_VioletCityEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIOLET_CITY_GYM",
+      "name": "VioletCity_Gym_Layout",
+      "width": 19,
+      "height": 29,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PewterGym",
+      "border_filepath": "data/layouts/VioletCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/VioletCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIOLET_POKEMON_CENTER_1F",
+      "name": "Violet_PokemonCenter_1F_Layout",
+      "width": 16,
+      "height": 19,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Violet_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Violet_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE29_NORTH_ENTRANCE",
+      "name": "Route29_NorthEntrance_Layout",
+      "width": 9,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Route29_NorthEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route29_NorthEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28",
+      "name": "Route28_Layout",
+      "width": 168,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IndigoPlateau",
+      "border_filepath": "data/layouts/Route28/border.bin",
+      "blockdata_filepath": "data/layouts/Route28/map.bin"
     }
   ]
 }

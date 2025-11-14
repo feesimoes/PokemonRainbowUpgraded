@@ -49,15 +49,19 @@
     "gMapGroup_IndoorCherrygrove",
     "gMapGroup_IndoorRoute30",
     "gMapGroup_IndoorCanalave",
-    "gMapGroup_Dungeons2"
+    "gMapGroup_Dungeons2",
+    "gMapGroup_IndoorRoute32_Bay",
+    "gMapGroup_IndoorRoute31",
+    "gMapGroup_IndoorViolet",
+    "gMapGroup_IndoorRoute32",
+    "gMapGroup_IndoorRoute29"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom",
-    "Route29"
+    "UnionRoom"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -323,7 +327,11 @@
     "Route_218",
     "Route46",
     "Route31",
-    "VioletCity"
+    "VioletCity",
+    "Route32",
+    "Route32_Bay",
+    "Route29",
+    "Route28"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -580,7 +588,8 @@
   ],
   "gMapGroup_IndoorRoute26": [
     "Route26_North_House",
-    "Route26_NorthEntrance"
+    "Route26_NorthEntrance",
+    "Route26_South_House"
   ],
   "gMapGroup_IndoorRoute27": [
     "Route27_Rest_House"
@@ -617,6 +626,21 @@
     "TohjoFalls_B8F",
     "TohjoFalls_B8F_Lair",
     "MtMoon_Square",
-    "MtMoon_2F"
+    "MtMoon_2F",
+    "DarkCave_1F"
+  ],
+  "gMapGroup_IndoorRoute32_Bay": [
+    "Route32_Bay_Bounty_House"
+  ],
+  "gMapGroup_IndoorRoute31": [
+    "Route31_VioletCityEntrance"
+  ],
+  "gMapGroup_IndoorViolet": [
+    "VioletCity_Gym",
+    "Violet_PokemonCenter_1F"
+  ],
+  "gMapGroup_IndoorRoute32": [],
+  "gMapGroup_IndoorRoute29": [
+    "Route29_NorthEntrance"
   ]
 }

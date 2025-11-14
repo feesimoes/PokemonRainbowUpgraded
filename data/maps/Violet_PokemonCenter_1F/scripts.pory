@@ -1,0 +1,39 @@
+mapscripts Violet_PokemonCenter_1F_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_VIOLET_CITY)
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_VIOLET_CITY)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script Violet_PokemonCenter_1F_Attendant_Out_Of_Service
+{
+    lock
+    applymovement(5, Movement_Violet_PokemonCenter_1F_Face_Player)
+    msgbox(format("I'm terribly sorry, but we\nare undergoing some maintenance."))
+    release
+    end
+}
+
+script Violet_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+movement Movement_Violet_PokemonCenter_1F_Face_Player
+{
+    face_player
+    step_end
+}

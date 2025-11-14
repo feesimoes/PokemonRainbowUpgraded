@@ -1,1 +1,30 @@
-mapscripts NewBarkTown_LyrasHouse_MapScripts {}
+mapscripts NewBarkTown_LyrasHouse_MapScripts
+{
+
+}
+
+script NewBarkTown_LyrasHouse_Mom_Dialogue
+{
+    lock
+    applymovement(1, Movement_LyrasHouse_NPC_FacesPlayer)
+    msgbox(format("I hear they hold contests\nin a region down south."))
+    closemessage
+    releaseall
+    end
+}
+
+script NewBarkTown_LyrasHouse_Lyra_Dialogue
+{
+    lock
+    applymovement(2, Movement_LyrasHouse_NPC_FacesPlayer)
+    msgbox(format("MARILL is a cute POKéMON!\nI want one someday!"))
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_LyrasHouse_NPC_FacesPlayer
+{
+    face_player
+    step_end    
+}

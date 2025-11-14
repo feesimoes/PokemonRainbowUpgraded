@@ -3,28 +3,32 @@ mapscripts NewBarkTown_MapScripts {}
 script ProfessorElmsLab_Sign {
     lock
     msgbox(format("ELM POKéMON RESEARCH LAB"))
-    release
+    closemessage
+    releaseall
     end
 }
 
 script NewBarkTown_Sign {
     lock
     msgbox(format("NEW BARK TOWN\nWinds of a new beginning!"))
-    release
+    closemessage
+    releaseall
     end
 }
 
 script LyrasHouse_Sign {
     lock
     msgbox(format("LYRA's House"))
-    release
+    closemessage
+    releaseall
     end
 }
 
 script EthansHouse_Sign {
     lock
     msgbox(format("ETHAN's House"))
-    release
+    closemessage
+    releaseall
     end
 }
 
@@ -33,7 +37,8 @@ script LadyWarningAboutGrassOutsideOfNewBarkTown
     lock
     applymovement(1, Movement_NewBarkTown_Face_Player)
     msgbox(format("You shouldn't go walking into\ntall grass with no POKéMON.\pIt's not safe like that."))
-    release
+    closemessage
+    releaseall
     end
 }
 
@@ -42,7 +47,8 @@ script LittleGirlWonderingWhereYouAreFrom
     lock
     applymovement(3, Movement_NewBarkTown_Face_Player)
     msgbox(format("Hey mister! Where are you from?\nPALLET TOWN? Where is that?\pOh, that's in KANTO?!\nI never knew!"))
-    release
+    closemessage
+    releaseall
     end
 }
 
@@ -51,33 +57,59 @@ script GentlemanIsTiredOfThisPlace
     lock
     applymovement(2, Movement_NewBarkTown_Face_Player)
     msgbox(format("I've travelled the world.\nIt doesn't matter where you go.\pBut it's important to have\nculture that welcomes you."))
-    release
+    closemessage
+    releaseall
     end
 }
 
-movement Movement_NewBarkTown_Face_Player {
+script NewBarkTown_Police_Roadblock_Interact
+{
+    lock
+    applymovement(4, Movement_NewBarkTown_Face_Player)
+    msgbox(format("I'm on the lookout for shady\nindividuals from TEAM ROCKET.\pIf you see anything, let us know."))
+    closemessage
+    releaseall
+    end
+}
+script NewBarkTown_Police_Roadblock_Interrupt 
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_MALE)
+    applymovement(4, Movement_NewBarkTown_Notice_Player)
+    waitmovement
+    applymovement(4, Movement_NewBarkTown_Face_Player)
+    msgbox(format("Freeze!\nI've got you now, you filthy-"), MSGBOX_NPC)
+    closemessage
+    applymovement(LOCALID_PLAYER, Movement_NewBarkTown_Face_Player_Up)
+    waitmovement
+    msgbox(format("...Oh, I apologize.\nI thought you were...\pAhem, I'm looking out for shady\nindividuals from TEAM ROCKET.\pSorry, you need to step back.\nReport any criminal activity."), MSGBOX_NPC)
+    closemessage
+    applymovement(LOCALID_PLAYER, Movement_NewBarkTown_Walk_Player_Right_1)
+    waitmovement
+    releaseall
+    end    
+}
+
+movement Movement_NewBarkTown_Face_Player
+{
     face_player
     step_end
 }
 
-movement Movement_NewBarkTown_Bill_Spots_Player
+movement Movement_NewBarkTown_Notice_Player
 {
-    face_player
     emote_exclamation_mark
     step_end
 }
 
-movement Movement_NewBarkTown_MovePlayerUp {
-    walk_up
+movement Movement_NewBarkTown_Walk_Player_Right_1
+{
+    walk_right
     step_end
 }
 
-movement Movement_NewBarkTown_MovePlayerDown {
-    walk_down
-    step_end
-}
-
-movement Movement_Bill_Leaves_New_Bark_Town {
-    walk_left
-    step_end
+movement Movement_NewBarkTown_Face_Player_Up
+{
+    face_up
+    step_end    
 }

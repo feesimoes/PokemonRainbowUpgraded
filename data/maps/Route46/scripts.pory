@@ -1,1 +1,50 @@
 mapscripts Route46_MapScripts {}
+
+script Route46_Sign
+{
+    msgbox(format("ROUTE 46 -\nSloping path down to grassy plains."))
+    closemessage
+    releaseall
+    end
+}
+script Route46_DarkCave_Sign
+{
+    msgbox(format("DARK CAVE -\nA tunnel that runs beneath JOHTO."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route46_Picnicker_Erin_Battle 
+{
+    trainerbattle_single(TRAINER_PICNICKER_ERIN, format("Excuse me?"), format("...I-"))
+    msgbox(format("Oof!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route46_Hiker_Bailey_Battle 
+{
+    trainerbattle_single(TRAINER_HIKER_BAILEY, format("Hopping off a rocky ledge...\nDoes that make you an anti-HIKER?"), format("Perhaps I should re-do my vocabulary..."))
+    msgbox(format("You handled my sturdy team like\nit was an anti-climatic moment!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route46_Explorer_Guy_Dialogue 
+{
+    lock
+    applymovement(2, Movement_Route46_NPC_Face_Player)
+    msgbox(format("I'm trying to find rare POKéMON.\nSo far, no luck..."))
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_Route46_NPC_Face_Player 
+{
+    face_player
+    step_end   
+}

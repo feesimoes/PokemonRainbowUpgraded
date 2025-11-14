@@ -41,6 +41,10 @@ SilphCo_11F_Text_ThanksForRescuingUs::
     .string "We, from the PRESIDENT down,\n"
     .string "are indebted to you.$"
 
+SilphCo_11F_Text_NegotiationsTakingTooLong::
+    .string "Negotations are taking far too\n"
+    .string "long... What's holding BOSS?$"
+
 SilphCo_11F_Text_GiovanniIntro::
     .string "Ah, {PLAYER}!\n"
     .string "So we meet again!\p"

@@ -374,7 +374,7 @@ gSongTable::
 	song mus_kanto_emotion, 0, 0
 	song mus_safari_zone, 0, 0
 	song mus_route32, 0, 0
-	song mus_route46, 0, 0
+	song mus_route42, 0, 0
 	song mus_gym_sinnoh, 0, 0
 	song mus_vs_gym_leader_sinnoh, 0, 0
 	song mus_vs_rodolfo, 0, 0
@@ -391,6 +391,10 @@ gSongTable::
 	song mus_route23_badge5, 0, 0
 	song mus_route23_badge6, 0, 0
 	song mus_route23_badge7, 0, 0
+	song mus_violet, 0, 0
+	song mus_cycling_johto, 0, 0
+	song mus_dark_cave, 0, 0
+	song mus_vs_gym_leader_johto, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

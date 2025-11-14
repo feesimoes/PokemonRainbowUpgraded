@@ -991,7 +991,7 @@ SECTIONS {
         sound/songs/midi/mus_kanto_emotion.o(.rodata);
         sound/songs/midi/mus_safari_zone.o(.rodata);
         sound/songs/midi/mus_route32.o(.rodata);
-        sound/songs/midi/mus_route46.o(.rodata);
+        sound/songs/midi/mus_route42.o(.rodata);
         sound/songs/midi/mus_gym_sinnoh.o(.rodata);
         sound/songs/midi/mus_vs_gym_leader_sinnoh.o(.rodata);
         sound/songs/midi/mus_vs_rodolfo.o(.rodata);
@@ -1008,6 +1008,10 @@ SECTIONS {
         sound/songs/midi/mus_route23_badge5.o(.rodata);
         sound/songs/midi/mus_route23_badge6.o(.rodata);
         sound/songs/midi/mus_route23_badge7.o(.rodata);
+        sound/songs/midi/mus_violet.o(.rodata);
+        sound/songs/midi/mus_cycling_johto.o(.rodata);
+        sound/songs/midi/mus_dark_cave.o(.rodata);
+        sound/songs/midi/mus_vs_gym_leader_johto.o(.rodata);
     } > ROM =0
 
     lib_rodata :

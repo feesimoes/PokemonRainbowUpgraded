@@ -380,7 +380,7 @@
 #define MUS_KANTO_EMOTION         372 // MUS_KANTO_EMOTION
 #define MUS_SAFARI_ZONE           373 // MUS_SAFARI_ZONE
 #define MUS_ROUTE_32              374 // MUS_ROUTE32
-#define MUS_ROUTE_46              375 // MUS_ROUTE46
+#define MUS_ROUTE_42              375 // MUS_ROUTE42
 #define MUS_GYM_SINNOH            376 // MUS_GYM_SINNOH
 #define MUS_VS_GYM_LEADER_SINNOH  377 // MUS_VS_GYM_LEADER_SINNOH
 #define MUS_VS_RODOLFO            378 // MUS_VS_RODOLFO
@@ -397,6 +397,10 @@
 #define MUS_ROUTE_23_BADGE_5   	  389 // MUS_ROUTE_23_BADGE_5
 #define MUS_ROUTE_23_BADGE_6   	  390 // MUS_ROUTE_23_BADGE_6
 #define MUS_ROUTE_23_BADGE_7   	  391 // MUS_ROUTE_23_BADGE_7
+#define MUS_VIOLET                392 // MUS_VIOLET
+#define MUS_CYCLING_JOHTO         393 // MUS_CYCLING_JOHTO
+#define MUS_DARK_CAVE             394 // MUS_DARK_CAVE
+#define MUS_VS_GYM_LEADER_JOHTO   395 // MUS_VS_GYM_LEADER_JOHTO
 
 #define MUS_NONE                    0xFFFF
 

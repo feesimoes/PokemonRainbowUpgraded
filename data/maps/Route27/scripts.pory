@@ -1,11 +1,6 @@
-mapscripts Route27_MapScripts {}
-
-script Route26_This_Way_Map_Sign
+mapscripts Route27_MapScripts 
 {
-    msgbox(format("KANTO ROUTE 26:\nRough mountain road, tests TRAINERS."))
-    closemessage
-    releaseall
-    end
+
 }
 
 script Route27_Map_Sign
@@ -29,6 +24,63 @@ script Route27_Fat_Man
     lock
     faceplayer
     msgbox(format("Hey!\nYou know what you just did?\pYou just took your first\nstep in KANTO!\pCheck your map!\n...\p...\n...\p...Oh, if you're from KANTO,\nthis is pretty awkward...\pSorry..."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Birdkeeper_Jose_Battle 
+{
+    trainerbattle_single(TRAINER_BIRDKEEPER_JOSE, format("Hey!\nThis is my plot of land!"), format("Alright, alright...\nFine, I'll share!"))
+    msgbox(format("This hidden plot of land is\nour base now. Happy?"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Picnicker_Megan_Battle 
+{
+    trainerbattle_single(TRAINER_PICNICKER_MEGAN, format("TOHJO FALLS is too eerie\nfor a date, honestly.\pI would prefer going to\nCERULEAN CAPE. So romantic!\p...Excuse me?\nAsking why I'm over here?!"), format("Okay, okay!\nI will admit, I am lost."))
+    msgbox(format("As soon as I started wandering\ninto JOHTO territory...\pI figured I got lost,\ntrying to retrace my steps."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Cooltrainer_Blake_Battle
+{
+    trainerbattle_single(TRAINER_COOLTRAINER_BLAKE, format("I'm too cool for TRAINERS'\nSCHOOL! Let's battle!"), format("Huh, so I guess there are\na few things I could learn..."))
+    msgbox(format("Where did you study the techniques\nthat you used in battle?"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Shy_Beauty_Dialogue
+{
+    lock
+    faceplayer
+    msgbox(format("He loves me...\nHe loves me... not...\pI can't do this!\nIt's just... I'm so shy!"))   
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Swimmer_Encouraging_Friend_Dialogue
+{
+    lock
+    faceplayer
+    msgbox(format("You only live one life...\nSo, don't be shy! Go for it!"))   
+    closemessage
+    releaseall
+    end
+}
+
+script Route27_Fisherman_Confused_Dialogue
+{
+    lock
+    faceplayer
+    msgbox(format("I think those two pretty\nladies are bickering over me.\pI don't want to be\nthe cause of a fight..."))   
     closemessage
     releaseall
     end

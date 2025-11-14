@@ -1,6 +1,1 @@
 mapscripts VioletCity_MapScripts {}
-
-script TestBattleVioletCity 
-{
-    trainerbattle_single(TRAINER_LEADER_WALKER, format("Test Walker battle"), format(""))    
-}

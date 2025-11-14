@@ -1345,4 +1345,8 @@ const u8 gText_Toss[] = _("TOSS");
 const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK");
 const u8 gText_UsedFlashLight[] = _("{PLAYER} used the EXPLORER KIT.\nIt got a little brighter.");
 
+const u8 gString_TrainerNameGrunt[] = _("GRUNT");
+const u8 gString_TrainerNameAdmin[] = _("ADMIN");
+const u8 gString_TrainerNameRodolfo[] = _("RODOLFO");
+
 static const u8 sText_SelectedBallType[] = _("{B_PLAYER_NAME} has a {B_LAST_ITEM} in their hand!");

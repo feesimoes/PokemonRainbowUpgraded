@@ -43,6 +43,12 @@ SilphCo_11F_EventScript_Secretary::
 	msgbox SilphCo_11F_Text_ThanksForRescuingUs, MSGBOX_NPC
 	end
 
+SilphCo_11F_EventScript_Rocket_F_Roadblock::
+	lock
+	msgbox SilphCo_11F_Text_NegotiationsTakingTooLong, MSGBOX_NPC
+	release
+	end
+
 SilphCo_11F_EventScript_GiovanniTriggerLeft::
 	lockall
 	setvar VAR_TEMP_1, 0

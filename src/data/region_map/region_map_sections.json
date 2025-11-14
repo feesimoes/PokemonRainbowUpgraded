@@ -1098,7 +1098,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_26_OCEAN",
-      "name": "ROUTE 26",
+      "name": "PALLET PATH",
       "x": 3,
       "y": 12,
       "width": 1,
@@ -1137,6 +1137,14 @@
       "height": 1
     },
     {
+      "id": "MAPSEC_VERMILION_HARBOR",
+      "name": "VERMILION HARBOR",
+      "x": 13,
+      "y": 10,
+      "width": 1,
+      "height": 1
+    },
+    {
       "id": "MAPSEC_NEW_BARK_TOWN",
       "name": "NEW BARK TOWN",
       "x": 19,
@@ -1170,7 +1178,11 @@
     },
     {
       "id": "MAPSEC_ROUTE_31",
-      "name": "ROUTE 31"
+      "name": "ROUTE 31",
+      "x": 14,
+      "y": 6,
+      "width": 2,
+      "height": 1
     },
     {
       "id": "MAPSEC_DARK_CAVE",
@@ -1178,19 +1190,43 @@
     },
     {
       "id": "MAPSEC_VIOLET_CITY",
-      "name": "VIOLET CITY"
+      "name": "VIOLET CITY",
+      "x": 13,
+      "y": 6,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_SPROUT_TOWER",
-      "name": "SPROUT TOWER"
+      "name": "SPROUT TOWER",
+      "x": 13,
+      "y": 5,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_32",
-      "name": "ROUTE 32"
+      "name": "ROUTE 32",
+      "x": 13,
+      "y": 7,
+      "width": 1,
+      "height": 5
+    },
+    {
+      "id": "MAPSEC_ROUTE_32_BAY",
+      "name": "CHERRYGROVE BAY",
+      "x": 14,
+      "y": 11,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_UNION_CAVE",
-      "name": "UNION CAVE"
+      "name": "UNION CAVE",
+      "x": 12,
+      "y": 11,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_RUINS_OF_ALPH",
@@ -1369,20 +1405,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_VERMILION_HARBOR",
-      "name": "VERMILION HARBOR",
-      "x": 13,
-      "y": 10,
-      "width": 1,
-      "height": 1
-    },
-    {
       "id": "MAPSEC_SPECIAL_AREA",
-      "name": "CELADON DEPT.",
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0
+      "name": "CELADON DEPT."
     }
   ]
 }

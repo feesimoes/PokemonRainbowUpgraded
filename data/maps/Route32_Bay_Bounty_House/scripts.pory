@@ -1,0 +1,28 @@
+mapscripts Route32_Bay_Bounty_House_MapScripts {}
+
+script Butch_Bounty_Intro_Dialogue {
+    lock
+    msgbox(format("...Eh? It's about time\nya got here, rookie!"))
+    closemessage
+    applymovement(1, Movement_Butch_Face_Player)
+    msgbox(format("..."))
+    closemessage
+    applymovement(1, Movement_Butch_Notice_Player_Emote)
+    msgbox(format("Oh, for cryin' out loud!\nSendin' me a heckin' child?!\pI tell ya, the absolute nerve!\nDarned children, I tell them!"))
+    closemessage
+    msgbox(format("BUTCH, they're tellin' me!\nsayin' crazy stuff to our ADMIN!\pApparently kids ain't half bad!\nKid slashin' our KANTO op?!"))
+    closemessage
+    msgbox(format("Yeah, anyways, kiddo...\nMy rant is over for now!\pLet's get ya started on\nyour trainin', here."))
+    releaseall
+    end
+}
+
+movement Movement_Butch_Face_Player {
+    face_player
+    step_end
+}
+
+movement Movement_Butch_Notice_Player_Emote {
+    emote_exclamation_mark
+    step_end
+}

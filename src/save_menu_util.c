@@ -4,6 +4,7 @@
 #include "pokedex.h"
 #include "region_map.h"
 #include "save_menu_util.h"
+#include "strings.h"
 
 void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
 {
@@ -52,10 +53,27 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         {
             nBadges++;
         }
-        *dest++ = nBadges + CHAR_0;
-        *dest++ = 10; // 'こ'
-        *dest++ = EOS;
+        //Johto Badge 1
+        if (FlagGet(FLAG_JOHTO_BADGE01_GET))
+        {
+            nBadges++;
+        }
+
+        if (nBadges > 9)
+        {
+            dest = ConvertIntToDecimalStringN(dest, nBadges, STR_CONV_MODE_LEFT_ALIGN, 2);
+            *dest++ = EOS;
+        }
+        else
+        {
+            dest = ConvertIntToDecimalStringN(dest, nBadges, STR_CONV_MODE_LEADING_ZEROS, 1);
+            StringAppend(dest, gTextJPDummy_Ko);
+        }
         break;
+        //*dest++ = nBadges + CHAR_0;
+        //*dest++ = 10; // 'こ'
+        //*dest++ = EOS;
+        //break;
     }
 }
 

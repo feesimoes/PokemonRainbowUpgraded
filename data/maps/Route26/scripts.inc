@@ -44,164 +44,301 @@ Picknicker_Jamie_Route26_Battle::
 	end
 
 
-Kanto_Biker_Dialogue::
+Route26_Kanto_Biker_Dialogue::
 # 32 "data/maps/Route26/scripts.pory"
 	lock
 # 33 "data/maps/Route26/scripts.pory"
-	msgbox Kanto_Biker_Dialogue_Text_0
+	applymovement 2, movement_route26_npc_face_player
 # 34 "data/maps/Route26/scripts.pory"
-	closemessage
+	msgbox Route26_Kanto_Biker_Dialogue_Text_0
 # 35 "data/maps/Route26/scripts.pory"
+	closemessage
+# 36 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_BlackBelt_Dialogue::
+# 41 "data/maps/Route26/scripts.pory"
+	lock
+# 42 "data/maps/Route26/scripts.pory"
+	applymovement 3, movement_route26_npc_face_player
+# 43 "data/maps/Route26/scripts.pory"
+	msgbox Route26_BlackBelt_Dialogue_Text_0
+# 44 "data/maps/Route26/scripts.pory"
+	closemessage
+# 45 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Hiker_Dialogue::
+# 50 "data/maps/Route26/scripts.pory"
+	lock
+# 51 "data/maps/Route26/scripts.pory"
+	applymovement 4, movement_route26_npc_face_player
+# 52 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Hiker_Dialogue_Text_0
+# 53 "data/maps/Route26/scripts.pory"
+	closemessage
+# 54 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Path_Sign::
+# 59 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Path_Sign_Text_0
+# 60 "data/maps/Route26/scripts.pory"
+	closemessage
+# 61 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Move_Reminder_Sign::
+# 66 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Move_Reminder_Sign_Text_0
+# 67 "data/maps/Route26/scripts.pory"
+	closemessage
+# 68 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Deep_Youngster_Dialogue::
+# 73 "data/maps/Route26/scripts.pory"
+	lock
+# 74 "data/maps/Route26/scripts.pory"
+	applymovement 9, movement_route26_npc_face_player
+# 75 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Deep_Youngster_Dialogue_Text_0
+# 76 "data/maps/Route26/scripts.pory"
+	closemessage
+# 77 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Deep_Lass_Dialogue::
+# 82 "data/maps/Route26/scripts.pory"
+	lock
+# 83 "data/maps/Route26/scripts.pory"
+	applymovement 5, movement_route26_npc_face_player
+# 84 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Deep_Lass_Dialogue_Text_0
+# 85 "data/maps/Route26/scripts.pory"
+	closemessage
+# 86 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Old_Man_Dialogue::
+# 91 "data/maps/Route26/scripts.pory"
+	lock
+# 92 "data/maps/Route26/scripts.pory"
+	applymovement 10, movement_route26_npc_face_player
+# 93 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Old_Man_Dialogue_Text_0
+# 94 "data/maps/Route26/scripts.pory"
+	closemessage
+# 95 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_Fisher_Dialogue::
+# 100 "data/maps/Route26/scripts.pory"
+	lock
+# 101 "data/maps/Route26/scripts.pory"
+	applymovement 6, movement_route26_npc_face_player
+# 102 "data/maps/Route26/scripts.pory"
+	msgbox Route26_Fisher_Dialogue_Text_0
+# 103 "data/maps/Route26/scripts.pory"
+	closemessage
+# 104 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Fisherman_Jacob_Route26_Battle::
+# 109 "data/maps/Route26/scripts.pory"
+	trainerbattle_single TRAINER_FISHERMAN_JACOB, Fisherman_Jacob_Route26_Battle_Text_0, Fisherman_Jacob_Route26_Battle_Text_1
+# 110 "data/maps/Route26/scripts.pory"
+	msgbox Fisherman_Jacob_Route26_Battle_Text_2
+# 111 "data/maps/Route26/scripts.pory"
+	closemessage
+# 112 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Fisherman_Bradley_Route26_Battle::
+# 117 "data/maps/Route26/scripts.pory"
+	trainerbattle_single TRAINER_FISHERMAN_BRADLEY, Fisherman_Bradley_Route26_Battle_Text_0, Fisherman_Bradley_Route26_Battle_Text_1
+# 118 "data/maps/Route26/scripts.pory"
+	msgbox Fisherman_Bradley_Route26_Battle_Text_2
+# 119 "data/maps/Route26/scripts.pory"
+	closemessage
+# 120 "data/maps/Route26/scripts.pory"
 	releaseall
 	end
 
 
 TRIGGER_SCRIPT_TEST_1::
-# 40 "data/maps/Route26/scripts.pory"
+# 125 "data/maps/Route26/scripts.pory"
 	lockall
-# 41 "data/maps/Route26/scripts.pory"
+# 126 "data/maps/Route26/scripts.pory"
 	playse SE_PIN
-# 42 "data/maps/Route26/scripts.pory"
+# 127 "data/maps/Route26/scripts.pory"
 	applymovement 4, movement_camper1
-# 43 "data/maps/Route26/scripts.pory"
+# 128 "data/maps/Route26/scripts.pory"
 	waitmovement 0
-# 44 "data/maps/Route26/scripts.pory"
+# 129 "data/maps/Route26/scripts.pory"
 	compare VAR_TEMP_6, 2
 	goto_if_eq TRIGGER_SCRIPT_TEST_1_2
-# 52 "data/maps/Route26/scripts.pory"
+# 137 "data/maps/Route26/scripts.pory"
 	msgbox TRIGGER_SCRIPT_TEST_1_Text_2, MSGBOX_YESNO
-# 53 "data/maps/Route26/scripts.pory"
+# 138 "data/maps/Route26/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne TRIGGER_SCRIPT_TEST_1_5
-# 59 "data/maps/Route26/scripts.pory"
+# 144 "data/maps/Route26/scripts.pory"
 	msgbox TRIGGER_SCRIPT_TEST_1_Text_4
-# 60 "data/maps/Route26/scripts.pory"
+# 145 "data/maps/Route26/scripts.pory"
 	closemessage
-# 61 "data/maps/Route26/scripts.pory"
+# 146 "data/maps/Route26/scripts.pory"
 	setvar VAR_TEMP_6, 2
-# 62 "data/maps/Route26/scripts.pory"
+# 147 "data/maps/Route26/scripts.pory"
 	setvar VAR_TEMP_5, 0
-# 63 "data/maps/Route26/scripts.pory"
+# 148 "data/maps/Route26/scripts.pory"
 	releaseall
 	end
 
 TRIGGER_SCRIPT_TEST_1_2:
-# 45 "data/maps/Route26/scripts.pory"
+# 130 "data/maps/Route26/scripts.pory"
 	msgbox TRIGGER_SCRIPT_TEST_1_Text_0
-# 46 "data/maps/Route26/scripts.pory"
+# 131 "data/maps/Route26/scripts.pory"
 	trainerbattle_no_intro TRAINER_RUIN_MANIAC_LAWSON, TRIGGER_SCRIPT_TEST_1_Text_1
-# 47 "data/maps/Route26/scripts.pory"
+# 132 "data/maps/Route26/scripts.pory"
 	closemessage
-# 48 "data/maps/Route26/scripts.pory"
+# 133 "data/maps/Route26/scripts.pory"
 	setvar VAR_TEMP_5, 1
-# 49 "data/maps/Route26/scripts.pory"
+# 134 "data/maps/Route26/scripts.pory"
 	releaseall
 	end
 
 TRIGGER_SCRIPT_TEST_1_4:
-# 66 "data/maps/Route26/scripts.pory"
+# 151 "data/maps/Route26/scripts.pory"
 	msgbox TRIGGER_SCRIPT_TEST_1_Text_5
-# 67 "data/maps/Route26/scripts.pory"
+# 152 "data/maps/Route26/scripts.pory"
 	closemessage
-# 68 "data/maps/Route26/scripts.pory"
+# 153 "data/maps/Route26/scripts.pory"
 	setvar VAR_TEMP_5, 1
-# 69 "data/maps/Route26/scripts.pory"
+# 154 "data/maps/Route26/scripts.pory"
 	releaseall
 	end
 
 TRIGGER_SCRIPT_TEST_1_5:
-# 55 "data/maps/Route26/scripts.pory"
+# 140 "data/maps/Route26/scripts.pory"
 	msgbox TRIGGER_SCRIPT_TEST_1_Text_3
-# 56 "data/maps/Route26/scripts.pory"
+# 141 "data/maps/Route26/scripts.pory"
 	trainerbattle_no_intro TRAINER_RUIN_MANIAC_LAWSON, TRIGGER_SCRIPT_TEST_1_Text_1
 	goto TRIGGER_SCRIPT_TEST_1_4
 
 
-# 73 "data/maps/Route26/scripts.pory"
+# 158 "data/maps/Route26/scripts.pory"
 movement_camper1:
-# 74 "data/maps/Route26/scripts.pory"
+# 159 "data/maps/Route26/scripts.pory"
 	emote_double_exclamation_mark
-# 75 "data/maps/Route26/scripts.pory"
+# 160 "data/maps/Route26/scripts.pory"
 	step_end
 
 Test_Script_1::
-# 79 "data/maps/Route26/scripts.pory"
+# 164 "data/maps/Route26/scripts.pory"
 	lock
-# 80 "data/maps/Route26/scripts.pory"
+# 165 "data/maps/Route26/scripts.pory"
 	msgbox Test_Script_1_Text_0
-# 81 "data/maps/Route26/scripts.pory"
+# 166 "data/maps/Route26/scripts.pory"
 	closemessage
-# 82 "data/maps/Route26/scripts.pory"
+# 167 "data/maps/Route26/scripts.pory"
 	release
 	end
 
 
 Test_Movement_Script_1::
-# 88 "data/maps/Route26/scripts.pory"
+# 173 "data/maps/Route26/scripts.pory"
 	lock
-# 89 "data/maps/Route26/scripts.pory"
+# 174 "data/maps/Route26/scripts.pory"
 	playse SE_PIN
-# 90 "data/maps/Route26/scripts.pory"
+# 175 "data/maps/Route26/scripts.pory"
 	applymovement 1, movement_RocketRunAway1
-# 91 "data/maps/Route26/scripts.pory"
+# 176 "data/maps/Route26/scripts.pory"
 	applymovement 2, movement_RocketRunAway1
-# 92 "data/maps/Route26/scripts.pory"
+# 177 "data/maps/Route26/scripts.pory"
 	applymovement 3, movement_RocketRunAway1
-# 93 "data/maps/Route26/scripts.pory"
+# 178 "data/maps/Route26/scripts.pory"
 	playbgm MUS_JESSIE_JAMES_THEME, FALSE
-# 94 "data/maps/Route26/scripts.pory"
+# 179 "data/maps/Route26/scripts.pory"
 	msgbox Test_Movement_Script_1_Text_0
-# 95 "data/maps/Route26/scripts.pory"
+# 180 "data/maps/Route26/scripts.pory"
 	waitmovement 0
-# 96 "data/maps/Route26/scripts.pory"
+# 181 "data/maps/Route26/scripts.pory"
 	msgbox Test_Movement_Script_1_Text_1
-# 97 "data/maps/Route26/scripts.pory"
+# 182 "data/maps/Route26/scripts.pory"
 	closemessage
-# 98 "data/maps/Route26/scripts.pory"
+# 183 "data/maps/Route26/scripts.pory"
 	playse SE_FLEE
-# 99 "data/maps/Route26/scripts.pory"
+# 184 "data/maps/Route26/scripts.pory"
 	applymovement 1, movement_RocketRunAway2
-# 100 "data/maps/Route26/scripts.pory"
+# 185 "data/maps/Route26/scripts.pory"
 	applymovement 2, movement_RocketRunAway2
-# 101 "data/maps/Route26/scripts.pory"
+# 186 "data/maps/Route26/scripts.pory"
 	applymovement 3, movement_RocketRunAway2
-# 102 "data/maps/Route26/scripts.pory"
+# 187 "data/maps/Route26/scripts.pory"
 	waitmovement 0
-# 104 "data/maps/Route26/scripts.pory"
+# 189 "data/maps/Route26/scripts.pory"
 	setflag FLAG_TEMP_1
-# 105 "data/maps/Route26/scripts.pory"
+# 190 "data/maps/Route26/scripts.pory"
 	removeobject 1
-# 106 "data/maps/Route26/scripts.pory"
+# 191 "data/maps/Route26/scripts.pory"
 	removeobject 2
-# 107 "data/maps/Route26/scripts.pory"
+# 192 "data/maps/Route26/scripts.pory"
 	removeobject 3
-# 108 "data/maps/Route26/scripts.pory"
+# 193 "data/maps/Route26/scripts.pory"
 	release
 	end
 
 
-# 112 "data/maps/Route26/scripts.pory"
+# 197 "data/maps/Route26/scripts.pory"
 movement_RocketRunAway1:
-# 113 "data/maps/Route26/scripts.pory"
+# 198 "data/maps/Route26/scripts.pory"
 	emote_exclamation_mark
-# 114 "data/maps/Route26/scripts.pory"
+# 199 "data/maps/Route26/scripts.pory"
 	jump_in_place_down
-# 115 "data/maps/Route26/scripts.pory"
+# 200 "data/maps/Route26/scripts.pory"
 	step_end
 
-# 118 "data/maps/Route26/scripts.pory"
+# 203 "data/maps/Route26/scripts.pory"
 movement_RocketRunAway2:
-# 119 "data/maps/Route26/scripts.pory"
+# 204 "data/maps/Route26/scripts.pory"
 	walk_fast_down
-# 119 "data/maps/Route26/scripts.pory"
+# 204 "data/maps/Route26/scripts.pory"
 	walk_fast_down
-# 119 "data/maps/Route26/scripts.pory"
+# 204 "data/maps/Route26/scripts.pory"
 	walk_fast_down
-# 119 "data/maps/Route26/scripts.pory"
+# 204 "data/maps/Route26/scripts.pory"
 	walk_fast_down
-# 119 "data/maps/Route26/scripts.pory"
+# 204 "data/maps/Route26/scripts.pory"
 	walk_fast_down
-# 120 "data/maps/Route26/scripts.pory"
+# 205 "data/maps/Route26/scripts.pory"
+	step_end
+
+# 208 "data/maps/Route26/scripts.pory"
+movement_route26_npc_face_player:
+# 209 "data/maps/Route26/scripts.pory"
+	face_player
+# 210 "data/maps/Route26/scripts.pory"
 	step_end
 
 Route26_Professor_Oak_Battle_Text_0:
@@ -228,12 +365,12 @@ Route26_Professor_Oak_Battle_Text_2:
 
 Route26_Reception_Sign_Text_0:
 # 17 "data/maps/Route26/scripts.pory"
-	.string "POKEMON LEAGUE RECEPTION GATE\n"
+	.string "POKéMON LEAGUE RECEPTION GATE\n"
 	.string "ROUTE 28 - MT. SILVER$"
 
 Picknicker_Jamie_Route26_Battle_Text_0:
 # 24 "data/maps/Route26/scripts.pory"
-	.string "Do you have rare POKéMON from Kanto?\n"
+	.string "Do you have rare POKéMON?\n"
 	.string "Show me, show me!$"
 
 Picknicker_Jamie_Route26_Battle_Text_1:
@@ -245,50 +382,134 @@ Picknicker_Jamie_Route26_Battle_Text_2:
 	.string "It's too bad I don't have a POKéDEX.\n"
 	.string "I wish I could get one!$"
 
-Kanto_Biker_Dialogue_Text_0:
-# 33 "data/maps/Route26/scripts.pory"
+Route26_Kanto_Biker_Dialogue_Text_0:
+# 34 "data/maps/Route26/scripts.pory"
 	.string "You're from KANTO, aren't you?\n"
-	.string "Me too, I'm part of the KANTO RIDERS!\p"
-	.string "It's a shame though, all POKéMON\n"
+	.string "Me too!\p"
+	.string "It's a shame though, POKéMON\n"
 	.string "on this route aren't legit?\p"
-	.string "The INDIGO LEAGUE said so,\n"
-	.string "or something like that.$"
+	.string "INDIGO LEAGUE said so,\n"
+	.string "or something...$"
+
+Route26_BlackBelt_Dialogue_Text_0:
+# 43 "data/maps/Route26/scripts.pory"
+	.string "Ahem!\n"
+	.string "I have yet but a simple goal...\p"
+	.string "To strike terror into rocks!\n"
+	.string "...If they had emotion, that is.$"
+
+Route26_Hiker_Dialogue_Text_0:
+# 52 "data/maps/Route26/scripts.pory"
+	.string "'Ello! Watch your step.\n"
+	.string "Bit of a rocky road here!\p"
+	.string "Yet, the view's beautiful!$"
+
+Route26_Path_Sign_Text_0:
+# 59 "data/maps/Route26/scripts.pory"
+	.string "ROUTE 26\n"
+	.string "A sloping mountain path to sea.$"
+
+Route26_Move_Reminder_Sign_Text_0:
+# 66 "data/maps/Route26/scripts.pory"
+	.string "MOVE REMINDER'S HOUSE\n"
+	.string "Special licensed POKéMON tutor.$"
+
+Route26_Deep_Youngster_Dialogue_Text_0:
+# 75 "data/maps/Route26/scripts.pory"
+	.string "I'm not like the others!\n"
+	.string "I wear shorts for comfort...\p"
+	.string "But even a kid like me knows\n"
+	.string "to draw the line at winter!$"
+
+Route26_Deep_Lass_Dialogue_Text_0:
+# 84 "data/maps/Route26/scripts.pory"
+	.string "Is it wise to try your best?\n"
+	.string "If you fail, you may regret it...\p"
+	.string "Perhaps, conserving energy is\n"
+	.string "the way to go...\p"
+	.string "Slow and steady wins the race.$"
+
+Route26_Old_Man_Dialogue_Text_0:
+# 93 "data/maps/Route26/scripts.pory"
+	.string "Earth...\n"
+	.string "Water...\p"
+	.string "Ohoho... both coexist for life...\n"
+	.string "Perfectly balanced, as should be.$"
+
+Route26_Fisher_Dialogue_Text_0:
+# 102 "data/maps/Route26/scripts.pory"
+	.string "I enjoy dropping by the\n"
+	.string "ocean to reel in fish!\p"
+	.string "The trek back uphill is\n"
+	.string "a bit rough, though...$"
+
+Fisherman_Jacob_Route26_Battle_Text_0:
+# 109 "data/maps/Route26/scripts.pory"
+	.string "I have better POKéMON than\n"
+	.string "you, kiddo!$"
+
+Fisherman_Jacob_Route26_Battle_Text_1:
+# 109 "data/maps/Route26/scripts.pory"
+	.string "Tch... Well, at least my\n"
+	.string "POKéMON are more unique!$"
+
+Fisherman_Jacob_Route26_Battle_Text_2:
+# 110 "data/maps/Route26/scripts.pory"
+	.string "Your team was pretty neat.\n"
+	.string "Where'd you catch them?$"
+
+Fisherman_Bradley_Route26_Battle_Text_0:
+# 117 "data/maps/Route26/scripts.pory"
+	.string "Not even a nibble...\n"
+	.string "Kid, you're scaring them!$"
+
+Fisherman_Bradley_Route26_Battle_Text_1:
+# 117 "data/maps/Route26/scripts.pory"
+	.string "There's no way I'd ever\n"
+	.string "throw a tip your way!$"
+
+Fisherman_Bradley_Route26_Battle_Text_2:
+# 118 "data/maps/Route26/scripts.pory"
+	.string "I only paid you because\n"
+	.string "you are a POKéMON TRAINER.\p"
+	.string "There's a FISHING GURU\n"
+	.string "in KANTO, by the way.$"
 
 TRIGGER_SCRIPT_TEST_1_Text_0:
-# 45 "data/maps/Route26/scripts.pory"
+# 130 "data/maps/Route26/scripts.pory"
 	.string "You again?\p"
 	.string "Nah this time we battle for real!$"
 
 TRIGGER_SCRIPT_TEST_1_Text_1:
-# 46 "data/maps/Route26/scripts.pory"
+# 131 "data/maps/Route26/scripts.pory"
 	.string "Damn, I lost the battle…$"
 
 TRIGGER_SCRIPT_TEST_1_Text_2:
-# 52 "data/maps/Route26/scripts.pory"
+# 137 "data/maps/Route26/scripts.pory"
 	.string "Hey I think we should battle..\p"
 	.string "What do you think?$"
 
 TRIGGER_SCRIPT_TEST_1_Text_3:
-# 55 "data/maps/Route26/scripts.pory"
+# 140 "data/maps/Route26/scripts.pory"
 	.string "Alright lets do this!$"
 
 TRIGGER_SCRIPT_TEST_1_Text_4:
-# 59 "data/maps/Route26/scripts.pory"
+# 144 "data/maps/Route26/scripts.pory"
 	.string "Eh, you suck.$"
 
 TRIGGER_SCRIPT_TEST_1_Text_5:
-# 66 "data/maps/Route26/scripts.pory"
+# 151 "data/maps/Route26/scripts.pory"
 	.string "Hey man that was a crazy battle, I\n"
 	.string "cannot beleieve you won.$"
 
 Test_Script_1_Text_0:
-# 80 "data/maps/Route26/scripts.pory"
+# 165 "data/maps/Route26/scripts.pory"
 	.string "PLACEHOLDER TEXT.$"
 
 Test_Movement_Script_1_Text_0:
-# 94 "data/maps/Route26/scripts.pory"
+# 179 "data/maps/Route26/scripts.pory"
 	.string "It's that twerp!$"
 
 Test_Movement_Script_1_Text_1:
-# 96 "data/maps/Route26/scripts.pory"
+# 181 "data/maps/Route26/scripts.pory"
 	.string "Run away!$"

@@ -1492,3 +1492,33 @@ Text_TestMsg::
 
 	.include "data/maps/MtMoon_Square_Shop/scripts.inc"
 	.include "data/maps/MtMoon_Square_Shop/text.inc"
+
+	.include "data/maps/Route32/scripts.inc"
+	.include "data/maps/Route32/text.inc"
+
+	.include "data/maps/Route32_Bay/scripts.inc"
+	.include "data/maps/Route32_Bay/text.inc"
+
+	.include "data/maps/Route26_South_House/scripts.inc"
+	.include "data/maps/Route26_South_House/text.inc"
+
+	.include "data/maps/Route32_Bay_Bounty_House/scripts.inc"
+	.include "data/maps/Route32_Bay_Bounty_House/text.inc"
+
+	.include "data/maps/DarkCave_1F/scripts.inc"
+	.include "data/maps/DarkCave_1F/text.inc"
+
+	.include "data/maps/Route31_VioletCityEntrance/scripts.inc"
+	.include "data/maps/Route31_VioletCityEntrance/text.inc"
+
+	.include "data/maps/VioletCity_Gym/scripts.inc"
+	.include "data/maps/VioletCity_Gym/text.inc"
+
+	.include "data/maps/Violet_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Violet_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route29_NorthEntrance/scripts.inc"
+	.include "data/maps/Route29_NorthEntrance/text.inc"
+
+	.include "data/maps/Route28/scripts.inc"
+	.include "data/maps/Route28/text.inc"

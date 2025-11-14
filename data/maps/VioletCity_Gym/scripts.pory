@@ -1,0 +1,109 @@
+mapscripts VioletCity_Gym_MapScripts {}
+
+script VioletCity_Gym_Cooltrainer_Falkner_Battle
+{
+    trainerbattle_single(TRAINER_COOLTRAINER_FALKNER, format("I'm next! I'll show you the real\npower of magnificent bird POKéMON!"), format("...Darn!\nMy Dad's cherished bird POKéMON..."))
+    msgbox(format("I'm going to train harder to become\nthe greatest BIRD KEEPER of all!"))
+    release
+    end   
+}
+
+script VioletCity_Gym_Birdkeeper_Abe_Battle 
+{
+    trainerbattle_single(TRAINER_BIRDKEEPER_ABE, format("You're not afraid of falling off?"), format("It was I who fell off!"))
+    msgbox(format("You can't actually fall off\nthis platform...\p...No, forget I said anything!"))
+    release
+    end
+}
+
+script VioletCity_Gym_EventScript_Walker_Battle 
+{
+    if (flag(FLAG_SYS_NATIONAL_DEX))
+    {
+        trainerbattle_single(TRAINER_LEADER_WALKER, format("Yo, kid! The name's WALKER!\nYou guessed it! I'm the LEADER!\pKANTO was easy, huh? Well, then!\nI don't play easy, I play hard!\p{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}WAHAHA! Bring it on, KANTO kid!\nDon't sweat it if you lose!"), format("Dang, kid! You're good!\nYou'll be soaring through JOHTO!"), format(""), NO_MUSIC)
+        if (!flag(FLAG_JOHTO_BADGE01_GET))
+        {
+            msgbox(format("You're something else, kid!\nMaybe, just maybe, I misjudged...\pEnough of my squawking around!\nYou've earned a ZEPHYR BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+            closemessage
+            setflag(FLAG_JOHTO_BADGE01_GET)
+            msgbox(format("Just like in KANTO, there's\n8 BADGES to collect here.\pBetter get to it, huh?"))
+            closemessage
+            releaseall
+            end
+        }
+        else 
+        {
+            lock
+            applymovement(3, Movement_VioletCity_Gym_FacePlayer)
+            msgbox(format("Yo, kid!\nEnjoying it here in JOHTO?"))
+            closemessage
+            release
+            end
+        }
+    }
+    else
+    {
+        lock
+        applymovement(3, Movement_VioletCity_Gym_FacePlayer)
+        msgbox(format("Yo, kid!\nWhat's that? You want to battle?\pWAHAHAH! Quite the joke!\nHah, but listen, kiddo!\pKANTO was the first test, which\nyou graciously flew through!\pI'd love to see your skill,\nbut the LEAGUE has rules!\pCome back once you get that sort\nof NATIONAL approval, kid!"))
+        closemessage
+        release
+        end
+    }
+}
+
+script VioletCity_Gym_Dude_Dialogue
+{
+    lock
+    applymovement(4, Movement_VioletCity_Gym_FacePlayer)
+    if (flag(FLAG_JOHTO_BADGE01_GET))
+    {
+        msgbox(format("Yeah! I believe in you!\nKeep going for the win!"))
+        closemessage
+        release
+        end
+    }
+    else 
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nDon't be fooled by WALKER!\pHis name implies GROUND-type,\nbut he uses FLYING-types!\pThat's a crazy plot twist,\nbut you got this!"))
+        closemessage
+        release
+        end
+    }
+}
+
+script VioletCity_Gym_Statues 
+{
+    if (flag(FLAG_JOHTO_BADGE01_GET))
+    {
+        msgbox(format("VIOLET CITY GYM\nLEADER: WALKER\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+        release
+        end
+    }
+    else
+    {
+        msgbox(format("VIOLET CITY GYM\nLEADER: WALKER\pWINNING TRAINERS:\n{RIVAL}"))
+        release
+        end
+    }
+}
+
+script VioletCity_Gym_Lugia_Scroll
+{
+    msgbox(format("It's an ancient-looking scroll\ndepicting a bird under the sea.\pIt looks to be some sort of\nguardian..."))
+    release
+    end
+}
+
+script VioletCity_Gym_HoOh_Scroll
+{
+    msgbox(format("It's an ancient-looking scroll\ndepicting a graceful bird...\pWait a minute...\nHaven't I seen it before?!"))
+    release
+    end
+}
+
+movement Movement_VioletCity_Gym_FacePlayer 
+{
+    face_player
+    step_end    
+}

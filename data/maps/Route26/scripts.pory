@@ -14,23 +14,108 @@ script Route26_Professor_Oak_Battle {
 }
 
 script Route26_Reception_Sign {
-    msgbox(format("POKEMON LEAGUE RECEPTION GATE\nROUTE 28 - MT. SILVER"))
+    msgbox(format("POKéMON LEAGUE RECEPTION GATE\nROUTE 28 - MT. SILVER"))
     closemessage
     releaseall
     end
 }
 
 script Picknicker_Jamie_Route26_Battle {
-    trainerbattle_single(TRAINER_PICKNICKER_JAMIE_ROUTE26, format("Do you have rare POKéMON from Kanto?\nShow me, show me!"), format("Yup, that's definitely a rare POKéMON!"))
+    trainerbattle_single(TRAINER_PICKNICKER_JAMIE_ROUTE26, format("Do you have rare POKéMON?\nShow me, show me!"), format("Yup, that's definitely a rare POKéMON!"))
     msgbox(format("It's too bad I don't have a POKéDEX.\nI wish I could get one!"))
     closemessage
     releaseall
     end
 }
 
-script Kanto_Biker_Dialogue {
+script Route26_Kanto_Biker_Dialogue {
     lock
-    msgbox(format("You're from KANTO, aren't you?\nMe too, I'm part of the KANTO RIDERS!\pIt's a shame though, all POKéMON\non this route aren't legit?\pThe INDIGO LEAGUE said so,\nor something like that."))
+    applymovement(2, movement_route26_npc_face_player)
+    msgbox(format("You're from KANTO, aren't you?\nMe too!\pIt's a shame though, POKéMON\non this route aren't legit?\pINDIGO LEAGUE said so,\nor something..."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_BlackBelt_Dialogue {
+    lock
+    applymovement(3, movement_route26_npc_face_player)
+    msgbox(format("Ahem!\nI have yet but a simple goal...\pTo strike terror into rocks!\n...If they had emotion, that is."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Hiker_Dialogue {
+    lock
+    applymovement(4, movement_route26_npc_face_player)
+    msgbox(format("'Ello! Watch your step.\nBit of a rocky road here!\pYet, the view's beautiful!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Path_Sign {
+    msgbox(format("ROUTE 26\nA sloping mountain path to sea."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Move_Reminder_Sign {
+    msgbox(format("MOVE REMINDER'S HOUSE\nSpecial licensed POKéMON tutor."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Deep_Youngster_Dialogue {
+    lock
+    applymovement(9, movement_route26_npc_face_player)
+    msgbox(format("I'm not like the others!\nI wear shorts for comfort...\pBut even a kid like me knows\nto draw the line at winter!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Deep_Lass_Dialogue {
+    lock
+    applymovement(5, movement_route26_npc_face_player)
+    msgbox(format("Is it wise to try your best?\nIf you fail, you may regret it...\pPerhaps, conserving energy is\nthe way to go...\pSlow and steady wins the race."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Old_Man_Dialogue {
+    lock
+    applymovement(10, movement_route26_npc_face_player)
+    msgbox(format("Earth...\nWater...\pOhoho... both coexist for life...\nPerfectly balanced, as should be."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route26_Fisher_Dialogue {
+    lock
+    applymovement(6, movement_route26_npc_face_player)
+    msgbox(format("I enjoy dropping by the\nocean to reel in fish!\pThe trek back uphill is\na bit rough, though..."))
+    closemessage
+    releaseall
+    end
+}
+
+script Fisherman_Jacob_Route26_Battle {
+    trainerbattle_single(TRAINER_FISHERMAN_JACOB, format("I have better POKéMON than\nyou, kiddo!"), format("Tch... Well, at least my\nPOKéMON are more unique!"))
+    msgbox(format("Your team was pretty neat.\nWhere'd you catch them?"))
+    closemessage
+    releaseall
+    end
+}
+
+script Fisherman_Bradley_Route26_Battle {
+    trainerbattle_single(TRAINER_FISHERMAN_BRADLEY, format("Not even a nibble...\nKid, you're scaring them!"), format("There's no way I'd ever\nthrow a tip your way!"))
+    msgbox(format("I only paid you because\nyou are a POKéMON TRAINER.\pThere's a FISHING GURU\nin KANTO, by the way."))
     closemessage
     releaseall
     end
@@ -117,5 +202,10 @@ movement movement_RocketRunAway1 {
 
 movement movement_RocketRunAway2 {
     walk_fast_down * 5
+    step_end
+}
+
+movement movement_route26_npc_face_player {
+    face_player
     step_end
 }
