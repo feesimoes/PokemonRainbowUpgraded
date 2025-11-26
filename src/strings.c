@@ -1349,4 +1349,7 @@ const u8 gString_TrainerNameGrunt[] = _("GRUNT");
 const u8 gString_TrainerNameAdmin[] = _("ADMIN");
 const u8 gString_TrainerNameRodolfo[] = _("RODOLFO");
 
+const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[] = _("Good work, rookie!\nBut, hey...\pYou'll be defenseless without\na POKéMON!\pBring it back here when you've\ngot at least 2 in your party!");
+const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[] = _("Seriously?\nThat's not what I asked for!");
+
 static const u8 sText_SelectedBallType[] = _("{B_PLAYER_NAME} has a {B_LAST_ITEM} in their hand!");

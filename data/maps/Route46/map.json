@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE29",
       "offset": -40,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE45",
+      "offset": -168,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -30,9 +35,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route46_Hiker_Bailey_Battle",
       "flag": "0"
     },
     {
@@ -58,9 +63,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route46_Picnicker_Erin_Battle",
       "flag": "0"
     }
   ],

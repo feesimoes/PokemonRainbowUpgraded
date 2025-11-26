@@ -193,10 +193,10 @@
 
 #define VAR_MAP_SCENE_ROUTE28      0x408C
 #define VAR_JOHTO_STORY_PROGRESS   0x408D
-#define VAR_0x408E                 0x408E
-#define VAR_0x408F                 0x408F
-#define VAR_0x4090                 0x4090
-#define VAR_0x4091                 0x4091
+#define VAR_BOUNTY_TASK_MON        0x408E
+#define VAR_BOUNTY_TASK_MON_LVL    0x408F
+#define VAR_BOUNTY_TASK_BALL       0x4090
+#define VAR_BOUNTY_TASK_REWARD     0x4091
 #define VAR_0x4092                 0x4092
 #define VAR_0x4093                 0x4093
 #define VAR_0x4094                 0x4094

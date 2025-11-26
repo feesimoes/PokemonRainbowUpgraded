@@ -173,10 +173,12 @@ static u8 GetBattlerYDelta(u8 battlerId, u16 species)
         {
             ret = sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
         }
+        /*
         else if (species > NUM_SPECIES)
         {
             ret = gMonBackPicCoords[0].y_offset;
         }
+        */
         else
         {
             ret = gMonBackPicCoords[species].y_offset;
@@ -202,10 +204,12 @@ static u8 GetBattlerYDelta(u8 battlerId, u16 species)
         {
             ret = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
         }
+        /*
         else if (species > NUM_SPECIES)
         {
             ret = gMonFrontPicCoords[0].y_offset;
         }
+        */
         else
         {
             ret = gMonFrontPicCoords[species].y_offset;
@@ -222,8 +226,10 @@ static u8 GetBattlerElevation(u8 battlerId, u16 species)
     {
         if (species == SPECIES_CASTFORM)
             ret = sCastformElevations[gBattleMonForms[battlerId]];
+        /*
         else if (species > NUM_SPECIES)
             ret = gEnemyMonElevation[0];
+        */
         else
             ret = gEnemyMonElevation[species];
     }
@@ -2028,10 +2034,12 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 unownSpecies = letter + SPECIES_UNOWN_B - 1;
             coords = &gMonBackPicCoords[unownSpecies];
         }
+        /*
         else if (species > NUM_SPECIES)
         {
             coords = &gMonBackPicCoords[0];
         }
+        */
         else
         {
             coords = &gMonBackPicCoords[species];
@@ -2064,10 +2072,12 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
         {
             coords = &gCastformFrontSpriteCoords[gBattleMonForms[battlerId]];
         }
+        /*
         else if (species > NUM_SPECIES)
         {
             coords = &gMonFrontPicCoords[0];
         }
+        */
         else
         {
             coords = &gMonFrontPicCoords[species];

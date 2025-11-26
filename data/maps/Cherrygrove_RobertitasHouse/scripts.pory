@@ -1,0 +1,35 @@
+mapscripts Cherrygrove_RobertitasHouse_MapScripts
+{
+
+}
+
+script Cherrygrove_RobertitasHouse_EventScript_Robertita 
+{
+    lock
+    applymovement(LOCALID_PLAYER, Cherrygrove_RobertitasHouse_Startled_Emote)
+    msgbox(format("BREAKING NEWS!!!\nAn evil organization, driven out of KANTO is-"))
+    waitmessage
+    closemessage
+    applymovement(1, Cherrygrove_RobertitasHouse_Face_Player)
+    waitmovement
+    msgbox(format("...\n...\pOh, hi! Sorry, did I startle you?\nI'm an aspiring self-proclaimed NEWS EXPERT!\pI want to start my own show\non the GOLDENROD RADIO soon."))
+    waitmessage
+    closemessage
+    msgbox(format("Anyways, I should get back to my\npractice.\pMy rival, BUENA, is gaining on me,\nin terms of popularity."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Cherrygrove_RobertitasHouse_Face_Player
+{
+    face_player
+    step_end    
+}
+
+movement Cherrygrove_RobertitasHouse_Startled_Emote
+{
+    emote_exclamation_mark
+    step_end    
+}

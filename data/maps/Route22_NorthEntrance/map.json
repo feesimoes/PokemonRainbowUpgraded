@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE22_NORTH_ENTRANCE",
   "name": "Route22_NorthEntrance",
   "layout": "LAYOUT_ROUTE22_NORTH_ENTRANCE",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_ROUTE_23_GATE",
   "region_map_section": "MAPSEC_ROUTE_22",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

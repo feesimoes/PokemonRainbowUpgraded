@@ -164,7 +164,7 @@
       "id": "HEAL_LOCATION_ROUTE22",
       "map": "MAP_ROUTE22",
       "x": 8,
-      "y": 6,
+      "y": 10,
       "respawn_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VIRIDIAN_NURSE"
     },
@@ -182,7 +182,7 @@
       "x": 9,
       "y": 9,
       "respawn_map": "MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB",
-      "respawn_npc": "LOCALID_PROF_ELM"
+      "respawn_npc": "LOCALID_PROF_ELM_WIFE_HEAL"
     },
     {
       "id": "HEAL_LOCATION_CHERRYGROVE_CITY",
@@ -204,7 +204,7 @@
       "id": "HEAL_LOCATION_VERMILION_HARBOR",
       "map": "MAP_SSANNE_EXTERIOR",
       "x": 52,
-      "y": 6,
+      "y": 7,
       "respawn_map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VERMILION_NURSE"
     },
@@ -215,6 +215,22 @@
       "y": 58,
       "respawn_map": "MAP_VIOLET_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VIOLET_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE32",
+      "map": "MAP_ROUTE32",
+      "x": 24,
+      "y": 23,
+      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_ROUTE32_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE33",
+      "map": "MAP_ROUTE33",
+      "x": 31,
+      "y": 8,
+      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_ROUTE32_NURSE"
     }
   ]
 }

@@ -1,0 +1,109 @@
+mapscripts Cherrygrove_Mart_MapScripts
+{
+
+}
+
+script Cherrygrove_Mart_Clerk_1 
+{
+    lock
+    applymovement(5, Cherrygrove_Mart_Face_Player)
+    msgbox(format("Welcome to CHERRYGROVE POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Cherrygrove_Mart_1)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    release
+    end
+}
+
+script Cherrygrove_Mart_Clerk_2
+{
+    lock
+    applymovement(4, Cherrygrove_Mart_Face_Player)
+    msgbox(format("Welcome to CHERRYGROVE POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Cherrygrove_Mart_2)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    release
+    end
+}
+
+mart Cherrygrove_Mart_1 
+{
+    ITEM_RETRO_MAIL
+    ITEM_HEAL_POWDER
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+}
+
+mart Cherrygrove_Mart_2 
+{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_ESCAPE_ROPE
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+}
+
+script Cherrygrove_Mart_EventScript_Cooltrainer_M
+{
+    lock
+    applymovement(2, Cherrygrove_Mart_Face_Player)
+    msgbox(format("I collect latest POKé MART merch,\neven if I don't need it.\pYou never know when something will\nbe more valuable later."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Cherrygrove_Mart_EventScript_Lass
+{
+    lock
+    applymovement(3, Cherrygrove_Mart_Face_Player)
+    msgbox(format("The POKé MART is a convenient\nchain of stores worldwide.\pThe items they sell differ\ntown to town, but also overseas."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Cherrygrove_Mart_EventScript_Little_Boy
+{
+    lock
+    applymovement(1, Cherrygrove_Mart_Face_Player)
+    msgbox(format("My sis is afraid of the dark!\nWe're shopping for HM05: FLASH!\pIt's supposed to light dark caves."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Cherrygrove_Mart_EventScript_Little_Girl
+{
+    lock
+    applymovement(6, Cherrygrove_Mart_Face_Player)
+    msgbox(format("DARK CAVE is terrifying!\nIt's even worse without a POKéMON!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Cherrygrove_Mart_Face_Player
+{
+    face_player
+    step_end
+}

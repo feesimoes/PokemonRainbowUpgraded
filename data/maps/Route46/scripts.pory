@@ -9,7 +9,7 @@ script Route46_Sign
 }
 script Route46_DarkCave_Sign
 {
-    msgbox(format("DARK CAVE -\nA tunnel that runs beneath JOHTO."))
+    msgbox(format("DARK CAVE - ROUTE 31\nA tunnel network beneath JOHTO."))
     closemessage
     releaseall
     end

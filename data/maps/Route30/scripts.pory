@@ -1,10 +1,95 @@
-mapscripts Route30_MapScripts {}
+mapscripts Route30_MapScripts
+{
+
+}
 
 script Route30_EventScript_Youngster_Joey_Battle
 {
     trainerbattle_single(TRAINER_YOUNGSTER_JOEY_ROUTE_30, format("All right, a KANTO kid!\nCheck out my top-percentage POKéMON!"), format("My RATTATA is different from\nregular RATTATA, but I lost..."))
-    msgbox(format("So what did you think of my RATTATA?\nBet they don't raise 'em like that in KANTO!"))
+    msgbox(format("So what did you think of RATTATA?\nBet they don't raise 'em like that in KANTO!"))
     closemessage
     releaseall
     end
+}
+
+script Route30_South_Sign 
+{
+    lock
+    msgbox(format("ROUTE 30 -\nGrassy road with new TRAINERS."))
+    closemessage
+    release
+    end
+}
+
+script Route30_Trainer_Tips_Sign 
+{
+    lock
+    msgbox(format("TRAINER TIPS!\nDifferent moves can affect a field.\pFor example, HM01: CUT, can even\ncut tall grass anywhere!"))
+    closemessage
+    release
+    end
+}
+
+script Route30_Ahead_Is_Route31_Sign 
+{
+    lock
+    msgbox(format("ROUTE 31 is up ahead - Connecting\nto DARK CAVE and VIOLET CITY."))
+    closemessage
+    release
+    end
+}
+
+script Route30_Mr_Pokemon_House_Sign 
+{
+    lock
+    msgbox(format("MR. POKéMON'S HOUSE"))
+    closemessage
+    release
+    end
+}
+
+script Route30_EventScript_Careful_Boy 
+{
+    lock
+    applymovement(3, Route30_NPC_Face_Player)
+    msgbox(format("You ought to be careful here.\nSometimes wild POKéMON attack...\pBut when spotted by a TRAINER,\nthey battle you, too!"))
+    closemessage
+    release
+    end
+}
+
+script Route30_EventScript_Youngster
+{
+    lock
+    applymovement(2, Route30_NPC_Face_Player)
+    msgbox(format("Darn... I couldn't beat JOEY'S\nRATTATA... It's top-percentage!"))
+    closemessage
+    release
+    end
+}
+
+script Route30_EventScript_Lass 
+{
+    lock
+    applymovement(5, Route30_NPC_Face_Player)
+    msgbox(format("Did you just touch me?\nStop that!\pI'm never going to find a cute\nSPINARAK! Stop! Sensory overload!"))
+    closemessage
+    release
+    end
+}
+
+script Route30_EventScript_Super_Nerd
+{
+    lock
+    applymovement(6, Route30_NPC_Face_Player)
+    msgbox(format("There's a type of POKé BALL\nthat'll catch without fail.\pWhen it hits the POKé MART,\nI wonder how much it'll be...\pYou don't believe me?\nI'm not crazy!"))
+    closemessage
+    release
+    end
+}
+
+movement Route30_NPC_Face_Player 
+{
+    face_player
+    step_end    
 }

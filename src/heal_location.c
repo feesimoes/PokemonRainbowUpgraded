@@ -107,6 +107,21 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
             warp->y = 11;
             VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
         }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB))
+        {
+            warp->x = 3;
+            warp->y = 6;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_CHERRYGROVE_POKEMON_CENTER) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_CHERRYGROVE_POKEMON_CENTER))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_VIOLET_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_VIOLET_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
         else
         {
             warp->x = 7;

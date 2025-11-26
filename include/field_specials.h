@@ -27,5 +27,12 @@ void ResetFieldTasksArgs(void);
 bool8 UsedPokemonCenterWarp(void);
 void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
+void GetBountyTaskMonAndReward(void);
+void CheckMonClaimBountyTaskReward(void);
+void GetBountyTaskMonAndReward(void);
+u16 SampleBountyTaskMon(void);
+u16 SampleBountyTaskMonLvl(void);
+u16 SampleBountyTaskBall(void);
+u16 SampleBountyTaskReward(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

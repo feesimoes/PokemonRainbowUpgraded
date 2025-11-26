@@ -97,7 +97,7 @@ static const u16 sTravelDirectionMatrix[] = {
     [SEAGALLOP_CINNABAR_ISLAND] = 0x7ff, // 11111111111
     [SEAGALLOP_NAVEL_ROCK]      = 0x6e0, // 11011100000
     [SEAGALLOP_BIRTH_ISLAND]    = 0x000, // 00000000000
-    [SEAGALLOP_CANALAVE_CITY]   = 0x7ff  // 00000000000
+    [SEAGALLOP_CANALAVE_CITY]   = 0x7ff  // 11011111100
 };
 
 static const union AnimCmd sSpriteAnims_Ferry_WB[] = {
@@ -446,6 +446,10 @@ static void SpriteCB_Wake(struct Sprite *sprite)
 static bool8 GetDirectionOfTravel(void)
 {
     if (gSpecialVar_0x8004 >= NELEMS(sTravelDirectionMatrix))
+    {
+        return DIRN_EASTBOUND;
+    }
+    if (gSpecialVar_0x8006 == SEAGALLOP_CANALAVE_CITY)
     {
         return DIRN_EASTBOUND;
     }

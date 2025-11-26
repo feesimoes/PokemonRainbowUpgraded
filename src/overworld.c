@@ -1097,8 +1097,16 @@ void Overworld_PlaySpecialMapMusic(void)
     if (gSaveBlock1Ptr->savedMusic)
         music = gSaveBlock1Ptr->savedMusic;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
-        music = MUS_SURF;
-
+    {
+        if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+        {
+            music = MUS_SURF_JOHTO;
+        }
+        else
+        {
+            music = MUS_SURF;
+        }
+    }
     if (music != GetCurrentMapMusic())
         PlayNewMapMusic(music);
 }
@@ -1133,7 +1141,16 @@ static void Overworld_TryMapConnectionMusicTransition(void)
         if (currentMusic == MUS_SURF)
             return;
         if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
-            newMusic = MUS_SURF;
+        {
+            if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+            {
+                newMusic = MUS_SURF_JOHTO;
+            }
+            else
+            {
+                newMusic = MUS_SURF;
+            }
+        }
         if (newMusic != currentMusic)
         {
             if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))

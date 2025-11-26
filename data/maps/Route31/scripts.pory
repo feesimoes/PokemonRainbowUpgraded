@@ -1,1 +1,70 @@
-mapscripts Route31_MapScripts {}
+mapscripts Route31_MapScripts
+{
+
+}
+
+script Route31_VioletCity_Sign 
+{
+    lock
+    msgbox(format("VIOLET CITY - ROUTE 31\nA short, yet, nostalgic path."))
+    closemessage
+    release
+    end
+}
+
+script Route31_DarkCave_Sign 
+{
+    lock
+    msgbox(format("DARK CAVE - ROUTE 46\nA tunnel network beneath JOHTO."))
+    closemessage
+    release
+    end
+}
+
+script Route31_DarkCave_Boy_Advice 
+{
+    lock
+    applymovement(4, Route31_NPC_FacePlayer)
+    msgbox(format("Here's some advice. Don't go in\nDARK CAVE without HM05: FLASH."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route31_Fat_Man 
+{
+    lock
+    applymovement(1, Route31_NPC_FacePlayer)
+    msgbox(format("You can technically go in DARK CAVE\nwithout HM05: FLASH...\pBut... It's very easy to get\nlost in there..."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route31_Bug_Catcher_Wade_Battle 
+{
+    trainerbattle_single(TRAINER_BUG_CATCHER_WADE, format("Are you lost?\nYou strike me as a SPINARAK...\pExcept, with no way home...\nFar from home, no homecoming.\pPoor little SPINARAK."), format("Drat!\nThe itsy bitsy little SPINARAK...\p...Isn't so little and weak anymore!"))
+    msgbox(format("All right, you beat me...\nI'm honestly kind of surprised.\pYou did not react to my cultural\nreferences at all, not one bit."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route31_Super_Nerd 
+{
+    lock
+    applymovement(3, Route31_NPC_FacePlayer)
+    msgbox(format("Oh, wow!\nYou've got a lot of BADGES.\pSince you're from KANTO, it does\nmake sense. But...\pYou need the LEAGUE to approve\ncollection of even more BADGES."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Route31_NPC_FacePlayer 
+{
+    face_player
+    step_end    
+}

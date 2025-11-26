@@ -1564,4 +1564,7 @@ extern const u8 gString_TrainerNameGrunt[];
 extern const u8 gString_TrainerNameAdmin[];
 extern const u8 gString_TrainerNameRodolfo[];
 
+extern const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[];
+extern const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[];
+
 #endif //GUARD_STRINGS_H

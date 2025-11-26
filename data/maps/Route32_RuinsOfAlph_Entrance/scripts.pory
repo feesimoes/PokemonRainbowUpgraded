@@ -1,0 +1,14 @@
+mapscripts Route32_RuinsOfAlph_Entrance_MapScripts 
+{
+
+}
+
+script Route32_RuinsOfAlph_Entrance_Guard 
+{
+    lock
+    msgbox(format("Well, it isn't often I see kids!\nRUINS OF ALPH is ahead.\pROUTE 32 is east of here,\nin case you get lost."))
+    waitmessage
+    closemessage
+    release
+    end    
+}

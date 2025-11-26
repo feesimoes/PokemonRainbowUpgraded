@@ -1522,3 +1522,66 @@ Text_TestMsg::
 
 	.include "data/maps/Route28/scripts.inc"
 	.include "data/maps/Route28/text.inc"
+
+	.include "data/maps/DarkCave_2F/scripts.inc"
+	.include "data/maps/DarkCave_2F/text.inc"
+
+	.include "data/maps/Route45/scripts.inc"
+	.include "data/maps/Route45/text.inc"
+
+	.include "data/maps/BlackthornCity/scripts.inc"
+	.include "data/maps/BlackthornCity/text.inc"
+
+	.include "data/maps/LindenTown/scripts.inc"
+	.include "data/maps/LindenTown/text.inc"
+
+	.include "data/maps/Cherrygrove_Mart/scripts.inc"
+	.include "data/maps/Cherrygrove_Mart/text.inc"
+
+	.include "data/maps/Cherrygrove_GuidesHouse/scripts.inc"
+	.include "data/maps/Cherrygrove_GuidesHouse/text.inc"
+
+	.include "data/maps/Cherrygrove_RobertosHouse/scripts.inc"
+	.include "data/maps/Cherrygrove_RobertosHouse/text.inc"
+
+	.include "data/maps/Cherrygrove_RobertitasHouse/scripts.inc"
+	.include "data/maps/Cherrygrove_RobertitasHouse/text.inc"
+
+	.include "data/maps/Route30_ApricornGuysHouse/scripts.inc"
+	.include "data/maps/Route30_ApricornGuysHouse/text.inc"
+
+	.include "data/maps/Violet_Mart/scripts.inc"
+	.include "data/maps/Violet_Mart/text.inc"
+
+	.include "data/maps/SproutTower_1F/scripts.inc"
+	.include "data/maps/SproutTower_1F/text.inc"
+
+	.include "data/maps/Route36_VioletCityEntrance/scripts.inc"
+	.include "data/maps/Route36_VioletCityEntrance/text.inc"
+
+	.include "data/maps/Route36/scripts.inc"
+	.include "data/maps/Route36/text.inc"
+
+	.include "data/maps/Route36_NationalParkEntrance/scripts.inc"
+	.include "data/maps/Route36_NationalParkEntrance/text.inc"
+
+	.include "data/maps/Route32_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Route32_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route33/scripts.inc"
+	.include "data/maps/Route33/text.inc"
+
+	.include "data/maps/UnionCave_1F/scripts.inc"
+	.include "data/maps/UnionCave_1F/text.inc"
+
+	.include "data/maps/RuinsOfAlph/scripts.inc"
+	.include "data/maps/RuinsOfAlph/text.inc"
+
+	.include "data/maps/RuinsOfAlphMagnetLine/scripts.inc"
+	.include "data/maps/RuinsOfAlphMagnetLine/text.inc"
+
+	.include "data/maps/Route36_RuinsOfAlph_Entrance/scripts.inc"
+	.include "data/maps/Route36_RuinsOfAlph_Entrance/text.inc"
+
+	.include "data/maps/Route32_RuinsOfAlph_Entrance/scripts.inc"
+	.include "data/maps/Route32_RuinsOfAlph_Entrance/text.inc"

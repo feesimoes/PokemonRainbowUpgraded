@@ -1,1 +1,103 @@
-mapscripts VioletCity_MapScripts {}
+mapscripts VioletCity_MapScripts
+{
+
+}
+
+script VioletCity_Sign 
+{
+    lock
+    msgbox(format("VIOLET CITY -\nThe city of nostalgic scents."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script VioletCity_Gym_Sign 
+{
+    lock
+    msgbox(format("VIOLET CITY POKéMON GYM\nLEADER: WALKER\pThe courageous master of flying POKéMON!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script VioletCity_School_Sign
+{
+    lock
+    msgbox(format("VIOLET CITY - TRAINERS' SCHOOL\nTEACHER: EARL DERVISH"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script VioletCity_BlackBelt 
+{
+    lock
+    applymovement(2, VioletCity_NPC_Face_Player)
+    msgbox(format("EARL taught me all there is to\nknow about POKéMON, I think."))
+    waitmessage
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_Beauty
+{
+    lock
+    applymovement(3, VioletCity_NPC_Face_Player)
+    msgbox(format("Have you been to SPROUT TOWER?\nAvoid my mistake...\pIt isn't a joke, that\ntower is rough!"))
+    waitmessage
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_Man
+{
+    lock
+    applymovement(4, VioletCity_NPC_Face_Player)
+    msgbox(format("Have you heard the DAY CARE story?\nI'll tell you.\pA woman who lived near GOLDENROD\nCITY ran a DAY CARE.\pOver time, more TRAINERS kept using\nher valuable services."))
+    waitmessage
+    closemessage
+    msgbox(format("So, you know, business was booming.\nEventually, she couldn't keep up.\pThat's when she met a man\nwho was more than a helper."))
+    waitmessage
+    closemessage
+    msgbox(format("One day, her husband started finding\nthese oval-shaped things...\pNow, nobody knows how it got\nthere, or what, but..."))
+    waitmessage
+    closemessage
+    msgbox(format("These things eventually shake and\ncrack open, revealing POKéMON!\pThat's what many TRAINERS report...\nIt seems to be random, though."))
+    waitmessage
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_Hiker
+{
+    lock
+    applymovement(5, VioletCity_NPC_Face_Player)
+    msgbox(format("So, this is the way, eh?\nThis tower is unlike any mountain!"))
+    waitmessage
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_Sprout_Tower_Sign
+{
+    lock
+    msgbox(format("VIOLET CITY - SPROUT TOWER\nThe way of POKéMON... No doubts!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement VioletCity_NPC_Face_Player 
+{
+    face_player
+    step_end    
+}

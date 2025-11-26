@@ -41,6 +41,7 @@ extern const struct CompressedSpritePalette gTrainerBackPicPaletteTable[];
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
 extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
 
+//extern const u8 gEnemyMonElevation[NUM_SPECIES]; <- Original code
 extern const u8 gEnemyMonElevation[NUM_SPECIES];
 
 extern const u8 *const gBattleAnims_General[];
@@ -59,5 +60,7 @@ extern const struct SpriteFrameImage gTrainerBackPicTable_Pokedude[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_OldMan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RSBrendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RSMay[];
+
+extern const u8 gPokeballNames[][13];
 
 #endif // GUARD_DATA_H

@@ -13,3 +13,54 @@ mapscripts Cherrygrove_PokemonCenter_MapScripts
         call(CableClub_OnResume)
     }
 }
+
+script Cherrygrove_PokemonCenter_1F_Attendant_Out_Of_Service
+{
+    lock
+    applymovement(7, Movement_Violet_PokemonCenter_1F_Face_Player)
+    msgbox(format("I'm terribly sorry, but we\nare undergoing some maintenance."))
+    release
+    end
+}
+
+script Cherrygrove_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script Cherrygrove_PokemonCenter_1F_EventScript_Fat_Man
+{
+    lock
+    applymovement(2, Cherrygrove_PokemonCenter_1F_Face_Player)
+    msgbox(format("Munch, munch...\nMmm...\pSLOWPOKE TAIL is so tasty!\n...Huh, what's that?\pIt's chopped off of a SLOWPOKE?\nDon't be ridiculous! Scram!"))
+    release
+    end
+}
+
+script Cherrygrove_PokemonCenter_1F_EventScript_GBA_Kid 
+{
+    lock
+    applymovement(8, Cherrygrove_PokemonCenter_1F_Face_Player)
+    msgbox(format("I'm enjoying this game!\nIt's fun to play with friends!"))
+    release
+    end
+}
+
+script Cherrygrove_PokemonCenter_1F_EventScript_Gentleman 
+{
+    lock
+    applymovement(3, Cherrygrove_PokemonCenter_1F_Face_Player)
+    msgbox(format("Watching my grandson grow up\nreminds me of simpler times."))
+    release
+    end
+}
+
+movement Cherrygrove_PokemonCenter_1F_Face_Player
+{
+    face_player
+    step_end
+}

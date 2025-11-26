@@ -32,6 +32,28 @@ script Violet_PokemonCenter_1F_EventScript_Nurse
 	end
 }
 
+script Violet_PokemonCenter_1F_Man
+{
+    lock
+    applymovement(7, Movement_Violet_PokemonCenter_1F_Face_Player)
+    msgbox(format("WALKER has been the GYM LEADER\nfor as long as I can remember.\pBut... I think his son, FALKNER,\nwould be a good successor."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Violet_PokemonCenter_1F_Picnicker
+{
+    lock
+    applymovement(6, Movement_Violet_PokemonCenter_1F_Face_Player)
+    msgbox(format("I can't tell you how many\ntimes I lost to this GYM...\pNo, really!\nI lost track of my losses."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
 movement Movement_Violet_PokemonCenter_1F_Face_Player
 {
     face_player

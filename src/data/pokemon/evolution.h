@@ -1,3 +1,4 @@
+// const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] = <- Original code
 const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 {
     [SPECIES_BULBASAUR]  = {{EVO_LEVEL, 16, SPECIES_IVYSAUR}},
@@ -184,4 +185,6 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_SHELGON]    = {{EVO_LEVEL, 50, SPECIES_SALAMENCE}},
     [SPECIES_BELDUM]     = {{EVO_LEVEL, 20, SPECIES_METANG}},
     [SPECIES_METANG]     = {{EVO_LEVEL, 45, SPECIES_METAGROSS}},
+    //[SPECIES_TURTWIG]    = {{EVO_LEVEL, 16, SPECIES_GROTLE}},
+    //[SPECIES_GROTLE]    = {{EVO_LEVEL, 36, SPECIES_TORTERRA}},
 };

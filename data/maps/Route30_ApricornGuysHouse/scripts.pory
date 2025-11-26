@@ -1,0 +1,21 @@
+mapscripts Route30_ApricornGuysHouse_MapScripts 
+{
+
+}
+
+script Route30_ApricornGuysHouse_EventScript_ApricornGuy 
+{
+    lock
+    applymovement(1, Route30_ApricornGuysHouse_Face_Player)
+    msgbox(format("Hello there!\nLovely weather, isn't it?"))
+    waitmessage
+    closemessage
+    release
+    end    
+}
+
+movement Route30_ApricornGuysHouse_Face_Player 
+{
+    face_player
+    step_end    
+}

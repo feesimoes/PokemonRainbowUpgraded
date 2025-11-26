@@ -288,6 +288,7 @@ static bool32 ValidateStamp(const u16 * stamp)
         return FALSE;
     if (stamp[STAMP_SPECIES] == SPECIES_NONE)
         return FALSE;
+    // if (stamp[STAMP_SPECIES] >= NUM_SPECIES) <- Original code
     if (stamp[STAMP_SPECIES] >= NUM_SPECIES)
         return FALSE;
     return TRUE;

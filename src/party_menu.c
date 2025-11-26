@@ -4164,7 +4164,7 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
     Free(data);
 }
 
-void SetUsedFlyQuestLogEvent(const u8 *healLocCtrlData)
+void SetUsedFlyQuestLogEvent(const u16 *healLocCtrlData)
 {
     const struct MapHeader *mapHeader;
     struct QuestLogEvent_FieldMove *data;

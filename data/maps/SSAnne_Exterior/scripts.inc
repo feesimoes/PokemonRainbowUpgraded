@@ -134,17 +134,15 @@ SSAnne_Exterior_Movement_WalkDown::
 VermilionHarbor_EventScript_SinnohFerry::
 # 70 "data/maps/SSAnne_Exterior/scripts.pory"
 	goto_if_set FLAG_SINNOH_PASS_OBTAINED, VermilionHarbor_EventScript_SinnohFerry_1
-# 98 "data/maps/SSAnne_Exterior/scripts.pory"
+# 97 "data/maps/SSAnne_Exterior/scripts.pory"
 	lock
-# 99 "data/maps/SSAnne_Exterior/scripts.pory"
-	faceplayer
-# 100 "data/maps/SSAnne_Exterior/scripts.pory"
+# 98 "data/maps/SSAnne_Exterior/scripts.pory"
 	msgbox VermilionHarbor_EventScript_SinnohFerry_Text_3
-# 101 "data/maps/SSAnne_Exterior/scripts.pory"
+# 99 "data/maps/SSAnne_Exterior/scripts.pory"
 	waitmessage
-# 102 "data/maps/SSAnne_Exterior/scripts.pory"
+# 100 "data/maps/SSAnne_Exterior/scripts.pory"
 	closemessage
-# 103 "data/maps/SSAnne_Exterior/scripts.pory"
+# 101 "data/maps/SSAnne_Exterior/scripts.pory"
 	release
 	end
 
@@ -152,66 +150,106 @@ VermilionHarbor_EventScript_SinnohFerry_1:
 # 72 "data/maps/SSAnne_Exterior/scripts.pory"
 	lock
 # 73 "data/maps/SSAnne_Exterior/scripts.pory"
-	faceplayer
-# 74 "data/maps/SSAnne_Exterior/scripts.pory"
 	msgbox VermilionHarbor_EventScript_SinnohFerry_Text_0, MSGBOX_YESNO
-# 75 "data/maps/SSAnne_Exterior/scripts.pory"
+# 74 "data/maps/SSAnne_Exterior/scripts.pory"
 	waitmessage
-# 76 "data/maps/SSAnne_Exterior/scripts.pory"
+# 75 "data/maps/SSAnne_Exterior/scripts.pory"
 	compare VAR_RESULT, NO
 	goto_if_eq VermilionHarbor_EventScript_SinnohFerry_4
-# 84 "data/maps/SSAnne_Exterior/scripts.pory"
+# 83 "data/maps/SSAnne_Exterior/scripts.pory"
 	msgbox VermilionHarbor_EventScript_SinnohFerry_Text_2
-# 85 "data/maps/SSAnne_Exterior/scripts.pory"
+# 84 "data/maps/SSAnne_Exterior/scripts.pory"
 	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-# 86 "data/maps/SSAnne_Exterior/scripts.pory"
+# 85 "data/maps/SSAnne_Exterior/scripts.pory"
 	setvar VAR_0x8006, SEAGALLOP_CANALAVE_CITY
-# 87 "data/maps/SSAnne_Exterior/scripts.pory"
+# 86 "data/maps/SSAnne_Exterior/scripts.pory"
 	closemessage
-# 88 "data/maps/SSAnne_Exterior/scripts.pory"
+# 87 "data/maps/SSAnne_Exterior/scripts.pory"
 	delay 20
-# 89 "data/maps/SSAnne_Exterior/scripts.pory"
+# 88 "data/maps/SSAnne_Exterior/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 90 "data/maps/SSAnne_Exterior/scripts.pory"
+# 89 "data/maps/SSAnne_Exterior/scripts.pory"
 	special DoSeagallopFerryScene
-# 91 "data/maps/SSAnne_Exterior/scripts.pory"
+# 90 "data/maps/SSAnne_Exterior/scripts.pory"
 	waitstate
-# 92 "data/maps/SSAnne_Exterior/scripts.pory"
+# 91 "data/maps/SSAnne_Exterior/scripts.pory"
 	release
 	end
 
 VermilionHarbor_EventScript_SinnohFerry_4:
-# 78 "data/maps/SSAnne_Exterior/scripts.pory"
+# 77 "data/maps/SSAnne_Exterior/scripts.pory"
 	msgbox VermilionHarbor_EventScript_SinnohFerry_Text_1
-# 79 "data/maps/SSAnne_Exterior/scripts.pory"
+# 78 "data/maps/SSAnne_Exterior/scripts.pory"
+	release
+	end
+
+
+VermilionHarbor_EventScript_JohtoFerry::
+# 108 "data/maps/SSAnne_Exterior/scripts.pory"
+	lock
+# 109 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_JohtoFerry_Text_0
+# 110 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 111 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 112 "data/maps/SSAnne_Exterior/scripts.pory"
+	release
+	end
+
+
+VermilionHarbor_EventScript_GuyanaFerry::
+# 118 "data/maps/SSAnne_Exterior/scripts.pory"
+	lock
+# 119 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_GuyanaFerry_Text_0
+# 120 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 121 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 122 "data/maps/SSAnne_Exterior/scripts.pory"
 	release
 	end
 
 
 VermilionHarbor_EventScript_SinnohFerry_Text_0:
-# 74 "data/maps/SSAnne_Exterior/scripts.pory"
+# 73 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "Welcome, {PLAYER}!\n"
 	.string "Packed up and ready to go?\p"
 	.string "C'mon! Let's set sail!\n"
 	.string "$"
 
 VermilionHarbor_EventScript_SinnohFerry_Text_1:
-# 78 "data/maps/SSAnne_Exterior/scripts.pory"
+# 77 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "Alright, I'll be here...\n"
 	.string "Come back when you're ready!$"
 
 VermilionHarbor_EventScript_SinnohFerry_Text_2:
-# 84 "data/maps/SSAnne_Exterior/scripts.pory"
+# 83 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "SINNOH awaits!\n"
 	.string "C'mon, let's go!$"
 
 VermilionHarbor_EventScript_SinnohFerry_Text_3:
-# 100 "data/maps/SSAnne_Exterior/scripts.pory"
-	.string "Sorry, kiddo!\n"
-	.string "You'll need approval from the V.I.P.!\p"
+# 98 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "You want a ride? Sorry, kiddo!\n"
+	.string "You'll need V.I.P.'s approval!\p"
 	.string "Who?\n"
 	.string "...Well, she's busy!\p"
-	.string "I heard she's interviewing {RIVAL}\n"
-	.string "in SAFFRON CITY'S SILPH CO.!\p"
-	.string "Although, um...\n"
-	.string "She should have been back by now...$"
+	.string "Heard she's interviewing {RIVAL}\n"
+	.string "in SAFFRON'S SILPH CO.!\p"
+	.string "Although, eh...\n"
+	.string "She should've been back by now...$"
+
+VermilionHarbor_EventScript_JohtoFerry_Text_0:
+# 109 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "You want a ride?\n"
+	.string "Oh... Sorry, but...\p"
+	.string "Something serious is going on in\n"
+	.string "our usual route, you see.\p"
+	.string "Whirlpools and treacherous storms\n"
+	.string "paused such travel, for now.$"
+
+VermilionHarbor_EventScript_GuyanaFerry_Text_0:
+# 119 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Don't just stand there, mate!\n"
+	.string "Keep loading the truck!$"

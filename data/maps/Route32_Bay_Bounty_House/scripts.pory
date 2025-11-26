@@ -1,18 +1,55 @@
-mapscripts Route32_Bay_Bounty_House_MapScripts {}
+mapscripts Route32_Bay_Bounty_House_MapScripts
+{
 
-script Butch_Bounty_Intro_Dialogue {
+}
+
+script Butch_Bounty_Hunter_Dialogue {
     lock
-    msgbox(format("...Eh? It's about time\nya got here, rookie!"))
+    msgbox(format("It's about time\nya got here, rookie!"))
+    waitmessage
     closemessage
     applymovement(1, Movement_Butch_Face_Player)
-    msgbox(format("..."))
+    special(GetBountyTaskMonAndReward)
+    msgbox(format("So, here's the deal, see...\nI need a {STR_VAR_1}!\pBut not just any! Make sure\nit's LV.{STR_VAR_2}, in a {STR_VAR_3} BALL."))
+    waitmessage
     closemessage
-    applymovement(1, Movement_Butch_Notice_Player_Emote)
-    msgbox(format("Oh, for cryin' out loud!\nSendin' me a heckin' child?!\pI tell ya, the absolute nerve!\nDarned children, I tell them!"))
-    closemessage
-    msgbox(format("BUTCH, they're tellin' me!\nsayin' crazy stuff to our ADMIN!\pApparently kids ain't half bad!\nKid slashin' our KANTO op?!"))
-    closemessage
-    msgbox(format("Yeah, anyways, kiddo...\nMy rant is over for now!\pLet's get ya started on\nyour trainin', here."))
+    msgbox(format("Maybe I misjudged ya!\nHave you brought it in?"), MSGBOX_YESNO)
+    waitmessage
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Good, hand it over then!"))
+        waitmessage
+        closemessage
+        special(ChoosePartyMon)
+        waitstate
+        msgbox(format("Let's see..."))
+        waitmessage
+        closemessage
+        special(CheckMonClaimBountyTaskReward)
+        if (var(VAR_BOUNTY_TASK_MON) == 0)
+        {
+            msgbox(format("Here's your payment, as promised."))
+            waitmessage
+            closemessage
+            special(GetBountyTaskMonAndReward)
+            msgbox(format("Before I let you go,\nI'll need a {STR_VAR_1}!\pBut not just any! Make sure\nit's LV.{STR_VAR_2}, in a {STR_VAR_3} BALL.\pGet to work, rookie!"))
+            waitmessage
+            closemessage
+        }
+        else
+        {
+            msgbox(format("That's not right...\nGet to work, rookie!\pAlso, make sure you have\nat least 2 PARTY POKéMON."))
+            waitmessage
+            closemessage
+        }
+    }
+    else
+    {
+        closemessage
+        msgbox(format("If you need tips on your task,\nI'm sure CASSIDY can help.\pShe'd be around here, on\nsort of a remote island.\pSo, get to work, rookie!"))
+        waitmessage
+        closemessage
+    }
     releaseall
     end
 }

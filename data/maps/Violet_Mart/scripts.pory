@@ -1,0 +1,91 @@
+mapscripts Violet_Mart_MapScripts
+{
+
+}
+
+script Violet_Mart_Clerk_1 
+{
+    lock
+    applymovement(4, Violet_Mart_NPC_Face_Player)
+    msgbox(format("Welcome to VIOLET POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Violet_Mart_1)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    release
+    end
+}
+
+script Violet_Mart_Clerk_2
+{
+    lock
+    applymovement(3, Violet_Mart_NPC_Face_Player)
+    msgbox(format("Welcome to VIOLET POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Violet_Mart_2)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    release
+    end
+}
+
+mart Violet_Mart_1 
+{
+    ITEM_RETRO_MAIL
+    ITEM_DREAM_MAIL
+    ITEM_HEAL_POWDER
+    ITEM_ENERGY_POWDER
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NET_BALL
+}
+
+mart Violet_Mart_2 
+{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_ETHER
+    ITEM_REVIVE
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_ESCAPE_ROPE
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+}
+
+script Violet_Mart_Fat_Man 
+{
+    lock
+    applymovement(1, Violet_Mart_NPC_Face_Player)
+    msgbox(format("Honestly, you can never be too\nprepared for anything."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Violet_Mart_Beauty
+{
+    lock
+    applymovement(2, Violet_Mart_NPC_Face_Player)
+    msgbox(format("Ugh!\nI just... I can't decide!\pThere's so much to choose from\nand it's overwhelming me!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Violet_Mart_NPC_Face_Player 
+{
+    face_player
+    step_end
+}

@@ -7,7 +7,7 @@ script Route29_Police_Dialogue
 {
     lock
     applymovement(3, Movement_Route29_NPC_Face_Player)
-    msgbox(format("If someone tries throwing a POKé BALL\nat your POKéMON in battle...\pStay on guard! Block the BALL!\nReport them as well, they are thieves."))
+    msgbox(format("If someone tries throwing a POKé BALL\nat your POKéMON in battle...\pStay on guard! Block the BALL!\nReport them! They are thieves."))
     closemessage
     releaseall
     end  

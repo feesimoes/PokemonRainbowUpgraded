@@ -5239,7 +5239,7 @@ u16 SpeciesToCryId(u16 species)
 
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;
-
+    
     return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];
 }
 
@@ -5862,6 +5862,8 @@ static u16 GetBattleBGM(void)
     {
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
+        case TRAINER_CLASS_CREATOR:
+            return MUS_VS_RODOLFO;
         case TRAINER_CLASS_PKMN_PROF:
             return MUS_VS_PROF_OAK;
         case TRAINER_CLASS_CHAMPION:
@@ -5916,11 +5918,7 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_RIVAL_LATE:
         case TRAINER_CLASS_PKMN_TRAINER:
         default:
-            if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameRodolfo)
-            {
-                return MUS_VS_RODOLFO;
-            }
-            else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
+            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
             {
                 return MUS_VS_TRAINER_JOHTO;
             }
@@ -5971,7 +5969,8 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
 {
     u32 shinyValue;
 
-    if (species > SPECIES_EGG)
+    // if (species > NUM_SPECIES) <- Original code
+    if (species > NUM_SPECIES)
         return gMonPaletteTable[0].data;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);

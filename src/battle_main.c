@@ -555,7 +555,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_AQUA_ADMIN, 10},
     {TRAINER_CLASS_AQUA_LEADER, 20},
     {TRAINER_CLASS_BOSS, 25},
-    { 0xFF, 5},
+    {TRAINER_CLASS_CREATOR, 100},
+    {0xFF, 5},
 };
 
 #include "data/text/abilities.h"
@@ -1975,10 +1976,12 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
     {
         yOffset = gCastformFrontSpriteCoords[gBattleMonForms[battler]].y_offset;
     }
+    /*
     else if (species > NUM_SPECIES)
     {
         yOffset = gMonFrontPicCoords[SPECIES_NONE].y_offset;
     }
+    */
     else
     {
         yOffset = gMonFrontPicCoords[species].y_offset;

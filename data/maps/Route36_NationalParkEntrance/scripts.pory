@@ -1,0 +1,29 @@
+mapscripts Route36_NationalParkEntrance_MapScripts 
+{
+
+}
+
+script Route36_NationalParkEntrance_Guard_Dialogue 
+{
+    lock
+    msgbox(format("To the west is NATIONAL PARK,\nROUTE 36 is to the east.\pIf you enjoy natural scenery,\nthe park is surely for you."))
+    closemessage
+    releaseall
+    end   
+}
+
+script Route36_NationalParkEntrance_Boy_Dialogue 
+{
+    lock
+    applymovement(2, Route36_NationalParkEntrance_NPC_Face_Player)
+    msgbox(format("Have you been to ROUTE 36?\nThere's a weird tree there...\pApparently it reacts if you\nsprinkle water on it..."))
+    closemessage
+    releaseall
+    end   
+}
+
+movement Route36_NationalParkEntrance_NPC_Face_Player 
+{
+    face_player
+    step_end 
+}

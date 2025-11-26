@@ -1,0 +1,120 @@
+mapscripts Route36_MapScripts 
+{
+
+}
+
+script Route36_Youngster_Jack_Battle 
+{
+    trainerbattle_single(TRAINER_YOUNGSTER_JACK, format("All of my friends laughed at me,\nso now it's my turn!"), format("Hahaha! Oh, wait,\nI see why I was laughed at..."))
+    msgbox(format("My battling skills are such a\nbig joke, it's hilarious!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route36_Picnicker_Kristie_Battle 
+{
+    trainerbattle_single(TRAINER_PICNICKER_KRISTIE, format("Oh no...\nI lost my SQUIRT BOTTLE!"), format("Um...\nSo, could I borrow yours?"))
+    msgbox(format("There's a flower shop back in\nGOLDENROD CITY.\pWithout a way to water this\nweird tree, it won't budge..."))
+    closemessage
+    releaseall
+    end
+}
+
+script Route36_Super_Nerd 
+{
+    lock
+    applymovement(5, Route36_NPC_Face_Player)
+    msgbox(format("Oh, you're filling a POKéDEX for\nPROF. OAK?\pYou must be important if he\nentrusted you with that task."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_BlackBelt 
+{    
+    lock
+    applymovement(7, Route36_NPC_Face_Player)
+    msgbox(format("This is where the road splits.\nHeaded for NATIONAL PARK?\pI think you'll have to find\na way around, for now..."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_Fat_Man 
+{    
+    lock
+    applymovement(3, Route36_NPC_Face_Player)
+    msgbox(format("Hey, have you checked out\nRUINS OF ALPH yet?\pThat place gives me the creeps."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_Lass 
+{
+    lock
+    applymovement(2, Route36_NPC_Face_Player)
+    msgbox(format("If I were to participate in a\nCONTEST HALL over in HOENN...\pI would blow everyone away\nwith my super cute PIDGEY!\pThat's why I opt out...\nI don't want to ruin it!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_Sign
+{
+    lock
+    msgbox(format("ROUTE 36\nDensely overgrown road, forking two paths."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_NationalPark_Sign
+{
+    lock
+    msgbox(format("ROUTE 36 - NATIONAL PARK\nEnter a spacious, beautiful park!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_RuinsOfAlph_Sign
+{
+    lock
+    msgbox(format("ROUTE 36 - RUINS OF ALPH\nAlso connects to ROUTE 32."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_Route37_Ahead_Sign
+{
+    lock
+    msgbox(format("ROUTE 36 - ROUTE 37\nECRUTEAK CITY is further ahead!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route36_Weird_Tree 
+{
+    lock
+    msgbox(format("It's a weird tree...\nIt looks impossible to CUT..."))
+    waitmessage
+    closemessage
+}
+
+movement Route36_NPC_Face_Player 
+{
+    face_player
+    step_end 
+}

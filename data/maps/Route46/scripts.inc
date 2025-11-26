@@ -74,8 +74,8 @@ Route46_Sign_Text_0:
 
 Route46_DarkCave_Sign_Text_0:
 # 12 "data/maps/Route46/scripts.pory"
-	.string "DARK CAVE -\n"
-	.string "A tunnel that runs beneath JOHTO.$"
+	.string "DARK CAVE - ROUTE 31\n"
+	.string "A tunnel network beneath JOHTO.$"
 
 Route46_Picnicker_Erin_Battle_Text_0:
 # 20 "data/maps/Route46/scripts.pory"

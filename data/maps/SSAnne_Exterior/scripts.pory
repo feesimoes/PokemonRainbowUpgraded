@@ -70,7 +70,6 @@ script VermilionHarbor_EventScript_SinnohFerry {
     if (flag(FLAG_SINNOH_PASS_OBTAINED))
     {
         lock
-        faceplayer
         msgbox(format("Welcome, {PLAYER}!\nPacked up and ready to go?\pC'mon! Let's set sail!\n"), MSGBOX_YESNO)
         waitmessage
 	    if(var(VAR_RESULT) == NO)
@@ -96,11 +95,30 @@ script VermilionHarbor_EventScript_SinnohFerry {
     else 
     {
         lock
-        faceplayer
-        msgbox(format("Sorry, kiddo!\nYou'll need approval from the V.I.P.!\pWho?\n...Well, she's busy!\pI heard she's interviewing {RIVAL}\nin SAFFRON CITY'S SILPH CO.!\pAlthough, um...\nShe should have been back by now..."))
+        msgbox(format("You want a ride? Sorry, kiddo!\nYou'll need V.I.P.'s approval!\pWho?\n...Well, she's busy!\pHeard she's interviewing {RIVAL}\nin SAFFRON'S SILPH CO.!\pAlthough, eh...\nShe should've been back by now..."))
         waitmessage
         closemessage
         release
         end
     }
+}
+
+script VermilionHarbor_EventScript_JohtoFerry
+{
+	lock
+	msgbox(format("You want a ride?\nOh... Sorry, but...\pSomething serious is going on in\nour usual route, you see.\pWhirlpools and treacherous storms\npaused such travel, for now."))	
+	waitmessage
+	closemessage
+	release
+	end
+}
+
+script VermilionHarbor_EventScript_GuyanaFerry 
+{
+	lock
+	msgbox(format("Don't just stand there, mate!\nKeep loading the truck!"))
+	waitmessage
+	closemessage
+	release
+	end
 }

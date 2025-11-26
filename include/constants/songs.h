@@ -401,6 +401,9 @@
 #define MUS_CYCLING_JOHTO         393 // MUS_CYCLING_JOHTO
 #define MUS_DARK_CAVE             394 // MUS_DARK_CAVE
 #define MUS_VS_GYM_LEADER_JOHTO   395 // MUS_VS_GYM_LEADER_JOHTO
+#define MUS_GYM_JOHTO             396 // MUS_GYM_JOHTO
+#define MUS_SPROUT_TOWER          397 // MUS_SPROUT_TOWER
+#define MUS_SURF_JOHTO            398 // MUS_SURF_JOHTO
 
 #define MUS_NONE                    0xFFFF
 

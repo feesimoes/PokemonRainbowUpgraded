@@ -62,7 +62,7 @@ Route29_Police_Dialogue_Text_0:
 	.string "If someone tries throwing a POKé BALL\n"
 	.string "at your POKéMON in battle...\p"
 	.string "Stay on guard! Block the BALL!\n"
-	.string "Report them as well, they are thieves.$"
+	.string "Report them! They are thieves.$"
 
 Route29_Youngster_Dude_Dialogue_Text_0:
 # 20 "data/maps/Route29/scripts.pory"

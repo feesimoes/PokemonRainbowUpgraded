@@ -31,6 +31,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PROF_ELM_WIFE_HEAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 3,

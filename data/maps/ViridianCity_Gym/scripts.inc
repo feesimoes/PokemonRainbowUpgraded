@@ -24,6 +24,7 @@ ViridianCity_Gym_EventScript_Giovanni::
 	closemessage
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_VIRIDIAN_GIOVANNI
+	setvar VAR_MAP_SCENE_ROUTE22, 3
 	fadescreen FADE_FROM_BLACK
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Place_Rival_Right_7_Tiles
@@ -146,6 +147,7 @@ ViridianCity_Gym_EventScript_DefeatedGiovanni::
 	setflag FLAG_HIDE_MISC_KANTO_ROCKETS
 	setflag FLAG_DEFEATED_LEADER_GIOVANNI
 	setflag FLAG_BADGE08_GET
+	clearflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
 	setvar VAR_MAP_SCENE_ROUTE22, 3
 	set_gym_trainers 8
 	goto ViridianCity_Gym_EventScript_GiveTM26
@@ -158,7 +160,7 @@ ViridianCity_Gym_EventScript_GiveTM26::
 	giveitem_msg ViridianCity_Gym_Text_ReceivedTM26FromGiovanni, ITEM_TM26
 	setflag FLAG_GOT_TM26_FROM_GIOVANNI
 	msgbox ViridianCity_Gym_Text_ExplainTM26
-	release
+	goto ViridianCity_Gym_EventScript_Giovanni
 	end
 
 ViridianCity_Gym_EventScript_NoRoomForTM26::

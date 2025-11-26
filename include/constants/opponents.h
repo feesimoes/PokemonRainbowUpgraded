@@ -3,13 +3,13 @@
 
 #define TRAINER_NONE                               0
 // Dummy trainers for all the RS trainer classes
-#define TRAINER_AQUA_LEADER                        1
-#define TRAINER_AQUA_GRUNT_M                       2
-#define TRAINER_AQUA_GRUNT_F                       3
-#define TRAINER_RS_AROMA_LADY                      4
-#define TRAINER_RS_RUIN_MANIAC                     5
-#define TRAINER_INTERVIEWER                        6
-#define TRAINER_RS_TUBER_F                         7
+//#define TRAINER_AQUA_LEADER                        1
+//#define TRAINER_AQUA_GRUNT_M                       2
+//#define TRAINER_AQUA_GRUNT_F                       3
+//#define TRAINER_RS_AROMA_LADY                      4
+//#define TRAINER_RS_RUIN_MANIAC                     5
+//#define TRAINER_INTERVIEWER                        6
+//#define TRAINER_RS_TUBER_F                         7
 #define TRAINER_RS_TUBER_M                         8
 #define TRAINER_RS_COOLTRAINER_M                   9
 #define TRAINER_RS_COOLTRAINER_F                  10
@@ -771,15 +771,20 @@
 #define TRAINER_PICNICKER_MEGAN                  765
 #define TRAINER_BIRDKEEPER_JOSE                  766
 #define TRAINER_COOLTRAINER_BLAKE                767
-//Trainer flag overflows, starting below
-#define TRAINER_PICNICKER_ERIN                   768
-#define TRAINER_HIKER_BAILEY                     769
+//Trainer flag overflows here, reusing free IDs
+#define TRAINER_PICNICKER_ERIN                   1
+#define TRAINER_HIKER_BAILEY                     2
+#define TRAINER_TEAM_ROCKET_JAMES_1              3
+#define TRAINER_TEAM_ROCKET_JESSIE_1             4
+#define TRAINER_BUG_CATCHER_WADE                 5
+#define TRAINER_YOUNGSTER_JACK                   6
+#define TRAINER_PICNICKER_KRISTIE                7
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 #define NUM_TRAINERS                             768 // Current count of ALL opponents
-#define MAX_TRAINERS_COUNT                       768 // Vanilla FR/LG limit
+#define MAX_TRAINERS_COUNT                       768 // Original FR/LG limit
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

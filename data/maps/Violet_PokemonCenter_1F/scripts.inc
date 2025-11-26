@@ -47,14 +47,60 @@ Violet_PokemonCenter_1F_EventScript_Nurse::
 	end
 
 
-# 35 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
-Movement_Violet_PokemonCenter_1F_Face_Player:
+Violet_PokemonCenter_1F_Man::
 # 37 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
-	face_player
+	lock
 # 38 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	applymovement 7, Movement_Violet_PokemonCenter_1F_Face_Player
+# 39 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	msgbox Violet_PokemonCenter_1F_Man_Text_0
+# 40 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	waitmessage
+# 41 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	closemessage
+# 42 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	release
+	end
+
+
+Violet_PokemonCenter_1F_Picnicker::
+# 48 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	lock
+# 49 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	applymovement 6, Movement_Violet_PokemonCenter_1F_Face_Player
+# 50 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	msgbox Violet_PokemonCenter_1F_Picnicker_Text_0
+# 51 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	waitmessage
+# 52 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	closemessage
+# 53 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	release
+	end
+
+
+# 57 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+Movement_Violet_PokemonCenter_1F_Face_Player:
+# 59 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	face_player
+# 60 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
 	step_end
 
 Violet_PokemonCenter_1F_Attendant_Out_Of_Service_Text_0:
 # 21 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
 	.string "I'm terribly sorry, but we\n"
 	.string "are undergoing some maintenance.$"
+
+Violet_PokemonCenter_1F_Man_Text_0:
+# 39 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	.string "WALKER has been the GYM LEADER\n"
+	.string "for as long as I can remember.\p"
+	.string "But... I think his son, FALKNER,\n"
+	.string "would be a good successor.$"
+
+Violet_PokemonCenter_1F_Picnicker_Text_0:
+# 50 "data/maps/Violet_PokemonCenter_1F/scripts.pory"
+	.string "I can't tell you how many\n"
+	.string "times I lost to this GYM...\p"
+	.string "No, really!\n"
+	.string "I lost track of my losses.$"

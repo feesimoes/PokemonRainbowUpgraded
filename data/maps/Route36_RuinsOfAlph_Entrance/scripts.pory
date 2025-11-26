@@ -1,0 +1,14 @@
+mapscripts Route36_RuinsOfAlph_Entrance_MapScripts 
+{
+
+}
+
+script Route36_RuinsOfAlph_Entrance_Guard 
+{
+    lock
+    msgbox(format("Hi, ROUTE 36 is up ahead.\nThe RUINS OF ALPH are south."))
+    waitmessage
+    closemessage
+    release
+    end    
+}

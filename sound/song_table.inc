@@ -312,7 +312,7 @@ gSongTable::
 	song mus_victory_trainer, 0, 0
 	song mus_victory_wild, 0, 0
 	song mus_victory_gym_leader, 0, 0
-	song mus_vermillion, 0, 0
+	song mus_vermilion, 0, 0
 	song mus_pewter, 0, 0
 	song mus_encounter_rival, 0, 0
 	song mus_rival_exit, 0, 0
@@ -395,6 +395,9 @@ gSongTable::
 	song mus_cycling_johto, 0, 0
 	song mus_dark_cave, 0, 0
 	song mus_vs_gym_leader_johto, 0, 0
+	song mus_gym_johto, 0, 0
+	song mus_sprout_tower, 0, 0
+	song mus_surf_johto, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

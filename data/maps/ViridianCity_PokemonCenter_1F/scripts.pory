@@ -1,0 +1,171 @@
+raw `
+ViridianCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ViridianCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+ViridianCity_PokemonCenter_1F_OnTransition::
+	setrespawn HEAL_LOCATION_VIRIDIAN_CITY
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_Nurse::
+	lock
+	faceplayer
+	call EventScript_PkmnCenterNurse
+	release
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_Boy::
+	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCenterInEveryTown, MSGBOX_NPC
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_Gentleman::
+	msgbox ViridianCity_PokemonCenter_1F_Text_FeelFreeToUsePC, MSGBOX_NPC
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_Youngster::
+	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons, MSGBOX_NPC
+	end
+`
+script ViridianCity_PokemonCenter_1F_EventScript_James_Dialogue 
+{
+    lock
+    msgbox(format("What do you mean, you can't\njust hand them over...?\pWhat kind of answer is that?!\nNo?"))
+    closemessage
+    releaseall
+    end
+}
+script ViridianCity_PokemonCenter_1F_EventScript_Jessie_Dialogue 
+{
+    lock
+    msgbox(format("Listen, missy!\nI don't appreciate your tone!\pBe a good bit of joy and\nhand over those logs... or else!"))
+    closemessage
+    releaseall
+    end
+}
+script ViridianCity_PokemonCenter_1F_EventScript_Team_Rocket_Double_Trouble_Battle 
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("Meeeeeowwwth!\nThat's right, don't forget, I'm the-"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_VIRIDIAN_MEOWTH, Movement_ViridianCity_PokemonCenter_1F_Notice_Player_Emote)
+    waitmovement
+    applymovement(LOCALID_VIRIDIAN_MEOWTH, Movement_ViridianCity_PokemonCenter_1F_Face_Down)
+    waitmovement
+    fadenewbgm(MUS_JESSIE_JAMES_THEME)
+    msgbox(format("Uh... Guys?\nI think there's a nosy kid here!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_VIRIDIAN_JESSIE, Movement_ViridianCity_PokemonCenter_1F_Notice_Player_Emote)
+    applymovement(LOCALID_VIRIDIAN_JAMES, Movement_ViridianCity_PokemonCenter_1F_Notice_Player_Emote)
+    waitmovement
+    applymovement(LOCALID_VIRIDIAN_JESSIE, Movement_ViridianCity_PokemonCenter_1F_Face_Down)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("Prepare for trouble!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_VIRIDIAN_JAMES, Movement_ViridianCity_PokemonCenter_1F_Face_Down)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("...And make it double!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("To protect the world from\ndevastation!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("To unite all people within our\nnation!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("To denounce the evils of truth and\nlove!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("To extend our reach to the stars\nabove!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("JESSIE!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("JAMES!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("TEAM ROCKET,\nblast off at the speed of light!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Surrender now, or prepare to fight!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("Meeeeeowwwth!\nThat's right!"))
+    waitmessage
+    closemessage
+    trainerbattle_no_intro(TRAINER_TEAM_ROCKET_JAMES_1, format("KOFFING?!\nNooo!"))
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("Must I do everything myself?!\nI'm next, twerp!"))
+    waitmessage
+    closemessage
+    trainerbattle_no_intro(TRAINER_TEAM_ROCKET_JESSIE_1, format("Argh!\nYou little brat!"))
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("That POKéMON seems rare and tough...\nAlright, JAMES! Wrap it up!"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Wahaha!\nWait until BOSS gets this!\pWe are going to get promoted!\nThen, maybe, we can-"))
+    waitmessage
+    closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("JAMES!\nDon't spoil our secrets!\pTEAM ROCKET is blasting off, now!\nYour POKéMON will be ours, twerp!"))
+    waitmessage
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    setflag(FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS)
+    removeobject(LOCALID_VIRIDIAN_MEOWTH)
+    removeobject(LOCALID_VIRIDIAN_JESSIE)
+    removeobject(LOCALID_VIRIDIAN_JAMES)
+    fadescreen(FADE_FROM_BLACK)
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("...Thank you."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PLAYER, Movement_ViridianCity_PokemonCenter_1F_Walk_Up_1)
+    waitmovement
+    msgbox(format("If you ever need to heal your\nPOKéMON, please let me know."))
+    waitmessage
+    closemessage
+    releaseall
+    end
+}
+
+movement Movement_ViridianCity_PokemonCenter_1F_Notice_Player_Emote 
+{
+    emote_exclamation_mark
+    step_end    
+}
+
+movement Movement_ViridianCity_PokemonCenter_1F_Face_Down 
+{
+    face_down
+    step_end    
+}
+
+movement Movement_ViridianCity_PokemonCenter_1F_Jump_In_Place 
+{
+    jump_in_place_down
+    step_end
+}
+
+movement Movement_ViridianCity_PokemonCenter_1F_Walk_Up_1
+{
+    walk_up
+    step_end
+}

@@ -1,0 +1,48 @@
+mapscripts Cherrygrove_RobertosHouse_MapScripts {}
+
+script Cherrygrove_RobertosHouse_EventScript_Roberto 
+{
+    if (flag(FLAG_CHERRYGROVE_LUCKY_EGG_OBTAINED))
+    {
+        lock
+        applymovement(1, Cherrygrove_RobertosHouse_Face_Player)
+        msgbox(format("Hey, hey!\nWhat's new?\pIn case you forgot - PRO TIP!\nGive a PARTY POKéMON LUCKY EGG.\pWhen they defeat an opponent, they\ngain more EXP than usual."))
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    else
+    {
+        lock
+        applymovement(1, Cherrygrove_RobertosHouse_Face_Player)
+        msgbox(format("Hey, hey!\nWhat's happening?\pYou ever wandering on a new road and\nfind yourself reading lame TRAINER TIPS?\pWell, lemme give you a PRO TIP!"))
+        waitmessage
+        closemessage
+        checkitemspace(ITEM_LUCKY_EGG, 1)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            giveitem(ITEM_LUCKY_EGG, 1)
+            setflag(FLAG_CHERRYGROVE_LUCKY_EGG_OBTAINED)
+            msgbox(format("You can give one of your POKéMON a\nLUCKY EGG to hold.\pIt'll cause them to gain more\nEXP if they were in battle."))
+            waitmessage
+            closemessage
+            release
+            end
+        }
+        else
+        {
+            msgbox(format("Aww, I was trying to slip something\ninto your BAG, but it's full!\pCome back when you got free\nspace for it in your BAG."))
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+}
+
+movement Cherrygrove_RobertosHouse_Face_Player
+{
+    face_player
+    step_end    
+}

@@ -1,0 +1,13 @@
+mapscripts Route36_VioletCityEntrance_MapScripts 
+{
+
+}
+
+script Route36_VioletCityEntrance_Guard_Dialogue 
+{
+    lock
+    msgbox(format("Head west for ROUTE 36,\nVIOLET CITY is to the east.\pI swear, a signpost could\ndo my job for me."))
+    closemessage
+    releaseall
+    end   
+}

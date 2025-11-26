@@ -3005,7 +3005,16 @@ u8 FldEff_UseSurf(void)
     gTasks[taskId].data[15] = gFieldEffectArguments[0];
     Overworld_ClearSavedMusic();
     if (Overworld_MusicCanOverrideMapMusic(MUS_SURF))
-        Overworld_ChangeMusicTo(MUS_SURF);
+    {
+        if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+        {
+            Overworld_ChangeMusicTo(MUS_SURF_JOHTO);
+        }
+        else
+        {
+            Overworld_ChangeMusicTo(MUS_SURF);
+        }
+    }
     return FALSE;
 }
 

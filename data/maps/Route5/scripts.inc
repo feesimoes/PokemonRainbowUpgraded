@@ -14,13 +14,11 @@ Route5_ProfOakAideSwitchBattleMode::
 	end
 
 TurnGOModeOff::
-	clearflag FLAG_SYS_WILD_GO_MODE
 	msgbox Route5_Text_ProfOakAideConfirmation, MSGBOX_DEFAULT
 	release
 	end
 
 TurnGOModeOn::
-	setflag FLAG_SYS_WILD_GO_MODE
 	msgbox Route5_Text_ProfOakAideConfirmation, MSGBOX_DEFAULT
 	release
 	end

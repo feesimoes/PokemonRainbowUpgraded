@@ -929,7 +929,7 @@ SECTIONS {
         sound/songs/midi/mus_victory_trainer.o(.rodata);
         sound/songs/midi/mus_victory_wild.o(.rodata);
         sound/songs/midi/mus_victory_gym_leader.o(.rodata);
-        sound/songs/midi/mus_vermillion.o(.rodata);
+        sound/songs/midi/mus_vermilion.o(.rodata);
         sound/songs/midi/mus_pewter.o(.rodata);
         sound/songs/midi/mus_encounter_rival.o(.rodata);
         sound/songs/midi/mus_rival_exit.o(.rodata);
@@ -1012,6 +1012,9 @@ SECTIONS {
         sound/songs/midi/mus_cycling_johto.o(.rodata);
         sound/songs/midi/mus_dark_cave.o(.rodata);
         sound/songs/midi/mus_vs_gym_leader_johto.o(.rodata);
+        sound/songs/midi/mus_gym_johto.o(.rodata);
+        sound/songs/midi/mus_sprout_tower.o(.rodata);
+        sound/songs/midi/mus_surf_johto.o(.rodata);
     } > ROM =0
 
     lib_rodata :

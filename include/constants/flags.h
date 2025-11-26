@@ -796,8 +796,8 @@
 
 // Rainbow Story flags
 #define FLAG_ROUTE1_HO_OH_EVENT_HAPPENED                 0x300
-#define FLAG_0x301                                       0x301
-#define FLAG_0x302                                       0x302
+#define FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS            0x301
+#define FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER               0x302
 #define FLAG_0x303                                       0x303
 #define FLAG_0x304                                       0x304
 #define FLAG_0x305                                       0x305
@@ -1477,9 +1477,9 @@
 #define FLAG_JOHTO_BADGE01_GET                                      (SYS_FLAGS + 0xCC)
 #define FLAG_WORLD_MAP_VIOLET_CITY                                  (SYS_FLAGS + 0xCD)
 #define FLAG_MEW_QUEST_STARTED                                      (SYS_FLAGS + 0xCE)
-#define FLAG_0x8CF                                                  (SYS_FLAGS + 0xCF)
-#define FLAG_0x8D0                                                  (SYS_FLAGS + 0xD0)
-#define FLAG_0x8D1                                                  (SYS_FLAGS + 0xD1)
+#define FLAG_CHERRYGROVE_LUCKY_EGG_OBTAINED                         (SYS_FLAGS + 0xCF)
+#define FLAG_WORLD_MAP_ROUTE32_POKEMON_CENTER_1F                    (SYS_FLAGS + 0xD0)
+#define FLAG_WORLD_MAP_SPROUT_TOWER                                 (SYS_FLAGS + 0xD1)
 #define FLAG_0x8D2                                                  (SYS_FLAGS + 0xD2)
 #define FLAG_0x8D3                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_0x8D4                                                  (SYS_FLAGS + 0xD4)

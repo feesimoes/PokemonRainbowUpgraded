@@ -1,3 +1,72 @@
 mapscripts CherrygroveCity_MapScripts
 {
 }
+
+script CherrygroveCity_RunningShoes_Guide_Dialogue 
+{
+    lock
+    applymovement(1, Movement_CherrygroveCity_NPC_Face_Player)
+    msgbox(format("Out there is the sea,\nas you can see...\pOhoho...\nDid you not find that funny?\p...Oh, well. Anyhow...\nTo make up for it, how-\pOh, dear, me... I apologize.\nYou already have RUNNING SHOES."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Movement_CherrygroveCity_NPC_Face_Player 
+{
+    face_player
+    step_end    
+}
+
+script CherrygroveCity_Gossip_Lass_Dialogue 
+{
+    lock
+    applymovement(2, Movement_CherrygroveCity_NPC_Face_Player)
+    msgbox(format("The hottest topic circulating around\nCHERRYGROVE CITY right now is...\pThe old man by the beach keeps\nRUNNING SHOES warm for ladies!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CherrygroveCity_Man_Dialogue 
+{
+    lock
+    applymovement(3, Movement_CherrygroveCity_NPC_Face_Player)
+    msgbox(format("Your shoes sure are dirty!\n...What's that?\pYou travelled all the way here\nfrom... KANTO?!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CherrygroveCity_Sign 
+{
+    lock
+    msgbox(format("CHERRYGROVE CITY -\nA cute city, with fragrant flowers."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CherrygroveCity_Battle_Nerd_House_Sign 
+{
+    lock
+    msgbox(format("ROBERTO'S HOUSE\nA self-proclaimed BATTLE EXPERT!"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CherrygroveCity_News_Lady_House_Sign 
+{
+    lock
+    msgbox(format("ROBERTITA'S HOUSE\nA self-proclaimed NEWS EXPERT!"))
+    waitmessage
+    closemessage
+    release
+    end
+}

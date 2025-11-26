@@ -41,6 +41,7 @@
 #include "constants/menu.h"
 #include "constants/event_objects.h"
 #include "constants/metatile_labels.h"
+#include "item.h"
 
 static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
@@ -658,6 +659,28 @@ static const u16 sResortGorgeousDeluxeRewards[] = {
     ITEM_RARE_CANDY
 };
 
+static const u16 sBountyRewards[] = {
+    ITEM_PREMIER_BALL,
+    ITEM_ULTRA_BALL,
+    ITEM_GREAT_BALL,
+    ITEM_NET_BALL,
+    ITEM_DIVE_BALL,
+    ITEM_NEST_BALL,
+    ITEM_REPEAT_BALL,
+    ITEM_TIMER_BALL,
+    ITEM_LUXURY_BALL,
+    ITEM_RARE_CANDY,
+    ITEM_HP_UP,
+    ITEM_PP_UP,
+    ITEM_PROTEIN,
+    ITEM_IRON,
+    ITEM_CARBOS,
+    ITEM_CALCIUM,
+    ITEM_ZINC,
+    ITEM_SUN_STONE,
+    ITEM_MOON_STONE
+};
+
 void IncrementResortGorgeousStepCounter(void)
 {
     u16 var4035 = VarGet(VAR_RESORT_GOREGEOUS_STEP_COUNTER);
@@ -673,6 +696,148 @@ void IncrementResortGorgeousStepCounter(void)
         {
             VarSet(VAR_RESORT_GOREGEOUS_STEP_COUNTER, var4035);
         }
+    }
+}
+
+void CheckMonClaimBountyTaskReward(void)
+{
+    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL) == VarGet(VAR_BOUNTY_TASK_MON))
+    {
+        if (gPlayerParty[gSpecialVar_0x8004].level == VarGet(VAR_BOUNTY_TASK_MON_LVL))
+        {
+            u16 ballid = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_POKEBALL);
+            if (ballid == VarGet(VAR_BOUNTY_TASK_BALL))
+            {
+                u16 rewardAmount = (Random() % 10) + 1;
+                if (gPlayerPartyCount == 1)
+                {
+                    //Show generic message box detailing that you need another pokemon in your party.
+                }
+                else 
+                {
+                    //Checks passed, reset bounty task and claim reward
+                    VarSet(VAR_BOUNTY_TASK_MON, 0);
+                    //Removes the pokemon from your party
+                    ZeroMonData(&gPlayerParty[gSpecialVar_0x8004]);
+                    //Gives the item reward, random amount between 1-10.
+                    AddBagItem(VarGet(VAR_BOUNTY_TASK_REWARD), rewardAmount + 1);
+                    PlayFanfare(MUS_OBTAIN_ITEM);
+                }
+            }
+        }
+        else
+        {
+            //Show generic message box saying it's the wrong pokemon
+        }
+    }
+}
+
+void GetBountyTaskMonAndReward(void)
+{
+    u16 requestedSpecies = VarGet(VAR_BOUNTY_TASK_MON);
+    //No current bounty assigned, generate new task
+    if (requestedSpecies == SPECIES_NONE || requestedSpecies == 0xFFFF)
+    {
+        VarSet(VAR_BOUNTY_TASK_MON, SampleBountyTaskMon());
+        VarSet(VAR_BOUNTY_TASK_MON_LVL, SampleBountyTaskMonLvl());
+        VarSet(VAR_BOUNTY_TASK_BALL, SampleBountyTaskBall());
+        VarSet(VAR_BOUNTY_TASK_REWARD, SampleBountyTaskReward());
+    }
+    //Simply update {STR_VAR_1} with current bounty task species name
+    StringCopy(gStringVar1, gSpeciesNames[VarGet(VAR_BOUNTY_TASK_MON)]);
+    //Simply update {STR_VAR_2} with current bounty task species level to be at
+    ConvertIntToDecimalStringN(gStringVar2, VarGet(VAR_BOUNTY_TASK_MON_LVL), STR_CONV_MODE_LEFT_ALIGN, 3);
+    //Simply update {STR_VAR_3} with current bounty task specific ball to catch mon in
+    StringCopy(gStringVar3, gPokeballNames[VarGet(VAR_BOUNTY_TASK_BALL)]);
+}
+
+u16 SampleBountyTaskMonLvl(void)
+{
+    //Returns a random number between 55 to 100, safe for all possible evolved pokemon tasks.
+    return (Random() % 46) + 55;
+}
+
+u16 SampleBountyTaskBall(void)
+{
+    //Returns a random number between 1 to 12.
+    u16 pokeballitemid = (Random() % 12) + 1;
+    //Safari Ball requires the tasked mon to actually be catchable within the Safari Zone.
+    if (pokeballitemid == 5)
+    {
+        switch (VAR_BOUNTY_TASK_MON)
+        {
+            //Blank cases to indicate no change necessary, as already possible to catch/evolve from Safari Zone.
+            case SPECIES_NIDORAN_M:
+            case SPECIES_NIDORINO:
+            case SPECIES_NIDOKING:
+            case SPECIES_NIDORAN_F:
+            case SPECIES_NIDORINA:
+            case SPECIES_NIDOQUEEN:
+            case SPECIES_EXEGGCUTE:
+            case SPECIES_EXEGGUTOR:
+            case SPECIES_VENONAT:
+            case SPECIES_VENOMOTH:
+            case SPECIES_TAUROS:
+            case SPECIES_KANGASKHAN:
+            case SPECIES_RHYHORN:
+            case SPECIES_RHYDON:
+            case SPECIES_PARAS:
+            case SPECIES_PARASECT:
+            case SPECIES_CHANSEY:
+            case SPECIES_BLISSEY:
+            case SPECIES_DODUO:
+            case SPECIES_DODRIO:
+            case SPECIES_SCYTHER:
+            case SPECIES_SCIZOR:
+            case SPECIES_MAGIKARP:
+            case SPECIES_GYARADOS:
+            case SPECIES_GOLDEEN:
+            case SPECIES_SEAKING:
+            case SPECIES_POLIWAG:
+            case SPECIES_POLIWHIRL:
+            case SPECIES_POLIWRATH:
+            case SPECIES_POLITOED:
+            case SPECIES_DRATINI:
+            case SPECIES_DRAGONAIR:
+            case SPECIES_DRAGONITE:
+            case SPECIES_PSYDUCK:
+            case SPECIES_GOLDUCK:
+            //Update the bounty to a rare mon from the Safari Zone, as default, if not already done.
+            default:
+                VarSet(VAR_BOUNTY_TASK_MON, SPECIES_DRATINI);
+        }   
+    }
+    return pokeballitemid;
+}
+
+u16 SampleBountyTaskMon(void)
+{
+    u16 i;
+    u16 species;
+    //256 rolls through to get a valid species
+    for (i = 0; i < 256; i++)
+    {
+        species = (Random() % (NUM_SPECIES - 1)) + 1;
+        //Species must be valid/catchable
+        if (species > SPECIES_NONE && species < SPECIES_EGG)
+        {
+            return species;
+        }
+    }
+    return species;
+}
+
+u16 SampleBountyTaskReward(void)
+{
+    //1% chance reward
+    if ((Random() % 100) == 0)
+    {
+        return ITEM_MASTER_BALL;
+    }
+    //Otherwise pick from random list of available rewards
+    else
+    {
+        return sBountyRewards[Random() % NELEMS(sBountyRewards)];
     }
 }
 

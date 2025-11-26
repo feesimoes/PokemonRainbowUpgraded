@@ -1,0 +1,145 @@
+raw `
+PalletTown_PlayersHouse_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_PlayersHouse_2F_OnTransition
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_PlayersHouse_2F_OnWarp
+	.byte 0
+
+PalletTown_PlayersHouse_2F_OnTransition::
+	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn
+	end
+
+PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
+	setrespawn HEAL_LOCATION_PALLET_TOWN
+	return
+
+PalletTown_PlayersHouse_2F_OnWarp::
+	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_FirstWarpIn
+	.2byte 0
+
+PalletTown_PlayersHouse_2F_FirstWarpIn::
+	turnobject LOCALID_PLAYER, DIR_NORTH
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
+	end
+
+PalletTown_PlayersHouse_2F_EventScript_Sign::
+	msgbox PalletTown_PlayersHouse_2F_Text_PressLRForHelp, MSGBOX_SIGN
+	end
+
+PalletTown_PlayersHouse_2F_EventScript_PC::
+	goto_if_questlog EventScript_ReleaseEnd
+	lockall
+	setvar VAR_0x8004, HELPCONTEXT_BEDROOM_PC
+	special Script_SetHelpContext
+	setvar VAR_0x8004, 1
+	special AnimatePcTurnOn
+	playse SE_PC_ON
+	msgbox Text_PlayerBootedUpPC
+	special BedroomPC
+	waitstate
+	special SetHelpContextForMap
+	releaseall
+	end
+
+EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
+	setvar VAR_0x8004, 1
+	playse SE_PC_OFF
+	special AnimatePcTurnOff
+	special SetHelpContextForMap
+	releaseall
+	end
+`
+script PalletTown_PlayersHouse_2F_EventScript_NES
+{
+    lock
+    msgbox(format("{PLAYER} played with the NES."))
+    waitmessage
+    closemessage
+    if (!flag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED))
+    {
+        if (var(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB) == 4)
+        {
+            msgbox(format("...Continue playing?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)
+                msgbox(format("{PLAYER} ventured through ROUTE 1,\nwhere they met MISTY.\pThey were informed of VIRIDIAN CITY\nwhich was up ahead."))
+                waitmessage
+                closemessage
+                msgbox(format("...Okay!\nIt's time to go!"))
+                waitmessage
+                closemessage
+                releaseall
+                end
+            }
+            else
+            {
+                msgbox(format("...Okay!\nIt's time to go!"))
+                waitmessage
+                closemessage
+                releaseall
+                end
+            }
+        }
+        else
+        {
+            msgbox(format("...Okay!\nIt's time to go!"))
+            waitmessage
+            closemessage
+            releaseall
+            end
+        }
+    }
+    else
+    {
+        if (!flag(FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS))
+        {
+            msgbox(format("...Continue playing?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS)
+                msgbox(format("{PLAYER} secured their first victory\nagainst TEAM ROCKET!\p{PLAYER} then got OAK's PARCEL\nfrom the POKé MART clerk."))
+                waitmessage
+                closemessage
+                setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5)
+                setflag(FLAG_SYS_POKEDEX_GET)
+                setvar(VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1)
+                famechecker(FAMECHECKER_OAK, 1)	
+                setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6)
+                setvar(VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 2)
+                setvar(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1)
+                setvar(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2)
+                setvar(VAR_MAP_SCENE_ROUTE22, 1)
+                msgbox(format("{PLAYER} delivered this to PROF. OAK,\nand got entrusted with a POKéDEX."))
+                giveitem(ITEM_POKE_BALL, 5)
+                giveitem(ITEM_TOWN_MAP, 1)
+                setflag(FLAG_HIDE_TOWN_MAP)
+                setflag(FLAG_HIDE_POKEDEX)
+                waitmessage
+                closemessage
+                msgbox(format("...Okay!\nIt's time to go!"))
+                waitmessage
+                closemessage
+                releaseall
+                end
+            }
+            else
+            {
+                msgbox(format("...Okay!\nIt's time to go!"))
+                waitmessage
+                closemessage
+                releaseall
+                end
+            }
+        }
+        else 
+        {
+            msgbox(format("...Okay!\nIt's time to go!"))
+            waitmessage
+            closemessage
+            releaseall
+            end
+        }
+    }
+}

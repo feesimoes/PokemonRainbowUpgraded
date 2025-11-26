@@ -54,7 +54,8 @@
     "gMapGroup_IndoorRoute31",
     "gMapGroup_IndoorViolet",
     "gMapGroup_IndoorRoute32",
-    "gMapGroup_IndoorRoute29"
+    "gMapGroup_IndoorRoute29",
+    "gMapGroup_IndoorRoute36"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -331,7 +332,12 @@
     "Route32",
     "Route32_Bay",
     "Route29",
-    "Route28"
+    "Route28",
+    "Route45",
+    "BlackthornCity",
+    "LindenTown",
+    "Route36",
+    "Route33"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -601,10 +607,15 @@
     "NewBarkTown_ProfessorElmsLab"
   ],
   "gMapGroup_IndoorCherrygrove": [
-    "Cherrygrove_PokemonCenter"
+    "Cherrygrove_PokemonCenter",
+    "Cherrygrove_Mart",
+    "Cherrygrove_GuidesHouse",
+    "Cherrygrove_RobertosHouse",
+    "Cherrygrove_RobertitasHouse"
   ],
   "gMapGroup_IndoorRoute30": [
-    "Route30_MrPokemonHouse"
+    "Route30_MrPokemonHouse",
+    "Route30_ApricornGuysHouse"
   ],
   "gMapGroup_IndoorCanalave": [
     "CanalaveCity_Gym_1F",
@@ -627,7 +638,11 @@
     "TohjoFalls_B8F_Lair",
     "MtMoon_Square",
     "MtMoon_2F",
-    "DarkCave_1F"
+    "DarkCave_1F",
+    "DarkCave_2F",
+    "UnionCave_1F",
+    "RuinsOfAlph",
+    "RuinsOfAlphMagnetLine"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -637,10 +652,20 @@
   ],
   "gMapGroup_IndoorViolet": [
     "VioletCity_Gym",
-    "Violet_PokemonCenter_1F"
+    "Violet_PokemonCenter_1F",
+    "Violet_Mart",
+    "SproutTower_1F"
   ],
-  "gMapGroup_IndoorRoute32": [],
+  "gMapGroup_IndoorRoute32": [
+    "Route32_PokemonCenter_1F",
+    "Route32_RuinsOfAlph_Entrance"
+  ],
   "gMapGroup_IndoorRoute29": [
     "Route29_NorthEntrance"
+  ],
+  "gMapGroup_IndoorRoute36": [
+    "Route36_VioletCityEntrance",
+    "Route36_NationalParkEntrance",
+    "Route36_RuinsOfAlph_Entrance"
   ]
 }
