@@ -1,0 +1,21 @@
+mapscripts LindenTown_House6_MapScripts {}
+
+script LindenTown_House6_Worker_F 
+{
+    lock
+    faceplayer
+    msgbox(format("There are definitely better\nplaces to live in our world."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_House6_Woman_2 
+{
+    lock
+    faceplayer
+    msgbox(format("It's hard to imagine what\nit'd be like living elsewhere."))
+    closemessage
+    release
+    end    
+}

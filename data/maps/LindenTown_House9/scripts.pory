@@ -1,0 +1,11 @@
+mapscripts LindenTown_House9_MapScripts {}
+
+script LindenTown_House9_Fat_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("Science rules...\nIt's totally worth the hype."))
+    closemessage
+    release
+    end
+}

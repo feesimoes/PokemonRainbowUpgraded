@@ -1,0 +1,175 @@
+raw `
+SilphCo_11F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, SilphCo_11F_OnLoad
+	.byte 0
+
+SilphCo_11F_OnLoad::
+	call_if_unset FLAG_SILPH_11F_DOOR, EventScript_Close11FDoor
+	end
+
+SilphCo_11F_EventScript_President::
+	lock
+	faceplayer
+    goto_if_set FLAG_MEW_QUEST_STARTED, SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji
+	goto_if_set FLAG_GOT_MASTER_BALL_FROM_SILPH, SilphCo_11F_EventScript_AlreadyGotMasterBall
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, SilphCo_11F_EventScript_PresidentThanksMale
+	call_if_eq VAR_RESULT, FEMALE, SilphCo_11F_EventScript_PresidentThanksFemale
+	checkitemspace ITEM_MASTER_BALL
+	goto_if_eq VAR_RESULT, FALSE, SilphCo_11F_EventScript_NoRoomForMasterBall
+	giveitem_msg SilphCo_11F_Text_ObtainedMasterBallFromPresident, ITEM_MASTER_BALL, 1, MUS_OBTAIN_KEY_ITEM
+	msgbox SilphCo_11F_Text_ThatsOurSecretPrototype
+	setflag FLAG_GOT_MASTER_BALL_FROM_SILPH
+	release
+	end
+
+SilphCo_11F_EventScript_PresidentThanksMale::
+	msgbox SilphCo_11F_Text_ThanksForSavingMeDearBoy
+	return
+
+SilphCo_11F_EventScript_PresidentThanksFemale::
+	msgbox SilphCo_11F_Text_ThanksForSavingMeDearGirl
+	return
+
+SilphCo_11F_EventScript_NoRoomForMasterBall::
+	msgbox SilphCo_11F_Text_YouHaveNoRoomForThis
+	release
+	end
+
+SilphCo_11F_EventScript_AlreadyGotMasterBall::
+	msgbox SilphCo_11F_Text_ThatsOurSecretPrototype
+	release
+	end
+
+SilphCo_11F_EventScript_Secretary::
+	msgbox SilphCo_11F_Text_ThanksForRescuingUs, MSGBOX_NPC
+	end
+
+SilphCo_11F_EventScript_Rocket_F_Roadblock::
+	lock
+	msgbox SilphCo_11F_Text_NegotiationsTakingTooLong, MSGBOX_NPC
+	release
+	end
+
+SilphCo_11F_EventScript_GiovanniTriggerLeft::
+	lockall
+	setvar VAR_TEMP_1, 0
+	goto SilphCo_11F_EventScript_BattleGiovanni
+	end
+
+SilphCo_11F_EventScript_GiovanniTriggerRight::
+	lockall
+	setvar VAR_TEMP_1, 1
+	goto SilphCo_11F_EventScript_BattleGiovanni
+	end
+
+SilphCo_11F_EventScript_BattleGiovanni::
+	textcolor NPC_TEXT_COLOR_MALE
+	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 25
+	msgbox SilphCo_11F_Text_GiovanniIntro
+	closemessage
+	call_if_eq VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft
+	call_if_eq VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight
+	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI
+	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat
+	msgbox SilphCo_11F_Text_GiovanniPostBattle
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SILPH_CO_GIOVANNI
+	removeobject LOCALID_SILPH_CO_11F_GRUNT1
+	removeobject LOCALID_SILPH_CO_11F_GRUNT2
+	fadescreen FADE_FROM_BLACK
+	setvar VAR_MAP_SCENE_SILPH_CO_11F, 1
+	setflag FLAG_HIDE_SAFFRON_ROCKETS
+	clearflag FLAG_HIDE_SAFFRON_CIVILIANS
+	releaseall
+	end
+
+SilphCo_11F_EventScript_GiovanniApproachLeft::
+	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachLeft
+	applymovement LOCALID_PLAYER, SilphCo_11F_Movement_PlayerFaceGiovanni
+	waitmovement 0
+	return
+
+SilphCo_11F_EventScript_GiovanniApproachRight::
+	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachRight
+	waitmovement 0
+	return
+
+SilphCo_11F_Movement_GiovanniApproachLeft::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_faster_left
+	step_end
+
+SilphCo_11F_Movement_GiovanniApproachRight::
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SilphCo_11F_Movement_PlayerFaceGiovanni::
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	delay_4
+	walk_in_place_faster_right
+	step_end
+
+@ Unused
+SilphCo_11F_EventScript_Monitor::
+	msgbox SilphCo_11F_Text_MonitorHasMonsOnIt, MSGBOX_SIGN
+	end
+
+SilphCo_11F_EventScript_FloorSign::
+	msgbox SilphCo_11F_Text_FloorSign, MSGBOX_SIGN
+	end
+
+SilphCo_11F_EventScript_Grunt1::
+	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_40, SilphCo_11F_Text_Grunt1Intro, SilphCo_11F_Text_Grunt1Defeat
+	msgbox SilphCo_11F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SilphCo_11F_EventScript_Grunt2::
+	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_41, SilphCo_11F_Text_Grunt2Intro, SilphCo_11F_Text_Grunt2Defeat
+	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+`
+script SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji 
+{
+    if (var(VAR_MEW_QUEST_PROGRESS) == 0)
+    {
+        lock
+        faceplayer
+        msgbox(format("PRESIDENT: {PLAYER}, thank you again!\pThanks to you, TEAM ROCKET is no\nmore! SILPH CO., no...\pKANTO is in your debt, truly!"))
+        closemessage
+        fadenewbgm(MUS_KANTO_EMOTION)
+        msgbox(format("...I see.\nSo, you know of our prototype?\pAs much as I'd be happy to\ngive you the device...\pIt was recently stolen from us."))
+        msgbox(format("SAFFRON POLICE received reports,\nbut it's far too late...\pTell me, {PLAYER}. What do\nyou know of GIOVANNI?"))
+        msgbox(format("That same man put me in\na dangerous situation, you see.\pIf it weren't for you, our\nworld would never be the same..."))
+        msgbox(format("He was after our prototype,\nwhich I entrusted you with.\pHe sees POKéMON as powerful tools,\nbut he's lost his way."))
+        msgbox(format("GIOVANNI has a son.\nUndoubtedly, he's behind this...\pHis son's done nothing wrong,\nit places me in a tough spot."))
+        msgbox(format("As a business man, I am\npractical in decisions, yes.\pSometimes, corporations do not\nfactor in morals with this."))
+        msgbox(format("So, you see, my hands are\ntied - yet again...\pHere is an idea...\nPlease, speak with MR. FUJI.\p...Good luck, {PLAYER}."))
+        closemessage
+        fadedefaultbgm
+        setvar(VAR_MEW_QUEST_PROGRESS, 1)
+        release
+        end
+    }
+    else
+    {
+        lock
+        faceplayer
+        msgbox(format("PRESIDENT: {PLAYER}? Welcome back!\nMR. FUJI resides in LAVENDER TOWN.\pIt's a peaceful town due\neast of here."))
+        closemessage
+        release
+        end
+    }
+}

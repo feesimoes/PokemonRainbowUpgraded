@@ -1,0 +1,36 @@
+{
+  "id": "MAP_KAIETEUR_JUNGLE_ROUTE6",
+  "name": "KaieteurJungle_Route6",
+  "layout": "LAYOUT_KAIETEUR_JUNGLE_ROUTE6",
+  "music": "MUS_KAIETEUR_JUNGLE",
+  "region_map_section": "MAPSEC_KAIETEUR_JUNGLE",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_KAIETEUR_JUNGLE_ROUTE5",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 39,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaieteurJungle_Route6_Sign"
+    }
+  ]
+}

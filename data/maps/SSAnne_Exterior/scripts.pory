@@ -118,7 +118,168 @@ script VermilionHarbor_EventScript_GuyanaFerry
 	lock
 	msgbox(format("Don't just stand there, mate!\nKeep loading the truck!"))
 	waitmessage
-	closemessage
+	if (var(VAR_MEW_QUEST_PROGRESS) > 3)
+	{
+		applymovement(LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer)
+		faceplayer
+		waitmovement
+		msgbox(format("Ah, {PLAYER}!\nYou're back?\pDid you want to return\nto the GUYANA REGION?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES)
+		{
+			msgbox(format("Hope you're prepared!\nI'll try to make it quick."))
+			setvar(VAR_0x8004, SEAGALLOP_VERMILION_CITY)
+			setvar(VAR_0x8006, SEAGALLOP_LINDEN_TOWN)
+			closemessage
+			delay(20)
+			fadescreen(FADE_TO_BLACK)
+			special(DoSeagallopFerryScene)
+			waitstate
+		}
+		else
+		{
+			msgbox(format("Understood, have a nice day."))
+			waitmessage
+			applymovement(LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
+			waitmovement
+			closemessage
+		}
+	}
+	else
+	{
+		closemessage
+	}
+	release
+	end
+}
+
+movement VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer 
+{
+	emote_exclamation_mark
+	step_end
+}
+
+movement VermilionHarbor_EventScript_GuyanaFerry_FaceRight 
+{
+	face_right
+	step_end
+}
+
+script VermilionHarbor_EventScript_MrFuji 
+{
+	if (var(VAR_MEW_QUEST_PROGRESS) == 3)
+	{
+		lock
+		faceplayer
+		msgbox(format("Hm...\n{PLAYER}, welcome.\pI do apologize for the\nconfusion, if any...\pQuizzes sure do have a\nway of keeping minds sharp!"))
+		closemessage
+		applymovement(LOCALID_VERMILION_MR_FUJI, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
+		waitmovement
+		msgbox(format("BLAINE, my dear friend.\nIt was good to see you.\pTake care in your journey,\nthe GUYANA REGION can be...\pVery unforgiving, to say,\nat the least."))
+		msgbox(format("GIOVANNI will use the harsh,\nunfamiliar ecosystem to advantage.\p{PLAYER} is in good hands...\nTheir heart is true."))
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+		removeobject(LOCALID_VERMILION_MR_FUJI)
+		setflag(FLAG_HIDE_VERMILION_MR_FUJI)
+		fadescreen(FADE_FROM_BLACK)
+		getplayerxy(VAR_TEMP_8, VAR_TEMP_9)
+		if (var(VAR_TEMP_9) == 5)
+		{
+			applymovement(LOCALID_PLAYER, Movement_VermilionHarbor_WalkUp_FaceRight)
+			waitmovement
+		}
+		else
+		{
+			applymovement(LOCALID_PLAYER, Movement_VermilionHarbor_WalkRight)
+			waitmovement
+		}
+		msgbox(format("Hah!\nWell, you heard the doctor!\pSo, are you ready?\nBAG stocked up, and all?"), MSGBOX_YESNO)
+		waitmessage
+		if (var(VAR_RESULT) == YES)
+		{
+			setvar(VAR_MEW_QUEST_PROGRESS, 4)
+			setflag(FLAG_HIDE_VERMILION_BLAINE)
+			msgbox(format("Hah! I'll burn the way\nforward! Fear not!"))
+			waitmessage
+			applymovement(LOCALID_VERMILION_BLAINE, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
+			waitmovement
+			msgbox(format("Ahem!\nWe're ready..."))
+			waitmessage
+			applymovement(LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer)
+			waitmovement
+			setvar(VAR_0x8004, SEAGALLOP_VERMILION_CITY)
+			setvar(VAR_0x8006, SEAGALLOP_LINDEN_TOWN)
+			closemessage
+			delay(20)
+			fadescreen(FADE_TO_BLACK)
+			special(DoSeagallopFerryScene)
+			waitstate
+			removeobject(LOCALID_VERMILION_BLAINE)
+		}
+		else
+		{
+			msgbox(format("Hah! Don't be afraid!\nI'm capable of helping you!\pSee, my plan is simple...\nI'll burn the way forward!\pTrees cannot use BURN HEAL,\nso GIOVANNI will be exposed!"))
+			msgbox(format("Trust me, it's perfectly safe!\nI've done the sort before.\pCome back when you're ready!"))
+			closemessage
+		}
+		release
+		end
+	}
+	else 
+	{
+		lock
+		faceplayer
+		msgbox(format("Hmm... Wait a second!\nI'm not supposed to be here."))
+		closemessage
+		setflag(FLAG_HIDE_VERMILION_MR_FUJI)
+		setflag(FLAG_HIDE_VERMILION_BLAINE)
+		release
+		end
+	}
+}
+
+movement Movement_VermilionHarbor_WalkRight 
+{
+	walk_right
+	step_end	
+}
+
+movement Movement_VermilionHarbor_WalkUp_FaceRight
+{
+	walk_up
+	face_right
+	step_end	
+}
+
+script VermilionHarbor_EventScript_Blaine 
+{
+	lock
+	faceplayer
+	msgbox(format("Hah, {PLAYER}!\nReady now?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES)
+	{
+		setvar(VAR_MEW_QUEST_PROGRESS, 4)
+		setflag(FLAG_HIDE_VERMILION_BLAINE)
+		waitmessage
+		applymovement(LOCALID_VERMILION_BLAINE, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
+		waitmovement
+		msgbox(format("Ahem!\nWe're ready..."))
+		waitmessage
+		applymovement(LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer)
+		setvar(VAR_0x8004, SEAGALLOP_VERMILION_CITY)
+		setvar(VAR_0x8006, SEAGALLOP_LINDEN_TOWN)
+		waitmovement
+		closemessage
+		delay(20)
+		fadescreen(FADE_TO_BLACK)
+		special(DoSeagallopFerryScene)
+		waitstate
+		removeobject(LOCALID_VERMILION_BLAINE)
+	}
+	else
+	{
+		msgbox(format("Hah, don't be afraid!\nCome back if you're ready!\pI'll be here, thinking about\nhow to expose GIOVANNI..."))
+		closemessage
+	}
 	release
 	end
 }

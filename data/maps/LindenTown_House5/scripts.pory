@@ -1,0 +1,11 @@
+mapscripts LindenTown_House5_MapScripts {}
+
+script LindenTown_House5_Old_Woman 
+{
+    lock
+    faceplayer
+    msgbox(format("Have you heard of the\nSEVII ISLANDS?\pEach island was formed daily,\nup until the seventh day.\pIt reminds me of an old\nsaying, tied to our world..."))
+    closemessage
+    release
+    end
+}

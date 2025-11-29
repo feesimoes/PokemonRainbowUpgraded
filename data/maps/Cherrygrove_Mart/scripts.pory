@@ -11,6 +11,7 @@ script Cherrygrove_Mart_Clerk_1
     waitmessage
     pokemart(Cherrygrove_Mart_1)
     msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    closemessage
     release
     end
 }
@@ -23,6 +24,7 @@ script Cherrygrove_Mart_Clerk_2
     waitmessage
     pokemart(Cherrygrove_Mart_2)
     msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    closemessage
     release
     end
 }

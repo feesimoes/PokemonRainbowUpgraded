@@ -31,6 +31,7 @@
       "flag": "FLAG_HIDE_SS_ANNE"
     },
     {
+      "local_id": "LOCALID_GUYANA_FERRYMAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 60,
@@ -102,6 +103,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_JOHTO_FERRYMAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 47,
@@ -114,6 +116,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionHarbor_EventScript_JohtoFerry",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_VERMILION_BLAINE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BLAINE",
+      "x": 59,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermilionHarbor_EventScript_Blaine",
+      "flag": "FLAG_HIDE_VERMILION_BLAINE"
+    },
+    {
+      "local_id": "LOCALID_VERMILION_MR_FUJI",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MR_FUJI",
+      "x": 58,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermilionHarbor_EventScript_MrFuji",
+      "flag": "FLAG_HIDE_VERMILION_MR_FUJI"
     }
   ],
   "warp_events": [

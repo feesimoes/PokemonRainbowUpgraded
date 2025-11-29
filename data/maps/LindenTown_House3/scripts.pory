@@ -1,0 +1,11 @@
+mapscripts LindenTown_House3_MapScripts {}
+
+script LindenTown_House3_Rocker 
+{
+    lock
+    faceplayer
+    msgbox(format("Three brave explorers ventured into\nthe KAIETEUR JUNGLE, years ago.\pAs legend has it, DR. FUJI was\namong the three."))
+    closemessage
+    release
+    end
+}

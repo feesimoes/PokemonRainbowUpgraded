@@ -1,0 +1,11 @@
+mapscripts LindenTown_House4_MapScripts {}
+
+script LindenTown_House4_Little_Girl 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi! My parents aren't\nhome right now...\pI can't talk to strangers!\nStranger danger! Let's play later!"))
+    closemessage
+    release
+    end
+}

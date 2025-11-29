@@ -55,14 +55,16 @@
     "gMapGroup_IndoorViolet",
     "gMapGroup_IndoorRoute32",
     "gMapGroup_IndoorRoute29",
-    "gMapGroup_IndoorRoute36"
+    "gMapGroup_IndoorRoute36",
+    "gMapGroup_IndoorLinden"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom"
+    "UnionRoom",
+    "MtMora_Caves_1F"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -337,7 +339,8 @@
     "BlackthornCity",
     "LindenTown",
     "Route36",
-    "Route33"
+    "Route33",
+    "AzaleaTown"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -642,7 +645,22 @@
     "DarkCave_2F",
     "UnionCave_1F",
     "RuinsOfAlph",
-    "RuinsOfAlphMagnetLine"
+    "RuinsOfAlphMagnetLine",
+    "KaieteurJungle_Route1",
+    "KaieteurJungle_Route2",
+    "KaieteurJungle_Route3",
+    "KaieteurJungle_Route4",
+    "KaieteurJungle_Route5",
+    "MtMora",
+    "KaieteurJungle_Route6",
+    "MtMora_Caves_B1F",
+    "MtMora_Caves_2F",
+    "MtMora_Caves_3F",
+    "MtMora_Caves_4F",
+    "MtMora_Caves_5F",
+    "MtMora_Caves_6F",
+    "MtMora_Caves_7F",
+    "MtMora_Caves_8F"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -667,5 +685,21 @@
     "Route36_VioletCityEntrance",
     "Route36_NationalParkEntrance",
     "Route36_RuinsOfAlph_Entrance"
+  ],
+  "gMapGroup_IndoorLinden": [
+    "LindenTown_Harbor",
+    "LindenTown_PokemonCenter_1F",
+    "LindenTown_Mart",
+    "LindenTown_House1",
+    "LindenTown_House2",
+    "LindenTown_House3",
+    "LindenTown_House4",
+    "LindenTown_House5",
+    "LindenTown_House6",
+    "LindenTown_House7",
+    "LindenTown_House8",
+    "LindenTown_House9",
+    "LindenTown_House10",
+    "LindenTown_Mansion_1F"
   ]
 }

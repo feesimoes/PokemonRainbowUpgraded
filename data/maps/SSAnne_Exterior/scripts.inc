@@ -206,10 +206,266 @@ VermilionHarbor_EventScript_GuyanaFerry::
 # 120 "data/maps/SSAnne_Exterior/scripts.pory"
 	waitmessage
 # 121 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_MEW_QUEST_PROGRESS, 3
+	goto_if_gt VermilionHarbor_EventScript_GuyanaFerry_2
+# 149 "data/maps/SSAnne_Exterior/scripts.pory"
 	closemessage
-# 122 "data/maps/SSAnne_Exterior/scripts.pory"
+VermilionHarbor_EventScript_GuyanaFerry_1:
+# 151 "data/maps/SSAnne_Exterior/scripts.pory"
 	release
 	end
+
+VermilionHarbor_EventScript_GuyanaFerry_2:
+# 123 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer
+# 124 "data/maps/SSAnne_Exterior/scripts.pory"
+	faceplayer
+# 125 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 126 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_GuyanaFerry_Text_1, MSGBOX_YESNO
+# 127 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq VermilionHarbor_EventScript_GuyanaFerry_5
+# 140 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_GuyanaFerry_Text_3
+# 141 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 142 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_FaceRight
+# 143 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 144 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+	goto VermilionHarbor_EventScript_GuyanaFerry_1
+
+VermilionHarbor_EventScript_GuyanaFerry_5:
+# 129 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_GuyanaFerry_Text_2
+# 130 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+# 131 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8006, SEAGALLOP_LINDEN_TOWN
+# 132 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 133 "data/maps/SSAnne_Exterior/scripts.pory"
+	delay 20
+# 134 "data/maps/SSAnne_Exterior/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 135 "data/maps/SSAnne_Exterior/scripts.pory"
+	special DoSeagallopFerryScene
+# 136 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitstate
+	goto VermilionHarbor_EventScript_GuyanaFerry_1
+
+
+# 155 "data/maps/SSAnne_Exterior/scripts.pory"
+VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer:
+# 157 "data/maps/SSAnne_Exterior/scripts.pory"
+	emote_exclamation_mark
+# 158 "data/maps/SSAnne_Exterior/scripts.pory"
+	step_end
+
+# 161 "data/maps/SSAnne_Exterior/scripts.pory"
+VermilionHarbor_EventScript_GuyanaFerry_FaceRight:
+# 163 "data/maps/SSAnne_Exterior/scripts.pory"
+	face_right
+# 164 "data/maps/SSAnne_Exterior/scripts.pory"
+	step_end
+
+VermilionHarbor_EventScript_MrFuji::
+# 169 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_MEW_QUEST_PROGRESS, 3
+	goto_if_eq VermilionHarbor_EventScript_MrFuji_1
+# 229 "data/maps/SSAnne_Exterior/scripts.pory"
+	lock
+# 230 "data/maps/SSAnne_Exterior/scripts.pory"
+	faceplayer
+# 231 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_8
+# 232 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 233 "data/maps/SSAnne_Exterior/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_MR_FUJI
+# 234 "data/maps/SSAnne_Exterior/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_BLAINE
+# 235 "data/maps/SSAnne_Exterior/scripts.pory"
+	release
+	end
+
+VermilionHarbor_EventScript_MrFuji_1:
+# 171 "data/maps/SSAnne_Exterior/scripts.pory"
+	lock
+# 172 "data/maps/SSAnne_Exterior/scripts.pory"
+	faceplayer
+# 173 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_0
+# 174 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 175 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_VERMILION_MR_FUJI, VermilionHarbor_EventScript_GuyanaFerry_FaceRight
+# 176 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 177 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_1
+# 178 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_2
+# 179 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 180 "data/maps/SSAnne_Exterior/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 181 "data/maps/SSAnne_Exterior/scripts.pory"
+	removeobject LOCALID_VERMILION_MR_FUJI
+# 182 "data/maps/SSAnne_Exterior/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_MR_FUJI
+# 183 "data/maps/SSAnne_Exterior/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 184 "data/maps/SSAnne_Exterior/scripts.pory"
+	getplayerxy VAR_TEMP_8, VAR_TEMP_9
+# 185 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_TEMP_9, 5
+	goto_if_eq VermilionHarbor_EventScript_MrFuji_5
+# 192 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_VermilionHarbor_WalkRight
+# 193 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+VermilionHarbor_EventScript_MrFuji_4:
+# 195 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_3, MSGBOX_YESNO
+# 196 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 197 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq VermilionHarbor_EventScript_MrFuji_9
+# 220 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_6
+# 221 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_7
+# 222 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+VermilionHarbor_EventScript_MrFuji_8:
+# 224 "data/maps/SSAnne_Exterior/scripts.pory"
+	release
+	end
+
+VermilionHarbor_EventScript_MrFuji_5:
+# 187 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_VermilionHarbor_WalkUp_FaceRight
+# 188 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+	goto VermilionHarbor_EventScript_MrFuji_4
+
+VermilionHarbor_EventScript_MrFuji_9:
+# 199 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_MEW_QUEST_PROGRESS, 4
+# 200 "data/maps/SSAnne_Exterior/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_BLAINE
+# 201 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_4
+# 202 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 203 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_VERMILION_BLAINE, VermilionHarbor_EventScript_GuyanaFerry_FaceRight
+# 204 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 205 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_5
+# 206 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 207 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer
+# 208 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 209 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+# 210 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8006, SEAGALLOP_LINDEN_TOWN
+# 211 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 212 "data/maps/SSAnne_Exterior/scripts.pory"
+	delay 20
+# 213 "data/maps/SSAnne_Exterior/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 214 "data/maps/SSAnne_Exterior/scripts.pory"
+	special DoSeagallopFerryScene
+# 215 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitstate
+# 216 "data/maps/SSAnne_Exterior/scripts.pory"
+	removeobject LOCALID_VERMILION_BLAINE
+	goto VermilionHarbor_EventScript_MrFuji_8
+
+
+# 240 "data/maps/SSAnne_Exterior/scripts.pory"
+Movement_VermilionHarbor_WalkRight:
+# 242 "data/maps/SSAnne_Exterior/scripts.pory"
+	walk_right
+# 243 "data/maps/SSAnne_Exterior/scripts.pory"
+	step_end
+
+# 246 "data/maps/SSAnne_Exterior/scripts.pory"
+Movement_VermilionHarbor_WalkUp_FaceRight:
+# 248 "data/maps/SSAnne_Exterior/scripts.pory"
+	walk_up
+# 249 "data/maps/SSAnne_Exterior/scripts.pory"
+	face_right
+# 250 "data/maps/SSAnne_Exterior/scripts.pory"
+	step_end
+
+VermilionHarbor_EventScript_Blaine::
+# 255 "data/maps/SSAnne_Exterior/scripts.pory"
+	lock
+# 256 "data/maps/SSAnne_Exterior/scripts.pory"
+	faceplayer
+# 257 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_Blaine_Text_0, MSGBOX_YESNO
+# 258 "data/maps/SSAnne_Exterior/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq VermilionHarbor_EventScript_Blaine_2
+# 280 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_Blaine_Text_1
+# 281 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+VermilionHarbor_EventScript_Blaine_1:
+# 283 "data/maps/SSAnne_Exterior/scripts.pory"
+	release
+	end
+
+VermilionHarbor_EventScript_Blaine_2:
+# 260 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_MEW_QUEST_PROGRESS, 4
+# 261 "data/maps/SSAnne_Exterior/scripts.pory"
+	setflag FLAG_HIDE_VERMILION_BLAINE
+# 262 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 263 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_VERMILION_BLAINE, VermilionHarbor_EventScript_GuyanaFerry_FaceRight
+# 264 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 265 "data/maps/SSAnne_Exterior/scripts.pory"
+	msgbox VermilionHarbor_EventScript_MrFuji_Text_5
+# 266 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmessage
+# 267 "data/maps/SSAnne_Exterior/scripts.pory"
+	applymovement LOCALID_GUYANA_FERRYMAN, VermilionHarbor_EventScript_GuyanaFerry_NoticePlayer
+# 268 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+# 269 "data/maps/SSAnne_Exterior/scripts.pory"
+	setvar VAR_0x8006, SEAGALLOP_LINDEN_TOWN
+# 270 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitmovement
+# 271 "data/maps/SSAnne_Exterior/scripts.pory"
+	closemessage
+# 272 "data/maps/SSAnne_Exterior/scripts.pory"
+	delay 20
+# 273 "data/maps/SSAnne_Exterior/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 274 "data/maps/SSAnne_Exterior/scripts.pory"
+	special DoSeagallopFerryScene
+# 275 "data/maps/SSAnne_Exterior/scripts.pory"
+	waitstate
+# 276 "data/maps/SSAnne_Exterior/scripts.pory"
+	removeobject LOCALID_VERMILION_BLAINE
+	goto VermilionHarbor_EventScript_Blaine_1
 
 
 VermilionHarbor_EventScript_SinnohFerry_Text_0:
@@ -253,3 +509,93 @@ VermilionHarbor_EventScript_GuyanaFerry_Text_0:
 # 119 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "Don't just stand there, mate!\n"
 	.string "Keep loading the truck!$"
+
+VermilionHarbor_EventScript_GuyanaFerry_Text_1:
+# 126 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Ah, {PLAYER}!\n"
+	.string "You're back?\p"
+	.string "Did you want to return\n"
+	.string "to the GUYANA REGION?$"
+
+VermilionHarbor_EventScript_GuyanaFerry_Text_2:
+# 129 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hope you're prepared!\n"
+	.string "I'll try to make it quick.$"
+
+VermilionHarbor_EventScript_GuyanaFerry_Text_3:
+# 140 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Understood, have a nice day.$"
+
+VermilionHarbor_EventScript_MrFuji_Text_0:
+# 173 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hm...\n"
+	.string "{PLAYER}, welcome.\p"
+	.string "I do apologize for the\n"
+	.string "confusion, if any...\p"
+	.string "Quizzes sure do have a\n"
+	.string "way of keeping minds sharp!$"
+
+VermilionHarbor_EventScript_MrFuji_Text_1:
+# 177 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "BLAINE, my dear friend.\n"
+	.string "It was good to see you.\p"
+	.string "Take care in your journey,\n"
+	.string "the GUYANA REGION can be...\p"
+	.string "Very unforgiving, to say,\n"
+	.string "at the least.$"
+
+VermilionHarbor_EventScript_MrFuji_Text_2:
+# 178 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "GIOVANNI will use the harsh,\n"
+	.string "unfamiliar ecosystem to advantage.\p"
+	.string "{PLAYER} is in good hands...\n"
+	.string "Their heart is true.$"
+
+VermilionHarbor_EventScript_MrFuji_Text_3:
+# 195 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hah!\n"
+	.string "Well, you heard the doctor!\p"
+	.string "So, are you ready?\n"
+	.string "BAG stocked up, and all?$"
+
+VermilionHarbor_EventScript_MrFuji_Text_4:
+# 201 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hah! I'll burn the way\n"
+	.string "forward! Fear not!$"
+
+VermilionHarbor_EventScript_MrFuji_Text_5:
+# 205 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Ahem!\n"
+	.string "We're ready...$"
+
+VermilionHarbor_EventScript_MrFuji_Text_6:
+# 220 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hah! Don't be afraid!\n"
+	.string "I'm capable of helping you!\p"
+	.string "See, my plan is simple...\n"
+	.string "I'll burn the way forward!\p"
+	.string "Trees cannot use BURN HEAL,\n"
+	.string "so GIOVANNI will be exposed!$"
+
+VermilionHarbor_EventScript_MrFuji_Text_7:
+# 221 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Trust me, it's perfectly safe!\n"
+	.string "I've done the sort before.\p"
+	.string "Come back when you're ready!$"
+
+VermilionHarbor_EventScript_MrFuji_Text_8:
+# 231 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hmm... Wait a second!\n"
+	.string "I'm not supposed to be here.$"
+
+VermilionHarbor_EventScript_Blaine_Text_0:
+# 257 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hah, {PLAYER}!\n"
+	.string "Ready now?$"
+
+VermilionHarbor_EventScript_Blaine_Text_1:
+# 280 "data/maps/SSAnne_Exterior/scripts.pory"
+	.string "Hah, don't be afraid!\n"
+	.string "Come back if you're ready!\p"
+	.string "I'll be here, thinking about\n"
+	.string "how to expose GIOVANNI...$"

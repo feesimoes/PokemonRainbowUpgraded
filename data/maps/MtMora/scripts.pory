@@ -1,0 +1,22 @@
+mapscripts MtMora_MapScripts {}
+
+script MtMora_Sign 
+{
+    lock
+    msgbox(format("MT. MORA - KAIETEUR JUNGLE\nThe mythical peak of GUYANA."))
+    closemessage
+    release
+    end    
+}
+
+script MtMora_Mew_Encounter 
+{
+    lock
+    msgbox(format("Myuu..."))
+    waitmessage
+    closemessage
+    setwildbattle(SPECIES_MEW, 30, ITEM_NONE)
+    dowildbattle()
+    release
+    end
+}

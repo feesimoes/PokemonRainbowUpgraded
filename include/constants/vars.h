@@ -197,7 +197,7 @@
 #define VAR_BOUNTY_TASK_MON_LVL    0x408F
 #define VAR_BOUNTY_TASK_BALL       0x4090
 #define VAR_BOUNTY_TASK_REWARD     0x4091
-#define VAR_0x4092                 0x4092
+#define VAR_MEW_QUEST_PROGRESS     0x4092
 #define VAR_0x4093                 0x4093
 #define VAR_0x4094                 0x4094
 #define VAR_0x4095                 0x4095

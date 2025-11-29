@@ -1,1 +1,186 @@
 mapscripts LindenTown_MapScripts {}
+
+script LindenTown_Harbor_FerryToVermilionCity 
+{
+    lock
+    faceplayer
+
+    if (var(VAR_MEW_QUEST_PROGRESS) == 4)
+    {
+        msgbox(format("Well, we made it.\nBLAINE went running into town.\pSomething about getting a tip\nfrom some rich friends?"))
+    }
+
+    msgbox(format("Did you want to return\nto KANTO, VERMILION CITY?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Understood!\nLet's head out."))
+        setvar(VAR_0x8004, SEAGALLOP_LINDEN_TOWN)
+        setvar(VAR_0x8006, SEAGALLOP_VERMILION_CITY)
+        waitmessage
+        closemessage
+        delay(20)
+        fadescreen(FADE_TO_BLACK)
+        special(DoSeagallopFerryScene)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("Alright, I'll be here..."))
+        waitmessage
+        closemessage
+    }
+    release
+    end
+}
+
+script LindenTown_Fat_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("Is this your first visit?\nPOKéMON LEAGUE? GYM BADGES?\pAs if the jungle isn't\nenough of a challenge..."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Sign 
+{
+    lock
+    msgbox(format("LINDEN TOWN -\nA town attuned to nature."))
+    closemessage
+    release
+    end    
+}
+
+script LindenTown_Mansion_Ahead_Sign 
+{
+    lock
+    msgbox(format("LINDEN TOWN - PRIVATE PROPERTY\nAbsolutely no trespassing allowed!"))
+    closemessage
+    release
+    end    
+}
+
+script LindenTown_Mansion_Sign 
+{
+    lock
+    msgbox(format("GEORGE'S MANSION\nGUYANA RESIDENCE"))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Mansion_Guard_1
+{
+    lock
+    faceplayer
+    msgbox(format("Sorry, I'd love to chat...\nBut, I'm on guard duty."))
+    closemessage
+    applymovement(5, LindenTown_Mansion_Guard_Face_Down)
+    waitmovement
+    release
+    end
+}
+
+script LindenTown_Mansion_Guard_2
+{
+    lock
+    faceplayer
+    msgbox(format("Sorry, I can't chat...\nI'm on guard duty."))
+    closemessage
+    applymovement(4, LindenTown_Mansion_Guard_Face_Down)
+    waitmovement
+    release
+    end
+}
+
+script LindenTown_Mansion_Guards_RaiseSuspicion 
+{
+    lock
+    applymovement(4, LindenTown_Mansion_Guard_Notice_Player)
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Uh...\nExcuse me!"))
+    waitmessage
+    closemessage
+    waitmovement
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_Player_Face_Up)
+    waitmovement
+    applymovement(5, LindenTown_Mansion_Guard_Notice_Player)
+    waitmovement
+    applymovement(5, LindenTown_Mansion_Guard_Face_Right)
+    waitmovement
+    msgbox(format("This is private property... Do\nyou have business being here?\p...\n...Yes, yes, I see."))
+    msgbox(format("Alright.\nYour story checks out...\pBLAINE is inside, waiting for\nyou, {PLAYER}. Good luck."))
+    waitmessage
+    applymovement(4, LindenTown_Mansion_Guard_Face_Down)
+    waitmovement
+    applymovement(5, LindenTown_Mansion_Guard_Face_Down)
+    waitmovement
+    closemessage
+    setvar(VAR_MEW_QUEST_PROGRESS, 5)
+    release
+    end
+}
+
+movement LindenTown_Mansion_Guard_Face_Down 
+{
+    face_down
+    step_end    
+}
+
+movement LindenTown_Mansion_Guard_Notice_Player 
+{
+    emote_exclamation_mark
+    step_end    
+}
+
+movement LindenTown_Mansion_Guard_Face_Right 
+{
+    face_right
+    step_end    
+}
+
+movement LindenTown_Mansion_Player_Face_Up 
+{
+    face_up
+    step_end    
+}
+
+script LindenTown_Mansion_Lass 
+{
+    lock
+    msgbox(format("What do you want?\nThis is private property."))
+    closemessage
+    release
+    end    
+}
+
+script LindenTown_Mansion_Beauty 
+{
+    lock
+    faceplayer
+    msgbox(format("DR. FUJI used to live here.\nFor some reason, he left."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Bug_Catcher 
+{
+    lock
+    faceplayer
+    msgbox(format("You seem like you had a fair\nshare of POKéMON battles!\pMake sure you're prepared\nif exploring KAIETEUR JUNGLE."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Youngster 
+{
+    lock
+    faceplayer
+    msgbox(format("You're definitely not from here!\nWait, you know DR. FUJI?\pNo way! He's a legend in\nour history books."))
+    closemessage
+    release
+    end
+}

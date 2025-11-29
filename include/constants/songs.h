@@ -404,6 +404,9 @@
 #define MUS_GYM_JOHTO             396 // MUS_GYM_JOHTO
 #define MUS_SPROUT_TOWER          397 // MUS_SPROUT_TOWER
 #define MUS_SURF_JOHTO            398 // MUS_SURF_JOHTO
+#define MUS_LINDEN                399 // MUS_LINDEN
+#define MUS_KAIETEUR_JUNGLE       400 // MUS_KAIETEUR_JUNGLE = Abandoned Ship remix
+#define MUS_MT_MORA_CAVE          401 // MUS_MT_MORA_CAVE = Petalburg Woods remix
 
 #define MUS_NONE                    0xFFFF
 

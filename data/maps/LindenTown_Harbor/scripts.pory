@@ -1,0 +1,22 @@
+mapscripts LindenTown_Harbor_MapScripts {}
+
+script LindenTown_Harbor_Sailor_OutsidersAreWeird_Dialogue
+{
+    lock
+    faceplayer
+    msgbox(format("Are you a friend of DR. FUJI?\nWhy are you here, kid?\pDon't feel like talking?\nEh, outsiders are weird..."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Harbor_Sailor_LtSurge_Reference_Dialogue 
+{
+    lock
+    faceplayer
+    msgbox(format("Huh?\nYou met LT. SURGE, eh?\pAh, so that's what he's\nbeen up to...\pHe's been here, sometimes,\nin the past..."))
+    msgbox(format("LT. SURGE knew how to blend\nin with the surrounding jungle.\pHe did so well, you'd be\ncaught off guard if attacked."))
+    closemessage
+    release
+    end    
+}

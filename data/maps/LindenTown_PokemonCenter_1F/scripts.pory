@@ -1,0 +1,40 @@
+mapscripts LindenTown_PokemonCenter_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_LINDEN_TOWN)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script LindenTown_PokemonCenter_1F_EventScript_Nurse 
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script LindenTown_PokemonCenter_1F_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("This is actually the only\nPOKéMON CENTER in all of GUYANA.\pI hear other regions typically\nhave these in every town."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_PokemonCenter_1F_Sailor 
+{
+    lock
+    faceplayer
+    msgbox(format("A luxury cruise that sails\naround the world...\pDo you think they could fit a\nPOKéMON CENTER on it?"))
+    closemessage
+    release
+    end
+}

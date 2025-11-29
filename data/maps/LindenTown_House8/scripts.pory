@@ -1,0 +1,21 @@
+mapscripts LindenTown_House8_MapScripts {}
+
+script LindenTown_House8_Little_Boy 
+{
+    lock
+    faceplayer
+    msgbox(format("Hey, I'm trying to gather\nenough players for a campaign!\pSpread the word!"))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_House8_Youngster
+{
+    lock
+    faceplayer
+    msgbox(format("My little brother is trying\nto play a board game.\pI don't get it!"))
+    closemessage
+    release
+    end
+}

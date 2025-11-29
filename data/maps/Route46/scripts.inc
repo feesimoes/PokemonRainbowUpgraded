@@ -96,7 +96,7 @@ Route46_Hiker_Bailey_Battle_Text_0:
 
 Route46_Hiker_Bailey_Battle_Text_1:
 # 29 "data/maps/Route46/scripts.pory"
-	.string "Perhaps I should re-do my vocabulary...$"
+	.string "Perhaps I should re-do my vocab...$"
 
 Route46_Hiker_Bailey_Battle_Text_2:
 # 30 "data/maps/Route46/scripts.pory"

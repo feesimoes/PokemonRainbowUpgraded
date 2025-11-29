@@ -1,0 +1,11 @@
+mapscripts LindenTown_House10_MapScripts {}
+
+script LindenTown_House10_Cooltrainer_M 
+{
+    lock
+    faceplayer
+    msgbox(format("You have POKéMON, huh?\nLucky..."))
+    closemessage
+    release
+    end
+}

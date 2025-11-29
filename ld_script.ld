@@ -1015,6 +1015,9 @@ SECTIONS {
         sound/songs/midi/mus_gym_johto.o(.rodata);
         sound/songs/midi/mus_sprout_tower.o(.rodata);
         sound/songs/midi/mus_surf_johto.o(.rodata);
+        sound/songs/midi/mus_linden.o(.rodata);
+        sound/songs/midi/mus_kaieteur_jungle.o(.rodata);
+        sound/songs/midi/mus_mt_mora_cave.o(.rodata);
     } > ROM =0
 
     lib_rodata :

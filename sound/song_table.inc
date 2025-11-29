@@ -398,6 +398,9 @@ gSongTable::
 	song mus_gym_johto, 0, 0
 	song mus_sprout_tower, 0, 0
 	song mus_surf_johto, 0, 0
+	song mus_linden, 0, 0
+	song mus_kaieteur_jungle, 0, 0
+	song mus_mt_mora_cave, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

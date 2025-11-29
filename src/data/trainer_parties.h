@@ -11488,3 +11488,42 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerKristie[] = {
         .species = SPECIES_YANMA,
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderBlaine2[] = {
+    {
+        .iv = 255,
+        .lvl = 54,
+        .species = SPECIES_TORKOAL,
+        .moves = {MOVE_YAWN, MOVE_BODY_SLAM, MOVE_SUNNY_DAY, MOVE_OVERHEAT}
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_CAMERUPT,
+        .moves = {MOVE_ERUPTION, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY}
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_RAPIDASH,
+        .moves = {MOVE_FIRE_BLAST, MOVE_MEGAHORN, MOVE_QUICK_ATTACK, MOVE_OVERHEAT}
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_MAGCARGO,
+        .moves = {MOVE_CURSE, MOVE_WEATHER_BALL, MOVE_OVERHEAT, MOVE_ROCK_BLAST}
+    },
+    {
+        .iv = 255,
+        .lvl = 54,
+        .species = SPECIES_HOUNDOOM,
+        .moves = {MOVE_FAINT_ATTACK, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL, MOVE_SHADOW_PUNCH}
+    },
+    {
+        .iv = 255,
+        .lvl = 62,
+        .species = SPECIES_MAGMAR,
+        .moves = {MOVE_FLAMETHROWER, MOVE_LOW_KICK, MOVE_THUNDERBOLT, MOVE_CONFUSE_RAY}
+    },
+};

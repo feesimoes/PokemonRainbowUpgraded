@@ -116,8 +116,17 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                         input->pressedSelectButton = TRUE;
                     if (newKeys & A_BUTTON)
                         input->pressedAButton = TRUE;
-                    if (newKeys & B_BUTTON)
+                    if (newKeys & B_BUTTON) {
+                        if (FlagGet(FLAG_SYS_B_DASH))
+                        {
+                            FlagClear(FLAG_SYS_B_DASH);
+                        }
+                        else
+                        {
+                            FlagSet(FLAG_SYS_B_DASH);
+                        }
                         input->pressedBButton = TRUE;
+                    }
                     if (newKeys & R_BUTTON)
                         input->pressedRButton = TRUE;
                 }

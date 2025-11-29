@@ -231,6 +231,14 @@
       "y": 8,
       "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ROUTE32_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_LINDEN_TOWN",
+      "map": "MAP_LINDEN_TOWN",
+      "x": 97,
+      "y": 44,
+      "respawn_map": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_LINDEN_NURSE"
     }
   ]
 }

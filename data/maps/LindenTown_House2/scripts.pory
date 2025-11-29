@@ -1,0 +1,21 @@
+mapscripts LindenTown_House2_MapScripts {}
+
+script LindenTown_House2_Balding_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("I was being strategic when\nI purchased this house.\pWe're right next to a\nPOKéMON CENTER, so, the value rises."))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_House2_Tuber_F
+{
+    lock
+    faceplayer
+    msgbox(format("My daddy is so smart!\nI wonder where he got it from?"))
+    closemessage
+    release
+    end
+}

@@ -1,0 +1,10 @@
+mapscripts KaieteurJungle_Route3_MapScripts {}
+
+script KaieteurJungle_Route3_Sign 
+{
+    lock
+    msgbox(format("It's an explorer's note, dated:\nJune 28th, 1995.\pIn embrace of the jungle's\ndense growth, explorers beware...\pFor just as the flowers find\nits path to light...\pWe, too, can discover the\nprofound compass within it."))
+    closemessage
+    release
+    end   
+}

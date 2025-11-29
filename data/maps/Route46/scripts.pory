@@ -26,7 +26,7 @@ script Route46_Picnicker_Erin_Battle
 
 script Route46_Hiker_Bailey_Battle 
 {
-    trainerbattle_single(TRAINER_HIKER_BAILEY, format("Hopping off a rocky ledge...\nDoes that make you an anti-HIKER?"), format("Perhaps I should re-do my vocabulary..."))
+    trainerbattle_single(TRAINER_HIKER_BAILEY, format("Hopping off a rocky ledge...\nDoes that make you an anti-HIKER?"), format("Perhaps I should re-do my vocab..."))
     msgbox(format("You handled my sturdy team like\nit was an anti-climatic moment!"))
     closemessage
     releaseall

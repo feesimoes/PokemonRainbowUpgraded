@@ -1,0 +1,11 @@
+mapscripts LindenTown_House7_MapScripts {}
+
+script LindenTown_House7_Picnicker 
+{
+    lock
+    faceplayer
+    msgbox(format("Um... Hello.\nDo I know you? No...\pI don't know why I left\nmy door unlocked, honestly."))
+    closemessage
+    release
+    end    
+}

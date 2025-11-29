@@ -1,0 +1,11 @@
+mapscripts LindenTown_House1_MapScripts {}
+
+script LindenTown_House1_Boy 
+{
+    lock
+    faceplayer
+    msgbox(format("Hello...\nCan I help you?\p...Do you normally barge into\npeoples' houses, uninvited?"))
+    closemessage
+    release
+    end
+}

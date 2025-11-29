@@ -1,0 +1,116 @@
+raw `
+LavenderTown_VolunteerPokemonHouse_MapScripts::
+	.byte 0
+
+LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji::
+	lock
+	faceplayer
+    goto_if_set FLAG_MEW_QUEST_STARTED, LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine
+	goto_if_set FLAG_GOT_POKE_FLUTE, LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis
+	checkitemspace ITEM_POKE_FLUTE
+	goto_if_eq VAR_RESULT, FALSE, LavenderTown_VolunteerPokemonHouse_EventScript_NoRoomForPokeFlute
+	setflag FLAG_GOT_POKE_FLUTE
+	playfanfare MUS_LAVENDER_PEACE_INTRO
+	giveitem_msg LavenderTown_VolunteerPokemonHouse_Text_ReceivedPokeFluteFromMrFuji, ITEM_POKE_FLUTE, 1, MUS_OBTAIN_KEY_ITEM
+	waitfanfare
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_ExplainPokeFlute
+	waitmessage
+	playbgm MUS_LAVENDER_PEACE, TRUE
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_HasPokeFluteHelpedYou
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_NoRoomForPokeFlute::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_MustMakeRoomForThis
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_LittleGirl::
+	lock
+	faceplayer
+	famechecker FAMECHECKER_MRFUJI, 0
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_MrFujiLooksAfterOrphanedMons
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_LittleBoy::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_MonsNiceToHug, MSGBOX_NPC
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_Youngster::
+	lock
+	faceplayer
+	goto_if_set FLAG_RESCUED_MR_FUJI, LavenderTown_VolunteerPokemonHouse_EventScript_YoungsterFujiBack
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_WhereDidMrFujiGo
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_YoungsterFujiBack::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_MrFujiWasPrayingForCubonesMother
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_Nidorino::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_NIDORINO, CRY_MODE_NORMAL
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_Nidorino
+	waitmoncry
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_Psyduck::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_PSYDUCK, CRY_MODE_NORMAL
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_Psyduck
+	waitmoncry
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_PokemonFanMagazine::
+	lockall
+	famechecker FAMECHECKER_MRFUJI, 2
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_GrandPrizeDrawingClipped
+	releaseall
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_Bookshelf::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_PokemonMagazinesLineShelf, MSGBOX_SIGN
+	end
+
+`
+
+script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine
+{
+    if (var(VAR_MEW_QUEST_PROGRESS) == 1)
+    {
+        lock
+        faceplayer
+        msgbox(format("MR. FUJI: Has my POKé FLUTE\nhelped you?\p...Hm? What's the matter?\nSILPH CO.'s prototype, stolen?"))
+        msgbox(format("I'm not sure I understand\nwhy the PRESIDENT would...\pHm...\nOh, right..."))
+        msgbox(format("{PLAYER}. I cannot help you.\nHowever...\pIf you truly had deep\nlove for POKéMON...\pYou wouldn't have skipped\nthe 7th GYM BADGE."))
+        msgbox(format("So, please speak with BLAINE.\nCINNABAR ISLAND's GYM LEADER...\pYes, that's who you must\nface, of course..."))
+        msgbox(format("I will be cheering you on\nfor your final challenge!\pBring out your strongest POKéMON\nand secure the BADGE."))
+        setvar(VAR_MEW_QUEST_PROGRESS, 2)
+        closemessage
+        release
+        end
+    }
+    else
+    {
+        lock
+        faceplayer
+        msgbox(format("MR. FUJI: Has my wisdom\nhelped you?"))
+        closemessage
+        release
+        end
+    }
+}

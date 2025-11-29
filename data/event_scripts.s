@@ -1585,3 +1585,96 @@ Text_TestMsg::
 
 	.include "data/maps/Route32_RuinsOfAlph_Entrance/scripts.inc"
 	.include "data/maps/Route32_RuinsOfAlph_Entrance/text.inc"
+
+	.include "data/maps/AzaleaTown/scripts.inc"
+	.include "data/maps/AzaleaTown/text.inc"
+
+	.include "data/maps/LindenTown_Harbor/scripts.inc"
+	.include "data/maps/LindenTown_Harbor/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route1/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route1/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route2/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route2/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route3/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route3/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route4/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route4/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route5/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route5/text.inc"
+
+	.include "data/maps/MtMora/scripts.inc"
+	.include "data/maps/MtMora/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route6/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route6/text.inc"
+
+	.include "data/maps/MtMora_Caves_1F/scripts.inc"
+	.include "data/maps/MtMora_Caves_1F/text.inc"
+
+	.include "data/maps/MtMora_Caves_B1F/scripts.inc"
+	.include "data/maps/MtMora_Caves_B1F/text.inc"
+
+	.include "data/maps/MtMora_Caves_2F/scripts.inc"
+	.include "data/maps/MtMora_Caves_2F/text.inc"
+
+	.include "data/maps/MtMora_Caves_3F/scripts.inc"
+	.include "data/maps/MtMora_Caves_3F/text.inc"
+
+	.include "data/maps/MtMora_Caves_4F/scripts.inc"
+	.include "data/maps/MtMora_Caves_4F/text.inc"
+
+	.include "data/maps/MtMora_Caves_5F/scripts.inc"
+	.include "data/maps/MtMora_Caves_5F/text.inc"
+
+	.include "data/maps/MtMora_Caves_6F/scripts.inc"
+	.include "data/maps/MtMora_Caves_6F/text.inc"
+
+	.include "data/maps/MtMora_Caves_7F/scripts.inc"
+	.include "data/maps/MtMora_Caves_7F/text.inc"
+
+	.include "data/maps/MtMora_Caves_8F/scripts.inc"
+	.include "data/maps/MtMora_Caves_8F/text.inc"
+
+	.include "data/maps/LindenTown_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/LindenTown_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/LindenTown_Mart/scripts.inc"
+	.include "data/maps/LindenTown_Mart/text.inc"
+
+	.include "data/maps/LindenTown_House1/scripts.inc"
+	.include "data/maps/LindenTown_House1/text.inc"
+
+	.include "data/maps/LindenTown_House2/scripts.inc"
+	.include "data/maps/LindenTown_House2/text.inc"
+
+	.include "data/maps/LindenTown_House3/scripts.inc"
+	.include "data/maps/LindenTown_House3/text.inc"
+
+	.include "data/maps/LindenTown_House4/scripts.inc"
+	.include "data/maps/LindenTown_House4/text.inc"
+
+	.include "data/maps/LindenTown_House5/scripts.inc"
+	.include "data/maps/LindenTown_House5/text.inc"
+
+	.include "data/maps/LindenTown_House6/scripts.inc"
+	.include "data/maps/LindenTown_House6/text.inc"
+
+	.include "data/maps/LindenTown_House7/scripts.inc"
+	.include "data/maps/LindenTown_House7/text.inc"
+
+	.include "data/maps/LindenTown_House8/scripts.inc"
+	.include "data/maps/LindenTown_House8/text.inc"
+
+	.include "data/maps/LindenTown_House9/scripts.inc"
+	.include "data/maps/LindenTown_House9/text.inc"
+
+	.include "data/maps/LindenTown_House10/scripts.inc"
+	.include "data/maps/LindenTown_House10/text.inc"
+
+	.include "data/maps/LindenTown_Mansion_1F/scripts.inc"
+	.include "data/maps/LindenTown_Mansion_1F/text.inc"
