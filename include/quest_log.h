@@ -123,7 +123,7 @@ struct QuestLogEvent_TrainerBattle
     u16 speciesOpponent;
     u16 speciesPlayer;
     u8 hpFractionId;
-    u8 mapSec;
+    u16 mapSec;
 };
 
 // QL_EVENT_DEFEATED_WILD_MON
@@ -131,13 +131,13 @@ struct QuestLogEvent_WildBattle
 {
     u16 defeatedSpecies;
     u16 caughtSpecies;
-    u8 mapSec;
+    u16 mapSec;
 };
 
 // QL_EVENT_DEPARTED
 struct QuestLogEvent_Departed
 {
-    u8 mapSec;
+    u16 mapSec;
     u8 locationId;
 };
 
@@ -146,7 +146,7 @@ struct QuestLogEvent_FieldMove
 {
     u16 species;
     u8 fieldMove;
-    u8 mapSec;
+    u16 mapSec;
 };
 
 // QL_EVENT_BOUGHT_ITEM
@@ -156,7 +156,7 @@ struct QuestLogEvent_Shop
     u32 totalMoney; // Total amount of money spent buying or earned selling
     u16 lastItemId;
     u16 itemQuantity; // Total number of items bought or sold
-    u8 mapSec;
+    u16 mapSec;
     bool8 hasMultipleTransactions;
     u8 logEventId; // Either 0 (empty), 1 (bought) or 2 (sold)
 };
@@ -165,7 +165,7 @@ struct QuestLogEvent_Shop
 struct QuestLogEvent_StoryItem
 {
     u16 itemId;
-    u8 mapSec;
+    u16 mapSec;
 };
 
 extern u8 gQuestLogState;

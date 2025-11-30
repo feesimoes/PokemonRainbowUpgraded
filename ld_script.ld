@@ -1018,6 +1018,7 @@ SECTIONS {
         sound/songs/midi/mus_linden.o(.rodata);
         sound/songs/midi/mus_kaieteur_jungle.o(.rodata);
         sound/songs/midi/mus_mt_mora_cave.o(.rodata);
+        sound/songs/midi/mus_slateport.o(.rodata);
     } > ROM =0
 
     lib_rodata :

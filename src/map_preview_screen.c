@@ -332,7 +332,7 @@ static const struct BgTemplate sMapPreviewBgTemplate[1] = {
     }
 };
 
-static u8 GetMapPreviewScreenIdx(u8 mapsec)
+static u8 GetMapPreviewScreenIdx(u16 mapsec)
 {
     s32 i;
 
@@ -346,7 +346,7 @@ static u8 GetMapPreviewScreenIdx(u8 mapsec)
     return MPS_COUNT;
 }
 
-bool8 MapHasPreviewScreen(u8 mapsec, u8 type)
+bool8 MapHasPreviewScreen(u16 mapsec, u8 type)
 {
     u8 idx;
 
@@ -368,7 +368,7 @@ bool8 MapHasPreviewScreen(u8 mapsec, u8 type)
     }
 }
 
-bool32 MapHasPreviewScreen_HandleQLState2(u8 mapsec, u8 type)
+bool32 MapHasPreviewScreen_HandleQLState2(u16 mapsec, u8 type)
 {
     if (gQuestLogState == QL_STATE_PLAYBACK)
     {
@@ -386,7 +386,7 @@ void MapPreview_InitBgs(void)
     ShowBg(0);
 }
 
-void MapPreview_LoadGfx(u8 mapsec)
+void MapPreview_LoadGfx(u16 mapsec)
 {
     u8 idx;
 
@@ -424,7 +424,7 @@ bool32 MapPreview_IsGfxLoadFinished(void)
     return FreeTempTileDataBuffersIfPossible();
 }
 
-void MapPreview_StartForestTransition(u8 mapsec)
+void MapPreview_StartForestTransition(u16 mapsec)
 {
     u8 taskId;
 
@@ -447,7 +447,7 @@ void MapPreview_StartForestTransition(u8 mapsec)
     LockPlayerFieldControls();
 }
 
-u16 MapPreview_CreateMapNameWindow(u8 mapsec)
+u16 MapPreview_CreateMapNameWindow(u16 mapsec)
 {
     u16 windowId;
     u32 xctr;
@@ -561,7 +561,7 @@ static void Task_RunMapPreviewScreenForest(u8 taskId)
     }
 }
 
-const struct MapPreviewScreen * GetDungeonMapPreviewScreenInfo(u8 mapsec)
+const struct MapPreviewScreen * GetDungeonMapPreviewScreenInfo(u16 mapsec)
 {
     u8 idx;
 
@@ -576,7 +576,7 @@ const struct MapPreviewScreen * GetDungeonMapPreviewScreenInfo(u8 mapsec)
     }
 }
 
-u16 MapPreview_GetDuration(u8 mapsec)
+u16 MapPreview_GetDuration(u16 mapsec)
 {
     u8 idx;
     u16 flagId;

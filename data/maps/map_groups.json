@@ -56,15 +56,15 @@
     "gMapGroup_IndoorRoute32",
     "gMapGroup_IndoorRoute29",
     "gMapGroup_IndoorRoute36",
-    "gMapGroup_IndoorLinden"
+    "gMapGroup_IndoorLinden",
+    "gMapGroup_IndoorSlateport"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom",
-    "MtMora_Caves_1F"
+    "UnionRoom"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -654,6 +654,7 @@
     "MtMora",
     "KaieteurJungle_Route6",
     "MtMora_Caves_B1F",
+    "MtMora_Caves_1F",
     "MtMora_Caves_2F",
     "MtMora_Caves_3F",
     "MtMora_Caves_4F",
@@ -701,5 +702,8 @@
     "LindenTown_House9",
     "LindenTown_House10",
     "LindenTown_Mansion_1F"
+  ],
+  "gMapGroup_IndoorSlateport": [
+    "SlateportCity_Harbor"
   ]
 }

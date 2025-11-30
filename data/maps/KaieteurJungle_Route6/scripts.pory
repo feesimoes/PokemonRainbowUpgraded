@@ -8,3 +8,42 @@ script KaieteurJungle_Route6_Sign
     release
     end    
 }
+
+script KaieteurJungle_Route6_FerryToSlateport 
+{
+    lock
+    faceplayer
+    checkitem(ITEM_OLD_SEA_MAP, 1)
+    if (var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("Ah, what's this?\nYou have a map, eh?\pAre you up for an adventure?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Alright, let's head out!\nWe'll be setting upstream to sea."))
+            setvar(VAR_0x8004, SEAGALLOP_KAIETEUR_JUNGLE)
+            setvar(VAR_0x8006, SEAGALLOP_SLATEPORT_CITY)
+            waitmessage
+            closemessage
+            delay(20)
+            fadescreen(FADE_TO_BLACK)
+            special(DoSeagallopFerryScene)
+            waitstate
+            release
+            end
+        }
+        else
+        {
+            msgbox(format("My boat works just fine!\nIt's tough sailing without a map."))
+            closemessage
+            release
+            end
+        }
+    }
+    else
+    {
+        msgbox(format("Are you lost?\nMy boat works just fine!\pWithout a map to navigate,\nthough, it's risky..."))
+        closemessage
+        release
+        end
+    }
+}

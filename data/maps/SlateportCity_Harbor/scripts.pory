@@ -1,0 +1,29 @@
+mapscripts SlateportCity_Harbor_MapScripts {}
+
+script SlateportCity_Harbor_FerryToGuyana 
+{
+    lock
+    faceplayer
+    msgbox(format("Would you like to head\nout to the GUYANA REGION?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Let's set sail!"))
+        setvar(VAR_0x8004, SEAGALLOP_SLATEPORT_CITY)
+        setvar(VAR_0x8006, SEAGALLOP_KAIETEUR_JUNGLE)
+        waitmessage
+        closemessage
+        delay(20)
+        fadescreen(FADE_TO_BLACK)
+        special(DoSeagallopFerryScene)
+        waitstate
+        release
+        end
+    }
+    else
+    {
+        msgbox(format("No worries, I'll be here."))
+        closemessage
+        release
+        end
+    }
+}

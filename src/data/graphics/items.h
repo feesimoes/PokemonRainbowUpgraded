@@ -720,3 +720,6 @@ const u32 gItemIconPalette_ExplorerKit[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_MusicPlayer[] = INCBIN_U32("graphics/items/icons/music_player.4bpp.lz");
 const u32 gItemIconPalette_MusicPlayer[] = INCBIN_U32("graphics/items/icon_palettes/music_player.gbapal.lz");
+
+const u32 gItemIcon_Old_Sea_Map[] = INCBIN_U32("graphics/items/icons/old_sea_map.4bpp.lz");
+const u32 gItemIconPalette_Old_Sea_Map[] = INCBIN_U32("graphics/items/icon_palettes/old_sea_map.gbapal.lz");

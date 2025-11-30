@@ -17,7 +17,7 @@ struct PokenavMonListItem
 struct PokenavMatchCallEntry
 {
     bool8 isSpecialTrainer;
-    u8 mapSec;
+    u16 mapSec;
     u16 headerId;
 };
 

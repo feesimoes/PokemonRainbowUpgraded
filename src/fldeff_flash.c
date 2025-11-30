@@ -18,7 +18,7 @@ struct FlashStruct
     bool8 isEnter;
     bool8 isExit;
     void (*func1)(void);
-    void (*func2)(u8 mapSecId);
+    void (*func2)(u16 mapSecId);
 };
 
 static void FieldCallback_Flash(void);
@@ -35,7 +35,7 @@ static void Task_FlashTransition_Enter_0(u8 taskId);
 static void Task_FlashTransition_Enter_1(u8 taskId);
 static void Task_FlashTransition_Enter_2(u8 taskId);
 static void Task_FlashTransition_Enter_3(u8 taskId);
-static void RunMapPreviewScreen(u8 mapsecId);
+static void RunMapPreviewScreen(u16 mapsecId);
 static void Task_MapPreviewScreen_0(u8 taskId);
 
 static const struct FlashStruct sTransitionTypes[] = {
@@ -414,7 +414,7 @@ static void Task_FlashTransition_Enter_3(u8 taskId)
     }
 }
 
-static void RunMapPreviewScreen(u8 mapSecId)
+static void RunMapPreviewScreen(u16 mapSecId)
 {
     u8 taskId = CreateTask(Task_MapPreviewScreen_0, 0);
     gTasks[taskId].data[3] = mapSecId;

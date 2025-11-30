@@ -3294,6 +3294,8 @@ extern const u32 gItemIcon_ExplorerKit[];
 extern const u32 gItemIconPalette_ExplorerKit[];
 extern const u32 gItemIcon_MusicPlayer[];
 extern const u32 gItemIconPalette_MusicPlayer[];
+extern const u32 gItemIcon_Old_Sea_Map[];
+extern const u32 gItemIconPalette_Old_Sea_Map[];
 
 // battle_anim_utility_funcs
 extern const u32 gFile_graphics_battle_anims_masks_curse_sheet[];

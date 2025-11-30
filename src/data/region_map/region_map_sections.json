@@ -1,246 +1,6 @@
 {
   "map_sections": [
     {
-      "id": "MAPSEC_LITTLEROOT_TOWN"
-    },
-    {
-      "id": "MAPSEC_OLDALE_TOWN"
-    },
-    {
-      "id": "MAPSEC_DEWFORD_TOWN"
-    },
-    {
-      "id": "MAPSEC_LAVARIDGE_TOWN"
-    },
-    {
-      "id": "MAPSEC_FALLARBOR_TOWN"
-    },
-    {
-      "id": "MAPSEC_VERDANTURF_TOWN"
-    },
-    {
-      "id": "MAPSEC_PACIFIDLOG_TOWN"
-    },
-    {
-      "id": "MAPSEC_PETALBURG_CITY"
-    },
-    {
-      "id": "MAPSEC_SLATEPORT_CITY"
-    },
-    {
-      "id": "MAPSEC_MAUVILLE_CITY"
-    },
-    {
-      "id": "MAPSEC_FORTREE_CITY"
-    },
-    {
-      "id": "MAPSEC_LILYCOVE_CITY"
-    },
-    {
-      "id": "MAPSEC_MOSSDEEP_CITY"
-    },
-    {
-      "id": "MAPSEC_SOOTOPOLIS_CITY"
-    },
-    {
-      "id": "MAPSEC_EVER_GRANDE_CITY"
-    },
-    {
-      "id": "MAPSEC_ROUTE_101"
-    },
-    {
-      "id": "MAPSEC_ROUTE_102"
-    },
-    {
-      "id": "MAPSEC_ROUTE_103"
-    },
-    {
-      "id": "MAPSEC_ROUTE_104"
-    },
-    {
-      "id": "MAPSEC_ROUTE_105"
-    },
-    {
-      "id": "MAPSEC_ROUTE_106"
-    },
-    {
-      "id": "MAPSEC_ROUTE_107"
-    },
-    {
-      "id": "MAPSEC_ROUTE_108"
-    },
-    {
-      "id": "MAPSEC_ROUTE_109"
-    },
-    {
-      "id": "MAPSEC_ROUTE_110"
-    },
-    {
-      "id": "MAPSEC_ROUTE_111"
-    },
-    {
-      "id": "MAPSEC_ROUTE_112"
-    },
-    {
-      "id": "MAPSEC_ROUTE_113"
-    },
-    {
-      "id": "MAPSEC_ROUTE_114"
-    },
-    {
-      "id": "MAPSEC_ROUTE_115"
-    },
-    {
-      "id": "MAPSEC_ROUTE_116"
-    },
-    {
-      "id": "MAPSEC_ROUTE_117"
-    },
-    {
-      "id": "MAPSEC_ROUTE_118"
-    },
-    {
-      "id": "MAPSEC_ROUTE_119"
-    },
-    {
-      "id": "MAPSEC_ROUTE_120"
-    },
-    {
-      "id": "MAPSEC_ROUTE_121"
-    },
-    {
-      "id": "MAPSEC_ROUTE_122"
-    },
-    {
-      "id": "MAPSEC_ROUTE_123"
-    },
-    {
-      "id": "MAPSEC_ROUTE_124"
-    },
-    {
-      "id": "MAPSEC_ROUTE_125"
-    },
-    {
-      "id": "MAPSEC_ROUTE_126"
-    },
-    {
-      "id": "MAPSEC_ROUTE_127"
-    },
-    {
-      "id": "MAPSEC_ROUTE_128"
-    },
-    {
-      "id": "MAPSEC_ROUTE_129"
-    },
-    {
-      "id": "MAPSEC_ROUTE_130"
-    },
-    {
-      "id": "MAPSEC_ROUTE_131"
-    },
-    {
-      "id": "MAPSEC_ROUTE_132"
-    },
-    {
-      "id": "MAPSEC_ROUTE_133"
-    },
-    {
-      "id": "MAPSEC_ROUTE_134"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_124"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_125"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_126"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_127"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_SOOTOPOLIS"
-    },
-    {
-      "id": "MAPSEC_GRANITE_CAVE"
-    },
-    {
-      "id": "MAPSEC_MT_CHIMNEY"
-    },
-    {
-      "id": "MAPSEC_BATTLE_FRONTIER"
-    },
-    {
-      "id": "MAPSEC_PETALBURG_WOODS"
-    },
-    {
-      "id": "MAPSEC_ABANDONED_SHIP"
-    },
-    {
-      "id": "MAPSEC_NEW_MAUVILLE"
-    },
-    {
-      "id": "MAPSEC_METEOR_FALLS"
-    },
-    {
-      "id": "MAPSEC_METEOR_FALLS2"
-    },
-    {
-      "id": "MAPSEC_MT_PYRE"
-    },
-    {
-      "id": "MAPSEC_AQUA_HIDEOUT_OLD"
-    },
-    {
-      "id": "MAPSEC_SHOAL_CAVE"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_128"
-    },
-    {
-      "id": "MAPSEC_VICTORY_ROAD"
-    },
-    {
-      "id": "MAPSEC_MIRAGE_ISLAND"
-    },
-    {
-      "id": "MAPSEC_CAVE_OF_ORIGIN"
-    },
-    {
-      "id": "MAPSEC_FIERY_PATH"
-    },
-    {
-      "id": "MAPSEC_FIERY_PATH2"
-    },
-    {
-      "id": "MAPSEC_JAGGED_PASS"
-    },
-    {
-      "id": "MAPSEC_JAGGED_PASS2"
-    },
-    {
-      "id": "MAPSEC_UNDERWATER_SEALED_CHAMBER"
-    },
-    {
-      "id": "MAPSEC_ISLAND_CAVE"
-    },
-    {
-      "id": "MAPSEC_DESERT_RUINS"
-    },
-    {
-      "id": "MAPSEC_ANCIENT_TOMB"
-    },
-    {
-      "id": "MAPSEC_INSIDE_OF_TRUCK"
-    },
-    {
-      "id": "MAPSEC_SKY_PILLAR"
-    },
-    {
-      "id": "MAPSEC_DYNAMIC"
-    },
-    {
       "id": "MAPSEC_PALLET_TOWN",
       "name": "PALLET TOWN",
       "x": 4,
@@ -1414,7 +1174,11 @@
     },
     {
       "id": "MAPSEC_LINDEN_TOWN",
-      "name": "LINDEN TOWN"
+      "name": "LINDEN TOWN",
+      "x": 6,
+      "y": 3,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_MT_MORA",
@@ -1422,7 +1186,252 @@
     },
     {
       "id": "MAPSEC_KAIETEUR_JUNGLE",
-      "name": "KAIETEUR JUNGLE"
+      "name": "KAIETEUR JUNGLE",
+      "x": 0,
+      "y": 4,
+      "width": 9,
+      "height": 8
+    },
+    {
+      "id": "MAPSEC_LITTLEROOT_TOWN"
+    },
+    {
+      "id": "MAPSEC_OLDALE_TOWN"
+    },
+    {
+      "id": "MAPSEC_DEWFORD_TOWN"
+    },
+    {
+      "id": "MAPSEC_LAVARIDGE_TOWN"
+    },
+    {
+      "id": "MAPSEC_FALLARBOR_TOWN"
+    },
+    {
+      "id": "MAPSEC_VERDANTURF_TOWN"
+    },
+    {
+      "id": "MAPSEC_PACIFIDLOG_TOWN"
+    },
+    {
+      "id": "MAPSEC_PETALBURG_CITY"
+    },
+    {
+      "id": "MAPSEC_SLATEPORT_CITY",
+      "name": "SLATEPORT CITY"
+    },
+    {
+      "id": "MAPSEC_MAUVILLE_CITY"
+    },
+    {
+      "id": "MAPSEC_FORTREE_CITY"
+    },
+    {
+      "id": "MAPSEC_LILYCOVE_CITY"
+    },
+    {
+      "id": "MAPSEC_MOSSDEEP_CITY"
+    },
+    {
+      "id": "MAPSEC_SOOTOPOLIS_CITY"
+    },
+    {
+      "id": "MAPSEC_EVER_GRANDE_CITY"
+    },
+    {
+      "id": "MAPSEC_ROUTE_101"
+    },
+    {
+      "id": "MAPSEC_ROUTE_102"
+    },
+    {
+      "id": "MAPSEC_ROUTE_103"
+    },
+    {
+      "id": "MAPSEC_ROUTE_104"
+    },
+    {
+      "id": "MAPSEC_ROUTE_105"
+    },
+    {
+      "id": "MAPSEC_ROUTE_106"
+    },
+    {
+      "id": "MAPSEC_ROUTE_107"
+    },
+    {
+      "id": "MAPSEC_ROUTE_108"
+    },
+    {
+      "id": "MAPSEC_ROUTE_109"
+    },
+    {
+      "id": "MAPSEC_ROUTE_110"
+    },
+    {
+      "id": "MAPSEC_ROUTE_111"
+    },
+    {
+      "id": "MAPSEC_ROUTE_112"
+    },
+    {
+      "id": "MAPSEC_ROUTE_113"
+    },
+    {
+      "id": "MAPSEC_ROUTE_114"
+    },
+    {
+      "id": "MAPSEC_ROUTE_115"
+    },
+    {
+      "id": "MAPSEC_ROUTE_116"
+    },
+    {
+      "id": "MAPSEC_ROUTE_117"
+    },
+    {
+      "id": "MAPSEC_ROUTE_118"
+    },
+    {
+      "id": "MAPSEC_ROUTE_119"
+    },
+    {
+      "id": "MAPSEC_ROUTE_120"
+    },
+    {
+      "id": "MAPSEC_ROUTE_121"
+    },
+    {
+      "id": "MAPSEC_ROUTE_122"
+    },
+    {
+      "id": "MAPSEC_ROUTE_123"
+    },
+    {
+      "id": "MAPSEC_ROUTE_124"
+    },
+    {
+      "id": "MAPSEC_ROUTE_125"
+    },
+    {
+      "id": "MAPSEC_ROUTE_126"
+    },
+    {
+      "id": "MAPSEC_ROUTE_127"
+    },
+    {
+      "id": "MAPSEC_ROUTE_128"
+    },
+    {
+      "id": "MAPSEC_ROUTE_129"
+    },
+    {
+      "id": "MAPSEC_ROUTE_130"
+    },
+    {
+      "id": "MAPSEC_ROUTE_131"
+    },
+    {
+      "id": "MAPSEC_ROUTE_132"
+    },
+    {
+      "id": "MAPSEC_ROUTE_133"
+    },
+    {
+      "id": "MAPSEC_ROUTE_134"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_124"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_125"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_126"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_127"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_SOOTOPOLIS"
+    },
+    {
+      "id": "MAPSEC_GRANITE_CAVE"
+    },
+    {
+      "id": "MAPSEC_MT_CHIMNEY"
+    },
+    {
+      "id": "MAPSEC_BATTLE_FRONTIER"
+    },
+    {
+      "id": "MAPSEC_PETALBURG_WOODS"
+    },
+    {
+      "id": "MAPSEC_ABANDONED_SHIP"
+    },
+    {
+      "id": "MAPSEC_NEW_MAUVILLE"
+    },
+    {
+      "id": "MAPSEC_METEOR_FALLS"
+    },
+    {
+      "id": "MAPSEC_METEOR_FALLS2"
+    },
+    {
+      "id": "MAPSEC_MT_PYRE"
+    },
+    {
+      "id": "MAPSEC_AQUA_HIDEOUT_OLD"
+    },
+    {
+      "id": "MAPSEC_SHOAL_CAVE"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_128"
+    },
+    {
+      "id": "MAPSEC_VICTORY_ROAD"
+    },
+    {
+      "id": "MAPSEC_MIRAGE_ISLAND"
+    },
+    {
+      "id": "MAPSEC_CAVE_OF_ORIGIN"
+    },
+    {
+      "id": "MAPSEC_FIERY_PATH"
+    },
+    {
+      "id": "MAPSEC_FIERY_PATH2"
+    },
+    {
+      "id": "MAPSEC_JAGGED_PASS"
+    },
+    {
+      "id": "MAPSEC_JAGGED_PASS2"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_SEALED_CHAMBER"
+    },
+    {
+      "id": "MAPSEC_ISLAND_CAVE"
+    },
+    {
+      "id": "MAPSEC_DESERT_RUINS"
+    },
+    {
+      "id": "MAPSEC_ANCIENT_TOMB"
+    },
+    {
+      "id": "MAPSEC_INSIDE_OF_TRUCK"
+    },
+    {
+      "id": "MAPSEC_SKY_PILLAR"
+    },
+    {
+      "id": "MAPSEC_DYNAMIC"
     },
     {
       "id": "MAPSEC_SPECIAL_AREA",

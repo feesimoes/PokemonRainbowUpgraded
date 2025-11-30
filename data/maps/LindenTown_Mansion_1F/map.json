@@ -53,6 +53,36 @@
       "dest_warp_id": "14"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "5",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "5",
+      "script": "NULL"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "item": "ITEM_OLD_SEA_MAP",
+      "flag": "FLAG_TEMP_1",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
 }

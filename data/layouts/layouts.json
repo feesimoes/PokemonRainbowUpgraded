@@ -5640,6 +5640,18 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/LindenTown_Mansion_1F/border.bin",
       "blockdata_filepath": "data/layouts/LindenTown_Mansion_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_HARBOR",
+      "name": "SlateportCity_Harbor_Layout",
+      "width": 31,
+      "height": 18,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IslandHarbor",
+      "border_filepath": "data/layouts/SlateportCity_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_Harbor/map.bin"
     }
   ]
 }

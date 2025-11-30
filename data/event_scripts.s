@@ -1678,3 +1678,6 @@ Text_TestMsg::
 
 	.include "data/maps/LindenTown_Mansion_1F/scripts.inc"
 	.include "data/maps/LindenTown_Mansion_1F/text.inc"
+
+	.include "data/maps/SlateportCity_Harbor/scripts.inc"
+	.include "data/maps/SlateportCity_Harbor/text.inc"

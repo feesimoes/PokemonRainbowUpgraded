@@ -74,6 +74,8 @@ static const s8 sSeag[][4] = {
     [SEAGALLOP_BIRTH_ISLAND]    = {MAP(MAP_BIRTH_ISLAND_HARBOR), 0x08, 0x05},
     [SEAGALLOP_CANALAVE_CITY]   = {MAP(MAP_CANALAVE_CITY),       0x04, 0x35},
     [SEAGALLOP_LINDEN_TOWN]     = {MAP(MAP_LINDEN_TOWN),         0x65, 0x03},
+    [SEAGALLOP_KAIETEUR_JUNGLE] = {MAP(MAP_KAIETEUR_JUNGLE_ROUTE6), 0x13, 0x32},
+    [SEAGALLOP_SLATEPORT_CITY]  = {MAP(MAP_SLATEPORT_CITY_HARBOR), 0x08, 0x0D},
 };
 
 // Bitpacked array.  In the commented section, right-most bit is the
@@ -99,7 +101,9 @@ static const u16 sTravelDirectionMatrix[] = {
     [SEAGALLOP_NAVEL_ROCK]      = 0x6e0, // 11011100000
     [SEAGALLOP_BIRTH_ISLAND]    = 0x000, // 00000000000
     [SEAGALLOP_CANALAVE_CITY]   = 0x7ff, // 11011111100
-    [SEAGALLOP_LINDEN_TOWN]     = 0x7ff  // 11011111100
+    [SEAGALLOP_LINDEN_TOWN]     = 0x7ff, // 11011111100
+    [SEAGALLOP_KAIETEUR_JUNGLE] = 0x7ff, // 11011111100
+    [SEAGALLOP_SLATEPORT_CITY]  = 0x6fe  // 11011111110
 };
 
 static const union AnimCmd sSpriteAnims_Ferry_WB[] = {
@@ -452,6 +456,10 @@ static bool8 GetDirectionOfTravel(void)
         return DIRN_EASTBOUND;
     }
     if (gSpecialVar_0x8006 == SEAGALLOP_CANALAVE_CITY)
+    {
+        return DIRN_EASTBOUND;
+    }
+    if (gSpecialVar_0x8006 == SEAGALLOP_KAIETEUR_JUNGLE)
     {
         return DIRN_EASTBOUND;
     }

@@ -447,8 +447,9 @@
 #define ITEM_POKE_NAV_PLUS 375
 #define ITEM_ROCK_CLIMB_KIT 376
 #define ITEM_MUSIC_PLAYER 377
+#define ITEM_OLD_SEA_MAP 378
 
-#define ITEMS_COUNT 378
+#define ITEMS_COUNT 379
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

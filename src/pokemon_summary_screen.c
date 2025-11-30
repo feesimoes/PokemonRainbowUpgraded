@@ -115,7 +115,7 @@ static void PokeSum_PrintExpPoints_NextLv(void);
 static void PokeSum_PrintSelectedMoveStats(void);
 static void PokeSum_PrintTrainerMemo_Mon(void);
 static void PokeSum_PrintTrainerMemo_Egg(void);
-static bool32 MapSecIsInKantoOrSevii(u8 mapSec);
+static bool32 MapSecIsInKantoOrSevii(u16 mapSec);
 static bool32 IsMultiBattlePartner(void);
 static bool32 PokeSum_IsMonBoldOrGentle(u8 nature);
 static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void);
@@ -2611,7 +2611,7 @@ static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
 {
     u8 nature;
     u8 level;
-    u8 metLocation;
+    u16 metLocation;
     u8 levelStr[5];
     u8 mapNameStr[32];
     u8 natureMetOrHatchedAtLevelStr[152];
@@ -2685,7 +2685,7 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
 {
     u8 nature;
     u8 level;
-    u8 metLocation;
+    u16 metLocation;
     u8 levelStr[5];
     u8 mapNameStr[32];
     u8 natureMetOrHatchedAtLevelStr[152];
@@ -2788,7 +2788,7 @@ static void PokeSum_PrintTrainerMemo_Mon(void)
 
 static void PokeSum_PrintTrainerMemo_Egg(void)
 {
-    u8 metLocation;
+    u16 metLocation;
     u8 version;
     u8 chosenStrIndex = 0;
 
@@ -5210,9 +5210,9 @@ static bool32 CurrentMonIsFromGBA(void)
     return FALSE;
 }
 
-static bool32 MapSecIsInKantoOrSevii(u8 mapSec)
+static bool32 MapSecIsInKantoOrSevii(u16 mapSec)
 {
-    if (mapSec >= KANTO_MAPSEC_START && mapSec < MAPSEC_NONE)
+    if (mapSec < MAPSEC_NEW_BARK_TOWN)
         return TRUE;
     return FALSE;
 }
