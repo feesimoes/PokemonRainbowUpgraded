@@ -22,6 +22,7 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_MEW",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
       "x": 34,
@@ -33,7 +34,21 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtMora_Mew_Encounter",
-      "flag": "0"
+      "flag": "FLAG_HIDE_MEW"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 44,
+      "y": 71,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMora_RoadBlock",
+      "flag": "FLAG_HIDE_CERULEAN_CAVE_GUARD"
     }
   ],
   "warp_events": [

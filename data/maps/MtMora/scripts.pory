@@ -1,4 +1,41 @@
-mapscripts MtMora_MapScripts {}
+mapscripts MtMora_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MEW_QUEST_PROGRESS) < 10)
+        {
+            clearflag(FLAG_HIDE_CERULEAN_CAVE_GUARD)
+        }
+        elif (var(VAR_MEW_QUEST_PROGRESS) == 14)
+        {
+            clearflag(FLAG_HIDE_CERULEAN_CAVE_GUARD)
+        }
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        if (flag(FLAG_CAUGHT_MEW) == TRUE)
+        {
+            removeobject(LOCALID_MEW)
+        }
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        if (!flag(FLAG_CAUGHT_MEW))
+        {
+            clearflag(FLAG_HIDE_MEW)
+        }
+    }
+}
+
+script MtMora_RoadBlock 
+{
+    lock
+    faceplayer
+    msgbox(format("Excuse me...\nYou have no business being here.\pCan I suggest something, kid?\nGet lost somewhere, but not here."))
+    closemessage
+    release
+    end    
+}
 
 script MtMora_Sign 
 {
@@ -12,11 +49,49 @@ script MtMora_Sign
 script MtMora_Mew_Encounter 
 {
     lock
-    msgbox(format("Myuu..."))
-    waitmessage
-    closemessage
-    setwildbattle(SPECIES_MEW, 30, ITEM_NONE)
-    dowildbattle()
+    faceplayer
+    specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+    if (var(VAR_RESULT) == 6)
+    {
+        msgbox(format("Myuu..."))
+        msgbox(format("Hmm... MEW seems to be\noverwhelmed by a full PARTY..."))
+        closemessage
+        playse(SE_PC_LOGIN)
+        special(ShowPokemonStorageSystemPC)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("Myuu...!"))
+        waitse
+        fadeoutbgm(0)
+        playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
+        waitmessage
+        waitmoncry
+        delay(20)
+        playbgm(MUS_LEGEND_TRAINER, 0)
+        setwildbattle(SPECIES_MEW, 30, ITEM_NONE)
+        setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        waitbuttonpress
+        closemessage
+        special(StartLegendaryBattle)
+        waitstate
+        clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        specialvar(VAR_RESULT, GetBattleOutcome)
+        if (var(VAR_RESULT) == 7)
+        {
+            setflag(FLAG_CAUGHT_MEW)
+            fadescreen(FADE_TO_BLACK)
+            removeobject(LOCALID_MEW)
+            fadescreen(FADE_FROM_BLACK)
+            special(MakeMewLegalJPNEmeraldEvent)
+        }
+        else
+        {
+            msgbox(format("Myuu...?"))
+            closemessage
+        }
+    }
     release
     end
 }

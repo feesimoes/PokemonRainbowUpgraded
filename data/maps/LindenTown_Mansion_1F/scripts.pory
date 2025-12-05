@@ -1,1 +1,277 @@
-mapscripts LindenTown_Mansion_1F_MapScripts {}
+mapscripts LindenTown_Mansion_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MEW_QUEST_PROGRESS) == 6)
+        {
+            setflag(FLAG_HIDE_LINDEN_BLAINE)
+        }
+    }
+}
+
+script LindenTown_Mansion_1F_BlaineIsOccupied 
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("BLAINE seems to be locked in\na conversation with the man...\pMaybe he will notice if you're\nin front of them?"))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Mansion_1F_George 
+{
+    lock
+    faceplayer
+    if (var(VAR_MEW_QUEST_PROGRESS) == 12)
+    {
+        checkitem(ITEM_OLD_SEA_MAP, 1)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            msgbox(format("Bienvenu! Welcome to my mansion.\nI do hope you'll look around.\pVotre art préféré?\nMy favorite was 'A MAN AND MEW'."))
+            msgbox(format("Alas... I regrettably donated it,\nbut it is in good hands."))
+            closemessage
+        }
+        else
+        {
+            msgbox(format("Bienvenu!\nAh, I almost forgot, {PLAYER}...\pPerhaps this navigation chart will\nbe of use in your adventures?"))
+            giveitem(ITEM_OLD_SEA_MAP, 1)
+            msgbox(format("Take care, now!\nSend MR. FUJI my regards."))
+            closemessage
+            setvar(VAR_MEW_QUEST_PROGRESS, 13)
+        }
+    }
+    else
+    {
+        msgbox(format("Bienvenu! Welcome to my mansion.\nI do hope you'll look around.\pVotre art préféré?\nMy favorite was 'A MAN AND MEW'."))
+        msgbox(format("Alas... I regrettably donated it,\nbut it is in good hands."))
+        closemessage
+    }
+    release
+    end
+}
+
+script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_MALE)
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Right)
+    waitmovement
+    msgbox(format("BLAINE: Hah!\nDon't be ridiculous, GEORGE!\pYou can't hide GIOVANNI behind\nyour rich stacks of wealth!"))
+    msgbox(format("GEORGE: C'est de la merde...\nWeren't you that ROCKET scientist?\pYou dare barge into my own\nprivate residence, demanding?"))
+    msgbox(format("GIOVANNI is not our problem!\nBelieve me, if he was hiding...\pNo, I wouldn't allow it!\nHe would be caught, arrested!"))
+    msgbox(format("A crazy fool, as you are!\nYou made a mistake coming back!"))
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Walk_Right)
+    waitmovement
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+    waitmovement
+    msgbox(format("...Yes? Can I help you?\nWe are discussing adult matters..."), MSGBOX_YESNO)
+    waitmessage
+    closemessage
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("What?\nYou're looking for GIOVANNI too?\pThis isn't good...\nWhat happened?!"))
+    }
+    else
+    {
+        msgbox(format("BLAINE: {PLAYER}?\nExcellent timing!"))
+        msgbox(format("GEORGE: Hmm... You know BLAINE?\nWait, what happened...?!"))
+    }
+    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I,\neven having earned my BADGE!"))
+    msgbox(format("GEORGE: I'm not sure what any\nof that means, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
+    msgbox(format("BLAINE: Hah, quit judging my past,\nGEORGE, we all had our moments!\p{PLAYER}, go on, tell him!"))
+    msgbox(format("GEORGE: Well, is BLAINE a better\nman now? I must know."), MSGBOX_YESNO)
+    waitmessage
+    closemessage
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not\naware GIOVANNI'S hiding here."))
+        msgbox(format("I will allow you both the\nmeans to investigate GUYANA.\pIf you do find GIOVANNI, he\nis extremely dangerous."))
+        msgbox(format("Do not approach him, instead,\ncome straight back... Alert me.\pThere is a cave behind my\nmansion. Surely, BLAINE can explain."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        msgbox(format("BLAINE: Hm! Right...\nI forgot about the old...\pAhem, go on..."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+        waitmovement
+        msgbox(format("GEORGE: I was done, actually...\nBest of luck to you both."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        msgbox(format("BLAINE: Right! So, {PLAYER}...\nAs mentioned, there's a cave ahead.\pLet's meet up there! ...Or,\nwould you prefer going together?"), MSGBOX_YESNO)
+        waitmessage
+        closemessage
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Let's head out, then!\nFollow me!"))
+            closemessage
+            setvar(VAR_MEW_QUEST_PROGRESS, 6)
+            warp(MAP_LINDEN_TOWN_MANSION_B1F, 11, 12)
+        }
+        else
+        {
+            msgbox(format("Hah! I don't doubt your\nskill as a POKéMON TRAINER!\pI'll go on ahead and search,\ncome find me when you can!"))
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            setflag(FLAG_HIDE_LINDEN_BLAINE)
+            removeobject(LOCALID_LINDEN_BLAINE)
+            fadescreen(FADE_FROM_BLACK)
+            setvar(VAR_MEW_QUEST_PROGRESS, 6)
+        }
+        release
+        end
+    }
+    else
+    {
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        fadenewbgm(MUS_KANTO_EMOTION)
+        msgbox(format("BLAINE: Wah?! {PLAYER}...\nI... I... Don't..."))
+        msgbox(format("GEORGE: Well, BLAINE... {PLAYER}\nhas spoken. You must go.\pNow! Leave!\nYou are not welcome here!"))
+        msgbox(format("BLAINE: Hmph... {PLAYER}, I'll be\nin the CINNABAR GYM.\pYou're on your own, now..."))
+        fadescreen(FADE_TO_BLACK)
+        setflag(FLAG_HIDE_LINDEN_BLAINE)
+        clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
+        removeobject(LOCALID_LINDEN_BLAINE)
+        fadescreen(FADE_FROM_BLACK)
+        fadedefaultbgm()
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+        waitmovement
+        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to\nthis old navigation chart?"))
+        giveitem(ITEM_OLD_SEA_MAP, 1)
+        msgbox(format("I apologize for bringing you\ninto that heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
+        msgbox(format("He is quite dangerous, so do not\napproach him... Good luck."))
+        closemessage
+        setvar(VAR_MEW_QUEST_PROGRESS, 7)
+    }
+    release
+    end    
+}
+
+script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Right
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_MALE)
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Left)
+    waitmovement
+    msgbox(format("BLAINE: Hah!\nDon't be ridiculous, GEORGE!\pYou can't hide GIOVANNI behind\nyour rich stacks of wealth!"))
+    msgbox(format("GEORGE: C'est de la merde...\nWeren't you that ROCKET scientist?\pYou dare barge into my own\nprivate residence, demanding?"))
+    msgbox(format("GIOVANNI is not our problem!\nBelieve me, if he was hiding...\pNo, I wouldn't allow it!\nHe would be caught, arrested!"))
+    msgbox(format("A crazy fool, as you are!\nYou made a mistake coming back!"))
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Walk_Left)
+    waitmovement
+    applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+    waitmovement
+    msgbox(format("...Yes? Can I help you?\nWe are discussing adult matters..."), MSGBOX_YESNO)
+    waitmessage
+    closemessage
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("What?\nYou're looking for GIOVANNI too?\pThis isn't good...\nWhat happened?!"))
+    }
+    else
+    {
+        msgbox(format("BLAINE: {PLAYER}?\nExcellent timing!"))
+        msgbox(format("GEORGE: Hmm... You know BLAINE?\nWait, what happened...?!"))
+    }
+    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I,\neven having earned my BADGE!"))
+    msgbox(format("GEORGE: I'm not sure what any\nof that means, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
+    msgbox(format("BLAINE: Hah, quit judging my past,\nGEORGE, we all had our moments!\p{PLAYER}, go on, tell him!"))
+    msgbox(format("GEORGE: Well, is BLAINE a better\nman now? I must know."), MSGBOX_YESNO)
+    waitmessage
+    closemessage
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not\naware GIOVANNI'S hiding here."))
+        msgbox(format("I will allow you both the\nmeans to investigate GUYANA.\pIf you do find GIOVANNI, he\nis extremely dangerous."))
+        msgbox(format("Do not approach him, instead,\ncome straight back... Alert me.\pThere is a cave behind my\nmansion. Surely, BLAINE can explain."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        msgbox(format("BLAINE: Hm! Right...\nI forgot about the old...\pAhem, go on..."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+        waitmovement
+        msgbox(format("GEORGE: I was done, actually...\nBest of luck to you both."))
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        msgbox(format("BLAINE: Right! So, {PLAYER}...\nAs mentioned, there's a cave ahead.\pLet's meet up there! ...Or,\nwould you prefer going together?"), MSGBOX_YESNO)
+        waitmessage
+        closemessage
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Let's head out, then!\nFollow me!"))
+            closemessage
+            setvar(VAR_MEW_QUEST_PROGRESS, 6)
+            warp(MAP_LINDEN_TOWN_MANSION_B1F, 11, 12)
+        }
+        else
+        {
+            msgbox(format("Hah! I don't doubt your\nskill as a POKéMON TRAINER!\pI'll go on ahead and search,\ncome find me when you can!"))
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            setflag(FLAG_HIDE_LINDEN_BLAINE)
+            removeobject(LOCALID_LINDEN_BLAINE)
+            fadescreen(FADE_FROM_BLACK)
+            setvar(VAR_MEW_QUEST_PROGRESS, 6)
+        }
+        release
+        end
+    }
+    else
+    {
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
+        waitmovement
+        fadenewbgm(MUS_KANTO_EMOTION)
+        msgbox(format("BLAINE: Wah?! {PLAYER}...\nI... I... Don't..."))
+        msgbox(format("GEORGE: Well, BLAINE... {PLAYER}\nhas spoken. You must go.\pNow! Leave!\nYou are not welcome here!"))
+        msgbox(format("BLAINE: Hmph... {PLAYER}, I'll be\nin the CINNABAR GYM.\pYou're on your own, now..."))
+        fadescreen(FADE_TO_BLACK)
+        setflag(FLAG_HIDE_LINDEN_BLAINE)
+        clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
+        removeobject(LOCALID_LINDEN_BLAINE)
+        fadescreen(FADE_FROM_BLACK)
+        fadedefaultbgm()
+        applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
+        waitmovement
+        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to\nthis old navigation chart?"))
+        giveitem(ITEM_OLD_SEA_MAP, 1)
+        msgbox(format("I apologize for bringing you\ninto that heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
+        msgbox(format("He is quite dangerous, so do not\napproach him... Good luck."))
+        closemessage
+        setvar(VAR_MEW_QUEST_PROGRESS, 7)
+    }
+    release
+    end     
+}
+
+movement LindenTown_Mansion_1F_Face_Left 
+{
+    face_left
+    step_end    
+}
+movement LindenTown_Mansion_1F_Walk_Left 
+{
+    walk_left
+    step_end    
+}
+
+movement LindenTown_Mansion_1F_Face_Right 
+{
+    face_right
+    step_end    
+}
+
+movement LindenTown_Mansion_1F_Walk_Right 
+{
+    walk_right
+    step_end    
+}
+
+movement LindenTown_Mansion_1F_Face_Up 
+{
+    face_up
+    step_end    
+}
+
+movement LindenTown_Mansion_1F_Face_Down 
+{
+    face_down
+    step_end    
+}

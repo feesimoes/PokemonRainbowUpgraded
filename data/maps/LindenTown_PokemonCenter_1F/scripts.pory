@@ -1,5 +1,9 @@
 mapscripts LindenTown_PokemonCenter_1F_MapScripts 
 {
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_LINDEN_TOWN)
+    }
     MAP_SCRIPT_ON_TRANSITION
     {
         setrespawn(HEAL_LOCATION_LINDEN_TOWN)

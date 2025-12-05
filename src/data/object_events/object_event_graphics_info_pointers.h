@@ -307,4 +307,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEOXYS_N]                 = &gObjectEventGraphicsInfo_DeoxysN,
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
     [OBJ_EVENT_GFX_CYNTHIA]                  = &gObjectEventGraphicsInfo_Cynthia,
+    [OBJ_EVENT_GFX_WEIRD_TREE]               = &gObjectEventGraphicsInfo_Cynthia//&gObjectEventGraphicsInfo_WeirdTree,
 };

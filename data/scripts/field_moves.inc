@@ -207,8 +207,7 @@ Text_UseWaterfall::
 Text_MonUsedWaterfall::
 	.string "{STR_VAR_1} used WATERFALL.$"
 
-@ Unused leftover from R/S
-EventScript_DeepWater::
+EventScript_UseDive::
 	lockall
 	checkitem ITEM_HM08, 1
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_MayGoUnderwater
@@ -217,19 +216,21 @@ EventScript_DeepWater::
 	setfieldeffectargument 1, 1
 	msgbox Text_SeaIsDeepUseDive, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndDive
-	msgbox Text_MonUsedDive
+	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndDive
 
 EventScript_CantDive::
-	lockall
+	msgbox Text_DiveCantBeUsedHere, MSGBOX_DEFAULT
+	releaseall
+	end
 EventScript_MayGoUnderwater:
 	msgbox Text_MonMayGoUnderwater
 EventScript_EndDive:
 	releaseall
 	end
 
-EventScript_TrySurface::
+EventScript_UseDiveUnderwater::
 	lockall
 	checkitem ITEM_HM08, 1
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
@@ -238,7 +239,7 @@ EventScript_TrySurface::
 	setfieldeffectargument 1, 1
 	msgbox Text_LightFilteringUseDive, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndSurface
-	msgbox Text_MonUsedDive
+	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
 

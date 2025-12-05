@@ -1,1 +1,10 @@
 mapscripts KaieteurJungle_Route5_MapScripts {}
+
+script KaieteurJungle_Route5_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE -\nROUTE 5 - MT. MORA FOOTHILLS"))
+    closemessage
+    release
+    end   
+}

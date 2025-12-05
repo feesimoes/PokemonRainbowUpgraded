@@ -58,6 +58,11 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         {
             nBadges++;
         }
+        //Johto Badge 8
+        if (FlagGet(FLAG_JOHTO_BADGE08_GET))
+        {
+            nBadges++;
+        }
 
         if (nBadges > 9)
         {

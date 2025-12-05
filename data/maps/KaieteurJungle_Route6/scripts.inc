@@ -3,75 +3,92 @@ KaieteurJungle_Route6_MapScripts::
 
 
 KaieteurJungle_Route6_Sign::
-# 5 "data/maps/KaieteurJungle_Route6/scripts.pory"
-	lock
 # 6 "data/maps/KaieteurJungle_Route6/scripts.pory"
-	msgbox KaieteurJungle_Route6_Sign_Text_0
+	lock
 # 7 "data/maps/KaieteurJungle_Route6/scripts.pory"
-	closemessage
+	msgbox KaieteurJungle_Route6_Sign_Text_0
 # 8 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	closemessage
+# 9 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	release
+	end
+
+
+KaieteurJungle_Route6_DrFuji_Memo_Sign::
+# 15 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	lock
+# 16 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	msgbox KaieteurJungle_Route6_DrFuji_Memo_Sign_Text_0
+# 17 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	closemessage
+# 18 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	release
 	end
 
 
 KaieteurJungle_Route6_FerryToSlateport::
-# 14 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 24 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	lock
-# 15 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 25 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	faceplayer
-# 16 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 26 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	checkitem ITEM_OLD_SEA_MAP, 1
-# 17 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 27 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq KaieteurJungle_Route6_FerryToSlateport_1
-# 44 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 54 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	msgbox KaieteurJungle_Route6_FerryToSlateport_Text_3
-# 45 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 55 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	closemessage
-# 46 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 56 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	release
 	end
 
 KaieteurJungle_Route6_FerryToSlateport_1:
-# 19 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 29 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	msgbox KaieteurJungle_Route6_FerryToSlateport_Text_0, MSGBOX_YESNO
-# 20 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 30 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq KaieteurJungle_Route6_FerryToSlateport_4
-# 36 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 46 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	msgbox KaieteurJungle_Route6_FerryToSlateport_Text_2
-# 37 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 47 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	closemessage
-# 38 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 48 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	release
 	end
 
 KaieteurJungle_Route6_FerryToSlateport_4:
-# 22 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 32 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	msgbox KaieteurJungle_Route6_FerryToSlateport_Text_1
-# 23 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 33 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	setvar VAR_0x8004, SEAGALLOP_KAIETEUR_JUNGLE
-# 24 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 34 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	setvar VAR_0x8006, SEAGALLOP_SLATEPORT_CITY
-# 25 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 35 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	waitmessage
-# 26 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 36 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	closemessage
-# 27 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 37 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	delay 20
-# 28 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 38 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 29 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 39 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	special DoSeagallopFerryScene
-# 30 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 40 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	waitstate
-# 31 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 41 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	release
 	end
 
 
 KaieteurJungle_Route6_Sign_Text_0:
-# 6 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 7 "data/maps/KaieteurJungle_Route6/scripts.pory"
+	.string "KAIETEUR JUNGLE -\n"
+	.string "ROUTE 6$"
+
+KaieteurJungle_Route6_DrFuji_Memo_Sign_Text_0:
+# 16 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "It's a notice from DR. FUJI,\n"
 	.string "dated: September 6th, 1996.\p"
 	.string "If any human sets foot\n"
@@ -81,23 +98,23 @@ KaieteurJungle_Route6_Sign_Text_0:
 	.string "from GUYANA...$"
 
 KaieteurJungle_Route6_FerryToSlateport_Text_0:
-# 19 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 29 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "Ah, what's this?\n"
 	.string "You have a map, eh?\p"
 	.string "Are you up for an adventure?$"
 
 KaieteurJungle_Route6_FerryToSlateport_Text_1:
-# 22 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 32 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "Alright, let's head out!\n"
 	.string "We'll be setting upstream to sea.$"
 
 KaieteurJungle_Route6_FerryToSlateport_Text_2:
-# 36 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 46 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "My boat works just fine!\n"
 	.string "It's tough sailing without a map.$"
 
 KaieteurJungle_Route6_FerryToSlateport_Text_3:
-# 44 "data/maps/KaieteurJungle_Route6/scripts.pory"
+# 54 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "Are you lost?\n"
 	.string "My boat works just fine!\p"
 	.string "Without a map to navigate,\n"

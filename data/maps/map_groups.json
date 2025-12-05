@@ -57,7 +57,9 @@
     "gMapGroup_IndoorRoute29",
     "gMapGroup_IndoorRoute36",
     "gMapGroup_IndoorLinden",
-    "gMapGroup_IndoorSlateport"
+    "gMapGroup_IndoorSlateport",
+    "gMapGroup_IndoorBlackthorn",
+    "gMapGroup_IndoorTopsoil"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -340,7 +342,8 @@
     "LindenTown",
     "Route36",
     "Route33",
-    "AzaleaTown"
+    "AzaleaTown",
+    "TopsoilTown"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -661,7 +664,22 @@
     "MtMora_Caves_5F",
     "MtMora_Caves_6F",
     "MtMora_Caves_7F",
-    "MtMora_Caves_8F"
+    "MtMora_Caves_8F",
+    "DragonsDen",
+    "DragonsDen_BlackthornCity",
+    "KaieteurJungle_Route6_Underwater",
+    "KaieteurJungle_Route7",
+    "KaieteurJungle_Route8",
+    "KaieteurJungle_Route9",
+    "KaieteurJungle_LindenPath",
+    "PokemonLeague_KogasRoom",
+    "PokemonLeague_KarensRoom",
+    "PokemonLeague_ChampionsRoom_Lance",
+    "PokemonLeague_HallOfFame_Lance",
+    "KaieteurJungle_Route10",
+    "KaieteurJungle_Route11",
+    "KaieteurJungle_Route12",
+    "KaieteurJungle_Route13"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -701,9 +719,25 @@
     "LindenTown_House8",
     "LindenTown_House9",
     "LindenTown_House10",
-    "LindenTown_Mansion_1F"
+    "LindenTown_Mansion_1F",
+    "LindenTown_Mansion_B1F"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_Harbor"
+  ],
+  "gMapGroup_IndoorBlackthorn": [
+    "BlackthornCity_House1",
+    "BlackthornCity_House2",
+    "BlackthornCity_MoveSpecialists_House",
+    "BlackthornCity_PokemonCenter_1F",
+    "BlackthornCity_Mart",
+    "BlackthornCity_Gym"
+  ],
+  "gMapGroup_IndoorTopsoil": [
+    "TopsoilTown_House1",
+    "TopsoilTown_House2",
+    "TopsoilTown_House3",
+    "TopsoilTown_House4",
+    "TopsoilTown_MasterHouse"
   ]
 }

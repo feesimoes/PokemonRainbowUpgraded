@@ -1436,6 +1436,14 @@
     {
       "id": "MAPSEC_SPECIAL_AREA",
       "name": "CELADON DEPT."
+    },
+    {
+      "id": "MAPSEC_TOPSOIL_TOWN",
+      "name": "TOPSOIL TOWN",
+      "x": 8,
+      "y": 9,
+      "width": 1,
+      "height": 1
     }
   ]
 }

@@ -455,6 +455,10 @@ static bool8 GetDirectionOfTravel(void)
     {
         return DIRN_EASTBOUND;
     }
+    if (gSpecialVar_0x8004 == SEAGALLOP_CANALAVE_CITY)
+    {
+        return DIRN_WESTBOUND;
+    }
     if (gSpecialVar_0x8006 == SEAGALLOP_CANALAVE_CITY)
     {
         return DIRN_EASTBOUND;

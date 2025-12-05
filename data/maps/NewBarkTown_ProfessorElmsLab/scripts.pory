@@ -6,6 +6,141 @@ mapscripts NewBarkTown_ProfessorElmsLab_MapScripts
     }
 }
 
+script NewBarkTown_ProfessorElmsLab_Chikorita_Ball 
+{
+    lock
+    if (var(VAR_MEW_QUEST_PROGRESS) == 11)
+    {
+        textcolor(NPC_TEXT_COLOR_MALE)
+        showmonpic(SPECIES_CHIKORITA, 10, 3)
+        msgbox(format("You'll take CHIKORITA, right?\nIt's a GRASS-TYPE POKéMON."), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
+            hidemonpic
+            givemon(SPECIES_CHIKORITA, 5, ITEM_MIRACLE_SEED)
+            setflag(FLAG_JOHTO_CHOSE_CHIKORITA)
+            removeobject(LOCALID_CHIKORITA_BALL)
+            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                call(EventScript_GetGiftMonPartySlot)
+                call(EventScript_ChangePokemonNickname)
+            }
+            if (!flag(FLAG_SYS_NATIONAL_DEX))
+            {
+                msgbox(format("Oh, right!\nI almost forgot...\pMR. POKéMON is still waiting\nfor you on ROUTE 30."))
+            }
+            setvar(VAR_MEW_QUEST_PROGRESS, 12)
+            closemessage
+        }
+        else
+        {
+            hidemonpic
+            msgbox(format("Think it over, carefully.\nYour partner is important!"))
+            closemessage
+        }
+    }
+    else
+    {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(format("Better not get greedy..."))
+        closemessage
+    }
+    release
+    end
+}
+
+script NewBarkTown_ProfessorElmsLab_Totodile_Ball 
+{
+    lock
+    if (var(VAR_MEW_QUEST_PROGRESS) == 11)
+    {
+        textcolor(NPC_TEXT_COLOR_MALE)
+        showmonpic(SPECIES_TOTODILE, 10, 3)
+        msgbox(format("You'll take TOTODILE, right?\nIt's a WATER-TYPE POKéMON."), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
+            hidemonpic
+            givemon(SPECIES_TOTODILE, 5, ITEM_MYSTIC_WATER)
+            setflag(FLAG_JOHTO_CHOSE_TOTODILE)
+            removeobject(LOCALID_TOTODILE_BALL)
+            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                call(EventScript_GetGiftMonPartySlot)
+                call(EventScript_ChangePokemonNickname)
+            }
+            if (!flag(FLAG_SYS_NATIONAL_DEX))
+            {
+                msgbox(format("Oh, right!\nI almost forgot...\pMR. POKéMON is still waiting\nfor you on ROUTE 30."))
+            }
+            setvar(VAR_MEW_QUEST_PROGRESS, 12)
+            closemessage
+        }
+        else
+        {
+            hidemonpic
+            msgbox(format("Think it over, carefully.\nYour partner is important!"))
+            closemessage
+        }
+    }
+    else
+    {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(format("Better not get greedy..."))
+        closemessage
+    }
+    release
+    end
+}
+
+script NewBarkTown_ProfessorElmsLab_Cyndaquil_Ball 
+{
+    lock
+    if (var(VAR_MEW_QUEST_PROGRESS) == 11)
+    {
+        textcolor(NPC_TEXT_COLOR_MALE)
+        showmonpic(SPECIES_CYNDAQUIL, 10, 3)
+        msgbox(format("You'll take CYNDAQUIL, right?\nIt's a FIRE-TYPE POKéMON."), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
+            hidemonpic
+            givemon(SPECIES_CYNDAQUIL, 5, ITEM_CHARCOAL)
+            setflag(FLAG_JOHTO_CHOSE_CYNDAQUIL)
+            removeobject(LOCALID_CYNDAQUIL_BALL)
+            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                call(EventScript_GetGiftMonPartySlot)
+                call(EventScript_ChangePokemonNickname)
+            }
+            if (!flag(FLAG_SYS_NATIONAL_DEX))
+            {
+                msgbox(format("Oh, right!\nI almost forgot...\pMR. POKéMON is still waiting\nfor you on ROUTE 30."))
+            }
+            setvar(VAR_MEW_QUEST_PROGRESS, 12)
+            closemessage
+        }
+        else
+        {
+            hidemonpic
+            msgbox(format("Think it over, carefully.\nYour partner is important!"))
+            closemessage
+        }
+    }
+    else
+    {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(format("Better not get greedy..."))
+        closemessage
+    }
+    release
+    end
+}
+
 script NewBarkTown_ProfessorElmsLab_Aide_1_Dialogue
 {
     lock
@@ -52,12 +187,28 @@ script NewBarkTown_ProfessorElmsLab_Heal_Dialogue
 
 script NewBarkTown_ProfessorElmsLab_Elm_Dialogue
 {
+    lock
+    applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
     if (flag(FLAG_MEW_QUEST_STARTED))
     {
-        lock
-        applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
-        msgbox(format("Hi, {PLAYER}!\nHow are you doing?\pIf your POKéMON get hurt, you\ncan heal them here, too!\pPlease speak with my wife by\nthe machine there."))
-        closemessage
+        if (var(VAR_MEW_QUEST_PROGRESS) == 10)
+        {
+            msgbox(format("{PLAYER}! There you are!\nI heard of your adventure!\pI'm just glad the POKéGEAR'S\ndevelopment may resume..."))
+            msgbox(format("Oh, that reminds me!\nAs a bit of a welcome gift...\pHow about you pick a partner?\nThese POKéMON are extremely rare!"))
+            msgbox(format("Go on.\nPick one from the table!"))
+            closemessage
+            setvar(VAR_MEW_QUEST_PROGRESS, 11)
+        }
+        elif (var(VAR_MEW_QUEST_PROGRESS) == 11)
+        {
+            msgbox(format("Think it over carefully...\nYour partner is important!"))
+            closemessage
+        }
+        else
+        {
+            msgbox(format("Hi, {PLAYER}!\nHow are you doing?\pIf your POKéMON get hurt, you\ncan heal them here, too!\pPlease speak with my wife by\nthe machine there."))
+            closemessage
+        }
         releaseall
         end    
     }

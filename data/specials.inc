@@ -454,4 +454,5 @@ gSpecials::
 	def_special CreateEnemyEventMon
 	def_special GetBountyTaskMonAndReward
 	def_special CheckMonClaimBountyTaskReward
+	def_special MakeMewLegalJPNEmeraldEvent
 gSpecialsEnd::

@@ -384,6 +384,19 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_SANDSTORM:
     case WEATHER_FOG_DIAGONAL:
     case WEATHER_UNDERWATER:
+        if (FadeInScreen_RainShowShade() == FALSE)
+        {
+            gWeatherPtr->gammaIndex = 3;
+            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
+        }
+        break;
+    case WEATHER_UNDERWATER_BUBBLES:
+        if (FadeInScreen_RainShowShade() == FALSE)
+        {
+            gWeatherPtr->gammaIndex = 3;
+            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
+        }
+        break;
     default:
         if (!gPaletteFade.active)
         {

@@ -1,0 +1,11 @@
+mapscripts TopsoilTown_House1_MapScripts {}
+
+script TopsoilTown_House1_Balding_Man
+{
+    lock
+    faceplayer
+    msgbox(format("Another day, another berry...\nI've worked here my whole life."))
+    closemessage
+    release
+    end
+}

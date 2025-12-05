@@ -1856,3 +1856,11 @@
 	setvar VAR_0x8006, \item
 	special CreateEnemyEventMon
 	.endm
+
+	@ Opens the Music Player, to play unlocked songs
+	@ Songs should be a list of id values determined playable with a flag
+	.macro musicplayer mus_id:req, flag:req
+	setvar VAR_MUSIC_PLAYER_TRACK, \mus_id
+	.2byte \flag
+	.4byte \products
+	.endm

@@ -146,6 +146,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionHarbor_EventScript_MrFuji",
       "flag": "FLAG_HIDE_VERMILION_MR_FUJI"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SEAGALLOP",
+      "x": 64,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -190,13 +204,6 @@
       "elevation": 3,
       "dest_map": "MAP_VERMILION_CITY",
       "dest_warp_id": "10"
-    },
-    {
-      "x": 58,
-      "y": 10,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

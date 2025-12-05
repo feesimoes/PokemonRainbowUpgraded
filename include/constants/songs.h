@@ -408,6 +408,14 @@
 #define MUS_KAIETEUR_JUNGLE       400 // MUS_KAIETEUR_JUNGLE = Abandoned Ship remix
 #define MUS_MT_MORA_CAVE          401 // MUS_MT_MORA_CAVE = Petalburg Woods remix
 #define MUS_SLATEPORT             402 // MUS_SLATEPORT
+#define MUS_ELM_LAB               403 // MUS_ELM_LAB
+#define MUS_VICTORY_ROAD_CAVE     404 // MUS_VICTORY_ROAD_CAVE
+#define MUS_DRAGONS_DEN           405 // MUS_DRAGONS_DEN
+#define MUS_VS_MEW                406 // MUS_VS_MEW
+#define MUS_LINDEN_MANSION        407 // MUS_LINDEN_MANSION = Hotel Richissime remix
+#define MUS_ENCOUNTER_ROCKET_BOSS 408 // MUS_ENCOUNTER_ROCKET_BOSS
+#define MUS_UNDERWATER            409 // MUS_UNDERWATER = Dive remix
+#define SE_PHONE_RING_LONG        410 // SE_PHONE_RING_LONG = PokeGear phone ring sfx (Long version)
 
 #define MUS_NONE                    0xFFFF
 

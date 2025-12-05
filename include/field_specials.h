@@ -34,5 +34,6 @@ u16 SampleBountyTaskMon(void);
 u16 SampleBountyTaskMonLvl(void);
 u16 SampleBountyTaskBall(void);
 u16 SampleBountyTaskReward(void);
+void MakeMewLegalJPNEmeraldEvent(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

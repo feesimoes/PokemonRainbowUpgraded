@@ -1,0 +1,187 @@
+mapscripts KaieteurJungle_LindenPath_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MEW_QUEST_PROGRESS) == 8)
+        {
+            clearflag(FLAG_HIDE_LINDEN_BLAINE)
+        }
+    }
+}
+
+movement KaieteurJungle_LindenPath_FaceUp 
+{
+    face_up
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_WalkUp 
+{
+    walk_up
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_WalkUp_6 
+{
+    walk_up * 6
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_FaceRight 
+{
+    face_right
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_FaceDown 
+{
+    face_down
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_FaceLeft 
+{
+    face_left
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_Emote
+{
+    emote_exclamation_mark
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_WalkDown_2
+{
+    walk_down * 2
+    step_end    
+}
+
+movement KaieteurJungle_LindenPath_WalkDown_6
+{
+    walk_down * 6
+    step_end    
+}
+
+script KaieteurJungle_LindenPath_EventScript_Blaine 
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_MALE)
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceRight)
+    waitmovement
+    msgbox(format("{PLAYER}!\nThis was our old trade route.\pWhen I used to do work for\nGIOVANNI, we'd be safe here..."))
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceDown)
+    waitmovement
+    msgbox(format("I don't see him hiding here\nanywhere, though..."))
+    closemessage
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceLeft)
+    waitmovement
+    delay(30)
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_WalkUp)
+    waitmovement
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceRight)
+    waitmovement
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_WalkUp_6)
+    waitmovement
+    delay(30)
+    msgbox(format("Anyways, we should probably look\nahead here for clues..."))
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_FaceRight)
+    waitmovement
+    delay(30)
+    msgbox(format("...\n...Hah?\p...He's standing right behind\nme, isn't he?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceLeft)
+        waitmovement
+    }
+    else
+    {
+        msgbox(format("Hah! That's great!\nSo that looming evil presence...\pI was just imagining it!"))
+        msgbox(format("As I was saying, he isn't\nanywhere in this old cave...\pOnward!\nWe shall search further!"))
+        applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceLeft)
+        waitmovement
+    }
+    fadenewbgm(MUS_ENCOUNTER_ROCKET_BOSS)
+    delay(30)
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_Emote)
+    waitmovement
+    waitmessage
+    closemessage
+    msgbox(format("GIOVANNI: DR. BLAINE?\nHow goes the search?\p...And, who is your friend\nover there?"))
+    msgbox(format("BLAINE: Hah?! GIOVANNI!\nWe've got you cornered, now!\pYou'd better have BURN HEAL!"))
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_Emote)
+    waitmovement
+    msgbox(format("GIOVANNI: Oh?\nYou're challenging me?\pInstead of thanking me for\nmy generous funds, investments...\pYou're coming right at me?\nI don't understand."))
+    msgbox(format("BLAINE: What do you mean?!\nYou haven't funded good in years!\pIn fact, your stolen 'funds'...\nIt makes you an outright villain!"))
+    msgbox(format("GIOVANNI: I'm sorry?\nIs there a problem, DR. BLAINE?!\pYou simply cannot accuse me of\nsuch things!"))
+    msgbox(format("BLAINE: Actually, it's more verifiable\nthan your 'TEAM ROCKET' scam!"))
+    msgbox(format("GIOVANNI: 'TEAM ROCKET'...\nHmm... I like that concept.\pProtect the world from devastation,\nunify all people... POKéMON..."))
+    msgbox(format("BLAINE: Hah! The old motto...\nAlmost...\pBut, yet, not quite!\nHow did you get it wrong?!"))
+    msgbox(format("GIOVANNI: Hm? No, I was merely\nthinking aloud...\pRegardless, DR. BLAINE, what seems\nto be the problem?"))
+    msgbox(format("BLAINE: You know what?\nI've had enough of your games.\pJust hand over that prototype\nyou stole from SILPH CO."))
+    msgbox(format("I'm sure GEORGE will personally\ndeal with the likes of you."))
+    msgbox(format("GIOVANNI: I'm sorry... What?\nPrototype? SILPH...?"))
+    msgbox(format("BLAINE: Have you lost your mind?!\nWait...\pYou haven't addressed me as\nDR. BLAINE ever since..."))
+    msgbox(format("GIOVANNI: ...Since, what, exactly?"))
+    msgbox(format("BLAINE: Are you that clueless?!\nImbecile! It's just BLAINE, now!\p'DR.' BLAINE contributed to your\nevil cloning schemes!"))
+    fadenewbgm(MUS_KANTO_EMOTION)
+    msgbox(format("GIOVANNI: ...Cloning?\nIf such a thing were possible...\pPerhaps, DR. FUJI'S grief..."))
+    msgbox(format("BLAINE: It is possible!\nForbidden technology! Banned!\pHow can you simply forget your\ninsane, evil ambitions?!"))
+    msgbox(format("Because of you, MEW is gone!\nAMBER is long gone!"))
+    msgbox(format("GIOVANNI: ...I have no idea what's\ngotten into you...\pYes, AMBER recently died...\nBut, DR. FUJI..."))
+    msgbox(format("I... I need some time to...\nProcess all this crazy talk."))
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_WalkDown_2)
+    waitmovement
+    delay(24)
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_FaceUp)
+    waitmovement
+    delay(24)
+    msgbox(format("GIOVANNI: Oh, right... DR.-\nI mean... BLAINE.\pStop it. Get some help..."))
+    waitmessage
+    closemessage
+    fadedefaultbgm
+    delay(24)
+    applymovement(LOCALID_LINDEN_PATH_GIOVANNI, KaieteurJungle_LindenPath_WalkDown_6)
+    waitmovement
+    delay(60)
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceRight)
+    waitmovement
+    msgbox(format("BLAINE: What...\nWhat just happened?!\pHe got away! But... Even so,\nHe wasn't the thief...?"))
+    fadeoutbgm(0)
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_Emote)
+    waitmovement
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    msgbox(format("BLAINE: Hmm, this sound is..."))
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    msgbox(format("I think it's coming from...\nwithin me?!\p...What has GIOVANNI done to\nme?! {PLAYER}? Did you see?!"))
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    msgbox(format("Hah, wait!\nLet me check my pockets!"))
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    msgbox(format("Hmm... Is this...\nThe prototype?!"))
+    playse(SE_PHONE_RING_LONG)
+    waitse
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceDown)
+    waitmovement
+    delay(24)
+    playse(SE_SELECT)
+    msgbox(format("MR. PRESIDENT!\nHello!\p...Yes, understood.\n...Well, we ran into...\pNo, we didn't, but...\nRight! We'll bring it over."))
+    playse(SE_BOO)
+    waitse
+    applymovement(LOCALID_LINDEN_PATH_BLAINE, KaieteurJungle_LindenPath_FaceRight)
+    waitmovement
+    msgbox(format("That was the PRESIDENT.\nWe've got the prototype, so...\pLet's head back now, {PLAYER}!"))
+    closemessage
+    playbgm(MUS_KANTO_ROUTE_GATE, TRUE)
+    setflag(FLAG_HIDE_LINDEN_BLAINE)
+    clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
+    setvar(VAR_MEW_QUEST_PROGRESS, 9)
+    warp(MAP_SILPH_CO_11F, 9, 10)
+    release
+    end
+}

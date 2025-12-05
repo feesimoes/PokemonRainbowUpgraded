@@ -1,1 +1,10 @@
 mapscripts KaieteurJungle_Route1_MapScripts {}
+
+script KaieteurJungle_Route1_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE - ROUTE 1\nPath to LINDEN TOWN ahead!"))
+    closemessage
+    release
+    end
+}

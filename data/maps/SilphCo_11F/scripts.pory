@@ -143,7 +143,41 @@ SilphCo_11F_EventScript_Grunt2::
 `
 script SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji 
 {
-    if (var(VAR_MEW_QUEST_PROGRESS) == 0)
+	if (var(VAR_MEW_QUEST_PROGRESS) == 14)
+	{
+		lock
+		faceplayer
+		msgbox(format("PRESIDENT: {PLAYER}, you made it!\nYou brought the POKéGEAR, yes?"))
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(format("{PLAYER} handed the PRESIDENT the\nPOKéGEAR prototype."))
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(format("PRESIDENT: Thank you so much.\nWe are truly grateful...\pWe will be reinforcing security here,\nyou see... Worry not."))
+		msgbox(format("Should you need to return, you're\ndefinitely welcome back in SILPH.\pBy the way, have you spoken\nto MR. FUJI, yet?"))
+		setvar(VAR_MEW_QUEST_PROGRESS, 9)
+		closemessage
+		release
+		end
+	}
+	elif (var(VAR_MEW_QUEST_PROGRESS) >= 10 && var(VAR_MEW_QUEST_PROGRESS) <= 13 && var(VAR_MEW_QUEST_PROGRESS) >= 15)
+	{
+        lock
+        faceplayer
+		msgbox(format("PRESIDENT: {PLAYER}, once again,\nwe are truly grateful!"))
+		closemessage
+		release
+		end
+	}
+	elif (var(VAR_MEW_QUEST_PROGRESS) == 9)
+	{
+        lock
+        faceplayer
+		msgbox(format("PRESIDENT: {PLAYER}, once again,\nwe are truly grateful...\pWe will be reinforcing security here,\nyou see... Worry not."))
+		msgbox(format("Should you need to return, you're\ndefinitely welcome back in SILPH.\pBy the way, have you spoken\nto MR. FUJI, yet?"))
+		closemessage
+		release
+		end
+	}
+    elif (var(VAR_MEW_QUEST_PROGRESS) == 0)
     {
         lock
         faceplayer

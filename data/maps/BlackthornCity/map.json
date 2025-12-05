@@ -20,8 +20,173 @@
       "direction": "down"
     }
   ],
-  "object_events": [],
-  "warp_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "x": 25,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BlackthornCity_Old_Man",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 17,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BlackthornCity_Old_Woman",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MAN",
+      "x": 46,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BlackthornCity_Man",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 31,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BlackthornCity_Battle_Girl",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 57,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_MOVE_SPECIALISTS_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 52,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_DRAGONS_DEN_BLACKTHORN_CITY",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 42,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BlackthornCity_Move_Specialists_House_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BlackthornCity_TrainerTips_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 58,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BlackthornCity_Ice_Path_Ahead_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BlackthornCity_Gym_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BlackthornCity_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 30,
+      "y": 4,
+      "elevation": 0,
+      "item": "ITEM_DRAGON_FANG_2",
+      "flag": "FLAG_HIDDEN_ITEM_DRAGONS_DEN_DRAGON_FANG_2",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
 }

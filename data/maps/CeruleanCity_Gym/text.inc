@@ -1,5 +1,5 @@
 CeruleanCity_Gym_Text_MistyIntro::
-    .string "Hi, you're a new face!\p"
+    .string "Hey! What took you so long?\p"
     .string "Only those TRAINERS who have a\n"
     .string "policy about POKéMON can turn pro.\p"
     .string "What is your approach when you\n"

@@ -1,0 +1,49 @@
+{
+  "id": "MAP_KAIETEUR_JUNGLE_ROUTE7",
+  "name": "KaieteurJungle_Route7",
+  "layout": "LAYOUT_KAIETEUR_JUNGLE_ROUTE7",
+  "music": "MUS_KAIETEUR_JUNGLE",
+  "region_map_section": "MAPSEC_KAIETEUR_JUNGLE",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_KAIETEUR_JUNGLE_ROUTE6",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_KAIETEUR_JUNGLE_ROUTE8",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaieteurJungle_Route7_FujiMemo_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaieteurJungle_Route7_Sign"
+    }
+  ]
+}

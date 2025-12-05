@@ -402,6 +402,14 @@ gSongTable::
 	song mus_kaieteur_jungle, 0, 0
 	song mus_mt_mora_cave, 0, 0
 	song mus_slateport, 0, 0
+	song mus_elm_lab, 0, 0
+	song mus_victory_road_cave, 0, 0
+	song mus_dragons_den, 0, 0
+	song mus_vs_mew, 0, 0
+	song mus_linden_mansion, 0, 0
+	song mus_encounter_rocket_boss, 0, 0
+	song mus_underwater, 0, 0
+	song se_phone_ring_long, 1, 1
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

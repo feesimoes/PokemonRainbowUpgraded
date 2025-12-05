@@ -898,6 +898,7 @@ static const u16 sMapFlyDestinations[][3] = {
     [MAPSEC_VIOLET_CITY         - KANTO_MAPSEC_START] = {MAP(MAP_VIOLET_CITY),                           HEAL_LOCATION_VIOLET_CITY},
     [MAPSEC_ROUTE_33            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE33),                               HEAL_LOCATION_ROUTE33},
     [MAPSEC_ROUTE_32_POKECENTER - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE33),                               HEAL_LOCATION_ROUTE33},
+    [MAPSEC_BLACKTHORN_CITY     - KANTO_MAPSEC_START] = {MAP(MAP_BLACKTHORN_CITY),                       HEAL_LOCATION_BLACKTHORN_CITY},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_SSANNE_EXTERIOR),                       HEAL_LOCATION_VERMILION_HARBOR},
@@ -1052,41 +1053,561 @@ static void InitRegionMapType(void)
     u8 j;
     u8 region;
 
-    // Check Sevii Islands first
-    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START && gMapHeader.regionMapSectionId < MAPSEC_ROUTE_22_FRONT_GATE)
+    switch (gMapHeader.regionMapSectionId)
     {
-        for (j = 0; j < 3; j++)  // Check all three Sevii groups
-        {
-            for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
-            {
-                if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
-                {
-                    region = j + REGIONMAP_SEVII123;  // SEVII123=1, SEVII45=2, SEVII67=3
-                }
-            }
+        case MAPSEC_ONE_ISLAND:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_TWO_ISLAND:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_THREE_ISLAND:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_FOUR_ISLAND:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_FIVE_ISLAND:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_SEVEN_ISLAND:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_SIX_ISLAND:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_KINDLE_ROAD:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_TREASURE_BEACH:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_CAPE_BRINK:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_BOND_BRIDGE:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_THREE_ISLE_PORT:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_SEVII_ISLE_6:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_SEVII_ISLE_7:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_SEVII_ISLE_8:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_SEVII_ISLE_9:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_RESORT_GORGEOUS:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_WATER_LABYRINTH:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_FIVE_ISLE_MEADOW:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_MEMORIAL_PILLAR:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_OUTCAST_ISLAND:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_GREEN_PATH:
+        case MAPSEC_WATER_PATH:
+        case MAPSEC_RUIN_VALLEY:
+        case MAPSEC_TRAINER_TOWER:
+        case MAPSEC_CANYON_ENTRANCE:
+        case MAPSEC_SEVAULT_CANYON:
+        case MAPSEC_TANOBY_RUINS:
+        case MAPSEC_NAVEL_ROCK:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_MT_EMBER:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_BERRY_FOREST:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_ICEFALL_CAVE:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_ROCKET_WAREHOUSE:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_TRAINER_TOWER_2:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_DOTTED_HOLE:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_LOST_CAVE:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_PATTERN_BUSH:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_ALTERING_CAVE:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_TANOBY_CHAMBERS:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_THREE_ISLE_PATH:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_TANOBY_KEY:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_BIRTH_ISLAND:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_MONEAN_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_LIPTOO_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_WEEPTH_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_DILFORD_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_SCUFIB_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_RIXY_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_VIAPOIS_CHAMBER:
+            region = REGIONMAP_SEVII67;
+            break;
+        case MAPSEC_EMBER_SPA:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_NEW_BARK_TOWN:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_29:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_CHERRYGROVE_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_30:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_31:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_DARK_CAVE:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_VIOLET_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_SPROUT_TOWER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_32:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_32_BAY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_32_POKECENTER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_UNION_CAVE:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_RUINS_OF_ALPH:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_33:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_34:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ILEX_FOREST:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_AZALEA_TOWN:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_GOLDENROD_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_35:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_NATIONAL_PARK:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_36:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_37:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ECRUTEAK_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_38:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_BELL_TOWER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_BURNT_TOWER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_39:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_OLIVINE_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_40:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_41:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_42:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_CIANWOOD_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_CLIFF_EDGE_GATE:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_43:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_44:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_45:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_46:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_47:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ROUTE_48:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_PAL_PARK:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_BATTLE_RESORT:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_LAKE_OF_RAGE:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_BLACKTHORN_CITY:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_ICE_PATH:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_MAHOGANY_TOWN:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_MT_MORTAR:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_OLIVINE_LIGHTHOUSE:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_EMBEDDED_TOWER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_MT_SILVER:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_SLOWPOKE_WELL:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_WHIRL_ISLANDS:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_DRAGONS_DEN:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_CANALAVE_CITY:
+            region = REGIONMAP_SINNOH;
+            break;
+        case MAPSEC_SINNOH_ROUTES:
+            region = REGIONMAP_SINNOH;
+            break;
+        case MAPSEC_LINDEN_TOWN:
+            region = REGIONMAP_GUYANA;
+            break;
+        case MAPSEC_MT_MORA:
+            region = REGIONMAP_GUYANA;
+            break;
+        case MAPSEC_KAIETEUR_JUNGLE:
+            region = REGIONMAP_GUYANA;
+            break;
+        case MAPSEC_LITTLEROOT_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_OLDALE_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_DEWFORD_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_LAVARIDGE_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_FALLARBOR_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_VERDANTURF_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_PACIFIDLOG_TOWN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_PETALBURG_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_SLATEPORT_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_MAUVILLE_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_FORTREE_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_LILYCOVE_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_MOSSDEEP_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_SOOTOPOLIS_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_EVER_GRANDE_CITY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_101:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_102:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_103:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_104:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_105:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_106:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_107:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_108:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_109:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_110:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_111:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_112:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_113:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_114:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_115:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_116:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_117:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_118:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_119:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_120:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_121:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_122:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_123:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_124:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_125:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_126:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_127:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_128:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_129:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_130:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_131:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_132:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_133:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ROUTE_134:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_124:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_125:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_126:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_127:
+            region = REGIONMAP_HOENN;
+            break;
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_SOOTOPOLIS:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_GRANITE_CAVE:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_MT_CHIMNEY:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_BATTLE_FRONTIER:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_PETALBURG_WOODS:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ABANDONED_SHIP:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_NEW_MAUVILLE:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_METEOR_FALLS:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_METEOR_FALLS2:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_MT_PYRE:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_AQUA_HIDEOUT_OLD:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_SHOAL_CAVE:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_128:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_VICTORY_ROAD:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_MIRAGE_ISLAND:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_CAVE_OF_ORIGIN:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_FIERY_PATH:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_FIERY_PATH2:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_JAGGED_PASS:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_JAGGED_PASS2:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_UNDERWATER_SEALED_CHAMBER:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ISLAND_CAVE:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_DESERT_RUINS:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_ANCIENT_TOMB:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_INSIDE_OF_TRUCK:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_SKY_PILLAR:
+            region = REGIONMAP_HOENN;
+            break;
+        case MAPSEC_TOPSOIL_TOWN:
+            region = REGIONMAP_GUYANA;
+            break;
+        default:
+            region = REGIONMAP_KANTO;
+            break;
         }
-    }
-    // In Johto
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId < MAPSEC_CANALAVE_CITY)
-    {
-        region = REGIONMAP_JOHTO;
-    }
-    // In Sinnoh
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_CANALAVE_CITY && gMapHeader.regionMapSectionId <= MAPSEC_SINNOH_ROUTES)
-    {
-        region = REGIONMAP_SINNOH;
-    }
-    // In Guyana
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_LINDEN_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_KAIETEUR_JUNGLE)
-    {
-        region = REGIONMAP_GUYANA;
-    }
-    // In Hoenn
-    else if (gMapHeader.regionMapSectionId >= MAPSEC_LITTLEROOT_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_SKY_PILLAR)
-    {
-        region = REGIONMAP_HOENN;
-    }
-    // else: stay at REGIONMAP_KANTO (default)
 
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
@@ -3149,8 +3670,12 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_VIOLET_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_32_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE32_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_BLACKTHORN_CITY:
+        return FlagGet(FLAG_WORLD_MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_CANALAVE_CITY:
         return FlagGet(FLAG_WORLD_MAP_CANALAVE_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_LINDEN_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_LINDEN_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:

@@ -1,5 +1,14 @@
 mapscripts KaieteurJungle_Route3_MapScripts {}
 
+script KaieteurJungle_Route3_ExplorersMemo_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE -\nROUTE 3"))
+    closemessage
+    release
+    end   
+}
+
 script KaieteurJungle_Route3_Sign 
 {
     lock

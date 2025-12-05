@@ -1,0 +1,11 @@
+mapscripts TopsoilTown_House2_MapScripts {}
+
+script TopsoilTown_House2_Man
+{
+    lock
+    faceplayer
+    msgbox(format("You're dressed up very, very\nweirdly... Do you not get hot?"))
+    closemessage
+    release
+    end
+}

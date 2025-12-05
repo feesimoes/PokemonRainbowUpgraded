@@ -1,0 +1,11 @@
+mapscripts BlackthornCity_House1_MapScripts {}
+
+script BlackthornCity_House1_Lass 
+{
+    lock
+    faceplayer
+    msgbox(format("That's quite an impressive set\nof BADGES you have there."))
+    closemessage
+    release
+    end    
+}

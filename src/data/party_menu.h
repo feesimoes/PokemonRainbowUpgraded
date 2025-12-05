@@ -654,6 +654,7 @@ static const u8 *const sFieldMoveDescriptionTable[] =
     [FIELD_MOVE_SURF]        = gText_TravelOnWater,
     [FIELD_MOVE_ROCK_SMASH]  = gText_ShatterACrackedRock,
     [FIELD_MOVE_WATERFALL]   = gText_ClimbAWaterfall,
+    [FIELD_MOVE_DIVE]        = gText_DiveUnderwater,
     [FIELD_MOVE_TELEPORT]    = gText_ReturnToAHealingSpot,
     [FIELD_MOVE_DIG]         = gText_EscapeFromHere,
     [FIELD_MOVE_MILK_DRINK]  = gText_ShareHp,
@@ -1083,6 +1084,7 @@ static struct
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_SURF]        = {gMoveNames[MOVE_SURF],        CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH]  = {gMoveNames[MOVE_ROCK_SMASH],  CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_WATERFALL]   = {gMoveNames[MOVE_WATERFALL],   CursorCB_FieldMove},
+    [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_DIVE]        = {gMoveNames[MOVE_DIVE],        CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_TELEPORT]    = {gMoveNames[MOVE_TELEPORT],    CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_DIG]         = {gMoveNames[MOVE_DIG],         CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_MILK_DRINK]  = {gMoveNames[MOVE_MILK_DRINK],  CursorCB_FieldMove},
@@ -1157,7 +1159,7 @@ static const u8 sPartyMenuActionCounts[] =
 
 static const u16 sFieldMoves[] =
 {
-    MOVE_FLASH, MOVE_CUT, MOVE_FLY, MOVE_STRENGTH, MOVE_SURF, MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_TELEPORT,
+    MOVE_FLASH, MOVE_CUT, MOVE_FLY, MOVE_STRENGTH, MOVE_SURF, MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, MOVE_TELEPORT,
     MOVE_DIG, MOVE_MILK_DRINK, MOVE_SOFT_BOILED, MOVE_SWEET_SCENT, FIELD_MOVE_END // this may be misuse of enum. same in emerald
 };
 
@@ -1174,6 +1176,7 @@ static struct
     [FIELD_MOVE_SURF]         = {SetUpFieldMove_Surf,        PARTY_MSG_CANT_SURF_HERE},
     [FIELD_MOVE_ROCK_SMASH]   = {SetUpFieldMove_RockSmash,   PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_WATERFALL]    = {SetUpFieldMove_Waterfall,   PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive,        PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_TELEPORT]     = {SetUpFieldMove_Teleport,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_DIG]          = {SetUpFieldMove_Dig,         PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_MILK_DRINK]   = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},

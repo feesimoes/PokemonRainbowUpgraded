@@ -4,7 +4,6 @@ script LindenTown_Harbor_FerryToVermilionCity
 {
     lock
     faceplayer
-
     if (var(VAR_MEW_QUEST_PROGRESS) == 4)
     {
         msgbox(format("Well, we made it.\nBLAINE went running into town.\pSomething about getting a tip\nfrom some rich friends?"))
@@ -183,4 +182,86 @@ script LindenTown_Youngster
     closemessage
     release
     end
+}
+
+script LindenTown_Beauty 
+{
+    lock
+    faceplayer
+    msgbox(format("Aren't these flowers just so\npretty? Kind of like me!"))
+    closemessage
+    release
+    end
+}
+
+script LindenTown_Roadblock_GetOffTheFlowers 
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Emote)
+    waitmovement
+    applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Right)
+    waitmovement
+    msgbox(format("Hey!\nMove out of the way!\pYou're stepping on the flowers\nwhile I'm admiring them!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Emote)
+    waitmovement
+    applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Walk_Up)
+    waitmovement
+    release
+    end
+}
+
+script LindenTown_Roadblock_HeyYoureATrainerRight
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Emote)
+    waitmovement
+    applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Down)
+    waitmovement
+    msgbox(format("Hey, wait!\nYou're a TRAINER, right?"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Walk_Up)
+    waitmovement
+    applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Face_Right)
+    waitmovement
+    applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Left)
+    waitmovement
+    msgbox(format("Well, actually, it doesn't matter.\nI think I found a rare flower?\pSorry, but I can't let you\nwander off until I'm done."))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement LindenTown_Roadblock_Face_Left
+{
+    face_left
+    step_end
+}
+
+movement LindenTown_Roadblock_Face_Right
+{
+    face_right
+    step_end
+}
+movement LindenTown_Roadblock_Face_Down
+{
+    face_down
+    step_end
+}
+
+movement LindenTown_Roadblock_Walk_Up 
+{
+    walk_up
+    step_end    
+}
+
+movement LindenTown_Roadblock_Emote
+{
+    emote_exclamation_mark
+    step_end    
 }

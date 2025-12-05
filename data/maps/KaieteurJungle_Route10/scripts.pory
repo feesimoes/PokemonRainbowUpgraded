@@ -1,0 +1,10 @@
+mapscripts KaieteurJungle_Route10_MapScripts {}
+
+script KaieteurJungle_Route10_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE -\nROUTE 10"))
+    closemessage
+    release
+    end
+}

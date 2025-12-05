@@ -11527,3 +11527,99 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderBlaine2[] = {
         .moves = {MOVE_FLAMETHROWER, MOVE_LOW_KICK, MOVE_THUNDERBOLT, MOVE_CONFUSE_RAY}
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_TamerMike[] = {
+    {
+        .iv = 255,
+        .lvl = 52,
+        .species = SPECIES_DRAGONAIR,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerPaulJohto[] = {
+    {
+        .iv = 128,
+        .lvl = 47,
+        .species = SPECIES_GYARADOS,
+    },
+    {
+        .iv = 128,
+        .lvl = 43,
+        .species = SPECIES_DRATINI,
+    },
+    {
+        .iv = 128,
+        .lvl = 54,
+        .species = SPECIES_DRAGONAIR,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_HikerCody[] = {
+    {
+        .iv = 255,
+        .lvl = 52,
+        .species = SPECIES_SEADRA,
+    },
+    {
+        .iv = 255,
+        .lvl = 51,
+        .species = SPECIES_DRAGONAIR,
+    },
+    {
+        .iv = 255,
+        .lvl = 53,
+        .species = SPECIES_SHELGON,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_LassLola[] = {
+    {
+        .iv = 128,
+        .lvl = 45,
+        .species = SPECIES_DRATINI,
+    },
+    {
+        .iv = 128,
+        .lvl = 47,
+        .species = SPECIES_DRAGONAIR,
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderClair[] = {
+    {
+        .iv = 255,
+        .lvl = 59,
+        .species = SPECIES_SEADRA,
+        .moves = {MOVE_DRAGON_BREATH, MOVE_HYDRO_PUMP, MOVE_EXTREME_SPEED, MOVE_BLIZZARD}
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_DRAGONAIR,
+        .moves = {MOVE_OUTRAGE, MOVE_BLIZZARD, MOVE_SURF, MOVE_THUNDER}
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_ARCANINE,
+        .moves = {MOVE_FIRE_BLAST, MOVE_DIG, MOVE_DRAGON_RAGE, MOVE_EXTREME_SPEED}
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_GYARADOS,
+        .moves = {MOVE_WATERFALL, MOVE_ICE_BEAM, MOVE_DOUBLE_EDGE, MOVE_DRAGON_BREATH}
+    },
+    {
+        .iv = 255,
+        .lvl = 61,
+        .species = SPECIES_KINGDRA,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_DRAGON_BREATH}
+    },
+    {
+        .iv = 255,
+        .lvl = 63,
+        .species = SPECIES_SALAMENCE,
+        .moves = {MOVE_ANCIENT_POWER, MOVE_DRAGON_CLAW, MOVE_FLAMETHROWER, MOVE_FLY}
+    },
+};

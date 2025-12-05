@@ -3,6 +3,6 @@
 
 #include "global.h"
 
-void BufferStringMusic(u16 stringID);
+void CreateMusicMenu(const u16 *musicTracks);
 
 #endif // GUARD_MUSIC_PLAYER_H

@@ -1,0 +1,54 @@
+mapscripts BlackthornCity_PokemonCenter_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F)
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_BLACKTHORN_CITY)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script BlackthornCity_PokemonCenter_1F_Attendant_Out_Of_Service
+{
+    lock
+    faceplayer
+    msgbox(format("I'm terribly sorry, but we\nare undergoing some maintenance."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script BlackthornCity_PokemonCenter_1F_Cooltrainer_F 
+{
+    lock
+    faceplayer
+    msgbox(format("A POKéMON TRAINER that isn't\nbiased by type preferences...\pWhy, they just might be\nstronger than usual opponents."))    
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_PokemonCenter_1F_Youngster
+{
+    lock
+    faceplayer
+    msgbox(format("I don't understand why CLAIR\nuses DRAGON-TYPE POKéMON.\pI mean, ICE PATH is just\nnearby!"))    
+    closemessage
+    release
+    end
+}

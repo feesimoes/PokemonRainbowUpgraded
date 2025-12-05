@@ -2,8 +2,9 @@
 #define GUARD_METATILE_LABELS_H
 
 // gTileset_Building
-#define METATILE_Building_PCOff  0x062
-#define METATILE_Building_PCOn   0x063
+#define METATILE_Building_Lab_Floor_ShadeFull  0x082
+#define METATILE_Building_PCOff                0x062
+#define METATILE_Building_PCOn                 0x063
 
 // gTileset_Cave
 #define METATILE_Cave_Floor_Ledge_Bottom  0x2E1
@@ -58,6 +59,9 @@
 
 // gTileset_General
 #define METATILE_General_CalmWater               0x12B
+#define METATILE_General_DiveWater               0x1D9
+#define METATILE_General_DiveWater_TopEdge       0x1D1
+#define METATILE_General_DiveWater_TopLeftEdge   0x1D0
 #define METATILE_General_Door                    0x03D
 #define METATILE_General_Plain_Grass             0x00D
 #define METATILE_General_Plain_Mowed             0x001

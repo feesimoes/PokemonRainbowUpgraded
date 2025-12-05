@@ -239,6 +239,14 @@
       "y": 44,
       "respawn_map": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LINDEN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_BLACKTHORN_CITY",
+      "map": "MAP_BLACKTHORN_CITY",
+      "x": 33,
+      "y": 43,
+      "respawn_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_BLACKTHORN_NURSE"
     }
   ]
 }

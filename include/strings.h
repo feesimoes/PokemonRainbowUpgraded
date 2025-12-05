@@ -306,6 +306,7 @@ extern const u8 gText_MoveHeavyBoulders[];
 extern const u8 gText_LightUpDarkness[];
 extern const u8 gText_ShatterACrackedRock[];
 extern const u8 gText_ClimbAWaterfall[];
+extern const u8 gText_DiveUnderwater[];
 extern const u8 gText_EscapeFromHere[];
 extern const u8 gText_LureWildPokemon[];
 extern const u8 gText_ShareHp[];
@@ -1566,5 +1567,9 @@ extern const u8 gString_TrainerNameRodolfo[];
 
 extern const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[];
 extern const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[];
+
+extern const u8 gText_MusicPlay[];
+extern const u8 gText_MusicQuit[];
+extern const u8 gText_MusicTrackVar1[];
 
 #endif //GUARD_STRINGS_H

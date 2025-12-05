@@ -3695,7 +3695,9 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+        {
             break;
+        }
     }
 
     if (i >= PARTY_SIZE)
@@ -5931,7 +5933,7 @@ static u16 GetBattleBGM(void)
             }
         }
     }
-    if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+    if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
     {
         return MUS_VS_WILD_JOHTO;
     }

@@ -1,0 +1,67 @@
+mapscripts KaieteurJungle_Route8_MapScripts {}
+
+script KaieteurJungle_Route8_LindenPath_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE -\nROUTE 8 - LINDEN PATH"))
+    closemessage
+    release
+    end
+}
+
+script KaieteurJungle_Route8_Shortcut_Sign 
+{
+    lock
+    msgbox(format("It's a warning sign...\nThis cave is off-limits!\pOnly GEORGE'S friends may visit."))
+    closemessage
+    release
+    end
+}
+
+script KaieteurJungle_Route8_Hiker 
+{
+    lock
+    faceplayer
+    if (var(VAR_MEW_QUEST_PROGRESS) == 7)
+    {
+        msgbox(format("Yo, how's it going?\nWhile looking for cool POKéMON...\pI found this weird alien\ntechnology-device-thingy..."))
+        msgbox(format("You can have it, honestly...\nI'm more of an outdoors-type guy."))
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        playfanfare(MUS_OBTAIN_KEY_ITEM)
+        msgbox(format("{PLAYER} got the weird device\nfrom the explorer."))
+        waitfanfare
+        waitmessage
+        closemessage
+        playse(SE_PHONE_RING_LONG)
+        waitse
+        msgbox(format("The weird device is calling!\nIt's... The PRESIDENT?!"))
+        playse(SE_SELECT)
+        waitse
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox(format("PRESIDENT: Hello...?\n...{PLAYER}?! You found it!"))
+        msgbox(format("I am reaching you through\nthe prototype, the POKéGEAR!\pWhere are you?\n...GUYANA?! Oh, my!"))
+        msgbox(format("This is quite promising, so\nthank you for picking up!\pYou aren't stranded, are you?\nDo you need a flight back?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Hang tight, {PLAYER}! I'll\nhave my SECRETARY save you."))
+            playbgm(MUS_KANTO_ROUTE_GATE, TRUE)
+            setvar(VAR_MEW_QUEST_PROGRESS, 9)
+            warp(MAP_SILPH_CO_11F, 9, 10)
+        }
+        else
+        {
+            msgbox(format("Ah, fair enough.\nPlease hurry back to SILPH!\p...\n..."))
+            playse(SE_BOO)
+            waitse
+            setvar(VAR_MEW_QUEST_PROGRESS, 14)
+            closemessage
+        }
+    }
+    else
+    {
+        msgbox(format("How's it going?\nFound any cool POKéMON yet?"))
+        closemessage
+    }
+    release
+    end
+}

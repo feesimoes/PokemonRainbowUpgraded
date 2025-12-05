@@ -2,7 +2,7 @@
   "id": "MAP_LINDEN_TOWN_MANSION_1F",
   "name": "LindenTown_Mansion_1F",
   "layout": "LAYOUT_LINDEN_TOWN_MANSION_1F",
-  "music": "MUS_LINDEN",
+  "music": "MUS_LINDEN_MANSION",
   "region_map_section": "MAPSEC_LINDEN_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -16,6 +16,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_LINDEN_BLAINE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLAINE",
       "x": 7,
@@ -26,21 +27,22 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "LindenTown_Mansion_1F_BlaineIsOccupied",
+      "flag": "FLAG_HIDE_LINDEN_BLAINE"
     },
     {
+      "local_id": "LOCALID_LINDEN_GEORGE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "LindenTown_Mansion_1F_George",
       "flag": "0"
     }
   ],
@@ -51,38 +53,48 @@
       "elevation": 0,
       "dest_map": "MAP_LINDEN_TOWN",
       "dest_warp_id": "14"
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_LINDEN_TOWN_MANSION_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_LINDEN_TOWN_MANSION_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_LINDEN_TOWN",
+      "dest_warp_id": "15"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
       "x": 8,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_MEW_QUEST_PROGRESS",
       "var_value": "5",
-      "script": "NULL"
+      "script": "LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Right"
     },
     {
       "type": "trigger",
       "x": 6,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_MEW_QUEST_PROGRESS",
       "var_value": "5",
-      "script": "NULL"
+      "script": "LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left"
     }
   ],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "item": "ITEM_OLD_SEA_MAP",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
-      "underfoot": false
-    }
-  ]
+  "bg_events": []
 }

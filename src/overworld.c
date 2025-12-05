@@ -1267,6 +1267,11 @@ static void ChooseAmbientCrySpecies(void)
 
 bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
 {
+    if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+    {
+        return FALSE;
+    }
+    
     if (music == MUS_CYCLING || music == MUS_SURF)
     {
         if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU)

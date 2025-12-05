@@ -44,13 +44,13 @@ ViridianCity_EventScript_GymDoorLocked::
 	delay 20
 	msgbox ViridianCity_Text_GymDoorsAreLocked
 	closemessage
-	applymovement LOCALID_PLAYER, ViridianCity_Movement_JumpDownLedge
+	applymovement LOCALID_PLAYER, ViridianCity_Movement_WalkDown
 	waitmovement 0
 	releaseall
 	end
 
-ViridianCity_Movement_JumpDownLedge::
-	jump_2_down
+ViridianCity_Movement_WalkDown::
+	walk_down
 	step_end
 
 ViridianCity_EventScript_CitySign::
@@ -194,10 +194,6 @@ ViridianCity_EventScript_RoadBlocked::
 	waitmovement 0
 	releaseall
 	end
-
-ViridianCity_Movement_WalkDown::
-	walk_down
-	step_end
 
 ViridianCity_EventScript_TutorialTriggerLeft::
 	lockall

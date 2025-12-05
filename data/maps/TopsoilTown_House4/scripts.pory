@@ -1,0 +1,11 @@
+mapscripts TopsoilTown_House4_MapScripts {}
+
+script TopsoilTown_House4_Boy
+{
+    lock
+    faceplayer
+    msgbox(format("What's with the get-up?\nAre you from the future?\pPOKé BALL? No, we don't use\nthem much, here..."))
+    closemessage
+    release
+    end
+}

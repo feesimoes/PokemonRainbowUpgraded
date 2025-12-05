@@ -1427,88 +1427,146 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch::
 # 718 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	compare VAR_MEW_QUEST_PROGRESS, 9
+	goto_if_eq CinnabarIsland_Gym_EventScript_Blaine_Rematch_2
+# 727 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 2
-	goto_if_eq CinnabarIsland_Gym_EventScript_Blaine_Rematch_1
-# 748 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	trainerbattle_single TRAINER_LEADER_BLAINE_2, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_8, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_9, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_10, NO_MUSIC
-# 749 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_11
-# 750 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	goto_if_eq CinnabarIsland_Gym_EventScript_Blaine_Rematch_4
+# 755 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	compare VAR_MEW_QUEST_PROGRESS, 7
+	goto_if_eq CinnabarIsland_Gym_EventScript_Blaine_Rematch_5
+# 766 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	trainerbattle_single TRAINER_LEADER_BLAINE_2, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_14, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2, NO_MUSIC
+# 767 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3
+# 768 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	closemessage
-# 751 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 769 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	cleartrainerflag TRAINER_LEADER_BLAINE_2
+# 770 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_2:
+# 720 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	trainerbattle_single TRAINER_LEADER_BLAINE_2, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_0, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2, NO_MUSIC
+# 721 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3
+# 722 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	closemessage
+# 723 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	cleartrainerflag TRAINER_LEADER_BLAINE_2
+# 724 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	release
+	end
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_4:
+# 729 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	lock
+# 730 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	faceplayer
+# 731 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	fadenewbgm MUS_KANTO_EMOTION
+# 732 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_4
+# 733 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	closemessage
+# 734 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	applymovement 8, CinnabarIsland_Gym_EventScript_Blaine_NoticesPlayer
+# 735 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	waitmovement
+# 736 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_5
+# 737 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_6
+# 738 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_7
+# 739 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_8
+# 740 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_9
+# 741 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_10
+# 742 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_11
+# 743 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	closemessage
+# 744 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	setvar VAR_MEW_QUEST_PROGRESS, 3
+# 745 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 746 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	removeobject 8
+# 747 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 748 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	setflag FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE
+# 749 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	clearflag FLAG_HIDE_VERMILION_BLAINE
+# 750 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	clearflag FLAG_HIDE_VERMILION_MR_FUJI
+# 751 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	fadedefaultbgm
 # 752 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	release
 	end
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_1:
-# 720 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	lock
-# 721 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	faceplayer
-# 722 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	fadenewbgm MUS_KANTO_EMOTION
-# 723 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_0
-# 724 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_5:
+# 757 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	trainerbattle_single TRAINER_LEADER_BLAINE_2, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_12, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1, CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2, NO_MUSIC
+# 758 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_13
+# 759 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	closemessage
-# 725 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	applymovement 8, CinnabarIsland_Gym_EventScript_Blaine_NoticesPlayer
-# 726 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	waitmovement
-# 727 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1
-# 728 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2
-# 729 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3
-# 730 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_4
-# 731 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_5
-# 732 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_6
-# 733 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	msgbox CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_7
-# 734 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	closemessage
-# 735 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	setvar VAR_MEW_QUEST_PROGRESS, 3
-# 736 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 737 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	removeobject 8
-# 738 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	fadescreen FADE_FROM_BLACK
-# 739 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	setflag FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE
-# 740 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	clearflag FLAG_HIDE_VERMILION_BLAINE
-# 741 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	clearflag FLAG_HIDE_VERMILION_MR_FUJI
-# 742 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	fadedefaultbgm
-# 743 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 760 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	cleartrainerflag TRAINER_LEADER_BLAINE_2
+# 761 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	release
 	end
 
 
-# 757 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 775 "data/maps/CinnabarIsland_Gym/scripts.pory"
 CinnabarIsland_Gym_EventScript_Blaine_NoticesPlayer:
-# 759 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 777 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	emote_exclamation_mark
-# 760 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 778 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	step_end
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_0:
-# 723 "data/maps/CinnabarIsland_Gym/scripts.pory"
+# 720 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "{PLAYER}, thanks for helping!\n"
+	.string "Have you talked to MR. FUJI yet?\p"
+	.string "...Hah?!\n"
+	.string "You want a rematch?\p"
+	.string "Well...\n"
+	.string "You'd better have FULL HEAL!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1:
+# 720 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "My fiery spirit has not\n"
+	.string "been defeated!$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2:
+# 720 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3:
+# 721 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "I did lose this time,\n"
+	.string "but I'll win next time.\p"
+	.string "My FIRE-TYPE POKéMON will\n"
+	.string "be even stronger!\p"
+	.string "Just you watch!$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_4:
+# 732 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "The CINNABAR VOLCANO seems\n"
 	.string "to be quite active lately...\p"
 	.string "Should it erupt, the land...\n"
 	.string "No...$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1:
-# 727 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_5:
+# 736 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "Hah!\n"
 	.string "I got lost in my thoughts!\p"
 	.string "MR. FUJI tells me you're\n"
@@ -1516,69 +1574,68 @@ CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_1:
 	.string "You know, I am something\n"
 	.string "of a scientist, myself...$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_2:
-# 728 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_6:
+# 737 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "That's right! You're the one\n"
 	.string "who unlocked the GYM.\p"
 	.string "Surely you must've read\n"
 	.string "up on our research?$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3:
-# 729 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_7:
+# 738 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "No?\n"
 	.string "Didn't see anything interesting?\p"
 	.string "...Hmph! Well, it's not as if I\n"
 	.string "know the whole story anyway.$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_4:
-# 730 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_8:
+# 739 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "The prototype taken from SILPH\n"
 	.string "CO., POKéGEAR, is high-tech!\p"
 	.string "It allows for long-distance\n"
 	.string "communications and more!$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_5:
-# 731 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_9:
+# 740 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "I'd have no doubt that the\n"
 	.string "same fool's behind it! GIOVANNI!\p"
 	.string "He'll pay the price for\n"
 	.string "sabotaging research development!$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_6:
-# 732 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_10:
+# 741 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "I'm all fired up!\n"
 	.string "That settles it, {PLAYER}!\p"
 	.string "It's time to head back into\n"
 	.string "the GUYANA REGION!$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_7:
-# 733 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_11:
+# 742 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "I'll be waiting for you at the\n"
 	.string "VERMILION HARBOR!\p"
 	.string "You better bring items for\n"
 	.string "a long journey!$"
 
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_8:
-# 748 "data/maps/CinnabarIsland_Gym/scripts.pory"
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_12:
+# 757 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "Hmph! You've got a lot of\n"
+	.string "nerve returning to my GYM!\p"
+	.string "Still haven't found GIOVANNI?!\n"
+	.string "Hah! I could've helped...\p"
+	.string "Kid, BURN HEAL is useless!\n"
+	.string "There's no HEAL for betrayal!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_13:
+# 758 "data/maps/CinnabarIsland_Gym/scripts.pory"
+	.string "Hah! You're really enjoying this?!\n"
+	.string "Enough fooling around, though!\p"
+	.string "You need to find GIOVANNI!\n"
+	.string "Bring him down, for our sake!$"
+
+CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_14:
+# 766 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "Well done, returning to my GYM!\n"
 	.string "Let us have a fiery battle!\p"
 	.string "Hah!\n"
 	.string "BURN HEAL is useless now!\p"
 	.string "You'd better have FULL HEAL!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
-
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_9:
-# 748 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "My fiery spirit has not\n"
-	.string "been defeated!$"
-
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_10:
-# 748 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "$"
-
-CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_11:
-# 749 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "I did lose this time,\n"
-	.string "but I'll win next time.\p"
-	.string "My FIRE-TYPE POKéMON will\n"
-	.string "be even stronger!\p"
-	.string "Just you watch!$"

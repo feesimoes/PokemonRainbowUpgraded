@@ -25,15 +25,15 @@ VioletCity_Gym_Birdkeeper_Abe_Battle::
 VioletCity_Gym_EventScript_Walker_Battle::
 # 21 "data/maps/VioletCity_Gym/scripts.pory"
 	goto_if_set FLAG_SYS_NATIONAL_DEX, VioletCity_Gym_EventScript_Walker_Battle_1
-# 46 "data/maps/VioletCity_Gym/scripts.pory"
-	lock
 # 47 "data/maps/VioletCity_Gym/scripts.pory"
-	applymovement 3, Movement_VioletCity_Gym_FacePlayer
+	lock
 # 48 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_6
+	applymovement 3, Movement_VioletCity_Gym_FacePlayer
 # 49 "data/maps/VioletCity_Gym/scripts.pory"
-	closemessage
+	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_6
 # 50 "data/maps/VioletCity_Gym/scripts.pory"
+	closemessage
+# 51 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
@@ -42,97 +42,99 @@ VioletCity_Gym_EventScript_Walker_Battle_1:
 	trainerbattle_single TRAINER_LEADER_WALKER, VioletCity_Gym_EventScript_Walker_Battle_Text_0, VioletCity_Gym_EventScript_Walker_Battle_Text_1, VioletCity_Gym_EventScript_Walker_Battle_Text_2, NO_MUSIC
 # 24 "data/maps/VioletCity_Gym/scripts.pory"
 	goto_if_unset FLAG_JOHTO_BADGE01_GET, VioletCity_Gym_EventScript_Walker_Battle_4
-# 36 "data/maps/VioletCity_Gym/scripts.pory"
-	lock
 # 37 "data/maps/VioletCity_Gym/scripts.pory"
-	applymovement 3, Movement_VioletCity_Gym_FacePlayer
+	lock
 # 38 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_5
+	applymovement 3, Movement_VioletCity_Gym_FacePlayer
 # 39 "data/maps/VioletCity_Gym/scripts.pory"
-	closemessage
+	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_5
 # 40 "data/maps/VioletCity_Gym/scripts.pory"
+	closemessage
+# 41 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 VioletCity_Gym_EventScript_Walker_Battle_4:
 # 26 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_3
+	textcolor NPC_TEXT_COLOR_MALE
 # 27 "data/maps/VioletCity_Gym/scripts.pory"
-	closemessage
+	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_3
 # 28 "data/maps/VioletCity_Gym/scripts.pory"
-	setflag FLAG_JOHTO_BADGE01_GET
-# 29 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_4
-# 30 "data/maps/VioletCity_Gym/scripts.pory"
 	closemessage
+# 29 "data/maps/VioletCity_Gym/scripts.pory"
+	setflag FLAG_JOHTO_BADGE01_GET
+# 30 "data/maps/VioletCity_Gym/scripts.pory"
+	msgbox VioletCity_Gym_EventScript_Walker_Battle_Text_4
 # 31 "data/maps/VioletCity_Gym/scripts.pory"
+	closemessage
+# 32 "data/maps/VioletCity_Gym/scripts.pory"
 	releaseall
 	end
 
 
 VioletCity_Gym_Dude_Dialogue::
-# 57 "data/maps/VioletCity_Gym/scripts.pory"
-	lock
 # 58 "data/maps/VioletCity_Gym/scripts.pory"
-	applymovement 4, Movement_VioletCity_Gym_FacePlayer
+	lock
 # 59 "data/maps/VioletCity_Gym/scripts.pory"
+	applymovement 4, Movement_VioletCity_Gym_FacePlayer
+# 60 "data/maps/VioletCity_Gym/scripts.pory"
 	goto_if_set FLAG_JOHTO_BADGE01_GET, VioletCity_Gym_Dude_Dialogue_1
-# 68 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_Dude_Dialogue_Text_1
 # 69 "data/maps/VioletCity_Gym/scripts.pory"
-	closemessage
+	msgbox VioletCity_Gym_Dude_Dialogue_Text_1
 # 70 "data/maps/VioletCity_Gym/scripts.pory"
+	closemessage
+# 71 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 VioletCity_Gym_Dude_Dialogue_1:
-# 61 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_Dude_Dialogue_Text_0
 # 62 "data/maps/VioletCity_Gym/scripts.pory"
-	closemessage
+	msgbox VioletCity_Gym_Dude_Dialogue_Text_0
 # 63 "data/maps/VioletCity_Gym/scripts.pory"
+	closemessage
+# 64 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 
 VioletCity_Gym_Statues::
-# 77 "data/maps/VioletCity_Gym/scripts.pory"
+# 78 "data/maps/VioletCity_Gym/scripts.pory"
 	goto_if_set FLAG_JOHTO_BADGE01_GET, VioletCity_Gym_Statues_1
-# 85 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_Statues_Text_1
 # 86 "data/maps/VioletCity_Gym/scripts.pory"
+	msgbox VioletCity_Gym_Statues_Text_1
+# 87 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 VioletCity_Gym_Statues_1:
-# 79 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_Statues_Text_0
 # 80 "data/maps/VioletCity_Gym/scripts.pory"
+	msgbox VioletCity_Gym_Statues_Text_0
+# 81 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 
 VioletCity_Gym_Lugia_Scroll::
-# 93 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_Lugia_Scroll_Text_0
 # 94 "data/maps/VioletCity_Gym/scripts.pory"
+	msgbox VioletCity_Gym_Lugia_Scroll_Text_0
+# 95 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 
 VioletCity_Gym_HoOh_Scroll::
-# 100 "data/maps/VioletCity_Gym/scripts.pory"
-	msgbox VioletCity_Gym_HoOh_Scroll_Text_0
 # 101 "data/maps/VioletCity_Gym/scripts.pory"
+	msgbox VioletCity_Gym_HoOh_Scroll_Text_0
+# 102 "data/maps/VioletCity_Gym/scripts.pory"
 	release
 	end
 
 
-# 105 "data/maps/VioletCity_Gym/scripts.pory"
+# 106 "data/maps/VioletCity_Gym/scripts.pory"
 Movement_VioletCity_Gym_FacePlayer:
-# 107 "data/maps/VioletCity_Gym/scripts.pory"
-	face_player
 # 108 "data/maps/VioletCity_Gym/scripts.pory"
+	face_player
+# 109 "data/maps/VioletCity_Gym/scripts.pory"
 	step_end
 
 VioletCity_Gym_Cooltrainer_Falkner_Battle_Text_0:
@@ -183,25 +185,25 @@ VioletCity_Gym_EventScript_Walker_Battle_Text_2:
 	.string "$"
 
 VioletCity_Gym_EventScript_Walker_Battle_Text_3:
-# 26 "data/maps/VioletCity_Gym/scripts.pory"
+# 27 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "You're something else, kid!\n"
 	.string "Maybe, just maybe, I misjudged...\p"
 	.string "Enough of my squawking around!\n"
 	.string "You've earned a ZEPHYR BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}$"
 
 VioletCity_Gym_EventScript_Walker_Battle_Text_4:
-# 29 "data/maps/VioletCity_Gym/scripts.pory"
+# 30 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Just like in KANTO, there's\n"
 	.string "8 BADGES to collect here.\p"
 	.string "Better get to it, huh?$"
 
 VioletCity_Gym_EventScript_Walker_Battle_Text_5:
-# 38 "data/maps/VioletCity_Gym/scripts.pory"
+# 39 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Yo, kid!\n"
 	.string "Enjoying it here in JOHTO?$"
 
 VioletCity_Gym_EventScript_Walker_Battle_Text_6:
-# 48 "data/maps/VioletCity_Gym/scripts.pory"
+# 49 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Yo, kid!\n"
 	.string "What's that? You want to battle?\p"
 	.string "WAHAHAH! Quite the joke!\n"
@@ -214,12 +216,12 @@ VioletCity_Gym_EventScript_Walker_Battle_Text_6:
 	.string "of NATIONAL approval, kid!$"
 
 VioletCity_Gym_Dude_Dialogue_Text_0:
-# 61 "data/maps/VioletCity_Gym/scripts.pory"
+# 62 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Yeah! I believe in you!\n"
 	.string "Keep going for the win!$"
 
 VioletCity_Gym_Dude_Dialogue_Text_1:
-# 68 "data/maps/VioletCity_Gym/scripts.pory"
+# 69 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Yo, WORLD CHAMP in the making!\n"
 	.string "Don't be fooled by WALKER!\p"
 	.string "His name implies GROUND-type,\n"
@@ -228,28 +230,28 @@ VioletCity_Gym_Dude_Dialogue_Text_1:
 	.string "but you got this!$"
 
 VioletCity_Gym_Statues_Text_0:
-# 79 "data/maps/VioletCity_Gym/scripts.pory"
+# 80 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "VIOLET CITY GYM\n"
 	.string "LEADER: WALKER\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
 VioletCity_Gym_Statues_Text_1:
-# 85 "data/maps/VioletCity_Gym/scripts.pory"
+# 86 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "VIOLET CITY GYM\n"
 	.string "LEADER: WALKER\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}$"
 
 VioletCity_Gym_Lugia_Scroll_Text_0:
-# 93 "data/maps/VioletCity_Gym/scripts.pory"
+# 94 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "It's an ancient-looking scroll\n"
 	.string "depicting a bird under the sea.\p"
 	.string "It looks to be some sort of\n"
 	.string "guardian...$"
 
 VioletCity_Gym_HoOh_Scroll_Text_0:
-# 100 "data/maps/VioletCity_Gym/scripts.pory"
+# 101 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "It's an ancient-looking scroll\n"
 	.string "depicting a graceful bird...\p"
 	.string "Wait a minute...\n"

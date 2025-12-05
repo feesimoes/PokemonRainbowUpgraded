@@ -27,3 +27,14 @@ script SlateportCity_Harbor_FerryToGuyana
         end
     }
 }
+
+script SlateportCity_Harbor_HM08_Dive 
+{
+    lock
+    faceplayer
+    msgbox(format("Here, take this."))
+    giveitem(ITEM_HM08, 1)
+    closemessage
+    release
+    end    
+}

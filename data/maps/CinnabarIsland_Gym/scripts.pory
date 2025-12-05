@@ -715,6 +715,15 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 `
 script CinnabarIsland_Gym_EventScript_Blaine_Rematch
 {
+	if (var(VAR_MEW_QUEST_PROGRESS) == 9)
+	{
+        trainerbattle_single(TRAINER_LEADER_BLAINE_2, format("{PLAYER}, thanks for helping!\nHave you talked to MR. FUJI yet?\p...Hah?!\nYou want a rematch?\pWell...\nYou'd better have FULL HEAL!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("My fiery spirit has not\nbeen defeated!"), format(""), NO_MUSIC)
+        msgbox(format("I did lose this time,\nbut I'll win next time.\pMy FIRE-TYPE POKéMON will\nbe even stronger!\pJust you watch!"))
+        closemessage
+        cleartrainerflag(TRAINER_LEADER_BLAINE_2)
+        release
+        end
+	}
     if (var(VAR_MEW_QUEST_PROGRESS) == 2)
     {
         lock
@@ -743,6 +752,15 @@ script CinnabarIsland_Gym_EventScript_Blaine_Rematch
         release
         end
     }
+	elif (var(VAR_MEW_QUEST_PROGRESS) == 7)
+	{
+        trainerbattle_single(TRAINER_LEADER_BLAINE_2, format("Hmph! You've got a lot of\nnerve returning to my GYM!\pStill haven't found GIOVANNI?!\nHah! I could've helped...\pKid, BURN HEAL is useless!\nThere's no HEAL for betrayal!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("My fiery spirit has not\nbeen defeated!"), format(""), NO_MUSIC)
+		msgbox(format("Hah! You're really enjoying this?!\nEnough fooling around, though!\pYou need to find GIOVANNI!\nBring him down, for our sake!"))
+		closemessage
+		cleartrainerflag(TRAINER_LEADER_BLAINE_2)
+        release
+        end
+	}
     else
     {
         trainerbattle_single(TRAINER_LEADER_BLAINE_2, format("Well done, returning to my GYM!\nLet us have a fiery battle!\pHah!\nBURN HEAL is useless now!\pYou'd better have FULL HEAL!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("My fiery spirit has not\nbeen defeated!"), format(""), NO_MUSIC)

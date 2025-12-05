@@ -1681,3 +1681,87 @@ Text_TestMsg::
 
 	.include "data/maps/SlateportCity_Harbor/scripts.inc"
 	.include "data/maps/SlateportCity_Harbor/text.inc"
+
+	.include "data/maps/BlackthornCity_House1/scripts.inc"
+	.include "data/maps/BlackthornCity_House1/text.inc"
+
+	.include "data/maps/BlackthornCity_House2/scripts.inc"
+	.include "data/maps/BlackthornCity_House2/text.inc"
+
+	.include "data/maps/BlackthornCity_MoveSpecialists_House/scripts.inc"
+	.include "data/maps/BlackthornCity_MoveSpecialists_House/text.inc"
+
+	.include "data/maps/BlackthornCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/BlackthornCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/BlackthornCity_Mart/scripts.inc"
+	.include "data/maps/BlackthornCity_Mart/text.inc"
+
+	.include "data/maps/BlackthornCity_Gym/scripts.inc"
+	.include "data/maps/BlackthornCity_Gym/text.inc"
+
+	.include "data/maps/DragonsDen/scripts.inc"
+	.include "data/maps/DragonsDen/text.inc"
+
+	.include "data/maps/DragonsDen_BlackthornCity/scripts.inc"
+	.include "data/maps/DragonsDen_BlackthornCity/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route6_Underwater/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route6_Underwater/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route7/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route7/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route8/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route8/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route9/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route9/text.inc"
+
+	.include "data/maps/LindenTown_Mansion_B1F/scripts.inc"
+	.include "data/maps/LindenTown_Mansion_B1F/text.inc"
+
+	.include "data/maps/KaieteurJungle_LindenPath/scripts.inc"
+	.include "data/maps/KaieteurJungle_LindenPath/text.inc"
+
+	.include "data/maps/PokemonLeague_KogasRoom/scripts.inc"
+	.include "data/maps/PokemonLeague_KogasRoom/text.inc"
+
+	.include "data/maps/PokemonLeague_KarensRoom/scripts.inc"
+	.include "data/maps/PokemonLeague_KarensRoom/text.inc"
+
+	.include "data/maps/PokemonLeague_ChampionsRoom_Lance/scripts.inc"
+	.include "data/maps/PokemonLeague_ChampionsRoom_Lance/text.inc"
+
+	.include "data/maps/PokemonLeague_HallOfFame_Lance/scripts.inc"
+	.include "data/maps/PokemonLeague_HallOfFame_Lance/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route10/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route10/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route11/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route11/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route12/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route12/text.inc"
+
+	.include "data/maps/KaieteurJungle_Route13/scripts.inc"
+	.include "data/maps/KaieteurJungle_Route13/text.inc"
+
+	.include "data/maps/TopsoilTown/scripts.inc"
+	.include "data/maps/TopsoilTown/text.inc"
+
+	.include "data/maps/TopsoilTown_House1/scripts.inc"
+	.include "data/maps/TopsoilTown_House1/text.inc"
+
+	.include "data/maps/TopsoilTown_House2/scripts.inc"
+	.include "data/maps/TopsoilTown_House2/text.inc"
+
+	.include "data/maps/TopsoilTown_House3/scripts.inc"
+	.include "data/maps/TopsoilTown_House3/text.inc"
+
+	.include "data/maps/TopsoilTown_House4/scripts.inc"
+	.include "data/maps/TopsoilTown_House4/text.inc"
+
+	.include "data/maps/TopsoilTown_MasterHouse/scripts.inc"
+	.include "data/maps/TopsoilTown_MasterHouse/text.inc"

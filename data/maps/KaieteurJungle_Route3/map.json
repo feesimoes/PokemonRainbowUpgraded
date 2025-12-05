@@ -23,6 +23,16 @@
       "map": "MAP_KAIETEUR_JUNGLE_ROUTE4",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_KAIETEUR_JUNGLE_ROUTE9",
+      "offset": 10,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_KAIETEUR_JUNGLE_ROUTE10",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],
@@ -33,6 +43,14 @@
       "type": "sign",
       "x": 25,
       "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaieteurJungle_Route3_ExplorersMemo_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 60,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "KaieteurJungle_Route3_Sign"

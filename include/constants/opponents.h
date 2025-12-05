@@ -11,11 +11,11 @@
 //#define TRAINER_INTERVIEWER                        6
 //#define TRAINER_RS_TUBER_F                         7
 //#define TRAINER_RS_TUBER_M                         8
-#define TRAINER_RS_COOLTRAINER_M                   9
-#define TRAINER_RS_COOLTRAINER_F                  10
-#define TRAINER_HEX_MANIAC                        11
-#define TRAINER_RS_LADY                           12
-#define TRAINER_RS_BEAUTY                         13
+//#define TRAINER_RS_COOLTRAINER_M                   9
+//#define TRAINER_RS_COOLTRAINER_F                  10
+//#define TRAINER_HEX_MANIAC                        11
+//#define TRAINER_RS_LADY                           12
+//#define TRAINER_RS_BEAUTY                         13
 #define TRAINER_RICH_BOY                          14
 #define TRAINER_RS_POKEMANIAC                     15
 #define TRAINER_RS_SWIMMER_M                      16
@@ -780,6 +780,11 @@
 #define TRAINER_YOUNGSTER_JACK                   6
 #define TRAINER_PICNICKER_KRISTIE                7
 #define TRAINER_LEADER_BLAINE_2                  8
+#define TRAINER_TAMER_MIKE                       9
+#define TRAINER_COOLTRAINER_PAUL_JOHTO           10
+#define TRAINER_HIKER_CODY                       11
+#define TRAINER_LASS_LOLA                        12
+#define TRAINER_LEADER_CLAIR                     13
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.

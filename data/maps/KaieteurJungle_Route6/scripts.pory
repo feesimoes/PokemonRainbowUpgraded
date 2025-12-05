@@ -1,6 +1,16 @@
 mapscripts KaieteurJungle_Route6_MapScripts {}
 
+
 script KaieteurJungle_Route6_Sign 
+{
+    lock
+    msgbox(format("KAIETEUR JUNGLE -\nROUTE 6"))
+    closemessage
+    release
+    end
+}
+
+script KaieteurJungle_Route6_DrFuji_Memo_Sign 
 {
     lock
     msgbox(format("It's a notice from DR. FUJI,\ndated: September 6th, 1996.\pIf any human sets foot\nhere, again...\pLet it be a kind-hearted person.\pWith that hope, I depart\nfrom GUYANA..."))

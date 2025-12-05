@@ -351,7 +351,7 @@ const u8 gText_MoveHeavyBoulders[] = _("Move heavy boulders.");
 const u8 gText_LightUpDarkness[] = _("Light up darkness.");
 const u8 gText_ShatterACrackedRock[] = _("Shatter a cracked rock.");
 const u8 gText_ClimbAWaterfall[] = _("Climb a waterfall.");
-const u8 gText_DiveUnderwater[] = _("すいちゅうに もぐる");
+const u8 gText_DiveUnderwater[] = _("Dive underwater.");
 const u8 gText_EscapeFromHere[] = _("Escape from here.");
 const u8 gText_LureWildPokemon[] = _("Lure wild POKéMON.");
 const u8 gText_ShareHp[] = _("Share HP.");
@@ -1353,3 +1353,7 @@ const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[] = _("Good work, 
 const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[] = _("Seriously?\nThat's not what I asked for!");
 
 static const u8 sText_SelectedBallType[] = _("{B_PLAYER_NAME} has a {B_LAST_ITEM} in their hand!");
+
+const u8 gText_MusicPlay[] = _("PLAY");
+const u8 gText_MusicQuit[] = _("QUIT");
+const u8 gText_MusicTrackVar1[] = _("SONG: {STR_VAR_1}");

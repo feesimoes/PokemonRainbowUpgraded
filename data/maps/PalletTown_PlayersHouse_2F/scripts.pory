@@ -21,6 +21,8 @@ PalletTown_PlayersHouse_2F_FirstWarpIn::
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
+    setflag FLAG_HIDE_VERMILION_MR_FUJI
+    setflag FLAG_HIDE_VERMILION_BLAINE
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_Sign::

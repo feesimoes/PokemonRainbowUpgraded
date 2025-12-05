@@ -349,6 +349,8 @@ void StartSouthernIslandBattle(void)
 void StartLegendaryBattle(void)
 {
     u16 species;
+
+    bool8 isModernFatefulEncounter = TRUE;
     
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
@@ -356,6 +358,9 @@ void StartLegendaryBattle(void)
     species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
     switch (species)
     {
+    case SPECIES_MEW:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_MEW);
+        break;
     case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_MEWTWO);
         break;
@@ -1033,6 +1038,9 @@ void PlayTrainerEncounterMusic(void)
             break;
         case TRAINER_ENCOUNTER_MUSIC_LEGEND:
             music = MUS_LEGEND_TRAINER;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_ROCKET_BOSS:
+            music = MUS_ENCOUNTER_ROCKET_BOSS;
             break;
         default:
             music = MUS_ENCOUNTER_ROCKET;

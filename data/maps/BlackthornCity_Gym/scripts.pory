@@ -1,0 +1,126 @@
+mapscripts BlackthornCity_Gym_MapScripts {}
+
+script BlackthornCity_Gym_Trainer_Battle_1 
+{
+    trainerbattle_single(TRAINER_TAMER_MIKE, format("Hey!\nWhere are you going, kid?"), format("Tch, beaten by a kid..."))
+    msgbox(format("CLAIR won't let you battle\nher if you aren't worthy."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Trainer_Battle_2 
+{
+    trainerbattle_single(TRAINER_COOLTRAINER_PAUL_JOHTO, format("I've never seen you around.\nBut you already got 8 BADGES?"), format("Wait a second!\nThose aren't JOHTO BADGES..."))
+    msgbox(format("You can't seriously be here\nfrom KANTO, right?\pYou don't even need more\nthan 8 BADGES for the LEAGUE..."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Trainer_Battle_3 
+{
+    trainerbattle_single(TRAINER_LASS_LOLA, format("Are you lost? Teehee...\nYou're going the wrong way."), format("I lost my way!\nI'm hopping off the ledge!"))
+    msgbox(format("Well, the ledge is a neat\nshortcut if you reach CLAIR...\pIf need be, run away, crying,\npossibly..."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Trainer_Battle_4 
+{
+    trainerbattle_single(TRAINER_HIKER_CODY, format("Impressive! I honestly didn't\nbelieve you're from KANTO!"), format("You're definitely not a kid!"))
+    msgbox(format("This GYM kind of reminds me\nof FIERY PATH, from HOENN."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Leader_Clair_Post_Battle 
+{
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("I...\nI understand...\pHere, take the RISING BADGE.{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    setflag(FLAG_JOHTO_BADGE08_GET)
+    msgbox(format("That BADGE, proof of your victory,\nis the final JOHTO BADGE.\pNormally, it allows a skilled TRAINER\nto attempt the POKéMON LEAGUE..."))
+    msgbox(format("However, in your case, it will\nallow you to visit MT. SILVER.\pAssuming you have 8 KANTO BADGES,\nand 8 JOHTO BADGES, good luck."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Leader_Clair_Battle
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE08_GET) == TRUE)
+    {
+        msgbox(format("Whatever you have to face from\nnow, don't you dare give up!"))
+        closemessage
+        release
+        end
+    }
+    msgbox(format("I am CLAIR.\nThe world's best DRAGON MASTER.\pI can hold my own against\neven the LEAGUE'S ELITE FOUR.\p...Do you still want to\ntake me on?"))
+    checkitem(ITEM_DRAGON_FANG_2, 1)
+    if (var(VAR_RESULT) == TRUE)
+    {
+        trainerbattle_single(TRAINER_LEADER_CLAIR, format("All right!\nI recognize your worthiness.\pAs LEADER, I'll be using my\nfull power against any opponent!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("Congratulations!\nYou were really tough...\pBattling you made me realize\nwhat I was missing..."), BlackthornCity_Gym_Leader_Clair_Post_Battle, NO_MUSIC)
+    }
+    else
+    {
+        checkitem(ITEM_DRAGON_FANG, 1)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            msgbox(format("All right...\nI recognize your worthiness.\pAs a LEADER, I will use full\npower against any opponent!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"))
+            msgbox(format("Let's do it!\n...Wait."))
+            fadeoutbgm(0)
+            waitmessage
+            msgbox(format("You did not get that at\nDRAGONS' DEN.\pTrying to cheat like that...\nI'm disappointed in you.\pGo take the DRAGONS' DEN\nchallenge. If you can do that...\pI will accept you as a\nworthy opponent."))
+            playbgm(MUS_GYM_JOHTO, TRUE)
+        }
+        else
+        {
+            msgbox(format("Go take the DRAGONS' DEN\nchallenge. If you can do that...\pI will accept you as a\nworthy opponent.\pUntil then, I'm afraid that\nI won't give you a BADGE."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Dude_Dialogue
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE08_GET))
+    {
+        msgbox(format("No way! I don't believe it.\nYou actually beat CLAIR?\p...Just kidding, I knew you\ncould do it! Excellent work!"))
+        closemessage
+        release
+        end
+    }
+    else 
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nThe air here is tense!\pCLAIR will go all-out in\na battle, so watch your back!\pLike her cousin, LANCE, she\nuses DRAGON-TYPE POKéMON.\pBelieve it or not, DRAGON POKéMON\nare weak against DRAGON-TYPE!\pYou could also use ICE-TYPE\nPOKéMON, ICE PATH is nearby."))
+        closemessage
+        release
+        end
+    }
+}
+
+script BlackthornCity_Gym_Statues
+{
+    if (flag(FLAG_JOHTO_BADGE08_GET))
+    {
+        msgbox(format("BLACKTHORN CITY GYM\nLEADER: CLAIR\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+        closemessage
+        release
+        end
+    }
+    else
+    {
+        msgbox(format("BLACKTHORN CITY GYM\nLEADER: CLAIR\pWINNING TRAINERS:\n{RIVAL}"))
+        closemessage
+        release
+        end
+    }
+}

@@ -2249,3 +2249,12 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
     return FALSE;
 }
+
+bool8 ScrCmd_musicplayer(struct ScriptContext * ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+
+    //CreateMusicMenu(ptr);
+    ScriptContext_Stop();
+    return TRUE;
+}

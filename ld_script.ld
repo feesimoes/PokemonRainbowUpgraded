@@ -1019,6 +1019,14 @@ SECTIONS {
         sound/songs/midi/mus_kaieteur_jungle.o(.rodata);
         sound/songs/midi/mus_mt_mora_cave.o(.rodata);
         sound/songs/midi/mus_slateport.o(.rodata);
+        sound/songs/midi/mus_elm_lab.o(.rodata);
+        sound/songs/midi/mus_victory_road_cave.o(.rodata);
+        sound/songs/midi/mus_dragons_den.o(.rodata);
+        sound/songs/midi/mus_vs_mew.o(.rodata);
+        sound/songs/midi/mus_linden_mansion.o(.rodata);
+        sound/songs/midi/mus_encounter_rocket_boss.o(.rodata);
+        sound/songs/midi/mus_underwater.o(.rodata);
+        sound/songs/midi/se_phone_ring_long.o(.rodata);
     } > ROM =0
 
     lib_rodata :

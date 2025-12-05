@@ -1,0 +1,148 @@
+mapscripts LindenTown_Mansion_B1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MEW_QUEST_PROGRESS) == 6)
+        {
+            clearflag(FLAG_HIDE_LINDEN_BLAINE)
+        }
+        elif (var(VAR_MEW_QUEST_PROGRESS) == 8)
+        {
+            setflag(FLAG_HIDE_LINDEN_BLAINE)
+        }
+
+        if (flag(FLAG_LINDEN_MANSION_SWITCH) == TRUE)
+        {
+            clearflag(FLAG_LINDEN_MANSION_SWITCH)
+        }
+    }
+}
+
+movement LindenTown_Mansion_B1F_Face_Player 
+{
+    face_player
+    step_end    
+}
+
+movement LindenTown_Mansion_B1F_Face_Up
+{
+    face_up
+    step_end    
+}
+
+movement LindenTown_Mansion_B1F_Face_Right
+{
+    face_right
+    step_end    
+}
+
+movement LindenTown_Mansion_B1F_Face_Left
+{
+    face_left
+    step_end    
+}
+
+movement LindenTown_Mansion_B1F_Emote
+{
+    emote_exclamation_mark
+    step_end    
+}
+
+script LindenTown_Mansion_B1F_EventScript_Blaine 
+{
+    lock
+    applymovement(LOCALID_BLAINE_LINDEN_MANSION_B1F, LindenTown_Mansion_B1F_Face_Player)
+    waitmovement
+    fadenewbgm(MUS_KANTO_EMOTION)
+    msgbox(format("Hah! We made it, {PLAYER}!\nGEORGE was right, you know...\pI used to do some pretty\nbad expirements, back then..."))
+    msgbox(format("...I wasn't thinking clearly.\nGIOVANNI helped fund our research.\pDR. FUJI, at the time, could\nsense a sort of evil scheme."))
+    msgbox(format("When we first found MEW here,\nGIOVANNI felt like it was weak...\pHe started throwing DR. FUJI and\nI unbelievable sorts of funds."))
+    msgbox(format("DR. FUJI, wasn't thinking with\na clear mind, either...\pHe saw hope in the massive\nfunds... a forbidden cloning project."))
+    msgbox(format("GIOVANNI, presented with the idea,\nwas in favor of it.\pDR. FUJI went on to fail many\nattempts at cloning his daughter..."))
+    msgbox(format("Eventually, we realized that true,\ndeep love...\p...It simply cannot be cloned.\nFar too late, we realized this..."))
+    msgbox(format("...\n...\pSo, yes...\nI...\pWe were persuaded by GIOVANNI...\nTo make the ultimate POKéMON."))
+    msgbox(format("I was partly to blame for\nMEWTWO'S vicious tendencies...\pMEW'S DNA was insufficient, you\nsee... I contributed my own."))
+    msgbox(format("Thus, the cloning of MEW was\na success. I was thrilled.\pDR. FUJI saw MEW and MEWTWO,\nhappily together, a family..."))
+    msgbox(format("His daughter, AMBER FUJI...\nHe... Had overcome his grief.\pWe were content with our work,\nbut GIOVANNI was not..."))
+    msgbox(format("GIOVANNI, not getting his desired\nresults for a powerful POKéMON...\pHe was manipulating MEWTWO\ninto doing his bidding."))
+    msgbox(format("MEWTWO wasn't outsmarted, however,\ngaining a distrust for humans...\pOur work in POKéMON MANSION,\nyears of research... Destroyed..."))
+    msgbox(format("I take it that GIOVANNI was\nafter the prototype MASTER BALL?\pHah! He still seeks to\ncontrol MEWTWO, to this day..."))
+    msgbox(format("However, the POKéGEAR that's been\nstolen isn't a laughing matter.\pAccording to the PRESIDENT, the\ndevice can transmit frequencies."))
+    msgbox(format("In its current state, we don't\nknow how well it works.\pOr, what the implications of\nthat could be..."))
+    fadedefaultbgm()
+    msgbox(format("Anyways, enough of my story!\nWe need to push on...\pGIOVANNI must be stopped, at\nall costs!"))
+    msgbox(format("Let's see...\nWhere did I put that switch...?"))
+    waitmessage
+    applymovement(LOCALID_BLAINE_LINDEN_MANSION_B1F, LindenTown_Mansion_B1F_Face_Left)
+    waitmovement
+    delay(60)
+    applymovement(LOCALID_BLAINE_LINDEN_MANSION_B1F, LindenTown_Mansion_B1F_Face_Right)
+    waitmovement
+    delay(60)
+    applymovement(LOCALID_BLAINE_LINDEN_MANSION_B1F, LindenTown_Mansion_B1F_Face_Up)
+    waitmovement
+    delay(20)
+    applymovement(LOCALID_BLAINE_LINDEN_MANSION_B1F, LindenTown_Mansion_B1F_Emote)
+    waitmovement
+    delay(20)
+    msgbox(format("Ah-hah!\nThere it is!\pI'll press it...\nUh-huh, who wouldn't?"))
+    waitmessage
+    closemessage
+    playse(SE_UNLOCK)
+    setmetatile(11, 10, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    setmetatile(11, 9, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    setmetatile(11, 8, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    setmetatile(11, 7, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    setmetatile(11, 6, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    setmetatile(11, 5, METATILE_Building_Lab_Floor_ShadeFull, 0)
+    special(DrawWholeMapView)
+    setflag(FLAG_LINDEN_MANSION_SWITCH)
+    msgbox(format("Hah!\nBLAINE, SCIENCE GUY, strikes again!\pScience rules!\n...Hah? Right... Let's go!"))
+    waitmessage
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    setflag(FLAG_HIDE_LINDEN_BLAINE)
+    removeobject(LOCALID_BLAINE_LINDEN_MANSION_B1F)
+    fadescreen(FADE_FROM_BLACK)
+    setvar(VAR_MEW_QUEST_PROGRESS, 8)
+    release
+    end
+}
+
+script LindenTown_Mansion_B1F_SecretSwitch 
+{
+    if (!flag(FLAG_LINDEN_MANSION_SWITCH))
+    {
+        lock
+        msgbox(format("There's a secret switch!\nPress it?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Who wouldn't?"))
+            closemessage
+            playse(SE_UNLOCK)
+            setmetatile(11, 10, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            setmetatile(11, 9, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            setmetatile(11, 8, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            setmetatile(11, 7, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            setmetatile(11, 6, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            setmetatile(11, 5, METATILE_Building_Lab_Floor_ShadeFull, 0)
+            special(DrawWholeMapView)
+            setflag(FLAG_LINDEN_MANSION_SWITCH)
+        }
+        else
+        {
+            msgbox(format("Not quite yet!"))
+            closemessage
+        }
+        release
+        end
+    }
+    else
+    {
+        lock
+        msgbox(format("The secret switch revealed a\nhidden passage?!"))
+        closemessage
+        release
+        end
+    }
+}

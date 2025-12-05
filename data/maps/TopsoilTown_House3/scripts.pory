@@ -1,0 +1,11 @@
+mapscripts TopsoilTown_House3_MapScripts {}
+
+script TopsoilTown_House3_Battle_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("Hi, stranger!\nOnly farmers live here!\pWild POKéMON? ...Nope!\nAnytime they wander in, shoo!"))
+    closemessage
+    release
+    end
+}

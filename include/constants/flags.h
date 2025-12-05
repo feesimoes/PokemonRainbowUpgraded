@@ -192,7 +192,7 @@
 // Unused?
 #define FLAG_HIDE_VIRIDIAN_RIVAL 0x0AF
 #define FLAG_HIDE_PROF_OAK_RT26  0x0B0
-#define FLAG_0x0B1               0x0B1
+#define FLAG_HIDE_MEW            0x0B1
 #define FLAG_0x0B2               0x0B2
 #define FLAG_0x0B3               0x0B3
 #define FLAG_0x0B4               0x0B4
@@ -798,7 +798,7 @@
 #define FLAG_ROUTE1_HO_OH_EVENT_HAPPENED                 0x300
 #define FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS            0x301
 #define FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER               0x302
-#define FLAG_0x303                                       0x303
+#define FLAG_CAUGHT_MEW                                  0x303
 #define FLAG_0x304                                       0x304
 #define FLAG_0x305                                       0x305
 #define FLAG_0x306                                       0x306
@@ -1221,20 +1221,17 @@
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE_RAWST_BERRY  (FLAG_HIDDEN_ITEMS_START + 188)
 #define FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE                     (FLAG_HIDDEN_ITEMS_START + 189)
 #define FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE                       (FLAG_HIDDEN_ITEMS_START + 190)
-#define FLAG_HIDDEN_ITEM_ROUTE22_REVIVE		                               (FLAG_HIDDEN_ITEMS_START + 191)
-#define FLAG_HIDDEN_ITEM_ROUTE22_SUPER_POTION	                           (FLAG_HIDDEN_ITEMS_START + 192)
-#define FLAG_HIDDEN_ITEM_ROUTE5_EXP_SHARE                                  (FLAG_HIDDEN_ITEMS_START + 193)
 
 // Unused hidden item flags
-#define FLAG_UNUSED_0x4A7               0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8               0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9               0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA               0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB               0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC               0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD               0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE               0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF               0x4AF // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE22_REVIVE                                    0x4A7 // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE22_SUPER_POTION                              0x4A8 // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE5_EXP_SHARE                                  0x4A9 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DRAGONS_DEN_DRAGON_FANG_2                         0x4AA // Unused Flag
+#define FLAG_UNUSED_0x4AB                                                  0x4AB // Unused Flag
+#define FLAG_UNUSED_0x4AC                                                  0x4AC // Unused Flag
+#define FLAG_UNUSED_0x4AD                                                  0x4AD // Unused Flag
+#define FLAG_UNUSED_0x4AE                                                  0x4AE // Unused Flag
+#define FLAG_UNUSED_0x4AF                                                  0x4AF // Unused Flag
 
 // Boss clear flags, 1200
 #define FLAG_DEFEATED_BROCK           0x4B0
@@ -1483,20 +1480,20 @@
 #define FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE                        (SYS_FLAGS + 0xD2)
 #define FLAG_HIDE_VERMILION_MR_FUJI                                 (SYS_FLAGS + 0xD3)
 #define FLAG_HIDE_VERMILION_BLAINE                                  (SYS_FLAGS + 0xD4)
-#define FLAG_0x8D5                                                  (SYS_FLAGS + 0xD5)
-#define FLAG_0x8D6                                                  (SYS_FLAGS + 0xD6)
-#define FLAG_0x8D7                                                  (SYS_FLAGS + 0xD7)
-#define FLAG_0x8D8                                                  (SYS_FLAGS + 0xD8)
-#define FLAG_0x8D9                                                  (SYS_FLAGS + 0xD9)
-#define FLAG_0x8DA                                                  (SYS_FLAGS + 0xDA)
-#define FLAG_0x8DB                                                  (SYS_FLAGS + 0xDB)
-#define FLAG_0x8DC                                                  (SYS_FLAGS + 0xDC)
-#define FLAG_0x8DD                                                  (SYS_FLAGS + 0xDD)
-#define FLAG_0x8DE                                                  (SYS_FLAGS + 0xDE)
-#define FLAG_0x8DF                                                  (SYS_FLAGS + 0xDF)
-#define FLAG_0x8E0                                                  (SYS_FLAGS + 0xE0)
-#define FLAG_0x8E1                                                  (SYS_FLAGS + 0xE1)
-#define FLAG_0x8E2                                                  (SYS_FLAGS + 0xE2)
+#define FLAG_WORLD_MAP_LINDEN_TOWN                                  (SYS_FLAGS + 0xD5)
+#define FLAG_JOHTO_BADGE02_GET                                      (SYS_FLAGS + 0xD6)
+#define FLAG_JOHTO_BADGE03_GET                                      (SYS_FLAGS + 0xD7)
+#define FLAG_JOHTO_BADGE04_GET                                      (SYS_FLAGS + 0xD8)
+#define FLAG_JOHTO_BADGE05_GET                                      (SYS_FLAGS + 0xD9)
+#define FLAG_JOHTO_BADGE06_GET                                      (SYS_FLAGS + 0xDA)
+#define FLAG_JOHTO_BADGE07_GET                                      (SYS_FLAGS + 0xDB)
+#define FLAG_JOHTO_BADGE08_GET                                      (SYS_FLAGS + 0xDC)
+#define FLAG_WORLD_MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F            (SYS_FLAGS + 0xDD)
+#define FLAG_HIDE_LINDEN_BLAINE                                     (SYS_FLAGS + 0xDE)
+#define FLAG_LINDEN_MANSION_SWITCH                                  (SYS_FLAGS + 0xDF)
+#define FLAG_JOHTO_CHOSE_CHIKORITA                                  (SYS_FLAGS + 0xE0)
+#define FLAG_JOHTO_CHOSE_TOTODILE                                   (SYS_FLAGS + 0xE1)
+#define FLAG_JOHTO_CHOSE_CYNDAQUIL                                  (SYS_FLAGS + 0xE2)
 #define FLAG_0x8E3                                                  (SYS_FLAGS + 0xE3)
 #define FLAG_0x8E4                                                  (SYS_FLAGS + 0xE4)
 #define FLAG_0x8E5                                                  (SYS_FLAGS + 0xE5)

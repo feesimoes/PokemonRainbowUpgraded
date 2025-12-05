@@ -23,6 +23,7 @@ script VioletCity_Gym_EventScript_Walker_Battle
         trainerbattle_single(TRAINER_LEADER_WALKER, format("Yo, kid! The name's WALKER!\nYou guessed it! I'm the LEADER!\pKANTO was easy, huh? Well, then!\nI don't play easy, I play hard!\p{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}WAHAHA! Bring it on, KANTO kid!\nDon't sweat it if you lose!"), format("Dang, kid! You're good!\nYou'll be soaring through JOHTO!"), format(""), NO_MUSIC)
         if (!flag(FLAG_JOHTO_BADGE01_GET))
         {
+            textcolor(NPC_TEXT_COLOR_MALE)
             msgbox(format("You're something else, kid!\nMaybe, just maybe, I misjudged...\pEnough of my squawking around!\nYou've earned a ZEPHYR BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
             closemessage
             setflag(FLAG_JOHTO_BADGE01_GET)

@@ -1,0 +1,11 @@
+mapscripts BlackthornCity_House2_MapScripts {}
+
+script BlackthornCity_House2_Old_Woman 
+{
+    lock
+    faceplayer
+    msgbox(format("LORELEI and CLAIR prefer to\nkeep their distance.\pThose two don't get along\nvery well with each other."))
+    closemessage
+    release
+    end    
+}

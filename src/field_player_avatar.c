@@ -735,7 +735,8 @@ static void PlayerAvatarTransition_Surfing(struct ObjectEvent * playerObjEvent)
 
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent * playerObjEvent)
 {
-
+    QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_SURF);
+    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_SURF);
 }
 
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent * playerObjEvent)

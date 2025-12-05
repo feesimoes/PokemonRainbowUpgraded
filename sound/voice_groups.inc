@@ -8236,9 +8236,9 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
 	voice_programmable_wave 60, 0, ProgrammableWaveData_1, 0, 7, 15, 1
 	voice_square_2 60, 0, 2, 0, 1, 6, 0
-	voice_programmable_wave 60, 0, ProgrammableWaveData_1, 0, 7, 15, 1
-	voice_square_2 60, 0, 3, 0, 1, 6, 0
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_2, 0, 2, 9, 1
 	voice_programmable_wave 60, 0, ProgrammableWaveData_3, 0, 7, 15, 1
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0
 	voice_programmable_wave 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
@@ -8246,10 +8246,10 @@ voicegroup192::
 	voice_programmable_wave 60, 0, ProgrammableWaveData_9, 0, 0, 12, 0
 	voice_programmable_wave 60, 0, ProgrammableWaveData_10, 0, 7, 15, 0
 	voice_programmable_wave 60, 0, ProgrammableWaveData_11, 0, 7, 15, 0
-	voice_programmable_wave 60, 0, ProgrammableWaveData_8, 0, 1, 12, 0
-	voice_programmable_wave 60, 0, ProgrammableWaveData_10, 0, 7, 15, 0
 	voice_programmable_wave 60, 0, ProgrammableWaveData_11, 0, 7, 15, 0
-	voice_programmable_wave 60, 0, ProgrammableWaveData_11, 0, 7, 15, 0
+	voice_square_1 60, 0, 2, 0, 1, 6, 0, 0
+	voice_square_1_alt 60, 0, 2, 0, 1, 6, 0, 0
+	voice_square_2_alt 60, 0, 2, 0, 1, 6, 0
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
 	voice_programmable_wave 60, 0, ProgrammableWaveData_10, 0, 7, 15, 0
@@ -8279,6 +8279,7 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 

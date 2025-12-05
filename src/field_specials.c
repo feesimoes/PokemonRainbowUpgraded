@@ -54,6 +54,8 @@ static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 COMMON_DATA struct ListMenuTemplate sFieldSpecialsListMenuTemplate = {0};
 COMMON_DATA u16 sFieldSpecialsListMenuScrollBuffer = 0;
 
+static const u8 gStringName_Fuji_JPN[] = _("フジ");
+
 static void Task_AnimatePcTurnOn(u8 taskId);
 static void PcTurnOnUpdateMetatileId(bool16 flag);
 static void Task_ShakeScreen(u8 taskId);
@@ -695,6 +697,31 @@ void IncrementResortGorgeousStepCounter(void)
         else
         {
             VarSet(VAR_RESORT_GOREGEOUS_STEP_COUNTER, var4035);
+        }
+    }
+}
+
+void MakeMewLegalJPNEmeraldEvent(void)
+{
+    //Change Mew's specific data for Gen 3 legality checks. Emerald MAPSEC 201 = Faraway Island, would be Route 117 in pokerainbow...
+    u32 language = LANGUAGE_JAPANESE;
+    u8 metlocation = 201;
+    u8 metGame = VERSION_EMERALD;
+    u8 otFujiGender = MALE;
+    u8 isModernFatefulEncounter = TRUE;
+    u8 partyMon;
+    
+    for (partyMon = 0; partyMon < 6; partyMon++)
+    {
+        if (GetMonData(&gPlayerParty[partyMon], MON_DATA_SPECIES, NULL) == SPECIES_MEW)
+        {
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_OT_NAME, gStringName_Fuji_JPN);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_OT_GENDER, &otFujiGender);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_LANGUAGE, &language);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MET_LOCATION, &metlocation);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MET_GAME, &metGame);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
         }
     }
 }

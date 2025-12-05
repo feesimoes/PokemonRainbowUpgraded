@@ -44,6 +44,22 @@ SlateportCity_Harbor_FerryToGuyana_1:
 	end
 
 
+SlateportCity_Harbor_HM08_Dive::
+# 33 "data/maps/SlateportCity_Harbor/scripts.pory"
+	lock
+# 34 "data/maps/SlateportCity_Harbor/scripts.pory"
+	faceplayer
+# 35 "data/maps/SlateportCity_Harbor/scripts.pory"
+	msgbox SlateportCity_Harbor_HM08_Dive_Text_0
+# 36 "data/maps/SlateportCity_Harbor/scripts.pory"
+	giveitem ITEM_HM08, 1
+# 37 "data/maps/SlateportCity_Harbor/scripts.pory"
+	closemessage
+# 38 "data/maps/SlateportCity_Harbor/scripts.pory"
+	release
+	end
+
+
 SlateportCity_Harbor_FerryToGuyana_Text_0:
 # 7 "data/maps/SlateportCity_Harbor/scripts.pory"
 	.string "Would you like to head\n"
@@ -56,3 +72,7 @@ SlateportCity_Harbor_FerryToGuyana_Text_1:
 SlateportCity_Harbor_FerryToGuyana_Text_2:
 # 24 "data/maps/SlateportCity_Harbor/scripts.pory"
 	.string "No worries, I'll be here.$"
+
+SlateportCity_Harbor_HM08_Dive_Text_0:
+# 35 "data/maps/SlateportCity_Harbor/scripts.pory"
+	.string "Here, take this.$"

@@ -90,7 +90,22 @@ LavenderTown_VolunteerPokemonHouse_EventScript_Bookshelf::
 
 script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine
 {
-    if (var(VAR_MEW_QUEST_PROGRESS) == 1)
+	if (var(VAR_MEW_QUEST_PROGRESS) == 9)
+	{
+        lock
+        faceplayer
+        msgbox(format("MR. FUJI: {PLAYER}, you're back?\n...Hm, I see...\pYes, the PRESIDENT is acting with\nmore caution, now..."))
+		fadenewbgm(MUS_KANTO_EMOTION)
+		msgbox(format("MEW... I wonder if it's still\nout there...\p{PLAYER}. If...\nIf you find MEW, please..."))
+		msgbox(format("Treat MEW with deep love and\ncare for it, as if family...\pThank you.\nFrom the bottom of my heart."))
+        closemessage
+		fadedefaultbgm
+		setvar(VAR_MEW_QUEST_PROGRESS, 10)
+		setflag(FLAG_HIDE_CERULEAN_CAVE_GUARD)
+        release
+        end
+	}
+    elif (var(VAR_MEW_QUEST_PROGRESS) == 1)
     {
         lock
         faceplayer
@@ -104,6 +119,15 @@ script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpe
         release
         end
     }
+	elif (var(VAR_MEW_QUEST_PROGRESS) == 7)
+	{
+        lock
+        faceplayer
+        msgbox(format("MR. FUJI: ...BLAINE is not\na bad man.\pHis intentions are noble,\ngenuine, even...\p{PLAYER}, I'm sorry, you don't\nunderstand... Focus on GIOVANNI."))
+        closemessage
+        release
+        end
+	}
     else
     {
         lock

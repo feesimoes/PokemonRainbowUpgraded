@@ -168,6 +168,7 @@ static void CursorCB_FieldMove(u8 taskId);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Surf(void);
+static bool8 SetUpFieldMove_Dive(void);
 static void CB2_InitPartyMenu(void);
 static void ResetPartyMenu(void);
 static bool8 ShowPartyMenu(void);
@@ -3922,8 +3923,8 @@ static void CursorCB_FieldMove(u8 taskId)
     }
     else
     {
-        // All field moves before WATERFALL are HMs.
-        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        // All field moves before DIVE (Including it) are HMs.
+        if (fieldMove <= FIELD_MOVE_DIVE && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
@@ -4124,6 +4125,24 @@ static bool8 SetUpFieldMove_Waterfall(void)
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_Waterfall;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static void FieldCallback_Dive(void)
+{
+    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    FieldEffectStart(FLDEFF_USE_DIVE);
+}
+
+static bool8 SetUpFieldMove_Dive(void)
+{
+    gFieldEffectArguments[1] = TrySetDiveWarp();
+    if (gFieldEffectArguments[1] != 0)
+    {
+        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+        gPostMenuFieldCallback = FieldCallback_Dive;
         return TRUE;
     }
     return FALSE;
@@ -4725,7 +4744,7 @@ bool8 IsMoveHm(u16 move)
 {
     u8 i;
 
-    for (i = 0; i < NUM_HIDDEN_MACHINES - 1; ++i) // no dive
+    for (i = 0; i < NUM_HIDDEN_MACHINES; ++i) // originally no dive
         if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
             return TRUE;
     return FALSE;

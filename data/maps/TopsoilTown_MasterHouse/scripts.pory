@@ -1,0 +1,11 @@
+mapscripts TopsoilTown_MasterHouse_MapScripts {}
+
+script TopsoilTown_MasterHouse_BerryMaster 
+{
+    lock
+    faceplayer
+    msgbox(format("I am the BERRY MASTER.\nYou're visiting from KANTO?\pHm, that is very far.\nVery far away, yes..."))
+    closemessage
+    release
+    end
+}

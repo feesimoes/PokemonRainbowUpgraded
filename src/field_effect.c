@@ -29,6 +29,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/region_map_sections.h"
+#include "constants/map_types.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -1680,13 +1681,17 @@ static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *task) =
     DiveFieldEffect_TryWarp
 };
 
-u32 FldEff_UseDive(void)
+#undef tState
+#undef tMonId
+
+bool8 FldEff_UseDive(void)
 {
-    u8 taskId = CreateTask(Task_UseDive, 0xFF);
-    gTasks[taskId].data[15] = gFieldEffectArguments[0]; // party index of pokemon with dive
-    gTasks[taskId].data[14] = gFieldEffectArguments[1]; // unused
+    u8 taskId;
+    taskId = CreateTask(Task_UseDive, 0xff);
+    gTasks[taskId].data[15] = gFieldEffectArguments[0];
+    gTasks[taskId].data[14] = gFieldEffectArguments[1];
     Task_UseDive(taskId);
-    return 0;
+    return FALSE;
 }
 
 static void Task_UseDive(u8 taskId)
@@ -1716,7 +1721,7 @@ static bool8 DiveFieldEffect_TryWarp(struct Task *task)
     PlayerGetDestCoords(&pos.x, &pos.y);
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
     {
-        dive_warp(&pos, gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior);
+        TryDoDiveWarp(&pos, gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior);
         DestroyTask(FindTaskIdByFunc(Task_UseDive));
         FieldEffectActiveListRemove(FLDEFF_USE_DIVE);
     }

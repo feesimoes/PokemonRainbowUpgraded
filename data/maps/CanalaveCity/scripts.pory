@@ -12,7 +12,7 @@ script CanalaveCity_GiveRockClimbKit
 
 script CanalaveCity_Gym_Sign {
     lock
-    msgbox(format("CANALAVE CITY GYM\nLEADER: BYRON\pThe Man with the STEEL Body!"))
+    msgbox(format("CANALAVE CITY POKéMON GYM\nLEADER: BYRON\pThe Man with the STEEL Body!"))
     release
     end
 }
@@ -27,6 +27,37 @@ script CanalaveCity_SailorEldritchHouse_Sign {
 script CanalaveCity_Sign {
     lock
     msgbox(format("CANALAVE CITY\nCargo Port"))
+    release
+    end
+}
+
+script CanalaveCity_KantoFerry
+{
+    lock
+    faceplayer
+    if (!flag(FLAG_OBTAINED_ROCK_CLIMB_KIT))
+    {
+        msgbox(format("{PLAYER}, welcome to SINNOH!\nAhem, right..."))
+    }
+    msgbox(format("Did you want to return\nto KANTO?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Alright!\nLet's head out."))
+        setvar(VAR_0x8004, SEAGALLOP_CANALAVE_CITY)
+        setvar(VAR_0x8006, SEAGALLOP_VERMILION_CITY)
+        waitmessage
+        closemessage
+        delay(20)
+        fadescreen(FADE_TO_BLACK)
+        special(DoSeagallopFerryScene)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("Alright, I'll be here..."))
+        waitmessage
+        closemessage
+    }
     release
     end
 }

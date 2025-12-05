@@ -1,1 +1,86 @@
 mapscripts BlackthornCity_MapScripts {}
+
+script BlackthornCity_Sign 
+{
+    lock
+    msgbox(format("BLACKTHORN CITY -\nA quiet mountain retreat."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Gym_Sign 
+{
+    lock
+    msgbox(format("BLACKTHORN CITY POKéMON GYM\nLEADER: CLAIR\pThe blessed user of DRAGON-\nTYPE POKéMON!"))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Ice_Path_Ahead_Sign
+{
+    lock
+    msgbox(format("ICE PATH is up ahead!\nBeware of slippery, icy ground."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Move_Specialists_House_Sign 
+{
+    lock
+    msgbox(format("BLACKTHORN CITY -\nPOKéMON MOVE SPECIALISTS' HOUSE"))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_TrainerTips_Sign 
+{
+    lock
+    msgbox(format("TRAINER TIPS!\nSHINY POKéMON are extremely rare.\pThese POKéMON can differ from\nstandard encounters."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Battle_Girl 
+{
+    lock
+    faceplayer
+    msgbox(format("Keep following this path uphill\nand you'll see the GYM.\pIt's pretty intimidating!"))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Old_Man
+{
+    lock
+    faceplayer
+    msgbox(format("This used to be a quiet,\nyet mysterious, small village..."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Old_Woman
+{
+    lock
+    faceplayer
+    msgbox(format("An old folk story tells\nof a POKéMON in JOHTO...\pThey say it helped pave\nway for this city."))
+    closemessage
+    release
+    end
+}
+
+script BlackthornCity_Man
+{
+    lock
+    faceplayer
+    msgbox(format("LORELEI visits us sometimes,\nalthough, strictly business.\pShe's from the ELITE FOUR,\njust like CLAIR'S cousin."))
+    closemessage
+    release
+    end
+}
