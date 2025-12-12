@@ -2084,8 +2084,10 @@ static void BufferMonInfo(void)
     u16 gender;
     u16 heldItem;
     u32 otId;
+    u8 speciesFormsValue;
 
     dexNum = SpeciesToPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES));
+    speciesFormsValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES_FORMS_VALUE);
     if (dexNum == 0xffff)
         StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
     else
@@ -2096,7 +2098,7 @@ static void BufferMonInfo(void)
     if (!sMonSummaryScreen->isEgg)
     {
         dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
-        GetSpeciesName(sMonSummaryScreen->summary.speciesNameStrBuf, dexNum);
+        GetSpeciesName(sMonSummaryScreen->summary.speciesNameStrBuf, dexNum, speciesFormsValue);
     }
     else
     {

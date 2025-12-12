@@ -86,6 +86,10 @@ void BlendPalettesGradually(u32 selectedPalettes, s8 delay, u8 coeff, u8 coeffTa
 bool32 IsBlendPalettesGraduallyTaskActive(u8 var);
 void DestroyBlendPalettesGraduallyTask(void);
 
+void ApplyUnderwaterTint(void);
+void ApplyDayNightTint(u8 hour, u8 minute);
+u16 BlendColor(u16 srcColor, u16 tintColor, u8 coeff);
+
 static inline void SetBackdropFromColor(u16 color)
 {
   FillPalette(color, 0, PLTT_SIZEOF(1));

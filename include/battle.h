@@ -515,7 +515,6 @@ struct BattleScripting
     bool8 statAnimPlayed;
     u8 getexpState;
     u8 battleStyle;
-    u8 battleMode;
     u8 drawlvlupboxState;
     u8 learnMoveState;
     u8 pursuitDoublesAttacker;

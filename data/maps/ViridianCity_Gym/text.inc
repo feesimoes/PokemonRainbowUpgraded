@@ -165,7 +165,7 @@ ViridianCity_Gym_Text_GymStatue::
 
 ViridianCity_Gym_Text_GymStatuePlayerWon::
     .string "VIRIDIAN POKéMON GYM\n"
-    .string "LEADER: GIOVANNI\p"
+    .string "LEADER: {RIVAL}\p"
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
 
@@ -181,9 +181,21 @@ ViridianCity_Gym_Text_Rival_Is_The_New_Leader::
     .string "I beat the CHAMPION already!\n"
     .string "That's right!\p"
     .string "I'm the toughest trainer in\n"
-    .string "KANTO! But no big deal, pal!\p"
-    .string "Anyways, I'm doing business.\n"
-    .string "Smell ya later!$"
+    .string "KANTO! But no big deal, pal!$"
+
+ViridianCity_Gym_Text_Rival_OhByTheWayBillNeedsHelp::
+    .string "Oh, by the way, when I was\n"
+    .string "heading in, BILL needed help.\p"
+    .string "Yeah, remember him? I already\n"
+    .string "did him favors on S.S. ANNE!\p"
+    .string "So, now it's your turn!$"
+
+ViridianCity_Gym_Text_Rival_SmellYaLater::
+    .string "Better get going, huh?\n"
+    .string "Your world's expanding, bud!\p"
+    .string "Show it off in VERMILION,\n"
+    .string "it's probably another cruise.\p"
+    .string "Anyways, smell ya later!$"
 
 ViridianCity_Gym_Text_RivalIntro::
     .string "{RIVAL}: {PLAYER}? you want\n"

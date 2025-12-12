@@ -1,120 +1,268 @@
 raw `
-Route23_EventScript_CascadeBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 2
-	bufferstdstring STR_VAR_1, STDSTRING_CASCADE_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_ThunderBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 3
-	bufferstdstring STR_VAR_1, STDSTRING_THUNDER_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_RainbowBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 4
-	bufferstdstring STR_VAR_1, STDSTRING_RAINBOW_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_SoulBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 5
-	bufferstdstring STR_VAR_1, STDSTRING_SOUL_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_MarshBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 6
-	bufferstdstring STR_VAR_1, STDSTRING_MARSH_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_VolcanoBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 7
-	bufferstdstring STR_VAR_1, STDSTRING_VOLCANO_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_EarthBadgeGuard::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, 8
-	bufferstdstring STR_VAR_1, STDSTRING_EARTH_BADGE
-	goto Route23_EventScript_BadgeGuard
-	end
-
-Route23_EventScript_CascadeBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 2
-	setvar VAR_0x8009, LOCALID_CASCADE_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_CASCADE_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_ThunderBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 3
-	setvar VAR_0x8009, LOCALID_THUNDER_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_THUNDER_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_RainbowBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 4
-	setvar VAR_0x8009, LOCALID_RAINBOW_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_RAINBOW_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_SoulBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 5
-	setvar VAR_0x8009, LOCALID_SOUL_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_SOUL_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_MarshBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 6
-	setvar VAR_0x8009, LOCALID_MARSH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_MARSH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_VolcanoBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 7
-	setvar VAR_0x8009, LOCALID_VOLCANO_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_VOLCANO_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_EarthBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 8
-	setvar VAR_0x8009, LOCALID_EARTH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_EARTH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
 Route23_EventScript_VictoryRoadGateSign::
 	msgbox Route23_Text_VictoryRoadGateSign, MSGBOX_SIGN
 	end
 `
+
+script Route23_EventScript_CascadeBadgeGuard
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 2)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nMISTY and BROCK, huh?\pOpposites attract, so they say!"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE02_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe CASCADE BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nCASCADE BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 2)
+            applymovement(LOCALID_CASCADE_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_2, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_2)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe CASCADE BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+
+script Route23_EventScript_ThunderBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 3)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nLT. SURGE mentioned war, huh?\pI wonder what it was..."))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE03_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe THUNDER BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nTHUNDER BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 3)
+            applymovement(LOCALID_THUNDER_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_3, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_3)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe THUNDER BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route23_EventScript_RainbowBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 4)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nERIKA sure likes dozing off!"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE04_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe RAINBOW BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nRAINBOW BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 4)
+            applymovement(LOCALID_RAINBOW_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_4, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_4)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe RAINBOW BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route23_EventScript_SoulBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 5)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nKOGA'S stealth is impressive, hm?\pI have no doubts on his\ndaughter, JANINE, either!"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE05_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe SOUL BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nSOUL BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 5)
+            applymovement(LOCALID_SOUL_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_5, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_5)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe SOUL BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route23_EventScript_MarshBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 6)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nSABRINA is quite the psychic, eh?"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE06_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe MARSH BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nMARSH BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 6)
+            applymovement(LOCALID_MARSH_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_6, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_6)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe MARSH BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route23_EventScript_VolcanoBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 7)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nBLAINE is quite a silly man...\pEh, but I've no doubt his\nfiery spirit will go far!"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE07_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe VOLCANO BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nVOLCANO BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 7)
+            applymovement(LOCALID_VOLCANO_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_7)
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe VOLCANO BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route23_EventScript_EarthBadgeGuard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 8)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nTrust in yourself...\pAllow POKéMON to help you\nreach your exceptional goals!"))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE08_GET) == TRUE)
+        {
+			msgbox(format("This is it. The final checkpoint...\nYou've come far..."))
+            msgbox(format("You can pass here only if you have\nthe EARTH BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nEARTH BADGE. Go right ahead!"))
+            setvar(VAR_MAP_SCENE_ROUTE23, 8)
+            applymovement(LOCALID_EARTH_BADGE_GUARD, Route23_BadgeGateGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+			playse(SE_UNLOCK)
+			waitmessage
+			call(Route23_EventScript_Free_Gate_8)
+        }
+        else
+        {
+			msgbox(format("This is it. The final checkpoint...\nYou've come far..."))
+            msgbox(format("You can pass here only if you have\nthe EARTH BADGE.\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Route23_BadgeGateGuard_Face_Down 
+{
+    face_down
+    step_end
+}
 
 mapscripts Route23_MapScripts 
 {
@@ -126,37 +274,217 @@ mapscripts Route23_MapScripts
         setvar(VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1, 0)
         setvar(VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2, 0)
         setvar(VAR_MAP_SCENE_VICTORY_ROAD_3F, 0)
+		switch (var(VAR_MAP_SCENE_ROUTE23))
+		{
+			case 2:
+			playbgm(MUS_ROUTE_23_BADGE_2, TRUE)
+			call(Route23_EventScript_Free_Gate_2)
+			case 3:
+			playbgm(MUS_ROUTE_23_BADGE_3, TRUE)
+			call(Route23_EventScript_Free_Gate_3)
+			case 4:
+			playbgm(MUS_ROUTE_23_BADGE_4, TRUE)
+			call(Route23_EventScript_Free_Gate_4)
+			case 5:
+			playbgm(MUS_ROUTE_23_BADGE_5, TRUE)
+			call(Route23_EventScript_Free_Gate_5)
+			case 6:
+			playbgm(MUS_ROUTE_23_BADGE_6, TRUE)
+			call(Route23_EventScript_Free_Gate_6)
+			case 7:
+			playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
+			call(Route23_EventScript_Free_Gate_7)
+			case 8:
+			playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
+			call(Route23_EventScript_Free_Gate_8)
+			default:
+			playbgm(MUS_ROUTE_23_BADGE_1, TRUE)
+		}
         end
     }
     MAP_SCRIPT_ON_LOAD
     {
-        if (flag(FLAG_BADGE02_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_2, TRUE)
-        }
-        elif (flag(FLAG_BADGE03_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_3, TRUE)
-        }
-        elif (flag(FLAG_BADGE04_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_4, TRUE)
-        }
-        elif (flag(FLAG_BADGE05_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_5, TRUE)
-        }
-        elif (flag(FLAG_BADGE06_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_6, TRUE)
-        }
-        elif (flag(FLAG_BADGE07_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
-        }
-        elif (flag(FLAG_BADGE08_GET))
-        {
-            playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
-        }
+		fadeoutbgm(0)
+		switch (var(VAR_MAP_SCENE_ROUTE23))
+		{
+			case 2:
+			playbgm(MUS_ROUTE_23_BADGE_2, TRUE)
+			call(Route23_EventScript_Free_Gate_2)
+			case 3:
+			playbgm(MUS_ROUTE_23_BADGE_3, TRUE)
+			call(Route23_EventScript_Free_Gate_3)
+			case 4:
+			playbgm(MUS_ROUTE_23_BADGE_4, TRUE)
+			call(Route23_EventScript_Free_Gate_4)
+			case 5:
+			playbgm(MUS_ROUTE_23_BADGE_5, TRUE)
+			call(Route23_EventScript_Free_Gate_5)
+			case 6:
+			playbgm(MUS_ROUTE_23_BADGE_6, TRUE)
+			call(Route23_EventScript_Free_Gate_6)
+			case 7:
+			playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
+			call(Route23_EventScript_Free_Gate_7)
+			case 8:
+			playbgm(MUS_ROUTE_23_BADGE_7, TRUE)
+			call(Route23_EventScript_Free_Gate_8)
+			default:
+			playbgm(MUS_ROUTE_23_BADGE_1, TRUE)
+		}
+		special(DrawWholeMapView)
+		end
     }
+}
+
+script Route23_EventScript_Free_Gate_2 
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_2)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 2)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_3
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_3)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 3)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_4
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_4)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(12, 100, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 100, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 100, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 4)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_5
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_5)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(12, 100, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 100, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 100, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(13, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(14, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(15, 89, METATILE_General_Plain_Mowed, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 5)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_6
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_6)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(12, 100, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 100, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 100, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(13, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(14, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(15, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(7, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(8, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(9, 71, METATILE_General_Plain_Mowed, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 6)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_7
+{
+	fadenewbgm(MUS_ROUTE_23_BADGE_7)
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(12, 100, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 100, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 100, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(13, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(14, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(15, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(7, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(8, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(9, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(12, 38, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 38, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 38, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 7)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
+}
+
+script Route23_EventScript_Free_Gate_8
+{
+	setmetatile(13, 126, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(14, 126, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(15, 126, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(6, 117, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(7, 117, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(8, 117, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(12, 100, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 100, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 100, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(13, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(14, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(15, 89, METATILE_General_Plain_Mowed, 0)
+	setmetatile(7, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(8, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(9, 71, METATILE_General_Plain_Mowed, 0)
+	setmetatile(12, 38, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(13, 38, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(14, 38, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setmetatile(4, 12, METATILE_IndigoPlateau_TiledCityFloor_Left, 0)
+	setmetatile(5, 12, METATILE_IndigoPlateau_TiledCityFloor_Center, 0)
+	setmetatile(6, 12, METATILE_IndigoPlateau_TiledCityFloor_Right, 0)
+	setvar(VAR_MAP_SCENE_ROUTE23, 8)
+	special(DrawWholeMapView)
+	closemessage
+	releaseall
+	end
 }

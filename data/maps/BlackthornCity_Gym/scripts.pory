@@ -52,6 +52,7 @@ script BlackthornCity_Gym_Leader_Clair_Battle
 {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     if (flag(FLAG_JOHTO_BADGE08_GET) == TRUE)
     {
         msgbox(format("Whatever you have to face from\nnow, don't you dare give up!"))

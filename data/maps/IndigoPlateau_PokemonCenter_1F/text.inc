@@ -31,13 +31,12 @@ IndigoPlateau_PokemonCenter_1F_Text_AgathaWhuppedUs::
     .string "confident, but she whupped us.\p"
     .string "That old lady's also got a really\n"
     .string "short fuse, too.\p"
-    .string "It doesn't take anything to get\n"
-    .string "that scary lady hollering.$"
+    .string "From what I've heard, her RIVAL'S\n"
+    .string "accomplishments led to her choices.$"
 
 IndigoPlateau_PokemonCenter_1F_Text_LancesCousinGymLeaderFarAway::
     .string "Maybe becoming an ELITE FOUR\n"
-    .string "member is in the blood.\p"
+    .string "member runs in the family.\p"
     .string "From what I've heard, LANCE has\n"
-    .string "a cousin who's a GYM LEADER\l"
-    .string "somewhere far away.$"
-
+    .string "a cousin who's also a GYM LEADER.\p"
+    .string "Far away? No, not really...$"

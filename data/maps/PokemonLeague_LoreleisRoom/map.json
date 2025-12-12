@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
   "name": "PokemonLeague_LoreleisRoom",
   "layout": "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_INDIGO_PLATEAU_LEAGUE",
   "region_map_section": "MAPSEC_POKEMON_LEAGUE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -40,12 +40,22 @@
     },
     {
       "x": 6,
-      "y": 2,
+      "y": 0,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_POKEMON_LEAGUE",
+      "var_value": "1",
+      "script": "PokemonLeague_LoreleisRoom_EventScript_HandleNextRoomWarp"
+    }
+  ],
   "bg_events": []
 }

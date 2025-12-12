@@ -2,6 +2,7 @@
 #define GUARD_DATA_H
 
 #include "global.h"
+#include "constants/species_expanded_1.h"
 
 #define SPECIES_SHINY_TAG 500
 #define TRAINER_ENCOUNTER_MUSIC(trainer)((gTrainers[trainer].encounterMusic_gender & 0x7F))
@@ -29,6 +30,15 @@ extern const struct MonCoords gMonBackPicCoords[];
 extern const struct CompressedSpriteSheet gMonBackPicTable[];
 extern const struct CompressedSpritePalette gMonPaletteTable[];
 extern const struct CompressedSpritePalette gMonShinyPaletteTable[];
+
+extern const u8 gSpeciesNamesExpanded_1[][POKEMON_NAME_LENGTH + 1];
+extern const struct MonCoords gMonFrontPicCoordsExpanded_1[];
+extern const struct CompressedSpriteSheet gMonFrontPicTableExpanded_1[];
+extern const struct MonCoords gMonBackPicCoordsExpanded_1[];
+extern const struct CompressedSpriteSheet gMonBackPicTableExpanded_1[];
+extern const struct CompressedSpritePalette gMonPaletteTableExpanded_1[];
+extern const struct CompressedSpritePalette gMonShinyPaletteTableExpanded_1[];
+
 extern const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[];
 extern const struct MonCoords gTrainerFrontPicCoords[];
 extern const struct CompressedSpriteSheet gTrainerFrontPicTable[];
@@ -41,7 +51,6 @@ extern const struct CompressedSpritePalette gTrainerBackPicPaletteTable[];
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
 extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
 
-//extern const u8 gEnemyMonElevation[NUM_SPECIES]; <- Original code
 extern const u8 gEnemyMonElevation[NUM_SPECIES];
 
 extern const u8 *const gBattleAnims_General[];

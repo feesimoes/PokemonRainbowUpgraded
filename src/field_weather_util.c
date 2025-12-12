@@ -2,6 +2,9 @@
 #include "field_weather.h"
 #include "overworld.h"
 #include "constants/weather.h"
+#include "palette.h"
+#include "constants/vars.h"
+#include "event_data.h"
 
 static u8 TranslateWeatherNum(u8 weather);
 static void UpdateRainCounter(u8 newWeather, u8 oldWeather);

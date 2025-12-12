@@ -18,6 +18,11 @@
       "map": "MAP_ONE_ISLAND",
       "offset": 120,
       "direction": "left"
+    },
+    {
+      "map": "MAP_MT_EMBER_EXTERIOR",
+      "offset": -17,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -429,20 +434,6 @@
     }
   ],
   "warp_events": [
-    {
-      "x": 11,
-      "y": 6,
-      "elevation": 3,
-      "dest_map": "MAP_MT_EMBER_EXTERIOR",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 12,
-      "y": 6,
-      "elevation": 3,
-      "dest_map": "MAP_MT_EMBER_EXTERIOR",
-      "dest_warp_id": "1"
-    },
     {
       "x": 15,
       "y": 58,

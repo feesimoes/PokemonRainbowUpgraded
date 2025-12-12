@@ -52,6 +52,61 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	releaseall
 	end
 `
+
+script PalletTown_PlayersHouse_2F_EventScript_Bed 
+{
+    lock
+    msgbox(format("It's your bed!\nWant to take a nap?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        if (flag(FLAG_BEAT_RIVAL_IN_OAKS_LAB))
+        {
+            call(EventScript_OutOfCenterPartyHeal)
+            msgbox(format("You and your POKéMON have\nrested up! Great!"))
+            if (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) != 6)
+            {
+                addvar(VAR_DAY_DATE, 1)
+                setvar(VAR_TIME_HOUR, 8)
+            }
+            elif (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) == 6)
+            {
+                setvar(VAR_DAY_DATE, 0)
+                setvar(VAR_TIME_HOUR, 8)
+            }
+            else
+            {
+                addvar(VAR_TIME_HOUR, 6)
+            }
+        }
+        else
+        {
+            if (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) != 6)
+            {
+                addvar(VAR_DAY_DATE, 1)
+                setvar(VAR_TIME_HOUR, 8)
+            }
+            elif (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) == 6)
+            {
+                setvar(VAR_DAY_DATE, 0)
+                setvar(VAR_TIME_HOUR, 8)
+            }
+            else
+            {
+                addvar(VAR_TIME_HOUR, 6)
+            }
+        }
+        msgbox(format("...Okay!\nIt's time to go!"))
+        closemessage
+    }
+    else
+    {
+        msgbox(format("...Okay!\nIt's time to go!"))
+        closemessage
+    }
+    release
+    end
+}
+
 script PalletTown_PlayersHouse_2F_EventScript_NES
 {
     lock

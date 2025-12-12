@@ -74,100 +74,102 @@ BlackthornCity_Gym_Leader_Clair_Battle::
 # 54 "data/maps/BlackthornCity_Gym/scripts.pory"
 	faceplayer
 # 55 "data/maps/BlackthornCity_Gym/scripts.pory"
+	textcolor NPC_TEXT_COLOR_FEMALE
+# 56 "data/maps/BlackthornCity_Gym/scripts.pory"
 	goto_if_set FLAG_JOHTO_BADGE08_GET, BlackthornCity_Gym_Leader_Clair_Battle_2
-# 62 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_1
 # 63 "data/maps/BlackthornCity_Gym/scripts.pory"
-	checkitem ITEM_DRAGON_FANG_2, 1
+	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_1
 # 64 "data/maps/BlackthornCity_Gym/scripts.pory"
+	checkitem ITEM_DRAGON_FANG_2, 1
+# 65 "data/maps/BlackthornCity_Gym/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq BlackthornCity_Gym_Leader_Clair_Battle_5
-# 70 "data/maps/BlackthornCity_Gym/scripts.pory"
-	checkitem ITEM_DRAGON_FANG, 1
 # 71 "data/maps/BlackthornCity_Gym/scripts.pory"
+	checkitem ITEM_DRAGON_FANG, 1
+# 72 "data/maps/BlackthornCity_Gym/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq BlackthornCity_Gym_Leader_Clair_Battle_8
-# 82 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 83 "data/maps/BlackthornCity_Gym/scripts.pory"
 	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_7
 BlackthornCity_Gym_Leader_Clair_Battle_4:
-# 85 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
 # 86 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 87 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
 BlackthornCity_Gym_Leader_Clair_Battle_2:
-# 57 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_0
 # 58 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
+	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_0
 # 59 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 60 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
 BlackthornCity_Gym_Leader_Clair_Battle_5:
-# 66 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 67 "data/maps/BlackthornCity_Gym/scripts.pory"
 	trainerbattle_single TRAINER_LEADER_CLAIR, BlackthornCity_Gym_Leader_Clair_Battle_Text_2, BlackthornCity_Gym_Leader_Clair_Battle_Text_3, BlackthornCity_Gym_Leader_Clair_Post_Battle, NO_MUSIC
 	goto BlackthornCity_Gym_Leader_Clair_Battle_4
 
 BlackthornCity_Gym_Leader_Clair_Battle_8:
-# 73 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_4
 # 74 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_5
+	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_4
 # 75 "data/maps/BlackthornCity_Gym/scripts.pory"
-	fadeoutbgm 0
+	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_5
 # 76 "data/maps/BlackthornCity_Gym/scripts.pory"
-	waitmessage
+	fadeoutbgm 0
 # 77 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_6
+	waitmessage
 # 78 "data/maps/BlackthornCity_Gym/scripts.pory"
+	msgbox BlackthornCity_Gym_Leader_Clair_Battle_Text_6
+# 79 "data/maps/BlackthornCity_Gym/scripts.pory"
 	playbgm MUS_GYM_JOHTO, TRUE
 	goto BlackthornCity_Gym_Leader_Clair_Battle_4
 
 
 BlackthornCity_Gym_Dude_Dialogue::
-# 92 "data/maps/BlackthornCity_Gym/scripts.pory"
-	lock
 # 93 "data/maps/BlackthornCity_Gym/scripts.pory"
-	faceplayer
+	lock
 # 94 "data/maps/BlackthornCity_Gym/scripts.pory"
+	faceplayer
+# 95 "data/maps/BlackthornCity_Gym/scripts.pory"
 	goto_if_set FLAG_JOHTO_BADGE08_GET, BlackthornCity_Gym_Dude_Dialogue_1
-# 103 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Dude_Dialogue_Text_1
 # 104 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
+	msgbox BlackthornCity_Gym_Dude_Dialogue_Text_1
 # 105 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 106 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
 BlackthornCity_Gym_Dude_Dialogue_1:
-# 96 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Dude_Dialogue_Text_0
 # 97 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
+	msgbox BlackthornCity_Gym_Dude_Dialogue_Text_0
 # 98 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 99 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
 
 BlackthornCity_Gym_Statues::
-# 112 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 113 "data/maps/BlackthornCity_Gym/scripts.pory"
 	goto_if_set FLAG_JOHTO_BADGE08_GET, BlackthornCity_Gym_Statues_1
-# 121 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Statues_Text_1
 # 122 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
+	msgbox BlackthornCity_Gym_Statues_Text_1
 # 123 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 124 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
 BlackthornCity_Gym_Statues_1:
-# 114 "data/maps/BlackthornCity_Gym/scripts.pory"
-	msgbox BlackthornCity_Gym_Statues_Text_0
 # 115 "data/maps/BlackthornCity_Gym/scripts.pory"
-	closemessage
+	msgbox BlackthornCity_Gym_Statues_Text_0
 # 116 "data/maps/BlackthornCity_Gym/scripts.pory"
+	closemessage
+# 117 "data/maps/BlackthornCity_Gym/scripts.pory"
 	release
 	end
 
@@ -255,12 +257,12 @@ BlackthornCity_Gym_Leader_Clair_Post_Battle_Text_2:
 	.string "and 8 JOHTO BADGES, good luck.$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_0:
-# 57 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 58 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "Whatever you have to face from\n"
 	.string "now, don't you dare give up!$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_1:
-# 62 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 63 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "I am CLAIR.\n"
 	.string "The world's best DRAGON MASTER.\p"
 	.string "I can hold my own against\n"
@@ -269,33 +271,33 @@ BlackthornCity_Gym_Leader_Clair_Battle_Text_1:
 	.string "take me on?$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_2:
-# 66 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 67 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "All right!\n"
 	.string "I recognize your worthiness.\p"
 	.string "As LEADER, I'll be using my\n"
 	.string "full power against any opponent!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_3:
-# 66 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 67 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "Congratulations!\n"
 	.string "You were really tough...\p"
 	.string "Battling you made me realize\n"
 	.string "what I was missing...$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_4:
-# 73 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 74 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "All right...\n"
 	.string "I recognize your worthiness.\p"
 	.string "As a LEADER, I will use full\n"
 	.string "power against any opponent!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_5:
-# 74 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 75 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "Let's do it!\n"
 	.string "...Wait.$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_6:
-# 77 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 78 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "You did not get that at\n"
 	.string "DRAGONS' DEN.\p"
 	.string "Trying to cheat like that...\n"
@@ -306,7 +308,7 @@ BlackthornCity_Gym_Leader_Clair_Battle_Text_6:
 	.string "worthy opponent.$"
 
 BlackthornCity_Gym_Leader_Clair_Battle_Text_7:
-# 82 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 83 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "Go take the DRAGONS' DEN\n"
 	.string "challenge. If you can do that...\p"
 	.string "I will accept you as a\n"
@@ -315,14 +317,14 @@ BlackthornCity_Gym_Leader_Clair_Battle_Text_7:
 	.string "I won't give you a BADGE.$"
 
 BlackthornCity_Gym_Dude_Dialogue_Text_0:
-# 96 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 97 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "No way! I don't believe it.\n"
 	.string "You actually beat CLAIR?\p"
 	.string "...Just kidding, I knew you\n"
 	.string "could do it! Excellent work!$"
 
 BlackthornCity_Gym_Dude_Dialogue_Text_1:
-# 103 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 104 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "Yo, WORLD CHAMP in the making!\n"
 	.string "The air here is tense!\p"
 	.string "CLAIR will go all-out in\n"
@@ -335,14 +337,14 @@ BlackthornCity_Gym_Dude_Dialogue_Text_1:
 	.string "POKéMON, ICE PATH is nearby.$"
 
 BlackthornCity_Gym_Statues_Text_0:
-# 114 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 115 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "BLACKTHORN CITY GYM\n"
 	.string "LEADER: CLAIR\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
 BlackthornCity_Gym_Statues_Text_1:
-# 121 "data/maps/BlackthornCity_Gym/scripts.pory"
+# 122 "data/maps/BlackthornCity_Gym/scripts.pory"
 	.string "BLACKTHORN CITY GYM\n"
 	.string "LEADER: CLAIR\p"
 	.string "WINNING TRAINERS:\n"

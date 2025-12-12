@@ -53,6 +53,52 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_WestEntrance_1F_TurnAroundQuarrelAhead"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_WestEntrance_1F_TurnAroundQuarrelAhead"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_WestEntrance_1F_TurnAroundQuarrelAhead"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_WestEntrance_1F_TurnAroundQuarrelAhead"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_WestEntrance_1F_TurnAroundQuarrelAhead"
+    }
+  ],
   "bg_events": []
 }

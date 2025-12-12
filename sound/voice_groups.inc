@@ -8234,8 +8234,8 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
-	voice_programmable_wave 60, 0, ProgrammableWaveData_1, 0, 7, 15, 1
 	voice_square_2 60, 0, 2, 0, 1, 6, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_1, 0, 7, 15, 1
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_2, 0, 2, 9, 1
 	voice_programmable_wave 60, 0, ProgrammableWaveData_3, 0, 7, 15, 1
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0

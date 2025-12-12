@@ -988,7 +988,32 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 static u16 GetLocationMusic(struct WarpData * warp)
 {
-    if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_SILPH_CO)
+    // Badge Gates on Route 23 - Default music depending on progress
+    if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_ROUTE_23)
+    {
+        switch (VarGet(VAR_MAP_SCENE_ROUTE23))
+        {
+            case 1:
+                return MUS_ROUTE_23_BADGE_1;
+            case 2:
+                return MUS_ROUTE_23_BADGE_2;
+            case 3:
+                return MUS_ROUTE_23_BADGE_3;
+            case 4:
+                return MUS_ROUTE_23_BADGE_4;
+            case 5:
+                return MUS_ROUTE_23_BADGE_5;
+            case 6:
+                return MUS_ROUTE_23_BADGE_6;
+            case 7:
+                return MUS_ROUTE_23_BADGE_7;
+            case 8:
+                return MUS_ROUTE_23_BADGE_7;
+            default:
+                return MUS_ROUTE_23_BADGE_1;
+        }
+    }
+    else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_SILPH_CO)
     {
         //Team Rocket was driven out of Silph Co.
         if (FlagGet(FLAG_HIDE_SILPH_ROCKETS))
@@ -1101,10 +1126,12 @@ void Overworld_PlaySpecialMapMusic(void)
         if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
         {
             music = MUS_SURF_JOHTO;
+            return;
         }
         else
         {
             music = MUS_SURF;
+            return;
         }
     }
     if (music != GetCurrentMapMusic())
@@ -3636,4 +3663,12 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
         sprite->invisible = ((sprite->data[7] & 4) >> 2);
         sprite->data[7]++;
     }
+}
+
+bool8 MapHasNaturalLight(u8 mapType)
+{
+    return ((mapType == MAP_TYPE_TOWN
+          || mapType == MAP_TYPE_CITY
+          || mapType == MAP_TYPE_ROUTE
+          || mapType == MAP_TYPE_OCEAN_ROUTE));
 }

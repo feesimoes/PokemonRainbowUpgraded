@@ -106,7 +106,8 @@ FuchsiaCity_SafariZone_Entrance_EventScript_AskEnterSafariZone::
 	msgbox FuchsiaCity_SafariZone_Entrance_Text_PlaySafariGameFor500, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, FuchsiaCity_SafariZone_Entrance_EventScript_TryEnterSafariZone
 	msgbox FuchsiaCity_SafariZone_Entrance_Text_OkayPleaseComeAgain
-	goto FuchsiaCity_SafariZone_Entrance_EventScript_ForcePlayerBack
+	hidemoneybox
+	releaseall
 	end
 
 FuchsiaCity_SafariZone_Entrance_EventScript_TryEnterSafariZone::
@@ -154,20 +155,10 @@ FuchsiaCity_SafariZone_Entrance_EventScript_CheckSpaceForMons::
 	specialvar VAR_RESULT, IsThereRoomInAnyBoxForMorePokemon
 	goto_if_eq VAR_RESULT, TRUE, EventScript_Return
 	msgbox SafariZone_Text_ExcuseMeYourPCBoxIsFull
-	goto FuchsiaCity_SafariZone_Entrance_EventScript_ForcePlayerBack
 	end
 
 FuchsiaCity_SafariZone_Entrance_EventScript_NotEnoughMoney::
 	msgbox FuchsiaCity_SafariZone_Entrance_Text_OopsNotEnoughMoney
-	goto FuchsiaCity_SafariZone_Entrance_EventScript_ForcePlayerBack
-	end
-
-FuchsiaCity_SafariZone_Entrance_EventScript_ForcePlayerBack::
-	closemessage
-	hidemoneybox
-	applymovement LOCALID_PLAYER, FuchsiaCity_SafariZone_Entrance_Movement_ForceBack
-	waitmovement 0
-	releaseall
 	end
 
 FuchsiaCity_SafariZone_Entrance_Movement_ForceBack::

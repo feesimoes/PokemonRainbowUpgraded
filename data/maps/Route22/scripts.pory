@@ -1,0 +1,375 @@
+raw `
+Route22_EventScript_EarlyRivalTriggerTop::
+	lockall
+	setvar VAR_TEMP_1, 0
+	goto Route22_EventScript_EarlyRival
+	end
+
+Route22_EventScript_EarlyRivalTriggerMid::
+	lockall
+	setvar VAR_TEMP_1, 1
+	setobjectxyperm LOCALID_ROUTE22_RIVAL, 25, 9
+	goto Route22_EventScript_EarlyRival
+	end
+
+Route22_EventScript_EarlyRivalTriggerBottom::
+	lockall
+	setvar VAR_TEMP_1, 2
+	setobjectxyperm LOCALID_ROUTE22_RIVAL, 25, 9
+	goto Route22_EventScript_EarlyRival
+	end
+
+Route22_EventScript_EarlyRival::
+	textcolor NPC_TEXT_COLOR_MALE
+	playbgm MUS_ENCOUNTER_RIVAL, 0
+	addobject LOCALID_ROUTE22_RIVAL
+	call_if_eq VAR_TEMP_1, 0, Route22_EventScript_EarlyRivalApproach
+	call_if_eq VAR_TEMP_1, 1, Route22_EventScript_EarlyRivalApproach
+	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_EarlyRivalApproachBottom
+	delay 6
+	msgbox Route22_Text_EarlyRivalIntro
+	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_EarlyRivalSquirtle
+	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_EarlyRivalBulbasaur
+	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_EarlyRivalCharmander
+	msgbox Route22_Text_EarlyRivalPostBattle
+	closemessage
+	delay 10
+	playbgm MUS_RIVAL_EXIT, 0
+	call_if_eq VAR_TEMP_1, 0, Route22_EventScript_EarlyRivalExit
+	call_if_eq VAR_TEMP_1, 1, Route22_EventScript_EarlyRivalExit
+	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_EarlyRivalExitBottom
+	fadedefaultbgm
+	removeobject LOCALID_ROUTE22_RIVAL
+	setvar VAR_MAP_SCENE_ROUTE22, 2
+	releaseall
+	end
+
+Route22_EventScript_EarlyRivalApproach::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproach
+	waitmovement 0
+	return
+
+Route22_EventScript_EarlyRivalApproachBottom::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproachBottom
+	applymovement LOCALID_PLAYER, Route22_Movement_PlayerFaceRival
+	waitmovement 0
+	return
+
+Route22_EventScript_EarlyRivalSquirtle::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalBulbasaur::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalCharmander::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_EarlyRivalExit::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_EarlyRivalExit
+	waitmovement 0
+	return
+
+Route22_EventScript_EarlyRivalExitBottom::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_EarlyRivalExitBottom
+	waitmovement 0
+	return
+
+Route22_Movement_UnusedRivalExit:: @ 8
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route22_Movement_EarlyRivalExit::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route22_Movement_EarlyRivalExitBottom::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route22_Movement_RivalApproach::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route22_Movement_RivalApproachBottom::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_faster_down
+	step_end
+
+Route22_Movement_PlayerFaceRival::
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	walk_in_place_faster_up
+	step_end
+
+Route22_EventScript_LateRivalTriggerTop::
+	lockall
+	setvar VAR_TEMP_1, 0
+	goto Route22_EventScript_LateRival
+	end
+
+Route22_EventScript_LateRivalTriggerMid::
+	lockall
+	setvar VAR_TEMP_1, 1
+	setobjectxyperm LOCALID_ROUTE22_RIVAL, 25, 5
+	goto Route22_EventScript_LateRival
+	end
+
+Route22_EventScript_LateRivalTriggerBottom::
+	lockall
+	setvar VAR_TEMP_1, 2
+	setobjectxyperm LOCALID_ROUTE22_RIVAL, 25, 5
+	goto Route22_EventScript_LateRival
+	end
+
+Route22_EventScript_LateRival::
+	textcolor NPC_TEXT_COLOR_MALE
+	playbgm MUS_ENCOUNTER_RIVAL, 0
+	addobject LOCALID_ROUTE22_RIVAL
+	call_if_eq VAR_TEMP_1, 0, Route22_EventScript_LateRivalApproach
+	call_if_eq VAR_TEMP_1, 1, Route22_EventScript_LateRivalApproach
+	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_LateRivalApproachBottom
+	msgbox Route22_Text_LateRivalIntro
+	setvar VAR_LAST_TALKED, LOCALID_ROUTE22_RIVAL
+	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_LateRivalSquirtle
+	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_LateRivalBulbasaur
+	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_LateRivalCharmander
+	msgbox Route22_Text_LateRivalPostBattle
+	closemessage
+	delay 10
+	playbgm MUS_RIVAL_EXIT, 0
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_LateRivalExit
+	waitmovement 0
+	fadedefaultbgm
+	removeobject LOCALID_ROUTE22_RIVAL
+	setvar VAR_MAP_SCENE_ROUTE22, 4
+	releaseall
+	end
+
+Route22_EventScript_LateRivalApproach::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproach
+	waitmovement 0
+	return
+
+Route22_EventScript_LateRivalApproachBottom::
+	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproachBottom
+	applymovement LOCALID_PLAYER, Route22_Movement_PlayerFaceRival
+	waitmovement 0
+	return
+
+Route22_EventScript_LateRivalSquirtle::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, Route22_Text_LateRivalDefeat
+	return
+
+Route22_EventScript_LateRivalBulbasaur::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Route22_Text_LateRivalDefeat
+	return
+
+Route22_EventScript_LateRivalCharmander::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER, Route22_Text_LateRivalDefeat
+	return
+
+Route22_Movement_LateRivalExit::
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route22_EventScript_LeagueGateSign::
+	msgbox Route22_Text_LeagueGateSign, MSGBOX_SIGN
+	end
+
+`
+
+mapscripts Route22_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE)
+        if (var(VAR_MEW_QUEST_PROGRESS) == 12)
+        {
+            checkitem(ITEM_OLD_SEA_MAP, 1)
+            if (var(VAR_RESULT) == TRUE)
+            {
+                setvar(VAR_MEW_QUEST_PROGRESS, 13)
+                clearflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+            }
+        }
+        elif (var(VAR_MEW_QUEST_PROGRESS) == 13)
+        {
+            clearflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+        }
+        else
+        {
+            setflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+        }
+    }   
+}
+
+script Route22_Force_Player_Off_Ledge_Down 
+{
+    lock
+    playse(SE_LEDGE)
+    applymovement(LOCALID_PLAYER, Route22_Player_Jump_Off_Ledge_Down)
+    waitmovement
+    applymovement(LOCALID_PLAYER, Route22_Player_Face_Left)
+    waitmovement
+    release
+    call(Route22_EventScript_Giovanni_Silver)
+    end
+}
+
+script Route22_EventScript_Giovanni_Silver 
+{
+    lock
+    applymovement(LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Left_Slowly)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("???: Dad, wait!\nHey! Where are you..."))
+    fadenewbgm(MUS_KANTO_EMOTION)
+    msgbox(format("...\n..."))
+    delay(30)
+    applymovement(LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Face_Up_Slowly)
+    waitmovement
+    msgbox(format("GIOVANNI: Son, I must acknowledge\ndefeat here, to move on..."))
+    msgbox(format("???: You told me...\nYou were number one!\pNot just here, Dad!\nNumber one in the entire WORLD!\pAre you gonna quit?!\nWhere are you going now?"))
+    applymovement(LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Face_Left_Slowly)
+    waitmovement
+    msgbox(format("...\n...\pGIOVANNI: I will go solo...\nFor now..."))
+    msgbox(format("...So that one day, I'll return\nto form a stronger organization!"))
+    msgbox(format("???: What aspect of you was number\none, then?\pGathering so many only to be stopped\nby a mere... child!"))
+    msgbox(format("GIOVANNI: Putting together the\npotential of many produced power...\pThat's what an organization is.\nThat's its strength."))
+    msgbox(format("But I failed... To make the best use\nof my subordinates' potential...!\pYou will witness it one day...\nMy TEAM ROCKET'S revival!"))
+    msgbox(format("???: I don't understand you!\nYou don't make any sense, Dad!\pIf you were number one, you\nwouldn't just... leave!"))
+    msgbox(format("GIOVANNI: ...One day, son.\nYou will eventually understand."))
+    applymovement(LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Walk_Left_Out_Of_View)
+    waitmovement
+    removeobject(LOCALID_ROUTE_22_GIOVANNI)
+    msgbox(format("???: I don't want to understand\nyou, coward!\pI will never become someone like you."))
+    msgbox(format("A coward when you're alone,\nbut that changes around others!\pYou act like some number one\ntyrant... a fake BOSS to them!"))
+    msgbox(format("I will become strong! I'll be a\nstronger man all by myself!"))
+    applymovement(LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Left_Slowly)
+    waitmovement
+    msgbox(format("All... By... Myself!"))
+    waitmessage
+    applymovement(LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Right)
+    waitmovement
+    applymovement(LOCALID_ROUTE_22_SILVER, Route22_Silver_Emote)
+    waitmovement
+    msgbox(format("...What are you staring at?\nGet lost!"))
+    closemessage
+    applymovement(LOCALID_ROUTE_22_SILVER, Route22_Silver_Run_Left_Out_Of_View)
+    waitmovement
+    removeobject(LOCALID_ROUTE_22_SILVER)
+    fadedefaultbgm
+    setflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+    setvar(VAR_MEW_QUEST_PROGRESS, 15)
+    release
+    end
+}   
+
+movement Route22_Player_Jump_Off_Ledge_Down
+{
+    jump_2_down
+    step_end
+}
+
+movement Route22_Player_Face_Left
+{
+    face_left
+    step_end
+}
+
+movement Route22_Giovanni_Face_Up_Slowly 
+{
+    face_up
+    step_end    
+}
+
+movement Route22_Giovanni_Walk_Left_Out_Of_View
+{
+    walk_left * 6
+    step_end    
+}
+
+movement Route22_Giovanni_Face_Left_Slowly 
+{
+    face_left
+    step_end    
+}
+
+movement Route22_Silver_Run_Left_Out_Of_View
+{
+    walk_fast_left * 8
+    step_end    
+}
+
+movement Route22_Silver_Walk_Left_Slowly 
+{
+    walk_slower_left
+    step_end    
+}
+
+movement Route22_Silver_Walk_Right 
+{
+    walk_right
+    step_end    
+}
+
+movement Route22_Silver_Emote
+{
+    emote_exclamation_mark
+    step_end    
+}

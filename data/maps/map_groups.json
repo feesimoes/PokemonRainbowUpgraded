@@ -144,12 +144,6 @@
     "CeruleanCave_1F",
     "CeruleanCave_2F",
     "CeruleanCave_B1F",
-    "PokemonLeague_LoreleisRoom",
-    "PokemonLeague_BrunosRoom",
-    "PokemonLeague_AgathasRoom",
-    "PokemonLeague_LancesRoom",
-    "PokemonLeague_ChampionsRoom",
-    "PokemonLeague_HallOfFame",
     "RockTunnel_1F",
     "RockTunnel_B1F",
     "SeafoamIslands_1F",
@@ -343,7 +337,9 @@
     "Route36",
     "Route33",
     "AzaleaTown",
-    "TopsoilTown"
+    "TopsoilTown",
+    "SlateportCity",
+    "OneIsland_TreasureBeach_Underwater"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -445,7 +441,17 @@
   ],
   "gMapGroup_IndoorIndigoPlateau": [
     "IndigoPlateau_PokemonCenter_1F",
-    "IndigoPlateau_PokemonCenter_2F"
+    "IndigoPlateau_PokemonCenter_2F",
+    "PokemonLeague_LoreleisRoom",
+    "PokemonLeague_BrunosRoom",
+    "PokemonLeague_AgathasRoom",
+    "PokemonLeague_LancesRoom",
+    "PokemonLeague_ChampionsRoom",
+    "PokemonLeague_KogasRoom",
+    "PokemonLeague_KarensRoom",
+    "PokemonLeague_ChampionsRoom_Lance",
+    "PokemonLeague_HallOfFame_Lance",
+    "PokemonLeague_HallOfFame"
   ],
   "gMapGroup_IndoorSaffron": [
     "SaffronCity_CopycatsHouse_1F",
@@ -672,10 +678,6 @@
     "KaieteurJungle_Route8",
     "KaieteurJungle_Route9",
     "KaieteurJungle_LindenPath",
-    "PokemonLeague_KogasRoom",
-    "PokemonLeague_KarensRoom",
-    "PokemonLeague_ChampionsRoom_Lance",
-    "PokemonLeague_HallOfFame_Lance",
     "KaieteurJungle_Route10",
     "KaieteurJungle_Route11",
     "KaieteurJungle_Route12",
@@ -691,7 +693,10 @@
     "VioletCity_Gym",
     "Violet_PokemonCenter_1F",
     "Violet_Mart",
-    "SproutTower_1F"
+    "SproutTower_1F",
+    "VioletCity_House1",
+    "VioletCity_House2",
+    "VioletCity_School"
   ],
   "gMapGroup_IndoorRoute32": [
     "Route32_PokemonCenter_1F",
@@ -720,7 +725,9 @@
     "LindenTown_House9",
     "LindenTown_House10",
     "LindenTown_Mansion_1F",
-    "LindenTown_Mansion_B1F"
+    "LindenTown_Mansion_B1F",
+    "LindenTown_MansionHall_R_1F",
+    "LindenTown_MansionHall_L_1F"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_Harbor"

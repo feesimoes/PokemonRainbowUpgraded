@@ -1,0 +1,55 @@
+mapscripts VioletCity_School_MapScripts {}
+
+script VioletCity_School_Earl 
+{
+    lock
+    faceplayer
+    msgbox(format("Bonjour! You are TRAINER? Battle\nGYM LEADER, win you did?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        if (flag(FLAG_JOHTO_BADGE01_GET) == TRUE)
+        {
+            msgbox(format("Ooh, la la!\nVery indeed nice!\pNothing more do I teach!\nSmart TRAINER you are!"))
+        }
+        else
+        {
+            msgbox(format("Oh! You lie!\nGood it is you study here!"))
+        }
+    }
+    else
+    {
+        msgbox(format("Here, teacher I am. Good it\nis you study here, yes!"))
+        msgbox(format("EARL, I am! Wonderful are\nPOKéMON, yes? Teach you I will!"))
+        msgbox(format("What you want to know?\nWant to be a winner is you?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Good! Teach you, I will!\nIn battle, POKéMON top on list.\pThe top one, jump out first!\nChange order in list, make easy!"))
+            msgbox(format("More from EARL you want\nto hear?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Fine! Teach you, I will!\nIf POKéMON come out in battle...\pSome EXP. POINTS it gets.\nKeep out weak POKéMON!\pSwitch in battle quick! This way,\nweak POKéMON very strong get!"))
+                msgbox(format("More from EARL you want\nto hear?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Fine! Teach you, I will!\nPOKéMON have goods and bads.\pBecause many types. High LV.\nPOKéMON not win always if bad types."))
+                    msgbox(format("POKéMON with good types for\nfoe you choose, smart battle!\pYou come again later! EARL\ntired, but teaches whenever!"))
+                }
+                else
+                {
+                    msgbox(format("You come again later, yes?\nEARL teach you whenever!"))
+                }
+            }
+            else
+            {
+                msgbox(format("You come again later, yes?\nEARL teach you whenever!"))
+            }
+        }
+        else
+        {
+            msgbox(format("You come again later, yes?\nEARL teach you whenever!"))
+        }
+    }
+    closemessage
+    release
+    end
+}

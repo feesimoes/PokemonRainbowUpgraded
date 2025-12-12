@@ -3,6 +3,7 @@
 
 #include "global.h"
 
+void GameDateTime_Update(void);
 void PlayTimeCounter_Reset(void);
 void PlayTimeCounter_Start(void);
 void PlayTimeCounter_Stop(void);

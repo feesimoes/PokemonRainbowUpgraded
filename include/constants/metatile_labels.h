@@ -78,6 +78,11 @@
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 
+// gTileset_IndigoPlateau
+#define METATILE_IndigoPlateau_TiledCityFloor_Center  0x28A
+#define METATILE_IndigoPlateau_TiledCityFloor_Left    0x289
+#define METATILE_IndigoPlateau_TiledCityFloor_Right   0x28B
+
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2
 
@@ -86,7 +91,8 @@
 #define METATILE_Mart_CounterMid_Top     0x2BF
 
 // gTileset_MtEmber
-#define METATILE_MtEmber_CaveEntrance  0x346
+#define METATILE_MtEmber_CaveEntrance            0x346
+#define METATILE_MtEmber_OceanFloorSurfaceLight  0x363
 
 // gTileset_PalletTown
 #define METATILE_PalletTown_Door         0x2A3

@@ -411,7 +411,13 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_JIRACHI] = _("JIRACHI"),
     [SPECIES_DEOXYS] = _("DEOXYS"),
     [SPECIES_CHIMECHO] = _("CHIMECHO"),
-    //[SPECIES_TURTWIG] = _("TURTWIG"),
-    //[SPECIES_GROTLE] = _("GROTLE"),
-    //[SPECIES_TORTERRA] = _("TORTERRA"),
+};
+
+//Expanded Species names for tables 1-16 Below:
+const u8 gSpeciesNamesExpanded_1[][POKEMON_NAME_LENGTH + 1] = 
+{
+    [SPECIES_NONE_1] = _("??????????"),
+    [SPECIES_TURTWIG] = _("TURTWIG"),
+    [SPECIES_GROTLE] = _("GROTLE"),
+    [SPECIES_TORTERRA] = _("TORTERRA")
 };

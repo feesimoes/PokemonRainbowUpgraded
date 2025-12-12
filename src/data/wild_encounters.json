@@ -30697,7 +30697,7 @@
               {
                 "min_level": 21,
                 "max_level": 30,
-                "species": "SPECIES_CASCOON"
+                "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 20,
@@ -30707,7 +30707,7 @@
               {
                 "min_level": 16,
                 "max_level": 19,
-                "species": "SPECIES_GULPIN"
+                "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 21,
@@ -30741,6 +30741,10 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE33",
+          "base_label": "gRoute33"
         }
       ]
     }

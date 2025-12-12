@@ -1564,6 +1564,7 @@ extern const u8 gText_UsedFlashLight[];
 extern const u8 gString_TrainerNameGrunt[];
 extern const u8 gString_TrainerNameAdmin[];
 extern const u8 gString_TrainerNameRodolfo[];
+extern const u8 gString_TrainerNameLance[];
 
 extern const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[];
 extern const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[];
@@ -1571,5 +1572,15 @@ extern const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[];
 extern const u8 gText_MusicPlay[];
 extern const u8 gText_MusicQuit[];
 extern const u8 gText_MusicTrackVar1[];
+
+extern const u8 gString_Monday[];
+extern const u8 gString_Tuesday[];
+extern const u8 gString_Wednesday[];
+extern const u8 gString_Thursday[];
+extern const u8 gString_Friday[];
+extern const u8 gString_Saturday[];
+extern const u8 gString_Sunday[];
+
+extern const u8 gString_TerryPlaceholderName[];
 
 #endif //GUARD_STRINGS_H

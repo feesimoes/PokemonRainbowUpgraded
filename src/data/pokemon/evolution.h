@@ -1,4 +1,3 @@
-// const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] = <- Original code
 const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 {
     [SPECIES_BULBASAUR]  = {{EVO_LEVEL, 16, SPECIES_IVYSAUR}},
@@ -77,8 +76,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_JOLTEON},
                             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_VAPOREON},
                             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_FLAREON},
-                            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_ESPEON},
-                            {EVO_ITEM, ITEM_MOON_STONE, SPECIES_UMBREON}},
+                            {EVO_FRIENDSHIP_DAY, 0, SPECIES_ESPEON},
+                            {EVO_FRIENDSHIP_NIGHT, 0, SPECIES_UMBREON}},
     [SPECIES_PORYGON]    = {{EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2}},
     [SPECIES_OMANYTE]    = {{EVO_LEVEL, 40, SPECIES_OMASTAR}},
     [SPECIES_KABUTO]     = {{EVO_LEVEL, 40, SPECIES_KABUTOPS}},
@@ -185,6 +184,10 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_SHELGON]    = {{EVO_LEVEL, 50, SPECIES_SALAMENCE}},
     [SPECIES_BELDUM]     = {{EVO_LEVEL, 20, SPECIES_METANG}},
     [SPECIES_METANG]     = {{EVO_LEVEL, 45, SPECIES_METAGROSS}},
-    //[SPECIES_TURTWIG]    = {{EVO_LEVEL, 16, SPECIES_GROTLE}},
-    //[SPECIES_GROTLE]    = {{EVO_LEVEL, 36, SPECIES_TORTERRA}},
+};
+
+const struct Evolution gEvolutionTableExpanded_1[NUM_SPECIES][EVOS_PER_MON] =
+{
+    [SPECIES_TURTWIG]   = {{EVO_LEVEL, 16, SPECIES_GROTLE}},
+    [SPECIES_GROTLE]    = {{EVO_LEVEL, 36, SPECIES_TORTERRA}},
 };

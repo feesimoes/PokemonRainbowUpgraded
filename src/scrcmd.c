@@ -1607,6 +1607,7 @@ bool8 ScrCmd_bufferleadmonspeciesname(struct ScriptContext * ctx)
     u8 *dest = sScriptStringVars[stringVarIndex];
     u8 partyIndex = GetLeadMonIndex();
     u32 species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
+    u8 speciesFormsValue = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES_FORMS_VALUE, NULL);
     StringCopy(dest, gSpeciesNames[species]);
     return FALSE;
 }

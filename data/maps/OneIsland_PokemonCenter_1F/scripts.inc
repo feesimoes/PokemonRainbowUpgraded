@@ -99,13 +99,6 @@ OneIsland_PokemonCenter_1F_EventScript_MeetCelioScene::
 	msgbox OneIsland_PokemonCenter_1F_Text_CanYouDeliverThisMeteoritePlayer
 	msgreceiveditem OneIsland_PokemonCenter_1F_Text_AcceptedMeteoriteFromBill, ITEM_METEORITE, 1, MUS_OBTAIN_KEY_ITEM
 	additem ITEM_METEORITE
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioPleaseTakeThis
-	giveitem_msg OneIsland_PokemonCenter_1F_Text_ObtainedTriPass, ITEM_TRI_PASS, 1, MUS_OBTAIN_KEY_ITEM
-	msgbox OneIsland_PokemonCenter_1F_Text_PassLetsYouTravelBetweenIslands
-	call_if_ge VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMapPage
-	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMap
 	setflag FLAG_SYS_SEVII_MAP_123
 	msgbox OneIsland_PokemonCenter_1F_Text_BillCatchYouLater
 	closemessage
@@ -479,8 +472,8 @@ OneIsland_PokemonCenter_1F_EventScript_LeaveOneIslandScene::
 	waitmovement 0
 	playse SE_EXIT
 	setflag FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL
+	clearflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
 	setvar VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 3
-	clearflag FLAG_HIDE_CINNABAR_BILL
 	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 3
 	setvar VAR_0x8004, SEAGALLOP_ONE_ISLAND
 	setvar VAR_0x8006, SEAGALLOP_CINNABAR_ISLAND

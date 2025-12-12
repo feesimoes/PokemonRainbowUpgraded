@@ -6,6 +6,8 @@
 #include "event_object_movement.h"
 #include "new_menu_helpers.h"
 #include "overworld.h"
+#include "constants/vars.h"
+#include "event_data.h"
 
 EWRAM_DATA bool8 gBikeCameraAheadPanback = FALSE;
 

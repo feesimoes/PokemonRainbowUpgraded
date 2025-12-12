@@ -1,7 +1,9 @@
 PokemonLeague_ChampionsRoom_Text_Intro::
     .string "{RIVAL}: Hey, {PLAYER}!\p"
-    .string "I was looking forward to seeing\n"
-    .string "you, {PLAYER}.\p"
+    .string "I rushed over from VIRIDIAN GYM\n"
+    .string "as soon as I'd heard you're here!\p"
+    .string "I can't have a weakling like you\n"
+    .string "taking my title, {PLAYER}!\p"
     .string "My rival should be strong to keep\n"
     .string "me sharp.\p"
     .string "While working on my POKéDEX, I\n"
@@ -12,9 +14,9 @@ PokemonLeague_ChampionsRoom_Text_Intro::
     .string "I'm the POKéMON LEAGUE CHAMPION!\p"
     .string "{PLAYER}!\n"
     .string "Do you know what that means?\p"
-    .string "I'll tell you.\p"
+    .string "I'll have to spell it out, huh?\p"
     .string "I am the most powerful TRAINER in\n"
-    .string "the world!$"
+    .string "all of KANTO and JOHTO! Hahah!$"
 
 PokemonLeague_ChampionsRoom_Text_RematchIntro::
     .string "{RIVAL}: Hey, {PLAYER}!\p"

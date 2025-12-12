@@ -198,11 +198,11 @@
 #define VAR_BOUNTY_TASK_BALL       0x4090
 #define VAR_BOUNTY_TASK_REWARD     0x4091
 #define VAR_MEW_QUEST_PROGRESS     0x4092
-#define VAR_0x4093                 0x4093
-#define VAR_0x4094                 0x4094
-#define VAR_0x4095                 0x4095
-#define VAR_0x4096                 0x4096
-#define VAR_0x4097                 0x4097
+#define VAR_MISC_POKE_CENTERS      0x4093 // For handling the player in unique Pokemon Centers
+#define VAR_DAY_DATE               0x4094 // Day of the Week (0-6) Monday-Sunday
+#define VAR_TIME_HOUR              0x4095 // Time of the day, in hours
+#define VAR_TIME_MINUTE            0x4096 // The current minute in the curent hour
+#define VAR_TIME_SECOND            0x4097 // The current minute's second
 #define VAR_0x4098                 0x4098
 #define VAR_0x4099                 0x4099
 #define VAR_0x409A                 0x409A

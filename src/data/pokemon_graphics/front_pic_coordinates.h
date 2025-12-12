@@ -2201,3 +2201,28 @@ const struct MonCoords gMonFrontPicCoords[] =
         .y_offset = 13,
     },
 };
+
+//Expanded Species names for tables 1-16 Below:
+const struct MonCoords gMonFrontPicCoordsExpanded_1[] =
+{
+    [SPECIES_NONE_1] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_TURTWIG] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_GROTLE] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_TORTERRA] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },
+};

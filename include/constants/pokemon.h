@@ -81,7 +81,7 @@
 #define MON_DATA_NATIONAL_RIBBON          76
 #define MON_DATA_EARTH_RIBBON             77
 #define MON_DATA_WORLD_RIBBON             78
-#define MON_DATA_UNUSED_RIBBONS           79
+#define MON_DATA_SPECIES_FORMS_VALUE      79 // Unused Ribbons, repurposed for determining expanded species/form ids. 0 = normal species, 1+ = expanded_1... etc.
 #define MON_DATA_MODERN_FATEFUL_ENCOUNTER 80
 #define MON_DATA_KNOWN_MOVES              81
 #define MON_DATA_RIBBON_COUNT             82

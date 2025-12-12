@@ -1778,7 +1778,6 @@ void BufferStringBattle(u16 stringId)
 
 u32 BattleStringExpandPlaceholdersToDisplayedString(const u8 *src)
 {
-    //BattleStringExpandPlaceholders(src, gDisplayedStringBattle);
     return BattleStringExpandPlaceholders(src, gDisplayedStringBattle);
 }
 
@@ -2082,12 +2081,22 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
+                    // Normal Rival battle, or Rival is Champion
                     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_EARLY
                      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_LATE
                      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
+                    {
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL);
+                    }
+                    // Rival is Gym Leader
+                    else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER && gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TerryPlaceholderName)
+                    {
+                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL);
+                    }
                     else
+                    {
                         toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
+                    }
                 }
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name
@@ -2275,7 +2284,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             srcId += 2;
             break;
         case B_BUFF_SPECIES: // species name
-            GetSpeciesName(dst, T1_READ_16(&src[srcId + 1]));
+            GetSpeciesName(dst, T1_READ_16(&src[srcId + 1]), 0);
             srcId += 3;
             break;
         case B_BUFF_MON_NICK: // poke nick without prefix

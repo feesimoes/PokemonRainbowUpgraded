@@ -45,6 +45,11 @@ FuchsiaCity_Text_GymSign::
     .string "LEADER: KOGA\l"
     .string "The Poisonous Ninja Master$"
 
+FuchsiaCity_Text_GymSign_PostGame::
+    .string "FUCHSIA CITY POKéMON GYM\n"
+    .string "LEADER: JANINE\l"
+    .string "The Poisonous Ninja Master$"
+
 FuchsiaCity_Text_ChanseySign::
     .string "Name: CHANSEY\n"
     .string "Catching one is all up to chance.$"

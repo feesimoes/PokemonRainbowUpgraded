@@ -687,6 +687,12 @@ extern const u8 gFameCheckerFlavorTextOriginObjectName_Giovanni3[];
 extern const u8 gFameCheckerFlavorTextOriginObjectName_Giovanni4[];
 extern const u8 gFameCheckerFlavorTextOriginObjectName_Giovanni5[];
 
+// Fame checker (Post-game changes)
+extern const u8 gFameCheckerFlavorTextOriginLocation_Koga0_PostGame[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_Koga0_PostGame[];
+extern const u8 gFameCheckerFlavorText_Koga0_PostGame[];
+extern const u8 gFameCheckerFlavorText_Koga3_PostGame[];
+
 extern const u8 gOtherText_NewName[];
 extern const u8 gNameChoice_Green[];
 extern const u8 gNameChoice_Red[];

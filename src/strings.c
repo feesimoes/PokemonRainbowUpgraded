@@ -1070,7 +1070,7 @@ const u8 gText_PokemonOnHook[] = _("A POKéMON's on the hook!{PAUSE_UNTIL_PRESS}
 const u8 gText_NotEvenANibble[] = _("Not even a nibble‥{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItGotAway[] = _("It got away‥{PAUSE_UNTIL_PRESS}");
 const u8 gText_Rooftop2[] = _("ROOFTOP");
-ALIGNED(4) const u8 gString_PokemonFireRed_Staff[] = _("Pokémon FireRed Version\nStaff");
+ALIGNED(4) const u8 gString_PokemonFireRed_Staff[] = _("Pokémon: Rainbow Version\n(FireRed/LeafGreen) Staff");
 ALIGNED(4) const u8 gString_PokemonLeafGreen_Staff[] = _("Pokémon LeafGreen Version\nStaff");
 ALIGNED(4) const u8 gCreditsString_Director[] = _("\n\nDirector\n\n\n\n");
 ALIGNED(4) const u8 gCreditsString_Junichi_Masuda[] = _("\n\n\nJunichi Masuda\n\n\n");
@@ -1348,12 +1348,21 @@ const u8 gText_UsedFlashLight[] = _("{PLAYER} used the EXPLORER KIT.\nIt got a l
 const u8 gString_TrainerNameGrunt[] = _("GRUNT");
 const u8 gString_TrainerNameAdmin[] = _("ADMIN");
 const u8 gString_TrainerNameRodolfo[] = _("RODOLFO");
+const u8 gString_TrainerNameLance[] = _("LANCE");
 
 const u8 gStringBountyHunterTask_Text_NeedAtLeastTwoPartyMons[] = _("Good work, rookie!\nBut, hey...\pYou'll be defenseless without\na POKéMON!\pBring it back here when you've\ngot at least 2 in your party!");
 const u8 gStringBountyHunterTask_Text_NotTheCorrectPokemon[] = _("Seriously?\nThat's not what I asked for!");
 
-static const u8 sText_SelectedBallType[] = _("{B_PLAYER_NAME} has a {B_LAST_ITEM} in their hand!");
-
 const u8 gText_MusicPlay[] = _("PLAY");
 const u8 gText_MusicQuit[] = _("QUIT");
 const u8 gText_MusicTrackVar1[] = _("SONG: {STR_VAR_1}");
+
+const u8 gString_Monday[] = _("MONDAY     ");
+const u8 gString_Tuesday[] = _("TUESDAY    ");
+const u8 gString_Wednesday[] = _("WEDNESDAY  ");
+const u8 gString_Thursday[] = _("THURSDAY   ");
+const u8 gString_Friday[] = _("FRIDAY     ");
+const u8 gString_Saturday[] = _("SATURDAY   ");
+const u8 gString_Sunday[] = _("SUNDAY     ");
+
+const u8 gString_TerryPlaceholderName[] = _("TERRY");

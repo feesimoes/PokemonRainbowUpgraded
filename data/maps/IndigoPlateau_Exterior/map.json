@@ -2,7 +2,7 @@
   "id": "MAP_INDIGO_PLATEAU_EXTERIOR",
   "name": "IndigoPlateau_Exterior",
   "layout": "LAYOUT_INDIGO_PLATEAU_EXTERIOR",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_INDIGO_PLATEAU",
   "region_map_section": "MAPSEC_INDIGO_PLATEAU",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -13,20 +13,14 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE23",
-      "offset": 11,
-      "direction": "down"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_CREDITS_RIVAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
-      "x": 22,
-      "y": 18,
+      "x": 23,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -40,10 +34,40 @@
       "local_id": "LOCALID_CREDITS_PROF_OAK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
-      "x": 22,
-      "y": 18,
+      "x": 23,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_CREDITS_OAK"
+    },
+    {
+      "local_id": "LOCALID_CREDITS_LANCE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LANCE",
+      "x": 23,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_CREDITS_RIVAL"
+    },
+    {
+      "local_id": "LOCALID_CREDITS_PROF_OAK_2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
+      "x": 23,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -54,22 +78,49 @@
   ],
   "warp_events": [
     {
-      "x": 22,
-      "y": 18,
+      "x": 23,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 47,
+      "elevation": 3,
+      "dest_map": "MAP_VICTORY_ROAD_2F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
-      "x": 25,
-      "y": 19,
+      "x": 26,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "IndigoPlateau_Exterior_Event_Message_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 27,
+      "y": 44,
+      "elevation": 3,
+      "item": "ITEM_LUM_BERRY",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LUM_BERRY",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 30,
+      "y": 57,
+      "elevation": 3,
+      "item": "ITEM_MAX_ELIXIR",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ELIXIR",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

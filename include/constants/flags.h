@@ -1243,10 +1243,10 @@
 #define FLAG_DEFEATED_BLAINE          0x4B6
 #define FLAG_DEFEATED_LEADER_GIOVANNI 0x4B7
 #define FLAG_DEFEATED_LORELEI         0x4B8
-#define FLAG_DEFEATED_BRUNO           0x4B9
-#define FLAG_DEFEATED_AGATHA          0x4BA
-#define FLAG_DEFEATED_LANCE           0x4BB
-#define FLAG_DEFEATED_CHAMP           0x4BC
+#define FLAG_DEFEATED_BRUNO           0x4B9 // Koga
+#define FLAG_DEFEATED_AGATHA          0x4BA // Bruno
+#define FLAG_DEFEATED_LANCE           0x4BB // Agatha
+#define FLAG_DEFEATED_CHAMP           0x4BC // Lance
 
 // Unused?
 #define FLAG_0x4BD               0x4BD
@@ -1335,7 +1335,7 @@
 #define FLAG_SYS_SPECIAL_WILD_BATTLE                                (SYS_FLAGS + 0x7)
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
-#define FLAG_SYS_WILD_GO_MODE                                       (SYS_FLAGS + 0x9)
+#define FLAG_0x809                                                  (SYS_FLAGS + 0x9)
 #define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
@@ -1494,9 +1494,9 @@
 #define FLAG_JOHTO_CHOSE_CHIKORITA                                  (SYS_FLAGS + 0xE0)
 #define FLAG_JOHTO_CHOSE_TOTODILE                                   (SYS_FLAGS + 0xE1)
 #define FLAG_JOHTO_CHOSE_CYNDAQUIL                                  (SYS_FLAGS + 0xE2)
-#define FLAG_0x8E3                                                  (SYS_FLAGS + 0xE3)
-#define FLAG_0x8E4                                                  (SYS_FLAGS + 0xE4)
-#define FLAG_0x8E5                                                  (SYS_FLAGS + 0xE5)
+#define FLAG_HIDE_FUCHSIA_CITY_GYM_JANINE                           (SYS_FLAGS + 0xE3)
+#define FLAG_WORLD_MAP_MT_MORA                                      (SYS_FLAGS + 0xE4)
+#define FLAG_WORLD_MAP_TOPSOIL_TOWN                                 (SYS_FLAGS + 0xE5)
 #define FLAG_0x8E6                                                  (SYS_FLAGS + 0xE6)
 #define FLAG_0x8E7                                                  (SYS_FLAGS + 0xE7)
 #define FLAG_0x8E8                                                  (SYS_FLAGS + 0xE8)

@@ -441,3 +441,11 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(UNOWN_EMARK, gMonPalette_Unown),
     SPECIES_PAL(UNOWN_QMARK, gMonPalette_Unown),
 };
+
+const struct CompressedSpritePalette gMonPaletteTableExpanded_1[] =
+{
+    SPECIES_PAL(NONE_1, gMonPalette_CircledQuestionMark),
+    SPECIES_PAL(TURTWIG, gMonPalette_Turtwig),
+    SPECIES_PAL(GROTLE, gMonPalette_Grotle),
+    SPECIES_PAL(TORTERRA, gMonPalette_Torterra),
+};

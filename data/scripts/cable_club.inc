@@ -362,8 +362,6 @@ CableClub_EventScript_ConfirmNumberAndRestart::
 
 CableClub_EventScript_TradeCenter::
 	copyvar VAR_0x8007, VAR_LAST_TALKED
-	call CableClub_EventScript_CheckPartyTradeRequirements
-	goto_if_eq VAR_RESULT, 0, CableClub_EventScript_AbortLink
 	call EventScript_AskSaveGame
 	goto_if_eq VAR_RESULT, 0, CableClub_EventScript_AbortLink
 	message CableClub_Text_PleaseWaitBCancel
@@ -1692,7 +1690,7 @@ CableClub_Text_FirstTimeRightThisWay::
 	.string "Right this way, please.$"
 
 CableClub_Text_ExplainWirelessClubFirstTime::
-	.string "On the top floor, there are two\n"
+	.string "On this floor, there are two\n"
 	.string "rooms.\p"
 	.string "First, the room on the left.\n"
 	.string "It's the UNION ROOM.\p"
@@ -1715,16 +1713,16 @@ CableClub_Text_ExplainWirelessClubFirstTime::
 
 CableClub_Text_AskAboutLinking::
 	.string "Hello, {PLAYER}!\p"
-	.string "It's me, TEALA, the POKéMON\n"
-	.string "CENTER 2F attendant.\p"
+	.string "It's me, TEALA, the POKéMON CENTER\n"
+	.string "attendant.\p"
 	.string "Is there something you needed to\n"
 	.string "ask me about linking?$"
 
 CableClub_Text_ExplainWirelessClub::
 	.string "Let me explain how the POKéMON\n"
 	.string "WIRELESS CLUB works.\p"
-	.string "On this, the top floor, there are\n"
-	.string "two rooms.\p"
+	.string "On this floor, there are two\n"
+	.string "rooms.\p"
 	.string "First, the room on the left.\n"
 	.string "It's the UNION ROOM.\p"
 	.string "You may link up with TRAINERS\n"

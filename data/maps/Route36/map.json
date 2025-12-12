@@ -71,7 +71,7 @@
     {
       "local_id": "LOCALID_SUDOWOODO_TREE",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "graphics_id": "OBJ_EVENT_GFX_WEIRD_TREE",
       "x": 53,
       "y": 25,
       "elevation": 3,

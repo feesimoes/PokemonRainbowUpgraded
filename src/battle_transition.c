@@ -153,7 +153,7 @@ static void Task_Bruno(u8 taskId);
 static void Task_Agatha(u8 taskId);
 static void Task_Lance(u8 taskId);
 static void Task_Blue(u8 taskId);
-static void Task_Byron(u8 taskId);
+static void Task_Koga(u8 taskId);
 static void Task_Spiral(u8 taskId);
 static void Task_Intro(u8 taskId);
 static void DoMugshotTransition(u8 taskId);
@@ -243,7 +243,7 @@ static const TaskFunc sTasks_Main[] =
     [B_TRANSITION_AGATHA]          = Task_Agatha,
     [B_TRANSITION_LANCE]           = Task_Lance,
     [B_TRANSITION_BLUE]            = Task_Blue,
-    [B_TRANSITION_BYRON]           = Task_Byron,
+    [B_TRANSITION_KOGA]            = Task_Koga,
     [B_TRANSITION_SPIRAL]          = Task_Spiral,
 };
 
@@ -366,7 +366,7 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
     [MUGSHOT_AGATHA]  = TRAINER_PIC_ELITE_FOUR_AGATHA,
     [MUGSHOT_LANCE]   = TRAINER_PIC_ELITE_FOUR_LANCE,
     [MUGSHOT_BLUE]    = TRAINER_PIC_CHAMPION_RIVAL,
-    [MUGSHOT_BYRON]   = TRAINER_PIC_LEADER_BYRON,
+    [MUGSHOT_KOGA]    = TRAINER_PIC_LEADER_KOGA,
 };
 
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
@@ -376,7 +376,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_AGATHA]  = {0x200, 0x200},
     [MUGSHOT_LANCE]   = {0x200, 0x200},
     [MUGSHOT_BLUE]    = {0x200, 0x200},
-    [MUGSHOT_BYRON]   = {0x200, 0x200},
+    [MUGSHOT_KOGA]    = {0x200, 0x200},
 };
 
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
@@ -386,7 +386,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_AGATHA]  = {   0,  0 },
     [MUGSHOT_LANCE]   = { -32,  0 },
     [MUGSHOT_BLUE]    = {   0,  0 },
-    [MUGSHOT_BYRON]   = {   0,  0 },
+    [MUGSHOT_KOGA]    = { -32,  0 },
 };
 
 static const TransitionSpriteCallback sMugshotTrainerPicFuncs[] =
@@ -595,7 +595,7 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_AGATHA]  = sMugshotPal_Agatha,
     [MUGSHOT_LANCE]   = sMugshotPal_Lance,
     [MUGSHOT_BLUE]    = sMugshotPal_Blue,
-    [MUGSHOT_BYRON]   = sMugshotPal_Blue,
+    [MUGSHOT_KOGA]    = sMugshotPal_Agatha,
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -1882,9 +1882,9 @@ static void Task_Blue(u8 taskId)
     DoMugshotTransition(taskId);
 }
 
-static void Task_Byron(u8 taskId)
+static void Task_Koga(u8 taskId)
 {
-    gTasks[taskId].tMugshotId = MUGSHOT_BYRON;
+    gTasks[taskId].tMugshotId = MUGSHOT_KOGA;
     DoMugshotTransition(taskId);
 }
 

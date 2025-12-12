@@ -5178,7 +5178,8 @@ static void Cmd_yesnoboxlearnmove(void)
             }
             else
             {
-                gBattleScripting.learnMoveState = 4;
+                gBattleScripting.learnMoveState = 0;
+                break;
             }
         }
         else if (JOY_NEW(B_BUTTON))

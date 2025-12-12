@@ -641,16 +641,24 @@ static u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_LORELEI;
         if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_BRUNO || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_BRUNO_2)
             return B_TRANSITION_BRUNO;
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_KOGA)
+        {
+            return B_TRANSITION_KOGA;
+        }
         if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_AGATHA || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_AGATHA_2)
             return B_TRANSITION_AGATHA;
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE_2)
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE)
             return B_TRANSITION_LANCE;
         return B_TRANSITION_BLUE;
     }
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
+    {
         return B_TRANSITION_BLUE;
-    if (gTrainerBattleOpponent_A == TRAINER_LEADER_BYRON)
-        return B_TRANSITION_BYRON;
+    }
+    else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION_2)
+    {
+        return B_TRANSITION_LANCE;
+    }
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)
         minPartyCount = 2; // double battles always at least have 2 pokemon.
     else

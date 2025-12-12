@@ -1765,3 +1765,24 @@ Text_TestMsg::
 
 	.include "data/maps/TopsoilTown_MasterHouse/scripts.inc"
 	.include "data/maps/TopsoilTown_MasterHouse/text.inc"
+
+	.include "data/maps/SlateportCity/scripts.inc"
+	.include "data/maps/SlateportCity/text.inc"
+
+	.include "data/maps/VioletCity_House1/scripts.inc"
+	.include "data/maps/VioletCity_House1/text.inc"
+
+	.include "data/maps/VioletCity_House2/scripts.inc"
+	.include "data/maps/VioletCity_House2/text.inc"
+
+	.include "data/maps/VioletCity_School/scripts.inc"
+	.include "data/maps/VioletCity_School/text.inc"
+
+	.include "data/maps/LindenTown_MansionHall_R_1F/scripts.inc"
+	.include "data/maps/LindenTown_MansionHall_R_1F/text.inc"
+
+	.include "data/maps/LindenTown_MansionHall_L_1F/scripts.inc"
+	.include "data/maps/LindenTown_MansionHall_L_1F/text.inc"
+
+	.include "data/maps/OneIsland_TreasureBeach_Underwater/scripts.inc"
+	.include "data/maps/OneIsland_TreasureBeach_Underwater/text.inc"

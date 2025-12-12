@@ -102,7 +102,7 @@ struct RegionMap
     //u16 layouts[REGIONMAP_COUNT + 1][600];
     u16 *layoutBuffer;
     // Inefficiency: these should be u8 or have half the elements each
-    u16 bgTilemapBuffers[3][BG_SCREEN_SIZE];
+    u16 bgTilemapBuffers[3][BG_SCREEN_SIZE / 2];
     u8 type; // REGIONMAP_TYPE_*
     bool8 permissions[MAPPERM_COUNT];
     u8 selectedRegion; // REGIONMAP_KANTO, REGIONMAP_SEVII*
@@ -316,8 +316,11 @@ static void BufferRegionMapBg(u8, u16 *);
 static bool8 GetRegionMapPermission(u8);
 static u8 GetSelectedRegionMap(void);
 static void InitSwitchMapMenu(u8, u8, TaskFunc);
+static void Task_WaitForFadeAndResume(u8 taskId);
+static void Task_ShowIconsAndResume(u8 taskId);
 static void Task_SwitchMapMenu(u8);
 static void FreeSwitchMapMenu(u8);
+static void ReloadRegionMapData(u8 newRegion);
 static bool8 BrightenScreenForSwitchMapMenu(void);
 static void LoadSwitchMapTilemap(u8, u16 *);
 static void SetGpuRegsToDimScreen(void);
@@ -969,6 +972,8 @@ static const u16 sMapFlyDestinations[][3] = {
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_CANALAVE_CITY       - KANTO_MAPSEC_START] = {MAP(MAP_CANALAVE_CITY),                         HEAL_LOCATION_CANALAVE_CITY},
     [MAPSEC_LINDEN_TOWN         - KANTO_MAPSEC_START] = {MAP(MAP_LINDEN_TOWN),                           HEAL_LOCATION_LINDEN_TOWN},
+    [MAPSEC_TOPSOIL_TOWN        - KANTO_MAPSEC_START] = {MAP(MAP_TOPSOIL_TOWN),                          HEAL_LOCATION_TOPSOIL_TOWN},
+    [MAPSEC_MT_MORA             - KANTO_MAPSEC_START] = {MAP(MAP_MT_MORA),                               HEAL_LOCATION_MT_MORA},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1003,6 +1008,7 @@ static void TintMapEdgesPalette(void)
 static void InitRegionMap(u8 type)
 {
     sRegionMap = AllocZeroed(sizeof(struct RegionMap));
+    sRegionMap->layoutBuffer = AllocZeroed(600 * sizeof(u16));
     if (sRegionMap == NULL)
     {
         SetMainCallback2(CB2_ReturnToField);
@@ -1014,9 +1020,9 @@ static void InitRegionMap(u8 type)
         sRegionMap->mainState = 0;
         sRegionMap->openState = 0;
         sRegionMap->loadGfxState = 0;
-        sRegionMap->layoutBuffer = AllocZeroed(600 * sizeof(u16));
         if (sRegionMap->layoutBuffer == NULL)
         {
+            sRegionMap->layoutBuffer = AllocZeroed(600 * sizeof(u16));
             FREE_IF_NOT_NULL(sRegionMap);
             SetMainCallback2(CB2_ReturnToField);
             return;
@@ -1119,12 +1125,26 @@ static void InitRegionMapType(void)
             region = REGIONMAP_SEVII67;
             break;
         case MAPSEC_GREEN_PATH:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_WATER_PATH:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_RUIN_VALLEY:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_TRAINER_TOWER:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_CANYON_ENTRANCE:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_SEVAULT_CANYON:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_TANOBY_RUINS:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_NAVEL_ROCK:
             region = REGIONMAP_SEVII45;
             break;
@@ -1719,10 +1739,10 @@ static bool8 LoadRegionMapGfx(void)
         }
         break;
     case 5:
-        LoadRegionTilemapIntoBuffer(sRegionMap->playersRegion);
+        ReloadRegionMapData(sRegionMap->selectedRegion);
+        //LoadRegionTilemapIntoBuffer(sRegionMap->playersRegion);
         break;
     default:
-        //LoadRegionTilemapIntoBuffer(REGIONMAP_COUNT);
         return TRUE;
     }
     sRegionMap->loadGfxState++;
@@ -1762,27 +1782,12 @@ static void Task_RegionMap(u8 taskId)
     switch (sRegionMap->mainState)
     {
     case 0:
-        GetRegionMapPlayerIsOn();
-        LoadRegionTilemapIntoBuffer(sRegionMap->selectedRegion);
-        BufferRegionMapBg(0, sRegionMap->layoutBuffer);
-        CopyBgTilemapBufferToVram(0);
-        if (sMapIcons != NULL)
-        {
-            FreeMapIcons();
-        }
         InitMapIcons(GetSelectedRegionMap(), taskId, sRegionMap->mainTask);
         CreateMapCursor(0, 0);
         CreatePlayerIcon(1, 1);
         sRegionMap->mainState++;
         break;
     case 1:
-        if (sRegionMap->needIconReload)
-        {
-            if (sMapIcons != NULL)
-                FreeMapIcons();
-            InitMapIcons(GetSelectedRegionMap(), taskId, sRegionMap->mainTask);
-            sRegionMap->needIconReload = FALSE;
-        }
         if (sRegionMap->permissions[MAPPERM_HAS_OPEN_ANIM] == TRUE)
         {
             InitMapOpenAnim(taskId, sRegionMap->mainTask);
@@ -1877,7 +1882,6 @@ static void Task_RegionMap(u8 taskId)
             case MAP_INPUT_MOVE_CONT:
                 break;
             case MAP_INPUT_CANCEL:
-                sFlyMap->state = 6;
                 break;
             case MAP_INPUT_MOVE_END:
                 if (GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED)
@@ -1921,7 +1925,8 @@ static void Task_RegionMap(u8 taskId)
                 }
                 break;
             case MAP_INPUT_SWITCH:
-                InitSwitchMapMenu(GetSelectedRegionMap(), taskId, SaveMainMapTask);
+                HideAllMapIcons(TRUE);
+                InitSwitchMapMenu(sRegionMap->selectedRegion, taskId, SaveMainMapTask);
                 break;
             }
             break;
@@ -1946,6 +1951,7 @@ static void Task_RegionMap(u8 taskId)
         sRegionMap->mainState++;
         break;
     default:
+        FreeAndResetGpuRegs();
         if (!gPaletteFade.active)
         {
             FreeRegionMap(taskId);
@@ -1985,7 +1991,6 @@ static void FreeRegionMap(u8 taskId)
     else
         SetMainCallback2(sRegionMap->savedCallback);
     FREE_IF_NOT_NULL(sRegionMap->layoutBuffer);
-    FREE_IF_NOT_NULL(sRegionMap);
 }
 
 static void FreeRegionMapForFlyMap(void)
@@ -2172,10 +2177,6 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         whichMap = sSwitchMapMenu->currentSelection;
     else
         whichMap = sRegionMap->selectedRegion;
-    if (whichMap == REGIONMAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
-        FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
-    if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
-        FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -2198,7 +2199,6 @@ static void SetSelectedRegionMap(u8 region)
     sRegionMap->selectedRegion = region;
 }
 
-// Unused
 static void SetRegionMapPlayerIsOn(u8 region)
 {
     sRegionMap->playersRegion = region;
@@ -2206,17 +2206,28 @@ static void SetRegionMapPlayerIsOn(u8 region)
 
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
-    sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
-    if (FlagGet(FLAG_BADGE08_GET))
-        sSwitchMapMenu->maxSelection = REGIONMAP_COUNT;
-    else if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
-        sSwitchMapMenu->maxSelection = 3;
-    else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sSwitchMapMenu->maxSelection = 1;
-    else
-        sSwitchMapMenu->maxSelection = 0;
-    sSwitchMapMenu->cursorSubsprite[0].x = 88;
-    sSwitchMapMenu->cursorSubsprite[1].x = 152;
+    if (sSwitchMapMenu == NULL)
+    {
+        sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
+        if (FlagGet(FLAG_BADGE08_GET))
+            sSwitchMapMenu->maxSelection = REGIONMAP_COUNT;
+        else if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
+            sSwitchMapMenu->maxSelection = 3;
+        else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
+            sSwitchMapMenu->maxSelection = 1;
+        else
+            sSwitchMapMenu->maxSelection = 0;
+
+        if (sSwitchMapMenu->cursorLoadState > 2)
+        {
+            sSwitchMapMenu->cursorLoadState = 0;
+        }
+        else
+        {
+            sSwitchMapMenu->cursorSubsprite[0].x = 88;
+            sSwitchMapMenu->cursorSubsprite[1].x = 152;
+        }
+    }
 
     switch (sSwitchMapMenu->maxSelection)
     {
@@ -2224,7 +2235,7 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
         LZ77UnCompWram(sSwitchMap_KantoSevii123_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 6;
         break;
-    case 2: // never reached
+    case 2:
         LZ77UnCompWram(sSwitchMap_KantoSeviiAll2_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 4;
         break;
@@ -2234,12 +2245,18 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
         LZ77UnCompWram(sSwitchMap_KantoSeviiAll_Tilemap, sSwitchMapMenu->switchMapTilemap);
         break;
     }
+    
     LZ77UnCompWram(sSwitchMapMenu_Gfx, sSwitchMapMenu->switchMapTiles);
+    
     sSwitchMapMenu->mainState = 0;
     sSwitchMapMenu->currentSelection = whichMap;
+
+    sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
+
     sSwitchMapMenu->exitTask = taskFunc;
     sSwitchMapMenu->chosenRegion = GetSelectedRegionMap();
-    sSwitchMapMenu->originalRegion = GetSelectedRegionMap();
+    sSwitchMapMenu->originalRegion = GetRegionMapPlayerIsOn();
+    
     SaveRegionMapGpuRegs(0);
     PrintTopBarTextRight(gText_RegionMap_AButtonOK);
     gTasks[taskId].func = Task_SwitchMapMenu;
@@ -2312,11 +2329,9 @@ static void Task_SwitchMapMenu(u8 taskId)
         sSwitchMapMenu->mainState++;
         break;
     case 6:
-        if (FadeSwitchMapMenuIn() == TRUE)
-        {
-            SetGpuRegsToDimScreen();
-            sSwitchMapMenu->mainState++;
-        }
+        SetGpuRegsToDimScreen();
+        FreeMapCursor();
+        sSwitchMapMenu->mainState++;
         break;
     case 7:
         if (DimScreenForSwitchMapMenu() == TRUE)
@@ -2337,53 +2352,117 @@ static void Task_SwitchMapMenu(u8 taskId)
             if (GetRegionMapPlayerIsOn() == sSwitchMapMenu->currentSelection)
             {
                 SetPlayerIconInvisibility(FALSE);
-                SetFlyIconInvisibility(sSwitchMapMenu->currentSelection, NELEMS(sMapIcons->flyIcons), FALSE);
-                SetDungeonIconInvisibility(sSwitchMapMenu->currentSelection, NELEMS(sMapIcons->dungeonIcons), FALSE);
             }
             sSwitchMapMenu->mainState++;
         }
         break;
     case 10:
-        if (BrightenScreenForSwitchMapMenu() == TRUE)
-        {
-            FreeSwitchMapCursor();
-            ResetGpuRegsForSwitchMapMenu();
-            sSwitchMapMenu->mainState++;
-        }
-        break;
-    case 11:
-        if (FadeSwitchMapMenuOut() == TRUE)
-        {
-            sSwitchMapMenu->mainState++;
-        }
-        break;
-    case 12:
-        SetMapCursorInvisibility(FALSE);
-        sSwitchMapMenu->mainState++;
+        FreeSwitchMapCursor();
+        FreeSwitchMapMenu(taskId);
+        sSwitchMapMenu->blendY = 0;
+        sSwitchMapMenu->mainState = 0;
+        CreateMapCursorSprite();
         break;
     default:
+        FreeSwitchMapCursor();
         FreeSwitchMapMenu(taskId);
+        sSwitchMapMenu->blendY = 0;
+        sSwitchMapMenu->mainState = 0;
+        CreateMapCursorSprite();
         break;
     }
 }
 
+static void ReloadRegionMapData(u8 newRegion)
+{
+    FREE_IF_NOT_NULL(sRegionMap->layoutBuffer);
+
+    memset(sRegionMap->bgTilemapBuffers, 0, sizeof(sRegionMap->bgTilemapBuffers));
+    memset(sRegionMap->mapName, 0, sizeof(sRegionMap->mapName));
+    memset(sRegionMap->dungeonName, 0, sizeof(sRegionMap->dungeonName));
+
+    LoadRegionTilemapIntoBuffer(newRegion);
+
+    SetBgTilemapBuffers();
+    BufferRegionMapBg(0, sRegionMap->layoutBuffer);
+    
+    if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+    {
+        BufferRegionMapBg(1, sRegionMap->layoutBuffer);
+    }
+
+    CopyBgTilemapBufferToVram(0);
+    if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+    {
+        CopyBgTilemapBufferToVram(1);
+    }
+}
+
+static void Task_WaitForFadeAndResume(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        gTasks[taskId].func = sRegionMap->mainTask;
+    }
+}
+static void Task_ShowIconsAndResume(u8 taskId)
+{
+    bool8 playerInRegion = (GetRegionMapPlayerIsOn() == GetSelectedRegionMap());
+
+    ReloadRegionMapData(GetSelectedRegionMap());
+
+    SetFlyIconInvisibility(GetSelectedRegionMap(), NELEMS(sMapIcons->flyIcons), FALSE);
+    SetDungeonIconInvisibility(GetSelectedRegionMap(), NELEMS(sMapIcons->dungeonIcons), FALSE);
+
+    if (playerInRegion)
+        SetPlayerIconInvisibility(FALSE);
+    else
+        SetPlayerIconInvisibility(TRUE);
+
+    if (!playerInRegion)
+    {
+        sMapCursor->x = 11; 
+        sMapCursor->y = 7;
+        sMapCursor->sprite->x = 8 * sMapCursor->x + 36;
+        sMapCursor->sprite->y = 8 * sMapCursor->y + 36;
+        sMapCursor->selectedMapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
+    }
+    
+    SetMapCursorInvisibility(FALSE);
+    ResetCursorSnap();
+    
+    DisplayCurrentMapName();
+    PutWindowTilemap(WIN_MAP_NAME);
+
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+    gTasks[taskId].func = Task_WaitForFadeAndResume;
+}
+
 static void FreeSwitchMapMenu(u8 taskId)
 {
-    gTasks[taskId].func = sSwitchMapMenu->exitTask;
     HideBg(2);
     PrintTopBarTextLeft(gText_RegionMap_DPadMove);
     PrintTopBarTextRight(gText_RegionMap_AButtonSwitch);
+
+    if (GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_VISITED)
+        PrintTopBarTextRight(gText_RegionMap_Space);
+    else
+        PrintTopBarTextRight(gText_RegionMap_AButtonGuide);
+        
     UpdateMapsecNameBox();
     DrawDungeonNameBox();
     SetGpuWindowDims(0, &sMapsecNameWindowDims[CLEAR_NAME]);
+
     SetSelectedRegionMap(sSwitchMapMenu->currentSelection);
-    LoadRegionTilemapIntoBuffer(sSwitchMapMenu->currentSelection);
-    BufferRegionMapBg(0, sRegionMap->layoutBuffer);
-    CopyBgTilemapBufferToVram(0);
 
     if (sMapIcons != NULL)
-        sRegionMap->needIconReload = TRUE;
+    {
+        FreeMapIcons();
+    }
     
+    InitMapIcons(sSwitchMapMenu->currentSelection, taskId, Task_ShowIconsAndResume);
+
+    sRegionMap->needIconReload = FALSE;
     FREE_IF_NOT_NULL(sSwitchMapMenu);
 }
 
@@ -2462,33 +2541,29 @@ static bool8 HandleSwitchMapInput(void)
         sSwitchMapMenu->currentSelection--;
         changedSelection = TRUE;
     }
-    if (JOY_NEW(DPAD_DOWN) && sSwitchMapMenu->currentSelection < sSwitchMapMenu->maxSelection)
+    if (JOY_NEW(DPAD_DOWN) && sSwitchMapMenu->currentSelection != (REGIONMAP_COUNT - 1))
     {
         PlaySE(SE_BAG_CURSOR);
         sSwitchMapMenu->currentSelection++;
         changedSelection = TRUE;
     }
-    if (JOY_NEW(A_BUTTON) && sSwitchMapMenu->blendY == 6)
+    if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_M_SWIFT);
         sSwitchMapMenu->chosenRegion = sSwitchMapMenu->currentSelection;
+        changedSelection = TRUE;
         return TRUE;
     }
     if (JOY_NEW(B_BUTTON))
     {
-        sSwitchMapMenu->currentSelection = sSwitchMapMenu->chosenRegion;
-        LoadRegionTilemapIntoBuffer(sSwitchMapMenu->currentSelection);
-        BufferRegionMapBg(0, sRegionMap->layoutBuffer);
-        CopyBgTilemapBufferToVram(0);
+        changedSelection = FALSE;
         return TRUE;
     }
     if (changedSelection)
     {
-        LoadRegionTilemapIntoBuffer(sSwitchMapMenu->currentSelection);
-        BufferRegionMapBg(0, sRegionMap->layoutBuffer);
+        ReloadRegionMapData(sSwitchMapMenu->currentSelection);
         PrintTopBarTextRight(gText_RegionMap_AButtonOK);
         CopyBgTilemapBufferToVram(0);
-        CopyBgTilemapBufferToVram(3);
     }
     if (sSwitchMapMenu->currentSelection != GetRegionMapPlayerIsOn())
         SetPlayerIconInvisibility(TRUE);
@@ -2514,6 +2589,7 @@ static bool8 CreateSwitchMapCursor(void)
         LZ77UnCompWram(sSwitchMapCursorRight_Gfx, sSwitchMapMenu->cursorSubsprite[1].tiles);
         break;
     case 2:
+        sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
         CreateSwitchMapCursorSubsprite(0, 2, 2);
         CreateSwitchMapCursorSubsprite(1, 3, 3);
         break;
@@ -2571,8 +2647,8 @@ static void FreeSwitchMapCursor(void)
         if (sSwitchMapMenu->cursorSubsprite[i].sprite != NULL)
         {
             DestroySprite(sSwitchMapMenu->cursorSubsprite[i].sprite);
-            FreeSpriteTilesByTag(sSwitchMapMenu->cursorSubsprite[i].tileTag);
-            FreeSpritePaletteByTag(sSwitchMapMenu->cursorSubsprite[i].palTag);
+            //FreeSpriteTilesByTag(sSwitchMapMenu->cursorSubsprite[i].tileTag);
+            //FreeSpritePaletteByTag(sSwitchMapMenu->cursorSubsprite[i].palTag);
         }
     }
 }
@@ -3406,10 +3482,10 @@ static void FreeMapCursor(void)
     if (sMapCursor->sprite != NULL)
     {
         DestroySprite(sMapCursor->sprite);
-        FreeSpriteTilesByTag(sMapCursor->tileTag);
-        FreeSpritePaletteByTag(sMapCursor->palTag);
+        //FreeSpriteTilesByTag(sMapCursor->tileTag);
+        //FreeSpritePaletteByTag(sMapCursor->palTag);
     }
-    FREE_IF_NOT_NULL(sMapCursor);
+    //FREE_IF_NOT_NULL(sMapCursor);
 }
 
 static u8 HandleRegionMapInput(void)
@@ -3676,6 +3752,10 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_CANALAVE_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_LINDEN_TOWN:
         return FlagGet(FLAG_WORLD_MAP_LINDEN_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_MT_MORA:
+        return FlagGet(FLAG_WORLD_MAP_MT_MORA) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_TOPSOIL_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_TOPSOIL_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:
@@ -4119,10 +4199,10 @@ static void FreePlayerIcon(void)
     if (sPlayerIcon->sprite != NULL)
     {
         DestroySprite(sPlayerIcon->sprite);
-        FreeSpriteTilesByTag(sPlayerIcon->tileTag);
-        FreeSpritePaletteByTag(sPlayerIcon->palTag);
+        //FreeSpriteTilesByTag(sPlayerIcon->tileTag);
+        //FreeSpritePaletteByTag(sPlayerIcon->palTag);
     }
-    FREE_IF_NOT_NULL(sPlayerIcon);
+    //FREE_IF_NOT_NULL(sPlayerIcon);
 }
 
 static u16 GetPlayerIconX(void)
@@ -4581,11 +4661,7 @@ static void Task_FlyMap(u8 taskId)
     switch (sFlyMap->state)
     {
     case 0:
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-        if (sMapIcons != NULL)
-        {
-            FreeMapIcons();
-        }
+        //BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         InitMapIcons(GetSelectedRegionMap(), taskId, GetMainMapTask());
         CreateMapCursor(0, 0);
         CreatePlayerIcon(1, 1);
@@ -4657,7 +4733,12 @@ static void Task_FlyMap(u8 taskId)
             }
             break;
         case MAP_INPUT_A_BUTTON:
-            if ((GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN) && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
+            if (GetSelectedMapsecType(LAYER_DUNGEON) == MAPSECTYPE_VISITED && sRegionMap->permissions[MAPPERM_HAS_MAP_PREVIEW] == TRUE)
+            {
+                InitDungeonMapPreview(0, taskId, SaveMainMapTask);
+                break;
+            }
+            else if ((GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN) && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
             {
                 switch (GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
                 {
@@ -4675,8 +4756,7 @@ static void Task_FlyMap(u8 taskId)
             }
             break;
         case MAP_INPUT_SWITCH:
-            if (sMapIcons != NULL)
-                FreeMapIcons();
+            HideAllMapIcons(TRUE);
             InitSwitchMapMenu(GetSelectedRegionMap(), taskId, SaveMainMapTask);
             break;
         }

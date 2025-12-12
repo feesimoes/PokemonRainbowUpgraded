@@ -1,20 +1,21 @@
 ViridianCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, ViridianCity_Gym_OnLoad
 	.byte 0
 
-ViridianCity_Gym_EventScript_Check_Hide_Rival::
-	goto_if_unset FLAG_HIDE_VIRIDIAN_GIOVANNI, ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden
-	release
+ViridianCity_Gym_OnLoad::
+	goto_if_unset FLAG_BADGE08_GET, ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden
 	end
 
 ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden::
-    applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Hide_Rival
-	waitmovement
+	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 8, 3
+	setflag FLAG_HIDE_VIRIDIAN_RIVAL
+	removeobject LOCALID_VIRIDIAN_RIVAL
+	clearflag FLAG_HIDE_VIRIDIAN_GIOVANNI
+	clearflag FLAG_HIDE_MISC_KANTO_ROCKETS
+	clearflag FLAG_DEFEATED_LEADER_GIOVANNI
+	addobject LOCALID_VIRIDIAN_GIOVANNI
 	release
 	end
-
-ViridianCity_Gym_Movement_Hide_Rival::
-	set_invisible
-	step_end
 
 ViridianCity_Gym_EventScript_Giovanni::
 	famechecker FAMECHECKER_GIOVANNI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
@@ -27,42 +28,61 @@ ViridianCity_Gym_EventScript_Giovanni::
 	setvar VAR_MAP_SCENE_ROUTE22, 3
 	fadescreen FADE_FROM_BLACK
 	playbgm MUS_ENCOUNTER_RIVAL, 0
-	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Place_Rival_Right_7_Tiles
-	waitmovement
 	clearflag FLAG_HIDE_VIRIDIAN_RIVAL
-	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Make_Rival_Visible
+	addobject LOCALID_VIRIDIAN_RIVAL
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Left_1_Tile
 	waitmovement
-	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Left_2_Tiles
-	waitmovement
-	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Down_4_Tiles
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Down_3_Tiles
 	waitmovement
 	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Walk_Rival_Left_5_Tiles
 	waitmovement
+	msgbox ViridianCity_Gym_Text_Rival_Get_Out_Of_My_Way
+	closemessage
 	getplayerxy VAR_TEMP_8, VAR_TEMP_9
 	compare VAR_TEMP_8, 2
 	goto_if_eq ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay
-	goto ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now
-	release
-	end
-
-ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay::
-	msgbox ViridianCity_Gym_Text_Rival_Get_Out_Of_My_Way
-	waitmessage
-	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Walk_Player_Left_1
-	waitmovement
-	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Face_Player_Right
-	waitmovement
-	goto ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now
-	end
-
-ViridianCity_Gym_EventScript_Rival_Is_The_New_Leader_Now::
 	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Run_Rival_Up_4_Tiles
 	waitmovement
 	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Face_Rival_Down
 	waitmovement
 	msgbox ViridianCity_Gym_Text_Rival_Is_The_New_Leader
-	fadeoutbgm 1
-	playbgm MUS_GYM, 1
+	msgbox ViridianCity_Gym_Text_Rival_OhByTheWayBillNeedsHelp
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Face_Rival
+	waitmovement
+	closemessage
+	giveitem ITEM_TRI_PASS, 1
+	msgbox ViridianCity_Gym_Text_Rival_SmellYaLater
+	closemessage
+	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
+	fadedefaultbgm
+	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
+	release
+	end
+ViridianCity_Gym_Movement_Face_Rival::
+	walk_right
+	face_up
+	step_end
+
+ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay::
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Walk_Player_Left_1
+	waitmovement
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Face_Player_Right
+	waitmovement
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Run_Rival_Up_4_Tiles
+	waitmovement
+	applymovement LOCALID_VIRIDIAN_RIVAL, ViridianCity_Gym_Movement_Face_Rival_Down
+	waitmovement
+	msgbox ViridianCity_Gym_Text_Rival_Is_The_New_Leader
+	msgbox ViridianCity_Gym_Text_Rival_OhByTheWayBillNeedsHelp
+	applymovement LOCALID_PLAYER, ViridianCity_Gym_Movement_Face_Rival
+	waitmovement
+	closemessage
+	giveitem ITEM_TRI_PASS, 1
+	msgbox ViridianCity_Gym_Text_Rival_SmellYaLater
+	closemessage
+	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
+	fadedefaultbgm
+	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
 	release
 	end
 
@@ -108,8 +128,7 @@ ViridianCity_Gym_Movement_Walk_Rival_Up_2_Tiles::
 	walk_up
 	step_end
 
-ViridianCity_Gym_Movement_Walk_Rival_Left_2_Tiles::
-	walk_left
+ViridianCity_Gym_Movement_Walk_Rival_Left_1_Tile::
 	walk_left
 	step_end
 
@@ -121,8 +140,7 @@ ViridianCity_Gym_Movement_Walk_Rival_Left_5_Tiles::
 	walk_left
 	step_end
 
-ViridianCity_Gym_Movement_Walk_Rival_Down_4_Tiles::
-	walk_down
+ViridianCity_Gym_Movement_Walk_Rival_Down_3_Tiles::
 	walk_down
 	walk_down
 	walk_down

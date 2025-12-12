@@ -75,8 +75,8 @@
     {
       "id": "HEAL_LOCATION_INDIGO_PLATEAU",
       "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "x": 22,
-      "y": 19,
+      "x": 23,
+      "y": 15,
       "respawn_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LEAGUE_NURSE"
     },
@@ -247,6 +247,22 @@
       "y": 43,
       "respawn_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_BLACKTHORN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MT_MORA",
+      "map": "MAP_MT_MORA",
+      "x": 44,
+      "y": 72,
+      "respawn_map": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_LINDEN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_TOPSOIL_TOWN",
+      "map": "MAP_TOPSOIL_TOWN",
+      "x": 44,
+      "y": 11,
+      "respawn_map": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_LINDEN_NURSE"
     }
   ]
 }

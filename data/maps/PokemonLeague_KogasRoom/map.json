@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_LEAGUE_KOGAS_ROOM",
   "name": "PokemonLeague_KogasRoom",
   "layout": "LAYOUT_POKEMON_LEAGUE_KOGAS_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_INDIGO_PLATEAU_LEAGUE",
   "region_map_section": "MAPSEC_POKEMON_LEAGUE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonLeague_AgathasRoom_EventScript_Agatha",
+      "script": "PokemonLeague_KogasRoom_EventScript_Koga",
       "flag": "0"
     }
   ],

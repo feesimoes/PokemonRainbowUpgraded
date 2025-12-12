@@ -58,14 +58,14 @@
       "x": 13,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_LINDEN_TOWN_MANSION_1F",
+      "dest_map": "MAP_LINDEN_TOWN_MANSION_HALL_R_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 1,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_LINDEN_TOWN_MANSION_1F",
+      "dest_map": "MAP_LINDEN_TOWN_MANSION_HALL_L_1F",
       "dest_warp_id": "0"
     },
     {

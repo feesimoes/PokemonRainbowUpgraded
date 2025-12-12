@@ -1,6 +1,9 @@
 #ifndef GUARD_SAVE_MENU_UTIL_H
 #define GUARD_SAVE_MENU_UTIL_H
 
+#include "constants/easy_chat.h"
+#include "constants/vars.h"
+
 enum SaveStat
 {
     SAVE_STAT_NAME = 0,
@@ -12,5 +15,6 @@ enum SaveStat
 };
 
 void SaveStatToString(u8 a0, u8 *a1, u8 a2);
+u8 *GetCurrentDay(u8 *dest);
 
 #endif //GUARD_SAVE_MENU_UTIL_H

@@ -2,15 +2,35 @@ mapscripts Cherrygrove_PokemonCenter_MapScripts
 {
     MAP_SCRIPT_ON_LOAD
     {
+        call(CableClub_OnLoad)
         setworldmapflag(FLAG_WORLD_MAP_CHERRYGROVE_CITY)
     }
     MAP_SCRIPT_ON_TRANSITION
     {
+        call(CableClub_OnTransition)
         setrespawn(HEAL_LOCATION_CHERRYGROVE_CITY)
     }
     MAP_SCRIPT_ON_RESUME
     {
         call(CableClub_OnResume)
+    }
+}
+
+script Cherrygrove_PokemonCenter_Exit_UnionRoom
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if (var(VAR_RESULT) == 1)
+    {
+        call(CableClub_EventScript_ExitUnionRoom)
+    }
+}
+
+script Cherrygrove_PokemonCenter_Exit_CableClub
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if (var(VAR_RESULT) == 1)
+    {
+        call(CableClub_EventScript_ExitLinkRoom)
     }
 }
 

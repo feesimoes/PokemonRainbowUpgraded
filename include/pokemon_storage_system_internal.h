@@ -375,7 +375,7 @@ struct PokemonStorageSystemData
     u32 displayMonPersonality;
     u16 displayMonSpecies;
     u16 displayMonItemId;
-    u16 displayUnusedVar;
+    u16 displaySpeciesFormsId; // Initially an unused var, repurposed to switch extended species 1-16.
     bool8 setMosaic;
     u8 displayMonMarkings;
     u8 displayMonLevel;

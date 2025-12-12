@@ -31,6 +31,7 @@ script LindenTown_Mansion_1F_George
             msgbox(format("Bienvenu! Welcome to my mansion.\nI do hope you'll look around.\pVotre art préféré?\nMy favorite was 'A MAN AND MEW'."))
             msgbox(format("Alas... I regrettably donated it,\nbut it is in good hands."))
             closemessage
+            setvar(VAR_MEW_QUEST_PROGRESS, 13)
         }
         else
         {

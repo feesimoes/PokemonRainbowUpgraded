@@ -350,7 +350,7 @@ static void WaitForMonSelection(void)
     }
 }
 
-static void GOOpenBagAndChooseItem(void)
+static void OpenBagAndChooseItem(void)
 {
     u8 callbackId;
 
@@ -1610,7 +1610,7 @@ static void PokedudeHandleChooseItem(void)
     s32 i;
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = GOOpenBagAndChooseItem;
+    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
     gBattlerInMenuId = gActiveBattler;
     for (i = 0; i < 3; ++i)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][i + 1];

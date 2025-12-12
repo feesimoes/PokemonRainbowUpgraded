@@ -18,6 +18,11 @@
       "map": "MAP_ONE_ISLAND",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ONE_ISLAND_TREASURE_BEACH_UNDERWATER",
+      "offset": 0,
+      "direction": "dive"
     }
   ],
   "object_events": [

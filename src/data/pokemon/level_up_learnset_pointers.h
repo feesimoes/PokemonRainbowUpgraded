@@ -1,4 +1,3 @@
-// const u16 *const gLevelUpLearnsets[NUM_SPECIES] = <- Original code
 const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
 {
     [SPECIES_NONE] = sBulbasaurLevelUpLearnset,
@@ -413,7 +412,11 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_JIRACHI] = sJirachiLevelUpLearnset,
     [SPECIES_DEOXYS] = sDeoxysLevelUpLearnset,
     [SPECIES_CHIMECHO] = sChimechoLevelUpLearnset,
-    //[SPECIES_TURTWIG] = sTurtwigLevelUpLearnset,
-    //[SPECIES_GROTLE] = sGrotleLevelUpLearnset,
-    //[SPECIES_TORTERRA] = sTorterraLevelUpLearnset,
+};
+
+const u16 *const gLevelUpLearnsetsExpanded_1[NUM_SPECIES] =
+{
+    [SPECIES_TURTWIG] = sTurtwigLevelUpLearnset,
+    [SPECIES_GROTLE] = sGrotleLevelUpLearnset,
+    [SPECIES_TORTERRA] = sTorterraLevelUpLearnset
 };

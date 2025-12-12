@@ -1027,6 +1027,12 @@ SECTIONS {
         sound/songs/midi/mus_encounter_rocket_boss.o(.rodata);
         sound/songs/midi/mus_underwater.o(.rodata);
         sound/songs/midi/se_phone_ring_long.o(.rodata);
+        sound/songs/midi/mus_rocket_warehouse.o(.rodata);
+        sound/songs/midi/mus_indigo_plateau_league.o(.rodata);
+        sound/songs/midi/mus_indigo_plateau.o(.rodata);
+        sound/songs/midi/mus_vs_gold_kris.o(.rodata);
+        sound/songs/midi/mus_vs_champion_lance.o(.rodata);
+        sound/songs/midi/mus_route47.o(.rodata);
     } > ROM =0
 
     lib_rodata :

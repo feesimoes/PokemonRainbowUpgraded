@@ -60,13 +60,12 @@ Route26_South_House_Twins_Mom_Dialogue_Text_0:
 
 Route26_South_House_Sunday_Twin_Dialogue_Text_0:
 # 20 "data/maps/Route26_South_House/scripts.pory"
-	.string "EEVEE can evolve if given\n"
-	.string "a SUN STONE!\p"
-	.string "You gotta admit it's cute!$"
+	.string "EEVEE can evolve if treated\n"
+	.string "with care and love!\p"
+	.string "Make sure it's daytime when\n"
+	.string "they level up, okay?$"
 
 Route26_South_House_Wednesday_Twin_Dialogue_Text_0:
 # 29 "data/maps/Route26_South_House/scripts.pory"
-	.string "EEVEE will evolve if given\n"
-	.string "a MOON STONE...\p"
-	.string "You know, those otherworldly rocks.\n"
-	.string "It's from eternal darkness...$"
+	.string "EEVEE will evolve at night,\n"
+	.string "if you treat it well...$"

@@ -17,7 +17,7 @@ script Route26_South_House_Twins_Mom_Dialogue {
 script Route26_South_House_Sunday_Twin_Dialogue {
     lock
     applymovement(2, movement_route26_south_house_npc_face_player)
-    msgbox(format("EEVEE can evolve if given\na SUN STONE!\pYou gotta admit it's cute!"))
+    msgbox(format("EEVEE can evolve if treated\nwith care and love!\pMake sure it's daytime when\nthey level up, okay?"))
     closemessage
     releaseall
     end
@@ -26,7 +26,7 @@ script Route26_South_House_Sunday_Twin_Dialogue {
 script Route26_South_House_Wednesday_Twin_Dialogue {
     lock
     applymovement(3, movement_route26_south_house_npc_face_player)
-    msgbox(format("EEVEE will evolve if given\na MOON STONE...\pYou know, those otherworldly rocks.\nIt's from eternal darkness..."))
+    msgbox(format("EEVEE will evolve at night,\nif you treat it well..."))
     closemessage
     releaseall
     end

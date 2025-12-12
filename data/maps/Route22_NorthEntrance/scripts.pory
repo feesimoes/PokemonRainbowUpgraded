@@ -1,0 +1,98 @@
+mapscripts Route22_NorthEntrance_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MAP_SCENE_ROUTE23) == 0)
+        {
+            setobjectxyperm(LOCALID_BOULDERBADGE_GUARD, 7, 2)
+        }
+    }
+}
+
+script Route22_NorthEntrance_EventScript_BoulderBadgeGuard
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) >= 1)
+    {
+        msgbox(format("Good luck out there, {PLAYER}!\nBROCK'S friends are my friends."))   
+    }
+    else
+    {
+        if (flag(FLAG_BADGE01_GET) == TRUE)
+        {
+            msgbox(format("You can pass here only if you have\nthe BOULDER BADGE."))
+            msgbox(format("Oh! Okay, then. That is the\nBOULDER BADGE. Go right ahead."))
+            setvar(VAR_MAP_SCENE_ROUTE23, 1)
+            applymovement(LOCALID_BOULDERBADGE_GUARD, Route22_BoulderBadgeGuard_Walk_Right)
+            waitmovement
+            applymovement(LOCALID_BOULDERBADGE_GUARD, Route22_BoulderBadgeGuard_Face_Down)
+            waitmovement
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+        }
+        else
+        {
+            msgbox(format("You can pass here only if you have\nthe BOULDER BADGE...\pSorry, rules are rules!\nI can't let you through."))
+            playse(SE_BOO)
+        }
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+movement Route22_BoulderBadgeGuard_Face_Down 
+{
+    face_down
+    step_end
+}
+
+movement Route22_BoulderBadgeGuard_Walk_Left 
+{
+    walk_left
+    step_end
+}
+
+movement Route22_BoulderBadgeGuard_Walk_Right 
+{
+    walk_right
+    step_end
+}
+
+script Route22_NorthEntrance_Reset_Guard 
+{
+    lock
+    faceplayer
+    if (var(VAR_MAP_SCENE_ROUTE23) != 0)
+    {
+        msgbox(format("Good day.\nI see you've made progress.\pWould you like me to reset\nprogress through these gates?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            setvar(VAR_MAP_SCENE_ROUTE23, 0)
+            applymovement(LOCALID_BOULDERBADGE_GUARD, Route22_BoulderBadgeGuard_Walk_Left)
+            waitmovement
+            applymovement(LOCALID_BOULDERBADGE_GUARD, Route22_BoulderBadgeGuard_Face_Down)
+            waitmovement
+            setobjectxyperm(LOCALID_BOULDERBADGE_GUARD, 7, 2)
+            msgbox(format("Very well, your progress has been\nreset. Have a good one!"))
+
+        }
+        else
+        {
+            msgbox(format("Ah, don't worry.\nI won't take any BADGES.\pSee, some TRAINERS may enjoy\nreliving the experience of ROUTE 23."))
+        }
+    }
+    else
+    {
+        msgbox(format("Good day.\nHow's it going?"))
+        if (!flag(FLAG_BADGE01_GET))
+        {
+            msgbox(format("You won't get anywhere ahead\non ROUTE 23 with no badges..."))
+        }
+    }
+    closemessage
+    release
+    end
+}

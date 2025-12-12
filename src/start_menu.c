@@ -32,6 +32,7 @@
 #include "pokedex_screen.h"
 #include "trainer_card.h"
 #include "option_menu.h"
+#include "constants/vars.h"
 #include "save_menu_util.h"
 #include "help_system.h"
 #include "constants/songs.h"
@@ -111,6 +112,9 @@ static void task50_after_link_battle_save(u8 taskId);
 static void PrintSaveStats(void);
 static void CloseSaveStatsWindow(void);
 static void CloseStartMenu(void);
+static void Task_UpdateGameTime(u8 taskId);
+static u8 sSaveGameClockTaskId;
+static u8 sSaveGameClockYOffset;
 
 static const struct MenuAction sStartMenuActionTable[] = {
     [STARTMENU_POKEDEX] = { gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback} },
@@ -711,6 +715,7 @@ static u8 SaveDialogCB_PrintAskSaveText(void)
     RemoveStartMenuWindow();
     DestroyHelpMessageWindow(0);
     PrintSaveStats();
+    sSaveGameClockTaskId = CreateTask(Task_UpdateGameTime, 0);
     PrintSaveTextWithFollowupFunc(gText_WouldYouLikeToSaveTheGame, SaveDialogCB_AskSavePrintYesNoMenu);
     return SAVECB_RETURN_CONTINUE;
 }
@@ -722,15 +727,26 @@ static u8 SaveDialogCB_AskSavePrintYesNoMenu(void)
     return SAVECB_RETURN_CONTINUE;
 }
 
+static void Task_UpdateGameTime(u8 taskId)
+{
+    SaveStatToString(SAVE_STAT_TIME, gStringVar1, 2);
+    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, sSaveGameClockYOffset, sTextColor_StatValue, -1, gStringVar1);
+    CopyWindowToVram(sSaveStatsWindowId, COPYWIN_GFX);
+}
+
 static u8 SaveDialogCB_AskSaveHandleInput(void)
 {
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
         if ((gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID) || !gDifferentSaveFile)
+        {
             sSaveDialogCB = SaveDialogCB_PrintAskOverwriteText;
+        }
         else
+        {
             sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
+        }
         break;
     case 1:
     case -1:
@@ -984,9 +1000,9 @@ static void PrintSaveStats(void)
         AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, 42, sTextColor_StatValue, -1, gStringVar4);
         y = 56;
     }
-    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Time);
+    sSaveGameClockYOffset = y;
     SaveStatToString(SAVE_STAT_TIME, gStringVar4, 2);
-    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gStringVar4);
+    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, y, sTextColor_StatValue, -1, gStringVar4);
     CopyWindowToVram(sSaveStatsWindowId, COPYWIN_GFX);
 }
 
@@ -994,6 +1010,7 @@ static void CloseSaveStatsWindow(void)
 {
     ClearStdWindowAndFrame(sSaveStatsWindowId, FALSE);
     RemoveWindow(sSaveStatsWindowId);
+    DestroyTask(sSaveGameClockTaskId);
 }
 
 static void CloseStartMenu(void)

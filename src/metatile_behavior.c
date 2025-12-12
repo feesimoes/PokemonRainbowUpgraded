@@ -488,6 +488,10 @@ bool8 MetatileBehavior_IsUnableToEmerge(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_UNDERWATER_BLOCKED_ABOVE)
         return TRUE;
+    else if (metatileBehavior == MB_SEAWEED)
+        return TRUE;
+    else if (metatileBehavior == MB_CAVE)
+        return TRUE;
     else
         return FALSE;
 }

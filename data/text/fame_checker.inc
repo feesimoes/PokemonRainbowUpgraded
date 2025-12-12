@@ -228,6 +228,13 @@ gFameCheckerFlavorText_Koga0:: @ 0x81AE2B6
 	.string "LEADER: KOGA\l"
 	.string "The Poisonous Ninja Master$"
 
+gFameCheckerFlavorText_Koga0_PostGame:: @ 0x81AE2B6
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I am KOGA of the ELITE FOUR.\n"
+	.string "I was FUCHSIA CITY'S GYM LEADER.\p"
+	.string "My intricate styles allowed me to\n"
+	.string "reach new heights, a worthy feat!$"
+
 gFameCheckerFlavorText_Koga1:: @ 0x81AE31D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Despair to the creeping horror of\n"
@@ -245,6 +252,13 @@ gFameCheckerFlavorText_Koga3:: @ 0x81AE407
 	.string "this town.\p"
 	.string "I'm training to use POISON POKéMON\n"
 	.string "as well as my father.$"
+
+gFameCheckerFlavorText_Koga3_PostGame:: @ 0x81AE407
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}My father was the GYM LEADER of\n"
+	.string "this town.\p"
+	.string "KOGA is no longer here...\nHe moved onto the POKéMON LEAGUE.\p"
+	.string "I'm the real deal!\nJANINE of FUCHSIA GYM, that's me!$"
 
 gFameCheckerFlavorText_Koga4:: @ 0x81AE48D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
@@ -488,8 +502,7 @@ gFameCheckerFlavorText_Lance4:: @ 0x81AF758
 gFameCheckerFlavorText_Lance5:: @ 0x81AF7CB
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}From what I've heard, LANCE has\n"
-	.string "a cousin who's a GYM LEADER\l"
-	.string "somewhere far away.$"
+	.string "a cousin who's also a GYM LEADER.$"
 
 gFameCheckerFlavorText_Bill0:: @ 0x81AF83E
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
@@ -908,6 +921,9 @@ gFameCheckerFlavorTextOriginLocation_Erika5::
 gFameCheckerFlavorTextOriginLocation_Koga0::
 	.string "FUCHSIA CITY$"
 
+gFameCheckerFlavorTextOriginLocation_Koga0_PostGame::
+	.string "POKéMON LEAGUE$"
+
 gFameCheckerFlavorTextOriginLocation_Koga1::
 	.string "FUCHSIA GYM$"
 
@@ -1195,6 +1211,9 @@ gFameCheckerFlavorTextOriginObjectName_Erika5::
 
 gFameCheckerFlavorTextOriginObjectName_Koga0::
 	.string "SIGN$"
+
+gFameCheckerFlavorTextOriginObjectName_Koga0_PostGame::
+	.string "KOGA$"
 
 gFameCheckerFlavorTextOriginObjectName_Koga1::
 	.string "KOGA$"

@@ -1,1 +1,94 @@
-mapscripts PokemonLeague_KogasRoom_MapScripts {}
+raw `
+PokemonLeague_KogasRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_KogasRoom_OnResume
+	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_KogasRoom_OnLoad
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_KogasRoom_OnWarp
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_KogasRoom_OnFrame
+	.byte 0
+
+PokemonLeague_KogasRoom_OnResume::
+	setvar VAR_0x8004, 2
+	call PokemonLeague_EventScript_DoLightingEffect
+	end
+
+PokemonLeague_KogasRoom_OnLoad::
+	call_if_set FLAG_DEFEATED_BRUNO, PokemonLeague_KogasRoom_EventScript_SetDoorOpen
+	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 1, PokemonLeague_KogasRoom_EventScript_CloseEntry
+	end
+
+PokemonLeague_KogasRoom_EventScript_CloseEntry::
+	call PokemonLeague_EventScript_CloseEntry
+	return
+
+PokemonLeague_KogasRoom_EventScript_SetDoorOpen::
+	call PokemonLeague_EventScript_SetDoorOpen
+	return
+
+PokemonLeague_KogasRoom_OnWarp::
+	map_script_2 VAR_TEMP_1, 0, PokemonLeague_KogasRoom_EventScript_TurnPlayerNorth
+	.2byte 0
+
+PokemonLeague_KogasRoom_EventScript_TurnPlayerNorth::
+	turnobject LOCALID_PLAYER, DIR_NORTH
+	end
+
+PokemonLeague_KogasRoom_OnFrame::
+	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 2, PokemonLeague_KogasRoom_EventScript_EnterRoom
+	.2byte 0
+
+PokemonLeague_KogasRoom_EventScript_EnterRoom::
+	lockall
+	call PokemonLeague_EventScript_EnterRoom
+	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 1
+	releaseall
+	end
+
+`
+
+script PokemonLeague_KogasRoom_EventScript_Koga
+{
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	if (flag(FLAG_DEFEATED_BRUNO) == TRUE)
+	{
+		call(PokemonLeague_KogasRoom_EventScript_Koga_PostBattle)
+	}
+	call(PokemonLeague_KogasRoom_EventScript_Koga_Intro)
+	call(PokemonLeague_KogasRoom_EventScript_Koga_Battle)
+	clearflag(FLAG_TEMP_5)
+	goto(PokemonLeague_KogasRoom_EventScript_Koga_PostBattle_OpenDoor)
+	end
+}
+
+script PokemonLeague_KogasRoom_EventScript_Koga_Intro 
+{
+	msgbox(format("Fwahahahaha!\nDo you remember me, child?\pI am KOGA of the ELITE FOUR.\nI was FUCHSIA CITY'S GYM LEADER.\pMy intricate styles allowed me to\nreach new heights, a worthy feat!\pPOKéMON are not only brute force,\nyou shall see soon enough!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"))
+	closemessage
+}
+
+script PokemonLeague_KogasRoom_EventScript_Koga_Battle 
+{
+	trainerbattle_no_intro(TRAINER_ELITE_FOUR_KOGA, format("Ah! You've proven your worth."))
+	return
+}
+
+script PokemonLeague_KogasRoom_EventScript_Koga_PostBattle
+{
+	textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("I subjected you to everything\nI could muster...\pBut, my efforts failed.\nI must hone my skills.\pGo on to the next room.\nPut your abilities to the test!"))
+    closemessage
+    release
+    end
+}
+
+script PokemonLeague_KogasRoom_EventScript_Koga_PostBattle_OpenDoor
+{
+	textcolor(NPC_TEXT_COLOR_MALE)
+    setflag(FLAG_DEFEATED_BRUNO)
+    call(PokemonLeague_EventScript_OpenDoor)
+    msgbox(format("I subjected you to everything\nI could muster...\pBut, my efforts failed.\nI must hone my skills.\pGo on to the next room.\nPut your abilities to the test!"))
+    closemessage
+    release
+    end
+}

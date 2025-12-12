@@ -3923,8 +3923,14 @@ static void CursorCB_FieldMove(u8 taskId)
     }
     else
     {
-        // All field moves before DIVE (Including it) are HMs.
-        if (fieldMove <= FIELD_MOVE_DIVE && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        // All field moves before WATERFALL (Including it) are HMs.
+        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        {
+            DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        }
+        // Field move Dive re-implemented for Badge 8
+        if (fieldMove == FIELD_MOVE_DIVE && FlagGet(FLAG_BADGE08_GET) != TRUE)
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
@@ -3953,6 +3959,11 @@ static void CursorCB_FieldMove(u8 taskId)
                 break;
             case FIELD_MOVE_FLY:
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                Task_ClosePartyMenu(taskId);
+                break;
+            case FIELD_MOVE_DIVE:
+                gPartyMenu.exitCallback = CB2_ReturnToField;
+                SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], fieldMove);
                 Task_ClosePartyMenu(taskId);
                 break;
             default:
@@ -4744,7 +4755,7 @@ bool8 IsMoveHm(u16 move)
 {
     u8 i;
 
-    for (i = 0; i < NUM_HIDDEN_MACHINES; ++i) // originally no dive
+    for (i = 0; i < NUM_HIDDEN_MACHINES - 1; ++i) // no dive
         if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
             return TRUE;
     return FALSE;

@@ -4,6 +4,11 @@
 #include "decompress.h"
 #include "task.h"
 
+#include "constants/vars.h"
+#include "event_data.h"
+
+#include "constants/metatile_labels.h"
+
 enum
 {
     NORMAL_FADE,
@@ -15,6 +20,188 @@ enum
 // The full functionality of this system is unknown.
 
 #define NUM_PALETTE_STRUCTS 16
+
+#define TINT_NIGHT   RGB(10, 10, 20) // Dark Blueish
+#define TINT_MORNING RGB(20, 20, 28) // Blue/Grey
+#define TINT_NORMAL  RGB(31, 31, 31) // No tint (usually effectively white/bright)
+#define TINT_SUNSET  RGB(31, 20, 10) // Orange
+
+#define PALETTE_START 0
+#define PALETTE_END   13
+
+u16 gCurrentTintColor;
+u8 gCurrentTintCoeff;
+
+
+
+#define BG_PAL_COUNT_TINT  13
+#define OBJ_PAL_COUNT_TINT 10
+
+#define MAX_NIGHT_INTENSITY 11
+#define MAX_SUNSET_INTENSITY 6
+#define MAX_SUNRISE_INTENSITY 6
+
+//Windows on buildings initially have palette #3
+#define PALETTE_SLOT_LIGHT_SOURCE_GENERAL 3
+#define GENERAL_LIGHT_SOURCE_INTENSITY 6
+
+//Palette slot for light sources from underwater maps
+#define UNDERWATER_INTENSITY 12
+#define PALETTE_SLOT_LIGHT_SOURCE_UNDERWATER 11
+#define UNDERWATER_LIGHT_SOURCE_INTENSITY 8
+
+void ApplyUnderwaterTint(void)
+{
+    int i;
+    u16 srcColor;
+    u8 coeff;
+    u16 tintColor;
+    u8 effectiveCoeff;
+
+    tintColor = RGB(4, 6, 14); // Deep Blue/Black
+    coeff = UNDERWATER_INTENSITY; 
+
+    // Apply tint to background (Palette slots 0-12)
+    for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+    {
+        if (i % 16 == 0) continue; 
+
+        // Check if this metatile has a special "Glowing" palette
+        if ((i / 16) == PALETTE_SLOT_LIGHT_SOURCE_UNDERWATER)
+        {
+            // Use the lighter intensity so the color shines through
+            effectiveCoeff = UNDERWATER_LIGHT_SOURCE_INTENSITY; 
+        }
+        else
+        {
+            // Use the standard dark underwater intensity
+            effectiveCoeff = coeff;
+        }
+
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, effectiveCoeff);
+    }
+
+    // Apply tint to object events (Palette slots 16-25)
+    for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+    {
+        if (i % 16 == 0) continue;
+
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+    }
+}
+
+// Still a work in progress, unused for now.
+void ApplyDayNightTint(u8 hour, u8 minute)
+{
+    int i;
+    u16 srcColor;
+    u8 coeff;
+    u16 tintColor;
+    u8 effectiveCoeff;
+
+    if (hour == 0 || (hour >= 1 && hour <= 11)) // Night
+    {
+        tintColor = RGB(2, 3, 7); // Deep Blue/Black
+        coeff = MAX_NIGHT_INTENSITY;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+            // During the day, treat it normally
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+            continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+    else if (hour >= 12 && hour <= 21) //General daytime
+    {
+        return;
+    }
+    else if (hour >= 22 && hour <= 23) // Sunset
+    {
+        tintColor = RGB(31, 18, 4); // Orange
+        coeff = (minute * MAX_SUNSET_INTENSITY) / 60;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+        // During the day, treat it normally
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+    else if (hour >= 7 && hour <= 8) // Sunrise
+    {
+        tintColor = RGB(31, 31, 20); // Pale Yellow
+        coeff = (minute * MAX_SUNRISE_INTENSITY) / 120;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+            // During the day, treat it normally
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+            continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+}
 
 struct PaletteStructTemplate
 {
@@ -77,6 +264,22 @@ static const u8 sRoundedDownGrayscaleMap[] =
     27, 27, 27, 27, 27,
     31, 31
 };
+
+u16 BlendColor(u16 srcColor, u16 tintColor, u8 coeff)
+{
+    int r, g, b;
+    int tintR = GET_R(tintColor);
+    int tintG = GET_G(tintColor);
+    int tintB = GET_B(tintColor);
+
+    if (coeff == 0) return srcColor;
+    
+    r = (GET_R(srcColor) * (16 - coeff) + tintR * coeff) >> 4;
+    g = (GET_G(srcColor) * (16 - coeff) + tintG * coeff) >> 4;
+    b = (GET_B(srcColor) * (16 - coeff) + tintB * coeff) >> 4;
+
+    return RGB(r, g, b);
+}
 
 void LoadCompressedPalette(const u32 *src, u16 offset, u16 size)
 {

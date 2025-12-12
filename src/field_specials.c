@@ -703,7 +703,7 @@ void IncrementResortGorgeousStepCounter(void)
 
 void MakeMewLegalJPNEmeraldEvent(void)
 {
-    //Change Mew's specific data for Gen 3 legality checks. Emerald MAPSEC 201 = Faraway Island, would be Route 117 in pokerainbow...
+    //Change Mew's specific data for Gen 3 legality checks. Emerald MAPSEC 201 = Faraway Island, would be Route 117 in pokerainbow.
     u32 language = LANGUAGE_JAPANESE;
     u8 metlocation = 201;
     u8 metGame = VERSION_EMERALD;

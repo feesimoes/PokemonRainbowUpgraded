@@ -2,7 +2,7 @@
   "id": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
   "name": "IndigoPlateau_PokemonCenter_1F",
   "layout": "LAYOUT_INDIGO_PLATEAU_POKEMON_CENTER_1F",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_INDIGO_PLATEAU_LEAGUE",
   "region_map_section": "MAPSEC_INDIGO_PLATEAU",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -79,13 +79,13 @@
       "x": 23,
       "y": 13,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "IndigoPlateau_PokemonCenter_1F_EventScript_BlackBelt",
-      "flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
+      "flag": "0"
     },
     {
       "type": "object",
@@ -113,7 +113,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "IndigoPlateau_PokemonCenter_1F_EventScript_CooltrainerM",
-      "flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
+      "flag": "0"
     },
     {
       "type": "object",

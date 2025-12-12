@@ -21,7 +21,6 @@ bool8 EnterHallOfFame(void)
     else
     {
         gHasHallOfFameRecords = FALSE;
-        FlagSet(FLAG_SYS_GAME_CLEAR);
     }
     if (GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME) == 0)
     {

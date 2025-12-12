@@ -45,6 +45,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_ROUTE_22_RIVAL"
+    },
+    {
+      "local_id": "LOCALID_ROUTE_22_GIOVANNI",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER"
+    },
+    {
+      "local_id": "LOCALID_ROUTE_22_SILVER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SILVER",
+      "x": 12,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER"
     }
   ],
   "warp_events": [
@@ -90,6 +120,42 @@
       "var": "VAR_MAP_SCENE_ROUTE22",
       "var_value": "1",
       "script": "Route22_EventScript_EarlyRivalTriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_EventScript_Giovanni_Silver"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_Force_Player_Off_Ledge_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_EventScript_Giovanni_Silver"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "13",
+      "script": "Route22_EventScript_Giovanni_Silver"
     }
   ],
   "bg_events": [
@@ -113,7 +179,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 34,
+      "x": 36,
       "y": 6,
       "elevation": 0,
       "item": "ITEM_SUPER_POTION",

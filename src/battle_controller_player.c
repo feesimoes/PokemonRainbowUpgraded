@@ -1316,7 +1316,7 @@ static void WaitForMonSelection(void)
     }
 }
 
-static void GOOpenBagAndChooseItem(void)
+static void OpenBagAndChooseItem(void)
 {
     if (!gPaletteFade.active)
     {
@@ -2275,7 +2275,6 @@ static void PlayerHandleSuccessBallThrowAnim(void)
     gDoingBattleAnim = TRUE;
     InitAndLaunchSpecialAnimation(gActiveBattler, gActiveBattler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), B_ANIM_BALL_THROW);
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnSpecialAnimDone;
-    PlayerHandleExpUpdate();
 }
 
 static void PlayerHandleBallThrowAnim(void)
@@ -2453,7 +2452,7 @@ static void PlayerHandleChooseItem(void)
     s32 i;
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = GOOpenBagAndChooseItem;
+    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
     gBattlerInMenuId = gActiveBattler;
     for (i = 0; i < 3; ++i)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];

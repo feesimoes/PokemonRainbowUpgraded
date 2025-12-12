@@ -1,0 +1,47 @@
+raw `
+Route22_WestEntrance_1F_EventScript_Guard::
+	msgbox Route22_WestEntrance_1F_Text_LeavingOrEnteringKantoGuard, MSGBOX_NPC
+	end
+
+`
+
+mapscripts Route22_WestEntrance_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MEW_QUEST_PROGRESS) == 12)
+        {
+            checkitem(ITEM_OLD_SEA_MAP, 1)
+            if (var(VAR_RESULT) == TRUE)
+            {
+                setvar(VAR_MEW_QUEST_PROGRESS, 13)
+                clearflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+            }
+        }
+        elif (var(VAR_MEW_QUEST_PROGRESS) == 13)
+        {
+            clearflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+        }
+        else
+        {
+            setflag(FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER)
+        }
+    }
+}
+
+script Route22_WestEntrance_1F_TurnAroundQuarrelAhead 
+{
+    lock
+    msgbox(format("Looks like something serious\nis happening ahead! Let's go around."))
+    closemessage
+    applymovement(LOCALID_PLAYER, Route22_WestEntrance_1F_Player_WalkLeft)
+    waitmovement
+    release
+    end
+}
+
+movement Route22_WestEntrance_1F_Player_WalkLeft
+{
+    walk_left
+    step_end
+}

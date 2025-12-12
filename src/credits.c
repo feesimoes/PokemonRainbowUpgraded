@@ -118,7 +118,7 @@ enum CreditsString
 
 enum CreditsMap
 {
-    CREDITS_MAP_ROUTE23 = 0,
+    CREDITS_MAP_ROUTE26 = 0,
     CREDITS_MAP_VIRIDIAN_CITY,
     CREDITS_MAP_PEWTER_CITY,
     CREDITS_MAP_CERULEAN_CITY,
@@ -381,7 +381,7 @@ static const struct CompressedGraphicsHeader sCopyrightOrTheEndGfxHeaders[] = {
 #define CREDITS_WAITBUTTON(time) { CREDITSSCRCMD_WAITBUTTON, .duration = time }
 
 static const struct CreditsScrcmd sCreditsScript[] = {
-    CREDITS_MAPNEXT(ROUTE23, 16),
+    CREDITS_MAPNEXT(ROUTE26, 16),
     CREDITS_PRINT(DIRECTOR, 300),
     CREDITS_PRINT(ART_DIRECTOR_BATTLE_DIRECTOR, 300),
     CREDITS_PRINT(PROGRAM_LEADER_PLANNING_LEADER_GRAPHIC_DESIGN_LEADER, 300),
@@ -568,8 +568,8 @@ static const struct SpriteTemplate sGroundSpriteTemplate_Static = {
     .callback = SpriteCallbackDummy
 };
 
-static const struct CreditsOverworldCmd sOverworldCmd_Route23[] = {
-    CREDITSOVWLDLOADMAP(MAP_ROUTE23, 11, 107, 1),
+static const struct CreditsOverworldCmd sOverworldCmd_Route26[] = {
+    CREDITSOVWLDLOADMAP(MAP_ROUTE26, 8, 7, 1),
     CREDITSOVWLDSCROLL(0, 1, 0x0500), // Scroll down
     CREDITSOVWLDEND
 };
@@ -647,7 +647,7 @@ static const struct CreditsOverworldCmd sOverworldCmd_Route21[] = {
 };
 
 static const struct CreditsOverworldCmd *const sOverworldMapScenes[] = {
-    sOverworldCmd_Route23,
+    sOverworldCmd_Route26,
     sOverworldCmd_ViridianCity,
     sOverworldCmd_PewterCity,
     sOverworldCmd_CeruleanCity,

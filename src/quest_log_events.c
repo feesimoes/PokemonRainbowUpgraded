@@ -432,12 +432,12 @@ static const u8 *const sUsedFieldMoveTexts[] =
     [FIELD_MOVE_SURF]        = gText_QuestLog_UsedSurf,
     [FIELD_MOVE_ROCK_SMASH]  = gText_QuestLog_UsedRockSmash,
     [FIELD_MOVE_WATERFALL]   = gText_QuestLog_UsedWaterfall,
-    [FIELD_MOVE_DIVE]        = gText_QuestLog_UsedDive,
     [FIELD_MOVE_TELEPORT]    = gText_QuestLog_UsedTeleportToLocation,
     [FIELD_MOVE_DIG]         = gText_QuestLog_UsedDigInLocation,
     [FIELD_MOVE_MILK_DRINK]  = gText_QuestLog_UsedMilkDrink,
     [FIELD_MOVE_SOFT_BOILED] = gText_QuestLog_UsedSoftboiled,
-    [FIELD_MOVE_SWEET_SCENT] = gText_QuestLog_UsedSweetScent
+    [FIELD_MOVE_SWEET_SCENT] = gText_QuestLog_UsedSweetScent,
+    [FIELD_MOVE_DIVE]        = gText_QuestLog_UsedDive
 };
 
 static const u16 sWorldMapFlags[] =
@@ -642,6 +642,8 @@ static bool8 ShouldRegisterEvent_HandleBeatStoryTrainer(u16 eventId, const u16 *
          || trainerClass == TRAINER_CLASS_RIVAL_LATE
          || trainerClass == TRAINER_CLASS_CHAMPION
          || trainerClass == TRAINER_CLASS_BOSS)
+            return FALSE;
+        if (trainerClass == TRAINER_CLASS_CHAMPION_2)
             return FALSE;
         return TRUE;
     }
@@ -1017,14 +1019,14 @@ static void QuestLog_GetSpeciesName(u16 species, u8 *dest, u8 stringVarId)
     if (dest != NULL)
     {
         if (species != SPECIES_EGG)
-            GetSpeciesName(dest, species);
+            GetSpeciesName(dest, species, 0);
         else
             StringCopy(dest, gText_EggNickname);
     }
     else
     {
         if (species != SPECIES_EGG)
-            DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gSpeciesNames[species]);
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gSpeciesNamesExpanded_1[species]);
         else
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gText_EggNickname);
     }
@@ -1930,10 +1932,13 @@ static const u16 *LoadEvent_DefeatedTrainer(const u16 *eventData)
     if (gTrainers[r5[2]].trainerClass == TRAINER_CLASS_RIVAL_EARLY
      || gTrainers[r5[2]].trainerClass == TRAINER_CLASS_RIVAL_LATE
      || gTrainers[r5[2]].trainerClass == TRAINER_CLASS_CHAMPION)
+    {
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL));
+    }
     else
+    {
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gTrainers[r5[2]].trainerName);
-
+    }
     QuestLog_GetSpeciesName(r5[0], NULL, 2);
     QuestLog_GetSpeciesName(r5[1], NULL, 3);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sDefeatedOpponentFlavorTexts[r6[1]]);

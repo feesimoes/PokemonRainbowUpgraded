@@ -1,1 +1,121 @@
-mapscripts PokemonLeague_KarensRoom_MapScripts {}
+raw `
+PokemonLeague_KarensRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_KarensRoom_OnResume
+	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_KarensRoom_OnLoad
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_KarensRoom_OnWarp
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_KarensRoom_OnFrame
+	.byte 0
+
+PokemonLeague_KarensRoom_OnResume::
+	setvar VAR_0x8004, 3
+	call PokemonLeague_EventScript_DoLightingEffect
+	end
+
+PokemonLeague_KarensRoom_OnLoad::
+	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 4, PokemonLeague_KarensRoom_EventScript_CloseEntry
+	call_if_set FLAG_DEFEATED_LANCE, PokemonLeague_KarensRoom_EventScript_SetDoorOpen
+	end
+
+PokemonLeague_KarensRoom_EventScript_CloseEntry::
+	call PokemonLeague_KarensRoom_EventScript_SetEntryClosed
+	return
+
+PokemonLeague_KarensRoom_EventScript_SetDoorOpen::
+	call PokemonLeague_EventScript_SetDoorOpenLance
+	return
+
+PokemonLeague_KarensRoom_OnWarp::
+	map_script_2 VAR_TEMP_1, 0, PokemonLeague_KarensRoom_EventScript_TurnPlayerNorth
+	.2byte 0
+
+PokemonLeague_KarensRoom_EventScript_TurnPlayerNorth::
+	turnobject LOCALID_PLAYER, DIR_NORTH
+	end
+
+PokemonLeague_KarensRoom_OnFrame::
+	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 3, PokemonLeague_KarensRoom_EventScript_EnterRoom
+	.2byte 0
+
+PokemonLeague_KarensRoom_EventScript_EnterRoom::
+	lockall
+	setflag FLAG_TEMP_2
+	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 4
+	releaseall
+	end
+
+PokemonLeague_KarensRoom_EventScript_SetEntryClosed::
+	return
+
+PokemonLeague_KarensRoom_Movement_WalkThroughCorridor::
+	walk_up
+	step_end
+
+PokemonLeague_KarensRoom_EventScript_Agatha::
+	lock
+	faceplayer
+	textcolor NPC_TEXT_COLOR_FEMALE
+	goto_if_set FLAG_DEFEATED_LANCE, PokemonLeague_KarensRoom_EventScript_PostBattle
+	call PokemonLeague_KarensRoom_EventScript_RematchIntro
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	call PokemonLeague_KarensRoom_EventScript_Battle
+	clearflag FLAG_TEMP_5
+	goto PokemonLeague_KarensRoom_EventScript_Defeated
+	end
+
+PokemonLeague_KarensRoom_EventScript_RematchIntro::
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_RematchIntro
+	return
+
+PokemonLeague_KarensRoom_EventScript_Battle::
+	trainerbattle_no_intro TRAINER_ELITE_FOUR_AGATHA_2, PokemonLeague_KarensRoom_Agatha_Text_Defeat
+	return
+
+PokemonLeague_KarensRoom_EventScript_PostBattle::
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_PostBattle
+	release
+	end
+
+PokemonLeague_KarensRoom_EventScript_Defeated::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	setvar VAR_0x8004, 0
+	special Script_TryGainNewFanFromCounter
+	setflag FLAG_DEFEATED_LANCE
+	call PokemonLeague_EventScript_OpenDoorLance
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_PostBattle
+	closemessage
+	release
+	end
+
+`
+
+script PokemonLeague_KarensRoom_DontWanderOff
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("INDIGO PLATEAU\nThe ultimate goal of TRAINERS!\pPOKéMON LEAGUE HQ"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PLAYER, PokemonLeague_KarensRoom_Player_Face_Left)
+    waitmovement
+    applymovement(LOCALID_PLAYER, PokemonLeague_KarensRoom_Player_Emote)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(format("{PLAYER}...!\nHello...?\p...Get on with it already!\n...I don't have forever, here!\pOof!\nMy back...!\p...Hurry up already!"))
+    playbgm(MUS_FOLLOW_ME, TRUE)
+    closemessage
+    release
+    end
+}
+
+movement PokemonLeague_KarensRoom_Player_Face_Left 
+{
+    face_left
+    step_end
+}
+
+movement PokemonLeague_KarensRoom_Player_Emote 
+{
+    emote_exclamation_mark
+    step_end
+}

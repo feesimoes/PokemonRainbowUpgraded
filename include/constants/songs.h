@@ -304,7 +304,7 @@
 #define MUS_VS_GYM_LEADER         296 // MUS_VS_GYM
 #define MUS_VS_TRAINER            297 // MUS_VS_TORE
 #define MUS_VS_WILD               298 // MUS_VS_YASEI
-#define MUS_VS_CHAMPION           299 // MUS_VS_LAST
+#define MUS_VS_CHAMPION           299 // MUS_VS_LAST = FR/LG remix of the original games' theme, by TruthSeeker Music!
 #define MUS_PALLET                300 // MUS_MASARA
 #define MUS_OAK_LAB               301 // MUS_KENKYU
 #define MUS_OAK                   302 // MUS_OHKIDO
@@ -349,7 +349,7 @@
 #define MUS_VS_LEGEND             341 // MUS_VS_DEN
 #define MUS_ENCOUNTER_GYM_LEADER  342 // MUS_EXEYE
 #define MUS_ENCOUNTER_DEOXYS      343 // MUS_DEOEYE
-#define MUS_TRAINER_TOWER         344 // MUS_T_TOWER
+#define MUS_TRAINER_TOWER         344 // MUS_T_TOWER = Johto Battle Tower remix
 #define MUS_SLOW_PALLET           345 // MUS_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
 #define MUS_KANTO_ROUTE_GATE	  347 // MUS_KANTO_ROUTE_GATE
@@ -416,7 +416,13 @@
 #define MUS_ENCOUNTER_ROCKET_BOSS 408 // MUS_ENCOUNTER_ROCKET_BOSS
 #define MUS_UNDERWATER            409 // MUS_UNDERWATER = Dive remix
 #define SE_PHONE_RING_LONG        410 // SE_PHONE_RING_LONG = PokeGear phone ring sfx (Long version)
+#define MUS_ROCKET_WAREHOUSE      411 // MUS_ROCKET_WAREHOUSE = Johto Team Rocket Hideout remix
+#define MUS_INDIGO_PLATEAU_LEAGUE 412 // MUS_INDIGO_PLATEAU_LEAGUE = GSC Indigo Plateau remix, used for indoor
+#define MUS_INDIGO_PLATEAU        413 // MUS_INDIGO_PLATEAU = HG/SS Indigo Plateau remix, used for outdoor
+#define MUS_VS_GOLD_KRIS          414 // MUS_VS_GOLD_KRIS = Masters EX Johto Trainer Battle remix, courtesy of TruthSeeker Music
+#define MUS_VS_CHAMPION_LANCE     415 // MUS_VS_CHAMPION_LANCE = HG/SS Johto Champion Battle theme remix, by TruthSeeker Music
+#define MUS_ROUTE47               416 // MUS_ROUTE47 = HG/SS Route 47 remix (With help/inspiration from TruthSeeker Music)
 
-#define MUS_NONE                    0xFFFF
+#define MUS_NONE                  0xFFFF
 
 #endif  // GUARD_CONSTANTS_SONGS_H

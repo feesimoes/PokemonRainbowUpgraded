@@ -63,8 +63,14 @@ FuchsiaCity_EventScript_SafariZoneOfficeSign::
 
 FuchsiaCity_EventScript_GymSign::
 	lockall
+	goto_if_set FLAG_SYS_GAME_CLEAR, FuchsiaCity_EventScript_GymSign_PostGame
 	famechecker FAMECHECKER_KOGA, 0
 	msgbox FuchsiaCity_Text_GymSign
+	releaseall
+	end
+
+FuchsiaCity_EventScript_GymSign_PostGame::
+	msgbox FuchsiaCity_Text_GymSign_PostGame
 	releaseall
 	end
 

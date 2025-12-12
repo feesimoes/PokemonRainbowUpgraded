@@ -972,7 +972,19 @@ static void PrintSelectedNameInBrightGreen(u8 taskId)
     s16 *data = gTasks[taskId].data;
     u16 cursorPos = FameCheckerGetCursorY();
     FillWindowPixelRect(FCWINDOWID_MSGBOX, PIXEL_FILL(1), 0, 0, 0xd0, 0x20);
-    StringExpandPlaceholders(gStringVar4, sFameCheckerFlavorTextPointers[sFameCheckerData->unlockedPersons[cursorPos] * 6 + data[1]]);
+    //Post-game conditions
+    if (FlagGet(FLAG_SYS_GAME_CLEAR) == TRUE && sFameCheckerFlavorTextPointers[sFameCheckerData->unlockedPersons[cursorPos] * 6 + data[1]] == gFameCheckerFlavorText_Koga0)
+    {
+        StringExpandPlaceholders(gStringVar4, gFameCheckerFlavorText_Koga0_PostGame);
+    }
+    else if (FlagGet(FLAG_SYS_GAME_CLEAR) == TRUE && sFameCheckerFlavorTextPointers[sFameCheckerData->unlockedPersons[cursorPos] * 6 + data[1]] == gFameCheckerFlavorText_Koga3)
+    {
+        StringExpandPlaceholders(gStringVar4, gFameCheckerFlavorText_Koga3_PostGame);
+    }
+    else
+    {
+        StringExpandPlaceholders(gStringVar4, sFameCheckerFlavorTextPointers[sFameCheckerData->unlockedPersons[cursorPos] * 6 + data[1]]);
+    }
     AddTextPrinterParameterized2(FCWINDOWID_MSGBOX, FONT_NORMAL, gStringVar4, GetTextSpeedSetting(), NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     FC_PutWindowTilemapAndCopyWindowToVramMode3(FCWINDOWID_MSGBOX);
 }
@@ -1400,8 +1412,17 @@ static void UpdateIconDescriptionBox(u8 whichText)
     gIconDescriptionBoxIsOpen = 1;
     FillWindowPixelRect(FCWINDOWID_ICONDESC, PIXEL_FILL(0), 0, 0, 0x58, 0x20);
     width = (0x54 - GetStringWidth(FONT_SMALL, sFlavorTextOriginLocationTexts[idx], 0)) / 2;
-    AddTextPrinterParameterized4(FCWINDOWID_ICONDESC, FONT_SMALL, width, 0, 0, 2, sTextColor_DkGrey, -1, sFlavorTextOriginLocationTexts[idx]);
-    StringExpandPlaceholders(gStringVar1, sFlavorTextOriginObjectNameTexts[idx]);
+    //Post-game conditions
+    if (FlagGet(FLAG_SYS_GAME_CLEAR) == TRUE && sFlavorTextOriginLocationTexts[idx] == gFameCheckerFlavorTextOriginLocation_Koga0)
+    {
+        AddTextPrinterParameterized4(FCWINDOWID_ICONDESC, FONT_SMALL, width, 0, 0, 2, sTextColor_DkGrey, -1, gFameCheckerFlavorTextOriginLocation_Koga0_PostGame);
+        StringExpandPlaceholders(gStringVar1, gFameCheckerFlavorTextOriginObjectName_Koga0_PostGame);
+    }
+    else
+    {
+        AddTextPrinterParameterized4(FCWINDOWID_ICONDESC, FONT_SMALL, width, 0, 0, 2, sTextColor_DkGrey, -1, sFlavorTextOriginLocationTexts[idx]);
+        StringExpandPlaceholders(gStringVar1, sFlavorTextOriginObjectNameTexts[idx]);
+    }
     width = (0x54 - GetStringWidth(FONT_SMALL, gStringVar1, 0)) / 2;
     AddTextPrinterParameterized4(FCWINDOWID_ICONDESC, FONT_SMALL, width, 10, 0, 2, sTextColor_DkGrey, -1, gStringVar1);
     FC_PutWindowTilemapAndCopyWindowToVramMode3(FCWINDOWID_ICONDESC);

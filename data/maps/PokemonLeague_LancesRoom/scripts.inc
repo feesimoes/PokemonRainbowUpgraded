@@ -37,13 +37,7 @@ PokemonLeague_LancesRoom_OnFrame::
 
 PokemonLeague_LancesRoom_EventScript_EnterRoom::
 	lockall
-	applymovement LOCALID_PLAYER, PokemonLeague_LancesRoom_Movement_WalkThroughCorridor
-	waitmovement 0
 	setflag FLAG_TEMP_2
-	call PokemonLeague_LancesRoom_EventScript_SetEntryClosed
-	playse SE_UNLOCK
-	special DrawWholeMapView
-	waitse
 	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 4
 	releaseall
 	end
@@ -104,11 +98,11 @@ PokemonLeague_LancesRoom_EventScript_Lance::
 	famechecker FAMECHECKER_LANCE, 0
 	famechecker FAMECHECKER_LANCE, 1
 	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_Intro
-	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_RematchIntro
+	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_Intro
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
 	call_if_unset FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LancesRoom_EventScript_Battle
-	call_if_set FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LancesRoom_EventScript_Rematch
+	call_if_set FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LancesRoom_EventScript_Battle
 	clearflag FLAG_TEMP_5
 	goto PokemonLeague_LancesRoom_EventScript_DefeatedLance
 	end
@@ -123,10 +117,6 @@ PokemonLeague_LancesRoom_EventScript_RematchIntro::
 
 PokemonLeague_LancesRoom_EventScript_Battle::
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_LANCE, PokemonLeague_LancesRoom_Text_Defeat
-	return
-
-PokemonLeague_LancesRoom_EventScript_Rematch::
-	trainerbattle_no_intro TRAINER_ELITE_FOUR_LANCE_2, PokemonLeague_LancesRoom_Text_Defeat
 	return
 
 PokemonLeague_LancesRoom_EventScript_PostBattle::

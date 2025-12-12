@@ -58,6 +58,7 @@ struct TrainerCardData
     bool8 var_F;
     bool8 hasTrades;
     bool8 hasBadge[NUM_BADGES];
+    bool8 hasJohtoBadge[NUM_BADGES];
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 strings[TRAINER_CARD_STRING_COUNT][70];
     u8 var_395;
@@ -67,9 +68,11 @@ struct TrainerCardData
     void (*callback2)(void);
     struct TrainerCard trainerCard;
     u16 frontTilemap[600];
+    u16 frontTilemapWithJohto[720];
     u16 backTilemap[600];
     u16 bgTilemap[600];
     u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTilesJohto[0x80 * (NUM_BADGES * 2)];
     u16 stickerTiles[0x100];
     u16 cardTiles[0x1180];
     u16 cardTilemapBuffer[0x1000];
@@ -154,6 +157,7 @@ static void CreateTrainerCardTrainerPic(void);
 static const u32 sTrainerCardStickers_Gfx[]           = INCBIN_U32("graphics/trainer_card/stickers.4bpp.lz");
 static const u32 sHoennTrainerCardFront_Tilemap[]     = INCBIN_U32("graphics/trainer_card/rse/front.bin.lz");
 static const u32 sKantoTrainerCardFront_Tilemap[]     = INCBIN_U32("graphics/trainer_card/front.bin.lz");
+static const u32 sJohtoTrainerCardFront_Tilemap[]     = INCBIN_U32("graphics/trainer_card/front_kanto-johto_badges.bin.lz");
 static const u32 sHoennTrainerCardBack_Tilemap[]      = INCBIN_U32("graphics/trainer_card/rse/back.bin.lz");
 static const u32 sKantoTrainerCardBack_Tilemap[]      = INCBIN_U32("graphics/trainer_card/back.bin.lz");
 static const u32 sHoennTrainerCardFrontLink_Tilemap[] = INCBIN_U32("graphics/trainer_card/rse/front_link.bin.lz");
@@ -180,6 +184,7 @@ static const u16 sTrainerCardStickerPal3[]            = INCBIN_U16("graphics/tra
 static const u16 sTrainerCardStickerPal4[]            = INCBIN_U16("graphics/trainer_card/stickers4.gbapal");
 static const u32 sHoennTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/rse/badges.4bpp.lz");
 static const u32 sKantoTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
+static const u32 sJohtoTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/badges_johto.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] = 
 {
@@ -519,7 +524,14 @@ static void Task_TrainerCard(u8 taskId)
         sTrainerCardDataPtr->mainState++;
         break;
     case 5:
-        DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemap);
+        if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemapWithJohto);
+        }
+        else
+        {
+            DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemap);
+        }
         sTrainerCardDataPtr->mainState++;
         break;
     case 6:
@@ -667,20 +679,44 @@ static bool8 LoadCardGfx(void)
             if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
                 LZ77UnCompWram(sHoennTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
             else
-                LZ77UnCompWram(sKantoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+                if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+                {
+                    LZ77UnCompWram(sJohtoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemapWithJohto);
+                }
+                else
+                {
+                    LZ77UnCompWram(sKantoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+                }
         }
         else
         {
             if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
                 LZ77UnCompWram(sHoennTrainerCardFrontLink_Tilemap, sTrainerCardDataPtr->frontTilemap);
             else
+                if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+                {
+                    LZ77UnCompWram(sJohtoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemapWithJohto);
+                }
+                else
+                {
+                    LZ77UnCompWram(sKantoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+                }
                 LZ77UnCompWram(sKantoTrainerCardFrontLink_Tilemap, sTrainerCardDataPtr->frontTilemap);
         }
         break;
     case 3:
-        // ? Doesnt check for RSE, sHoennTrainerCardBadges_Gfx goes unused
-        LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
-        break;
+        if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+            LZ77UnCompWram(sJohtoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
+            break;
+        }
+        else
+        {
+            // ? Doesnt check for RSE, sHoennTrainerCardBadges_Gfx goes unused
+            LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+            break;
+        }
     case 4:
         if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
             LZ77UnCompWram(gHoennTrainerCard_Gfx, &sTrainerCardDataPtr->cardTiles);
@@ -909,6 +945,7 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
 static void SetDataFromTrainerCard(void)
 {
     u32 badgeFlag;
+    u32 badgeFlagJohto;
     u8 i;
 
     sTrainerCardDataPtr->hasPokedex = FALSE;
@@ -920,6 +957,10 @@ static void SetDataFromTrainerCard(void)
     sTrainerCardDataPtr->hasTrades = FALSE;
 
     memset(sTrainerCardDataPtr->hasBadge, FALSE, sizeof(sTrainerCardDataPtr->hasBadge));
+    if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+    {
+        memset(sTrainerCardDataPtr->hasJohtoBadge, FALSE, sizeof(sTrainerCardDataPtr->hasJohtoBadge));
+    }
     if (sTrainerCardDataPtr->trainerCard.rse.hasPokedex)
         sTrainerCardDataPtr->hasPokedex++;
 
@@ -934,10 +975,21 @@ static void SetDataFromTrainerCard(void)
     if (sTrainerCardDataPtr->trainerCard.rse.pokemonTrades != 0)
         sTrainerCardDataPtr->hasTrades++;
 
+    //Kanto badge checks
     for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++, i++)
     {
         if (FlagGet(badgeFlag))
             sTrainerCardDataPtr->hasBadge[i]++;
+    }
+    //Johto badge checks
+    if (FlagGet(FLAG_JOHTO_BADGE01_GET) == TRUE)
+    {
+        sTrainerCardDataPtr->hasJohtoBadge[0]++;
+    }
+    for (i = 1, badgeFlagJohto = FLAG_JOHTO_BADGE02_GET; badgeFlagJohto <= FLAG_JOHTO_BADGE08_GET; badgeFlagJohto++, i++)
+    {
+        if (FlagGet(badgeFlagJohto))
+            sTrainerCardDataPtr->hasJohtoBadge[i]++;
     }
 }
 
@@ -1472,8 +1524,17 @@ static bool8 SetTrainerCardBgsAndPals(void)
     switch (sTrainerCardDataPtr->bgPalLoadState)
     {
     case 0:
-        LoadBgTiles(3, sTrainerCardDataPtr->badgeTiles, NELEMS(sTrainerCardDataPtr->badgeTiles), 0);
-        break;
+        if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            LoadBgTiles(3, sTrainerCardDataPtr->badgeTiles, NELEMS(sTrainerCardDataPtr->badgeTiles), 0);
+            LoadBgTiles(3, sTrainerCardDataPtr->badgeTilesJohto, NELEMS(sTrainerCardDataPtr->badgeTilesJohto), 128); // 16 tiles per badge * 8 badges = 128 tiles needed per row of 8
+            break;
+        }
+        else
+        {
+            LoadBgTiles(3, sTrainerCardDataPtr->badgeTiles, NELEMS(sTrainerCardDataPtr->badgeTiles), 0);
+            break;
+        }
     case 1:
         LoadBgTiles(0, sTrainerCardDataPtr->cardTiles, 0x1800, 0);
         break;
@@ -1536,7 +1597,6 @@ static void DrawCardFrontOrBack(const u16 *ptr)
 {
     s16 i, j;
     u16 *dst = sTrainerCardDataPtr->cardTilemapBuffer;
-
     for (i = 0; i < 20; i++)
     {
         for (j = 0; j < 32; j++)
@@ -1547,7 +1607,6 @@ static void DrawCardFrontOrBack(const u16 *ptr)
                 dst[32 * i + j] = ptr[0];
         }
     }
-
     CopyBgTilemapBufferToVram(0);
 }
 
@@ -1560,15 +1619,44 @@ static void DrawStarsAndBadgesOnCard(void)
     FillBgTilemapBufferRect(3, 143, 15, sStarYOffsets[sTrainerCardDataPtr->cardType], sTrainerCardDataPtr->trainerCard.rse.stars, 1, 4);
     if (!sTrainerCardDataPtr->isLink)
     {
-        x = 4;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
         {
-            if (sTrainerCardDataPtr->hasBadge[i])
+            x = 4;
+            for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
             {
-                FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 16, x, 17, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 17, 1, 1, palNum);
+                if (sTrainerCardDataPtr->hasBadge[i])
+                {
+                    FillBgTilemapBufferRect(3, tileNum, x, 15, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 15, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, x, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 16, 1, 1, palNum);
+                }
+            }
+            tileNum = 192 + 128;
+            x = 4;
+            for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+            {
+                if (sTrainerCardDataPtr->hasJohtoBadge[i])
+                {
+                    FillBgTilemapBufferRect(3, tileNum, x, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, x, 18, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 18, 1, 1, palNum);
+                }
+            }
+        }
+        else
+        {
+            x = 4;
+            for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+            {
+                if (sTrainerCardDataPtr->hasBadge[i])
+                {
+                    FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, x, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 17, 1, 1, palNum);
+                }
             }
         }
     }
@@ -1776,7 +1864,14 @@ static bool8 Task_SetCardFlipped(struct Task* task)
     {
         DrawTrainerCardWindow(2);
         DrawCardScreenBackground(sTrainerCardDataPtr->bgTilemap);
-        DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemap);
+        if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemapWithJohto);
+        }
+        else
+        {
+            DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemap);
+        }
         DrawStarsAndBadgesOnCard();
     }
 

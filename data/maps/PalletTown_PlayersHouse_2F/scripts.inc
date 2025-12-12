@@ -105,174 +105,291 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 # 53 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_NES::
-# 57 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	lock
+PalletTown_PlayersHouse_2F_EventScript_Bed::
 # 58 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_0
+	lock
 # 59 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	waitmessage
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_0, MSGBOX_YESNO
 # 60 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_Bed_2
+# 103 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 104 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 61 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	goto_if_unset FLAG_ROUTE1_HO_OH_EVENT_HAPPENED, PalletTown_PlayersHouse_2F_EventScript_NES_1
+PalletTown_PlayersHouse_2F_EventScript_Bed_1:
+# 106 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	release
+	end
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_2:
+# 62 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	goto_if_set FLAG_BEAT_RIVAL_IN_OAKS_LAB, PalletTown_PlayersHouse_2F_EventScript_Bed_6
+# 83 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_TIME_HOUR, 20
+	goto_if_ge PalletTown_PlayersHouse_2F_EventScript_Bed_24
+PalletTown_PlayersHouse_2F_EventScript_Bed_22:
+# 88 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_TIME_HOUR, 20
+	goto_if_ge PalletTown_PlayersHouse_2F_EventScript_Bed_21
+PalletTown_PlayersHouse_2F_EventScript_Bed_20:
+# 95 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	addvar VAR_TIME_HOUR, 6
+PalletTown_PlayersHouse_2F_EventScript_Bed_5:
 # 98 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	goto_if_unset FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS, PalletTown_PlayersHouse_2F_EventScript_NES_7
-# 140 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 141 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	waitmessage
-# 142 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 99 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 143 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_1
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_6:
+# 64 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	call EventScript_OutOfCenterPartyHeal
+# 65 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_1
+# 66 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_TIME_HOUR, 20
+	goto_if_ge PalletTown_PlayersHouse_2F_EventScript_Bed_15
+PalletTown_PlayersHouse_2F_EventScript_Bed_13:
+# 71 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_TIME_HOUR, 20
+	goto_if_ge PalletTown_PlayersHouse_2F_EventScript_Bed_12
+PalletTown_PlayersHouse_2F_EventScript_Bed_11:
+# 78 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	addvar VAR_TIME_HOUR, 6
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_5
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_9:
+# 68 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	addvar VAR_DAY_DATE, 1
+# 69 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_TIME_HOUR, 8
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_5
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_10:
+# 73 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_DAY_DATE, 0
+# 74 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_TIME_HOUR, 8
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_5
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_12:
+# 71 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_DAY_DATE, 6
+	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_Bed_10
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_11
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_15:
+# 66 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_DAY_DATE, 6
+	goto_if_ne PalletTown_PlayersHouse_2F_EventScript_Bed_9
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_13
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_18:
+# 85 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	addvar VAR_DAY_DATE, 1
+# 86 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_TIME_HOUR, 8
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_5
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_19:
+# 90 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_DAY_DATE, 0
+# 91 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_TIME_HOUR, 8
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_5
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_21:
+# 88 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_DAY_DATE, 6
+	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_Bed_19
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_20
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_24:
+# 83 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	compare VAR_DAY_DATE, 6
+	goto_if_ne PalletTown_PlayersHouse_2F_EventScript_Bed_18
+	goto PalletTown_PlayersHouse_2F_EventScript_Bed_22
+
+
+PalletTown_PlayersHouse_2F_EventScript_NES::
+# 112 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	lock
+# 113 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_0
+# 114 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	waitmessage
+# 115 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	closemessage
+# 116 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	goto_if_unset FLAG_ROUTE1_HO_OH_EVENT_HAPPENED, PalletTown_PlayersHouse_2F_EventScript_NES_1
+# 153 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	goto_if_unset FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS, PalletTown_PlayersHouse_2F_EventScript_NES_7
+# 195 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 196 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	waitmessage
+# 197 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	closemessage
+# 198 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES_1:
-# 63 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 118 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	compare VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 4
 	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_NES_4
-# 89 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 90 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 144 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 145 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 91 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 146 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 92 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 147 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES_4:
-# 65 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 120 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_1, MSGBOX_YESNO
-# 66 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 121 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_NES_10
-# 80 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 81 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 135 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 136 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 82 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 137 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 83 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 138 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES_7:
-# 100 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 155 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_1, MSGBOX_YESNO
-# 101 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 156 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq PalletTown_PlayersHouse_2F_EventScript_NES_13
-# 131 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 132 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 186 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 187 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 133 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 188 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 134 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 189 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES_10:
-# 68 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 123 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	setflag FLAG_ROUTE1_HO_OH_EVENT_HAPPENED
-# 69 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 124 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_2
-# 70 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 125 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 71 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 126 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 72 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 73 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 127 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 128 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 74 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 129 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 75 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 130 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES_13:
-# 103 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 158 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	setflag FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS
-# 104 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_4
-# 105 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	waitmessage
-# 106 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	closemessage
-# 107 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5
-# 108 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setflag FLAG_SYS_POKEDEX_GET
-# 109 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
-# 110 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	famechecker FAMECHECKER_OAK, 1
-# 111 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6
-# 112 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 2
-# 113 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1
-# 114 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2
-# 115 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setvar VAR_MAP_SCENE_ROUTE22, 1
-# 116 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_5
-# 117 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	giveitem ITEM_POKE_BALL, 5
-# 118 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	giveitem ITEM_TOWN_MAP, 1
-# 119 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setflag FLAG_HIDE_TOWN_MAP
-# 120 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	setflag FLAG_HIDE_POKEDEX
-# 121 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	waitmessage
-# 122 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	closemessage
-# 123 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 159 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_3
-# 124 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 160 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	waitmessage
-# 125 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 161 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	closemessage
-# 126 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 162 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5
+# 163 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setflag FLAG_SYS_POKEDEX_GET
+# 164 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
+# 165 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	famechecker FAMECHECKER_OAK, 1
+# 166 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6
+# 167 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 2
+# 168 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1
+# 169 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2
+# 170 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE22, 1
+# 171 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_NES_Text_4
+# 172 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	giveitem ITEM_POKE_BALL, 5
+# 173 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	giveitem ITEM_TOWN_MAP, 1
+# 174 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setflag FLAG_HIDE_TOWN_MAP
+# 175 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	setflag FLAG_HIDE_POKEDEX
+# 176 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	waitmessage
+# 177 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	closemessage
+# 178 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	msgbox PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2
+# 179 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	waitmessage
+# 180 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	closemessage
+# 181 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	releaseall
 	end
 
 
+PalletTown_PlayersHouse_2F_EventScript_Bed_Text_0:
+# 59 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	.string "It's your bed!\n"
+	.string "Want to take a nap?$"
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_Text_1:
+# 65 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	.string "You and your POKéMON have\n"
+	.string "rested up! Great!$"
+
+PalletTown_PlayersHouse_2F_EventScript_Bed_Text_2:
+# 98 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+	.string "...Okay!\n"
+	.string "It's time to go!$"
+
 PalletTown_PlayersHouse_2F_EventScript_NES_Text_0:
-# 58 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 113 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	.string "{PLAYER} played with the NES.$"
 
 PalletTown_PlayersHouse_2F_EventScript_NES_Text_1:
-# 65 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 120 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	.string "...Continue playing?$"
 
 PalletTown_PlayersHouse_2F_EventScript_NES_Text_2:
-# 69 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 124 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	.string "{PLAYER} ventured through ROUTE 1,\n"
 	.string "where they met MISTY.\p"
 	.string "They were informed of VIRIDIAN CITY\n"
 	.string "which was up ahead.$"
 
 PalletTown_PlayersHouse_2F_EventScript_NES_Text_3:
-# 72 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
-	.string "...Okay!\n"
-	.string "It's time to go!$"
-
-PalletTown_PlayersHouse_2F_EventScript_NES_Text_4:
-# 104 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+# 159 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	.string "{PLAYER} secured their first victory\n"
 	.string "against TEAM ROCKET!\p"
 	.string "{PLAYER} then got OAK's PARCEL\n"
 	.string "from the POKé MART clerk.$"
 
-PalletTown_PlayersHouse_2F_EventScript_NES_Text_5:
-# 116 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
+PalletTown_PlayersHouse_2F_EventScript_NES_Text_4:
+# 171 "data/maps/PalletTown_PlayersHouse_2F/scripts.pory"
 	.string "{PLAYER} delivered this to PROF. OAK,\n"
 	.string "and got entrusted with a POKéDEX.$"

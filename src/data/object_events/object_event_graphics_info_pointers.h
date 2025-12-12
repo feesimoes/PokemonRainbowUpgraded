@@ -151,9 +151,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysN;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cynthia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WeirdTree;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clair;
 
-
-const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
+const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX + 1] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
     [OBJ_EVENT_GFX_RED_SURF]                 = &gObjectEventGraphicsInfo_RedSurf,
@@ -307,5 +309,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEOXYS_N]                 = &gObjectEventGraphicsInfo_DeoxysN,
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
     [OBJ_EVENT_GFX_CYNTHIA]                  = &gObjectEventGraphicsInfo_Cynthia,
-    [OBJ_EVENT_GFX_WEIRD_TREE]               = &gObjectEventGraphicsInfo_Cynthia//&gObjectEventGraphicsInfo_WeirdTree,
+    [OBJ_EVENT_GFX_WEIRD_TREE]               = &gObjectEventGraphicsInfo_WeirdTree,
+    [OBJ_EVENT_GFX_SILVER]                   = &gObjectEventGraphicsInfo_Silver,
+    [OBJ_EVENT_GFX_CLAIR]                    = &gObjectEventGraphicsInfo_Clair,
 };

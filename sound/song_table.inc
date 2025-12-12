@@ -410,6 +410,12 @@ gSongTable::
 	song mus_encounter_rocket_boss, 0, 0
 	song mus_underwater, 0, 0
 	song se_phone_ring_long, 1, 1
+	song mus_rocket_warehouse, 0, 0
+	song mus_indigo_plateau_league, 0, 0
+	song mus_indigo_plateau, 0, 0
+	song mus_vs_gold_kris, 0, 0
+	song mus_vs_champion_lance, 0, 0
+	song mus_route47, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

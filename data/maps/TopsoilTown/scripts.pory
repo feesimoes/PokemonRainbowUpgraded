@@ -1,4 +1,10 @@
-mapscripts TopsoilTown_MapScripts {}
+mapscripts TopsoilTown_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_TOPSOIL_TOWN)
+    }
+}
 
 script TopsoilTown_Sign 
 {

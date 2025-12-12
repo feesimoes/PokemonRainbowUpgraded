@@ -79,7 +79,7 @@ static void StartDisplayMonMosaic(void);
 static void SpriteCB_DisplayMonMosaic(struct Sprite *sprite);
 static bool8 IsDisplayMonMosaicActive(void);
 static void CreateDisplayMonSprite(void);
-static void LoadDisplayMonGfx(u16 species, u32 personality);
+static void LoadDisplayMonGfx(u16 species, u8 speciesFormsValue, u32 personality);
 static void PrintDisplayMonInfo(void);
 static void UpdateWaveformAnimation(void);
 static void InitSupplementalTilemaps(void);
@@ -1307,12 +1307,20 @@ static void Task_ReleaseMon(u8 taskId)
     case 4:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
-            PrintStorageMessage(MSG_BYE_BYE);
-            AddBagItem(ITEM_RARE_CANDY, 1);
-            PlayFanfare(MUS_OBTAIN_ITEM);
-            gStorage->state++;
+            if (!AddBagItem(ITEM_RARE_CANDY, 1))
+            {
+                PlaySE(SE_FAILURE);
+                PrintStorageMessage(MSG_BAG_FULL);
+                gStorage->state++;
+            }
+            else
+            {
+                PlaySE(MUS_LEVEL_UP);
+                PrintStorageMessage(MSG_BYE_BYE);
+                gStorage->state++;
+            }
+            break;
         }
-        break;
     case 5:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
@@ -2189,7 +2197,7 @@ static void CreateWaveformSprites(void)
 
 static void RefreshDisplayMonData(void)
 {
-    LoadDisplayMonGfx(gStorage->displayMonSpecies, gStorage->displayMonPersonality);
+    LoadDisplayMonGfx(gStorage->displayMonSpecies, gStorage->displaySpeciesFormsId, gStorage->displayMonPersonality);
     PrintDisplayMonInfo();
     UpdateWaveformAnimation();
     ScheduleBgCopyTilemapToVram(0);
@@ -2269,21 +2277,40 @@ static void CreateDisplayMonSprite(void)
     }
 }
 
-static void LoadDisplayMonGfx(u16 species, u32 personality)
+static void LoadDisplayMonGfx(u16 species, u8 speciesFormsValue, u32 personality)
 {
-    if (gStorage->displayMonSprite == NULL)
-        return;
-
-    if (species != SPECIES_NONE)
+    switch (speciesFormsValue)
     {
-        HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gStorage->tileBuffer, species, personality);
-        LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
-        CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
-        LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
-        gStorage->displayMonSprite->invisible = FALSE;
+    case 1:
+        if (gStorage->displayMonSprite == NULL)
+            return;
+
+        if (species != SPECIES_NONE)
+        {
+            HandleLoadSpecialPokePic(&gMonFrontPicTableExpanded_1[species], gStorage->tileBuffer, species, personality);
+            LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
+            CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
+            LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
+            gStorage->displayMonSprite->invisible = FALSE;
+        }
+        else
+            gStorage->displayMonSprite->invisible = TRUE;
+
+    default:
+        if (gStorage->displayMonSprite == NULL)
+            return;
+
+        if (species != SPECIES_NONE)
+        {
+            HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gStorage->tileBuffer, species, personality);
+            LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
+            CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
+            LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
+            gStorage->displayMonSprite->invisible = FALSE;
+        }
+        else
+            gStorage->displayMonSprite->invisible = TRUE;
     }
-    else
-        gStorage->displayMonSprite->invisible = TRUE;
 }
 
 static void PrintDisplayMonInfo(void)

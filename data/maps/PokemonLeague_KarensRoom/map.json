@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_LEAGUE_KARENS_ROOM",
   "name": "PokemonLeague_KarensRoom",
   "layout": "LAYOUT_POKEMON_LEAGUE_KARENS_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_INDIGO_PLATEAU_LEAGUE",
   "region_map_section": "MAPSEC_POKEMON_LEAGUE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -19,33 +19,42 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_AGATHA",
       "x": 6,
-      "y": 6,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonLeague_KarensRoom_EventScript_Agatha",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 24,
-      "y": 11,
+      "x": 6,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
       "dest_warp_id": "1"
     },
     {
       "x": 6,
-      "y": 3,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM_LANCE",
       "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 85,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLeague_KarensRoom_DontWanderOff"
+    }
+  ]
 }

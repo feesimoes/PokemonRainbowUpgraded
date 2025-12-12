@@ -1,1 +1,10 @@
 mapscripts AzaleaTown_MapScripts {}
+
+script AzaleaTown_Test_Gold_Kris_VS_Music 
+{
+    lock
+    fadeoutbgm(0)
+    playbgm(MUS_ROUTE47, TRUE)
+    release
+    end    
+}

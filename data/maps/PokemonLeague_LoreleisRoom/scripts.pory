@@ -1,0 +1,130 @@
+raw `
+PokemonLeague_LoreleisRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_LoreleisRoom_OnResume
+	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_LoreleisRoom_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, PokemonLeague_LoreleisRoom_OnTransition
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_LoreleisRoom_OnWarp
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_LoreleisRoom_OnFrame
+	.byte 0
+
+PokemonLeague_LoreleisRoom_OnResume::
+	setvar VAR_0x8004, 0
+	call PokemonLeague_EventScript_DoLightingEffect
+	end
+
+PokemonLeague_LoreleisRoom_OnLoad::
+	call_if_set FLAG_DEFEATED_LORELEI, PokemonLeague_LoreleisRoom_EventScript_SetDoorOpen
+	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 1, PokemonLeague_LoreleisRoom_EventScript_CloseEntry
+	end
+
+PokemonLeague_LoreleisRoom_EventScript_CloseEntry::
+	call PokemonLeague_EventScript_CloseEntry
+	return
+
+PokemonLeague_LoreleisRoom_EventScript_SetDoorOpen::
+	call PokemonLeague_EventScript_SetDoorOpen
+	return
+
+PokemonLeague_LoreleisRoom_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_POKEMON_LEAGUE_LORELEIS_ROOM
+	end
+
+PokemonLeague_LoreleisRoom_OnWarp::
+	map_script_2 VAR_TEMP_1, 0, PokemonLeague_LoreleisRoom_EventScript_TurnPlayerNorth
+	.2byte 0
+
+PokemonLeague_LoreleisRoom_EventScript_TurnPlayerNorth::
+	turnobject LOCALID_PLAYER, DIR_NORTH
+	end
+
+PokemonLeague_LoreleisRoom_OnFrame::
+	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 0, PokemonLeague_LoreleisRoom_EventScript_EnterRoom
+	.2byte 0
+
+PokemonLeague_LoreleisRoom_EventScript_EnterRoom::
+	lockall
+	call PokemonLeague_EventScript_EnterRoom
+	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 1
+	releaseall
+	end
+
+PokemonLeague_LoreleisRoom_EventScript_Lorelei::
+	lock
+	faceplayer
+	textcolor NPC_TEXT_COLOR_FEMALE
+	famechecker FAMECHECKER_LORELEI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_set FLAG_DEFEATED_LORELEI, PokemonLeague_LoreleisRoom_EventScript_PostBattle
+	famechecker FAMECHECKER_LORELEI, 0
+	famechecker FAMECHECKER_LORELEI, 1
+	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_LoreleisRoom_EventScript_Intro
+	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_LoreleisRoom_EventScript_RematchIntro
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_LoreleisRoom_EventScript_Battle
+	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_LoreleisRoom_EventScript_Rematch
+	clearflag FLAG_TEMP_5
+	goto PokemonLeague_LoreleisRoom_EventScript_DefeatedLorelei
+	end
+
+PokemonLeague_LoreleisRoom_EventScript_Intro::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox PokemonLeague_LoreleisRoom_Text_Intro
+	return
+
+PokemonLeague_LoreleisRoom_EventScript_RematchIntro::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox PokemonLeague_LoreleisRoom_Text_RematchIntro
+	return
+
+PokemonLeague_LoreleisRoom_EventScript_Battle::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	trainerbattle_no_intro TRAINER_ELITE_FOUR_LORELEI, PokemonLeague_LoreleisRoom_Text_Defeat
+	return
+
+PokemonLeague_LoreleisRoom_EventScript_Rematch::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	trainerbattle_no_intro TRAINER_ELITE_FOUR_LORELEI_2, PokemonLeague_LoreleisRoom_Text_Defeat
+	return
+
+PokemonLeague_LoreleisRoom_EventScript_PostBattle::
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox PokemonLeague_LoreleisRoom_Text_PostBattle
+	release
+	end
+
+PokemonLeague_LoreleisRoom_EventScript_DefeatedLorelei::
+	setflag FLAG_DEFEATED_LORELEI
+	call PokemonLeague_EventScript_OpenDoor
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox PokemonLeague_LoreleisRoom_Text_PostBattle
+	release
+	end
+
+`
+
+script PokemonLeague_LoreleisRoom_EventScript_HandleNextRoomWarp 
+{
+	if (flag(FLAG_SYS_GAME_CLEAR) == TRUE && flag(FLAG_DEFEATED_LORELEI) == TRUE)
+	{
+		lock
+		applymovement(LOCALID_PLAYER, PokemonLeague_LoreleisRoom_EnterNextRoom_Up)
+		waitmovement
+		setvar(VAR_MAP_SCENE_POKEMON_LEAGUE, 2)
+		warp(MAP_POKEMON_LEAGUE_KOGAS_ROOM, 6, 12)
+	}
+	elif (!flag(FLAG_SYS_GAME_CLEAR) && flag(FLAG_DEFEATED_LORELEI) == TRUE)
+	{
+		lock
+		applymovement(LOCALID_PLAYER, PokemonLeague_LoreleisRoom_EnterNextRoom_Up)
+		waitmovement
+		warp(MAP_POKEMON_LEAGUE_BRUNOS_ROOM, 6, 12)
+	}
+	release
+	end
+}
+
+movement PokemonLeague_LoreleisRoom_EnterNextRoom_Up 
+{
+	walk_up
+	step_end	
+}

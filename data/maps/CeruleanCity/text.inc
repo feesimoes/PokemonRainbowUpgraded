@@ -152,12 +152,9 @@ CeruleanCity_Text_ThisIsCeruleanCave::
     .string "Horribly strong POKéMON live inside\n"
     .string "there.\p"
     .string "It takes a very special TRAINER to\n"
-    .string "be allowed inside there.\p"
-    .string "You'd have to be strong enough to\n"
-    .string "become the POKéMON LEAGUE\l"
-    .string "CHAMPION for starters.\p"
-    .string "And, you would have to have\n"
-    .string "made a great achievement.$"
+    .string "be allowed inside here...\p"
+    .string "For starters, try exploring the\n"
+    .string "world. Help those in need.$"
 
 CeruleanCity_Text_CitySign::
     .string "CERULEAN CITY\n"

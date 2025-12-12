@@ -1,0 +1,321 @@
+raw `
+IndigoPlateau_Exterior_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, IndigoPlateau_Exterior_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, IndigoPlateau_Exterior_OnFrame
+	.byte 0
+
+IndigoPlateau_Exterior_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR
+	call_if_eq VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 1, IndigoPlateau_Exterior_EventScript_PlayCreditsMusic
+	end
+
+IndigoPlateau_Exterior_EventScript_PlayCreditsMusic::
+	playbgm MUS_CREDITS, 0
+	return
+
+IndigoPlateau_Exterior_OnFrame::
+	map_script_2 VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 1, IndigoPlateau_Exterior_EventScript_Credits
+	.2byte 0
+
+IndigoPlateau_Exterior_Event_Message_Sign::
+	msgbox IndigoPlateau_Exterior_Text_Sign, MSGBOX_SIGN
+	end
+
+IndigoPlateau_Exterior_Text_Sign::
+	.string "INDIGO PLATEAU\n"
+	.string "The Ultimate Goal of TRAINERS!\p"
+	.string "POKéMON LEAGUE HQ$"
+
+@ After beating the champion, you are warped to the main
+@ entrance of Indigo Plateau. This script starts running
+@ immediately after your walking animation.
+@ The script is timed to the music.
+IndigoPlateau_Exterior_EventScript_Credits::
+	goto_if_set FLAG_SYS_GAME_CLEAR, IndigoPlateau_Exterior_EventScript_Credits2
+	lockall
+	delay 105
+
+	@ Rival exits building. Spawn a dummy object to lock the camera.
+	opendoor 23, 14
+	waitdooranim
+	special SpawnCameraObject
+	addobject LOCALID_CREDITS_RIVAL
+	applymovement LOCALID_CREDITS_RIVAL, IndigoPlateau_Exterior_Movement_RivalExitBuilding
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PushPlayerOutOfWay
+	waitmovement 0
+	closedoor 23, 14
+	waitdooranim
+
+	@ Rival runs off
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerWatchRivalLeave
+	applymovement LOCALID_CREDITS_RIVAL, IndigoPlateau_Exterior_Movement_RivalLeave
+	waitmovement 0
+	delay 100
+
+	@ Oak exits building
+	opendoor 23, 14
+	waitdooranim
+	addobject LOCALID_CREDITS_PROF_OAK
+	applymovement LOCALID_CREDITS_PROF_OAK, IndigoPlateau_Exterior_Movement_OakExitBuilding
+	waitmovement 0
+	closedoor 23, 14
+	waitdooranim
+	delay 160
+
+	@ Oak looks at player, then walks off
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerWatchOakLeave
+	applymovement LOCALID_CREDITS_PROF_OAK, IndigoPlateau_Exterior_Movement_OakLeave
+	waitmovement 0
+	delay 100
+
+	@ Player begin to leave
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerBeginLeave
+	waitmovement 0
+	delay 155
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerFaceLeague
+	waitmovement 0
+	delay 90
+
+	@ Player runs off
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerTurnAround
+	waitmovement 0
+	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerLeave
+	waitmovement 0
+
+	@ Reset the map state and roll the credits
+	special RemoveCameraObject
+	setvar VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0
+	removeobject LOCALID_CREDITS_RIVAL
+	removeobject LOCALID_CREDITS_PROF_OAK
+	setflag FLAG_SYS_GAME_CLEAR
+	special DoCredits
+	waitstate
+	releaseall
+	end
+
+IndigoPlateau_Exterior_Movement_PlayerLeave::
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	step_end
+
+@ Unused
+IndigoPlateau_Exterior_Movement_PlayerExitBuilding::
+	walk_down
+	walk_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_PlayerWatchRivalLeave::
+	delay_16
+	delay_4
+	walk_in_place_faster_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_PlayerWatchOakLeave::
+	delay_8
+	walk_in_place_faster_right
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_faster_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_PlayerBeginLeave::
+	walk_right
+	delay_16
+	walk_down
+	walk_down
+	delay_16
+	delay_16
+	step_end
+
+IndigoPlateau_Exterior_Movement_PlayerTurnAround::
+	walk_in_place_faster_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_PushPlayerOutOfWay::
+	face_right
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	step_end
+
+IndigoPlateau_Exterior_Movement_PlayerFaceLeague::
+	walk_in_place_faster_up
+	step_end
+
+IndigoPlateau_Exterior_Movement_RivalLeave::
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_RivalExitBuilding::
+	walk_fast_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_OakLeave::
+	walk_in_place_faster_left
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_faster_down
+	delay_16
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+IndigoPlateau_Exterior_Movement_OakExitBuilding::
+	walk_down
+	step_end
+
+`
+
+script IndigoPlateau_Exterior_EventScript_Credits2 
+{
+	lockall
+	delay(105)
+	opendoor(23, 14)
+	waitdooranim
+	special(SpawnCameraObject)
+	addobject(LOCALID_CREDITS_LANCE)
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_MovePlayerOutOfWay)
+	waitmovement
+	applymovement(LOCALID_CREDITS_LANCE, IndigoPlateau_Exterior_Movement_Lance_ExitsBuilding)
+	waitmovement
+	closedoor(23, 14)
+	waitdooranim
+
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_FaceDown_Emote)
+	waitmovement
+	applymovement(LOCALID_CREDITS_LANCE, IndigoPlateau_Exterior_Movement_FaceDown_Emote)
+	waitmovement
+    delay(100)
+
+	addobject(LOCALID_CREDITS_PROF_OAK_2)
+	applymovement(LOCALID_CREDITS_PROF_OAK_2, IndigoPlateau_Exterior_Movement_OakEnters)
+	waitmovement
+	waitdooranim
+	delay(160)
+
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerWatchLanceAndOakLeave)
+	waitmovement
+	opendoor(23, 14)
+	applymovement(LOCALID_CREDITS_LANCE, IndigoPlateau_Exterior_Movement_LanceLeave)
+	waitmovement
+	applymovement(LOCALID_CREDITS_PROF_OAK_2, IndigoPlateau_Exterior_Movement_OakLeave_FollowLance)
+	waitmovement
+	closedoor(23, 14)
+	delay(100)
+
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerBeginLeave)
+	waitmovement
+	delay(155)
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerFaceLeague)
+	waitmovement
+	delay(90)
+
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerTurnAround)
+	waitmovement
+	applymovement(LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerLeave)
+	waitmovement
+
+	special(RemoveCameraObject)
+	setvar(VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0)
+	removeobject(LOCALID_CREDITS_LANCE)
+	removeobject(LOCALID_CREDITS_PROF_OAK_2)
+	special(DoCredits)
+	waitstate
+	releaseall
+	end
+}
+
+movement IndigoPlateau_Exterior_Movement_OakEnters 
+{
+    walk_up * 6
+    step_end
+}
+
+movement IndigoPlateau_Exterior_Movement_MovePlayerOutOfWay
+{
+	face_up
+	walk_left
+    face_right
+	step_end 
+}
+
+movement IndigoPlateau_Exterior_Movement_Lance_ExitsBuilding 
+{
+    walk_down
+	delay_8
+    face_left
+    step_end
+}
+
+movement IndigoPlateau_Exterior_Movement_LanceLeave
+{
+	delay_8
+    face_left_fast
+	delay_16
+	delay_16
+	delay_16
+    walk_up
+    set_invisible
+    step_end
+}
+
+movement IndigoPlateau_Exterior_Movement_OakLeave_FollowLance
+{
+	delay_16
+	delay_16
+	delay_16
+    walk_up * 2
+    set_invisible
+    step_end
+}
+
+movement IndigoPlateau_Exterior_Movement_FaceDown_Emote
+{
+	face_down_fast
+    emote_exclamation_mark
+	step_end 
+}
+
+movement IndigoPlateau_Exterior_Movement_PlayerWatchLanceAndOakLeave 
+{
+	delay_8
+	walk_in_place_faster_right
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_faster_down
+	step_end
+}

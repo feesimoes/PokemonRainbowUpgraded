@@ -13,7 +13,18 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_MT_EMBER_SUMMIT",
+      "offset": 20,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ONE_ISLAND_KINDLE_ROAD",
+      "offset": 17,
+      "direction": "down"
+    }
+  ],
   "object_events": [
     {
       "type": "object",
@@ -259,7 +270,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 13,
-      "y": 6,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -300,20 +311,6 @@
   ],
   "warp_events": [
     {
-      "x": 28,
-      "y": 48,
-      "elevation": 3,
-      "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 48,
-      "elevation": 3,
-      "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "dest_warp_id": "1"
-    },
-    {
       "x": 14,
       "y": 24,
       "elevation": 3,
@@ -326,13 +323,6 @@
       "elevation": 3,
       "dest_map": "MAP_MT_EMBER_SUMMIT_PATH_3F",
       "dest_warp_id": "1"
-    },
-    {
-      "x": 29,
-      "y": 7,
-      "elevation": 3,
-      "dest_map": "MAP_MT_EMBER_SUMMIT",
-      "dest_warp_id": "0"
     },
     {
       "x": 42,
