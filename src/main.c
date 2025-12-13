@@ -191,7 +191,6 @@ void AgbMain()
         }
 
         PlayTimeCounter_Update();
-        GameDateTime_Update();
         MapMusicMain();
         WaitForVBlank();
     }
@@ -438,6 +437,8 @@ static void IntrDummy(void)
 
 static void WaitForVBlank(void)
 {
+    GameDateTime_Update();
+
     gMain.intrCheck &= ~INTR_FLAG_VBLANK;
 
     while (!(gMain.intrCheck & INTR_FLAG_VBLANK))

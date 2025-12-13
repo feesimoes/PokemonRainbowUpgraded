@@ -27,7 +27,7 @@ void GameDateTime_Update(void)
     if (sPlayTimeCounterState == RUNNING || sPlayTimeCounterState == MAXED_OUT)
     {
         tick++;
-        if (tick > 40)
+        if (tick > 29)
         {
             tick = 0;
             second++;
