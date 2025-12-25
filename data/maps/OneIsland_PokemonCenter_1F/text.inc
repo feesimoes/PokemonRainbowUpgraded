@@ -35,9 +35,9 @@ OneIsland_PokemonCenter_1F_Text_BillBringMeUpToSpeed::
 
 OneIsland_PokemonCenter_1F_Text_CelioPCsCantLinkWithYours::
     .string "CELIO: It's running fine, but we're\n"
-    .string "too remote out here.\p"
+    .string "using a backup power source...\p"
     .string "The PCs on this island just can't\n"
-    .string "link with your PC, BILL.$"
+    .string "stay online forever...$"
 
 OneIsland_PokemonCenter_1F_Text_BillLetMeHelpYou::
     .string "BILL: Oh, yeah?\n"
@@ -96,7 +96,7 @@ OneIsland_PokemonCenter_1F_Text_HmmHowAboutLikeThis::
 OneIsland_PokemonCenter_1F_Text_GotPCWorkingStrollAWhileMore::
     .string "Oh, hey, {PLAYER}!\p"
     .string "Did you see?\n"
-    .string "We got the PC working!\p"
+    .string "We got the main source restored!\p"
     .string "I've got a few things to show\n"
     .string "CELIO here.\p"
     .string "Can you go out on a stroll or\n"
@@ -108,10 +108,6 @@ OneIsland_PokemonCenter_1F_Text_SorryForBeingPoorHost::
     .string "I'm also sorry for being such a \n"
     .string "poor host on your visit here.$"
 
-OneIsland_PokemonCenter_1F_Text_UsualPCServicesUnavailable::
-    .string "The usual PC services aren't\n"
-    .string "available…$"
-
 OneIsland_PokemonCenter_1F_Text_BillOhHeyPlayer::
     .string "BILL: Oh, hey!\n"
     .string "{PLAYER}!$"
@@ -120,7 +116,7 @@ OneIsland_PokemonCenter_1F_Text_BillWeGotItDone::
     .string "BILL: What kept you so long?\n"
     .string "Been out having a good time?\p"
     .string "We got it done.\n"
-    .string "The PCs are up and running!$"
+    .string "The main power's up and running!$"
 
 OneIsland_PokemonCenter_1F_Text_CelioJobWentQuick::
     .string "CELIO: The job went incredibly\n"

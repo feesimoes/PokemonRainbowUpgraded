@@ -1,0 +1,19 @@
+mapscripts Route34_PokemonDayCare_MapScripts {}
+
+script Route34_PokemonDayCare_Lady
+{
+    lock
+    faceplayer
+    msgbox(format("I'm the DAY-CARE LADY.\nNo, really, I'm the real deal...\pWe can raise one POKéMON for you.\nWould you like us to?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Which POKéMON should we raise for\nyou, then?"))
+        special(ChoosePartyMon)
+        waitstate
+        msgbox(format("Please come back later."))
+    }
+    else
+    {
+        msgbox(format("Oh fine, then.\nCome again."))
+    }
+}

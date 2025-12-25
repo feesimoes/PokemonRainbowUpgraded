@@ -158,7 +158,7 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
-#define VAR_0x406D                                                             0x406D
+#define VAR_MAP_SCENE_ROUTE45                                                  0x406D
 #define VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070
@@ -203,8 +203,8 @@
 #define VAR_TIME_HOUR              0x4095 // Time of the day, in hours
 #define VAR_TIME_MINUTE            0x4096 // The current minute in the curent hour
 #define VAR_TIME_SECOND            0x4097 // The current minute's second
-#define VAR_0x4098                 0x4098
-#define VAR_0x4099                 0x4099
+#define VAR_JOHTO_CARE_MON_SPECIES 0x4098
+#define VAR_JOHTO_CARE_MON_FORM    0x4099 // For determining if Gen 4+ species or not
 #define VAR_0x409A                 0x409A
 #define VAR_0x409B                 0x409B
 #define VAR_0x409C                 0x409C

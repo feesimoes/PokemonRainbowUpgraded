@@ -42,6 +42,7 @@
 #include "constants/event_objects.h"
 #include "constants/metatile_labels.h"
 #include "item.h"
+#include "palette.h"
 
 static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
@@ -726,6 +727,117 @@ void MakeMewLegalJPNEmeraldEvent(void)
     }
 }
 
+// VERY basic implementation of a Day Care, like Kanto's, but avoids using extra save blocks.
+
+/*
+void SaveChosenMonForJohtoDayCare(void)
+{
+    struct Pokemon egg;
+    u16 species;
+    bool8 isEgg;
+
+    species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
+
+    if (species != SPECIES_NONE)
+    {
+        species = DetermineEggSpeciesAndParentSlotsJohto(species);
+        SetInitialEggDataJohto(&egg, species);
+        BuildEggMovesetJohto(&egg, species);
+        isEgg = TRUE;
+        SetMonData(&egg, MON_DATA_IS_EGG, &isEgg);
+        gPlayerParty[PARTY_SIZE - 1] = egg;
+        CompactPartySlots();
+        CalculatePlayerPartyCount();
+    }
+    else if (species == SPECIES_EGG)
+    {
+
+    }
+}
+
+static void BuildEggMovesetJohto(struct Pokemon *egg, u16 species)
+{
+    u32 numLevelUpMoves;
+    u16 numEggMoves;
+    u16 hatchedEggMoveset;
+    u16 i, j;
+
+    numLevelUpMoves = GetLevelUpMovesBySpecies(GetMonData(egg, MON_DATA_SPECIES), NULL);
+    numEggMoves = GetEggMovesJohto(egg, hatchedEggMoveset);
+}
+
+static u8 GetEggMovesJohto(struct Pokemon *pokemon, u16 *eggMoves)
+{
+    u16 eggMoveIdx;
+    u16 numEggMoves;
+    u16 species;
+    u16 i;
+
+    numEggMoves = 0;
+    eggMoveIdx = 0;
+    species = GetMonData(pokemon, MON_DATA_SPECIES);
+    for (i = 0; i < NELEMS(gEggMoves) - 1; i++)
+    {
+        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+        {
+            eggMoveIdx = i + 1;
+            break;
+        }
+    }
+
+    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    {
+        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+        {
+            // TODO: the curly braces around this if statement are required for a matching build.
+            break;
+        }
+
+        eggMoves[i] = gEggMoves[eggMoveIdx + i];
+        numEggMoves++;
+    }
+
+    return numEggMoves;
+}
+
+static void SetInitialEggDataJohto(struct Pokemon *mon, u16 species)
+{
+    u32 personality;
+    u16 ball;
+    u8 metLevel;
+    u8 language;
+    u8 iv;
+
+    personality = (Random() << 16);
+    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapSectionId(gSaveBlock1Ptr->location.mapNum), 1, USE_RANDOM_IVS, TRUE, personality, OT_ID_PLAYER_ID, 0);
+    metLevel = 0;
+    ball = ITEM_POKE_BALL;
+    language = LANGUAGE_ENGLISH;
+    iv = (Random() % 32);
+    SetMonData(mon, MON_DATA_POKEBALL, &ball);
+    SetMonData(mon, MON_DATA_NICKNAME, gText_EggNickname);
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].eggCycles);
+    SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
+    SetMonData(mon, MON_DATA_LANGUAGE, &language);
+    SetMonData(mon, MON_DATA_HP_IV, &iv);
+    SetMonData(mon, MON_DATA_ATK_IV, &iv);
+    SetMonData(mon, MON_DATA_DEF_IV, &iv);
+    SetMonData(mon, MON_DATA_SPEED_IV, &iv);
+    SetMonData(mon, MON_DATA_SPATK_IV, &iv);
+    SetMonData(mon, MON_DATA_SPDEF_IV, &iv);
+}
+
+static u16 DetermineEggSpeciesAndParentSlotsJohto(u16 species)
+{
+    u16 i;
+    u16 eggSpecies;
+
+    eggSpecies = GetEggSpecies(species);
+
+    return eggSpecies;
+}
+*/
+
 void CheckMonClaimBountyTaskReward(void)
 {
     if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL) == VarGet(VAR_BOUNTY_TASK_MON))
@@ -846,7 +958,7 @@ u16 SampleBountyTaskMon(void)
     {
         species = (Random() % (NUM_SPECIES - 1)) + 1;
         //Species must be valid/catchable
-        if (species > SPECIES_NONE && species < SPECIES_EGG)
+        if (species > SPECIES_NONE && species < NUM_SPECIES)
         {
             return species;
         }
@@ -886,7 +998,7 @@ static u16 SampleResortGorgeousMon(void)
     u16 species;
     for (i = 0; i < 100; i++)
     {
-        species = (Random() % (NUM_SPECIES - 1)) + 1;
+        species = (Random() % (SPECIES_EGG - 1)) + 1;
         if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), 0) == TRUE)
             return species;
     }
@@ -2704,26 +2816,28 @@ bool8 PlayerPartyContainsSpeciesWithPlayerID(void)
 /*
  * Determines which of Lorelei's doll collection to show
  * based on how many times you've entered the Hall of Fame.
+ * 
+ * REDUCED from approximately 1,000 battles needed to 50. That's insane...
  */
 void UpdateLoreleiDollCollection(void)
 {
     u32 numHofClears = GetGameStat(GAME_STAT_ENTERED_HOF);
-    if (numHofClears >= 25)
+    if (numHofClears >= 1)
     {
         FlagClear(FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL);
-        if (numHofClears >= 50)
+        if (numHofClears >= 2)
             FlagClear(FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL);
-        if (numHofClears >= 75)
+        if (numHofClears >= 3)
             FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL);
-        if (numHofClears >= 100)
+        if (numHofClears >= 4)
             FlagClear(FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL);
-        if (numHofClears >= 125)
+        if (numHofClears >= 5)
             FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL);
-        if (numHofClears >= 150)
+        if (numHofClears >= 6)
             FlagClear(FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL);
-        if (numHofClears >= 175)
+        if (numHofClears >= 8)
             FlagClear(FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL);
-        if (numHofClears >= 200)
+        if (numHofClears >= 10)
             FlagClear(FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL);
     }
 }
@@ -2748,4 +2862,251 @@ static void Task_WingFlapSound(u8 taskId)
     }
     if (data[0] == gSpecialVar_0x8004 - 1)
         DestroyTask(taskId);
+}
+
+// Custom map-tinting functions
+
+#define TINT_NIGHT   RGB(10, 10, 20) // Dark Blueish
+#define TINT_MORNING RGB(20, 20, 28) // Blue/Grey
+#define TINT_NORMAL  RGB(31, 31, 31) // No tint (usually effectively white/bright)
+#define TINT_SUNSET  RGB(31, 20, 10) // Orange
+
+#define PALETTE_START 0
+#define PALETTE_END   13
+
+u16 gCurrentTintColor;
+u8 gCurrentTintCoeff;
+
+#define BG_PAL_COUNT_TINT  13
+#define OBJ_PAL_COUNT_TINT 10
+
+#define MAX_NIGHT_INTENSITY 11
+#define MAX_SUNSET_INTENSITY 6
+#define MAX_SUNRISE_INTENSITY 6
+
+//Windows on buildings initially have palette #3
+#define PALETTE_SLOT_LIGHT_SOURCE_GENERAL 3
+#define GENERAL_LIGHT_SOURCE_INTENSITY 6
+
+//Palette slot for light sources from underwater maps
+#define UNDERWATER_INTENSITY 12
+#define PALETTE_SLOT_LIGHT_SOURCE_UNDERWATER 11
+#define UNDERWATER_LIGHT_SOURCE_INTENSITY 8
+
+void StartBackgroundTintLoop(void)
+{
+    if (gMapHeader.mapType != MAP_TYPE_NONE ||
+        gMapHeader.mapType != MAP_TYPE_UNDERGROUND ||
+        gMapHeader.mapType != MAP_TYPE_UNKNOWN ||
+        gMapHeader.mapType != MAP_TYPE_INDOOR ||
+        gMapHeader.mapType != MAP_TYPE_SECRET_BASE)
+    {
+        ApplyOutdoorTintTimeOfDay();
+    }
+    else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+    {
+        ApplyUnderwaterTint();
+    }
+
+    if (FindTaskIdByFunc(Task_PeriodicTintUpdate) == TASK_NONE)
+    {
+        CreateTask(Task_PeriodicTintUpdate, 80);
+    }
+}
+
+static void Task_PeriodicTintUpdate(u8 taskId)
+{
+    //Probably a good idea to destroy the previous task if you're not using it.
+    if (gMapHeader.mapType == MAP_TYPE_NONE ||
+        gMapHeader.mapType == MAP_TYPE_UNDERGROUND ||
+        gMapHeader.mapType == MAP_TYPE_UNKNOWN ||
+        gMapHeader.mapType == MAP_TYPE_INDOOR ||
+        gMapHeader.mapType == MAP_TYPE_SECRET_BASE)
+    {
+        DestroyTask(taskId);
+        return;
+    }
+
+    gTasks[taskId].data[0]++;
+
+    if (++gTasks[taskId].data[0] >= 900) // Refresh every 900 ticks (roughly 30 seconds in-game)
+    {
+        gTasks[taskId].data[0] = 0; // Reset timer
+        
+        if (!gPaletteFade.active)
+        {
+            //Underwater tinting
+            if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+            {
+                ApplyUnderwaterTint();
+            }
+            //Other cases = Outside
+            else
+            {
+                ApplyOutdoorTintTimeOfDay();
+            }
+        }
+    }
+}
+
+void ApplyUnderwaterTint(void)
+{
+    int i;
+    u16 srcColor;
+    u8 coeff;
+    u16 tintColor;
+    u8 effectiveCoeff;
+
+    tintColor = RGB(4, 6, 14); // Deep Blue/Black
+    coeff = UNDERWATER_INTENSITY; 
+
+    // Apply tint to background (Palette slots 0-12)
+    for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+    {
+        if (i % 16 == 0) continue; 
+
+        // Check if this metatile has a special "Glowing" palette
+        if ((i / 16) == PALETTE_SLOT_LIGHT_SOURCE_UNDERWATER)
+        {
+            // Use the lighter intensity so the color shines through
+            effectiveCoeff = UNDERWATER_LIGHT_SOURCE_INTENSITY; 
+        }
+        else
+        {
+            // Use the standard dark underwater intensity
+            effectiveCoeff = coeff;
+        }
+
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, effectiveCoeff);
+    }
+
+    // Apply tint to object events (Palette slots 16-25)
+    for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+    {
+        if (i % 16 == 0) continue;
+
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+    }
+    CpuFill16(0, (void *) PALETTES_ALL, 0x400);
+    TransferPlttBuffer(); 
+}
+
+// Still a work in progress, unused for now.
+void ApplyOutdoorTintTimeOfDay(void)
+{
+    int i;
+    u16 srcColor;
+    u8 coeff;
+    u16 tintColor;
+    u8 effectiveCoeff;
+    u8 hour;
+    u8 minute;
+
+    hour = VarGet(VAR_TIME_HOUR);
+    minute = VarGet(VAR_TIME_MINUTE);
+
+    if (hour == 0 || (hour >= 1 && hour <= 11)) // Night
+    {
+        tintColor = RGB(2, 3, 7); // Deep Blue/Black
+        coeff = MAX_NIGHT_INTENSITY;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+            // During the day, treat it normally
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+            continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+    else if (hour >= 12 && hour <= 21) //General daytime
+    {
+        return;
+    }
+    else if (hour >= 22 && hour <= 23) // Sunset
+    {
+        tintColor = RGB(31, 18, 4); // Orange
+        coeff = (minute * MAX_SUNSET_INTENSITY) / 60;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+        // During the day, treat it normally
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+    else if (hour >= 7 && hour <= 8) // Sunrise
+    {
+        tintColor = RGB(31, 31, 20); // Pale Yellow
+        coeff = (minute * MAX_SUNRISE_INTENSITY) / 120;
+        // Apply tint to background (Palette slots 0-12)
+        for (i = 0; i < (BG_PAL_COUNT_TINT * 16); i++)
+        {
+        // Calculate which Palette Slot (0-12) we are currently on
+        int currentPalSlot = i / 16;
+
+        // Skip the transparency color (index 0 of every palette)
+        if (i % 16 == 0) continue; 
+
+            // During the day, treat it normally
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+            continue; // Move to next color, skipping standard tint below
+        }
+
+        // Standard tinting for everything else (Grass, Houses, Trees)
+        srcColor = gPlttBufferUnfaded[i];
+        gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+
+        // Apply tint to object events (Palette slots 16-25)
+        for (i = 256; i < (256 + (OBJ_PAL_COUNT_TINT * 16)); i++)
+        {
+            if (i % 16 == 0) continue;
+
+            srcColor = gPlttBufferUnfaded[i];
+            gPlttBufferFaded[i] = BlendColor(srcColor, tintColor, coeff);
+        }
+    }
+    CpuFill16(0, (void *) PALETTES_ALL, 0x400);
+    TransferPlttBuffer(); 
 }

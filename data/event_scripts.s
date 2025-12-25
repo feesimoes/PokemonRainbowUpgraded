@@ -38,6 +38,7 @@
 #include "constants/help_system.h"
 #include "constants/trainer_fan_club.h"
 #include "constants/mystery_gift.h"
+#include "constants/gts.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.set FALSE, 0
@@ -1362,7 +1363,6 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
-	.include "data/scripts/musicplayer.inc"
 
 	.include "data/maps/Route22_WestEntrance_1F/scripts.inc"
 	.include "data/maps/Route22_WestEntrance_1F/text.inc"
@@ -1786,3 +1786,66 @@ Text_TestMsg::
 
 	.include "data/maps/OneIsland_TreasureBeach_Underwater/scripts.inc"
 	.include "data/maps/OneIsland_TreasureBeach_Underwater/text.inc"
+
+	.include "data/maps/IlexForest/scripts.inc"
+	.include "data/maps/IlexForest/text.inc"
+
+	.include "data/maps/AzaleaTown_IlexForest_Entrance/scripts.inc"
+	.include "data/maps/AzaleaTown_IlexForest_Entrance/text.inc"
+
+	.include "data/maps/AzaleaTown_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/AzaleaTown_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route34_IlexForestEntrance/scripts.inc"
+	.include "data/maps/Route34_IlexForestEntrance/text.inc"
+
+	.include "data/maps/Route34/scripts.inc"
+	.include "data/maps/Route34/text.inc"
+
+	.include "data/maps/GoldenrodCity/scripts.inc"
+	.include "data/maps/GoldenrodCity/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_Outside/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_Outside/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_1F/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_1F/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_2F/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_2F/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_2F_DevClub/text.inc"
+
+	.include "data/maps/GlobalTradeSystemRoom/scripts.inc"
+	.include "data/maps/GlobalTradeSystemRoom/text.inc"
+
+	.include "data/maps/Route34_PokemonDayCare/scripts.inc"
+	.include "data/maps/Route34_PokemonDayCare/text.inc"
+
+	.include "data/maps/GoldenrodCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/GoldenrodCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_3F/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_3F/text.inc"
+
+	.include "data/maps/GoldenrodCity_GTS_3F_PokemonBoxRoom/scripts.inc"
+	.include "data/maps/GoldenrodCity_GTS_3F_PokemonBoxRoom/text.inc"
+
+	.include "data/maps/GoldenrodCity_GameCorner/scripts.inc"
+	.include "data/maps/GoldenrodCity_GameCorner/text.inc"
+
+	.include "data/maps/GoldenrodCity_Gym/scripts.inc"
+	.include "data/maps/GoldenrodCity_Gym/text.inc"
+
+	.include "data/maps/AzaleaTown_Gym/scripts.inc"
+	.include "data/maps/AzaleaTown_Gym/text.inc"
+
+	.include "data/maps/SlateportCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/SlateportCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route110/scripts.inc"
+	.include "data/maps/Route110/text.inc"
+
+	.include "data/maps/Route109/scripts.inc"
+	.include "data/maps/Route109/text.inc"

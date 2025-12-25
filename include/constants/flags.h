@@ -654,7 +654,7 @@
 #define FLAG_DID_ESPHERE_TRADE                           0x274
 #define FLAG_DID_TANGENY_TRADE                           0x275
 #define FLAG_DID_SEELOR_TRADE                            0x276
-#define FLAG_0x277                                       0x277
+#define FLAG_PENDING_DAYCARE_EGG_JOHTO                   0x277
 #define FLAG_GOT_HITMON_FROM_DOJO                        0x278
 #define FLAG_0x279                                       0x279
 #define FLAG_SILPH_2F_DOOR_1                             0x27A
@@ -1397,7 +1397,7 @@
 #define FLAG_OPENED_START_MENU                                      (SYS_FLAGS + 0x3E)
 #define FLAG_0x83F                                                  (SYS_FLAGS + 0x3F)
 #define FLAG_SYS_NATIONAL_DEX                                       (SYS_FLAGS + 0x40)
-#define FLAG_SYS_PC_STORAGE_DISABLED                                (SYS_FLAGS + 0x41)
+#define FLAG_0x841                                                  (SYS_FLAGS + 0x41) // Unused, initially disabled use of the PC in Sevii Islands
 #define FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER                  (SYS_FLAGS + 0x42)
 #define FLAG_SHOWN_BOX_WAS_FULL_MESSAGE                             (SYS_FLAGS + 0x43)
 #define FLAG_SYS_CAN_LINK_WITH_RS                                   (SYS_FLAGS + 0x44)
@@ -1497,9 +1497,9 @@
 #define FLAG_HIDE_FUCHSIA_CITY_GYM_JANINE                           (SYS_FLAGS + 0xE3)
 #define FLAG_WORLD_MAP_MT_MORA                                      (SYS_FLAGS + 0xE4)
 #define FLAG_WORLD_MAP_TOPSOIL_TOWN                                 (SYS_FLAGS + 0xE5)
-#define FLAG_0x8E6                                                  (SYS_FLAGS + 0xE6)
-#define FLAG_0x8E7                                                  (SYS_FLAGS + 0xE7)
-#define FLAG_0x8E8                                                  (SYS_FLAGS + 0xE8)
+#define FLAG_WORLD_MAP_AZALEA_TOWN_POKEMON_CENTER_1F                (SYS_FLAGS + 0xE6)
+#define FLAG_WORLD_MAP_GOLDENROD_CITY_POKEMON_CENTER_1F             (SYS_FLAGS + 0xE7)
+#define FLAG_WORLD_MAP_SLATEPORT_CITY_POKEMON_CENTER_1F             (SYS_FLAGS + 0xE8)
 #define FLAG_0x8E9                                                  (SYS_FLAGS + 0xE9)
 #define FLAG_0x8EA                                                  (SYS_FLAGS + 0xEA)
 #define FLAG_0x8EB                                                  (SYS_FLAGS + 0xEB)

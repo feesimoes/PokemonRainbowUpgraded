@@ -1,0 +1,24 @@
+mapscripts SlateportCity_PokemonCenter_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_SLATEPORT_CITY_POKEMON_CENTER_1F)
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script SlateportCity_PokemonCenter_1F_Nurse 
+{
+    lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+    release
+    end
+}

@@ -1,0 +1,175 @@
+raw `
+GoldenrodCity_GTS_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CableClub_OnFrame
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, CableClub_OnWarp
+	map_script MAP_SCRIPT_ON_LOAD, CableClub_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, CableClub_OnTransition
+	.byte 0
+
+`
+
+script GoldenrodCity_GTS_1F_WonderTrade
+{
+    lock
+    faceplayer
+    msgbox(format("Welcome to the GLOBAL TERMINAL!\nI handle GLOBAL WONDER TRADES.\p...Sorry, but we're still making\npreparations. Please come again!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_GlobalTradeSystem
+{
+    lock
+    faceplayer
+    msgbox(format("Welcome to the GLOBAL TERMINAL!\nI handle the GLOBAL TRADE SYSTEM.\p...Sorry, but we're still making\npreparations. Please come again!"))
+    closemessage
+    release
+    end
+}
+
+script GTS_Receptionist 
+{
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    
+    msgbox(format("Welcome to the GLOBAL TRADE STATION!\pWe can connect you with TRAINERS from all over the world!"))
+    
+    goto(GTS_Main_Menu)
+}
+
+script GTS_Main_Menu
+{
+    message(format("What would you like to do?"))
+    waitmessage
+    multichoice(0, 5, MULTICHOICE_GTS_MENU, 0)
+    
+    switch (var(VAR_RESULT)) {
+        case 0: 
+            goto(GTS_Event_Deposit)
+        case 1: 
+            goto(GTS_Event_CheckStatus)
+        case 2: 
+            goto(GTS_Exit)
+        case 3: 
+            goto(GTS_Exit)
+    }
+}
+
+script GTS_Event_Deposit
+{
+    msgbox(format("Please select a POKéMON to deposit."))
+    
+    special(ChoosePartyMon)
+    waitstate
+    
+    if (var(VAR_0x8004) == 255) {
+        goto(GTS_Main_Menu)
+    }
+    
+    msgbox(format("Connecting to GTS Server..."))
+    
+    special(GTS_Deposit) 
+    
+    if (var(VAR_RESULT) == 1) {
+        playse(SE_SAVE)
+        msgbox(format("Deposit Successful!\nYour Trade Code is: {STR_VAR_1}"), MSGBOX_DEFAULT)
+    } else {
+        playse(SE_BOO)
+        msgbox(format("Error: Could not reach the GTS Server.\pPlease ensure the companion app is running."))
+    }
+    
+    goto(GTS_Exit)
+}
+
+script GTS_Event_CheckStatus
+{
+    msgbox(format("Checking trade status..."))
+    
+    special(GTS_Check)
+    
+    if (var(VAR_RESULT) == 1) {
+        playse(SE_EXP_MAX)
+        msgbox(format("Trade Complete!\nReceived new POKéMON!"))
+    } 
+    elif (var(VAR_RESULT) == 103) { 
+        msgbox(format("Your POKéMON has not been traded yet.\pPlease check back later!"))
+    }
+    else {
+        msgbox(format("Error: Could not reach the GTS Server."))
+    }
+    
+    goto(GTS_Exit)
+}
+
+script GTS_Withdraw
+{
+    msgbox(format("Withdrawing POKéMON..."))
+    
+    if (var(VAR_RESULT) == 1) {
+        playse(SE_SAVE)
+        msgbox(format("POKéMON withdrawn from GTS."))
+    } else {
+        msgbox(format("Error or No Pokémon deposited."))
+    }
+    goto(GTS_Exit)
+}
+
+script GTS_Exit
+{
+    msgbox(format("We hope to see you again!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_GTS
+{
+    lock
+    faceplayer
+    msgbox(format("Welcome to the GLOBAL TERMINAL!\nThis is the GLOBAL TRADE SYSTEM.\p...Sorry, but we're still making\npreparations. Please come again!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_Fat_Man
+{
+    lock
+    faceplayer
+    msgbox(format("Technology is staggering!\n...No, really!\pI am literally immobilized from\nthe shocking realization!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_Lass
+{
+    lock
+    faceplayer
+    msgbox(format("I really wanted to trade with\nmy best friend from SINNOH!\pThey'd give me a HAPPINY for\nmy IGGLYBUFF, but...\pI don't have any BADGES!\nAww..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_Gentleman
+{
+    lock
+    faceplayer
+    msgbox(format("...\n...\p...Yes?\nCan I help you?\pI was trying to solve the\ndaily word puzzle.\p...\n...\p...Can you go somewhere else?\nYou're quite in my space..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_1F_Beauty
+{
+    lock
+    faceplayer
+    msgbox(format("You can have your POKéMON groomed\nin the GOLDENROD TUNNEL.\pIt's a passage underneath the\nGOLDENROD DEPT. STORE.\pDid you know that?\nGrooming POKéMON strengthens bonds."))
+    closemessage
+    release
+    end
+}

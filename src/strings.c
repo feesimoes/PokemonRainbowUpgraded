@@ -1366,3 +1366,17 @@ const u8 gString_Saturday[] = _("SATURDAY   ");
 const u8 gString_Sunday[] = _("SUNDAY     ");
 
 const u8 gString_TerryPlaceholderName[] = _("TERRY");
+const u8 gOtherText_Offer[] = _("OFFER");
+
+// Goldenrod Game Corner prizes
+const u8 gText_IceStone_1000Coins[] = _("ICE STONE{CLEAR_TO 0x50}{FONT_SMALL}1,000 COINS");
+const u8 gText_DawnStone_2000Coins[] = _("DAWN STONE{CLEAR_TO 0x50}{FONT_SMALL}2,000 COINS");
+const u8 gText_ShinyStone_7200Coins[] = _("SHINY STONE{CLEAR_TO 0x50}{FONT_SMALL}7,200 COINS");
+const u8 gText_DubiousDisc_1600Coins[] = _("DUBIOUS DISC{CLEAR_TO 0x50}{FONT_SMALL}1,600 COINS");
+const u8 gText_LeppaBerry_800Coins[] = _("LEPPA BERRY{CLEAR_TO 0x5A}{FONT_SMALL}800 COINS");
+
+const u8 gText_Larvitar_1000Coins[] = _("LARVITAR{CLEAR_TO 0x4B}{FONT_SMALL} 1,000 COINS");
+const u8 gText_Houndour_2400Coins[] = _("HOUNDOUR{CLEAR_TO 0x4B}{FONT_SMALL} 2,400 COINS");
+const u8 gText_Heracross_5000Coins[] = _("HERACROSS{CLEAR_TO 0x4B}{FONT_SMALL} 5,000 COINS");
+const u8 gText_Sneasel_6400Coins[] = _("SNEASEL{CLEAR_TO 0x4B}{FONT_SMALL} 6,400 COINS");
+const u8 gText_Misdreavus_7600Coins[] = _("MISDREAVUS{CLEAR_TO 0x4B}{FONT_SMALL} 7,600 COINS");

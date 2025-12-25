@@ -4,7 +4,7 @@ CeladonCity_GameCorner_Text_CanExchangeCoinsNextDoor::
     .string "fabulous prizes next door.$"
 
 CeladonCity_GameCorner_Text_WelcomeBuySomeCoins::
-    .string "Welcome to ROCKET GAME CORNER!\p"
+    .string "Welcome to the GAME CORNER!\p"
     .string "Do you need some game COINS?\n"
     .string "Would you like to buy some?$"
 

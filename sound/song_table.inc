@@ -416,6 +416,43 @@ gSongTable::
 	song mus_vs_gold_kris, 0, 0
 	song mus_vs_champion_lance, 0, 0
 	song mus_route47, 0, 0
+	song mus_mt_ember, 0, 0
+	song mus_goldenrod, 0, 0
+	song mus_vs_trainer_sevii, 0, 0
+	song mus_encounter_rocket_exec, 0, 0
+	song mus_national_park, 0, 0
+	song mus_national_park_intro, 0, 0
+	song mus_olivine, 0, 0
+	song mus_vs_jessie_james, 0, 0
+	song mus_encounter_johto_shady, 0, 0
+	song mus_mahogany, 0, 0
+	song mus_rock_tunnel, 0, 0
+	song mus_encounter_johto_sage, 0, 0
+	song mus_encounter_truthseeker, 0, 0
+	song mus_vs_truthseeker_music, 0, 0
+	song mus_encounter_calypso, 0, 0
+	song mus_vs_calypso, 0, 0
+	song mus_encounter_xxvii, 0, 0
+	song mus_vs_xxvii, 0, 0
+	song mus_encounter_johto_kid, 0, 0
+	song mus_encounter_kimono, 0, 0
+	song mus_encounter_rival_champ, 0, 0
+	song mus_ice_path, 0, 0
+	song mus_blackthorn, 0, 0
+	song mus_ecruteak, 0, 0
+	song mus_olivine_lighthouse, 0, 0
+	song mus_vs_champion_cynthia, 0, 0
+	song mus_encounter_clair, 0, 0
+	song mus_vs_arceus, 0, 0
+	song mus_global_terminal_tower, 0, 0
+	song mus_vs_wild_guyana, 0, 0
+	song mus_gts, 0, 0
+	song mus_johto_route_gate, 0, 0
+	song mus_poke_center_guyana, 0, 0
+	song mus_game_corner_johto, 0, 0
+	song mus_route218, 0, 0
+	song mus_vs_wild_sinnoh, 0, 0
+	song mus_brigettes_room, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

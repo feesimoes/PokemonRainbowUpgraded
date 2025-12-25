@@ -1,0 +1,60 @@
+mapscripts GoldenrodCity_GTS_Outside_MapScripts {}
+
+script GoldenrodCity_GTS_Outside_Sign 
+{
+    lock
+    msgbox(format("GLOBAL TERMINAL TOWER -\nGOLDENROD CITY\pAn amazing, and completely\nGLOBAL, TERMINAL!"))    
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_Outside_Fat_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("I wandered into some upper\nfloors of the tower...\pMan! There are some really,\nreally tough TRAINERS there!\pI'll stick with trading..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_Outside_Battle_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("Have you ever been to the\nBATTLE RESORT near ROUTE 40?\pThe battling style there's... unique."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_Outside_Man
+{
+    lock
+    faceplayer
+    msgbox(format("What's hip and happenin'?\nSay, you're from KANTO?\pAren't you glad the WORLD'S\nmore vast than it seems?"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_Outside_Worker_F
+{
+    lock
+    faceplayer
+    msgbox(format("I won't disclose my current\nfinancial situation, but...\pKnowing GOLDENROD is the shining\nCITY of commerce...\pWell, things are good!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_Outside_Gentleman
+{
+    lock
+    faceplayer
+    msgbox(format("I wonder what became of the\nGLOBAL POLICE aboard S.S. ANNE..."))
+    closemessage
+    release
+    end
+}

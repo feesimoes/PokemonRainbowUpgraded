@@ -44,18 +44,44 @@ SlateportCity_Harbor_FerryToGuyana_1:
 	end
 
 
-SlateportCity_Harbor_HM08_Dive::
+SlateportCity_Harbor_Sailor::
 # 33 "data/maps/SlateportCity_Harbor/scripts.pory"
 	lock
 # 34 "data/maps/SlateportCity_Harbor/scripts.pory"
 	faceplayer
 # 35 "data/maps/SlateportCity_Harbor/scripts.pory"
-	msgbox SlateportCity_Harbor_HM08_Dive_Text_0
+	msgbox SlateportCity_Harbor_Sailor_Text_0
 # 36 "data/maps/SlateportCity_Harbor/scripts.pory"
-	giveitem ITEM_HM08, 1
-# 37 "data/maps/SlateportCity_Harbor/scripts.pory"
 	closemessage
-# 38 "data/maps/SlateportCity_Harbor/scripts.pory"
+# 37 "data/maps/SlateportCity_Harbor/scripts.pory"
+	release
+	end
+
+
+SlateportCity_Harbor_Fat_Man::
+# 43 "data/maps/SlateportCity_Harbor/scripts.pory"
+	lock
+# 44 "data/maps/SlateportCity_Harbor/scripts.pory"
+	faceplayer
+# 45 "data/maps/SlateportCity_Harbor/scripts.pory"
+	msgbox SlateportCity_Harbor_Fat_Man_Text_0
+# 46 "data/maps/SlateportCity_Harbor/scripts.pory"
+	closemessage
+# 47 "data/maps/SlateportCity_Harbor/scripts.pory"
+	release
+	end
+
+
+SlateportCity_Harbor_Super_Nerd::
+# 53 "data/maps/SlateportCity_Harbor/scripts.pory"
+	lock
+# 54 "data/maps/SlateportCity_Harbor/scripts.pory"
+	faceplayer
+# 55 "data/maps/SlateportCity_Harbor/scripts.pory"
+	msgbox SlateportCity_Harbor_Super_Nerd_Text_0
+# 56 "data/maps/SlateportCity_Harbor/scripts.pory"
+	closemessage
+# 57 "data/maps/SlateportCity_Harbor/scripts.pory"
 	release
 	end
 
@@ -73,6 +99,24 @@ SlateportCity_Harbor_FerryToGuyana_Text_2:
 # 24 "data/maps/SlateportCity_Harbor/scripts.pory"
 	.string "No worries, I'll be here.$"
 
-SlateportCity_Harbor_HM08_Dive_Text_0:
+SlateportCity_Harbor_Sailor_Text_0:
 # 35 "data/maps/SlateportCity_Harbor/scripts.pory"
-	.string "Here, take this.$"
+	.string "Hmm...\n"
+	.string "That's a lot of BADGES.\p"
+	.string "If you don't have HM08: DIVE yet,\n"
+	.string "maybe someone's got extras...\p"
+	.string "Have you checked out the MARKET?$"
+
+SlateportCity_Harbor_Fat_Man_Text_0:
+# 45 "data/maps/SlateportCity_Harbor/scripts.pory"
+	.string "You came all the way from\n"
+	.string "KANTO? Phew...\p"
+	.string "Must be nice having SEAGALLOP, huh?\n"
+	.string "I wish STERN built some!$"
+
+SlateportCity_Harbor_Super_Nerd_Text_0:
+# 55 "data/maps/SlateportCity_Harbor/scripts.pory"
+	.string "SLATEPORT is the busiest spot in\n"
+	.string "HOENN. Naturally, stay on guard.\p"
+	.string "Beware of those PIRATE scoundrels...\n"
+	.string "TEAM CORSAIR is no joke!$"

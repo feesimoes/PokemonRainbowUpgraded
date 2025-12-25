@@ -5326,6 +5326,7 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc func)
 
     PlaySE(SE_SELECT);
     noEffect = PokemonItemUseNoEffect(&gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId, gPartyMenu.slotId, 0);
+    /*
     if (noEffect)
     {
         gPartyMenuUseExitCallback = FALSE;
@@ -5333,7 +5334,7 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc func)
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = func;
     }
-    else
+    else*/
         Task_DoUseItemAnim(taskId);
 }
 
@@ -5347,10 +5348,12 @@ static void CB2_UseEvolutionStone(void)
 
 static bool8 MonCanEvolve(void)
 {
+    /*
+    
     if (!IsNationalPokedexEnabled()
      && GetEvolutionTargetSpecies(&gPlayerParty[gPartyMenu.slotId], EVO_MODE_ITEM_USE, gSpecialVar_ItemId) > KANTO_DEX_COUNT)
-        return FALSE;
-    else
+        return TRUE;
+    else*/
         return TRUE;
 }
 

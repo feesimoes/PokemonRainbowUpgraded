@@ -48,7 +48,6 @@ u16 GetNationalPokedexCount(u8 caseID)
     return count;
 }
 
-/*
 u16 GetHoennPokedexCount(u8 caseID)
 {
     u16 count = 0;
@@ -70,7 +69,6 @@ u16 GetHoennPokedexCount(u8 caseID)
     }
     return count;
 }
-*/
 
 u16 GetKantoPokedexCount(u8 caseID)
 {

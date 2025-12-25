@@ -1582,5 +1582,18 @@ extern const u8 gString_Saturday[];
 extern const u8 gString_Sunday[];
 
 extern const u8 gString_TerryPlaceholderName[];
+extern const u8 gOtherText_Offer[];
+
+extern const u8 gText_IceStone_1000Coins[];
+extern const u8 gText_DawnStone_2000Coins[];
+extern const u8 gText_ShinyStone_7200Coins[];
+extern const u8 gText_DubiousDisc_1600Coins[];
+extern const u8 gText_LeppaBerry_800Coins[];
+
+extern const u8 gText_Larvitar_1000Coins[];
+extern const u8 gText_Houndour_2400Coins[];
+extern const u8 gText_Heracross_5000Coins[];
+extern const u8 gText_Sneasel_6400Coins[];
+extern const u8 gText_Misdreavus_7600Coins[];
 
 #endif //GUARD_STRINGS_H

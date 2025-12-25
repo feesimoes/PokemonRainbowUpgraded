@@ -2,7 +2,7 @@
   "id": "MAP_BLACKTHORN_CITY_MOVE_SPECIALISTS_HOUSE",
   "name": "BlackthornCity_MoveSpecialists_House",
   "layout": "LAYOUT_BLACKTHORN_CITY_MOVE_SPECIALISTS_HOUSE",
-  "music": "MUS_SEVII_45",
+  "music": "MUS_BLACKTHORN",
   "region_map_section": "MAPSEC_BLACKTHORN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

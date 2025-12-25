@@ -16,6 +16,7 @@
 #include "berry_fix_program.h"
 #include "decompress.h"
 #include "constants/songs.h"
+#include "region_map.h"
 
 enum TitleScreenScene
 {
@@ -728,6 +729,14 @@ static void SetTitleScreenScene_Cry(s16 *data)
     case 2:
         if (!gPaletteFade.active)
         {
+            if (IsNotWaitingForBGMStop() == TRUE)
+            {
+                switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+                {
+                    default:
+                        PlayBGM(MUS_NEW_GAME_INTRO);
+                }
+            }
             SeedRngAndSetTrainerId();
             SetSaveBlocksPointers();
             ResetMenuAndMonGlobals();

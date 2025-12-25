@@ -88,7 +88,6 @@ void CreateBoxMonAt(u8 boxId, u8 boxPosition, u16 species, u8 level, u8 fixedIV,
     {
         CreateBoxMon(&gPokemonStoragePtr->boxes[boxId][boxPosition],
                      species,
-                     0,
                      level,
                      fixedIV,
                      hasFixedPersonality, personality,

@@ -37,9 +37,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
 #include "constants/region_map_sections.h"
-
-//Expanded Pokemon Species Sections 1-16
-#include "constants/species_expanded_1.h"
+#include "region_map.h"
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
 #define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
@@ -104,7 +102,7 @@ static const struct CombinedMove sCombinedMoves[2] =
 // To reorder the pokedex, see the values in include/constants/pokedex.h.
 
  // Assigns all species to the Hoenn Dex Index (Summary No. for Hoenn Dex)
-static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
+static const u16 sSpeciesToHoennPokedexNum[SPECIES_EGG - 1] =
 {
     SPECIES_TO_HOENN(BULBASAUR),
     SPECIES_TO_HOENN(IVYSAUR),
@@ -520,7 +518,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
 };
 
  // Assigns all species to the National Dex Index (Summary No. for National Dex)
-static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
+static const u16 sSpeciesToNationalPokedexNum[SPECIES_EGG - 1] =
 {
     SPECIES_TO_NATIONAL(BULBASAUR),
     SPECIES_TO_NATIONAL(IVYSAUR),
@@ -936,7 +934,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
 };
 
 // Assigns all Hoenn Dex Indexes to a National Dex Index
-static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
+static const u16 sHoennToNationalOrder[SPECIES_EGG - 1] =
 {
     HOENN_TO_NATIONAL(TREECKO),
     HOENN_TO_NATIONAL(GROVYLE),
@@ -1756,18 +1754,18 @@ void ZeroEnemyPartyMons(void)
         ZeroMonData(&gEnemyParty[i]);
 }
 
-void CreateMon(struct Pokemon *mon, u16 species, u8 speciesFormsValue, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u32 arg;
     ZeroMonData(mon);
-    CreateBoxMon(&mon->box, species, speciesFormsValue, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+    CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
     arg = MAIL_NONE;
     SetMonData(mon, MON_DATA_MAIL, &arg);
     CalculateMonStats(mon);
 }
 
-void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 speciesFormsValue, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u8 speciesName[POKEMON_NAME_LENGTH + 1];
     u32 personality;
@@ -1810,12 +1808,11 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 speciesFormsValue, 
     checksum = CalculateBoxMonChecksum(boxMon);
     SetBoxMonData(boxMon, MON_DATA_CHECKSUM, &checksum);
     EncryptBoxMon(boxMon);
-    GetSpeciesName(speciesName, species, speciesFormsValue);
+    GetSpeciesName(speciesName, species);
     SetBoxMonData(boxMon, MON_DATA_NICKNAME, speciesName);
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
-    SetBoxMonData(boxMon, MON_DATA_SPECIES_FORMS_VALUE, &speciesFormsValue);
     SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
     value = GetCurrentRegionMapSectionId();
@@ -1866,7 +1863,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 speciesFormsValue, 
     GiveBoxMonInitialMoveset(boxMon);
 }
 
-void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 speciesFormsValue, u8 level, u8 fixedIV, u8 nature)
+void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
 {
     u32 personality;
 
@@ -1876,7 +1873,7 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 speciesFormsValue,
     }
     while (nature != GetNatureFromPersonality(personality));
 
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
 void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
@@ -1906,7 +1903,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
             || gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
 
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
 // Used to create the Old Man's Weedle?
@@ -1921,19 +1918,19 @@ void CreateMaleMon(struct Pokemon *mon, u16 species, u8 level)
         personality = Random32();
     }
     while (GetGenderFromSpeciesAndPersonality(species, personality) != MON_MALE);
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, USE_RANDOM_IVS, TRUE, personality, OT_ID_PRESET, otId);
+    CreateMon(mon, species, level, USE_RANDOM_IVS, TRUE, personality, OT_ID_PRESET, otId);
 }
 
 void CreateMonWithIVsPersonality(struct Pokemon *mon, u16 species, u8 level, u32 ivs, u32 personality)
 {
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, 0, TRUE, personality, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, 0, TRUE, personality, OT_ID_PLAYER_ID, 0);
     SetMonData(mon, MON_DATA_IVS, &ivs);
     CalculateMonStats(mon);
 }
 
 static void CreateMonWithIVsOTID(struct Pokemon *mon, u16 species, u8 level, u8 *ivs, u32 otId)
 {
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, 0, FALSE, 0, OT_ID_PRESET, otId);
+    CreateMon(mon, species, level, 0, FALSE, 0, OT_ID_PRESET, otId);
     SetMonData(mon, MON_DATA_HP_IV, &ivs[STAT_HP]);
     SetMonData(mon, MON_DATA_ATK_IV, &ivs[STAT_ATK]);
     SetMonData(mon, MON_DATA_DEF_IV, &ivs[STAT_DEF]);
@@ -1950,7 +1947,7 @@ void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
     u16 evAmount;
     u8 evsBits;
 
-    CreateMon(mon, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), species, level, fixedIV, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_PLAYER_ID, 0);
 
     evsBits = evSpread;
 
@@ -1980,7 +1977,7 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     s32 i;
     u8 value;
 
-    CreateMon(mon, src->species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), src->level, 0, TRUE, src->personality, OT_ID_PRESET, src->otId);
+    CreateMon(mon, src->species, src->level, 0, TRUE, src->personality, OT_ID_PRESET, src->otId);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, src->moves[i], i);
@@ -2030,7 +2027,7 @@ static void CreateEventMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
 {
     bool32 isModernFatefulEncounter = TRUE;
 
-    CreateMon(mon, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+    CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
 }
 
@@ -2121,7 +2118,6 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 spDefenseIV = GetMonData(mon, MON_DATA_SPDEF_IV, NULL);
     s32 spDefenseEV = GetMonData(mon, MON_DATA_SPDEF_EV, NULL);
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 speciesFormsValue = GetMonData(mon, MON_DATA_SPECIES_FORMS_VALUE, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
 
@@ -2981,6 +2977,7 @@ u32 GetMonData2(struct Pokemon *mon, s32 field) __attribute__((alias("GetMonData
  * number of arguments. */
 u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
 {
+    
     s32 i;
     u32 retVal = 0;
     struct PokemonSubstruct0 *substruct0 = NULL;
@@ -3242,6 +3239,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_WORLD_RIBBON:
         retVal = substruct3->worldRibbon;
         break;
+    case MON_DATA_SPECIES_FORMS_VALUE:
+        retVal = substruct3->speciesFormsType;
+        break;
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
         retVal = substruct3->modernFatefulEncounter;
         break;
@@ -3338,6 +3338,7 @@ u32 GetBoxMonData2(struct BoxPokemon *boxMon, s32 field) __attribute__((alias("G
 #define SET16(lhs) (lhs) = data[0] + (data[1] << 8)
 #define SET32(lhs) (lhs) = data[0] + (data[1] << 8) + (data[2] << 16) + (data[3] << 24)
 
+
 void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
 {
     const u8 *data = dataArg;
@@ -3395,6 +3396,7 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_NATIONAL_RIBBON:
     case MON_DATA_EARTH_RIBBON:
     case MON_DATA_WORLD_RIBBON:
+    case MON_DATA_SPECIES_FORMS_VALUE:
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
     case MON_DATA_KNOWN_MOVES:
     case MON_DATA_RIBBON_COUNT:
@@ -3549,7 +3551,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct3->pokerus);
         break;
     case MON_DATA_MET_LOCATION:
-        SET8(substruct3->metLocation);
+        SET16(substruct3->metLocation);
         break;
     case MON_DATA_MET_LEVEL:
     {
@@ -3819,7 +3821,6 @@ static void CreateSecretBaseEnemyParty(struct SecretBaseRecord *secretBaseRecord
         {
             CreateMon(&gEnemyParty[i],
                 gBattleResources->secretBase->party.species[i], 
-                GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum),
                 gBattleResources->secretBase->party.levels[i],
                 15,
                 TRUE,
@@ -3878,35 +3879,22 @@ static bool8 IsPokemonStorageFull(void)
     return TRUE;
 }
 
-void GetSpeciesName(u8 *name, u16 species, u8 speciesFormsValue)
+void GetSpeciesName(u8 *name, u16 species)
 {
     s32 i;
-    switch (speciesFormsValue)
+
+    // Hmm? FRLG has < while Ruby/Emerald has <=
+    for (i = 0; i < POKEMON_NAME_LENGTH; i++)
     {
-    case 1:
-        for (i = 0; i < POKEMON_NAME_LENGTH; i++)
-        {
-            if (species > NUM_SPECIES)
-                name[i] = gSpeciesNamesExpanded_1[0][i];
-            else
-                name[i] = gSpeciesNamesExpanded_1[species][i];
+        if (species > NUM_SPECIES)
+            name[i] = gSpeciesNames[0][i];
+        else
+            name[i] = gSpeciesNames[species][i];
 
-            if (name[i] == EOS)
-                break;
-        }
-    default:
-        // Hmm? FRLG has < while Ruby/Emerald has <=
-        for (i = 0; i < POKEMON_NAME_LENGTH; i++)
-        {
-            if (species > NUM_SPECIES)
-                name[i] = gSpeciesNames[0][i];
-            else
-                name[i] = gSpeciesNames[species][i];
-
-            if (name[i] == EOS)
-                break;
-        }
+        if (name[i] == EOS)
+            break;
     }
+
     name[i] = EOS;
 }
 
@@ -5123,6 +5111,9 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_ITEM:
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             }
         }
         break;
@@ -5139,13 +5130,9 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 {
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                     
-                    // Prevent cross-generational evolutions like Scizor and Steelix until the National Pokedex is obtained
-                    if (IsNationalPokedexEnabled() || targetSpecies <= KANTO_SPECIES_END)
-                    {
-                        heldItem = ITEM_NONE;
-                        SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                    }
+                    heldItem = ITEM_NONE;
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 }
                 break;
             }
@@ -5156,7 +5143,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             if (gEvolutionTable[species][i].method == EVO_ITEM
-             && gEvolutionTable[species][i].param == evolutionItem)
+                && gEvolutionTable[species][i].param == evolutionItem)
             {
                 targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
@@ -5177,10 +5164,10 @@ static u16 HoennPokedexNumToSpecies(u16 hoennNum)
 
     species = 0;
 
-    while (species < NUM_SPECIES - 1 && sSpeciesToHoennPokedexNum[species] != hoennNum)
+    while (species < SPECIES_EGG - 1 && sSpeciesToHoennPokedexNum[species] != hoennNum)
         species++;
 
-    if (species == NUM_SPECIES - 1)
+    if (species == SPECIES_EGG - 1)
         return 0;
 
     return species + 1;
@@ -5195,10 +5182,10 @@ u16 NationalPokedexNumToSpecies(u16 nationalNum)
 
     species = 0;
 
-    while (species < NUM_SPECIES - 1 && sSpeciesToNationalPokedexNum[species] != nationalNum)
+    while (species < SPECIES_EGG - 1 && sSpeciesToNationalPokedexNum[species] != nationalNum)
         species++;
 
-    if (species == NUM_SPECIES - 1)
+    if (species == SPECIES_EGG - 1)
         return 0;
 
     return species + 1;
@@ -5213,10 +5200,10 @@ static u16 NationalToHoennOrder(u16 nationalNum)
 
     hoennNum = 0;
 
-    while (hoennNum < NUM_SPECIES - 1 && sHoennToNationalOrder[hoennNum] != nationalNum)
+    while (hoennNum < SPECIES_EGG - 1 && sHoennToNationalOrder[hoennNum] != nationalNum)
         hoennNum++;
 
-    if (hoennNum == NUM_SPECIES - 1)
+    if (hoennNum == SPECIES_EGG - 1)
         return 0;
 
     return hoennNum + 1;
@@ -5224,10 +5211,17 @@ static u16 NationalToHoennOrder(u16 nationalNum)
 
 u16 SpeciesToNationalPokedexNum(u16 species)
 {
-    if (!species)
+    if (species > SPECIES_EGG)
+    {
         return 0;
+    }
+    else
+    {
+        if (!species)
+            return 0;
 
-    return sSpeciesToNationalPokedexNum[species - 1];
+        return sSpeciesToNationalPokedexNum[species - 1];
+    }
 }
 
 static u16 SpeciesToHoennPokedexNum(u16 species)
@@ -5250,11 +5244,20 @@ u16 SpeciesToCryId(u16 species)
 {
     if (species < SPECIES_OLD_UNOWN_B - 1)
         return species;
+    if (species >= SPECIES_TREECKO)
+    {
+        return sHoennSpeciesIdToCryId[species - (SPECIES_TREECKO - 1)];
+    }
 
-    if (species <= SPECIES_OLD_UNOWN_Z - 1)
-        return SPECIES_UNOWN - 1;
-    
-    return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];
+    else if (species > SPECIES_EGG)
+    {
+        return sSinnohSpeciesIdToCryId[species - SPECIES_TURTWIG];
+    }
+
+    else
+    {
+        return sHoennSpeciesIdToCryId[species - (SPECIES_OLD_UNOWN_Z + 1)];
+    }
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3
@@ -5853,7 +5856,10 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 u16 SpeciesToPokedexNum(u16 species)
 {
     species = SpeciesToNationalPokedexNum(species);
-
+    if (species > SPECIES_EGG)
+    {
+        species = 0;
+    }
     if (!IsNationalPokedexEnabled() && species > KANTO_SPECIES_END)
         return 0xFFFF;
     return species;
@@ -5882,6 +5888,8 @@ static u16 GetBattleBGM(void)
         {
         case TRAINER_CLASS_CREATOR:
             return MUS_VS_RODOLFO;
+        case TRAINER_CLASS_MUSICIAN:
+            return MUS_VS_TRUTHSEEKER_MUSIC;
         case TRAINER_CLASS_PKMN_PROF:
             return MUS_VS_PROF_OAK;
         case TRAINER_CLASS_CHAMPION:
@@ -5890,16 +5898,9 @@ static u16 GetBattleBGM(void)
             return MUS_VS_CHAMPION_LANCE;
         case TRAINER_CLASS_LEADER:
             //Have all 8 badges and on a Kanto map, this is a Kanto gym leader rematch
-            if (FlagGet(FLAG_BADGE08_GET) && gMapHeader.regionMapSectionId < MAPSEC_NEW_BARK_TOWN)
+            if (FlagGet(FLAG_BADGE08_GET) && GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId) == REGIONMAP_KANTO)
             {
-                if (gTrainers[gTrainerBattleOpponent_A].trainerPic == TRAINER_PIC_CHAMPION_RIVAL)
-                {
-                    return MUS_VS_GYM_LEADER_RIVAL;
-                }
-                else 
-                {
-                    return MUS_VS_GYM_LEADER_REMATCH;
-                }
+                return MUS_VS_GYM_LEADER_REMATCH;
             }
             //On a Johto map, this is a Johto gym leader battle
             else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
@@ -5936,27 +5937,42 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
+            return MUS_VS_GYM_LEADER_RIVAL;
         case TRAINER_CLASS_PKMN_TRAINER:
         default:
-            if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
+            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
             {
-                return MUS_VS_TRAINER_JOHTO;
-            }
-            else if (gMapHeader.regionMapSectionId > MAPSEC_DRAGONS_DEN)
-            {
-                return MUS_VS_TRAINER_SINNOH;
-            }
-            else {
-                return MUS_VS_TRAINER;
+                case REGIONMAP_SEVII123:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII45:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII67:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_JOHTO:
+                    return MUS_VS_TRAINER_JOHTO;
+                default:
+                    return MUS_VS_TRAINER;
             }
         }
     }
-    if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
+    switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
     {
-        return MUS_VS_WILD_JOHTO;
-    }
-    else {
-        return MUS_VS_WILD;
+        case REGIONMAP_SEVII123:
+            return MUS_VS_WILD;
+        case REGIONMAP_SEVII45:
+            return MUS_VS_WILD;
+        case REGIONMAP_SEVII67:
+            return MUS_VS_WILD;
+        case REGIONMAP_JOHTO:
+            return MUS_VS_WILD_JOHTO;
+        case REGIONMAP_GUYANA:
+            return MUS_VS_WILD_GUYANA;
+        case REGIONMAP_HOENN:
+            return MUS_VS_WILD_GUYANA;
+        case REGIONMAP_SINNOH:
+            return MUS_VS_WILD_SINNOH;
+        default:
+            return MUS_VS_WILD;
     }
 }
 
@@ -5982,33 +5998,17 @@ const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
-    u8 speciesFormsValue = GetMonData(mon, MON_DATA_SPECIES_FORMS_VALUE, NULL);
-    return GetMonSpritePalFromSpeciesAndPersonality(species, speciesFormsValue, otId, personality);
+    return GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality);
 }
-
-const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u8 speciesFormsValue, u32 otId, u32 personality)
+const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 personality)
 {
     u32 shinyValue;
-    switch(speciesFormsValue)
-    {
-        case 1:
-            if (species > NUM_SPECIES)
-                return gMonPaletteTableExpanded_1[0].data;
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if (shinyValue < SHINY_ODDS)
-                return gMonShinyPaletteTableExpanded_1[species].data;
-            else
-                return gMonPaletteTableExpanded_1[species].data;
-            
-        default:
-            if (species > NUM_SPECIES)
-                return gMonPaletteTable[0].data;
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if (shinyValue < SHINY_ODDS)
-                return gMonShinyPaletteTable[species].data;
-            else
-                return gMonPaletteTable[species].data;
-    }
+
+    shinyValue = GET_SHINY_VALUE(otId, personality);
+    if (shinyValue < SHINY_ODDS)
+        return gMonShinyPaletteTable[species].data;
+    else
+        return gMonPaletteTable[species].data;
 }
 
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
@@ -6016,30 +6016,18 @@ const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
-    u8 speciesFormsValue = GetMonData(mon, MON_DATA_SPECIES_FORMS_VALUE, NULL);
-    return GetMonSpritePalStructFromOtIdPersonality(species, speciesFormsValue, otId, personality);
+    return GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
 }
 
-const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u8 speciesFormsValue, u32 otId, u32 personality)
+const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u32 otId, u32 personality)
 {
     u32 shinyValue;
 
-    switch (speciesFormsValue)
-    {
-        case 1:
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if (shinyValue < SHINY_ODDS)
-                return &gMonShinyPaletteTableExpanded_1[species];
-            else
-                return &gMonShinyPaletteTableExpanded_1[species];
-        default:
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if (shinyValue < SHINY_ODDS)
-                return &gMonShinyPaletteTable[species];
-            else
-                return &gMonPaletteTable[species];
-
-    }
+    shinyValue = GET_SHINY_VALUE(otId, personality);
+    if (shinyValue < SHINY_ODDS)
+        return &gMonShinyPaletteTable[species];
+    else
+        return &gMonPaletteTable[species];
 }
 
 bool32 IsHMMove2(u16 move)
@@ -6340,15 +6328,18 @@ void CreateEnemyEventMon(void)
 
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 {
-    u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;
-    
-    if (!GetSetPokedexFlag(nationalNum, getFlagCaseId))
+    if (nationalNum < SPECIES_EGG)
     {
-        GetSetPokedexFlag(nationalNum, caseId);
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
-            gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
-            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
+        u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;
+        
+        if (!GetSetPokedexFlag(nationalNum, getFlagCaseId))
+        {
+            GetSetPokedexFlag(nationalNum, caseId);
+            if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
+                gSaveBlock2Ptr->pokedex.unownPersonality = personality;
+            if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
+                gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
+        }
     }
 }
 
@@ -6558,10 +6549,4 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
             spriteNum = 0;
         return sMonSpritesGfxManager->spritePointers[spriteNum];
     }
-}
-
-//Default value is 0 for now, regular encounters.
-u8 GetExpandedSpeciesFormsValueFromMapNum(s8 mapNum)
-{
-    return 0;
 }

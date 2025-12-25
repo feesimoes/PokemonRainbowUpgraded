@@ -1,0 +1,11 @@
+mapscripts AzaleaTown_IlexForest_Entrance_MapScripts {}
+
+script AzaleaTown_IlexForest_Entrance_Guard 
+{
+    lock
+    faceplayer
+    msgbox(format("ILEX FOREST is up ahead.\nBe careful not to get lost."))
+    closemessage
+    release
+    end   
+}

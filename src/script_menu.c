@@ -184,6 +184,24 @@ static const struct MenuAction sMultichoiceList_GameCornerBattleItemPrizes[] = {
     { gText_NoThanks_2 }
 };
 
+static const struct MenuAction sMultichoiceList_GoldenrodGameCornerMonPrizes[] = {
+    { gText_Larvitar_1000Coins },
+    { gText_Houndour_2400Coins },
+    { gText_Heracross_5000Coins },
+    { gText_Sneasel_6400Coins },
+    { gText_Misdreavus_7600Coins },
+    { gText_NoThanks_2 }
+};
+
+static const struct MenuAction sMultichoiceList_GoldenrodGameCornerItemPrizes[] = {
+    { gText_IceStone_1000Coins },
+    { gText_DawnStone_2000Coins },
+    { gText_ShinyStone_7200Coins },
+    { gText_DubiousDisc_1600Coins },
+    { gText_LeppaBerry_800Coins },
+    { gText_NoThanks_2 }
+};
+
 static const struct MenuAction sMultichoiceList_GameCornerCoinPurchaseCounter[] = {
     { gText_50Coins_1000 },
     { gText_500Coins_10000 },
@@ -320,7 +338,7 @@ static const struct MenuAction sMultichoiceList_GameCornerPokemonPrizes[] = {
     { gText_Clefairy_500Coins },
     { gText_Dratini_2800Coins },
     { gText_Scyther_5500Coins },
-    { gText_Porygon_9999Coins },
+    { gText_Porygon_6500Coins },
 #elif defined(LEAFGREEN)
     { gText_Abra_120Coins },
     { gText_Clefairy_750Coins },
@@ -492,6 +510,13 @@ static const struct MenuAction sMultichoiceList_TrainerTowerMode[] = {
     { gOtherText_Exit }
 };
 
+static const struct MenuAction sMultichoiceList_GTS[] = {
+    { gOtherText_Offer },
+    { gOtherText_Check },
+    { gText_Withdraw },
+    { gOtherText_Exit }
+};
+
 static const struct MenuAction sMultichoiceList_Exit[] = {
     { gOtherText_Exit }
 };
@@ -562,6 +587,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
+    [MULTICHOICE_GTS_MENU]                                   = MULTICHOICE(sMultichoiceList_GTS),
+    [MULTICHOICE_GOLDENROD_GAME_CORNER_ITEM_PRIZES]          = MULTICHOICE(sMultichoiceList_GoldenrodGameCornerItemPrizes),
+    [MULTICHOICE_GOLDENROD_GAME_CORNER_MON_PRIZES]           = MULTICHOICE(sMultichoiceList_GoldenrodGameCornerMonPrizes),
 };
 
 // From Cool to Berries goes unused

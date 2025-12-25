@@ -8154,14 +8154,14 @@ voicegroup191::
 
 	.align 2
 voicegroup192::
-	voice_keysplit_all voicegroup191
+	voice_keysplit_all voicegroup191 @ Custom Standard FR/LG-focused drum kit with GM-type notes
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 204, 0, 242
-	voice_keysplit voicegroup003, KeySplitTable1
+	voice_keysplit voicegroup003, KeySplitTable1 @ Grand Piano
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 165, 180, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 137, 154, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
-	voice_keysplit voicegroup003, KeySplitTable1
+	voice_keysplit voicegroup003, KeySplitTable1 @ Grand Piano copy
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
@@ -8184,7 +8184,7 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 64, 216, 51, 224
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 204, 103, 64
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_overdrive_guitar, 128, 0, 255, 214
-	voice_keysplit voicegroup193, KeySplitTable1
+	voice_keysplit voicegroup193, KeySplitTable1 @ Custom Distortion Guitar split by high & low samples (Needs more work)
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_special_scream_drive, 255, 0, 255, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
@@ -8225,13 +8225,13 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 255, 165, 154, 127 @ 71=Clarinet
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127 @ 75-Pan Flute
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_enhanced_delay_shaku, 255, 191, 97, 165 @ 77-Shakuhachi
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
 	voice_square_2 60, 0, 2, 0, 1, 6, 0
@@ -8266,21 +8266,21 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 196
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0 @ Noisy Bell sound like Tinkle Bell
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_jingle_bell, 255, 165, 51, 235
-	voice_directsound 60, 0, DirectSoundWaveData_sd90_cowbell, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_ethnic_flavours_hyoushigi, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_taiko, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_ambient_tom, 255, 165, 51, 235
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_kick, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165 @ 118=Bass Drum of some sort
 	voice_directsound 60, 0, DirectSoundWaveData_trinity_cymbal_crash, 255, 165, 51, 235
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
-	voice_noise 60, 0, 0, 0, 7, 15, 0
-	voice_noise 60, 0, 0, 0, 7, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127 @ Train SFX in Helicopter slot
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 0, 255, 127 @ Applause
 	voice_noise 60, 0, 0, 0, 7, 15, 0
 
 	.align 2

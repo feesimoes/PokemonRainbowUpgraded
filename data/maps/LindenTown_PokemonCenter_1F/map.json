@@ -2,7 +2,7 @@
   "id": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
   "name": "LindenTown_PokemonCenter_1F",
   "layout": "LAYOUT_LINDEN_TOWN_POKEMON_CENTER_1F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_POKE_CENTER_GUYANA",
   "region_map_section": "MAPSEC_LINDEN_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

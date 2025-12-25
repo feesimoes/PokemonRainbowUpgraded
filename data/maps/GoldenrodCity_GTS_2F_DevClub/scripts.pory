@@ -1,0 +1,93 @@
+mapscripts GoldenrodCity_GTS_2F_DevClub_MapScripts {}
+
+script GoldenrodCity_GTS_2F_DevClub_SleepyGuy 
+{
+    lock
+    if (var(VAR_TIME_HOUR) == 3 && var(VAR_TIME_MINUTE) == 45)
+    {
+        faceplayer
+        msgbox(format("Yawn...\nWe need more beeps and boops.\p...Oh well."))
+        applymovement(LOCALID_DEV_SOUP, GoldenrodCity_GTS_2F_DevClub_SleepyGuy_Face_Left)
+        waitmovement
+    }
+    else
+    {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(format("Looks like this guy's very 'eepy.\nBetter not wake them!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_SetTime 
+{
+    lock
+    setvar(VAR_TIME_HOUR, 3)
+    setvar(VAR_TIME_MINUTE, 44)
+    release
+    end
+}
+
+movement GoldenrodCity_GTS_2F_DevClub_SleepyGuy_Face_Left 
+{
+    face_left
+    step_end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_Rodolfo
+{
+    lock
+    faceplayer
+    msgbox(format("RODOLFO: Hey, you made it!\nI'm working on stuff here."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_TruthSeeker
+{
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_TRUTHSEEKER, FALSE)
+    msgbox(format("TRUTHSEEKER: Oh, heya!\nWelcome to the DEV CLUB.\pMy name's VIOLET, but I usually\ngo by TruthSeeker online..."))
+    msgbox(format("I'm the guy who helped RODOLFO\nout with some sick beats!\pI heard there's some ZORUA in\nUNOVA, so I'm probably gonna go!"))
+    msgbox(format("Just need to grab my stuff soon,\nhead over and catch me one.\p...You're not really here for\ntalking, though, right?"))
+    msgbox(format("I'll warn you, I'm pretty strong!\nLike, really strong!\p..."))
+    msgbox(format("Do you still want to battle\nwith me right now?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        trainerbattle_earlyrival(TRAINER_MUSICIAN_TRUTHSEEKER, 0, format("Woooh!\nThat definitely got me pumped!\pMy blood's pumping! That was\na sweet battle."), format("Whew!\nA smokin' good battle!\pBest you'd rest up 'n'\nget a new strategy!"))
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox(format("TRUTHSEEKER: That was great.\nHonestly, I haven't battled much.\pNot in a while, anyways. So,\nthat was nice..."))
+        msgbox(format("What?!\nYou were annoyed by SPIKES?\p...And status moves? Nah, they're\ntoo good not to use."))
+        msgbox(format("I could've used TOXIC, but that\nwould've been too toxic of me.\pAnyhow, if you defeated me, you\ncan definitely beat others."))
+        msgbox(format("Here...\n'Ya like this?"))
+        giveitem(ITEM_MASTER_BALL, 1)
+        waitfanfare
+        waitmessage
+        msgbox(format("One of the perks to being\npart of the DEV CLUB!\pEasy MASTER BALLS, or any item!"))
+        msgbox(format("Anyways, thanks again, {PLAYER}.\nCome again if you wanna rematch.\pI'm gonna listen to some music\nremixes in the meantime."))
+        cleartrainerflag(TRAINER_MUSICIAN_TRUTHSEEKER)
+    }
+    else
+    {
+        msgbox(format("That's fine. Come back later,\nwhen you want to battle.\pI'm gonna listen to some music\nremixes in the meantime."))
+        fadedefaultbgm
+    }
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_Calypso
+{
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_CALYPSO, FALSE)
+    msgbox(format("CALYPSO: Hey! I used to be\npart of TEAM ROCKET, so...\pI've heard of you, {PLAYER}, but\nI work with RODOLFO now.\pHe's a pretty chill guy."))
+    closemessage
+    fadedefaultbgm
+    release
+    end
+}

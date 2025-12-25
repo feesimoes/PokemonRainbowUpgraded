@@ -1164,7 +1164,17 @@ static void Cmd_get_ability(void)
             sAIScriptPtr += 2;
             return;
         }
+        
+        else
+        {
+            // The AI knows its own ability.
+            AI_THINKING_STRUCT->funcResult = gBattleMons[battlerId].ability;
+        }
 
+        sAIScriptPtr += 2;
+    }
+    else
+    {
         if (gSpeciesInfo[gBattleMons[battlerId].species].abilities[0] != ABILITY_NONE)
         {
             if (gSpeciesInfo[gBattleMons[battlerId].species].abilities[1] != ABILITY_NONE)
@@ -1177,22 +1187,18 @@ static void Cmd_get_ability(void)
             }
             else
             {
-                AI_THINKING_STRUCT->funcResult = gSpeciesInfo[gBattleMons[battlerId].species].abilities[0];
+                // AI can't actually reach this part since no pokemon has ability 2 and no ability 1.
+                AI_THINKING_STRUCT->funcResult = gSpeciesInfo[gBattleMons[battlerId].species].abilities[1];
             }
         }
         else
         {
-             // AI can't actually reach this part since no pokemon has ability 2 and no ability 1.
-            AI_THINKING_STRUCT->funcResult = gSpeciesInfo[gBattleMons[battlerId].species].abilities[1];
+            // The AI knows its own ability.
+            AI_THINKING_STRUCT->funcResult = gBattleMons[battlerId].ability;
         }
-    }
-    else
-    {
-        // The AI knows its own ability.
-        AI_THINKING_STRUCT->funcResult = gBattleMons[battlerId].ability;
-    }
 
-    sAIScriptPtr += 2;
+        sAIScriptPtr += 2;
+    }
 }
 
 static void Cmd_get_highest_type_effectiveness(void)

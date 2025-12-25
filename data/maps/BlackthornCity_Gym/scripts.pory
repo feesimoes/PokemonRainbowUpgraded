@@ -13,6 +13,7 @@ script BlackthornCity_Gym_Trainer_Battle_2
 {
     trainerbattle_single(TRAINER_COOLTRAINER_PAUL_JOHTO, format("I've never seen you around.\nBut you already got 8 BADGES?"), format("Wait a second!\nThose aren't JOHTO BADGES..."))
     msgbox(format("You can't seriously be here\nfrom KANTO, right?\pYou don't even need more\nthan 8 BADGES for the LEAGUE..."))
+    cleartrainerflag(TRAINER_COOLTRAINER_PAUL_JOHTO)
     closemessage
     release
     end

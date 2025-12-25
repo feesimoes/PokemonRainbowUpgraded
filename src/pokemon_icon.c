@@ -465,7 +465,123 @@ const u8 *const gMonIconTable[] = {
     [SPECIES_UNOWN_Y]     = gMonIcon_UnownY,
     [SPECIES_UNOWN_Z]     = gMonIcon_UnownZ,
     [SPECIES_UNOWN_EMARK] = gMonIcon_UnownExclamationMark,
-    [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark
+    [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark,
+    [SPECIES_TURTWIG]             = gMonIcon_Turtwig,
+    [SPECIES_GROTLE]              = gMonIcon_Grotle,
+    [SPECIES_TORTERRA]            = gMonIcon_Torterra,
+    [SPECIES_CHIMCHAR]            = gMonIcon_Chimchar,
+    [SPECIES_MONFERNO]            = gMonIcon_Monferno,
+    [SPECIES_INFERNAPE]           = gMonIcon_Infernape,
+    [SPECIES_PIPLUP]              = gMonIcon_Piplup,
+    [SPECIES_PRINPLUP]            = gMonIcon_Prinplup,
+    [SPECIES_EMPOLEON]            = gMonIcon_Empoleon,
+    [SPECIES_STARLY]              = gMonIcon_Starly,
+    [SPECIES_STARAVIA]            = gMonIcon_Staravia,
+    [SPECIES_STARAPTOR]           = gMonIcon_Staraptor,
+    [SPECIES_BIDOOF]              = gMonIcon_Bidoof,
+    [SPECIES_BIBAREL]             = gMonIcon_Bibarel,
+    [SPECIES_KRICKETOT]           = gMonIcon_Kricketot,
+    [SPECIES_KRICKETUNE]          = gMonIcon_Kricketune,
+    [SPECIES_SHINX]               = gMonIcon_Shinx,
+    [SPECIES_LUXIO]               = gMonIcon_Luxio,
+    [SPECIES_LUXRAY]              = gMonIcon_Luxray,
+    [SPECIES_BUDEW]               = gMonIcon_Budew,
+    [SPECIES_ROSERADE]            = gMonIcon_Roserade,
+    [SPECIES_CRANIDOS]            = gMonIcon_Cranidos,
+    [SPECIES_RAMPARDOS]           = gMonIcon_Rampardos,
+    [SPECIES_SHIELDON]            = gMonIcon_Shieldon,
+    [SPECIES_BASTIODON]           = gMonIcon_Bastiodon,
+    [SPECIES_BURMY_PLANT]         = gMonIcon_BurmyPlant,
+    [SPECIES_BURMY_SANDY]         = gMonIcon_BurmySandy,
+    [SPECIES_BURMY_TRASH]         = gMonIcon_BurmyTrash,
+    [SPECIES_WORMADAM_PLANT]      = gMonIcon_WormadamPlant,
+    [SPECIES_WORMADAM_SANDY]      = gMonIcon_WormadamSandy,
+    [SPECIES_WORMADAM_TRASH]      = gMonIcon_WormadamTrash,
+    [SPECIES_MOTHIM]              = gMonIcon_Mothim,
+    [SPECIES_COMBEE]              = gMonIcon_Combee,
+    [SPECIES_VESPIQUEN]           = gMonIcon_Vespiquen,
+    [SPECIES_PACHIRISU]           = gMonIcon_Pachirisu,
+    [SPECIES_BUIZEL]              = gMonIcon_Buizel,
+    [SPECIES_FLOATZEL]            = gMonIcon_Floatzel,
+    [SPECIES_CHERUBI]             = gMonIcon_Cherubi,
+    [SPECIES_CHERRIM_OVERCAST]    = gMonIcon_CherrimOvercast,
+    [SPECIES_CHERRIM_SUNSHINE]    = gMonIcon_CherrimSunshine,
+    [SPECIES_SHELLOS_WEST]        = gMonIcon_ShellosWest,
+    [SPECIES_SHELLOS_EAST]        = gMonIcon_ShellosEast,
+    [SPECIES_GASTRODON_WEST]      = gMonIcon_GastrodonWest,
+    [SPECIES_GASTRODON_EAST]      = gMonIcon_GastrodonEast,
+    [SPECIES_AMBIPOM]             = gMonIcon_Ambipom,
+    [SPECIES_DRIFLOON]            = gMonIcon_Drifloon,
+    [SPECIES_DRIFBLIM]            = gMonIcon_Drifblim,
+    [SPECIES_BUNEARY]             = gMonIcon_Buneary,
+    [SPECIES_LOPUNNY]             = gMonIcon_Lopunny,
+    [SPECIES_MISMAGIUS]           = gMonIcon_Mismagius,
+    [SPECIES_HONCHKROW]           = gMonIcon_Honchkrow,
+    [SPECIES_GLAMEOW]             = gMonIcon_Glameow,
+    [SPECIES_PURUGLY]             = gMonIcon_Purugly,
+    [SPECIES_CHINGLING]           = gMonIcon_Chingling,
+    [SPECIES_STUNKY]              = gMonIcon_Stunky,
+    [SPECIES_SKUNTANK]            = gMonIcon_Skuntank,
+    [SPECIES_BRONZOR]             = gMonIcon_Bronzor,
+    [SPECIES_BRONZONG]            = gMonIcon_Bronzong,
+    [SPECIES_BONSLY]              = gMonIcon_Bonsly,
+    [SPECIES_MIME_JR]             = gMonIcon_MimeJr,
+    [SPECIES_HAPPINY]             = gMonIcon_Happiny,
+    [SPECIES_CHATOT]              = gMonIcon_Chatot,
+    [SPECIES_SPIRITOMB]           = gMonIcon_Spiritomb,
+    [SPECIES_GIBLE]               = gMonIcon_Gible,
+    [SPECIES_GABITE]              = gMonIcon_Gabite,
+    [SPECIES_GARCHOMP]            = gMonIcon_Garchomp,
+    [SPECIES_MUNCHLAX]            = gMonIcon_Munchlax,
+    [SPECIES_RIOLU]               = gMonIcon_Riolu,
+    [SPECIES_LUCARIO]             = gMonIcon_Lucario,
+    [SPECIES_HIPPOPOTAS]          = gMonIcon_Hippopotas,
+    [SPECIES_HIPPOWDON]           = gMonIcon_Hippowdon,
+    [SPECIES_SKORUPI]             = gMonIcon_Skorupi,
+    [SPECIES_DRAPION]             = gMonIcon_Drapion,
+    [SPECIES_CROAGUNK]            = gMonIcon_Croagunk,
+    [SPECIES_TOXICROAK]           = gMonIcon_Toxicroak,
+    [SPECIES_CARNIVINE]           = gMonIcon_Carnivine,
+    [SPECIES_FINNEON]             = gMonIcon_Finneon,
+    [SPECIES_LUMINEON]            = gMonIcon_Lumineon,
+    [SPECIES_MANTYKE]             = gMonIcon_Mantyke,
+    [SPECIES_SNOVER]              = gMonIcon_Snover,
+    [SPECIES_ABOMASNOW]           = gMonIcon_Abomasnow,
+    [SPECIES_WEAVILE]             = gMonIcon_Weavile,
+    [SPECIES_MAGNEZONE]           = gMonIcon_Magnezone,
+    [SPECIES_LICKILICKY]          = gMonIcon_Lickilicky,
+    [SPECIES_RHYPERIOR]           = gMonIcon_Rhyperior,
+    [SPECIES_TANGROWTH]           = gMonIcon_Tangrowth,
+    [SPECIES_ELECTIVIRE]          = gMonIcon_Electivire,
+    [SPECIES_MAGMORTAR]           = gMonIcon_Magmortar,
+    [SPECIES_TOGEKISS]            = gMonIcon_Togekiss,
+    [SPECIES_YANMEGA]             = gMonIcon_Yanmega,
+    [SPECIES_LEAFEON]             = gMonIcon_Leafeon,
+    [SPECIES_GLACEON]             = gMonIcon_Glaceon,
+    [SPECIES_GLISCOR]             = gMonIcon_Gliscor,
+    [SPECIES_MAMOSWINE]           = gMonIcon_Mamoswine,
+    [SPECIES_PORYGON_Z]           = gMonIcon_PorygonZ,
+    [SPECIES_GALLADE]             = gMonIcon_Gallade,
+    [SPECIES_PROBOPASS]           = gMonIcon_Probopass,
+    [SPECIES_DUSKNOIR]            = gMonIcon_Dusknoir,
+    [SPECIES_FROSLASS]            = gMonIcon_Froslass,
+    [SPECIES_ROTOM]               = gMonIcon_Rotom,
+    [SPECIES_UXIE]                = gMonIcon_Uxie,
+    [SPECIES_MESPRIT]             = gMonIcon_Mesprit,
+    [SPECIES_AZELF]               = gMonIcon_Azelf,
+    [SPECIES_DIALGA]              = gMonIcon_Dialga,
+    [SPECIES_PALKIA]              = gMonIcon_Palkia,
+    [SPECIES_HEATRAN]             = gMonIcon_Heatran,
+    [SPECIES_REGIGIGAS]           = gMonIcon_Regigigas,
+    [SPECIES_GIRATINA]            = gMonIcon_Giratina,
+    [SPECIES_GIRATINA_ALTERED]    = gMonIcon_GiratinaAltered,
+    [SPECIES_CRESSELIA]           = gMonIcon_Cresselia,
+    [SPECIES_PHIONE]              = gMonIcon_Phione,
+    [SPECIES_MANAPHY]             = gMonIcon_Manaphy,
+    [SPECIES_DARKRAI]             = gMonIcon_Darkrai,
+    [SPECIES_SHAYMIN_LAND]        = gMonIcon_ShayminLand,
+    [SPECIES_SHAYMIN_SKY]         = gMonIcon_ShayminSky,
+    [SPECIES_ARCEUS_NORMAL]       = gMonIcon_ArceusNormal,
 };
 
 const u8 gMonIconPaletteIndices[] = {
@@ -908,7 +1024,126 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_UNOWN_Y]     = 0,
     [SPECIES_UNOWN_Z]     = 0,
     [SPECIES_UNOWN_EMARK] = 0,
-    [SPECIES_UNOWN_QMARK] = 0
+    [SPECIES_UNOWN_QMARK] = 0,
+
+    // Sinnoh Pokemon Icons have been assigned my guesses as to what palette indices work best, but may still look glitchy. Haven't tested ALL yet.
+    
+    [SPECIES_TURTWIG]             = 1,
+    [SPECIES_GROTLE]              = 1,
+    [SPECIES_TORTERRA]            = 1,
+    [SPECIES_CHIMCHAR]            = 0,
+    [SPECIES_MONFERNO]            = 0,
+    [SPECIES_INFERNAPE]           = 0,
+    [SPECIES_PIPLUP]              = 2,
+    [SPECIES_PRINPLUP]            = 2,
+    [SPECIES_EMPOLEON]            = 2,
+    [SPECIES_STARLY]              = 0,
+    [SPECIES_STARAVIA]            = 0,
+    [SPECIES_STARAPTOR]           = 0,
+    [SPECIES_BIDOOF]              = 2,
+    [SPECIES_BIBAREL]             = 2,
+    [SPECIES_KRICKETOT]           = 0,
+    [SPECIES_KRICKETUNE]          = 0,
+    [SPECIES_SHINX]               = 2,
+    [SPECIES_LUXIO]               = 2,
+    [SPECIES_LUXRAY]              = 2,
+    [SPECIES_BUDEW]               = 1,
+    [SPECIES_ROSERADE]            = 1,
+    [SPECIES_CRANIDOS]            = 2,
+    [SPECIES_RAMPARDOS]           = 2,
+    [SPECIES_SHIELDON]            = 2,
+    [SPECIES_BASTIODON]           = 2,
+    [SPECIES_BURMY_PLANT]         = 1,
+    [SPECIES_BURMY_SANDY]         = 1,
+    [SPECIES_BURMY_TRASH]         = 0,
+    [SPECIES_WORMADAM_PLANT]      = 1,
+    [SPECIES_WORMADAM_SANDY]      = 1,
+    [SPECIES_WORMADAM_TRASH]      = 0,
+    [SPECIES_MOTHIM]              = 0,
+    [SPECIES_COMBEE]              = 0,
+    [SPECIES_VESPIQUEN]           = 0,
+    [SPECIES_PACHIRISU]           = 2,
+    [SPECIES_BUIZEL]              = 0,
+    [SPECIES_FLOATZEL]            = 0,
+    [SPECIES_CHERUBI]             = 0,
+    [SPECIES_CHERRIM_OVERCAST]    = 0,
+    [SPECIES_CHERRIM_SUNSHINE]    = 0,
+    [SPECIES_SHELLOS_WEST]        = 0,
+    [SPECIES_SHELLOS_EAST]        = 2,
+    [SPECIES_GASTRODON_WEST]      = 0,
+    [SPECIES_GASTRODON_EAST]      = 2,
+    [SPECIES_AMBIPOM]             = 0,
+    [SPECIES_DRIFLOON]            = 0,
+    [SPECIES_DRIFBLIM]            = 0,
+    [SPECIES_BUNEARY]             = 1,
+    [SPECIES_LOPUNNY]             = 1,
+    [SPECIES_MISMAGIUS]           = 0,
+    [SPECIES_HONCHKROW]           = 2,
+    [SPECIES_GLAMEOW]             = 2,
+    [SPECIES_PURUGLY]             = 2,
+    [SPECIES_CHINGLING]           = 1,
+    [SPECIES_STUNKY]              = 0,
+    [SPECIES_SKUNTANK]            = 0,
+    [SPECIES_BRONZOR]             = 2,
+    [SPECIES_BRONZONG]            = 2,
+    [SPECIES_BONSLY]              = 1,
+    [SPECIES_MIME_JR]             = 0,
+    [SPECIES_HAPPINY]             = 0,
+    [SPECIES_CHATOT]              = 0,
+    [SPECIES_SPIRITOMB]           = 0,
+    [SPECIES_GIBLE]               = 2,
+    [SPECIES_GABITE]              = 2,
+    [SPECIES_GARCHOMP]            = 2,
+    [SPECIES_MUNCHLAX]            = 2,
+    [SPECIES_RIOLU]               = 2,
+    [SPECIES_LUCARIO]             = 2,
+    [SPECIES_HIPPOPOTAS]          = 1,
+    [SPECIES_HIPPOWDON]           = 1,
+    [SPECIES_SKORUPI]             = 0,
+    [SPECIES_DRAPION]             = 0,
+    [SPECIES_CROAGUNK]            = 0,
+    [SPECIES_TOXICROAK]           = 0,
+    [SPECIES_CARNIVINE]           = 1,
+    [SPECIES_FINNEON]             = 2,
+    [SPECIES_LUMINEON]            = 2,
+    [SPECIES_MANTYKE]             = 2,
+    [SPECIES_SNOVER]              = 1,
+    [SPECIES_ABOMASNOW]           = 1,
+    [SPECIES_WEAVILE]             = 0,
+    [SPECIES_MAGNEZONE]           = 0,
+    [SPECIES_LICKILICKY]          = 1,
+    [SPECIES_RHYPERIOR]           = 1,
+    [SPECIES_TANGROWTH]           = 0,
+    [SPECIES_ELECTIVIRE]          = 1,
+    [SPECIES_MAGMORTAR]           = 0,
+    [SPECIES_TOGEKISS]            = 2,
+    [SPECIES_YANMEGA]             = 1,
+    [SPECIES_LEAFEON]             = 1,
+    [SPECIES_GLACEON]             = 2,
+    [SPECIES_GLISCOR]             = 0,
+    [SPECIES_MAMOSWINE]           = 2,
+    [SPECIES_PORYGON_Z]           = 0,
+    [SPECIES_GALLADE]             = 1,
+    [SPECIES_PROBOPASS]           = 2,
+    [SPECIES_DUSKNOIR]            = 0,
+    [SPECIES_FROSLASS]            = 2,
+    [SPECIES_ROTOM]               = 0,
+    [SPECIES_UXIE]                = 1,
+    [SPECIES_MESPRIT]             = 0,
+    [SPECIES_AZELF]               = 2,
+    [SPECIES_DIALGA]              = 2,
+    [SPECIES_PALKIA]              = 0,
+    [SPECIES_HEATRAN]             = 0,
+    [SPECIES_REGIGIGAS]           = 2,
+    [SPECIES_GIRATINA]            = 0,
+    [SPECIES_GIRATINA_ALTERED]    = 2,
+    [SPECIES_CRESSELIA]           = 0,
+    [SPECIES_PHIONE]              = 2,
+    [SPECIES_MANAPHY]             = 2,
+    [SPECIES_DARKRAI]             = 0,
+    [SPECIES_SHAYMIN_LAND]        = 1,
+    [SPECIES_SHAYMIN_SKY]         = 1,
+    [SPECIES_ARCEUS_NORMAL]       = 1,
 };
 
 const struct SpritePalette gMonIconPaletteTable[] = {
@@ -1023,7 +1258,7 @@ u8 CreateMonIcon(u16 species, SpriteCallback callback, s16 x, s16 y, u8 subprior
         };
 
     if (species > NUM_SPECIES)
-        iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG;
+        iconTemplate.paletteTag = gMonIconPaletteIndices[0];
 
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
 
@@ -1068,10 +1303,7 @@ u16 GetIconSpecies(u16 species, u32 personality)
     }
     else
     {
-        if (species > NUM_SPECIES)
-            result = SPECIES_NONE;
-        else
-            result = species;
+        result = species;
     }
 
     return result;
@@ -1099,8 +1331,6 @@ u16 MailSpeciesToIconSpecies(u16 species)
     }
     else
     {
-        if (species > (SPECIES_UNOWN_B - 1))
-            species = SPECIES_NONE;
         return GetIconSpecies(species, 0);
     }
 }
@@ -1134,7 +1364,7 @@ void SafeLoadMonIconPalette(u16 species)
 {
     u8 palIndex;
     if (species > NUM_SPECIES)
-        species = SPECIES_NONE;
+        species = 0;
     palIndex = gMonIconPaletteIndices[species];
     if (IndexOfSpritePaletteTag(gMonIconPaletteTable[palIndex].tag) == 0xFF)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
@@ -1158,8 +1388,6 @@ void FreeMonIconPalettes(void)
 void SafeFreeMonIconPalette(u16 species)
 {
     u8 palIndex;
-    if (species > NUM_SPECIES)
-        species = SPECIES_NONE;
     palIndex = gMonIconPaletteIndices[species];
     FreeSpritePaletteByTag(gMonIconPaletteTable[palIndex].tag);
 }
@@ -1191,15 +1419,11 @@ void LoadMonIconPalettesAt(u16 offset)
 
 const u16 *GetValidMonIconPalettePtr(u16 species)
 {
-    if (species > NUM_SPECIES)
-        species = SPECIES_NONE;
     return gMonIconPaletteTable[gMonIconPaletteIndices[species]].data;
 }
 
 u8 GetValidMonIconPalIndex(u16 species)
 {
-    if (species > NUM_SPECIES)
-        species = SPECIES_NONE;
     return gMonIconPaletteIndices[species];
 }
 

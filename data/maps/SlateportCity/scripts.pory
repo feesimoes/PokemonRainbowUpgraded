@@ -1,1 +1,411 @@
 mapscripts SlateportCity_MapScripts {}
+
+script SlateportCity_Sign 
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nA bustling port city!\pPeople from different regions\ngather and mingle here."))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Harbor
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nSLATEPORT HARBOR\pAn entry point for people and\nships alike, to the HOENN REGION."))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_ContestHall
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nHOENN'S CONTEST HALL\pPOKéMON CONTEST COORDINATOR:\nLISIA"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sign_FanClub
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nPOKéMON FAN CLUB\pAll POKéMON fans welcome!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sign_Market
+{
+    lock
+    msgbox(format("SLATEPORT MARKET -\nUnique items are sold here!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sign_Oceanic_Museum
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nOCEANIC MUSEUM\pThe endless sea sustains all life!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sign_SternsShipyard
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nSTERN'S SHIPYARD\pNeed a boat? CAPT. STERN'S\ngot you covered!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sign_NameRater
+{
+    lock
+    msgbox(format("SLATEPORT CITY -\nNAME RATER\pStop by to have POKéMON nicknames\nevaluated, or changed!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Sailor
+{
+    lock
+    faceplayer
+    checkitem(ITEM_HM08, 1)
+    if (var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("When using SURF over a body\nof water, the darker water...\pUse DIVE on those spots to\ngo underwater!"))
+        msgbox(format("If you need to return to the\nsurface, just use DIVE again!\pYou can't always re-surface in\nany spot, though. Be careful!"))
+    }
+    else
+    {
+        msgbox(format("You definitely seem capable of...\nHm? You don't have HM08: DIVE?!\pYou're lucky I keep extras!\nHere, take this!"))
+        giveitem(ITEM_HM08, 1)
+        msgbox(format("When using SURF over a body of\nwater, there are these...\pWell, deep, spots of water.\nYou can DIVE underwater, too!"))
+        msgbox(format("Although, in most cases, DIVE\nunderwater takes you back up...\pI wonder why there isn't really\na separate HM for that?"))
+    }
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_SecretHiddenPowerClerk
+{
+    lock
+    faceplayer
+    msgbox(format("Oh, you found me!"))    
+    pokemart(SlateportCity_SecretHiddenTMItems)
+    msgbox(format("Please keep my location a\nsecret, okay?\p...Or tell everyone, your choice!\n...It's good for business..."))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_SecretHiddenTMItems 
+{
+    ITEM_TM10
+    ITEM_TM43    
+    ITEM_NONE
+}
+
+script SlateportCity_SecretBase_FurnitureClerk
+{
+    lock
+    faceplayer
+    msgbox(format("I've got a wide range of\nfurniture for sale!\pDoes anything interest you for\nyour SECRET BASE?"))    
+    pokemartdecoration(SlateportCity_SecretBase_FurnitureDecorItems)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_SecretBase_FurnitureDecorItems 
+{
+    DECOR_SMALL_DESK
+    DECOR_SMALL_CHAIR
+    DECOR_COMFORT_DESK
+    DECOR_COMFORT_CHAIR
+    DECOR_TROPICAL_PLANT
+    DECOR_GORGEOUS_PLANT
+    DECOR_NONE   
+}
+
+script SlateportCity_SecretBase_DollClerk
+{
+    lock
+    faceplayer
+    msgbox(format("I've got several POKéMON\nDOLLS for sale!\pDoes anything interest you for\nyour SECRET BASE?"))    
+    pokemart(SlateportCity_SecretBase_DollDecorItems)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_SecretBase_DollDecorItems 
+{
+    ITEM_POKE_DOLL
+    ITEM_FLUFFY_TAIL
+}
+
+script SlateportCity_TMClerk1_6
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM1_6List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM1_6List
+{
+    ITEM_TM01
+    ITEM_TM02
+    ITEM_TM03
+    ITEM_TM04
+    ITEM_TM05
+    ITEM_TM06
+}
+
+script SlateportCity_TMClerk7_13
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM7_13List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM7_13List
+{
+    ITEM_TM07
+    ITEM_TM08
+    ITEM_TM09
+    ITEM_TM11
+    ITEM_TM12
+    ITEM_TM13
+}
+
+script SlateportCity_TMClerk14_19
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM14_19List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM14_19List
+{
+    ITEM_TM14
+    ITEM_TM15
+    ITEM_TM16
+    ITEM_TM17
+    ITEM_TM18
+    ITEM_TM19
+}
+
+script SlateportCity_TMClerk20_25
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM20_25List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM20_25List
+{
+    ITEM_TM20
+    ITEM_TM21
+    ITEM_TM22
+    ITEM_TM23
+    ITEM_TM24
+    ITEM_TM25
+}
+
+script SlateportCity_TMClerk26_31
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM26_31List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM26_31List
+{
+    ITEM_TM26
+    ITEM_TM27
+    ITEM_TM28
+    ITEM_TM29
+    ITEM_TM30
+    ITEM_TM31
+}
+
+script SlateportCity_TMClerk32_37
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM32_37List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM32_37List
+{
+    ITEM_TM32
+    ITEM_TM33
+    ITEM_TM34
+    ITEM_TM35
+    ITEM_TM36
+    ITEM_TM37
+}
+
+script SlateportCity_TMClerk38_44
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM38_44List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM38_44List
+{
+    ITEM_TM38
+    ITEM_TM39
+    ITEM_TM40
+    ITEM_TM41
+    ITEM_TM42
+    ITEM_TM44
+}
+
+script SlateportCity_TMClerk45_50
+{
+    lock
+    faceplayer
+    msgbox(format("I have several TMs for\nsale, here! Want any?"))    
+    pokemart(SlateportCity_TM45_50List)
+    msgbox(format("Please come again!"))
+    closemessage
+    release
+    end
+}
+
+mart SlateportCity_TM45_50List
+{
+    ITEM_TM45
+    ITEM_TM46
+    ITEM_TM47
+    ITEM_TM48
+    ITEM_TM49
+    ITEM_TM50
+}
+
+script SlateportCity_Lass
+{
+    lock
+    faceplayer
+    msgbox(format("I shop here regularly, but\nat the LILYCOVE DEPT. STORE too!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Beauty
+{
+    lock
+    faceplayer
+    msgbox(format("There's a tranquil FLOWER SHOP on\n ROUTE 104.\pI often stop by for free BERRIES,\nalmost daily!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Little_Boy
+{
+    lock
+    faceplayer
+    msgbox(format("You can't join the FAN CLUB if\nyou don't even like POKéMON!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Old_Woman
+{
+    lock
+    faceplayer
+    msgbox(format("The ocean out there is very much\nlike life in itself...\pThere is a constant flow, a never\nending cycle...\pThings aren't always the same, but\npatterns repeat themselves."))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Fisher
+{
+    lock
+    faceplayer
+    msgbox(format("There's a really rare type of\nMAGIKARP that shines gold!\pHm... Have you seen it?\nIt's definitely a must!"))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Scientist
+{
+    lock
+    faceplayer
+    msgbox(format("If you attract a CORSAIR'S\nattention, do what they say.\pTrust me..."))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Super_Nerd
+{
+    lock
+    faceplayer
+    msgbox(format("Apparently, MAXIE used to help out\nhere, in SLATEPORT.\pCAPT. STERN is very good at\nreading his old jumbled blueprints."))    
+    closemessage
+    release
+    end
+}
+
+script SlateportCity_Woman_1
+{
+    lock
+    faceplayer
+    msgbox(format("ARCHIE from TEAM CORSAIR is, uh...\nactually... Really handsome!\pMAXIE is just such a geek...\nAh! No, don't mind me!"))    
+    closemessage
+    release
+    end
+}

@@ -1,1 +1,76 @@
-mapscripts Route45_MapScripts {}
+mapscripts Route45_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_MAP_SCENE_ROUTE45) == 1)
+        {
+            setobjectxyperm(LOCALID_DRAGONS_DEN_GUARD, 18, 5)
+        }
+    }
+}
+
+script Route45_DarkCave_Sign
+{
+    lock
+    msgbox(format("DARK CAVE ENTRANCE -\nROUTE 45"))
+    closemessage
+    release
+    end
+}
+
+script Route45_DragonsDenAhead_Sign
+{
+    lock
+    msgbox(format("DRAGONS' DEN detour ahead!\nBLACKTHORN CITY awaits further up."))
+    closemessage
+    release
+    end
+}
+
+script Route45_DragonsDen_Sign
+{
+    lock
+    msgbox(format("DRAGONS' DEN\nWhere TAMERS turn into MASTERS!"))
+    closemessage
+    release
+    end
+}
+
+script Route45_DragonsDenRoadblock_Old_Man_1
+{
+    lock
+    faceplayer
+    getplayerxy(VAR_TEMP_8, VAR_TEMP_9)
+    if (var(VAR_TEMP_8) == 17 && var(VAR_TEMP_9) == 5)
+    {
+        msgbox(format("With a heart of gold, and a\nsoul with silver lining...\pYou will definitely pass tests\nahead with flying colors, no doubt."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("This place is reserved to our\nrightful DRAGON MASTERS, only..."))
+            msgbox(format("Ah, but you wish to earn\nCLAIR'S RISING BADGE, yes?\pVery well. Your display of\nstrength is crystal clear..."))
+            delay(30)
+            applymovement(LOCALID_DRAGONS_DEN_GUARD, Route45_DragonsDenRoadblock_Old_Man_1_AllowPlayerPassage)
+            waitmessage
+            waitmovement
+            setobjectxyperm(LOCALID_DRAGONS_DEN_GUARD, 18, 5)
+            setvar(VAR_MAP_SCENE_ROUTE45, 1)
+        }
+        else
+        {
+            msgbox(format("This place is reserved to our\nrightful DRAGON MASTERS, only."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+movement Route45_DragonsDenRoadblock_Old_Man_1_AllowPlayerPassage 
+{
+    walk_slow_right
+    face_down
+    step_end
+}

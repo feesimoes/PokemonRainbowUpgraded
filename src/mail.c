@@ -466,7 +466,6 @@ void ReadMail(struct Mail * mail, void (*savedCallback)(void), bool8 messageExis
         break;
     }
     species = MailSpeciesToSpecies(mail->species, &sp0);
-    // if (species != SPECIES_NONE && species < NUM_SPECIES) <- Original code
     if (species != SPECIES_NONE && species < NUM_SPECIES)
     {
         switch (sMailViewResources->mailType)

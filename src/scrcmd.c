@@ -37,6 +37,8 @@
 #include "constants/event_objects.h"
 #include "constants/maps.h"
 #include "constants/sound.h"
+#include "region_map.h"
+#include "decoration.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -45,6 +47,7 @@ extern const u8 *const gStdScriptsEnd[];
 
 static bool8 ScriptContext_NextCommandEndsScript(struct ScriptContext * ctx);
 static u8 ScriptContext_GetQuestLogInput(struct ScriptContext * ctx);
+void StartDecorationShop(void); 
 
 static EWRAM_DATA ptrdiff_t sAddressOffset = 0; // For relative addressing in vgoto etc., used by saved scripts (e.g. Mystery Event)
 static EWRAM_DATA u8 sQuestLogWaitButtonPressTimer = 0;
@@ -1607,7 +1610,6 @@ bool8 ScrCmd_bufferleadmonspeciesname(struct ScriptContext * ctx)
     u8 *dest = sScriptStringVars[stringVarIndex];
     u8 partyIndex = GetLeadMonIndex();
     u32 species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
-    u8 speciesFormsValue = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES_FORMS_VALUE, NULL);
     StringCopy(dest, gSpeciesNames[species]);
     return FALSE;
 }

@@ -1,0 +1,11 @@
+mapscripts GoldenrodCity_GTS_2F_MapScripts {}
+
+script GoldenrodCity_GTS_2F_Little_Boy 
+{
+    lock
+    faceplayer
+    msgbox(format("There are some weird people\nin the computer room here.\pI thought they would be easy\nto kick out, but no!\pThey're honestly no joke..."))    
+    closemessage
+    release
+    end
+}

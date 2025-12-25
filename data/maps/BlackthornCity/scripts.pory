@@ -1,4 +1,36 @@
-mapscripts BlackthornCity_MapScripts {}
+mapscripts BlackthornCity_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (flag(FLAG_JOHTO_BADGE08_GET) == TRUE)
+        {
+            setmetatile(29, 4, METATILE_General_Plain_Mowed, 0)
+            setmetatile(30, 4, METATILE_General_Plain_Mowed, 0)
+            setmetatile(31, 4, METATILE_General_Plain_Mowed, 0)
+            special(DrawWholeMapView)
+        }
+    }
+}
+
+script BlackthornCity_DragonsJanitor_OldMan1 
+{
+    lock
+    faceplayer
+    msgbox(format("Hello there...\nWelcome."))
+    checkitem(ITEM_DRAGON_FANG_2, 1)
+    if (var(VAR_RESULT) == FALSE)
+    {
+        msgbox(format("Ah, by the way...\nI found this, when cleaning.\pI don't believe it's of any\nuse, so you may have it."))
+        giveitem(ITEM_DRAGON_FANG_2, 1)
+    }
+    else
+    {
+        msgbox(format("The DRAGONS' DEN is down\nthrough this cave's path."))
+    }
+    closemessage
+    release
+    end
+}
 
 script BlackthornCity_Sign 
 {

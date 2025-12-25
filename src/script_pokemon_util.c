@@ -52,7 +52,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     u8 heldItem[2];
     struct Pokemon *mon = AllocZeroed(sizeof(struct Pokemon));
 
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
@@ -63,8 +63,11 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     {
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_CAUGHT);
+        if (nationalDexNum < SPECIES_EGG)
+        {
+            GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
+            GetSetPokedexFlag(nationalDexNum, FLAG_SET_CAUGHT);
+        }
         break;
     }
 
@@ -116,13 +119,22 @@ static bool8 CheckPartyMonHasHeldItem(u16 item)
     return FALSE;
 }
 
-bool8 DoesPartyHaveEnigmaBerry(void)
+// Normally, this is a check for the Enigma Berry. It has been repurposed for Generation 4 and onward Pokemon Species for normal multiplayer features.
+bool8 DoesPartyHaveParadoxMon(void)
 {
-    bool8 hasItem = CheckPartyMonHasHeldItem(ITEM_ENIGMA_BERRY);
-    if (hasItem == TRUE)
-        GetBerryNameByBerryType(ItemIdToBerryType(ITEM_ENIGMA_BERRY), gStringVar1);
+    int index;
+    u16 species;
+    
+    for (index = 0; index < PARTY_SIZE; index++)
+    {
+        species = GetMonData(&gPlayerParty[index], MON_DATA_SPECIES_OR_EGG);
+        if (species >= SPECIES_TURTWIG)
+        {
+            return TRUE;
+        }
+    }
 
-    return hasItem;
+    return FALSE;
 }
 
 void CreateScriptedWildMon(u16 species, u8 level, u16 item)
@@ -130,7 +142,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
     u8 heldItem[2];
 
     ZeroEnemyPartyMons();
-    CreateMon(&gEnemyParty[0], species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&gEnemyParty[0], species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
     if (item)
     {
         heldItem[0] = item;

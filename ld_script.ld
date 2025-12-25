@@ -1033,6 +1033,43 @@ SECTIONS {
         sound/songs/midi/mus_vs_gold_kris.o(.rodata);
         sound/songs/midi/mus_vs_champion_lance.o(.rodata);
         sound/songs/midi/mus_route47.o(.rodata);
+        sound/songs/midi/mus_mt_ember.o(.rodata);
+        sound/songs/midi/mus_goldenrod.o(.rodata);
+        sound/songs/midi/mus_vs_trainer_sevii.o(.rodata);
+        sound/songs/midi/mus_encounter_rocket_exec.o(.rodata);
+        sound/songs/midi/mus_national_park.o(.rodata);
+        sound/songs/midi/mus_national_park_intro.o(.rodata);
+        sound/songs/midi/mus_olivine.o(.rodata);
+        sound/songs/midi/mus_vs_jessie_james.o(.rodata);
+        sound/songs/midi/mus_encounter_johto_shady.o(.rodata);
+        sound/songs/midi/mus_mahogany.o(.rodata);
+        sound/songs/midi/mus_rock_tunnel.o(.rodata);
+        sound/songs/midi/mus_encounter_johto_sage.o(.rodata);
+        sound/songs/midi/mus_encounter_truthseeker.o(.rodata);
+        sound/songs/midi/mus_vs_truthseeker_music.o(.rodata);
+        sound/songs/midi/mus_encounter_calypso.o(.rodata);
+        sound/songs/midi/mus_vs_calypso.o(.rodata);
+        sound/songs/midi/mus_encounter_xxvii.o(.rodata);
+        sound/songs/midi/mus_vs_xxvii.o(.rodata);
+        sound/songs/midi/mus_encounter_johto_kid.o(.rodata);
+        sound/songs/midi/mus_encounter_kimono.o(.rodata);
+        sound/songs/midi/mus_encounter_rival_champ.o(.rodata);
+        sound/songs/midi/mus_ice_path.o(.rodata);
+        sound/songs/midi/mus_blackthorn.o(.rodata);
+        sound/songs/midi/mus_ecruteak.o(.rodata);
+        sound/songs/midi/mus_olivine_lighthouse.o(.rodata);
+        sound/songs/midi/mus_vs_champion_cynthia.o(.rodata);
+        sound/songs/midi/mus_encounter_clair.o(.rodata);
+        sound/songs/midi/mus_vs_arceus.o(.rodata);
+        sound/songs/midi/mus_global_terminal_tower.o(.rodata);
+        sound/songs/midi/mus_vs_wild_guyana.o(.rodata);
+        sound/songs/midi/mus_gts.o(.rodata);
+        sound/songs/midi/mus_johto_route_gate.o(.rodata);
+        sound/songs/midi/mus_poke_center_guyana.o(.rodata);
+        sound/songs/midi/mus_game_corner_johto.o(.rodata);
+        sound/songs/midi/mus_route218.o(.rodata);
+        sound/songs/midi/mus_vs_wild_sinnoh.o(.rodata);
+        sound/songs/midi/mus_brigettes_room.o(.rodata);
     } > ROM =0
 
     lib_rodata :

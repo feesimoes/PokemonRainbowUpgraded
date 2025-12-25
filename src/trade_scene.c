@@ -1036,9 +1036,12 @@ static void UpdatePokedexForReceivedMon(u8 partyIdx)
     {
         u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
         u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
-        species = SpeciesToNationalPokedexNum(species);
-        GetSetPokedexFlag(species, FLAG_SET_SEEN);
-        HandleSetPokedexFlag(species, FLAG_SET_CAUGHT, personality);
+        if (species < SPECIES_EGG)
+        {
+            species = SpeciesToNationalPokedexNum(species);
+            GetSetPokedexFlag(species, FLAG_SET_SEEN);
+            HandleSetPokedexFlag(species, FLAG_SET_CAUGHT, personality);
+        }
     }
 }
 
@@ -2460,7 +2463,7 @@ static void CreateInGameTradePokemonInternal(u8 playerSlot, u8 inGameTradeIdx)
     u16 metLocation = METLOC_IN_GAME_TRADE;
     struct Pokemon * tradeMon = &gEnemyParty[0];
     u8 mailNum;
-    CreateMon(tradeMon, inGameTrade->species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, TRUE, inGameTrade->otId);
+    CreateMon(tradeMon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, TRUE, inGameTrade->otId);
     SetMonData(tradeMon, MON_DATA_HP_IV, &inGameTrade->ivs[0]);
     SetMonData(tradeMon, MON_DATA_ATK_IV, &inGameTrade->ivs[1]);
     SetMonData(tradeMon, MON_DATA_DEF_IV, &inGameTrade->ivs[2]);

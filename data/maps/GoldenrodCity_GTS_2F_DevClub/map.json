@@ -1,0 +1,90 @@
+{
+  "id": "MAP_GOLDENROD_CITY_GTS_2F_DEV_CLUB",
+  "name": "GoldenrodCity_GTS_2F_DevClub",
+  "layout": "LAYOUT_GOLDENROD_CITY_GTS_2F_DEV_CLUB",
+  "music": "MUS_GLOBAL_TERMINAL_TOWER",
+  "region_map_section": "MAPSEC_GOLDENROD_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_DEV_RODOLFO",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GoldenrodCity_GTS_2F_DevClub_Rodolfo",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEV_TRUTHSEEKER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GoldenrodCity_GTS_2F_DevClub_TruthSeeker",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEV_SOUP",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GoldenrodCity_GTS_2F_DevClub_SleepyGuy",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEV_CALYPSO",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GoldenrodCity_GTS_2F_DevClub_Calypso",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 6,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_GTS_2F",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

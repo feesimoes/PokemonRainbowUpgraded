@@ -1,0 +1,11 @@
+mapscripts Route34_IlexForestEntrance_MapScripts {}
+
+script Route34_IlexForestEntrance_Guard 
+{
+    lock
+    faceplayer
+    msgbox(format("ROUTE 34 is up ahead.\nAh, you are a TRAINER, yes?\pBe sure to stop by the\nDAY-CARE on ROUTE 34!"))
+    closemessage
+    release
+    end   
+}

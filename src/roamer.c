@@ -100,7 +100,7 @@ void CreateInitialRoamerMon(void)
 {
     struct Pokemon * mon = &gEnemyParty[0];
     u16 species = GetRoamerSpecies();
-    CreateMon(mon, species, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), 50, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, 50, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     ROAMER->species = species;
     ROAMER->level = 50;
     ROAMER->status = 0;

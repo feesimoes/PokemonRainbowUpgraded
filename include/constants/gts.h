@@ -1,0 +1,16 @@
+#ifndef GUARD_CONSTANTS_GTS_H
+#define GUARD_CONSTANTS_GTS_H
+
+// Op-Codes
+#define OP_DEPOSIT  1
+#define OP_CHECK    2
+#define OP_FULFILL  3
+#define OP_WITHDRAW 4
+
+// Server Responses
+#define RESPONSE_ERR 101
+#define RESPONSE_TRADE_DONE 102
+#define RESPONSE_EMPTY 103
+#define RESPONSE_OK_WITH_CODE 200
+
+#endif // GUARD_CONSTANTS_GTS_H

@@ -29,6 +29,10 @@
 #include "constants/items.h"
 #include "constants/game_stat.h"
 #include "constants/field_weather.h"
+#include "constants/decorations.h"
+#include "decoration.h"
+
+extern const struct Decoration gDecorations[];
 
 #define tItemCount data[1]
 #define tItemId data[5]
@@ -225,8 +229,9 @@ static u8 GetMartTypeFromItemList(u32 martType)
     u16 i;
 
     if (martType != MART_TYPE_REGULAR)
-        return martType;
-
+    {
+        return MART_TYPE_DECOR;
+    }
     for (i = 0; i < sShopData.itemCount && sShopData.itemList[i] != 0; i++)
     {
         if (ItemId_GetPocket(sShopData.itemList[i]) == POCKET_TM_CASE)
@@ -508,6 +513,7 @@ static void BuyMenuDrawGraphics(void)
 bool8 BuyMenuBuildListMenuTemplate(void)
 {
     u16 i, v;
+    u16 decorId;
 
     sShopMenuListMenu = Alloc((sShopData.itemCount + 1) * sizeof(*sShopMenuListMenu));
     if (sShopMenuListMenu == NULL
@@ -520,11 +526,21 @@ bool8 BuyMenuBuildListMenuTemplate(void)
 
     for (i = 0; i < sShopData.itemCount; i++)
     {
-        PokeMartWriteNameAndIdAt(&sShopMenuListMenu[i], sShopData.itemList[i], sShopMenuItemStrings[i]);
+        sShopMenuListMenu[i].index = sShopData.itemList[i];
+
+        if (sShopData.martType == MART_TYPE_DECOR)
+        {
+            decorId = sShopData.itemList[i];
+            sShopMenuListMenu[i].label = gDecorations[decorId].name;
+        }
+        else
+        {
+            PokeMartWriteNameAndIdAt(&sShopMenuListMenu[i], sShopData.itemList[i], sShopMenuItemStrings[i]);
+        }
     }
     StringCopy(sShopMenuItemStrings[i], gFameCheckerText_Cancel);
     sShopMenuListMenu[i].label = sShopMenuItemStrings[i];
-    sShopMenuListMenu[i].index = -2;
+    sShopMenuListMenu[i].index = LIST_CANCEL;
     gMultiuseListMenuTemplate.items = sShopMenuListMenu;
     gMultiuseListMenuTemplate.totalItems = sShopData.itemCount + 1;
     gMultiuseListMenuTemplate.windowId = 4;
@@ -572,13 +588,48 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         PlaySE(SE_SELECT);
 
     if (item != INDEX_CANCEL)
-        description = ItemId_GetDescription(item);
+    {
+        if (sShopData.martType == MART_TYPE_DECOR)
+        {
+            description = gDecorations[item].description;
+        }
+        else
+        {
+            // Standard item description
+            description = ItemId_GetDescription(item);
+        }
+    }
     else
+    {
         description = gText_QuitShopping;
+    }
 
     FillWindowPixelBuffer(5, PIXEL_FILL(0));
-    if (sShopData.martType != MART_TYPE_TMHM)
+
+    if (sShopData.martType == MART_TYPE_DECOR)
     {
+        // Decoration Mart Logic
+        DestroyItemMenuIcon(sShopData.itemSlot ^ 1);
+        
+        if (item != INDEX_CANCEL)
+        {
+            // NOTE: Decoration Sprites are different from Item Icons.
+            // FireRed's shop cannot natively render Decoration graphics.
+            // For now, we use a placeholder icon (ITEM_POKE_DOLL) so it doesn't crash.
+            CreateItemMenuIcon(ITEM_POKE_DOLL, sShopData.itemSlot);
+        }
+        else
+        {
+            // Load "None" icon for Cancel
+            CreateItemMenuIcon(ITEMS_COUNT, sShopData.itemSlot);
+        }
+
+        sShopData.itemSlot ^= 1;
+        BuyMenuPrint(5, FONT_NORMAL, description, 0, 3, 2, 1, 0, 0);
+    }
+    else if (sShopData.martType != MART_TYPE_TMHM)
+    {
+        // Regular Item Mart Logic
         DestroyItemMenuIcon(sShopData.itemSlot ^ 1);
         if (item != INDEX_CANCEL)
             CreateItemMenuIcon(item, sShopData.itemSlot);
@@ -588,10 +639,12 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         sShopData.itemSlot ^= 1;
         BuyMenuPrint(5, FONT_NORMAL, description, 0, 3, 2, 1, 0, 0);
     }
-    else //TM Mart
+    else 
     {
+        // TM/HM Mart Logic
         FillWindowPixelBuffer(6, PIXEL_FILL(0));
-        LoadTmHmNameInMart(item);
+        if (item != INDEX_CANCEL)
+            LoadTmHmNameInMart(item);
         BuyMenuPrint(5, FONT_NORMAL, description, 2, 3, 1, 0, 0, 0);
     }
 }
@@ -891,7 +944,14 @@ static void Task_BuyMenu(u8 taskId)
             BuyMenuRemoveScrollIndicatorArrows();
             BuyMenuPrintCursor(tListTaskId, 2);
             RecolorItemDescriptionBox(1);
-            sShopData.itemPrice = ItemId_GetPrice(itemId);
+            if (sShopData.martType == MART_TYPE_DECOR)
+            {
+                sShopData.itemPrice = gDecorations[itemId].price;
+            }
+            else
+            {
+                sShopData.itemPrice = ItemId_GetPrice(itemId);
+            }
             if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData.itemPrice))
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
@@ -938,7 +998,14 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
 
     if (AdjustQuantityAccordingToDPadInput(&tItemCount, sShopData.maxQuantity) == TRUE)
     {
-        sShopData.itemPrice = ItemId_GetPrice(tItemId) * tItemCount;
+        if (sShopData.martType == MART_TYPE_DECOR)
+        {
+            sShopData.itemPrice = gDecorations[tItemId].price;
+        }
+        else
+        {
+            sShopData.itemPrice = ItemId_GetPrice(tItemId);
+        }
         BuyMenuPrintItemQuantityAndPrice(taskId);
     }
     else
@@ -1134,6 +1201,10 @@ void CreateDecorationShop1Menu(const u16 *itemsForSale)
     SetShopItemsForSale(itemsForSale);
     CreateShopMenu(MART_TYPE_DECOR);
     SetShopMenuCallback(ScriptContext_Enable);
+    DebugFunc_PrintShopMenuHistoryBeforeClearMaybe();
+    memset(&sHistory, 0, sizeof(sHistory));
+    sHistory[0].mapSec = gMapHeader.regionMapSectionId;
+    sHistory[1].mapSec = gMapHeader.regionMapSectionId;
 }
 
 void CreateDecorationShop2Menu(const u16 *itemsForSale)

@@ -53,17 +53,21 @@
 #define ITEM_BLUE_SHARD 49
 #define ITEM_YELLOW_SHARD 50
 #define ITEM_GREEN_SHARD 51
-#define ITEM_034 52
-#define ITEM_035 53
-#define ITEM_036 54
-#define ITEM_037 55
-#define ITEM_038 56
-#define ITEM_039 57
-#define ITEM_03A 58
-#define ITEM_03B 59
-#define ITEM_03C 60
-#define ITEM_03D 61
+
+// Repurposed item slots for new evolution items
+#define ITEM_ICE_STONE 52
+#define ITEM_SHINY_STONE 53
+#define ITEM_DAWN_STONE 54
+#define ITEM_DUBIOUS_DISC 55
+#define ITEM_KINGS_ROCK 56
+#define ITEM_METAL_COAT 57
+#define ITEM_DRAGON_SCALE 58
+#define ITEM_DEEP_SEA_TOOTH 59
+#define ITEM_DEEP_SEA_SCALE 60
+#define ITEM_UP_GRADE 61
 #define ITEM_03E 62
+
+// Stat-raising items, etc.
 #define ITEM_HP_UP 63
 #define ITEM_PROTEIN 64
 #define ITEM_IRON 65
@@ -195,21 +199,21 @@
 #define ITEM_SOOTHE_BELL 184
 #define ITEM_MENTAL_HERB 185
 #define ITEM_CHOICE_BAND 186
-#define ITEM_KINGS_ROCK 187
+#define ITEM_EMPTY_SLOT_187 187 // King's Rock
 #define ITEM_SILVER_POWDER 188
 #define ITEM_AMULET_COIN 189
 #define ITEM_CLEANSE_TAG 190
 #define ITEM_SOUL_DEW 191
-#define ITEM_DEEP_SEA_TOOTH 192
-#define ITEM_DEEP_SEA_SCALE 193
+#define ITEM_EMPTY_SLOT_192 192 // Deep Sea Tooth
+#define ITEM_EMPTY_SLOT_193 193 // Deep Sea Scale
 #define ITEM_SMOKE_BALL 194
 #define ITEM_EVERSTONE 195
 #define ITEM_FOCUS_BAND 196
 #define ITEM_LUCKY_EGG 197
 #define ITEM_SCOPE_LENS 198
-#define ITEM_METAL_COAT 199
+#define ITEM_EMPTY_SLOT_199 199 // Metal Coat
 #define ITEM_LEFTOVERS 200
-#define ITEM_DRAGON_SCALE 201
+#define ITEM_EMPTY_SLOT_201 201 // Dragon Scale
 #define ITEM_LIGHT_BALL 202
 #define ITEM_SOFT_SAND 203
 #define ITEM_HARD_STONE 204
@@ -226,7 +230,7 @@
 #define ITEM_CHARCOAL 215
 #define ITEM_DRAGON_FANG 216
 #define ITEM_SILK_SCARF 217
-#define ITEM_UP_GRADE 218
+#define ITEM_EMPTY_SLOT_218 218 // Up-Grade
 #define ITEM_SHELL_BELL 219
 #define ITEM_SEA_INCENSE 220
 #define ITEM_LAX_INCENSE 221

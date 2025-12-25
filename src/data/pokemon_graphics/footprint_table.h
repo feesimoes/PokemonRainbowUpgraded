@@ -413,12 +413,6 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_DEOXYS] = gMonFootprint_Deoxys,
     [SPECIES_CHIMECHO] = gMonFootprint_Chimecho,
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
-};
-
-//Expanded Species names for tables 1-16 Below:
-const u8 *const gMonFootprintTableExpanded_1[] =
-{
-    [SPECIES_NONE_1] = gMonFootprint_Bulbasaur,
     [SPECIES_TURTWIG] = gMonFootprint_Turtwig,
     [SPECIES_GROTLE] = gMonFootprint_Grotle,
     [SPECIES_TORTERRA] = gMonFootprint_Torterra,

@@ -288,7 +288,7 @@
 #define MUS_LAVENDER              280 // MUS_SHION
 #define MUS_HEAL_UNUSED           281 // MUS_KAIHUKU
 #define MUS_CYCLING               282 // MUS_CYCLING
-#define MUS_ENCOUNTER_ROCKET      283 // MUS_ROCKET
+#define MUS_ENCOUNTER_ROCKET      283 // MUS_ROCKET = Remix by TruthSeeker Music! (Unreviewed, inserted as-is)
 #define MUS_ENCOUNTER_GIRL        284 // MUS_SHOUJO
 #define MUS_ENCOUNTER_BOY         285 // MUS_SHOUNEN
 #define MUS_HALL_OF_FAME          286 // MUS_DENDOU
@@ -407,7 +407,7 @@
 #define MUS_LINDEN                399 // MUS_LINDEN
 #define MUS_KAIETEUR_JUNGLE       400 // MUS_KAIETEUR_JUNGLE = Abandoned Ship remix
 #define MUS_MT_MORA_CAVE          401 // MUS_MT_MORA_CAVE = Petalburg Woods remix
-#define MUS_SLATEPORT             402 // MUS_SLATEPORT
+#define MUS_SLATEPORT             402 // MUS_SLATEPORT = Showcase Slateport City theme from Pokemon Box R/S remix
 #define MUS_ELM_LAB               403 // MUS_ELM_LAB
 #define MUS_VICTORY_ROAD_CAVE     404 // MUS_VICTORY_ROAD_CAVE
 #define MUS_DRAGONS_DEN           405 // MUS_DRAGONS_DEN
@@ -422,6 +422,57 @@
 #define MUS_VS_GOLD_KRIS          414 // MUS_VS_GOLD_KRIS = Masters EX Johto Trainer Battle remix, courtesy of TruthSeeker Music
 #define MUS_VS_CHAMPION_LANCE     415 // MUS_VS_CHAMPION_LANCE = HG/SS Johto Champion Battle theme remix, by TruthSeeker Music
 #define MUS_ROUTE47               416 // MUS_ROUTE47 = HG/SS Route 47 remix (With help/inspiration from TruthSeeker Music)
+#define MUS_MT_EMBER              417 // MUS_MT_EMBER = Custom remix of Mt. Moon
+#define MUS_GOLDENROD             418 // MUS_GOLDENROD
+#define MUS_VS_TRAINER_SEVII      419 // MUS_VS_TRAINER_SEVII = Custom remix of Gen 2/4's Kanto Trainer Battle theme, by TruthSeeker Music
+
+//More music by TruthSeeker, added to the song list as-is (Not mixed or reviewed)
+
+#define MUS_ENCOUNTER_ROCKET_EXEC 420 // MUS_ENCOUNTER_ROCKET_EXEC = Team Rocket Admin encounter by TruthSeeker
+#define MUS_NATIONAL_PARK         421 // MUS_NATIONAL_PARK = remix by TruthSeeker. Main theme
+#define MUS_NATIONAL_PARK_INTRO   422 // MUS_NATIONAL_PARK = remix by TruthSeeker. Intro part
+
+#define MUS_OLIVINE               423 // MUS_OLIVINE = HG/SS Olivine & Violet City themes, ported to FR/LG. Makes use of unused Gen 3 Oboe & Clarinet
+
+#define MUS_VS_JESSIE_JAMES       424 // MUS_VS_JESSIE_JAMES = remix by TruthSeeker, an in-between variation of Grunt & Admin battle theme
+#define MUS_ENCOUNTER_JOHTO_SHADY 425 // MUS_ENCOUNTER_JOHTO_SHADY = remix by TruthSeeker
+#define MUS_MAHOGANY              426 // MUS_MAHOGANY = remix by TruthSeeker
+
+#define MUS_ROCK_TUNNEL           427 // MUS_ROCK_TUNNEL = HG/SS Mt. Moon
+
+#define MUS_ENCOUNTER_JOHTO_SAGE  428 // MUS_ENCOUNTER_JOHTO_SAGE = remix by TruthSeeker
+#define MUS_ENCOUNTER_TRUTHSEEKER 429 // MUS_ENCOUNTER_TRUTHSEEKER = remix by TruthSeeker
+#define MUS_VS_TRUTHSEEKER_MUSIC  430 // MUS_VS_TRUTHSEEKER_MUSIC = remix by TruthSeeker
+
+#define MUS_ENCOUNTER_CALYPSO     431 // MUS_ENCOUNTER_CALYPSO = Dev Team contributor, custom theme. Remix by Calypso
+
+#define MUS_VS_CALYPSO            432 // MUS_VS_CALYPSO = remix by TruthSeeker
+#define MUS_ENCOUNTER_XXVII       433 // MUS_ENCOUNTER_XXVII = remix by TruthSeeker
+#define MUS_VS_XXVII              434 // MUS_VS_XXVII = remix by TruthSeeker
+#define MUS_ENCOUNTER_JOHTO_KID   435 // MUS_ENCOUNTER_JOHTO_KID = remix by TruthSeeker (Youngster theme)
+#define MUS_ENCOUNTER_KIMONO      436 // MUS_ENCOUNTER_KIMONO = remix by TruthSeeker (Kimono Girls theme)
+#define MUS_ENCOUNTER_RIVAL_CHAMP 437 // MUS_ENCOUNTER_RIVAL_CHAMP = remix by TruthSeeker (Champion Room Rival's theme, variation)
+
+#define MUS_ICE_PATH              438 // MUS_ICE_PATH = HG/SS Dark Cave
+#define MUS_BLACKTHORN            439 // MUS_BLACKTHORN = remix of HG/SS Azalea Town by TruthSeeker
+
+#define MUS_ECRUTEAK              440 // MUS_ECRUTEAK = remix by TruthSeeker
+
+#define MUS_OLIVINE_LIGHTHOUSE    441 // MUS_OLIVINE_LIGHTHOUSE = remix by Pascal van den Bos
+
+#define MUS_VS_CHAMPION_CYNTHIA   442 // MUS_VS_CHAMPION_CYNTHIA = remix by TruthSeeker
+#define MUS_ENCOUNTER_CLAIR       443 // MUS_ENCOUNTER_CLAIR = remix by TruthSeeker
+
+#define MUS_VS_ARCEUS             444 // MUS_VS_ARCEUS = remix by TruthSeeker
+#define MUS_GLOBAL_TERMINAL_TOWER 445 // MUS_GLOBAL_TERMINAL_TOWER = Wi-Fi Tower
+#define MUS_VS_WILD_GUYANA        446 // MUS_VS_WILD_GUYANA = R/S/E Hoenn Wild Battle remix
+#define MUS_GTS                   447 // MUS_GTS = Global Trade System remix from Gen 4
+#define MUS_JOHTO_ROUTE_GATE      448 // MUS_JOHTO_ROUTE_GATE = Azalea Town HG/SS chill remix, slowed down
+#define MUS_POKE_CENTER_GUYANA    449 // MUS_POKE_CENTER_GUYANA = Colosseum/XD Pokemon Center remix, for Guyana/Orre
+#define MUS_GAME_CORNER_JOHTO     450 // MUS_GAME_CORNER_JOHTO = HG/SS version w/ G/S/C tempo
+#define MUS_ROUTE218              451 // MUS_ROUTE218 = Route 203 (Day) ported to FRLG Engine
+#define MUS_VS_WILD_SINNOH        452 // MUS_VS_WILD_SINNOH
+#define MUS_BRIGETTES_ROOM        453 // MUS_BRIGETTES_ROOM = Brigette's Room (Box R/S) ported to FRLG Engine
 
 #define MUS_NONE                  0xFFFF
 

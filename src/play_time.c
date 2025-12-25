@@ -30,22 +30,22 @@ void GameDateTime_Update(void)
         if (tick > 29)
         {
             tick = 0;
-            second++;
+            second = (VarGet(VAR_TIME_SECOND) + 1);
             if (second > 59)
             {
                 second = 0;
                 VarSet(VAR_TIME_SECOND, 0);
-                minute++;
+                minute = (VarGet(VAR_TIME_MINUTE) + 1);
                 if (minute > 59)
                 {
                     minute = 0;
                     VarSet(VAR_TIME_MINUTE, 0);
-                    hour++;
+                    hour = (VarGet(VAR_TIME_HOUR) + 1);
                     if (hour > 23)
                     {
                         hour = 0;
                         VarSet(VAR_TIME_HOUR, 0);
-                        day++;
+                        day = (VarGet(VAR_DAY_DATE) + 1);
                         if (day > 6)
                         {
                             day = 0;
@@ -69,16 +69,6 @@ void GameDateTime_Update(void)
             else
             {
                 VarSet(VAR_TIME_SECOND, second);
-            }
-        }
-        else
-        {
-            if (day != 0 && hour != 12 && minute != 0 && second != 0)
-            {
-                day = VarGet(VAR_DAY_DATE);
-                hour = VarGet(VAR_TIME_HOUR);
-                minute = VarGet(VAR_TIME_MINUTE);
-                second = VarGet(VAR_TIME_SECOND);
             }
         }
     }

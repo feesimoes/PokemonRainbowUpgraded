@@ -1,0 +1,30 @@
+mapscripts GoldenrodCity_GTS_3F_PokemonBoxRoom_MapScripts 
+{
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script GoldenrodCity_GTS_3F_PokemonBoxRoom_PC 
+{
+    lock
+    playse(SE_PC_LOGIN)
+    special(ShowPokemonStorageSystemPC)
+    waitstate
+    release
+    end
+}
+
+script GoldenrodCity_GTS_3F_PokemonBoxRoom_Bridgette 
+{
+    lock
+    faceplayer
+    msgbox(format("Hello!\nMy name is BRIGETTE.\pAnd you are...?\nOK!\pHow do you do, {PLAYER}?\nWow! You're good at raising POKéMON."))
+    msgbox(format("So, listen!\nI made the POKéMON BOX.\pI'm currently working on something\nelse, too, {PLAYER}!"))
+    msgbox(format("It's definitely going to have a\nlot more capabilities than BOX...\pPlease come back later!\nWhen I finish it up, I'll explain."))
+    msgbox(format("By the way, you can use the PC\nnext to me, if you'd like."))
+    closemessage
+    release
+    end    
+}

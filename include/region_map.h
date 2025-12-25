@@ -4,6 +4,18 @@
 #include "global.h"
 #include "bg.h"
 
+enum Region {
+    REGIONMAP_KANTO,
+    REGIONMAP_SEVII123,
+    REGIONMAP_SEVII45,
+    REGIONMAP_SEVII67,
+    REGIONMAP_SINNOH,
+    REGIONMAP_JOHTO,
+    REGIONMAP_GUYANA,
+    REGIONMAP_HOENN,
+    REGIONMAP_COUNT
+};
+
 enum {
     REGIONMAP_TYPE_NORMAL,
     REGIONMAP_TYPE_WALL,
@@ -16,5 +28,6 @@ u8 *GetMapNameGeneric(u8 *dest, u16 mapsec);
 u8 *GetMapNameGeneric_(u8 *dest, u16 mapsec);
 void InitRegionMapWithExitCB(u8 type, void (*callback)(void));
 void CB2_OpenFlyMap(void);
+u8 GetCurrentRegionIfNotKanto(u16 mapHeaderMapSecId);
 
 #endif // GUARD_REGION_MAP_H

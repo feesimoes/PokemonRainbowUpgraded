@@ -20,8 +20,8 @@
 //#define TRAINER_RS_POKEMANIAC                     15
 //#define TRAINER_RS_SWIMMER_M                      16
 //#define TRAINER_RS_BLACK_BELT                     17
-#define TRAINER_GUITARIST                         18
-#define TRAINER_KINDLER                           19
+//#define TRAINER_GUITARIST                         18
+//#define TRAINER_KINDLER                           19
 #define TRAINER_RS_CAMPER                         20
 #define TRAINER_BUG_MANIAC                        21
 #define TRAINER_RS_PSYCHIC_M                      22
@@ -789,6 +789,8 @@
 #define TRAINER_LEADER_KOGA_2                    15
 #define TRAINER_ELITE_FOUR_KOGA                  16
 #define TRAINER_LEADER_JANINE                    17
+#define TRAINER_MUSICIAN_TRUTHSEEKER             18
+#define TRAINER_LEADER_KURT                      19
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.

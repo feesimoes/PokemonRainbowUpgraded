@@ -427,6 +427,7 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             menuAction = MAIN_MENU_NEWGAME;
             break;
         case MAIN_MENU_CONTINUE:
+            FadeOutBGM(4);
             switch (gTasks[taskId].tCursorPos)
             {
             default:
@@ -677,8 +678,43 @@ static void PrintBadgeCount(void)
     {
         nbadges++;
     }
-    //Johto Badge 1
+    //Johto Badges, handled inconveniently
     if (FlagGet(FLAG_JOHTO_BADGE01_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE02_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE03_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE04_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE05_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE06_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE07_GET))
+    {
+        nbadges++;
+    }
+
+    if (FlagGet(FLAG_JOHTO_BADGE08_GET))
     {
         nbadges++;
     }

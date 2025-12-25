@@ -1019,14 +1019,14 @@ static void QuestLog_GetSpeciesName(u16 species, u8 *dest, u8 stringVarId)
     if (dest != NULL)
     {
         if (species != SPECIES_EGG)
-            GetSpeciesName(dest, species, 0);
+            GetSpeciesName(dest, species);
         else
             StringCopy(dest, gText_EggNickname);
     }
     else
     {
         if (species != SPECIES_EGG)
-            DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gSpeciesNamesExpanded_1[species]);
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gSpeciesNames[species]);
         else
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(stringVarId, gText_EggNickname);
     }

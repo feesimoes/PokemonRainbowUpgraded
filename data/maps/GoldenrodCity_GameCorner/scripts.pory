@@ -1,0 +1,366 @@
+raw `
+GoldenrodCity_GameCorner_EventScript_SlotMachine::
+	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase
+	msgbox CeladonCity_GameCorner_Text_SlotMachineWantToPlay, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_GameCorner_EventScript_DontPlaySlotMachine
+	setfieldeffectargument 0, LOCALID_PLAYER
+.ifdef BUGFIX
+	setfieldeffectargument 1, MAP_NUM(MAP_GOLDENROD_CITY_GAME_CORNER)
+	setfieldeffectargument 2, MAP_GROUP(MAP_GOLDENROD_CITY_GAME_CORNER)
+.else
+	@ Map num/group were provided in the wrong order
+	setfieldeffectargument 1, MAP_GROUP(MAP_GOLDENROD_CITY_GAME_CORNER)
+	setfieldeffectargument 2, MAP_NUM(MAP_GOLDENROD_CITY_GAME_CORNER)
+.endif
+	dofieldeffect FLDEFF_SMILEY_FACE_ICON
+	waitfieldeffect FLDEFF_SMILEY_FACE_ICON
+	specialvar VAR_RESULT, GetRandomSlotMachineId
+	playslotmachine VAR_RESULT
+	releaseall
+	end
+
+GoldenrodCity_GameCorner_EventScript_PrizeClerkMons::
+	lock
+	faceplayer
+	goto_if_unset FLAG_GOT_COIN_CASE, GoldenrodCity_GameCorner_EventScript_NeedCoinCase
+	goto_if_questlog EventScript_ReleaseEnd
+	showcoinsbox 0, 0
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_WeExchangeCoinsForPrizes
+	goto GoldenrodCity_GameCorner_EventScript_ChoosePrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_ChoosePrizeMon::
+	message CeladonCity_GameCorner_PrizeRoom_Text_WhichPrize
+	waitmessage
+	multichoice 11, 0, MULTICHOICE_GOLDENROD_GAME_CORNER_MON_PRIZES, FALSE
+	switch VAR_RESULT
+	case 0, GoldenrodCity_GameCorner_EventScript_Larvitar
+	case 1, GoldenrodCity_GameCorner_EventScript_Houndour
+	case 2, GoldenrodCity_GameCorner_EventScript_Heracross
+	case 3, GoldenrodCity_GameCorner_EventScript_Sneasel
+	case 4, GoldenrodCity_GameCorner_EventScript_Misdreavus
+	case 5, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	case 127, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_EndPrizeExchange::
+	hidecoinsbox 0, 0
+	release
+	end
+
+GoldenrodCity_GameCorner_EventScript_Larvitar::
+	setvar VAR_TEMP_1, SPECIES_LARVITAR
+	setvar VAR_TEMP_2, 1000
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_Houndour::
+	setvar VAR_TEMP_1, SPECIES_HOUNDOUR
+	setvar VAR_TEMP_2, 2400
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_Heracross::
+	setvar VAR_TEMP_1, SPECIES_HERACROSS
+	setvar VAR_TEMP_2, 5000
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_Sneasel::
+	setvar VAR_TEMP_1, SPECIES_SNEASEL
+	setvar VAR_TEMP_2, 6400
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_Misdreavus::
+	setvar VAR_TEMP_1, SPECIES_MISDREAVUS
+	setvar VAR_TEMP_2, 7600
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_ConfirmPrizeMon::
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_YouWantPrize, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	checkcoins VAR_RESULT
+	goto_if_lt VAR_RESULT, VAR_TEMP_2, GoldenrodCity_GameCorner_EventScript_NotEnoughCoins
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	switch VAR_TEMP_1
+	case SPECIES_LARVITAR,     GoldenrodCity_GameCorner_EventScript_GiveLarvitar
+	case SPECIES_HOUNDOUR,     GoldenrodCity_GameCorner_EventScript_GiveHoundour
+	case SPECIES_HERACROSS,    GoldenrodCity_GameCorner_EventScript_GiveHeracross
+	case SPECIES_SNEASEL,      GoldenrodCity_GameCorner_EventScript_GiveSneasel
+	case SPECIES_MISDREAVUS,   GoldenrodCity_GameCorner_EventScript_GiveMisdreavus
+	end
+
+GoldenrodCity_GameCorner_EventScript_GiveLarvitar::
+	givemon VAR_TEMP_1, 10
+	goto GoldenrodCity_GameCorner_EventScript_CheckReceivedMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_GiveHoundour::
+	givemon VAR_TEMP_1, 16
+	goto GoldenrodCity_GameCorner_EventScript_CheckReceivedMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_GiveHeracross::
+	givemon VAR_TEMP_1, 24
+	goto GoldenrodCity_GameCorner_EventScript_CheckReceivedMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_GiveSneasel::
+	givemon VAR_TEMP_1, 26
+	goto GoldenrodCity_GameCorner_EventScript_CheckReceivedMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_GiveMisdreavus::
+	givemon VAR_TEMP_1, 32
+	goto GoldenrodCity_GameCorner_EventScript_CheckReceivedMon
+	end
+
+GoldenrodCity_GameCorner_EventScript_CheckReceivedMon::
+	goto_if_eq VAR_RESULT, 0, GoldenrodCity_GameCorner_EventScript_ReceivedMonParty
+	goto_if_eq VAR_RESULT, 1, GoldenrodCity_GameCorner_EventScript_ReceivedMonPC
+	goto_if_eq VAR_RESULT, 2, GoldenrodCity_GameCorner_EventScript_PartyFull
+	end
+
+GoldenrodCity_GameCorner_EventScript_PartyFull::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox Text_NoMoreRoomForPokemon
+	hidecoinsbox 0, 0
+	release
+	end
+
+GoldenrodCity_GameCorner_EventScript_NicknamePartyMon::
+	getpartysize
+	subvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	call EventScript_ChangePokemonNickname
+	goto GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_NeedCoinCase::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_CoinCaseRequired
+	release
+	end
+
+GoldenrodCity_GameCorner_EventScript_NotEnoughCoins::
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_NeedMoreCoins
+	goto GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_ReceivedMonParty::
+	removecoins VAR_TEMP_2
+	updatecoinsbox 0, 5
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	playfanfare MUS_LEVEL_UP
+	message Text_PlayerObtainedTheMon
+	waitmessage
+	waitfanfare
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, GoldenrodCity_GameCorner_EventScript_NicknamePartyMon
+	goto GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_ReceivedMonPC::
+	removecoins VAR_TEMP_2
+	updatecoinsbox 0, 5
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	playfanfare MUS_LEVEL_UP
+	message Text_PlayerObtainedTheMon
+	waitmessage
+	waitfanfare
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_GameCorner_EventScript_TransferredToPC
+	call EventScript_NameReceivedBoxMon
+	goto GoldenrodCity_GameCorner_EventScript_TransferredToPC
+	end
+
+GoldenrodCity_GameCorner_EventScript_TransferredToPC::
+	call EventScript_TransferredToPC
+	goto GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem::
+	bufferitemname STR_VAR_1, VAR_TEMP_1
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_YouWantPrize, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	goto GoldenrodCity_GameCorner_EventScript_TryGivePrize
+	end
+
+GoldenrodCity_GameCorner_EventScript_TryGivePrize::
+	bufferitemname STR_VAR_1, VAR_TEMP_1
+	checkcoins VAR_RESULT
+	goto_if_lt VAR_RESULT, VAR_TEMP_2, GoldenrodCity_GameCorner_EventScript_NotEnoughCoins
+	checkitemspace VAR_TEMP_1
+	goto_if_eq VAR_RESULT, FALSE, GoldenrodCity_GameCorner_EventScript_BagFull
+	removecoins VAR_TEMP_2
+	updatecoinsbox 0, 5
+	giveitem VAR_TEMP_1
+	goto GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_BagFull::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox Text_TooBadBagFull
+	hidecoinsbox 0, 0
+	release
+	end
+
+GoldenrodCity_GameCorner_EventScript_PrizeClerkItems::
+	lock
+	faceplayer
+	goto_if_unset FLAG_GOT_COIN_CASE, GoldenrodCity_GameCorner_EventScript_NeedCoinCase
+	goto_if_questlog EventScript_ReleaseEnd
+	showcoinsbox 0, 0
+	msgbox CeladonCity_GameCorner_PrizeRoom_Text_WeExchangeCoinsForPrizes
+	goto GoldenrodCity_GameCorner_EventScript_ChoosePrizeItem
+	end
+
+GoldenrodCity_GameCorner_EventScript_ChoosePrizeItem::
+	message CeladonCity_GameCorner_PrizeRoom_Text_WhichPrize
+	waitmessage
+	multichoice 10, 0, MULTICHOICE_GOLDENROD_GAME_CORNER_ITEM_PRIZES, FALSE
+	switch VAR_RESULT
+	case 0, GoldenrodCity_GameCorner_EventScript_IceStone
+	case 1, GoldenrodCity_GameCorner_EventScript_DawnStone
+	case 2, GoldenrodCity_GameCorner_EventScript_ShinyStone
+	case 3, GoldenrodCity_GameCorner_EventScript_DubiousDisc
+	case 4, GoldenrodCity_GameCorner_EventScript_LeppaBerry
+	case 5, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	case 127, GoldenrodCity_GameCorner_EventScript_EndPrizeExchange
+	end
+
+GoldenrodCity_GameCorner_EventScript_IceStone::
+	setvar VAR_TEMP_1, ITEM_ICE_STONE
+	setvar VAR_TEMP_2, 1000
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem
+	end
+
+GoldenrodCity_GameCorner_EventScript_DawnStone::
+	setvar VAR_TEMP_1, ITEM_DAWN_STONE
+	setvar VAR_TEMP_2, 2000
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem
+	end
+
+GoldenrodCity_GameCorner_EventScript_ShinyStone::
+	setvar VAR_TEMP_1, ITEM_SHINY_STONE
+	setvar VAR_TEMP_2, 7200
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem
+	end
+
+GoldenrodCity_GameCorner_EventScript_DubiousDisc::
+	setvar VAR_TEMP_1, ITEM_DUBIOUS_DISC
+	setvar VAR_TEMP_2, 1600
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem
+	end
+
+GoldenrodCity_GameCorner_EventScript_LeppaBerry::
+	setvar VAR_TEMP_1, ITEM_LEPPA_BERRY
+	setvar VAR_TEMP_2, 800
+	goto GoldenrodCity_GameCorner_EventScript_ConfirmPrizeItem
+	end
+
+`
+mapscripts GoldenrodCity_GameCorner_MapScripts {}
+
+script GoldenrodCity_GameCorner_LittleBoy 
+{
+    lock
+    faceplayer
+    msgbox(format("My sister is so cheesy!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_LittleGirl 
+{
+    lock
+    faceplayer
+    msgbox(format("My brother, CHUCKY, is a weirdo!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Old_Man_2
+{
+    lock
+    faceplayer
+    msgbox(format("Kids sure are something...\nAh, I've got a headache again."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Fat_Man
+{
+    lock
+    faceplayer
+    msgbox(format("TEAM ROCKET?\nI can't say I've seen them..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Cooltrainer_F
+{
+    lock
+    faceplayer
+    msgbox(format("These slots are tough to win\nat... Battle strategies are useless!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Rocker
+{
+    lock
+    faceplayer
+    msgbox(format("I'm racking up my wins here\nfor some neat item prizes."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Gentleman
+{
+    lock
+    faceplayer
+    msgbox(format("I'm only here on behalf of\nmy grandson, ah... uh,\pWhat was his name again...?"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Woman_3
+{
+    lock
+    faceplayer
+    msgbox(format("You're from KANTO?\nOh?! You must be joking... No?!\pTEAM ROCKET runs CELADON's GAME\nCORNER? Buttons behind posters?!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Balding_Man
+{
+    lock
+    faceplayer
+    msgbox(format("What do you want?\nEh?\pWell, I can assure you that\nthere's no hidden buttons here."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GameCorner_Gym_Guide
+{
+    lock
+    faceplayer
+    msgbox(format("Yo!\nWORLD CHAMP in the making!\pThese slots may be tough, but\nuse the same KANTO strategy!\pOh, and TEAM ROCKET doesn't run\nthis GAME CORNER!"))
+    closemessage
+    release
+    end
+}

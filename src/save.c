@@ -9,6 +9,7 @@
 #include "fieldmap.h"
 #include "pokemon_storage_system.h"
 #include "gba/flash_internal.h"
+#include "sound.h"
 
 static u8 HandleWriteSector(u16 sectorId, const struct SaveSectorLocation *locations);
 static u8 TryWriteSector(u8 sectorNum, u8 *data);

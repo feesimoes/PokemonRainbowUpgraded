@@ -519,12 +519,11 @@ static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId
     warp->x = x;
     warp->y = y;
 }
-
 static bool32 IsDummyWarp(struct WarpData *warp)
 {
-    if (warp->mapGroup != (s8)MAP_GROUP(MAP_UNDEFINED))
+    if (warp->mapGroup != (u8)MAP_GROUP(MAP_UNDEFINED) && warp->mapGroup != 0xFF)
         return FALSE;
-    else if (warp->mapNum != (s8)MAP_NUM(MAP_UNDEFINED))
+    else if (warp->mapNum != (u8)MAP_NUM(MAP_UNDEFINED) && warp->mapNum != 0xFF)
         return FALSE;
     else if (warp->warpId != -1)
         return FALSE;
@@ -1112,7 +1111,6 @@ void Overworld_PlaySpecialMapMusic(void)
         PlayerGetDestCoords(&x, &y);
         if (y - 7 < 11 && gMPlayInfo_BGM.songHeader == &mus_victory_gym_leader)
         {
-            FadeInBGM(4);
             return;
         }
     }
@@ -1627,7 +1625,6 @@ static bool8 RunFieldCallback(void)
 void CB2_NewGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
     ResetSafariZoneFlag_();
     NewGameInitData();
     ResetInitialPlayerAvatarState();
@@ -1649,7 +1646,6 @@ void CB2_WhiteOut(void)
     if (++gMain.state >= 120)
     {
         FieldClearVBlankHBlankCallbacks();
-        StopMapMusic();
         ResetSafariZoneFlag_();
         DoWhiteOut();
         SetInitialPlayerAvatarStateWithDirection(DIR_NORTH);
@@ -1739,7 +1735,6 @@ static void CB2_ReturnToFieldLink(void)
 void CB2_ReturnToFieldFromMultiplayer(void)
 {
     FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
     SetMainCallback1(CB1_UpdateLinkState);
     ResetAllMultiplayerState();
 
@@ -1791,7 +1786,6 @@ static void FieldCB_ShowMapNameOnContinue(void)
 void CB2_ContinueSavedGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
     ResetSafariZoneFlag_();
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
@@ -2422,7 +2416,6 @@ static bool32 LoadMap_QLPlayback(u8 *state)
 void CB2_EnterFieldFromQuestLog(void)
 {
     FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
     gGlobalFieldTintMode = QL_TINT_BACKUP_GRAYSCALE;
     ResetSafariZoneFlag_();
     LoadSaveblockMapHeader();

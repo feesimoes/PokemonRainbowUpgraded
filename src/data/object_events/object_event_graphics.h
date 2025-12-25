@@ -234,3 +234,5 @@ const u16 gFieldEffectObjectPic_Bird[] = INCBIN_U16("graphics/field_effects/pics
 const u16 gObjectEventPic_WeirdTree[] = INCBIN_U16("graphics/object_events/pics/misc/weird_tree.4bpp");
 const u16 gObjectEventPic_Silver[] = INCBIN_U16("graphics/object_events/pics/people/silver.4bpp");
 const u16 gObjectEventPic_Clair[] = INCBIN_U16("graphics/object_events/pics/people/clair.4bpp");
+const u16 gObjectEventPic_Norman[] = INCBIN_U16("graphics/object_events/pics/people/norman.4bpp");
+const u16 gObjectEventPic_Kurt[] = INCBIN_U16("graphics/object_events/pics/people/kurt.4bpp");

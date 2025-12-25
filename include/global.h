@@ -131,7 +131,7 @@ extern u8 gStringVar4[];
 
 #define ROUND_BITS_TO_BYTES(numBits) DIV_ROUND_UP(numBits, 8)
 
-#define DEX_FLAGS_NO ROUND_BITS_TO_BYTES(NUM_SPECIES)
+#define DEX_FLAGS_NO ROUND_BITS_TO_BYTES(SPECIES_EGG)
 #define NUM_FLAG_BYTES ROUND_BITS_TO_BYTES(FLAGS_COUNT)
 #define NUM_ADDITIONAL_PHRASE_BYTES ROUND_BITS_TO_BYTES(NUM_ADDITIONAL_PHRASES)
 
@@ -391,9 +391,9 @@ struct SecretBaseRecord
 
 struct WarpData
 {
-    s8 mapGroup;
-    s8 mapNum;
-    s8 warpId;
+    u8 mapGroup; // Changed s8 -> u8 (Range: 0-255)
+    u8 mapNum;   // Changed s8 -> u8 (Range: 0-255)
+    s8 warpId;   // Keep s8 (allows -1 for "None")
     s16 x, y;
 };
 

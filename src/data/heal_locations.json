@@ -197,8 +197,8 @@
       "map": "MAP_CANALAVE_CITY",
       "x": 24,
       "y": 20,
-      "respawn_map": "MAP_CANALAVE_CITY",
-      "respawn_npc": "1"
+      "respawn_map": "MAP_CANALAVE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_CANALAVE_NURSE"
     },
     {
       "id": "HEAL_LOCATION_VERMILION_HARBOR",
@@ -215,22 +215,6 @@
       "y": 58,
       "respawn_map": "MAP_VIOLET_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_VIOLET_NURSE"
-    },
-    {
-      "id": "HEAL_LOCATION_ROUTE32",
-      "map": "MAP_ROUTE32",
-      "x": 24,
-      "y": 23,
-      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_ROUTE32_NURSE"
-    },
-    {
-      "id": "HEAL_LOCATION_ROUTE33",
-      "map": "MAP_ROUTE33",
-      "x": 31,
-      "y": 8,
-      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_ROUTE32_NURSE"
     },
     {
       "id": "HEAL_LOCATION_LINDEN_TOWN",
@@ -263,6 +247,46 @@
       "y": 11,
       "respawn_map": "MAP_LINDEN_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LINDEN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SEVEN_ISLAND_TRAINER_TOWER",
+      "map": "MAP_SEVEN_ISLAND_TRAINER_TOWER",
+      "x": 58,
+      "y": 8,
+      "respawn_map": "MAP_TRAINER_TOWER_LOBBY",
+      "respawn_npc": "LOCALID_TOWER_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_AZALEA_TOWN",
+      "map": "MAP_AZALEA_TOWN",
+      "x": 30,
+      "y": 28,
+      "respawn_map": "MAP_AZALEA_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_AZALEA_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GOLDENROD_CITY",
+      "map": "MAP_GOLDENROD_CITY",
+      "x": 43,
+      "y": 46,
+      "respawn_map": "MAP_GOLDENROD_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_GOLDENROD_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SLATEPORT_CITY",
+      "map": "MAP_SLATEPORT_CITY",
+      "x": 24,
+      "y": 32,
+      "respawn_map": "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_SLATEPORT_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE32",
+      "map": "MAP_ROUTE33",
+      "x": 31,
+      "y": 8,
+      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_ROUTE32_NURSE"
     }
   ]
 }

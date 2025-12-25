@@ -69,6 +69,9 @@
 #define MULTICHOICE_62                                         62
 #define MULTICHOICE_JOIN_OR_LEAD                               63
 #define MULTICHOICE_TRAINER_TOWER_MODE                         64
+#define MULTICHOICE_GTS_MENU                                   65
+#define MULTICHOICE_GOLDENROD_GAME_CORNER_ITEM_PRIZES          66
+#define MULTICHOICE_GOLDENROD_GAME_CORNER_MON_PRIZES           67
 
 #define MULTICHOICE_NONE                                      255
 

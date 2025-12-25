@@ -712,9 +712,6 @@ const u32 gItemIconPalette_Ruby[] = INCBIN_U32("graphics/items/icon_palettes/rub
 const u32 gItemIcon_Gem[] = INCBIN_U32("graphics/items/icons/gem.4bpp.lz");
 const u32 gItemIconPalette_Sapphire[] = INCBIN_U32("graphics/items/icon_palettes/sapphire.gbapal.lz");
 
-const u32 gItemIcon_PokeNavPlus[] = INCBIN_U32("graphics/items/icons/pokenavplus.4bpp.lz");
-const u32 gItemIconPalette_PokeNavPlus[] = INCBIN_U32("graphics/items/icon_palettes/pokenavplus.gbapal.lz");
-
 const u32 gItemIcon_ExplorerKit[] = INCBIN_U32("graphics/items/icons/explorerkit.4bpp.lz");
 const u32 gItemIconPalette_ExplorerKit[] = INCBIN_U32("graphics/items/icon_palettes/explorerkit.gbapal.lz");
 
@@ -723,3 +720,15 @@ const u32 gItemIconPalette_MusicPlayer[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_Old_Sea_Map[] = INCBIN_U32("graphics/items/icons/old_sea_map.4bpp.lz");
 const u32 gItemIconPalette_Old_Sea_Map[] = INCBIN_U32("graphics/items/icon_palettes/old_sea_map.gbapal.lz");
+
+const u32 gItemIcon_IceStone[] = INCBIN_U32("graphics/items/icons/ice_stone.4bpp.lz");
+const u32 gItemIconPalette_IceStone[] = INCBIN_U32("graphics/items/icon_palettes/ice_stone.gbapal.lz");
+
+const u32 gItemIcon_DubiousDisc[] = INCBIN_U32("graphics/items/icons/dubious_disc.4bpp.lz");
+const u32 gItemIconPalette_DubiousDisc[] = INCBIN_U32("graphics/items/icon_palettes/dubious_disc.gbapal.lz");
+
+const u32 gItemIcon_ShinyStone[] = INCBIN_U32("graphics/items/icons/shiny_stone.4bpp.lz");
+const u32 gItemIconPalette_ShinyStone[] = INCBIN_U32("graphics/items/icon_palettes/shiny_stone.gbapal.lz");
+
+const u32 gItemIcon_DawnStone[] = INCBIN_U32("graphics/items/icons/dawn_stone.4bpp.lz");
+const u32 gItemIconPalette_DawnStone[] = INCBIN_U32("graphics/items/icon_palettes/dawn_stone.gbapal.lz");

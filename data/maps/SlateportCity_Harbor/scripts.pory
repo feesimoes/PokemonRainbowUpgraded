@@ -28,12 +28,31 @@ script SlateportCity_Harbor_FerryToGuyana
     }
 }
 
-script SlateportCity_Harbor_HM08_Dive 
+script SlateportCity_Harbor_Sailor 
 {
     lock
     faceplayer
-    msgbox(format("Here, take this."))
-    giveitem(ITEM_HM08, 1)
+    msgbox(format("Hmm...\nThat's a lot of BADGES.\pIf you don't have HM08: DIVE yet,\nmaybe someone's got extras...\pHave you checked out the MARKET?"))
+    closemessage
+    release
+    end    
+}
+
+script SlateportCity_Harbor_Fat_Man
+{
+    lock
+    faceplayer
+    msgbox(format("You came all the way from\nKANTO? Phew...\pMust be nice having SEAGALLOP, huh?\nI wish STERN built some!"))
+    closemessage
+    release
+    end    
+}
+
+script SlateportCity_Harbor_Super_Nerd
+{
+    lock
+    faceplayer
+    msgbox(format("SLATEPORT is the busiest spot in\nHOENN. Naturally, stay on guard.\pBeware of those PIRATE scoundrels...\nTEAM CORSAIR is no joke!"))
     closemessage
     release
     end    

@@ -5,8 +5,8 @@
 
 // Not actually "old" given these were introduced in Gen 3,
 // but they're used as equivalents here alongside the other OLD_UNOWN
-#define SPECIES_OLD_UNOWN_EMARK (NUM_SPECIES + 0)
-#define SPECIES_OLD_UNOWN_QMARK (NUM_SPECIES + 1)
+#define SPECIES_OLD_UNOWN_EMARK (SPECIES_EGG + 0)
+#define SPECIES_OLD_UNOWN_QMARK (SPECIES_EGG + 1)
 
 static void Task_SmoothBlendLayers(u8 taskId);
 
@@ -427,7 +427,8 @@ static const u8 sMonSpriteAnchorCoords[][5] = {
 #endif
     [SPECIES_CHIMECHO        - 1] = {0x1d, 0x0c, 0x08, 0x1c, 0x1a},
     [SPECIES_OLD_UNOWN_EMARK - 1] = {0x20, 0x21, 0x08, 0x20, 0x2b},
-    [SPECIES_OLD_UNOWN_QMARK - 1] = {0x20, 0x23, 0x08, 0x20, 0x2d}
+    [SPECIES_OLD_UNOWN_QMARK - 1] = {0x20, 0x23, 0x08, 0x20, 0x2d},
+
 };
 
 void AddTextPrinterParameterized3(u8 windowId, u8 fontId, u8 x, u8 y, const u8 * color, s8 speed, const u8 * str)
@@ -636,6 +637,7 @@ static void Task_SmoothBlendLayers(u8 taskId)
 
 u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
 {
+    /*
     if (species == SPECIES_UNOWN)
     {
         u8 unownLetter = GetUnownLetterByPersonalityLoByte(personality);
@@ -660,7 +662,8 @@ u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
         if (sMonSpriteAnchorCoords[species][a2] != 0xFF)
             return sMonSpriteAnchorCoords[species][a2];
     }
-    return 32;
+    */
+   return 32;
 }
 
 s8 Menu2_GetMonSpriteAnchorCoordMinusx20(u16 species, u32 personality, u8 a2)

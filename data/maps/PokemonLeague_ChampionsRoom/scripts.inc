@@ -55,6 +55,7 @@ PokemonLeague_ChampionsRoom_EventScript_EnterRoom::
 	applymovement LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerEnter
 	waitmovement 0
 	delay 20
+	playbgm MUS_ENCOUNTER_RIVAL_CHAMP, FALSE
 	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_ChampionsRoom_EventScript_Intro
 	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_ChampionsRoom_EventScript_Intro
 	goto_if_questlog PokemonLeague_ChampionsRoom_EventScript_QuestLogEnd

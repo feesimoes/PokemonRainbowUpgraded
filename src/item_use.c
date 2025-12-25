@@ -38,7 +38,6 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
-#include "pokenav.h"
 #include "constants/vars.h"
 #include "event_scripts.h"
 #include "list_menu.h"
@@ -68,8 +67,6 @@ static void Task_UseRepel(u8 taskId);
 static void RemoveUsedItem(void);
 static void Task_UsedBlackWhiteFlute(u8 taskId);
 static void ItemUseOnFieldCB_EscapeRope(u8 taskId);
-static void UsePokeNavPlusFromBag(void);
-static void Task_UsePokeNavPlusFromField(u8 taskId);
 static void UseTownMapFromBag(void);
 static void Task_UseTownMapFromField(u8 taskId);
 static void UseFameCheckerFromBag(void);
@@ -79,8 +76,6 @@ static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
 static void MusicTask_HandleMenuInput_Main(u8 taskId);
 static void Action_Sound_ME(u8 taskId);
 static void Action_Sound_BGM(u8 taskId);
-static void Task_UseMusicPlayerFromBag(void);
-static void Task_UseMusicPlayerFromField(void);
 static void Task_UseExplorerKitFromField(u8 taskId);
 
 // unknown unused data.
@@ -658,37 +653,6 @@ void Task_UseDigEscapeRopeOnField(u8 taskId)
     DestroyTask(taskId);
 }
 
-void FieldUseFunc_PokeNavPlus(u8 taskId)
-{
-    if (gTasks[taskId].data[3] == 0)
-    {
-        ItemMenu_SetExitCallback(UsePokeNavPlusFromBag);
-        ItemMenu_StartFadeToExitCallback(taskId);
-    }
-    else
-    {
-        StopPokemonLeagueLightingEffectTask();
-        FadeScreen(FADE_TO_BLACK, 0);
-        gTasks[taskId].func = Task_UsePokeNavPlusFromField;
-    }
-}
-
-static void UsePokeNavPlusFromBag(void)
-{
-    CB2_InitPokeNav();   
-}
-
-static void Task_UsePokeNavPlusFromField(u8 taskId)
-{
-    if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        SetFieldCallback2ForItemUse();
-        CB2_InitPokeNav();   
-        DestroyTask(taskId);
-    }
-}
-
 void FieldUseFunc_TownMap(u8 taskId)
 {
     if (gTasks[taskId].data[3] == 0)
@@ -798,57 +762,26 @@ static void Task_UseExplorerKitFromField(u8 taskId)
     DestroyTask(taskId);
 }
 
+static void Task_UseMusicPlayerFromField(u8 taskId)
+{
+    SetFieldCallback2ForItemUse();
+    InitMusicPlayer();
+    DestroyTask(taskId);
+}
+
 void FieldUseFunc_MusicPlayer(u8 taskId)
 {
-    //From Bag
+    // Use from Bag
     if (gTasks[taskId].data[3] == 0)
     {
-        ItemMenu_SetExitCallback(Task_UseMusicPlayerFromBag);
+        ItemMenu_SetExitCallback(InitMusicPlayer);
         ItemMenu_StartFadeToExitCallback(taskId);
     }
-    //From Field
+    // Use from Field (Registered Select button)
     else
     {
-        DestroyTask(taskId);
-        ScriptContext_SetupScript(EventScript_UseMusicPlayer);
-        //Play song, display hint
-        if (JOY_NEW(A_BUTTON))
-        {
-            PlaySE(SE_SELECT);
-            ScriptContext_SetupScript(EventScript_PromptPlaySong);
-        }
-        //Exit
-        else if (JOY_NEW(B_BUTTON))
-        {
-            PlaySE(SE_SELECT);
-            ScriptContext_SetupScript(EventScript_ExitMusicPlayer);
-        }
-        //Left/Previous Song
-        else if (JOY_NEW(DPAD_LEFT))
-        {
-            if (VarGet(VAR_MUSIC_PLAYER_TRACK) > 0)
-            {
-                PlaySE(SE_BAG_POCKET);
-                VarSet(VAR_MUSIC_PLAYER_TRACK, VarGet(VAR_MUSIC_PLAYER_TRACK) - 1);
-            }
-        }
-        //Right/Next Song
-        else if (JOY_NEW(DPAD_RIGHT))
-        {
-            PlaySE(SE_BAG_POCKET);
-            VarSet(VAR_MUSIC_PLAYER_TRACK, VarGet(VAR_MUSIC_PLAYER_TRACK) + 1);
-        }
+        gTasks[taskId].func = Task_UseMusicPlayerFromField;
     }
-}
-
-static void Task_UseMusicPlayerFromBag(void)
-{
-
-}
-
-static void Task_UseMusicPlayerFromField(void)
-{
-    
 }
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)

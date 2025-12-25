@@ -59,14 +59,18 @@
     "gMapGroup_IndoorLinden",
     "gMapGroup_IndoorSlateport",
     "gMapGroup_IndoorBlackthorn",
-    "gMapGroup_IndoorTopsoil"
+    "gMapGroup_IndoorTopsoil",
+    "gMapGroup_IndoorAzalea",
+    "gMapGroup_IndoorRoute34",
+    "gMapGroup_IndoorGoldenrod"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom"
+    "UnionRoom",
+    "GlobalTradeSystemRoom"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -339,7 +343,12 @@
     "AzaleaTown",
     "TopsoilTown",
     "SlateportCity",
-    "OneIsland_TreasureBeach_Underwater"
+    "OneIsland_TreasureBeach_Underwater",
+    "Route34",
+    "GoldenrodCity",
+    "GoldenrodCity_GTS_Outside",
+    "Route110",
+    "Route109"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -681,7 +690,8 @@
     "KaieteurJungle_Route10",
     "KaieteurJungle_Route11",
     "KaieteurJungle_Route12",
-    "KaieteurJungle_Route13"
+    "KaieteurJungle_Route13",
+    "IlexForest"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -730,7 +740,8 @@
     "LindenTown_MansionHall_L_1F"
   ],
   "gMapGroup_IndoorSlateport": [
-    "SlateportCity_Harbor"
+    "SlateportCity_Harbor",
+    "SlateportCity_PokemonCenter_1F"
   ],
   "gMapGroup_IndoorBlackthorn": [
     "BlackthornCity_House1",
@@ -746,5 +757,24 @@
     "TopsoilTown_House3",
     "TopsoilTown_House4",
     "TopsoilTown_MasterHouse"
+  ],
+  "gMapGroup_IndoorAzalea": [
+    "AzaleaTown_IlexForest_Entrance",
+    "AzaleaTown_PokemonCenter_1F",
+    "AzaleaTown_Gym"
+  ],
+  "gMapGroup_IndoorRoute34": [
+    "Route34_IlexForestEntrance",
+    "Route34_PokemonDayCare"
+  ],
+  "gMapGroup_IndoorGoldenrod": [
+    "GoldenrodCity_GTS_1F",
+    "GoldenrodCity_GTS_2F",
+    "GoldenrodCity_GTS_2F_DevClub",
+    "GoldenrodCity_PokemonCenter_1F",
+    "GoldenrodCity_GTS_3F",
+    "GoldenrodCity_GTS_3F_PokemonBoxRoom",
+    "GoldenrodCity_GameCorner",
+    "GoldenrodCity_Gym"
   ]
 }

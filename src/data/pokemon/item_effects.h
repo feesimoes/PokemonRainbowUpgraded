@@ -292,6 +292,22 @@ static const u8 sItemEffect_LeafStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+static const u8 sItemEffect_IceStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_ShinyStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_DawnStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_EvoItem[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 static const u8 sItemEffect_CheriBerry[6] = {
     [3] = ITEM3_PARALYSIS,
 };
@@ -400,5 +416,19 @@ const u8 *const gItemEffectTable[] =
     [ITEM_PERSIM_BERRY - ITEM_POTION]  = sItemEffect_PersimBerry,
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
+
+    // New Stones
+    [ITEM_ICE_STONE - ITEM_POTION]     = sItemEffect_IceStone,
+    [ITEM_SHINY_STONE - ITEM_POTION]   = sItemEffect_ShinyStone,
+    [ITEM_DAWN_STONE - ITEM_POTION]    = sItemEffect_DawnStone,
+
+    // Trade Items made usable
+    [ITEM_METAL_COAT - ITEM_POTION]    = sItemEffect_EvoItem,
+    [ITEM_DRAGON_SCALE - ITEM_POTION]  = sItemEffect_EvoItem,
+    [ITEM_UP_GRADE - ITEM_POTION]      = sItemEffect_EvoItem,
+    [ITEM_DEEP_SEA_TOOTH - ITEM_POTION] = sItemEffect_EvoItem,
+    [ITEM_DEEP_SEA_SCALE - ITEM_POTION] = sItemEffect_EvoItem,
+    [ITEM_DUBIOUS_DISC - ITEM_POTION]  = sItemEffect_EvoItem,
+    
     [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

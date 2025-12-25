@@ -79,7 +79,7 @@ static void StartDisplayMonMosaic(void);
 static void SpriteCB_DisplayMonMosaic(struct Sprite *sprite);
 static bool8 IsDisplayMonMosaicActive(void);
 static void CreateDisplayMonSprite(void);
-static void LoadDisplayMonGfx(u16 species, u8 speciesFormsValue, u32 personality);
+static void LoadDisplayMonGfx(u16 species, u32 personality);
 static void PrintDisplayMonInfo(void);
 static void UpdateWaveformAnimation(void);
 static void InitSupplementalTilemaps(void);
@@ -2197,7 +2197,7 @@ static void CreateWaveformSprites(void)
 
 static void RefreshDisplayMonData(void)
 {
-    LoadDisplayMonGfx(gStorage->displayMonSpecies, gStorage->displaySpeciesFormsId, gStorage->displayMonPersonality);
+    LoadDisplayMonGfx(gStorage->displayMonSpecies, gStorage->displayMonPersonality);
     PrintDisplayMonInfo();
     UpdateWaveformAnimation();
     ScheduleBgCopyTilemapToVram(0);
@@ -2277,40 +2277,21 @@ static void CreateDisplayMonSprite(void)
     }
 }
 
-static void LoadDisplayMonGfx(u16 species, u8 speciesFormsValue, u32 personality)
+static void LoadDisplayMonGfx(u16 species, u32 personality)
 {
-    switch (speciesFormsValue)
+    if (gStorage->displayMonSprite == NULL)
+        return;
+
+    if (species != SPECIES_NONE)
     {
-    case 1:
-        if (gStorage->displayMonSprite == NULL)
-            return;
-
-        if (species != SPECIES_NONE)
-        {
-            HandleLoadSpecialPokePic(&gMonFrontPicTableExpanded_1[species], gStorage->tileBuffer, species, personality);
-            LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
-            CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
-            LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
-            gStorage->displayMonSprite->invisible = FALSE;
-        }
-        else
-            gStorage->displayMonSprite->invisible = TRUE;
-
-    default:
-        if (gStorage->displayMonSprite == NULL)
-            return;
-
-        if (species != SPECIES_NONE)
-        {
-            HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gStorage->tileBuffer, species, personality);
-            LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
-            CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
-            LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
-            gStorage->displayMonSprite->invisible = FALSE;
-        }
-        else
-            gStorage->displayMonSprite->invisible = TRUE;
+        HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gStorage->tileBuffer, species, personality);
+        LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
+        CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
+        LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
+        gStorage->displayMonSprite->invisible = FALSE;
     }
+    else
+        gStorage->displayMonSprite->invisible = TRUE;
 }
 
 static void PrintDisplayMonInfo(void)

@@ -3,7 +3,13 @@ ViridianCity_Gym_MapScripts::
 	.byte 0
 
 ViridianCity_Gym_OnLoad::
+	goto_if_set FLAG_BADGE08_GET, ViridianCity_Gym_EventScript_Correct_RivalPosition_If_Not_Hidden
 	goto_if_unset FLAG_BADGE08_GET, ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden
+	end
+
+ViridianCity_Gym_EventScript_Correct_RivalPosition_If_Not_Hidden::
+	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
+	release
 	end
 
 ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden::

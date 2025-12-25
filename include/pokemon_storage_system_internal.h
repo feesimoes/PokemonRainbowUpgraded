@@ -4,6 +4,7 @@
 #include "pokemon_storage_system.h"
 #include "mon_markings.h"
 #include "quest_log.h"
+#include "region_map.h"
 
 // The maximum number of Pokémon icons that can appear on-screen.
 // By default the limit is 40 (though in practice only 37 can be).

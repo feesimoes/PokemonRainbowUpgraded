@@ -1,0 +1,89 @@
+mapscripts GoldenrodCity_Gym_MapScripts
+{
+}
+
+script GoldenrodCity_Gym_Machoke_Busy 
+{
+    lock
+    playmoncry(SPECIES_MACHOKE, CRY_MODE_NORMAL)
+    msgbox(format("The MACHOKE seems to be busy...\nHard at work, or hardly working?"))
+    closemessage
+    release
+    end    
+}
+
+script GoldenrodCity_Gym_Guide
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE03_GET) == TRUE)
+    {
+        msgbox(format("See? Wasn't that easy?\nI knew you could do it!"))
+    }
+    else
+    {
+        msgbox(format("Yo! WORLD CHAMP in the making!\nToday's your lucky day!\pThe GYM TRAINERS are all on\ntime off, so this'll be easy!\pBonus tip! NORMAN uses NORMAL-\nTYPE POKéMON.\pUse your FIGHTING sprit!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Gym_Statue 
+{
+    lock
+    if (flag(FLAG_JOHTO_BADGE03_GET) == TRUE)
+    {
+        msgbox(format("GOLDENROD CITY GYM\nLEADER: NORMAN\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+    }
+    else
+    {
+        msgbox(format("GOLDENROD CITY GYM\nLEADER: NORMAN\pWINNING TRAINERS:\n{RIVAL}"))
+    }
+    closemessage
+    release
+    end   
+}
+
+script GoldenrodCity_Gym_Norman_Intro_Battle 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE03_GET) == TRUE)
+    {
+        msgbox(format("Hm, {PLAYER}?\nHow's the adventuring going?\pI do hope we meet again,\nI'd like a rematch very much..."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("Hm?\nAh, aren't you {PLAYER}?\pI've heard about you.\nA TRAINER, travelling the WORLD...\pSounds like you're a formidable\nopponent too, hm?"))
+            msgbox(format("I, too, am in pursuit of\nbecoming a more powerful TRAINER.\p...I do apologize for this mess.\nLet me make it up to you..."))
+            msgbox(format("Perhaps I can offer you this.\nA PLAIN BADGE... Ah, not so fast!"))
+            call(GoldenrodCity_Gym_Norman_Battle)
+        }
+        else
+        {
+            msgbox(format("Hm?\nHello, you are...?\pCan't say I know any {PLAYER}...\nCan you come later, actually?\pNow's not a really good time..."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Gym_Norman_Battle
+{
+    trainerbattle_single(TRAINER_LEADER_NORMAN, format("I will do everything in my power\nas GYM LEADER to win!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("I... I can't believe it!\n{PLAYER}, you are really strong."), GoldenrodCity_Gym_Norman_PostBattle, NO_MUSIC)
+}
+
+script GoldenrodCity_Gym_Norman_PostBattle 
+{
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Impressive!\nHere, take this."))
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("{PLAYER} received the PLAIN\nBADGE from NORMAN!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("That BADGE... Isn't much of\nanything special, honestly.\pBut rules are rules, you know.\nYou have another BADGE, what's next?"))
+    setflag(FLAG_JOHTO_BADGE03_GET)
+}

@@ -2084,67 +2084,107 @@ static void BufferMonInfo(void)
     u16 gender;
     u16 heldItem;
     u32 otId;
-    u8 speciesFormsValue;
 
     dexNum = SpeciesToPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES));
-    speciesFormsValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES_FORMS_VALUE);
-    if (dexNum == 0xffff)
-        StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
-    else
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
-
-    sMonSkillsPrinterXpos->unk00 = 0;
-
-    if (!sMonSummaryScreen->isEgg)
+    if (dexNum < SPECIES_EGG)
     {
-        dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
-        GetSpeciesName(sMonSummaryScreen->summary.speciesNameStrBuf, dexNum, speciesFormsValue);
-    }
-    else
-    {
-        GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, sMonSummaryScreen->summary.speciesNameStrBuf);
-        return;
-    }
+        if (dexNum == 0xffff)
+            StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
+        else
+            ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
 
-    sMonSummaryScreen->monTypes[0] = gSpeciesInfo[dexNum].types[0];
-    sMonSummaryScreen->monTypes[1] = gSpeciesInfo[dexNum].types[1];
+        sMonSkillsPrinterXpos->unk00 = 0;
 
-    GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, tempStr);
-    StringCopyN_Multibyte(sMonSummaryScreen->summary.nicknameStrBuf, tempStr, POKEMON_NAME_LENGTH);
-    StringGet_Nickname(sMonSummaryScreen->summary.nicknameStrBuf);
+        if (!sMonSummaryScreen->isEgg)
+        {
+            dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
+            GetSpeciesName(sMonSummaryScreen->summary.speciesNameStrBuf, dexNum);
+        }
+        else
+        {
+            GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, sMonSummaryScreen->summary.speciesNameStrBuf);
+            return;
+        }
 
-    gender = GetMonGender(&sMonSummaryScreen->currentMon);
-    dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES_OR_EGG);
+        sMonSummaryScreen->monTypes[0] = gSpeciesInfo[dexNum].types[0];
+        sMonSummaryScreen->monTypes[1] = gSpeciesInfo[dexNum].types[1];
 
-    if (gender == MON_FEMALE)
-        StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_FemaleSymbol);
-    else if (gender == MON_MALE)
-        StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_MaleSymbol);
-    else
-        StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
+        GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, tempStr);
+        StringCopyN_Multibyte(sMonSummaryScreen->summary.nicknameStrBuf, tempStr, POKEMON_NAME_LENGTH);
+        StringGet_Nickname(sMonSummaryScreen->summary.nicknameStrBuf);
 
-    if (dexNum == SPECIES_NIDORAN_M || dexNum == SPECIES_NIDORAN_F)
-        if (StringCompare(sMonSummaryScreen->summary.nicknameStrBuf, gSpeciesNames[dexNum]) == 0)
+        gender = GetMonGender(&sMonSummaryScreen->currentMon);
+        dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES_OR_EGG);
+
+        if (gender == MON_FEMALE)
+            StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_FemaleSymbol);
+        else if (gender == MON_MALE)
+            StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_MaleSymbol);
+        else
             StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
 
-    GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_NAME, tempStr);
-    StringCopyN_Multibyte(sMonSummaryScreen->summary.otNameStrBuf, tempStr, PLAYER_NAME_LENGTH);
+        if (dexNum == SPECIES_NIDORAN_M || dexNum == SPECIES_NIDORAN_F)
+            if (StringCompare(sMonSummaryScreen->summary.nicknameStrBuf, gSpeciesNames[dexNum]) == 0)
+                StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
 
-    ConvertInternationalString(sMonSummaryScreen->summary.otNameStrBuf, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LANGUAGE));
+        GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_NAME, tempStr);
+        StringCopyN_Multibyte(sMonSummaryScreen->summary.otNameStrBuf, tempStr, PLAYER_NAME_LENGTH);
 
-    otId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_ID) & 0xffff;
-    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.unk306C, otId, STR_CONV_MODE_LEADING_ZEROS, 5);
+        ConvertInternationalString(sMonSummaryScreen->summary.otNameStrBuf, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LANGUAGE));
 
-    ConvertIntToDecimalStringN(tempStr, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LEVEL), STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringCopy(sMonSummaryScreen->summary.levelStrBuf, gText_Lv);
-    StringAppendN(sMonSummaryScreen->summary.levelStrBuf, tempStr, 4);
+        otId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_ID) & 0xffff;
+        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.unk306C, otId, STR_CONV_MODE_LEADING_ZEROS, 5);
 
-    heldItem = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HELD_ITEM);
+        ConvertIntToDecimalStringN(tempStr, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LEVEL), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringCopy(sMonSummaryScreen->summary.levelStrBuf, gText_Lv);
+        StringAppendN(sMonSummaryScreen->summary.levelStrBuf, tempStr, 4);
 
-    if (heldItem == ITEM_NONE)
-        StringCopy(sMonSummaryScreen->summary.itemNameStrBuf, gText_PokeSum_Item_None);
+        heldItem = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HELD_ITEM);
+
+        if (heldItem == ITEM_NONE)
+            StringCopy(sMonSummaryScreen->summary.itemNameStrBuf, gText_PokeSum_Item_None);
+        else
+            CopyItemName(heldItem, sMonSummaryScreen->summary.itemNameStrBuf);
+    }
     else
-        CopyItemName(heldItem, sMonSummaryScreen->summary.itemNameStrBuf);
+    {
+        StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
+        
+        sMonSummaryScreen->monTypes[0] = gSpeciesInfo[dexNum].types[0];
+        sMonSummaryScreen->monTypes[1] = gSpeciesInfo[dexNum].types[1];
+
+        GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, tempStr);
+        StringCopyN_Multibyte(sMonSummaryScreen->summary.nicknameStrBuf, tempStr, POKEMON_NAME_LENGTH);
+        StringGet_Nickname(sMonSummaryScreen->summary.nicknameStrBuf);
+
+        gender = GetMonGender(&sMonSummaryScreen->currentMon);
+
+        if (gender == MON_FEMALE)
+            StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_FemaleSymbol);
+        else if (gender == MON_MALE)
+            StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_MaleSymbol);
+        else
+            StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
+
+        GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_NAME, tempStr);
+        StringCopyN_Multibyte(sMonSummaryScreen->summary.otNameStrBuf, tempStr, PLAYER_NAME_LENGTH);
+
+        ConvertInternationalString(sMonSummaryScreen->summary.otNameStrBuf, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LANGUAGE));
+
+        otId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_ID) & 0xffff;
+        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.unk306C, otId, STR_CONV_MODE_LEADING_ZEROS, 5);
+
+        ConvertIntToDecimalStringN(tempStr, GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_LEVEL), STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringCopy(sMonSummaryScreen->summary.levelStrBuf, gText_Lv);
+        StringAppendN(sMonSummaryScreen->summary.levelStrBuf, tempStr, 4);
+
+        heldItem = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HELD_ITEM);
+
+        if (heldItem == ITEM_NONE)
+            StringCopy(sMonSummaryScreen->summary.itemNameStrBuf, gText_PokeSum_Item_None);
+        else
+            CopyItemName(heldItem, sMonSummaryScreen->summary.itemNameStrBuf);
+    }
 }
 
 #define GetNumberRightAlign63(x) (63 - StringLength((x)) * 6)

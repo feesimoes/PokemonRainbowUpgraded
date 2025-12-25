@@ -1567,8 +1567,15 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         return;
     if (CheckBattleTypeGhost(&gEnemyParty[gBattlerPartyIndexes[battlerId]], battlerId))
         return;
-    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
+    if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES) > SPECIES_EGG)
+    {
         return;
+    }
+    else
+    {
+        if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
+            return;
+    }
 
     healthBarSpriteId = gSprites[healthboxSpriteId].sHealthBarSpriteId;
 
@@ -1658,9 +1665,15 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
             CpuCopy32(GetBattleInterfaceGfxPtr(B_INTERFACE_GFX_HP_BAR_HP_TEXT),
                       (void *)(OBJ_VRAM0 + gSprites[healthBarSpriteId].oam.tileNum * TILE_SIZE_4BPP),
                       2 * TILE_SIZE_4BPP);
-
-        TryAddPokeballIconToHealthbox(healthboxSpriteId, TRUE);
-        return;
+        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES) > SPECIES_EGG)
+        {
+            return;
+        }
+        else
+        {
+            TryAddPokeballIconToHealthbox(healthboxSpriteId, TRUE);
+            return;
+        }
     }
 
     pltAdder = PLTT_ID(gSprites[healthboxSpriteId].oam.paletteNum);

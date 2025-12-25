@@ -1,1 +1,46 @@
 mapscripts DragonsDen_MapScripts {}
+
+script DragonsDen_PagodaShrine_Sign
+{
+    lock
+    msgbox(format("DRAGONS' DEN PAGODA -\nDRAGONS' SHRINE"))   
+    closemessage
+    release
+    end
+}
+
+script DragonsDen_RockfallWarning_Sign
+{
+    lock
+    msgbox(format("Beware of dangerous rockslides\ncaused by GOLEM!\pThe exit to BLACKTHORN CITY is\nfurther up ahead."))   
+    closemessage
+    release
+    end
+}
+
+script DragonsDen_ElderDragonMaster
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE08_GET) == TRUE)
+    {
+        msgbox(format("Congratulations on the RISING BADGE.\nAh, but...\pThe DRAGONS' SHRINE still does not\nexpect you here so soon."))
+        clearflag(FLAG_JOHTO_BADGE08_GET)
+    }
+    else
+    {
+        msgbox(format("Hm... Hello.\nA visitor? Ah, I see...\pIf you wish to earn CLAIR'S\nBADGE, I can offer you a clue."), MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Without leaving JOHTO, head for\nKANTO, over a body of water.\pRise to the challenge, TRAINER,\nand make haste toward SEVII."))
+            msgbox(format("At land's end, DRAGONS' JANITOR\nawaits... Bestowing upon you...\pThe fabled DRAGON'S FANG."))
+        }
+        else
+        {
+            msgbox(format("Hm.\nFigure it out yourself, eh?\pSome smart adventurer you are!"))
+        }
+    }
+    closemessage
+    release
+    end
+}

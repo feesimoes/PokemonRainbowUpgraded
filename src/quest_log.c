@@ -476,7 +476,7 @@ static void Task_BeginQuestLogPlayback(u8 taskId)
     gSaveBlock1Ptr->location.mapNum =  MAP_NUM(MAP_ROUTE1);
     gSaveBlock1Ptr->location.warpId = WARP_ID_NONE;
     sCurrentSceneNum = 0;
-    gDisableMapMusicChangeOnMapLoad = 1;
+    FadeOutBGM(4);
     DisableWildEncounters(TRUE);
     QLPlayback_InitOverworldState();
 }
@@ -605,6 +605,10 @@ static void QLPlayback_InitOverworldState(void)
         gFieldCallback2 = FieldCB2_QuestLogStartPlaybackWithWarpExit;
         SetMainCallback2(CB2_SetUpOverworldForQLPlaybackWithWarpExit);
     }
+    if (IsNotWaitingForBGMStop() == TRUE)
+    {
+        gDisableMapMusicChangeOnMapLoad = 1;
+    }
 }
 
 void QL_CopySaveState(void)
@@ -628,7 +632,7 @@ void QL_ResetPartyAndPC(void)
     } *prev = AllocZeroed(sizeof(*prev));
     u16 packedCounts, i, count, j;
 
-    CreateMon(&prev->mon, SPECIES_RATTATA, GetExpandedSpeciesFormsValueFromMapNum(gSaveBlock1Ptr->location.mapNum), 1, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&prev->mon, SPECIES_RATTATA, 1, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     packedCounts = VarGet(VAR_QUEST_LOG_MON_COUNTS);
     prev->partyCount = packedCounts >> NUM_PC_COUNT_BITS;
     prev->boxMonCount = packedCounts % (1 << NUM_PC_COUNT_BITS);

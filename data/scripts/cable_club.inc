@@ -211,6 +211,8 @@ CableClub_EventScript_UnusedWelcomeToCableClub::
 	end
 
 CableClub_EventScript_SelectCableClubRoom::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	setvar VAR_0x8004, 0
 	multichoice 0, 0, MULTICHOICE_TRADE_CENTER_COLOSSEUM, FALSE
 	switch VAR_RESULT
@@ -226,6 +228,8 @@ CableClub_EventScript_Colosseum::
 	end
 
 CableClub_EventScript_SelectBattleMode::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	message CableClub_Text_PlayWhichBattleMode
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SINGLE_DOUBLE_MULTI_INFO_EXIT, FALSE
@@ -412,8 +416,6 @@ CableClub_EventScript_EnterTradeCenter::
 CableClub_EventScript_CheckPartyTradeRequirements::
 	specialvar VAR_RESULT, CalculatePlayerPartyCount
 	goto_if_lt VAR_RESULT, 2, CableClub_EventScript_NeedTwoMonsToTrade
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeEnigmaBerry
 	setvar VAR_RESULT, TRUE
 	return
 
@@ -422,10 +424,11 @@ CableClub_EventScript_NeedTwoMonsToTrade::
 	setvar VAR_RESULT, FALSE
 	return
 
-CableClub_EventScript_CantTradeEnigmaBerry::
-	msgbox CableClub_Text_CantTradeEnigmaBerry
-	setvar VAR_RESULT, FALSE
-	return
+CableClub_EventScript_CantTradeParadoxMon::
+	msgbox CableClub_Text_CantTradeParadoxMon
+	closemessage
+	release
+	end
 
 @ Record Corner is nopped in FRLG
 CableClub_EventScript_RecordCorner::
@@ -750,6 +753,8 @@ CableClub_EventScript_UnionRoomAttendant::
 	end
 
 CableClub_EventScript_AskEnterUnionRoom::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	multichoice 18, 6, MULTICHOICE_YES_NO_INFO, FALSE
 	switch VAR_RESULT
 	case 0, CableClub_EventScript_EnterUnionRoom
@@ -801,8 +806,8 @@ CableClub_EventScript_EnterUnionRoom::
 CableClub_EventScript_CheckPartyUnionRoomRequirements::
 	specialvar VAR_RESULT, CountPartyNonEggMons
 	goto_if_lt VAR_RESULT, 2, CableClub_EventScript_NeedTwoMonsForUnionRoom
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_NoEnigmaBerryInUnionRoom
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_NoParadoxMonInUnionRoom
 	setvar VAR_RESULT, TRUE
 	return
 
@@ -811,8 +816,8 @@ CableClub_EventScript_NeedTwoMonsForUnionRoom::
 	goto EventScript_SetResultFalse
 	end
 
-CableClub_EventScript_NoEnigmaBerryInUnionRoom::
-	msgbox CableClub_Text_NoEnigmaBerryInUnionRoom
+CableClub_EventScript_NoParadoxMonInUnionRoom::
+	msgbox CableClub_Text_NoParadoxMonInUnionRoom
 	goto EventScript_SetResultFalse
 	end
 
@@ -824,6 +829,8 @@ CableClub_EventScript_UnionRoomAdapterNotConnected::
 CableClub_EventScript_WirelessClubAttendant::
 	lock
 	faceplayer
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
 	msgbox CableClub_Text_AskAboutLinking, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CableClub_EventScript_DontAskAboutLinking
@@ -837,6 +844,8 @@ CableClub_EventScript_DontAskAboutLinking::
 	return
 
 CableClub_EventScript_DirectCornerAttendant::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	goto_if_questlog EventScript_ReleaseEnd
 	special QuestLog_CutRecording
 	lock
@@ -853,6 +862,8 @@ CableClub_EventScript_DirectCornerAttendant::
 	end
 
 CableClub_EventScript_DirectCornerSelectService::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	goto_if_unset FLAG_GOT_POWDER_JAR, CableClub_EventScript_DirectCornerNoBerry
 	multichoice 0, 0, MULTICHOICE_TRADE_COLOSSEUM_CRUSH, FALSE
 	switch VAR_RESULT
@@ -882,6 +893,8 @@ CableClub_EventScript_WirelessTrade::
 	end
 
 CableClub_EventScript_WirelessBattleSelect::
+	specialvar VAR_RESULT, DoesPartyHaveParadoxMon
+	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeParadoxMon
 	message CableClub_Text_PlayWhichBattleMode
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SINGLE_DOUBLE_MULTI_INFO_EXIT, FALSE
@@ -1316,9 +1329,11 @@ CableClub_Text_NeedTwoMonsToTrade::
 	.string "For trading, you must have at\n"
 	.string "least two POKéMON with you.$"
 
-CableClub_Text_CantTradeEnigmaBerry::
-	.string "A POKéMON holding the {STR_VAR_1}\n"
-	.string "BERRY can't be traded.$"
+CableClub_Text_CantTradeParadoxMon::
+	.string "For your safety, please deposit all\n"
+	.string "POKéMON from exotic REGIONS.\p"
+	.string "Some examples would include those\n"
+	.string "NOT from KANTO, JOHTO, or HOENN.$"
 
 CableClub_Text_PleaseWaitBCancel::
 	.string "Please wait.\n"
@@ -1491,7 +1506,7 @@ CableClub_Text_NeedTwoMonsForUnionRoom::
 	.string "To enter the UNION ROOM, you must\n"
 	.string "have at least two POKéMON.$"
 
-CableClub_Text_NoEnigmaBerryInUnionRoom::
+CableClub_Text_NoParadoxMonInUnionRoom::
 	.string "No POKéMON holding the {STR_VAR_1}\n"
 	.string "BERRY may enter the UNION ROOM.$"
 

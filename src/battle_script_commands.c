@@ -8504,6 +8504,7 @@ static void Cmd_recoverbasedonsunlight(void)
 static void Cmd_hiddenpowercalc(void)
 {
     s32 powerBits, typeBits;
+    u8 opposingBattler;
 
     powerBits = ((gBattleMons[gBattlerAttacker].hpIV & 2) >> 1)
               | ((gBattleMons[gBattlerAttacker].attackIV & 2) << 0)
@@ -8527,6 +8528,20 @@ static void Cmd_hiddenpowercalc(void)
         gBattleStruct->dynamicMoveType++;
     gBattleStruct->dynamicMoveType |= F_DYNAMIC_TYPE_1 | F_DYNAMIC_TYPE_2;
 
+    // Apply specific Hidden Move power overrides to the TruthSeeker Musician class only
+    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_MUSICIAN_TRUTHSEEKER)
+    {
+        switch (gBattleMons[opposingBattler].species)
+        {
+            case SPECIES_JOLTEON:
+                gBattleStruct->dynamicMoveType = TYPE_ICE;
+            case SPECIES_TYPHLOSION:
+                gBattleStruct->dynamicMoveType = TYPE_GRASS;
+            case SPECIES_SUICUNE:
+                gBattleStruct->dynamicMoveType = TYPE_GRASS;
+        }
+    }
+    
     gBattlescriptCurrInstr++;
 }
 

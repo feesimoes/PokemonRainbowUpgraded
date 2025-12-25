@@ -1,0 +1,85 @@
+mapscripts AzaleaTown_Gym_MapScripts {}
+
+script AzaleaTown_Gym_Guide 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE02_GET) == TRUE)
+    {
+        msgbox(format("Yeah! Keep going for the win!\nNice job!"))
+    }
+    else
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nThis GYM'S a sprawling grass maze!\pIt's the perfect place to go\nwild on FIRE or FLYING moves!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Statue
+{
+    lock
+    if (flag(FLAG_JOHTO_BADGE02_GET) == TRUE)
+    {
+        msgbox(format("AZALEA TOWN GYM\nLEADER: KURT\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+    }
+    else
+    {
+        msgbox(format("AZALEA TOWN GYM\nLEADER: KURT\pWINNING TRAINERS:\n{RIVAL}"))
+    }
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Trainer_1
+{
+    lock
+    faceplayer
+    msgbox(format(""))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Kurt_Intro_Battle 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE02_GET) == TRUE)
+    {
+        msgbox(format("I'm getting too old for this."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("Battle me."))
+            call(AzaleaTown_Gym_Kurt_Battle)
+        }
+        else
+        {
+            msgbox(format("Can't battle me yet."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Kurt_Battle
+{
+    trainerbattle_single(TRAINER_LEADER_KURT, format("You're going to lose.{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("Wow."), AzaleaTown_Gym_Kurt_PostBattle, NO_MUSIC)
+}
+
+script AzaleaTown_Gym_Kurt_PostBattle 
+{
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Okay...\nTake this."))
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("{PLAYER} received the HIVE\nBADGE from KURT!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("Bye, kid."))
+    setflag(FLAG_JOHTO_BADGE02_GET)
+}

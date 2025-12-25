@@ -35,5 +35,10 @@ u16 SampleBountyTaskMonLvl(void);
 u16 SampleBountyTaskBall(void);
 u16 SampleBountyTaskReward(void);
 void MakeMewLegalJPNEmeraldEvent(void);
+void SaveChosenMonForJohtoDayCare(void);
+void ApplyOutdoorTintTimeOfDay(void);
+void ApplyUnderwaterTint(void);
+void StartBackgroundTintLoop(void); // Auto-handle the current map type and route to the appropriate function
+static void Task_PeriodicTintUpdate(u8 taskId);
 
 #endif // GUARD_FIELD_SPECIALS_H

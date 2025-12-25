@@ -1,0 +1,47 @@
+mapscripts GoldenrodCity_MapScripts {}
+
+script GoldenrodCity_GameCorner_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nJOHTO GAME CORNER"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_MiniGameTentVoltorbFlip_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD VOLTORB FLIP -\nMINI-GAME CORNER"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_MiniGameFortuneTelling_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD FORTUNE TELLING -\nMINI-GAME CORNER"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Woman_1
+{
+    lock
+    faceplayer
+    msgbox(format("Hi! Um...\nAre you okay?\pYou look worried... TEAM ROCKET?\nNo, they aren't here...\pThe JOHTO GAME CORNER is run\nby GOLDENROD CITY'S people!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Gym_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY POKéMON GYM -\nLEADER: NORMAN\pA man in pursuit of power!"))
+    closemessage
+    release
+    end
+}

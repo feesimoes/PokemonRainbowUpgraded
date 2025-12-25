@@ -100,6 +100,36 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         {
             nBadges++;
         }
+        //Johto Badge 2
+        if (FlagGet(FLAG_JOHTO_BADGE02_GET))
+        {
+            nBadges++;
+        }
+        //Johto Badge 3
+        if (FlagGet(FLAG_JOHTO_BADGE03_GET))
+        {
+            nBadges++;
+        }
+        //Johto Badge 4
+        if (FlagGet(FLAG_JOHTO_BADGE04_GET))
+        {
+            nBadges++;
+        }
+        //Johto Badge 5
+        if (FlagGet(FLAG_JOHTO_BADGE05_GET))
+        {
+            nBadges++;
+        }
+        //Johto Badge 6
+        if (FlagGet(FLAG_JOHTO_BADGE06_GET))
+        {
+            nBadges++;
+        }
+        //Johto Badge 7
+        if (FlagGet(FLAG_JOHTO_BADGE07_GET))
+        {
+            nBadges++;
+        }
         //Johto Badge 8
         if (FlagGet(FLAG_JOHTO_BADGE08_GET))
         {

@@ -1,0 +1,14 @@
+mapscripts SevenIsland_TanobyRuins_MapScripts
+{
+
+}
+
+script SevenIsland_TanobyRuins_Janitor 
+{
+    lock
+    faceplayer
+    msgbox(format("I'm a JANITOR here, picking up\nlitter near the seashore.\pYou can help me, by not\nlittering, kindly."))
+    closemessage
+    release
+    end
+}

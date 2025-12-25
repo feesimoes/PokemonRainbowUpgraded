@@ -347,7 +347,7 @@ gSpecials::
 	def_special IsMonOTNameNotPlayers
 	def_special NullFieldSpecial
 	def_special Dummy_TryEnableBravoTrainerBattleTower
-	def_special DoesPartyHaveEnigmaBerry
+	def_special DoesPartyHaveParadoxMon
 	def_special NullFieldSpecial
 	def_special SetPostgameFlags
 	def_special StartMarowakBattle
@@ -455,4 +455,10 @@ gSpecials::
 	def_special GetBountyTaskMonAndReward
 	def_special CheckMonClaimBountyTaskReward
 	def_special MakeMewLegalJPNEmeraldEvent
+	def_special GTS_Deposit
+	def_special GTS_Check
+	def_special GTS_Fulfill
+	def_special GTS_Withdraw
+	def_special GTS_TrySavingData
+	def_special StartBackgroundTintLoop
 gSpecialsEnd::
