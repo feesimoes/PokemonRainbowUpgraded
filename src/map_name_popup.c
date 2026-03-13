@@ -191,7 +191,7 @@ static void MapNamePopupPrintMapNameOnWindow(u16 windowId)
     u8 mapName[25];
     u32 maxWidth = 112;
     u32 xpos;
-    u8 *ptr = GetMapName(mapName, gMapHeader.regionMapSectionId, 0);
+    u8 *ptr = GetMapName(mapName, GetActualMapSectionId(), 0);
     if (gMapHeader.floorNum != 0)
     {
         ptr = MapNamePopupAppendFloorNum(ptr, gMapHeader.floorNum);

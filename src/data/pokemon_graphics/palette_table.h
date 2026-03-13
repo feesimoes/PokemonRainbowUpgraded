@@ -556,4 +556,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(SHAYMIN_LAND, gMonPalette_ShayminLand),
     SPECIES_PAL(SHAYMIN_SKY, gMonPalette_ShayminSky),
     SPECIES_PAL(ARCEUS_NORMAL, gMonPalette_ArceusNormal),
+    SPECIES_PAL(SANDSLASH_ALOLA, gMonPalette_Sandslash_Alola),
+    SPECIES_PAL(GOLEM_ALOLA, gMonPalette_Golem_Alola),
+    SPECIES_PAL(MAROWAK_ALOLA, gMonPalette_Marowak_Alola),
 };

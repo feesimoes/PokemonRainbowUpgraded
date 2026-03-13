@@ -1,1 +1,9 @@
 mapscripts Route26_Ocean_MapScripts {}
+
+script Route26_Ocean_Test_Soaring 
+{
+    lock
+    msgbox(format("Soaring Test goes here"))
+    release
+    end    
+}

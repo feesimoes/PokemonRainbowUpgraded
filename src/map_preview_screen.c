@@ -80,6 +80,18 @@ static const u8 sIcefallCaveMapPreviewTilemap[] = INCBIN_U8("graphics/map_previe
 static const u8 sAlteringCaveMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/altering_cave/tiles.gbapal");
 static const u8 sAlteringCaveMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/altering_cave/tiles.4bpp.lz");
 static const u8 sAlteringCaveMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/altering_cave/tilemap.bin.lz");
+static const u8 sVermilionHarborMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/vermilion_harbor/vermilion_harbor.gbapal");
+static const u8 sVermilionHarborMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/vermilion_harbor/vermilion_harbor.4bpp.lz");
+static const u8 sVermilionHarborMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/vermilion_harbor/vermilion_harbor.bin.lz");
+static const u8 sDarkCaveMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/dark_cave/dark_cave.gbapal");
+static const u8 sDarkCaveMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/dark_cave/dark_cave.4bpp.lz");
+static const u8 sDarkCaveMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/dark_cave/dark_cave.bin.lz");
+static const u8 sBurnedTowerMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/burned_tower/burned_tower.gbapal");
+static const u8 sBurnedTowerMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/burned_tower/burned_tower.4bpp.lz");
+static const u8 sBurnedTowerMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/burned_tower/burned_tower.bin.lz");
+static const u8 sSproutTowerMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.gbapal");
+static const u8 sSproutTowerMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.4bpp.lz");
+static const u8 sSproutTowerMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.bin.lz");
 
 static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     [MPS_VIRIDIAN_FOREST] = {
@@ -138,13 +150,13 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
         .palptr = sSeafoamIslandsMapPreviewPalette
     },
-    [MPS_VERMILION_HARBOR] = {
-        .mapsec = MAPSEC_VERMILION_HARBOR,
+    [MPS_S_S_ANNE] = {
+        .mapsec = MAPSEC_S_S_ANNE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SSANNE_EXTERIOR,
-        .tilesptr = sSeafoamIslandsMapPreviewTiles,
-        .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
-        .palptr = sSeafoamIslandsMapPreviewPalette
+        .tilesptr = sVermilionHarborMapPreviewTiles,
+        .tilemapptr = sVermilionHarborMapPreviewTilemap,
+        .palptr = sVermilionHarborMapPreviewPalette
     },
     [MPS_POKEMON_MANSION] = {
         .mapsec = MAPSEC_POKEMON_MANSION,
@@ -313,6 +325,38 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_TOHJO_FALLS] = {
+        .mapsec = MAPSEC_TOHJO_FALLS,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_TOHJO_FALLS,
+        .tilesptr = sRockTunnelMapPreviewTiles,
+        .tilemapptr = sRockTunnelMapPreviewTilemap,
+        .palptr = sRockTunnelMapPreviewPalette
+    },
+    [MPS_DARK_CAVE] = {
+        .mapsec = MAPSEC_DARK_CAVE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_DARK_CAVE,
+        .tilesptr = sDarkCaveMapPreviewTiles,
+        .tilemapptr = sDarkCaveMapPreviewTilemap,
+        .palptr = sDarkCaveMapPreviewPalette
+    },
+    [MPS_BURNED_TOWER] = {
+        .mapsec = MAPSEC_BURNED_TOWER,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_BURNED_TOWER,
+        .tilesptr = sBurnedTowerMapPreviewTiles,
+        .tilemapptr = sBurnedTowerMapPreviewTilemap,
+        .palptr = sBurnedTowerMapPreviewPalette
+    },
+    [MPS_SPROUT_TOWER] = {
+        .mapsec = MAPSEC_SPROUT_TOWER,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_SPROUT_TOWER,
+        .tilesptr = sSproutTowerMapPreviewTiles,
+        .tilemapptr = sSproutTowerMapPreviewTilemap,
+        .palptr = sSproutTowerMapPreviewPalette
     }
 };
 

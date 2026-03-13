@@ -41,11 +41,13 @@ const Route1_HoOh = 0x03
 script Route1_Spearows_Bite {
     lock
     playmoncry(SPECIES_SPEAROW, CRY_MODE_NORMAL)
+    waitmoncry
     msgbox(format("It's a wild POKéMON!\nDarn! No way to ID it!"))
+    closemessage
     setweather(WEATHER_RAIN)
     doweather
     msgbox(format("Ow!\nIt gave you a vicious PECK!"))
-    waitmessage
+    closemessage
     release
     end
 }
@@ -62,14 +64,13 @@ script Route1_Misty_Thinks_You_Are_Rival {
     doweather
     msgbox(format("I can't seem to reel in any\ngood POKéMON here either!\pIt's getting a bit dark, too, so\nI'll probably head back to CERULEAN."))
     msgbox(format("You're a new face!\nUh huh...\pOK, so you're {PLAYER}!\nI'll remember that!\pI'm MISTY! Here, come with me!\nI could show you to VIRIDIAN CITY!"))
-    waitmessage
     closemessage
+    playbgm(MUS_FOLLOW_ME, TRUE)
     applymovement(Route1_Misty, Route1_Movement_Walk_Up_9)
     waitmovement
     applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_9)
     waitmovement
     playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
-    waitmoncry
     setweather(WEATHER_SUNNY)
     doweather
     applymovement(Route1_Misty, Route1_Movement_Walk_Right_3)
@@ -99,7 +100,9 @@ script Route1_Misty_Thinks_You_Are_Rival {
     waitmovement
     applymovement(Route1_Misty, Route1_Movement_Walk_Right_18)
     waitmovement
+    delay(60)
     msgbox(format("I'm all the way over here,\nSLOWPOKE! By the big red building!"))
+    waitmessage
     closemessage
     applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_7)
     waitmovement
@@ -108,8 +111,6 @@ script Route1_Misty_Thinks_You_Are_Rival {
     applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
     waitmovement
     msgbox(format("We're here!\nThis is the POKéMON CENTER.\pNURSE JOY is always happy to heal\nYour POKéMON to full health!\pThe best part is that it's free!"))
-    waitmessage
-    closemessage
     msgbox(format("I'm gonna go over to the POKéMART!\nI definitely need to stock up\pon supplies now, since ROUTE 1.\nOK, see ya!\pBe sure to meet lots of POKéMON!"))
     waitmessage
     closemessage

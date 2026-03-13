@@ -454,10 +454,10 @@ LindenTown_Mansion_1F_Face_Down:
 
 LindenTown_Mansion_1F_BlaineIsOccupied_Text_0:
 # 16 "data/maps/LindenTown_Mansion_1F/scripts.pory"
-	.string "BLAINE seems to be locked in\n"
-	.string "a conversation with the man...\p"
-	.string "Maybe he will notice if you're\n"
-	.string "in front of them?$"
+	.string "BLAINE seems to be locked in a\n"
+	.string "discussion with the gentleman...\p"
+	.string "Maybe he will notice if you're in\n"
+	.string "front of them?$"
 
 LindenTown_Mansion_1F_George_Text_0:
 # 31 "data/maps/LindenTown_Mansion_1F/scripts.pory"
@@ -535,13 +535,13 @@ LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_8:
 # 81 "data/maps/LindenTown_Mansion_1F/scripts.pory"
 	.string "BLAINE: Hah, that's correct!\n"
 	.string "I returned to GUYANA with {PLAYER}.\p"
-	.string "They are a lot stronger than I,\n"
-	.string "even having earned my BADGE!$"
+	.string "They are a lot stronger than I, even\n"
+	.string "having earned my BADGE!$"
 
 LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_9:
 # 82 "data/maps/LindenTown_Mansion_1F/scripts.pory"
-	.string "GEORGE: I'm not sure what any\n"
-	.string "of that means, honestly...\p"
+	.string "GEORGE: I'm not sure what any of that\n"
+	.string "means, honestly...\p"
 	.string "Ah, wait! You're a GYM LEADER?\n"
 	.string "An interesting turn of events...$"
 
@@ -560,8 +560,8 @@ LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_12:
 # 89 "data/maps/LindenTown_Mansion_1F/scripts.pory"
 	.string "GEORGE: ...I see.\n"
 	.string "BLAINE, {PLAYER}... I am sorry...\p"
-	.string "But, honestly, I was not\n"
-	.string "aware GIOVANNI'S hiding here.$"
+	.string "But, honestly, I was not aware\n"
+	.string "that GIOVANNI is hiding here.$"
 
 LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_13:
 # 90 "data/maps/LindenTown_Mansion_1F/scripts.pory"
@@ -629,13 +629,13 @@ LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_23:
 # 139 "data/maps/LindenTown_Mansion_1F/scripts.pory"
 	.string "...That was quite dramatic.\n"
 	.string "However, since you are here...\p"
-	.string "Perhaps you can find use to\n"
-	.string "this old navigation chart?$"
+	.string "Perhaps you can find use to this\n"
+	.string "old navigation chart?$"
 
 LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left_Text_24:
 # 141 "data/maps/LindenTown_Mansion_1F/scripts.pory"
-	.string "I apologize for bringing you\n"
-	.string "into that heated argument...\p"
+	.string "I apologize for bringing you into\n"
+	.string "that heated argument...\p"
 	.string "If you do find GIOVANNI in\n"
 	.string "GUYANA, please let me know.$"
 

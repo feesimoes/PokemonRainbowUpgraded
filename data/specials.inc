@@ -461,4 +461,10 @@ gSpecials::
 	def_special GTS_Withdraw
 	def_special GTS_TrySavingData
 	def_special StartBackgroundTintLoop
+	def_special Script_StartOverworldMultiplayerListener
+	def_special Script_StopOverworldMultiplayerListener
+	def_special Script_TryConnectOverworldMultiplayer
+	def_special Script_GetOverworldMultiplayerConnectedPlayerCount
+	def_special Script_IsOverworldMultiplayerConnected
+	def_special TryOverworldMultiplayerLinkup
 gSpecialsEnd::

@@ -308,8 +308,8 @@
 #define MUS_PALLET                300 // MUS_MASARA
 #define MUS_OAK_LAB               301 // MUS_KENKYU
 #define MUS_OAK                   302 // MUS_OHKIDO
-#define MUS_POKE_CENTER           303 // MUS_POKECEN
-#define MUS_SS_ANNE               304 // MUS_SANTOAN
+#define MUS_POKE_CENTER           303 // MUS_POKE_CENTER = Original Pokemon Center with a repitched FR/LG section before looping
+#define MUS_SS_ANNE               304 // MUS_SANTOAN = Original SS Anne theme remix for FR/LG engine
 #define MUS_SURF                  305 // MUS_NAMINORI
 #define MUS_POKE_TOWER            306 // MUS_P_TOWER
 #define MUS_SILPH                 307 // MUS_SHIRUHU
@@ -387,7 +387,7 @@
 #define MUS_LEGEND_TRAINER        379 // MUS_LEGEND_TRAINER_CHALLENGE
 #define MUS_VS_PROF_OAK           380 // MUS_VS_PROF_OAK
 #define MUS_VS_TRAINER_SINNOH     381 // MUS_VS_TRAINER_SINNOH
-#define MUS_MUSIC_MENU            382 // MUS_MUSIC_MENU
+#define MUS_GOLDENROD_WHIMSICAL   382 // MUS_GOLDENROD_WHIMSICAL = HG/SS Goldenrod City, used for Radio Channels/Radio Tower, Dept. Store, etc.
 #define MUS_TOHJO_FALLS_DEPTHS 	  383 // MUS_TOHJO_FALLS_DEPTHS
 #define MUS_ROUTE_23_GATE   	  384 // MUS_ROUTE_23_GATE
 #define MUS_ROUTE_23_BADGE_1   	  385 // MUS_ROUTE_23_BADGE_1
@@ -421,10 +421,10 @@
 #define MUS_INDIGO_PLATEAU        413 // MUS_INDIGO_PLATEAU = HG/SS Indigo Plateau remix, used for outdoor
 #define MUS_VS_GOLD_KRIS          414 // MUS_VS_GOLD_KRIS = Masters EX Johto Trainer Battle remix, courtesy of TruthSeeker Music
 #define MUS_VS_CHAMPION_LANCE     415 // MUS_VS_CHAMPION_LANCE = HG/SS Johto Champion Battle theme remix, by TruthSeeker Music
-#define MUS_ROUTE47               416 // MUS_ROUTE47 = HG/SS Route 47 remix (With help/inspiration from TruthSeeker Music)
+#define MUS_ROUTE47               416 // MUS_ROUTE47 = HG/SS Route 47 remix (With some help/inspiration from TruthSeeker Music)
 #define MUS_MT_EMBER              417 // MUS_MT_EMBER = Custom remix of Mt. Moon
 #define MUS_GOLDENROD             418 // MUS_GOLDENROD
-#define MUS_VS_TRAINER_SEVII      419 // MUS_VS_TRAINER_SEVII = Custom remix of Gen 2/4's Kanto Trainer Battle theme, by TruthSeeker Music
+#define MUS_VS_TRAINER_SEVII      419 // MUS_VS_TRAINER_SEVII = HG/SS Kanto Trainer Battle remix
 
 //More music by TruthSeeker, added to the song list as-is (Not mixed or reviewed)
 
@@ -446,18 +446,18 @@
 
 #define MUS_ENCOUNTER_CALYPSO     431 // MUS_ENCOUNTER_CALYPSO = Dev Team contributor, custom theme. Remix by Calypso
 
-#define MUS_VS_CALYPSO            432 // MUS_VS_CALYPSO = remix by TruthSeeker
+#define MUS_VS_CALYPSO            432 // MUS_VS_CALYPSO = remix by Calypso with help from TruthSeeker
 #define MUS_ENCOUNTER_XXVII       433 // MUS_ENCOUNTER_XXVII = remix by TruthSeeker
 #define MUS_VS_XXVII              434 // MUS_VS_XXVII = remix by TruthSeeker
-#define MUS_ENCOUNTER_JOHTO_KID   435 // MUS_ENCOUNTER_JOHTO_KID = remix by TruthSeeker (Youngster theme)
-#define MUS_ENCOUNTER_KIMONO      436 // MUS_ENCOUNTER_KIMONO = remix by TruthSeeker (Kimono Girls theme)
-#define MUS_ENCOUNTER_RIVAL_CHAMP 437 // MUS_ENCOUNTER_RIVAL_CHAMP = remix by TruthSeeker (Champion Room Rival's theme, variation)
 
+#define MUS_ENCOUNTER_BOY_JOHTO   435 // MUS_ENCOUNTER_JOHTO_KID = HG/SS Johto Male Encounter, FR/LG Mix
+
+#define MUS_ENCOUNTER_KIMONO      436 // MUS_ENCOUNTER_KIMONO = remix by TruthSeeker (Kimono Girls theme)
+
+#define MUS_ENCOUNTER_RIVAL_CHAMP 437 // MUS_ENCOUNTER_RIVAL_CHAMP = remix by TruthSeeker (Champion Room Rival's theme, variation based on The Origins)
 #define MUS_ICE_PATH              438 // MUS_ICE_PATH = HG/SS Dark Cave
 #define MUS_BLACKTHORN            439 // MUS_BLACKTHORN = remix of HG/SS Azalea Town by TruthSeeker
-
-#define MUS_ECRUTEAK              440 // MUS_ECRUTEAK = remix by TruthSeeker
-
+#define MUS_ECRUTEAK              440 // MUS_ECRUTEAK = HG/SS Ecruteak City remix
 #define MUS_OLIVINE_LIGHTHOUSE    441 // MUS_OLIVINE_LIGHTHOUSE = remix by Pascal van den Bos
 
 #define MUS_VS_CHAMPION_CYNTHIA   442 // MUS_VS_CHAMPION_CYNTHIA = remix by TruthSeeker
@@ -473,6 +473,29 @@
 #define MUS_ROUTE218              451 // MUS_ROUTE218 = Route 203 (Day) ported to FRLG Engine
 #define MUS_VS_WILD_SINNOH        452 // MUS_VS_WILD_SINNOH
 #define MUS_BRIGETTES_ROOM        453 // MUS_BRIGETTES_ROOM = Brigette's Room (Box R/S) ported to FRLG Engine
+#define MUS_ROUTE38               454 // MUS_ROUTE38 = G/S/C Route 38, with elements of the Unused R/S/E/FR/LG & HG/SS arrangement
+#define MUS_POKE_MART_HOENN       455 // MUS_POKE_MART_HOENN = R/S/E Poke Mart "remaster" with FRLG Engine, for Guyana & Orre as well
+#define MUS_PEWTER_MUSEUM         456 // MUS_PEWTER_MUSUEM = HG/SS Cinnabar Island remix
+#define MUS_ENCOUNTER_SHADY       457 // MUS_ENCOUNTER_SHADY = FR/LG Team Rocket Encounter, reused for now
+#define MUS_SURF_SINNOH           458 // MUS_SURF_SINNOH = D/P/Pt Surf Theme
+#define MUS_ENCOUNTER_SBC         459 // MUS_ENCOUNTER_SBC = Jacinthe's Theme from Legends Z-A
+#define MUS_ROUTE110              460 // MUS_ROUTE110 = R/S/E Route 110 FR/LG Mix
+#define MUS_CYCLING_SINNOH        461 // MUS_CYCLING_SINNOH = D/P/Pt Bicycle FR/LG Mix
+#define MUS_SURF_HOENN            462 // MUS_SURF_HOENN = R/S/E Surf FR/LG Mix
+#define MUS_CYCLING_HOENN         463 // MUS_CYCLING_HOENN = R/S/E Bicycle FR/LG Mix
+#define MUS_VS_WILD_SEVII         464 // MUS_VS_WILD_SEVII = HG/SS VS Kanto Wild Battle FR/LG Mix at G/S/C pace
+#define MUS_NEW_GAME_INTRO_JOHTO  465 // MUS_NEW_GAME_INTRO_JOHTO = HG/SS Game Intro FR/LG Mix
+#define MUS_BURNED_TOWER          466 // MUS_BURNED_TOWER = G/S/C Burned Tower FR/LG Remix by Calypso
+#define MUS_ENCOUNTER_GIRL_JOHTO  467 // MUS_ENCOUNTER_GIRL_JOHTO = HG/SS Johto Girl Trainer Encounter port to FR/LG Engine
+#define MUS_POKE_MART_JOHTO       468 // MUS_POKE_MART_JOHTO = HG/SS Poke Mart, FR/LG Mix
+#define MUS_POKE_CENTER_JOHTO     469 // MUS_POKE_CENTER_JOHTO = HG/SS Poke Center FR/LG Mix
+#define MUS_ENCOUNTER_EUSINE      470 // MUS_ENCOUNTER_EUSINE = HG/SS Eusine Theme with Crystal's loop, FR/LG Mix
+#define MUS_VS_RIVAL              471 // MUS_VS_RIVAL = FR/LG Trainer Battle remix, with Rival Blue theme & Burning Battlefield (Anime) elements
+#define MUS_NEW_GAME_INTRO_HOENN  472 // MUS_NEW_GAME_INTRO_HOENN = R/S/E Game Intro, seamless loop edit for FR/LG
+#define MUS_AZALEA                473 // MUS_AZALEA = HG/SS Azalea Town theme, FR/LG Mix
+#define MUS_ENCOUNTER_BATTLE_ZONE 474 // MUS_ENCOUNTER_BATTLE_ZONE = Legends Z-A Battle Zone Trainer theme intro loop, FR/LG Mix
+#define MUS_VS_RANK_MATCH         475 // MUS_VS_RANK_MATCH = Legends Z-A Rank Match Trainer Battle theme, FR/LG Mix
+#define MUS_NEW_GAME_INTRO_GUYANA 476 // MUS_NEW_GAME_INTRO_GUYANA = oR/aS Southern Island, FR/LG Mix
 
 #define MUS_NONE                  0xFFFF
 

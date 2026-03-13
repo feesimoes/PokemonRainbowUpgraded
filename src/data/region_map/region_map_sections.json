@@ -2,11 +2,7 @@
   "map_sections": [
     {
       "id": "MAPSEC_PALLET_TOWN",
-      "name": "PALLET TOWN",
-      "x": 4,
-      "y": 11,
-      "width": 1,
-      "height": 1
+      "name": "OLD PALLET TOWN"
     },
     {
       "id": "MAPSEC_VIRIDIAN_CITY",
@@ -355,8 +351,8 @@
     {
       "id": "MAPSEC_KANTO_VICTORY_ROAD",
       "name": "VICTORY ROAD",
-      "x": 0,
-      "y": 0,
+      "x": 2,
+      "y": 4,
       "width": 1,
       "height": 1
     },
@@ -371,8 +367,8 @@
     {
       "id": "MAPSEC_SILPH_CO",
       "name": "SILPH CO.",
-      "x": 0,
-      "y": 0,
+      "x": 14,
+      "y": 6,
       "width": 1,
       "height": 1
     },
@@ -387,8 +383,8 @@
     {
       "id": "MAPSEC_KANTO_SAFARI_ZONE",
       "name": "SAFARI ZONE",
-      "x": 0,
-      "y": 0,
+      "x": 12,
+      "y": 12,
       "width": 1,
       "height": 1
     },
@@ -986,7 +982,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_32_POKECENTER",
-      "name": "ROUTE 32",
+      "name": "ROUTE 33",
       "x": 12,
       "y": 11,
       "width": 1,
@@ -1012,9 +1008,9 @@
       "id": "MAPSEC_ROUTE_33",
       "name": "ROUTE 33",
       "x": 12,
-      "y": 12,
-      "width": 2,
-      "height": 1
+      "y": 11,
+      "width": 1,
+      "height": 2
     },
     {
       "id": "MAPSEC_ROUTE_34",
@@ -1107,8 +1103,8 @@
     {
       "id": "MAPSEC_BURNED_TOWER",
       "name": "BURNED TOWER",
-      "x": 10,
-      "y": 2,
+      "x": 11,
+      "y": 3,
       "width": 1,
       "height": 1
     },
@@ -1274,7 +1270,7 @@
     },
     {
       "id": "MAPSEC_OLIVINE_LIGHTHOUSE",
-      "name": "OLIVINE LIGHTHOUSE",
+      "name": "GLITTER BEACON",
       "x": 7,
       "y": 6,
       "width": 1,
@@ -2226,6 +2222,22 @@
     {
       "id": "MAPSEC_SEAFLOOR_CAVERN",
       "name": "SEAFLOOR CAVERN"
+    },
+    {
+      "id": "MAPSEC_BELLCHIME_TRAIL",
+      "name": "BELLCHIME TRAIL"
+    },
+    {
+      "id": "MAPSEC_PALLET_TOWN_2",
+      "name": "PALLET TOWN",
+      "x": 4,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SKY_KANTO",
+      "name": "KANTO"
     }
   ]
 }

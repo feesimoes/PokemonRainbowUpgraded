@@ -17,6 +17,7 @@
 #include "decompress.h"
 #include "constants/songs.h"
 #include "region_map.h"
+#include "overworld.h"
 
 enum TitleScreenScene
 {
@@ -472,7 +473,7 @@ static void SetTitleScreenScene(s16 *data, u8 sceneNum)
 
 static void SetTitleScreenScene_Init(s16 *data)
 {
-    struct ScanlineEffectParams params;
+    struct ScanlineEffectParams params = {0};
 
     HideBg(0);
     ShowBg(1);
@@ -731,10 +732,32 @@ static void SetTitleScreenScene_Cry(s16 *data)
         {
             if (IsNotWaitingForBGMStop() == TRUE)
             {
-                switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+                u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+                u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+
+                u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+
+                u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
+                
+                if (currentRegion == REGIONMAP_KANTO)
                 {
-                    default:
-                        PlayBGM(MUS_NEW_GAME_INTRO);
+                    PlayBGM(MUS_NEW_GAME_INTRO);
+                }
+                else if (currentRegion == REGIONMAP_JOHTO)
+                {
+                    PlayBGM(MUS_NEW_GAME_INTRO_JOHTO);
+                }
+                else if (currentRegion == REGIONMAP_GUYANA)
+                {
+                    PlayBGM(MUS_NEW_GAME_INTRO_GUYANA);
+                }
+                else if (currentRegion == REGIONMAP_HOENN)
+                {
+                    PlayBGM(MUS_NEW_GAME_INTRO_HOENN);
+                }
+                else
+                {
+                    PlayBGM(MUS_NEW_GAME_INTRO);
                 }
             }
             SeedRngAndSetTrainerId();

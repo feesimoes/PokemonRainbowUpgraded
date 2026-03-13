@@ -31,6 +31,8 @@
 #include "new_game.h"
 #include "new_menu_helpers.h"
 #include "overworld.h"
+#include "constants/overworld_multiplayer.h"
+#include "overworld_multiplayer.h"
 #include "play_time.h"
 #include "quest_log.h"
 #include "quest_log_objects.h"
@@ -54,6 +56,8 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/weather.h"
+#include "region_map.h"
+#include "event_object_movement.h"
 
 #define PLAYER_LINK_STATE_IDLE 0x80
 #define PLAYER_LINK_STATE_BUSY 0x81
@@ -219,6 +223,83 @@ static void CB1_OverworldLink(void);
 
 extern const struct MapLayout * gMapLayouts[];
 extern const struct MapHeader *const *gMapGroups[];
+
+extern bool8 IsSoaringMap(void);
+
+u16 gSoaringHorizonGradient[160];
+
+void InitSoaringGradientData(void)
+{
+    int i;
+    for (i = 0; i < 60; i++) // Sky
+        gSoaringHorizonGradient[i] = RGB((i * 24) / 60, 15 + ((i * 16) / 60), 31);
+    
+    gSoaringHorizonGradient[60] = RGB(31, 31, 31); // Horizon Haze
+    
+    for (i = 61; i < 160; i++) // Deep Ocean/Ground Base
+        gSoaringHorizonGradient[i] = RGB(0, 5, 15); 
+}
+
+// Mode 7 / Soaring Variables
+static s16 sMode7_PA[160];
+static s32 sMode7_Y[160];
+
+static void HBlankCB_SoaringMode7(void)
+{
+    u16 vcount = REG_VCOUNT;
+    if (vcount < 160)
+    {
+        // Apply Mode-7 scaling to BG2 (Top Layer)
+        REG_BG2PA = sMode7_PA[vcount];
+        *(vu32 *)REG_ADDR_BG2Y = sMode7_Y[vcount];
+
+        // Apply Mode-7 scaling to BG3 (Bottom Layer)
+        REG_BG3PA = sMode7_PA[vcount];
+        *(vu32 *)REG_ADDR_BG3Y = sMode7_Y[vcount];
+    }
+}
+
+// Calculate the 3D perspective math (run once per frame during VBlank)
+static void CalculateMode7Perspective(void)
+{
+    // In C89, ALL variables must be declared at the top of the function!
+    int i;
+    int horizon = 60;     // Scanline where the sky meets the ground
+    int cameraHeight = 64; // How high up the camera is
+    s16 camX, camY;
+    int z;
+    int scale;
+
+    // We get the camera pixel offsets from field_camera.c
+    FieldCameraGetPixelOffsetAtGround(&camX, &camY);
+
+    for (i = 0; i < 160; i++)
+    {
+        if (i < horizon)
+        {
+            // Above the horizon (Sky), don't scale or draw the ground
+            sMode7_PA[i] = 256; // 256 = 1.0x scale in GBA fixed-point math
+            sMode7_Y[i] = 0;
+        }
+        else
+        {
+            // Below the horizon (The 3D Ground)
+            z = i - horizon;
+            if (z == 0) 
+            {
+                z = 1; // Prevent division by zero
+            }
+            
+            // Calculate scale: stuff closer to the bottom of the screen is larger
+            scale = (256 * cameraHeight) / z;
+            
+            sMode7_PA[i] = scale;
+            
+            // Calculate how fast the floor moves towards the camera
+            sMode7_Y[i] = (camY << 8) - (scale * z);
+        }
+    }
+}
 
 // Routines related to game state on warping in
 
@@ -511,7 +592,7 @@ static void ApplyCurrentWarp(void)
     sFixedHoleWarp = sDummyWarpData;
 }
 
-static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+static void SetWarpData(struct WarpData *warp, u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     warp->mapGroup = mapGroup;
     warp->mapNum = mapNum;
@@ -519,11 +600,12 @@ static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId
     warp->x = x;
     warp->y = y;
 }
+
 static bool32 IsDummyWarp(struct WarpData *warp)
 {
-    if (warp->mapGroup != (u8)MAP_GROUP(MAP_UNDEFINED) && warp->mapGroup != 0xFF)
+    if (warp->mapGroup != (u8) MAP_GROUP(MAP_UNDEFINED))
         return FALSE;
-    else if (warp->mapNum != (u8)MAP_NUM(MAP_UNDEFINED) && warp->mapNum != 0xFF)
+    else if (warp->mapNum != (u8) MAP_NUM(MAP_UNDEFINED))
         return FALSE;
     else if (warp->warpId != -1)
         return FALSE;
@@ -535,9 +617,63 @@ static bool32 IsDummyWarp(struct WarpData *warp)
         return TRUE;
 }
 
+extern void *gMapGroupsEnd;
+
+static const struct WarpEvent sDummyWarpEvent = {0, 0, 0, 0, 0, 0};
+static const struct MapEvents sDummyMapEvents = {
+    .objectEventCount = 0,
+    .warpCount = 0,
+    .coordEventCount = 0,
+    .bgEventCount = 0,
+    .objectEvents = NULL,
+    .warps = &sDummyWarpEvent,
+    .coordEvents = NULL,
+    .bgEvents = NULL
+};
+
+EWRAM_DATA struct WarpData gLastInvalidWarp = { .mapGroup = 0xFF, .mapNum = 0xFF, .warpId = -1, .x = -1, .y = -1 };
+
+static const struct MapLayout sDummyMapLayout = {
+    .width = 1,
+    .height = 1,
+    .border = NULL,
+    .map = NULL,
+    .primaryTileset = NULL,
+    .secondaryTileset = NULL,
+    .borderWidth = 0,
+    .borderHeight = 0
+};
+
+static const struct MapHeader sDummyMapHeader = {
+    .mapLayout = &sDummyMapLayout,
+    .events = &sDummyMapEvents,
+    .mapScripts = NULL,
+    .connections = NULL,
+    .music = 0,
+    .mapLayoutId = 0,
+    .regionMapSectionId = 0,
+    .cave = 0,
+    .weather = 0,
+    .mapType = 0,
+    .bikingAllowed = FALSE,
+    .allowEscaping = FALSE,
+    .allowRunning = FALSE,
+    .showMapName = 0,
+    .floorNum = 0,
+    .battleType = 0
+};
+
 struct MapHeader const *const Overworld_GetMapHeaderByGroupAndId(u16 mapGroup, u16 mapNum)
 {
+    if (((u32)gMapGroups[mapGroup][mapNum] & 0xFF000000) != 0x08000000)
+        return &sDummyMapHeader;
+
     return gMapGroups[mapGroup][mapNum];
+}
+
+bool8 Overworld_IsMapHeaderValid(const struct MapHeader *header)
+{
+    return header != &sDummyMapHeader;
 }
 
 struct MapHeader const *const GetDestinationWarpMapHeader(void)
@@ -584,26 +720,25 @@ void WarpIntoMap(void)
     SetPlayerCoordsFromWarp();
 }
 
-void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetWarpDestination(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
 }
 
-void SetWarpDestinationToMapWarp(s8 mapGroup, s8 mapNum, s8 warpId)
+void SetWarpDestinationToMapWarp(u8 mapGroup, u8 mapNum, s8 warpId)
 {
     SetWarpDestination(mapGroup, mapNum, warpId, -1, -1);
 }
 
-void SetDynamicWarp(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId)
+void SetDynamicWarp(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId)
 {
     SetWarpData(&gSaveBlock1Ptr->dynamicWarp, mapGroup, mapNum, warpId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
 }
 
-void SetDynamicWarpWithCoords(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetDynamicWarpWithCoords(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&gSaveBlock1Ptr->dynamicWarp, mapGroup, mapNum, warpId, x, y);
 }
-
 void SetWarpDestinationToDynamicWarp(u8 unusedWarpId)
 {
     sWarpDestination = gSaveBlock1Ptr->dynamicWarp;
@@ -645,7 +780,7 @@ void UpdateEscapeWarp(s16 x, s16 y)
     }
 }
 
-void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetEscapeWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&gSaveBlock1Ptr->escapeWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -655,7 +790,7 @@ void SetWarpDestinationToEscapeWarp(void)
     sWarpDestination = gSaveBlock1Ptr->escapeWarp;
 }
 
-void SetFixedDiveWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetFixedDiveWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&sFixedDiveWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -665,7 +800,7 @@ static void SetWarpDestinationToDiveWarp(void)
     sWarpDestination = sFixedDiveWarp;
 }
 
-void SetFixedHoleWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetFixedHoleWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&sFixedHoleWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -683,7 +818,7 @@ static void SetWarpDestinationToContinueGameWarp(void)
     sWarpDestination = gSaveBlock1Ptr->continueGameWarp;
 }
 
-static void SetContinueGameWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+static void SetContinueGameWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&gSaveBlock1Ptr->continueGameWarp, mapGroup, mapNum, warpId, x, y);
 }
@@ -1121,15 +1256,20 @@ void Overworld_PlaySpecialMapMusic(void)
         music = gSaveBlock1Ptr->savedMusic;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
     {
-        if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+        switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
         {
-            music = MUS_SURF_JOHTO;
-            return;
-        }
-        else
-        {
-            music = MUS_SURF;
-            return;
+            case REGIONMAP_JOHTO:
+                music = MUS_SURF_JOHTO;
+                break;
+            case REGIONMAP_HOENN:
+                music = MUS_SURF_HOENN;
+                break;
+            case REGIONMAP_SINNOH:
+                music = MUS_SURF_SINNOH;
+                break;
+            default:
+                music = MUS_SURF;
+                break;
         }
     }
     if (music != GetCurrentMapMusic())
@@ -1163,17 +1303,19 @@ static void Overworld_TryMapConnectionMusicTransition(void)
     {
         newMusic = GetWarpDestinationMusic();
         currentMusic = GetCurrentMapMusic();
-        if (currentMusic == MUS_SURF)
-            return;
         if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
         {
-            if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+            switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
             {
-                newMusic = MUS_SURF_JOHTO;
-            }
-            else
-            {
-                newMusic = MUS_SURF;
+                case REGIONMAP_KANTO:
+                    newMusic = MUS_SURF;
+                    break;
+                case REGIONMAP_JOHTO:
+                    newMusic = MUS_SURF_JOHTO;
+                    break;
+                case REGIONMAP_SINNOH:
+                    newMusic = MUS_SURF_SINNOH;
+                    break;
             }
         }
         if (newMusic != currentMusic)
@@ -1305,7 +1447,7 @@ bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
     return TRUE;
 }
 
-u8 GetMapTypeByGroupAndId(s8 mapGroup, s8 mapNum)
+u8 GetMapTypeByGroupAndId(u8 mapGroup, u8 mapNum)
 {
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->mapType;
 }
@@ -1367,9 +1509,9 @@ static u8 GetSavedWarpRegionMapSectionId(void)
     return Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->dynamicWarp.mapGroup, gSaveBlock1Ptr->dynamicWarp.mapNum)->regionMapSectionId;
 }
 
-u8 GetCurrentRegionMapSectionId(void)
+u16 GetCurrentRegionMapSectionId(void)
 {
-    return Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId;
+    return (u16)(Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId);
 }
 
 u8 GetCurrentMapBattleScene(void)
@@ -1455,6 +1597,7 @@ static void InitOverworldBgs(void)
     InitStandardTextBoxWindows();
     InitTextBoxGfxAndPrinters();
     InitFieldMessageBox();
+    InitOverworldMultiplayer();
 }
 
 static void InitOverworldBgs_NoResetHeap(void)
@@ -1473,6 +1616,7 @@ static void InitOverworldBgs_NoResetHeap(void)
     InitStandardTextBoxWindows();
     InitTextBoxGfxAndPrinters();
     InitFieldMessageBox();
+    InitOverworldMultiplayer();
 }
 
 void CleanupOverworldWindowsAndTilemaps(void)
@@ -1835,6 +1979,12 @@ static void FieldClearVBlankHBlankCallbacks(void)
 static void SetFieldVBlankCallback(void)
 {
     SetVBlankCallback(VBlankCB_Field);
+
+    if (IsSoaringMap())
+    {
+        EnableInterrupts(INTR_FLAG_HBLANK);
+        SetHBlankCallback(HBlankCB_SoaringMode7);
+    }
 }
 
 static void VBlankCB_Field(void)
@@ -1845,6 +1995,25 @@ static void VBlankCB_Field(void)
     FieldUpdateBgTilemapScroll();
     TransferPlttBuffer();
     TransferTilesetAnimsBuffer();
+    
+    if (IsSoaringMap())
+    {
+        s16 camX, camY;
+        CalculateMode7Perspective();
+        
+        FieldCameraGetPixelOffsetAtGround(&camX, &camY);
+        
+        // Push horizontal position to Affine X registers (32-bit write)
+        *(vu32 *)REG_ADDR_BG2X = (camX << 8);
+        *(vu32 *)REG_ADDR_BG3X = (camX << 8);
+        
+        // Lock other affine registers to default 1.0x (256) so it doesn't spin wildly
+        REG_BG2PB = 0; REG_BG2PC = 0; REG_BG2PD = 256;
+        REG_BG3PB = 0; REG_BG3PC = 0; REG_BG3PD = 256;
+
+        // CRITICAL: Tell the GBA hardware to actually fire the HBlank interrupt!
+        SetGpuReg(REG_OFFSET_DISPSTAT, GetGpuReg(REG_OFFSET_DISPSTAT) | DISPSTAT_HBLANK_INTR);
+    }
 }
 
 static void InitCurrentFlashLevelScanlineEffect(void)
@@ -2179,7 +2348,16 @@ static void InitOverworldGraphicsRegisters(void)
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
     ScheduleBgCopyTilemapToVram(3);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | 0x20 | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+    if (IsSoaringMap())
+    {
+        // Mode 2: BG2 & BG3 are Affine. (BG0 and BG1 are disabled).
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_2 | DISPCNT_OBJ_1D_MAP | 0x20 | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+    }
+    else
+    {
+        // Standard Mode 0
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | 0x20 | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+    }
     ShowBg(0);
     ShowBg(1);
     ShowBg(2);

@@ -1,0 +1,50 @@
+{
+  "id": "MAP_ICE_PATH_1F",
+  "name": "IcePath_1F",
+  "layout": "LAYOUT_ICE_PATH_1F",
+  "music": "MUS_ICE_PATH",
+  "region_map_section": "MAPSEC_ICE_PATH",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 52,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_BLACKTHORN_CITY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 51,
+      "elevation": 0,
+      "dest_map": "MAP_ICE_PATH_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 52,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_ICE_PATH_B1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 52,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ICE_PATH_B1F",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

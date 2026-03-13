@@ -728,17 +728,17 @@ script CinnabarIsland_Gym_EventScript_Blaine_Rematch
         lock
         faceplayer
         fadenewbgm(MUS_KANTO_EMOTION)
-        msgbox(format("The CINNABAR VOLCANO seems\nto be quite active lately...\pShould it erupt, the land...\nNo..."))
+        msgbox(format("The CINNABAR VOLCANO seems to be\nquite active lately...\pShould it erupt, the land...\nNo..."))
         closemessage
         applymovement(8, CinnabarIsland_Gym_EventScript_Blaine_NoticesPlayer)
         waitmovement
-        msgbox(format("Hah!\nI got lost in my thoughts!\pMR. FUJI tells me you're\nquite the quiz whiz.\pYou know, I am something\nof a scientist, myself..."))
-        msgbox(format("That's right! You're the one\nwho unlocked the GYM.\pSurely you must've read\nup on our research?"))
-        msgbox(format("No?\nDidn't see anything interesting?\p...Hmph! Well, it's not as if I\nknow the whole story anyway."))
-        msgbox(format("The prototype taken from SILPH\nCO., POKéGEAR, is high-tech!\pIt allows for long-distance\ncommunications and more!"))
-        msgbox(format("I'd have no doubt that the\nsame fool's behind it! GIOVANNI!\pHe'll pay the price for\nsabotaging research development!"))
-        msgbox(format("I'm all fired up!\nThat settles it, {PLAYER}!\pIt's time to head back into\nthe GUYANA REGION!"))
-        msgbox(format("I'll be waiting for you at the\nVERMILION HARBOR!\pYou better bring items for\na long journey!"))
+        msgbox(format("Hah!\nI got lost in my thoughts!\pMR. FUJI tells me you're quite the\nQUIZ WHIZ.\pYou know, I am something of a\n'ROCKET' SCIENTIST, myself..."))
+        msgbox(format("That's right! You're the one who\nunlocked this GYM'S doors!\pSurely you must've read up on\nour research?"))
+        msgbox(format("No?\nDidn't see anything interesting?\p...Hmph! Well, it's not as if I'd\nknow your whole story anyway."))
+        msgbox(format("The prototype taken from SILPH CO.,\nthe POKéGEAR, is high-tech!\pIt'd allow for long-distance\ncommunications, and much more!"))
+        msgbox(format("I'd have no doubt that the same\nfool's behind it being stolen!\pWhy, he'll pay the price for\nsabotaging research development!"))
+        msgbox(format("{PLAYER}, actually, now that I think\nabout this... Hm!\pI might have an idea on where he\nwould have gone training..."))
+        msgbox(format("I'll be waiting for you at the\nVERMILION HARBOR!\pYou'd better bring BURN HEAL for\na very long journey!"))
         closemessage
         setvar(VAR_MEW_QUEST_PROGRESS, 3)
         fadescreen(FADE_TO_BLACK)

@@ -1,1 +1,43 @@
 mapscripts LindenTown_MansionHall_R_1F_MapScripts {}
+
+script LindenTown_MansionHall_R_1F_InfoLady_Explain_SBC
+{
+    lock
+    faceplayer
+    msgbox(format("Oh, hello...\nYou are new here, yes?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Oh dear, this won't do...\nChild... I must educate you.\pVery strong TRAINERS gather here in\nboth of GEORGE'S BALLROOMS."))
+        msgbox(format("These trainers are also very, very\nwealthy, internationally as well...\pJACINTHE is the reigning LEADER of\nour little society, here."))
+        msgbox(format("It is quite an achievement to earn\nthe right to challenge her.\pTypical type effectiveness may not\napply against her... Teehee!"))
+        msgbox(format("But, naturally, being wealthy means\nbetter rewards if victorious!"))
+    }
+    else
+    {
+        msgbox(format("Wow, you're a regular? I see...\nEnjoy!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script LindenTown_MansionHall_R_1F_Beauty 
+{
+    lock
+    faceplayer
+    msgbox(format("Ugh! I saw JACINTHE here once.\nShe's insane!\p...She is also, like, crazy strong!\n...Yes, I lost to her!"))
+    closemessage
+    release
+    end
+}
+
+
+script LindenTown_MansionHall_R_1F_Woman 
+{
+    lock
+    faceplayer
+    msgbox(format("The SBC started up in KALOS.\nThose BATTLE CONNOISSEURS...\pMost of them are no joke!\nThey take battling seriously!"))
+    closemessage
+    release
+    end
+}

@@ -1558,8 +1558,8 @@ CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_3:
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_4:
 # 731 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "The CINNABAR VOLCANO seems\n"
-	.string "to be quite active lately...\p"
+	.string "The CINNABAR VOLCANO seems to be\n"
+	.string "quite active lately...\p"
 	.string "Should it erupt, the land...\n"
 	.string "No...$"
 
@@ -1567,52 +1567,52 @@ CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_5:
 # 735 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "Hah!\n"
 	.string "I got lost in my thoughts!\p"
-	.string "MR. FUJI tells me you're\n"
-	.string "quite the quiz whiz.\p"
-	.string "You know, I am something\n"
-	.string "of a scientist, myself...$"
+	.string "MR. FUJI tells me you're quite the\n"
+	.string "QUIZ WHIZ.\p"
+	.string "You know, I am something of a\n"
+	.string "'ROCKET' SCIENTIST, myself...$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_6:
 # 736 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "That's right! You're the one\n"
-	.string "who unlocked the GYM.\p"
-	.string "Surely you must've read\n"
-	.string "up on our research?$"
+	.string "That's right! You're the one who\n"
+	.string "unlocked this GYM'S doors!\p"
+	.string "Surely you must've read up on\n"
+	.string "our research?$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_7:
 # 737 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "No?\n"
 	.string "Didn't see anything interesting?\p"
-	.string "...Hmph! Well, it's not as if I\n"
-	.string "know the whole story anyway.$"
+	.string "...Hmph! Well, it's not as if I'd\n"
+	.string "know your whole story anyway.$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_8:
 # 738 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "The prototype taken from SILPH\n"
-	.string "CO., POKéGEAR, is high-tech!\p"
-	.string "It allows for long-distance\n"
-	.string "communications and more!$"
+	.string "The prototype taken from SILPH CO.,\n"
+	.string "the POKéGEAR, is high-tech!\p"
+	.string "It'd allow for long-distance\n"
+	.string "communications, and much more!$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_9:
 # 739 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "I'd have no doubt that the\n"
-	.string "same fool's behind it! GIOVANNI!\p"
-	.string "He'll pay the price for\n"
+	.string "I'd have no doubt that the same\n"
+	.string "fool's behind it being stolen!\p"
+	.string "Why, he'll pay the price for\n"
 	.string "sabotaging research development!$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_10:
 # 740 "data/maps/CinnabarIsland_Gym/scripts.pory"
-	.string "I'm all fired up!\n"
-	.string "That settles it, {PLAYER}!\p"
-	.string "It's time to head back into\n"
-	.string "the GUYANA REGION!$"
+	.string "{PLAYER}, actually, now that I think\n"
+	.string "about this... Hm!\p"
+	.string "I might have an idea on where he\n"
+	.string "would have gone training...$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_11:
 # 741 "data/maps/CinnabarIsland_Gym/scripts.pory"
 	.string "I'll be waiting for you at the\n"
 	.string "VERMILION HARBOR!\p"
-	.string "You better bring items for\n"
-	.string "a long journey!$"
+	.string "You'd better bring BURN HEAL for\n"
+	.string "a very long journey!$"
 
 CinnabarIsland_Gym_EventScript_Blaine_Rematch_Text_12:
 # 756 "data/maps/CinnabarIsland_Gym/scripts.pory"

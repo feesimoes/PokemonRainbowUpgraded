@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_School_Picnicker_Jean",
       "flag": "0"
     },
     {
@@ -54,10 +54,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_School_Lass_Alyssa",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_VIOLET_SCHOOL_GARRETT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 8,
@@ -68,7 +69,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VioletCity_School_Boy_Garrett",
       "flag": "0"
     }
   ],
@@ -89,7 +90,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Dummy_Notebook"
     },
     {
       "type": "sign",
@@ -97,7 +98,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Field_Notebook"
     },
     {
       "type": "sign",
@@ -105,7 +106,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Smart_Notebook"
     },
     {
       "type": "sign",
@@ -113,7 +114,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Blackboard"
     },
     {
       "type": "sign",
@@ -121,7 +122,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Blackboard"
     },
     {
       "type": "sign",
@@ -129,7 +130,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "VioletCity_School_Empty_Notebook"
     }
   ]
 }

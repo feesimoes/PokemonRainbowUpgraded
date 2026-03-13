@@ -46,6 +46,10 @@
 #define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Grass   0x302
 #define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Mowed   0x312
 
+// gTileset_FuchsiaGym
+#define METATILE_FuchsiaGym_FuchsiaGymFloorTile      0x281
+#define METATILE_FuchsiaGym_FuchsiaGymInvisibleWall  0x282
+
 // gTileset_GameCorner
 #define METATILE_GameCorner_CheckeredFloor_ShadeLeft  0x2E1
 #define METATILE_GameCorner_CounterBarrier            0x2F7
@@ -181,6 +185,10 @@
 // gTileset_SaffronCity
 #define METATILE_SaffronCity_Door         0x284
 #define METATILE_SaffronCity_SilphCoDoor  0x2BC
+
+// gTileset_SaffronGym
+#define METATILE_SaffronGym_CityFloorIndoorTile_HalfShadow_Left  0x288
+#define METATILE_SaffronGym_SabrinasWarpPanel                    0x293
 
 // gTileset_SeaCottage
 #define METATILE_SeaCottage_Teleporter_CableBall_Bottom  0x2BA

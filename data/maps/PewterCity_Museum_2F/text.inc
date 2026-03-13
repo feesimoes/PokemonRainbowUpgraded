@@ -27,15 +27,18 @@ PewterCity_Museum_1F_Text_WhatsSpecialAboutMoonStone::
     .string "Looks like an ordinary rock to me.$"
 
 PewterCity_Museum_1F_Text_BoughtColorTVForMoonLanding::
-    .string "July 20, 1969!\p"
-    .string "Humankind first set foot on the\n"
-    .string "moon that day.\p"
+    .string "Ah, I still remember that!\n"
+    .string "It was SUNDAY, JULY 20, 1969...\p"
+    .string "APOLLO 11 first set foot on\n"
+    .string "the moon that day.\p"
     .string "I bought a color TV just so I\n"
-    .string "could watch that news.$"
+    .string "could watch that news.\p"
+    .string "That's one small step for man,\n"
+    .string "one giant leap for mankind!$"
 
 PewterCity_Museum_1F_Text_RunningSpaceExhibitThisMonth::
-    .string "This month, we're running a space\n"
-    .string "exhibit.$"
+    .string "This month, we have a new space\n"
+    .string "exhibit up and running.$"
 
 PewterCity_Museum_1F_Text_AskedDaddyToCatchPikachu::
     .string "I want a PIKACHU!\n"
@@ -46,7 +49,14 @@ PewterCity_Museum_1F_Text_PikachuSoonIPromise::
     .string "Yeah, a PIKACHU soon, I promise!$"
 
 PewterCity_Museum_1F_Text_SpaceShuttle::
-    .string "Space Shuttle$"
+    .string "NASA SPACE SHUTTLE ORBITER\n"
+    .string "COLUMBIA (OV-102) REPLICA\p"
+    .string "The very first space orbiter,\n"
+    .string "still circling our WORLD.\p"
+    .string "It first launched on SUNDAY,\n"
+    .string "APRIL 12, 1981!\p"
+    .string "To this day, it endures many\n"
+    .string "long-lasting science missions.$"
 
 PewterCity_Museum_1F_Text_MeteoriteThatFellOnMtMoon::
     .string "A meteorite that fell on MT. MOON.\n"

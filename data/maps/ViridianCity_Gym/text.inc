@@ -7,7 +7,7 @@ ViridianCity_Gym_Text_GiovanniIntro::
     .string "So be it.\l"
     .string "This time, I'm not holding back!\p"
     .string "Once more, you shall face\n"
-    .string "GIOVANNI, the greatest TRAINER!{PLAY_BGM}{MUS_ENCOUNTER_ROCKET}$"
+    .string "GIOVANNI, the greatest TRAINER!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 ViridianCity_Gym_Text_GiovanniDefeat::
     .string "Ha!\n"
@@ -178,7 +178,7 @@ ViridianCity_Gym_Text_Rival_Is_The_New_Leader::
     .string "What took you so long?\p"
     .string "Finally got all 8 BADGES?\n"
     .string "Haha! Not that I care!\p"
-    .string "I beat the CHAMPION already!\n"
+    .string "I became CHAMPION already!\n"
     .string "That's right!\p"
     .string "I'm the toughest trainer in\n"
     .string "KANTO! But no big deal, pal!$"

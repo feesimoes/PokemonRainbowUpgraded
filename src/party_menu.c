@@ -4194,21 +4194,25 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
     Free(data);
 }
 
-void SetUsedFlyQuestLogEvent(const u16 *healLocCtrlData)
+void SetUsedFlyQuestLogEvent(const u8 *healLocCtrlData)
 {
     const struct MapHeader *mapHeader;
     struct QuestLogEvent_FieldMove *data;
     struct
     {
-        s8 group;
-        s8 num;
+        u8 group;
+        u8 num;
         u32 unused;
     } *map = Alloc(sizeof(*map));
 
     map->group = healLocCtrlData[0];
     map->num = healLocCtrlData[1];
     mapHeader = Overworld_GetMapHeaderByGroupAndId(map->group, map->num);
-    Free(map);
+    if (!Overworld_IsMapHeaderValid(mapHeader))
+    {
+        Free(map);
+        return;
+    }
 
     data = Alloc(sizeof(*data));
     data->species = GetMonData(&gPlayerParty[GetCursorSelectionMonId()], MON_DATA_SPECIES_OR_EGG);

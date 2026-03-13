@@ -2,7 +2,7 @@
   "id": "MAP_LINDEN_TOWN_MART",
   "name": "LindenTown_Mart",
   "layout": "LAYOUT_LINDEN_TOWN_MART",
-  "music": "MUS_POKE_MART",
+  "music": "MUS_POKE_MART_HOENN",
   "region_map_section": "MAPSEC_LINDEN_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

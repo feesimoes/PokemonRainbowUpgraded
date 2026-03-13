@@ -851,7 +851,7 @@
     {
       "english": "SHINY STONE",
       "itemId": "ITEM_SHINY_STONE",
-      "price": 10500,
+      "price": 9200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt may be sold at high price.",

@@ -1,0 +1,7 @@
+mapscripts IcePath_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_ICE_PATH)
+    }    
+}

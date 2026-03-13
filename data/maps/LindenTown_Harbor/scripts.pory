@@ -15,7 +15,7 @@ script LindenTown_Harbor_Sailor_LtSurge_Reference_Dialogue
     lock
     faceplayer
     msgbox(format("Huh?\nYou met LT. SURGE, eh?\pAh, so that's what he's\nbeen up to...\pHe's been here, sometimes,\nin the past..."))
-    msgbox(format("LT. SURGE knew how to blend\nin with the surrounding jungle.\pHe did so well, you'd be\ncaught off guard if attacked."))
+    msgbox(format("LT. SURGE knew how to blend in with\nthe surrounding jungle.\pHe did so well, you'd be caught off-\nguard if attacked, during the war."))
     closemessage
     release
     end    

@@ -314,98 +314,104 @@ LindenTown_Roadblock_GetOffTheFlowers::
 # 211 "data/maps/LindenTown/scripts.pory"
 	waitmovement
 # 212 "data/maps/LindenTown/scripts.pory"
+	msgbox LindenTown_Roadblock_GetOffTheFlowers_Text_1
+# 213 "data/maps/LindenTown/scripts.pory"
+	waitmessage
+# 214 "data/maps/LindenTown/scripts.pory"
+	closemessage
+# 215 "data/maps/LindenTown/scripts.pory"
 	release
 	end
 
 
 LindenTown_Roadblock_HeyYoureATrainerRight::
-# 218 "data/maps/LindenTown/scripts.pory"
-	lock
-# 219 "data/maps/LindenTown/scripts.pory"
-	textcolor NPC_TEXT_COLOR_FEMALE
-# 220 "data/maps/LindenTown/scripts.pory"
-	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Emote
 # 221 "data/maps/LindenTown/scripts.pory"
-	waitmovement
+	lock
 # 222 "data/maps/LindenTown/scripts.pory"
-	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Down
+	textcolor NPC_TEXT_COLOR_FEMALE
 # 223 "data/maps/LindenTown/scripts.pory"
-	waitmovement
+	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Emote
 # 224 "data/maps/LindenTown/scripts.pory"
-	msgbox LindenTown_Roadblock_HeyYoureATrainerRight_Text_0
+	waitmovement
 # 225 "data/maps/LindenTown/scripts.pory"
-	waitmessage
+	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Down
 # 226 "data/maps/LindenTown/scripts.pory"
-	closemessage
+	waitmovement
 # 227 "data/maps/LindenTown/scripts.pory"
-	applymovement LOCALID_PLAYER, LindenTown_Roadblock_Walk_Up
+	msgbox LindenTown_Roadblock_HeyYoureATrainerRight_Text_0
 # 228 "data/maps/LindenTown/scripts.pory"
-	waitmovement
-# 229 "data/maps/LindenTown/scripts.pory"
-	applymovement LOCALID_PLAYER, LindenTown_Roadblock_Face_Right
-# 230 "data/maps/LindenTown/scripts.pory"
-	waitmovement
-# 231 "data/maps/LindenTown/scripts.pory"
-	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Left
-# 232 "data/maps/LindenTown/scripts.pory"
-	waitmovement
-# 233 "data/maps/LindenTown/scripts.pory"
-	msgbox LindenTown_Roadblock_HeyYoureATrainerRight_Text_1
-# 234 "data/maps/LindenTown/scripts.pory"
 	waitmessage
-# 235 "data/maps/LindenTown/scripts.pory"
+# 229 "data/maps/LindenTown/scripts.pory"
 	closemessage
+# 230 "data/maps/LindenTown/scripts.pory"
+	applymovement LOCALID_PLAYER, LindenTown_Roadblock_Walk_Up
+# 231 "data/maps/LindenTown/scripts.pory"
+	waitmovement
+# 232 "data/maps/LindenTown/scripts.pory"
+	applymovement LOCALID_PLAYER, LindenTown_Roadblock_Face_Right
+# 233 "data/maps/LindenTown/scripts.pory"
+	waitmovement
+# 234 "data/maps/LindenTown/scripts.pory"
+	applymovement LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Left
+# 235 "data/maps/LindenTown/scripts.pory"
+	waitmovement
 # 236 "data/maps/LindenTown/scripts.pory"
+	msgbox LindenTown_Roadblock_HeyYoureATrainerRight_Text_1
+# 237 "data/maps/LindenTown/scripts.pory"
+	waitmessage
+# 238 "data/maps/LindenTown/scripts.pory"
+	closemessage
+# 239 "data/maps/LindenTown/scripts.pory"
 	release
 	end
 
 
-# 240 "data/maps/LindenTown/scripts.pory"
-LindenTown_Roadblock_Face_Left:
-# 242 "data/maps/LindenTown/scripts.pory"
-	face_left
 # 243 "data/maps/LindenTown/scripts.pory"
-	step_end
-
+LindenTown_Roadblock_Face_Left:
+# 245 "data/maps/LindenTown/scripts.pory"
+	face_left
 # 246 "data/maps/LindenTown/scripts.pory"
-LindenTown_Roadblock_Face_Right:
-# 248 "data/maps/LindenTown/scripts.pory"
-	face_right
+	step_end
+
 # 249 "data/maps/LindenTown/scripts.pory"
-	step_end
-
+LindenTown_Roadblock_Face_Right:
 # 251 "data/maps/LindenTown/scripts.pory"
-LindenTown_Roadblock_Face_Down:
-# 253 "data/maps/LindenTown/scripts.pory"
-	face_down
+	face_right
+# 252 "data/maps/LindenTown/scripts.pory"
+	step_end
+
 # 254 "data/maps/LindenTown/scripts.pory"
-	step_end
-
+LindenTown_Roadblock_Face_Down:
+# 256 "data/maps/LindenTown/scripts.pory"
+	face_down
 # 257 "data/maps/LindenTown/scripts.pory"
-LindenTown_Roadblock_Walk_Up:
-# 259 "data/maps/LindenTown/scripts.pory"
-	walk_up
-# 260 "data/maps/LindenTown/scripts.pory"
 	step_end
 
+# 260 "data/maps/LindenTown/scripts.pory"
+LindenTown_Roadblock_Walk_Up:
+# 262 "data/maps/LindenTown/scripts.pory"
+	walk_up
 # 263 "data/maps/LindenTown/scripts.pory"
-LindenTown_Roadblock_Emote:
-# 265 "data/maps/LindenTown/scripts.pory"
-	emote_exclamation_mark
+	step_end
+
 # 266 "data/maps/LindenTown/scripts.pory"
+LindenTown_Roadblock_Emote:
+# 268 "data/maps/LindenTown/scripts.pory"
+	emote_exclamation_mark
+# 269 "data/maps/LindenTown/scripts.pory"
 	step_end
 
 LindenTown_Harbor_FerryToVermilionCity_Text_0:
 # 9 "data/maps/LindenTown/scripts.pory"
 	.string "Well, we made it.\n"
 	.string "BLAINE went running into town.\p"
-	.string "Something about getting a tip\n"
-	.string "from some rich friends?$"
+	.string "Something about getting a tip from\n"
+	.string "some wealthy... Uh, friends?$"
 
 LindenTown_Harbor_FerryToVermilionCity_Text_1:
 # 12 "data/maps/LindenTown/scripts.pory"
-	.string "Did you want to return\n"
-	.string "to KANTO, VERMILION CITY?$"
+	.string "Did you want to return to KANTO,\n"
+	.string "VERMILION CITY?$"
 
 LindenTown_Harbor_FerryToVermilionCity_Text_2:
 # 15 "data/maps/LindenTown/scripts.pory"
@@ -420,8 +426,8 @@ LindenTown_Fat_Man_Text_0:
 # 39 "data/maps/LindenTown/scripts.pory"
 	.string "Is this your first visit?\n"
 	.string "POKéMON LEAGUE? GYM BADGES?\p"
-	.string "As if the jungle isn't\n"
-	.string "enough of a challenge...$"
+	.string "As if the jungle isn't enough of a\n"
+	.string "challenge for you...$"
 
 LindenTown_Sign_Text_0:
 # 48 "data/maps/LindenTown/scripts.pory"
@@ -455,17 +461,17 @@ LindenTown_Mansion_Guards_RaiseSuspicion_Text_0:
 
 LindenTown_Mansion_Guards_RaiseSuspicion_Text_1:
 # 111 "data/maps/LindenTown/scripts.pory"
-	.string "This is private property... Do\n"
-	.string "you have business being here?\p"
+	.string "This is private property...\n"
+	.string "Do you have business being here?\p"
 	.string "...\n"
 	.string "...Yes, yes, I see.$"
 
 LindenTown_Mansion_Guards_RaiseSuspicion_Text_2:
 # 112 "data/maps/LindenTown/scripts.pory"
-	.string "Alright.\n"
+	.string "Alright!\n"
 	.string "Your story checks out...\p"
-	.string "BLAINE is inside, waiting for\n"
-	.string "you, {PLAYER}. Good luck.$"
+	.string "BLAINE is inside, waiting for you,\n"
+	.string "{PLAYER}. Best of luck in your search!$"
 
 LindenTown_Mansion_Lass_Text_0:
 # 151 "data/maps/LindenTown/scripts.pory"
@@ -481,8 +487,8 @@ LindenTown_Bug_Catcher_Text_0:
 # 171 "data/maps/LindenTown/scripts.pory"
 	.string "You seem like you had a fair\n"
 	.string "share of POKéMON battles!\p"
-	.string "Make sure you're prepared\n"
-	.string "if exploring KAIETEUR JUNGLE.$"
+	.string "Make sure you're fully prepared if\n"
+	.string "you're exploring the KAIETEUR JUNGLE.$"
 
 LindenTown_Youngster_Text_0:
 # 181 "data/maps/LindenTown/scripts.pory"
@@ -493,24 +499,29 @@ LindenTown_Youngster_Text_0:
 
 LindenTown_Beauty_Text_0:
 # 191 "data/maps/LindenTown/scripts.pory"
-	.string "Aren't these flowers just so\n"
-	.string "pretty? Kind of like me!$"
+	.string "Aren't these flowers just so pretty?\n"
+	.string "Kind of like me! Teehee...$"
 
 LindenTown_Roadblock_GetOffTheFlowers_Text_0:
 # 205 "data/maps/LindenTown/scripts.pory"
 	.string "Hey!\n"
 	.string "Move out of the way!\p"
-	.string "You're stepping on the flowers\n"
-	.string "while I'm admiring them!$"
+	.string "You're stepping on the flowers while\n"
+	.string "I'm admiring them!$"
+
+LindenTown_Roadblock_GetOffTheFlowers_Text_1:
+# 212 "data/maps/LindenTown/scripts.pory"
+	.string "Argh!\n"
+	.string "The audacity! Who was that kid?!$"
 
 LindenTown_Roadblock_HeyYoureATrainerRight_Text_0:
-# 224 "data/maps/LindenTown/scripts.pory"
+# 227 "data/maps/LindenTown/scripts.pory"
 	.string "Hey, wait!\n"
 	.string "You're a TRAINER, right?$"
 
 LindenTown_Roadblock_HeyYoureATrainerRight_Text_1:
-# 233 "data/maps/LindenTown/scripts.pory"
+# 236 "data/maps/LindenTown/scripts.pory"
 	.string "Well, actually, it doesn't matter.\n"
-	.string "I think I found a rare flower?\p"
-	.string "Sorry, but I can't let you\n"
-	.string "wander off until I'm done.$"
+	.string "I think I found a rare flower...?\p"
+	.string "Sorry, but I can't let you wander\n"
+	.string "through until I'm done checking.$"

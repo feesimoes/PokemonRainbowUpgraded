@@ -1,1 +1,89 @@
 mapscripts Route33_MapScripts {}
+
+script Route33_Lass
+{
+    lock
+    faceplayer
+    msgbox(format("There have been several sightings of\nrare LAPRAS in the cave ahead.\pHave you seen it?\nMost sightings seem to be on FRIDAY."))
+    closemessage
+    release
+    end
+}
+
+script Route33_Youngster
+{
+    lock
+    faceplayer
+    msgbox(format("You gotta be careful around here!\nI was promised a SLOWPOKE TAIL...\pHanded over some spare cash, and\ngot scammed out of my savings!"))
+    closemessage
+    release
+    end
+}
+
+script Route33_Rocket_F
+{
+    lock
+    faceplayer
+    showmoneybox(0, 0)
+    msgbox(format("Hi, kid! Got any spare cash?\nI'll give you a SLOWPOKE TAIL!"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        checkmoney(10000)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            removemoney(10000)
+            addvar(VAR_ROCKET_RELIEF_FUNDS, 1)
+            updatemoneybox
+            msgbox(format("Aww, thanks, kid!"))
+        }
+        else
+        {
+            msgbox(format("Darn!\nYou don't have enough... Shoo!"))
+        }
+    }
+    else
+    {
+        msgbox(format("Darn! I'd offer you a job, but\nyou're way too young! Shoo!"))
+    }
+    closemessage
+    hidemoneybox
+    release
+    end
+}
+
+script Route33_UnionCave_North_Sign
+{
+    lock
+    msgbox(format("ROUTE 33 - UNION CAVE\nAZALEA TOWN is beyond the tunnel!"))
+    closemessage
+    release
+    end
+}
+
+script Route33_UnionCave_South_Sign
+{
+    lock
+    msgbox(format("ROUTE 33 - AZALEA TOWN\nUNION CAVE ahead!"))
+    closemessage
+    release
+    end
+}
+
+script Route33_BugCatcher
+{
+    lock
+    faceplayer
+    msgbox(format("Some BUG POKéMON can get pretty\nbig... Like HERACROSS, for example."))
+    closemessage
+    release
+    end
+}
+
+script Route33_Hiker_Anthony_Battle
+{
+    trainerbattle_single(TRAINER_HIKER_ANTHONY, format("Hey, now!\nAll that glitters is gold!"), format("You're a rock star!"))
+    msgbox(format("Do you think it'll ever rain around\nhere anytime soon?"))
+    closemessage
+    releaseall
+    end
+}

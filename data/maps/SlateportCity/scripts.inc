@@ -166,7 +166,7 @@ SlateportCity_SecretBase_FurnitureClerk::
 # 120 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_0
 # 121 "data/maps/SlateportCity/scripts.pory"
-	pokemartdecoration SlateportCity_SecretBase_FurnitureDecorItems
+	pokemart SlateportCity_SecretBase_FurnitureDecorItems
 # 122 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
 # 123 "data/maps/SlateportCity/scripts.pory"
@@ -179,437 +179,419 @@ SlateportCity_SecretBase_FurnitureClerk::
 	.align 2
 # 128 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_SecretBase_FurnitureDecorItems:
-# 130 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_SMALL_DESK
-# 131 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_SMALL_CHAIR
-# 132 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_COMFORT_DESK
-# 133 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_COMFORT_CHAIR
-# 134 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_TROPICAL_PLANT
-# 135 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_GORGEOUS_PLANT
-# 136 "data/maps/SlateportCity/scripts.pory"
-	.2byte DECOR_NONE
 	.2byte ITEM_NONE
 
 SlateportCity_SecretBase_DollClerk::
-# 141 "data/maps/SlateportCity/scripts.pory"
+# 135 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 142 "data/maps/SlateportCity/scripts.pory"
+# 136 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 143 "data/maps/SlateportCity/scripts.pory"
+# 137 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_DollClerk_Text_0
-# 144 "data/maps/SlateportCity/scripts.pory"
+# 138 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_SecretBase_DollDecorItems
-# 145 "data/maps/SlateportCity/scripts.pory"
+# 139 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 146 "data/maps/SlateportCity/scripts.pory"
+# 140 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 147 "data/maps/SlateportCity/scripts.pory"
+# 141 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 151 "data/maps/SlateportCity/scripts.pory"
+# 145 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_SecretBase_DollDecorItems:
-# 153 "data/maps/SlateportCity/scripts.pory"
-	.2byte ITEM_POKE_DOLL
-# 154 "data/maps/SlateportCity/scripts.pory"
-	.2byte ITEM_FLUFFY_TAIL
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk1_6::
-# 159 "data/maps/SlateportCity/scripts.pory"
+# 152 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 160 "data/maps/SlateportCity/scripts.pory"
+# 153 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 161 "data/maps/SlateportCity/scripts.pory"
+# 154 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 162 "data/maps/SlateportCity/scripts.pory"
+# 155 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM1_6List
-# 163 "data/maps/SlateportCity/scripts.pory"
+# 156 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 164 "data/maps/SlateportCity/scripts.pory"
+# 157 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 165 "data/maps/SlateportCity/scripts.pory"
+# 158 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 169 "data/maps/SlateportCity/scripts.pory"
+# 162 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM1_6List:
-# 171 "data/maps/SlateportCity/scripts.pory"
+# 164 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM01
-# 172 "data/maps/SlateportCity/scripts.pory"
+# 165 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM02
-# 173 "data/maps/SlateportCity/scripts.pory"
+# 166 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM03
-# 174 "data/maps/SlateportCity/scripts.pory"
+# 167 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM04
-# 175 "data/maps/SlateportCity/scripts.pory"
+# 168 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM05
-# 176 "data/maps/SlateportCity/scripts.pory"
+# 169 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM06
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk7_13::
-# 181 "data/maps/SlateportCity/scripts.pory"
+# 174 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 182 "data/maps/SlateportCity/scripts.pory"
+# 175 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 183 "data/maps/SlateportCity/scripts.pory"
+# 176 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 184 "data/maps/SlateportCity/scripts.pory"
+# 177 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM7_13List
-# 185 "data/maps/SlateportCity/scripts.pory"
+# 178 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 186 "data/maps/SlateportCity/scripts.pory"
+# 179 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 187 "data/maps/SlateportCity/scripts.pory"
+# 180 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 191 "data/maps/SlateportCity/scripts.pory"
+# 184 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM7_13List:
-# 193 "data/maps/SlateportCity/scripts.pory"
+# 186 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM07
-# 194 "data/maps/SlateportCity/scripts.pory"
+# 187 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM08
-# 195 "data/maps/SlateportCity/scripts.pory"
+# 188 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM09
-# 196 "data/maps/SlateportCity/scripts.pory"
+# 189 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM11
-# 197 "data/maps/SlateportCity/scripts.pory"
+# 190 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM12
-# 198 "data/maps/SlateportCity/scripts.pory"
+# 191 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM13
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk14_19::
-# 203 "data/maps/SlateportCity/scripts.pory"
+# 196 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 204 "data/maps/SlateportCity/scripts.pory"
+# 197 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 205 "data/maps/SlateportCity/scripts.pory"
+# 198 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 206 "data/maps/SlateportCity/scripts.pory"
+# 199 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM14_19List
-# 207 "data/maps/SlateportCity/scripts.pory"
+# 200 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 208 "data/maps/SlateportCity/scripts.pory"
+# 201 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 209 "data/maps/SlateportCity/scripts.pory"
+# 202 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 213 "data/maps/SlateportCity/scripts.pory"
+# 206 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM14_19List:
-# 215 "data/maps/SlateportCity/scripts.pory"
+# 208 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM14
-# 216 "data/maps/SlateportCity/scripts.pory"
+# 209 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM15
-# 217 "data/maps/SlateportCity/scripts.pory"
+# 210 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM16
-# 218 "data/maps/SlateportCity/scripts.pory"
+# 211 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM17
-# 219 "data/maps/SlateportCity/scripts.pory"
+# 212 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM18
-# 220 "data/maps/SlateportCity/scripts.pory"
+# 213 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM19
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk20_25::
-# 225 "data/maps/SlateportCity/scripts.pory"
+# 218 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 226 "data/maps/SlateportCity/scripts.pory"
+# 219 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 227 "data/maps/SlateportCity/scripts.pory"
+# 220 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 228 "data/maps/SlateportCity/scripts.pory"
+# 221 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM20_25List
-# 229 "data/maps/SlateportCity/scripts.pory"
+# 222 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 230 "data/maps/SlateportCity/scripts.pory"
+# 223 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 231 "data/maps/SlateportCity/scripts.pory"
+# 224 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 235 "data/maps/SlateportCity/scripts.pory"
+# 228 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM20_25List:
-# 237 "data/maps/SlateportCity/scripts.pory"
+# 230 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM20
-# 238 "data/maps/SlateportCity/scripts.pory"
+# 231 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM21
-# 239 "data/maps/SlateportCity/scripts.pory"
+# 232 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM22
-# 240 "data/maps/SlateportCity/scripts.pory"
+# 233 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM23
-# 241 "data/maps/SlateportCity/scripts.pory"
+# 234 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM24
-# 242 "data/maps/SlateportCity/scripts.pory"
+# 235 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM25
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk26_31::
-# 247 "data/maps/SlateportCity/scripts.pory"
+# 240 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 248 "data/maps/SlateportCity/scripts.pory"
+# 241 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 249 "data/maps/SlateportCity/scripts.pory"
+# 242 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 250 "data/maps/SlateportCity/scripts.pory"
+# 243 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM26_31List
-# 251 "data/maps/SlateportCity/scripts.pory"
+# 244 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 252 "data/maps/SlateportCity/scripts.pory"
+# 245 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 253 "data/maps/SlateportCity/scripts.pory"
+# 246 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 257 "data/maps/SlateportCity/scripts.pory"
+# 250 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM26_31List:
-# 259 "data/maps/SlateportCity/scripts.pory"
+# 252 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM26
-# 260 "data/maps/SlateportCity/scripts.pory"
+# 253 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM27
-# 261 "data/maps/SlateportCity/scripts.pory"
+# 254 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM28
-# 262 "data/maps/SlateportCity/scripts.pory"
+# 255 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM29
-# 263 "data/maps/SlateportCity/scripts.pory"
+# 256 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM30
-# 264 "data/maps/SlateportCity/scripts.pory"
+# 257 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM31
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk32_37::
-# 269 "data/maps/SlateportCity/scripts.pory"
+# 262 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 270 "data/maps/SlateportCity/scripts.pory"
+# 263 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 271 "data/maps/SlateportCity/scripts.pory"
+# 264 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 272 "data/maps/SlateportCity/scripts.pory"
+# 265 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM32_37List
-# 273 "data/maps/SlateportCity/scripts.pory"
+# 266 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 274 "data/maps/SlateportCity/scripts.pory"
+# 267 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 275 "data/maps/SlateportCity/scripts.pory"
+# 268 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 279 "data/maps/SlateportCity/scripts.pory"
+# 272 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM32_37List:
-# 281 "data/maps/SlateportCity/scripts.pory"
+# 274 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM32
-# 282 "data/maps/SlateportCity/scripts.pory"
+# 275 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM33
-# 283 "data/maps/SlateportCity/scripts.pory"
+# 276 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM34
-# 284 "data/maps/SlateportCity/scripts.pory"
+# 277 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM35
-# 285 "data/maps/SlateportCity/scripts.pory"
+# 278 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM36
-# 286 "data/maps/SlateportCity/scripts.pory"
+# 279 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM37
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk38_44::
-# 291 "data/maps/SlateportCity/scripts.pory"
+# 284 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 292 "data/maps/SlateportCity/scripts.pory"
+# 285 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 293 "data/maps/SlateportCity/scripts.pory"
+# 286 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 294 "data/maps/SlateportCity/scripts.pory"
+# 287 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM38_44List
-# 295 "data/maps/SlateportCity/scripts.pory"
+# 288 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 296 "data/maps/SlateportCity/scripts.pory"
+# 289 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 297 "data/maps/SlateportCity/scripts.pory"
+# 290 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 301 "data/maps/SlateportCity/scripts.pory"
+# 294 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM38_44List:
-# 303 "data/maps/SlateportCity/scripts.pory"
+# 296 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM38
-# 304 "data/maps/SlateportCity/scripts.pory"
+# 297 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM39
-# 305 "data/maps/SlateportCity/scripts.pory"
+# 298 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM40
-# 306 "data/maps/SlateportCity/scripts.pory"
+# 299 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM41
-# 307 "data/maps/SlateportCity/scripts.pory"
+# 300 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM42
-# 308 "data/maps/SlateportCity/scripts.pory"
+# 301 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM44
 	.2byte ITEM_NONE
 
 SlateportCity_TMClerk45_50::
-# 313 "data/maps/SlateportCity/scripts.pory"
+# 306 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 314 "data/maps/SlateportCity/scripts.pory"
+# 307 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 315 "data/maps/SlateportCity/scripts.pory"
+# 308 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_TMClerk1_6_Text_0
-# 316 "data/maps/SlateportCity/scripts.pory"
+# 309 "data/maps/SlateportCity/scripts.pory"
 	pokemart SlateportCity_TM45_50List
-# 317 "data/maps/SlateportCity/scripts.pory"
+# 310 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_SecretBase_FurnitureClerk_Text_1
-# 318 "data/maps/SlateportCity/scripts.pory"
+# 311 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 319 "data/maps/SlateportCity/scripts.pory"
+# 312 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 323 "data/maps/SlateportCity/scripts.pory"
+# 316 "data/maps/SlateportCity/scripts.pory"
 SlateportCity_TM45_50List:
-# 325 "data/maps/SlateportCity/scripts.pory"
+# 318 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM45
-# 326 "data/maps/SlateportCity/scripts.pory"
+# 319 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM46
-# 327 "data/maps/SlateportCity/scripts.pory"
+# 320 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM47
-# 328 "data/maps/SlateportCity/scripts.pory"
+# 321 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM48
-# 329 "data/maps/SlateportCity/scripts.pory"
+# 322 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM49
-# 330 "data/maps/SlateportCity/scripts.pory"
+# 323 "data/maps/SlateportCity/scripts.pory"
 	.2byte ITEM_TM50
 	.2byte ITEM_NONE
 
 SlateportCity_Lass::
-# 335 "data/maps/SlateportCity/scripts.pory"
+# 328 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 336 "data/maps/SlateportCity/scripts.pory"
+# 329 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 337 "data/maps/SlateportCity/scripts.pory"
+# 330 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Lass_Text_0
-# 338 "data/maps/SlateportCity/scripts.pory"
+# 331 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 339 "data/maps/SlateportCity/scripts.pory"
+# 332 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Beauty::
-# 345 "data/maps/SlateportCity/scripts.pory"
+# 338 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 346 "data/maps/SlateportCity/scripts.pory"
+# 339 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 347 "data/maps/SlateportCity/scripts.pory"
+# 340 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Beauty_Text_0
-# 348 "data/maps/SlateportCity/scripts.pory"
+# 341 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 349 "data/maps/SlateportCity/scripts.pory"
+# 342 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Little_Boy::
-# 355 "data/maps/SlateportCity/scripts.pory"
+# 348 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 356 "data/maps/SlateportCity/scripts.pory"
+# 349 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 357 "data/maps/SlateportCity/scripts.pory"
+# 350 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Little_Boy_Text_0
-# 358 "data/maps/SlateportCity/scripts.pory"
+# 351 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 359 "data/maps/SlateportCity/scripts.pory"
+# 352 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Old_Woman::
-# 365 "data/maps/SlateportCity/scripts.pory"
+# 358 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 366 "data/maps/SlateportCity/scripts.pory"
+# 359 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 367 "data/maps/SlateportCity/scripts.pory"
+# 360 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Old_Woman_Text_0
-# 368 "data/maps/SlateportCity/scripts.pory"
+# 361 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 369 "data/maps/SlateportCity/scripts.pory"
+# 362 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Fisher::
-# 375 "data/maps/SlateportCity/scripts.pory"
+# 368 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 376 "data/maps/SlateportCity/scripts.pory"
+# 369 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 377 "data/maps/SlateportCity/scripts.pory"
+# 370 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Fisher_Text_0
-# 378 "data/maps/SlateportCity/scripts.pory"
+# 371 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 379 "data/maps/SlateportCity/scripts.pory"
+# 372 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Scientist::
-# 385 "data/maps/SlateportCity/scripts.pory"
+# 378 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 386 "data/maps/SlateportCity/scripts.pory"
+# 379 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 387 "data/maps/SlateportCity/scripts.pory"
+# 380 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Scientist_Text_0
-# 388 "data/maps/SlateportCity/scripts.pory"
+# 381 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 389 "data/maps/SlateportCity/scripts.pory"
+# 382 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Super_Nerd::
-# 395 "data/maps/SlateportCity/scripts.pory"
+# 388 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 396 "data/maps/SlateportCity/scripts.pory"
+# 389 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 397 "data/maps/SlateportCity/scripts.pory"
+# 390 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Super_Nerd_Text_0
-# 398 "data/maps/SlateportCity/scripts.pory"
+# 391 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 399 "data/maps/SlateportCity/scripts.pory"
+# 392 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
 
 SlateportCity_Woman_1::
-# 405 "data/maps/SlateportCity/scripts.pory"
+# 398 "data/maps/SlateportCity/scripts.pory"
 	lock
-# 406 "data/maps/SlateportCity/scripts.pory"
+# 399 "data/maps/SlateportCity/scripts.pory"
 	faceplayer
-# 407 "data/maps/SlateportCity/scripts.pory"
+# 400 "data/maps/SlateportCity/scripts.pory"
 	msgbox SlateportCity_Woman_1_Text_0
-# 408 "data/maps/SlateportCity/scripts.pory"
+# 401 "data/maps/SlateportCity/scripts.pory"
 	closemessage
-# 409 "data/maps/SlateportCity/scripts.pory"
+# 402 "data/maps/SlateportCity/scripts.pory"
 	release
 	end
 
@@ -724,36 +706,36 @@ SlateportCity_SecretBase_FurnitureClerk_Text_1:
 	.string "Please come again!$"
 
 SlateportCity_SecretBase_DollClerk_Text_0:
-# 143 "data/maps/SlateportCity/scripts.pory"
+# 137 "data/maps/SlateportCity/scripts.pory"
 	.string "I've got several POKéMON\n"
 	.string "DOLLS for sale!\p"
 	.string "Does anything interest you for\n"
 	.string "your SECRET BASE?$"
 
 SlateportCity_TMClerk1_6_Text_0:
-# 161 "data/maps/SlateportCity/scripts.pory"
+# 154 "data/maps/SlateportCity/scripts.pory"
 	.string "I have several TMs for\n"
 	.string "sale, here! Want any?$"
 
 SlateportCity_Lass_Text_0:
-# 337 "data/maps/SlateportCity/scripts.pory"
+# 330 "data/maps/SlateportCity/scripts.pory"
 	.string "I shop here regularly, but\n"
 	.string "at the LILYCOVE DEPT. STORE too!$"
 
 SlateportCity_Beauty_Text_0:
-# 347 "data/maps/SlateportCity/scripts.pory"
+# 340 "data/maps/SlateportCity/scripts.pory"
 	.string "There's a tranquil FLOWER SHOP on\n"
 	.string "ROUTE 104.\p"
 	.string "I often stop by for free BERRIES,\n"
 	.string "almost daily!$"
 
 SlateportCity_Little_Boy_Text_0:
-# 357 "data/maps/SlateportCity/scripts.pory"
+# 350 "data/maps/SlateportCity/scripts.pory"
 	.string "You can't join the FAN CLUB if\n"
 	.string "you don't even like POKéMON!$"
 
 SlateportCity_Old_Woman_Text_0:
-# 367 "data/maps/SlateportCity/scripts.pory"
+# 360 "data/maps/SlateportCity/scripts.pory"
 	.string "The ocean out there is very much\n"
 	.string "like life in itself...\p"
 	.string "There is a constant flow, a never\n"
@@ -762,27 +744,27 @@ SlateportCity_Old_Woman_Text_0:
 	.string "patterns repeat themselves.$"
 
 SlateportCity_Fisher_Text_0:
-# 377 "data/maps/SlateportCity/scripts.pory"
+# 370 "data/maps/SlateportCity/scripts.pory"
 	.string "There's a really rare type of\n"
 	.string "MAGIKARP that shines gold!\p"
 	.string "Hm... Have you seen it?\n"
 	.string "It's definitely a must!$"
 
 SlateportCity_Scientist_Text_0:
-# 387 "data/maps/SlateportCity/scripts.pory"
+# 380 "data/maps/SlateportCity/scripts.pory"
 	.string "If you attract a CORSAIR'S\n"
 	.string "attention, do what they say.\p"
 	.string "Trust me...$"
 
 SlateportCity_Super_Nerd_Text_0:
-# 397 "data/maps/SlateportCity/scripts.pory"
+# 390 "data/maps/SlateportCity/scripts.pory"
 	.string "Apparently, MAXIE used to help out\n"
 	.string "here, in SLATEPORT.\p"
 	.string "CAPT. STERN is very good at\n"
 	.string "reading his old jumbled blueprints.$"
 
 SlateportCity_Woman_1_Text_0:
-# 407 "data/maps/SlateportCity/scripts.pory"
+# 400 "data/maps/SlateportCity/scripts.pory"
 	.string "ARCHIE from TEAM CORSAIR is, uh...\n"
 	.string "actually... Really handsome!\p"
 	.string "MAXIE is just such a geek...\n"

@@ -131,321 +131,325 @@ SilphCo_11F_EventScript_GiovanniTriggerRight::
 # 66 "data/maps/SilphCo_11F/scripts.pory"
 SilphCo_11F_EventScript_BattleGiovanni::
 # 67 "data/maps/SilphCo_11F/scripts.pory"
-	textcolor NPC_TEXT_COLOR_MALE
+	playbgm MUS_ENCOUNTER_ROCKET_BOSS, FALSE
 # 68 "data/maps/SilphCo_11F/scripts.pory"
-	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
+	textcolor NPC_TEXT_COLOR_MALE
 # 69 "data/maps/SilphCo_11F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
 # 70 "data/maps/SilphCo_11F/scripts.pory"
-	delay 25
+	waitmovement 0
 # 71 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_GiovanniIntro
+	delay 25
 # 72 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	msgbox SilphCo_11F_Text_GiovanniIntro
 # 73 "data/maps/SilphCo_11F/scripts.pory"
-	call_if_eq VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft
-# 74 "data/maps/SilphCo_11F/scripts.pory"
-	call_if_eq VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight
-# 75 "data/maps/SilphCo_11F/scripts.pory"
-	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI
-# 76 "data/maps/SilphCo_11F/scripts.pory"
-	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat
-# 77 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_GiovanniPostBattle
-# 78 "data/maps/SilphCo_11F/scripts.pory"
 	closemessage
+# 74 "data/maps/SilphCo_11F/scripts.pory"
+	call_if_eq VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft
+# 75 "data/maps/SilphCo_11F/scripts.pory"
+	call_if_eq VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight
+# 76 "data/maps/SilphCo_11F/scripts.pory"
+	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI
+# 77 "data/maps/SilphCo_11F/scripts.pory"
+	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat
+# 78 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_Text_GiovanniPostBattle
 # 79 "data/maps/SilphCo_11F/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	closemessage
 # 80 "data/maps/SilphCo_11F/scripts.pory"
-	removeobject LOCALID_SILPH_CO_GIOVANNI
+	fadescreen FADE_TO_BLACK
 # 81 "data/maps/SilphCo_11F/scripts.pory"
-	removeobject LOCALID_SILPH_CO_11F_GRUNT1
+	removeobject LOCALID_SILPH_CO_GIOVANNI
 # 82 "data/maps/SilphCo_11F/scripts.pory"
-	removeobject LOCALID_SILPH_CO_11F_GRUNT2
+	removeobject LOCALID_SILPH_CO_11F_GRUNT1
 # 83 "data/maps/SilphCo_11F/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	removeobject LOCALID_SILPH_CO_11F_GRUNT2
 # 84 "data/maps/SilphCo_11F/scripts.pory"
-	setvar VAR_MAP_SCENE_SILPH_CO_11F, 1
+	fadedefaultbgm
 # 85 "data/maps/SilphCo_11F/scripts.pory"
-	setflag FLAG_HIDE_SAFFRON_ROCKETS
+	fadescreen FADE_FROM_BLACK
 # 86 "data/maps/SilphCo_11F/scripts.pory"
-	clearflag FLAG_HIDE_SAFFRON_CIVILIANS
+	setvar VAR_MAP_SCENE_SILPH_CO_11F, 1
 # 87 "data/maps/SilphCo_11F/scripts.pory"
-	releaseall
+	setflag FLAG_HIDE_SAFFRON_ROCKETS
 # 88 "data/maps/SilphCo_11F/scripts.pory"
-	end
+	clearflag FLAG_HIDE_SAFFRON_CIVILIANS
 # 89 "data/maps/SilphCo_11F/scripts.pory"
-
+	releaseall
 # 90 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_GiovanniApproachLeft::
+	end
 # 91 "data/maps/SilphCo_11F/scripts.pory"
-	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachLeft
+
 # 92 "data/maps/SilphCo_11F/scripts.pory"
-	applymovement LOCALID_PLAYER, SilphCo_11F_Movement_PlayerFaceGiovanni
+SilphCo_11F_EventScript_GiovanniApproachLeft::
 # 93 "data/maps/SilphCo_11F/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachLeft
 # 94 "data/maps/SilphCo_11F/scripts.pory"
-	return
+	applymovement LOCALID_PLAYER, SilphCo_11F_Movement_PlayerFaceGiovanni
 # 95 "data/maps/SilphCo_11F/scripts.pory"
-
-# 96 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_GiovanniApproachRight::
-# 97 "data/maps/SilphCo_11F/scripts.pory"
-	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachRight
-# 98 "data/maps/SilphCo_11F/scripts.pory"
 	waitmovement 0
-# 99 "data/maps/SilphCo_11F/scripts.pory"
+# 96 "data/maps/SilphCo_11F/scripts.pory"
 	return
-# 100 "data/maps/SilphCo_11F/scripts.pory"
+# 97 "data/maps/SilphCo_11F/scripts.pory"
 
+# 98 "data/maps/SilphCo_11F/scripts.pory"
+SilphCo_11F_EventScript_GiovanniApproachRight::
+# 99 "data/maps/SilphCo_11F/scripts.pory"
+	applymovement LOCALID_SILPH_CO_GIOVANNI, SilphCo_11F_Movement_GiovanniApproachRight
+# 100 "data/maps/SilphCo_11F/scripts.pory"
+	waitmovement 0
 # 101 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_Movement_GiovanniApproachLeft::
+	return
 # 102 "data/maps/SilphCo_11F/scripts.pory"
-	walk_down
+
 # 103 "data/maps/SilphCo_11F/scripts.pory"
-	walk_down
+SilphCo_11F_Movement_GiovanniApproachLeft::
 # 104 "data/maps/SilphCo_11F/scripts.pory"
 	walk_down
 # 105 "data/maps/SilphCo_11F/scripts.pory"
 	walk_down
 # 106 "data/maps/SilphCo_11F/scripts.pory"
-	walk_in_place_faster_left
+	walk_down
 # 107 "data/maps/SilphCo_11F/scripts.pory"
-	step_end
+	walk_down
 # 108 "data/maps/SilphCo_11F/scripts.pory"
-
+	walk_in_place_faster_left
 # 109 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_Movement_GiovanniApproachRight::
+	step_end
 # 110 "data/maps/SilphCo_11F/scripts.pory"
-	walk_down
+
 # 111 "data/maps/SilphCo_11F/scripts.pory"
-	walk_down
+SilphCo_11F_Movement_GiovanniApproachRight::
 # 112 "data/maps/SilphCo_11F/scripts.pory"
 	walk_down
 # 113 "data/maps/SilphCo_11F/scripts.pory"
-	step_end
+	walk_down
 # 114 "data/maps/SilphCo_11F/scripts.pory"
-
+	walk_down
 # 115 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_Movement_PlayerFaceGiovanni::
+	step_end
 # 116 "data/maps/SilphCo_11F/scripts.pory"
-	delay_16
+
 # 117 "data/maps/SilphCo_11F/scripts.pory"
-	delay_16
+SilphCo_11F_Movement_PlayerFaceGiovanni::
 # 118 "data/maps/SilphCo_11F/scripts.pory"
 	delay_16
 # 119 "data/maps/SilphCo_11F/scripts.pory"
-	delay_8
+	delay_16
 # 120 "data/maps/SilphCo_11F/scripts.pory"
-	delay_4
+	delay_16
 # 121 "data/maps/SilphCo_11F/scripts.pory"
-	walk_in_place_faster_right
+	delay_8
 # 122 "data/maps/SilphCo_11F/scripts.pory"
-	step_end
+	delay_4
 # 123 "data/maps/SilphCo_11F/scripts.pory"
-
+	walk_in_place_faster_right
 # 124 "data/maps/SilphCo_11F/scripts.pory"
-@ Unused
+	step_end
 # 125 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_Monitor::
+
 # 126 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_MonitorHasMonsOnIt, MSGBOX_SIGN
+@ Unused
 # 127 "data/maps/SilphCo_11F/scripts.pory"
-	end
+SilphCo_11F_EventScript_Monitor::
 # 128 "data/maps/SilphCo_11F/scripts.pory"
-
+	msgbox SilphCo_11F_Text_MonitorHasMonsOnIt, MSGBOX_SIGN
 # 129 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_FloorSign::
+	end
 # 130 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_FloorSign, MSGBOX_SIGN
+
 # 131 "data/maps/SilphCo_11F/scripts.pory"
-	end
+SilphCo_11F_EventScript_FloorSign::
 # 132 "data/maps/SilphCo_11F/scripts.pory"
-
+	msgbox SilphCo_11F_Text_FloorSign, MSGBOX_SIGN
 # 133 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_Grunt1::
-# 134 "data/maps/SilphCo_11F/scripts.pory"
-	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_40, SilphCo_11F_Text_Grunt1Intro, SilphCo_11F_Text_Grunt1Defeat
-# 135 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
-# 136 "data/maps/SilphCo_11F/scripts.pory"
 	end
-# 137 "data/maps/SilphCo_11F/scripts.pory"
+# 134 "data/maps/SilphCo_11F/scripts.pory"
 
+# 135 "data/maps/SilphCo_11F/scripts.pory"
+SilphCo_11F_EventScript_Grunt1::
+# 136 "data/maps/SilphCo_11F/scripts.pory"
+	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_40, SilphCo_11F_Text_Grunt1Intro, SilphCo_11F_Text_Grunt1Defeat
+# 137 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 # 138 "data/maps/SilphCo_11F/scripts.pory"
-SilphCo_11F_EventScript_Grunt2::
+	end
 # 139 "data/maps/SilphCo_11F/scripts.pory"
-	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_41, SilphCo_11F_Text_Grunt2Intro, SilphCo_11F_Text_Grunt2Defeat
+
 # 140 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+SilphCo_11F_EventScript_Grunt2::
 # 141 "data/maps/SilphCo_11F/scripts.pory"
+	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_41, SilphCo_11F_Text_Grunt2Intro, SilphCo_11F_Text_Grunt2Defeat
+# 142 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+# 143 "data/maps/SilphCo_11F/scripts.pory"
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji::
-# 146 "data/maps/SilphCo_11F/scripts.pory"
+# 148 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 14
 	goto_if_eq SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_1
-# 161 "data/maps/SilphCo_11F/scripts.pory"
+# 163 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 10
 	goto_if_ge SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_9
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_7:
-# 170 "data/maps/SilphCo_11F/scripts.pory"
+# 172 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 9
 	goto_if_eq SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_3
-# 180 "data/maps/SilphCo_11F/scripts.pory"
+# 182 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 0
 	goto_if_eq SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_4
-# 202 "data/maps/SilphCo_11F/scripts.pory"
-	lock
-# 203 "data/maps/SilphCo_11F/scripts.pory"
-	faceplayer
 # 204 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_14
+	lock
 # 205 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	faceplayer
 # 206 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_14
+# 207 "data/maps/SilphCo_11F/scripts.pory"
+	closemessage
+# 208 "data/maps/SilphCo_11F/scripts.pory"
 	release
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_1:
-# 148 "data/maps/SilphCo_11F/scripts.pory"
-	lock
-# 149 "data/maps/SilphCo_11F/scripts.pory"
-	faceplayer
 # 150 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_0
+	lock
 # 151 "data/maps/SilphCo_11F/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
+	faceplayer
 # 152 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_1
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_0
 # 153 "data/maps/SilphCo_11F/scripts.pory"
-	textcolor NPC_TEXT_COLOR_MALE
+	textcolor NPC_TEXT_COLOR_NEUTRAL
 # 154 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_2
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_1
 # 155 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_3
+	textcolor NPC_TEXT_COLOR_MALE
 # 156 "data/maps/SilphCo_11F/scripts.pory"
-	setvar VAR_MEW_QUEST_PROGRESS, 9
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_2
 # 157 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_3
 # 158 "data/maps/SilphCo_11F/scripts.pory"
+	setvar VAR_MEW_QUEST_PROGRESS, 9
+# 159 "data/maps/SilphCo_11F/scripts.pory"
+	closemessage
+# 160 "data/maps/SilphCo_11F/scripts.pory"
 	release
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_2:
-# 163 "data/maps/SilphCo_11F/scripts.pory"
-	lock
-# 164 "data/maps/SilphCo_11F/scripts.pory"
-	faceplayer
 # 165 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_4
+	lock
 # 166 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	faceplayer
 # 167 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_4
+# 168 "data/maps/SilphCo_11F/scripts.pory"
+	closemessage
+# 169 "data/maps/SilphCo_11F/scripts.pory"
 	release
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_3:
-# 172 "data/maps/SilphCo_11F/scripts.pory"
-	lock
-# 173 "data/maps/SilphCo_11F/scripts.pory"
-	faceplayer
 # 174 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_5
+	lock
 # 175 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_3
+	faceplayer
 # 176 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_5
 # 177 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_3
+# 178 "data/maps/SilphCo_11F/scripts.pory"
+	closemessage
+# 179 "data/maps/SilphCo_11F/scripts.pory"
 	release
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_4:
-# 182 "data/maps/SilphCo_11F/scripts.pory"
-	lock
-# 183 "data/maps/SilphCo_11F/scripts.pory"
-	faceplayer
 # 184 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_6
+	lock
 # 185 "data/maps/SilphCo_11F/scripts.pory"
-	closemessage
+	faceplayer
 # 186 "data/maps/SilphCo_11F/scripts.pory"
-	fadenewbgm MUS_KANTO_EMOTION
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_6
 # 187 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_7
-# 188 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_8
-# 189 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_9
-# 190 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_10
-# 191 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_11
-# 192 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_12
-# 193 "data/maps/SilphCo_11F/scripts.pory"
-	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_13
-# 194 "data/maps/SilphCo_11F/scripts.pory"
 	closemessage
+# 188 "data/maps/SilphCo_11F/scripts.pory"
+	fadenewbgm MUS_KANTO_EMOTION
+# 189 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_7
+# 190 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_8
+# 191 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_9
+# 192 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_10
+# 193 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_11
+# 194 "data/maps/SilphCo_11F/scripts.pory"
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_12
 # 195 "data/maps/SilphCo_11F/scripts.pory"
-	fadedefaultbgm
+	msgbox SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_13
 # 196 "data/maps/SilphCo_11F/scripts.pory"
-	setvar VAR_MEW_QUEST_PROGRESS, 1
+	closemessage
 # 197 "data/maps/SilphCo_11F/scripts.pory"
+	fadedefaultbgm
+# 198 "data/maps/SilphCo_11F/scripts.pory"
+	setvar VAR_MEW_QUEST_PROGRESS, 1
+# 199 "data/maps/SilphCo_11F/scripts.pory"
 	release
 	end
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_8:
-# 161 "data/maps/SilphCo_11F/scripts.pory"
+# 163 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 15
 	goto_if_ge SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_2
 	goto SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_7
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_9:
-# 161 "data/maps/SilphCo_11F/scripts.pory"
+# 163 "data/maps/SilphCo_11F/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 13
 	goto_if_le SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_8
 	goto SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_7
 
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_0:
-# 150 "data/maps/SilphCo_11F/scripts.pory"
+# 152 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: {PLAYER}, you made it!\n"
 	.string "You brought the POKéGEAR, yes?$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_1:
-# 152 "data/maps/SilphCo_11F/scripts.pory"
+# 154 "data/maps/SilphCo_11F/scripts.pory"
 	.string "{PLAYER} handed the PRESIDENT the\n"
 	.string "POKéGEAR prototype.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_2:
-# 154 "data/maps/SilphCo_11F/scripts.pory"
+# 156 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: Thank you so much.\n"
 	.string "We are truly grateful...\p"
 	.string "We will be reinforcing security here,\n"
 	.string "you see... Worry not.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_3:
-# 155 "data/maps/SilphCo_11F/scripts.pory"
+# 157 "data/maps/SilphCo_11F/scripts.pory"
 	.string "Should you need to return, you're\n"
 	.string "definitely welcome back in SILPH.\p"
 	.string "By the way, have you spoken\n"
 	.string "to MR. FUJI, yet?$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_4:
-# 165 "data/maps/SilphCo_11F/scripts.pory"
+# 167 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: {PLAYER}, once again,\n"
 	.string "we are truly grateful!$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_5:
-# 174 "data/maps/SilphCo_11F/scripts.pory"
+# 176 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: {PLAYER}, once again,\n"
 	.string "we are truly grateful...\p"
 	.string "We will be reinforcing security here,\n"
 	.string "you see... Worry not.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_6:
-# 184 "data/maps/SilphCo_11F/scripts.pory"
+# 186 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: {PLAYER}, thank you\n"
 	.string "again!\p"
 	.string "Thanks to you, TEAM ROCKET is no\n"
@@ -453,7 +457,7 @@ SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_6:
 	.string "KANTO is in your debt, truly!$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_7:
-# 187 "data/maps/SilphCo_11F/scripts.pory"
+# 189 "data/maps/SilphCo_11F/scripts.pory"
 	.string "...I see.\n"
 	.string "So, you know of our prototype?\p"
 	.string "As much as I'd be happy to\n"
@@ -461,42 +465,42 @@ SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_7:
 	.string "It was recently stolen from us.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_8:
-# 188 "data/maps/SilphCo_11F/scripts.pory"
+# 190 "data/maps/SilphCo_11F/scripts.pory"
 	.string "SAFFRON POLICE received reports,\n"
 	.string "but it's far too late...\p"
 	.string "Tell me, {PLAYER}. What do\n"
 	.string "you know of GIOVANNI?$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_9:
-# 189 "data/maps/SilphCo_11F/scripts.pory"
+# 191 "data/maps/SilphCo_11F/scripts.pory"
 	.string "That same man put me in\n"
 	.string "a dangerous situation, you see.\p"
 	.string "If it weren't for you, our\n"
 	.string "world would never be the same...$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_10:
-# 190 "data/maps/SilphCo_11F/scripts.pory"
+# 192 "data/maps/SilphCo_11F/scripts.pory"
 	.string "He was after our prototype,\n"
 	.string "which I entrusted you with.\p"
 	.string "He sees POKéMON as powerful tools,\n"
 	.string "but he's lost his way.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_11:
-# 191 "data/maps/SilphCo_11F/scripts.pory"
+# 193 "data/maps/SilphCo_11F/scripts.pory"
 	.string "GIOVANNI has a son.\n"
 	.string "Undoubtedly, he's behind this...\p"
 	.string "His son's done nothing wrong,\n"
 	.string "it places me in a tough spot.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_12:
-# 192 "data/maps/SilphCo_11F/scripts.pory"
+# 194 "data/maps/SilphCo_11F/scripts.pory"
 	.string "As a business man, I am\n"
 	.string "practical in decisions, yes.\p"
 	.string "Sometimes, corporations do not\n"
 	.string "factor in morals with this.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_13:
-# 193 "data/maps/SilphCo_11F/scripts.pory"
+# 195 "data/maps/SilphCo_11F/scripts.pory"
 	.string "So, you see, my hands are\n"
 	.string "tied - yet again...\p"
 	.string "Here is an idea...\n"
@@ -504,7 +508,7 @@ SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_13:
 	.string "...Good luck, {PLAYER}.$"
 
 SilphCo_11F_EventScript_President_Mew_Quest_PleaseSpeakWithMrFuji_Text_14:
-# 204 "data/maps/SilphCo_11F/scripts.pory"
+# 206 "data/maps/SilphCo_11F/scripts.pory"
 	.string "PRESIDENT: {PLAYER}? Welcome back!\n"
 	.string "MR. FUJI resides in LAVENDER TOWN.\p"
 	.string "It's a peaceful town due\n"

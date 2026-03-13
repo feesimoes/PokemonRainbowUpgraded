@@ -19,6 +19,7 @@
 #include "constants/songs.h"
 #include "constants/game_stat.h"
 #include "constants/trainers.h"
+#include "region_map.h"
 
 // Trainer Card Strings
 enum
@@ -185,6 +186,7 @@ static const u16 sTrainerCardStickerPal4[]            = INCBIN_U16("graphics/tra
 static const u32 sHoennTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/rse/badges.4bpp.lz");
 static const u32 sKantoTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
 static const u32 sJohtoTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/badges_johto.4bpp.lz");
+static const u32 sSinnohTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/rse/badges.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] = 
 {
@@ -659,6 +661,11 @@ static void Task_TrainerCard(u8 taskId)
 
 static bool8 LoadCardGfx(void)
 {
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+    u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+    u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
+
     switch (sTrainerCardDataPtr->gfxLoadState)
     {
     case 0:
@@ -707,9 +714,21 @@ static bool8 LoadCardGfx(void)
     case 3:
         if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
         {
-            LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
-            LZ77UnCompWram(sJohtoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
-            break;
+            switch (currentRegion)
+            {
+                case REGIONMAP_HOENN:
+                    LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+                    LZ77UnCompWram(sSinnohTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
+                    break;
+                case REGIONMAP_SINNOH:
+                    LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+                    LZ77UnCompWram(sSinnohTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
+                    break;
+                default:
+                    LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+                    LZ77UnCompWram(sJohtoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
+                    break;
+            }
         }
         else
         {
@@ -947,6 +966,11 @@ static void SetDataFromTrainerCard(void)
     u32 badgeFlag;
     u32 badgeFlagJohto;
     u8 i;
+    
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+    u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+    u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
 
     sTrainerCardDataPtr->hasPokedex = FALSE;
     sTrainerCardDataPtr->hasHofResult = FALSE;
@@ -975,21 +999,33 @@ static void SetDataFromTrainerCard(void)
     if (sTrainerCardDataPtr->trainerCard.rse.pokemonTrades != 0)
         sTrainerCardDataPtr->hasTrades++;
 
-    //Kanto badge checks
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++, i++)
+    // Switch between Kanto/Johto badges & Hoenn/Sinnoh badges depending on current region player is in
+    if (currentRegion == REGIONMAP_HOENN)
     {
-        if (FlagGet(badgeFlag))
-            sTrainerCardDataPtr->hasBadge[i]++;
+        for (i = 0; i < 8; i++)
+        {
+            //This is where Hoenn/Sinnoh badge checks will be implemented, when available.
+            //sTrainerCardDataPtr->hasBadge[i]++;
+        }
     }
-    //Johto badge checks
-    if (FlagGet(FLAG_JOHTO_BADGE01_GET) == TRUE)
+    else
     {
-        sTrainerCardDataPtr->hasJohtoBadge[0]++;
-    }
-    for (i = 1, badgeFlagJohto = FLAG_JOHTO_BADGE02_GET; badgeFlagJohto <= FLAG_JOHTO_BADGE08_GET; badgeFlagJohto++, i++)
-    {
-        if (FlagGet(badgeFlagJohto))
-            sTrainerCardDataPtr->hasJohtoBadge[i]++;
+        //Kanto badge checks
+        for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++, i++)
+        {
+            if (FlagGet(badgeFlag))
+                sTrainerCardDataPtr->hasBadge[i]++;
+        }
+        //Johto badge checks
+        if (FlagGet(FLAG_JOHTO_BADGE01_GET) == TRUE)
+        {
+            sTrainerCardDataPtr->hasJohtoBadge[0]++;
+        }
+        for (i = 1, badgeFlagJohto = FLAG_JOHTO_BADGE02_GET; badgeFlagJohto <= FLAG_JOHTO_BADGE08_GET; badgeFlagJohto++, i++)
+        {
+            if (FlagGet(badgeFlagJohto))
+                sTrainerCardDataPtr->hasJohtoBadge[i]++;
+        }
     }
 }
 
@@ -1527,7 +1563,7 @@ static bool8 SetTrainerCardBgsAndPals(void)
         if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
         {
             LoadBgTiles(3, sTrainerCardDataPtr->badgeTiles, NELEMS(sTrainerCardDataPtr->badgeTiles), 0);
-            LoadBgTiles(3, sTrainerCardDataPtr->badgeTilesJohto, NELEMS(sTrainerCardDataPtr->badgeTilesJohto), 128); // 16 tiles per badge * 8 badges = 128 tiles needed per row of 8
+            LoadBgTiles(3, sTrainerCardDataPtr->badgeTilesJohto, NELEMS(sTrainerCardDataPtr->badgeTilesJohto), 160); // 16 tiles per badge * 8 badges = 128 tiles needed per row of 8
             break;
         }
         else
@@ -1632,7 +1668,7 @@ static void DrawStarsAndBadgesOnCard(void)
                     FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 16, 1, 1, palNum);
                 }
             }
-            tileNum = 192 + 128;
+            tileNum = 192 + 160;
             x = 4;
             for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
             {

@@ -156,6 +156,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clair;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Norman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kurt;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Calypso;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Walker;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Whirlpool;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX + 1] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
@@ -316,4 +319,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CLAIR]                    = &gObjectEventGraphicsInfo_Clair,
     [OBJ_EVENT_GFX_NORMAN]                   = &gObjectEventGraphicsInfo_Norman,
     [OBJ_EVENT_GFX_KURT]                     = &gObjectEventGraphicsInfo_Kurt,
+    [OBJ_EVENT_GFX_CALYPSO]                  = &gObjectEventGraphicsInfo_Calypso,
+    [OBJ_EVENT_GFX_WALKER]                   = &gObjectEventGraphicsInfo_Walker,
+    [OBJ_EVENT_GFX_WHIRLPOOL]                = &gObjectEventGraphicsInfo_Whirlpool,
 };

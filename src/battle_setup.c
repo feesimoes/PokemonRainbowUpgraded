@@ -33,6 +33,7 @@
 #include "constants/songs.h"
 #include "constants/pokemon.h"
 #include "constants/trainers.h"
+#include "region_map.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -1022,27 +1023,65 @@ void ShowTrainerCantBattleSpeech(void)
 void PlayTrainerEncounterMusic(void)
 {
     u16 music;
+    u8 currentRegion = GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId);
+    u16 encounterType = GetTrainerEncounterMusicId(gTrainerBattleOpponent_A);
 
-    if (!QL_IS_PLAYBACK_STATE
-     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
-     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
+    if (!QL_IS_PLAYBACK_STATE && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
-        switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))
+        switch (encounterType)
         {
         case TRAINER_ENCOUNTER_MUSIC_FEMALE:
         case TRAINER_ENCOUNTER_MUSIC_GIRL:
         case TRAINER_ENCOUNTER_MUSIC_TWINS:
-            music = MUS_ENCOUNTER_GIRL;
+            if (currentRegion == REGIONMAP_JOHTO)
+            {
+                music = MUS_ENCOUNTER_GIRL_JOHTO;
+            }
+            else if (currentRegion == REGIONMAP_GUYANA)
+            {
+                music = MUS_ENCOUNTER_BATTLE_ZONE; // Guyana assumes only trainer encounters in Z-A Battle Zone
+            }
+            else
+            {
+                music = MUS_ENCOUNTER_GIRL;
+            }
             break;
         case TRAINER_ENCOUNTER_MUSIC_MALE:
-        case TRAINER_ENCOUNTER_MUSIC_INTENSE:
         case TRAINER_ENCOUNTER_MUSIC_COOL:
         case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
-        case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
+        case TRAINER_ENCOUNTER_MUSIC_RICH:
+        case TRAINER_ENCOUNTER_MUSIC_INTENSE:
         case TRAINER_ENCOUNTER_MUSIC_HIKER:
         case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
-        case TRAINER_ENCOUNTER_MUSIC_RICH:
-            music = MUS_ENCOUNTER_BOY;
+            if (currentRegion == REGIONMAP_JOHTO)
+            {
+                music = MUS_ENCOUNTER_BOY_JOHTO; //Johto Boy
+            }
+            else if (currentRegion == REGIONMAP_GUYANA)
+            {
+                music = MUS_ENCOUNTER_BATTLE_ZONE; // Guyana assumes only trainer encounters in Z-A Battle Zone
+            }
+            else
+            {
+                music = MUS_ENCOUNTER_BOY;
+            }
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS:
+            if (currentRegion == REGIONMAP_JOHTO)
+            {
+                music = MUS_ENCOUNTER_JOHTO_SHADY;
+            }
+            else if (currentRegion == REGIONMAP_GUYANA)
+            {
+                music = MUS_ENCOUNTER_BATTLE_ZONE; // Guyana assumes only trainer encounters in Z-A Battle Zone
+            }
+            else
+            {
+                music = MUS_ENCOUNTER_SHADY;
+            }
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
+            music = MUS_ENCOUNTER_GYM_LEADER;
             break;
         case TRAINER_ENCOUNTER_MUSIC_LEGEND:
             music = MUS_LEGEND_TRAINER;
@@ -1050,8 +1089,25 @@ void PlayTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_ROCKET_BOSS:
             music = MUS_ENCOUNTER_ROCKET_BOSS;
             break;
-        default:
+        case TRAINER_ENCOUNTER_MUSIC_AQUA:
             music = MUS_ENCOUNTER_ROCKET;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_MAGMA:
+            music = MUS_ENCOUNTER_ROCKET;
+            break;
+        default:
+            if (currentRegion == REGIONMAP_JOHTO)
+            {
+                music = MUS_ENCOUNTER_BOY_JOHTO; // Johto Boy: default
+            }
+            else if (currentRegion == REGIONMAP_GUYANA)
+            {
+                music = MUS_ENCOUNTER_BATTLE_ZONE; // Guyana assumes only trainer encounters in Z-A Battle Zone
+            }
+            else
+            {
+                music = MUS_ENCOUNTER_BOY;
+            }
             break;
         }
         PlayNewMapMusic(music);

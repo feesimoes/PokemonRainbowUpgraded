@@ -107,148 +107,170 @@ Event_Talking_To_Professor_Oak_If_Busy::
 # 56 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	msgbox Event_Talking_To_Professor_Oak_If_Busy_Text_0
 # 57 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 58 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	release
 	end
 
 
 Event_Talking_To_Mr_Pokemon::
-# 62 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 63 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	goto_if_set FLAG_SYS_NATIONAL_DEX, Event_Talking_To_Mr_Pokemon_1
-# 71 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	lock
-# 72 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	applymovement 1, Movement_Mr_Pokemon_FacesPlayer
-# 73 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_1
 # 74 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_2
+	lock
 # 75 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
+	applymovement 1, Movement_Mr_Pokemon_FacesPlayer
 # 76 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	specialvar VAR_RESULT, CalculatePlayerPartyCount
+	waitmovement
 # 77 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_1
+# 78 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 79 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_2
+# 80 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 81 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	specialvar VAR_RESULT, CalculatePlayerPartyCount
+# 82 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	compare VAR_RESULT, 6
 	goto_if_eq Event_Talking_To_Mr_Pokemon_5
-# 84 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	giveegg SPECIES_TOGEPI
-# 86 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_4
-# 87 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
-# 88 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	applymovement 2, Movement_ProfessorOakSpotsPlayer
-# 89 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmovement
 # 90 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	playbgm MUS_OAK, FALSE
-# 91 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_5
+	giveegg SPECIES_TOGEPI
 # 92 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
+	msgbox Event_Talking_To_Mr_Pokemon_Text_4
 # 93 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	applymovement 2, Movement_ProfessorOakWalksCloser
+	closemessage
 # 94 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmovement
+	applymovement 2, Movement_ProfessorOakSpotsPlayer
 # 95 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	getplayerxy VAR_TEMP_8, VAR_TEMP_9
+	waitmovement
 # 96 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_8, 3
+	playbgm MUS_OAK, FALSE
+# 97 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_5
+# 98 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 99 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	applymovement 2, Movement_ProfessorOakWalksCloser
+# 100 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
+# 101 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	getplayerxy VAR_TEMP_8, VAR_TEMP_9
+# 102 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_8, 2
 	goto_if_eq Event_Talking_To_Mr_Pokemon_18
 Event_Talking_To_Mr_Pokemon_16:
-# 101 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_8, 3
+# 109 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_8, 2
 	goto_if_eq Event_Talking_To_Mr_Pokemon_15
 Event_Talking_To_Mr_Pokemon_13:
-# 106 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_8, 2
+# 116 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_8, 1
 	goto_if_eq Event_Talking_To_Mr_Pokemon_12
 Event_Talking_To_Mr_Pokemon_8:
-# 111 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmovement
-# 112 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_6
-# 113 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
-# 114 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	special EnableNationalPokedex
-# 115 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_7
-# 116 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
-# 117 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_8
-# 118 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
-# 119 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_9
-# 120 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	waitmessage
-# 121 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 122 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	removeobject 2
 # 123 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	msgbox Event_Talking_To_Mr_Pokemon_Text_6
 # 124 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	playbgm MUS_ROUTE_30, TRUE
+	closemessage
 # 125 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	release
+	special EnableNationalPokedex
+# 126 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_7
+# 127 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 128 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_8
+# 129 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 130 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_9
+# 131 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 132 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 133 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	removeobject 2
+# 134 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 135 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	playbgm MUS_ROUTE_30, TRUE
+# 136 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	releaseall
 	end
 
 Event_Talking_To_Mr_Pokemon_1:
-# 64 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	lock
 # 65 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	applymovement 1, Movement_Mr_Pokemon_FacesPlayer
+	lock
 # 66 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	msgbox Event_Talking_To_Mr_Pokemon_Text_0
+	applymovement 1, Movement_Mr_Pokemon_FacesPlayer
 # 67 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
+# 68 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	msgbox Event_Talking_To_Mr_Pokemon_Text_0
+# 69 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 70 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	release
 	end
 
 Event_Talking_To_Mr_Pokemon_5:
-# 79 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 84 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	msgbox Event_Talking_To_Mr_Pokemon_Text_3
-# 80 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 85 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	closemessage
+# 86 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	release
 	end
 
 Event_Talking_To_Mr_Pokemon_9:
-# 98 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 104 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement 2, Movement_ProfessorOakWalksToTablePlayerNorth
-# 99 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 105 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
+# 106 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Right
+# 107 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
 	goto Event_Talking_To_Mr_Pokemon_8
 
 Event_Talking_To_Mr_Pokemon_10:
-# 103 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 111 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement 2, Movement_ProfessorOakWalksToTablePlayerSouth
-# 104 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 112 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
+# 113 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Down
+# 114 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
 	goto Event_Talking_To_Mr_Pokemon_8
 
 Event_Talking_To_Mr_Pokemon_11:
-# 108 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 118 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement 2, Movement_ProfessorOakWalksToTablePlayerLeft
-# 109 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 119 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
+# 120 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Up
+# 121 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	waitmovement
 	goto Event_Talking_To_Mr_Pokemon_8
 
 Event_Talking_To_Mr_Pokemon_12:
-# 106 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_9, 6
+# 116 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_9, 4
 	goto_if_eq Event_Talking_To_Mr_Pokemon_11
 	goto Event_Talking_To_Mr_Pokemon_8
 
 Event_Talking_To_Mr_Pokemon_15:
-# 101 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_9, 7
+# 109 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_9, 5
 	goto_if_eq Event_Talking_To_Mr_Pokemon_10
 	goto Event_Talking_To_Mr_Pokemon_13
 
 Event_Talking_To_Mr_Pokemon_18:
-# 96 "data/maps/Route30_MrPokemonHouse/scripts.pory"
-	compare VAR_TEMP_9, 5
+# 102 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+	compare VAR_TEMP_9, 3
 	goto_if_eq Event_Talking_To_Mr_Pokemon_9
 	goto Event_Talking_To_Mr_Pokemon_16
 
@@ -261,41 +283,40 @@ Event_Talking_To_Professor_Oak_If_Busy_Text_0:
 	.string "But I can't forget this...$"
 
 Event_Talking_To_Mr_Pokemon_Text_0:
-# 66 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 68 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "MR. POKéMON: Life is delightful!\n"
 	.string "Always, new discoveries to be made!$"
 
 Event_Talking_To_Mr_Pokemon_Text_1:
-# 73 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 77 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "Hello, hello! You must be {PLAYER}.\n"
 	.string "PROF. OAK has told me about you.\p"
 	.string "I hear you are working on\n"
 	.string "compiling a detailed POKéDEX.$"
 
 Event_Talking_To_Mr_Pokemon_Text_2:
-# 74 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 79 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "MR. POKéMON: I am MR. POKéMON.\n"
 	.string "There's something I want you to have.$"
 
 Event_Talking_To_Mr_Pokemon_Text_3:
-# 79 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 84 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "Please come back when you\n"
 	.string "have room in your party for it.$"
 
 Event_Talking_To_Mr_Pokemon_Text_4:
-# 86 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 92 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "MR. POKéMON: I got it from a couple\n"
-	.string "who run a POKéMON DAY-CARE\p"
-	.string "near GOLDENROD CITY.\n"
+	.string "who run a POKéMON DAY-CARE.\p"
 	.string "Please take good care of it!$"
 
 Event_Talking_To_Mr_Pokemon_Text_5:
-# 91 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 97 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "PROF. OAK: {PLAYER}?\n"
 	.string "What are you doing here?$"
 
 Event_Talking_To_Mr_Pokemon_Text_6:
-# 112 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 123 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "PROF. OAK: It's been a while\n"
 	.string "since you started your journey.\p"
 	.string "There's no doubt you are talented\n"
@@ -305,14 +326,14 @@ Event_Talking_To_Mr_Pokemon_Text_6:
 	.string "Let me see your POKéDEX...$"
 
 Event_Talking_To_Mr_Pokemon_Text_7:
-# 115 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 126 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "PROF. OAK: Now, {PLAYER}, it won't be\n"
 	.string "easy to complete the POKéDEX.\p"
 	.string "However, I am sure you will\n"
 	.string "make an honest attempt on my behalf!$"
 
 Event_Talking_To_Mr_Pokemon_Text_8:
-# 117 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 128 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "Oh, time flies!\n"
 	.string "I have a radio show to set up at\l"
 	.string "GOLDENROD CITY.\p"
@@ -322,6 +343,6 @@ Event_Talking_To_Mr_Pokemon_Text_8:
 	.string "in JOHTO.$"
 
 Event_Talking_To_Mr_Pokemon_Text_9:
-# 119 "data/maps/Route30_MrPokemonHouse/scripts.pory"
+# 130 "data/maps/Route30_MrPokemonHouse/scripts.pory"
 	.string "Good luck in your journey\n"
 	.string "{PLAYER}, I must be going!$"

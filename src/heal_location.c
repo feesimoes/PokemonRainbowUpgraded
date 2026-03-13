@@ -53,9 +53,9 @@ static const struct HealLocation * GetHealLocationPointerFromMapGroupAndNum(u16 
 const struct HealLocation * GetHealLocation(u32 idx)
 {
     if (idx == HEAL_LOCATION_NONE)
-        return NULL;
+        return &sHealLocations[0];
     if (idx > ARRAY_COUNT(sHealLocations))
-        return NULL;
+        return &sHealLocations[0];
     return &sHealLocations[idx - 1];
 }
 
@@ -107,6 +107,8 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
             warp->y = 11;
             VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
         }
+
+        // Johto respawn points
         else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_NEW_BARK_TOWN_PROFESSOR_ELMS_LAB))
         {
             warp->x = 3;
@@ -118,6 +120,36 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
             warp->y = 13;
         }
         else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_VIOLET_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_VIOLET_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_ROUTE32_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_ROUTE32_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_AZALEA_TOWN_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_AZALEA_TOWN_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_GOLDENROD_CITY_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_GOLDENROD_CITY_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_ECRUTEAK_CITY_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_ECRUTEAK_CITY_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_BLACKTHORN_CITY_POKEMON_CENTER_1F))
+        {
+            warp->x = 8;
+            warp->y = 13;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_OLIVINE_CITY_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_OLIVINE_CITY_POKEMON_CENTER_1F))
         {
             warp->x = 8;
             warp->y = 13;

@@ -1,0 +1,47 @@
+mapscripts Route37_MapScripts {}
+
+script Route37_TrainerTips_Sign
+{
+    lock
+    msgbox(format("TRAINER TIPS!\nA POKéMON with DIG is useful.\pIf you get lost in DARK CAVE...\nThey can DIG you back out!"))
+    closemessage
+    release
+    end
+}
+
+script Route37_Sign
+{
+    lock
+    msgbox(format("ROUTE 37 - ECRUTEAK CITY\nThis is a popular route for TRAINERS!"))
+    closemessage
+    release
+    end
+}
+
+script Route37_Little_Girl 
+{
+    lock
+    faceplayer
+    msgbox(format("Have you seen my sis', ANNE?\nWe're supposed to play today.\pAww...\nShe probably overslept!"))    
+    closemessage
+    release
+    end
+}
+
+script Route37_TrainerBattle_BeautyCallie
+{
+    trainerbattle_single(TRAINER_BEAUTY_CALLIE, format("A POKéMON battle?\nOh, I thought you'd never ask!"), format("See? Wasn't that fun?"))
+    msgbox(format("You're lucky to have been such\na strong TRAINER!\pMost people wouldn't be able to\ndefeat my cute, yet strong, team!"))
+    closemessage
+    releaseall
+    end
+}
+
+script Route37_TrainerBattle_PsychicGreg
+{
+    trainerbattle_single(TRAINER_PSYCHIC_GREG, format("I foresaw your arrival!"), format("I didn't see that coming!"))
+    msgbox(format("Hmm... I've got a feeling you will\ngo around the ledge ahead..."))
+    closemessage
+    releaseall
+    end
+}

@@ -63,13 +63,13 @@ void IncrementGameStat(u8 index);
 void SetObjEventTemplateCoords(u8, s16, s16);
 void SetObjEventTemplateMovementType(u8, u8);
 
-void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
+void SetWarpDestination(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y);
 
-void SetDynamicWarp(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId);
-void SetDynamicWarpWithCoords(s32 unused, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
-void SetFixedDiveWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
-void SetFixedHoleWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
-void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
+void SetDynamicWarp(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId);
+void SetDynamicWarpWithCoords(s32 unused, u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y);
+void SetFixedDiveWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y);
+void SetFixedHoleWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y);
+void SetEscapeWarp(u8 mapGroup, u8 mapNum, s8 warpId, s8 x, s8 y);
 void Overworld_SetHealLocationWarp(u8);
 void SetWarpDestinationToEscapeWarp(void);
 void SetWarpDestinationToLastHealLocation(void);
@@ -88,12 +88,13 @@ bool32 IsUpdateLinkStateCBActive(void);
 
 void ClearLinkPlayerObjectEvents(void);
 const struct MapHeader *const Overworld_GetMapHeaderByGroupAndId(u16, u16);
+bool8 Overworld_IsMapHeaderValid(const struct MapHeader *header);
 void ObjectEventMoveDestCoords(struct ObjectEvent *, u32, s16 *, s16 *);
 void CB2_ReturnToField(void);
 void CB2_ReturnToFieldContinueScriptPlayMapMusic(void);
 void WarpIntoMap(void);
-u8 GetMapTypeByGroupAndId(s8 mapGroup, s8 mapNum);
-void SetWarpDestinationToMapWarp(s8 mapGroup, s8 mapNum, s8 warpNum);
+u8 GetMapTypeByGroupAndId(u8 mapGroup, u8 mapNum);
+void SetWarpDestinationToMapWarp(u8 mapGroup, u8 mapNum, s8 warpNum);
 void SetWarpDestinationToDynamicWarp(u8 unused);
 
 u32 GetGameStat(u8 statId);
@@ -106,7 +107,7 @@ void CB2_SetUpOverworldForQLPlaybackWithWarpExit(void);
 void CB2_EnterFieldFromQuestLog(void);
 void Overworld_PlaySpecialMapMusic(void);
 
-u8 GetCurrentRegionMapSectionId(void);
+u16 GetCurrentRegionMapSectionId(void);
 
 void SetCurrentMapLayout(u16 mapLayoutId);
 void SetWarpDestinationToFixedHoleWarp(s16 x, s16 y);

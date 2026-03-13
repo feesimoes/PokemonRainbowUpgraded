@@ -117,7 +117,7 @@ VermilionCity_Gym_Text_NopeOnlyTrashHere::
 
 VermilionCity_Gym_Text_SwitchUnderTrashFirstLockOpened::
     .string "Hey! There's a switch under the\n"
-    .string "trash! Turn it on!\p"
+    .string "trash! Let's turn it on!\p"
     .string "The first electric lock opened!$"
 
 VermilionCity_Gym_Text_AnotherSwitchInTrash::

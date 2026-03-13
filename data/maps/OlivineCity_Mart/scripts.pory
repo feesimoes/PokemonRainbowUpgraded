@@ -1,0 +1,74 @@
+mapscripts OlivineCity_Mart_MapScripts {}
+
+script OlivineCity_Mart_Clerk_1 
+{        
+    lock
+    faceplayer
+    msgbox(format("Welcome to OLIVINE POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Olivine_Mart_1)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    closemessage
+    release
+    end
+}
+
+script OlivineCity_Mart_Clerk_2
+{        
+    lock
+    faceplayer
+    msgbox(format("Welcome to OLIVINE POKé MART!\nHow can I help you?"))
+    waitmessage
+    pokemart(Olivine_Mart_2)
+    msgbox(format("Thanks for stopping by!\nPlease come again!"))
+    closemessage
+    release
+    end
+}
+
+mart Olivine_Mart_1 
+{
+    ITEM_METAL_COAT
+    ITEM_KINGS_ROCK
+    ITEM_RED_SHARD
+    ITEM_BLUE_SHARD
+    ITEM_GREEN_SHARD
+    ITEM_YELLOW_SHARD
+    ITEM_SHOAL_SALT
+    ITEM_SHOAL_SHELL
+    ITEM_RETRO_MAIL
+    ITEM_DREAM_MAIL
+    ITEM_HEAL_POWDER
+    ITEM_ENERGY_POWDER
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NET_BALL
+    ITEM_LUXURY_BALL
+    ITEM_TIMER_BALL
+}
+
+mart Olivine_Mart_2
+{    
+    ITEM_POKE_BALL    
+    ITEM_PREMIER_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+    ITEM_MAX_REVIVE
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_ESCAPE_ROPE
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL    
+    ITEM_POKE_DOLL
+}

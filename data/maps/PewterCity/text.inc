@@ -84,6 +84,7 @@ PewterCity_Text_CallPoliceIfInfoOnThieves::
     .string "you have any information.$"
 
 PewterCity_Text_MuseumOfScience::
+    .string "PEWTER CITY -\n"
     .string "PEWTER MUSEUM OF SCIENCE$"
 
 PewterCity_Text_GymSign::

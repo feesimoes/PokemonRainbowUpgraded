@@ -1,1 +1,7 @@
-mapscripts RuinsOfAlph_MapScripts {}
+mapscripts RuinsOfAlph_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_RUINS_OF_ALPH)
+    }
+}

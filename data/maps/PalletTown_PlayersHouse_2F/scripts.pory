@@ -23,10 +23,7 @@ PalletTown_PlayersHouse_2F_FirstWarpIn::
 	setflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
     setflag FLAG_HIDE_VERMILION_MR_FUJI
     setflag FLAG_HIDE_VERMILION_BLAINE
-	end
-
-PalletTown_PlayersHouse_2F_EventScript_Sign::
-	msgbox PalletTown_PlayersHouse_2F_Text_PressLRForHelp, MSGBOX_SIGN
+    setworldmapflag FLAG_WORLD_MAP_PALLET_TOWN
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_PC::
@@ -59,18 +56,20 @@ script PalletTown_PlayersHouse_2F_EventScript_Bed
     msgbox(format("It's your bed!\nWant to take a nap?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES)
     {
-        if (flag(FLAG_BEAT_RIVAL_IN_OAKS_LAB))
+        if (flag(FLAG_BEAT_RIVAL_IN_OAKS_LAB) == TRUE)
         {
             call(EventScript_OutOfCenterPartyHeal)
-            msgbox(format("You and your POKéMON have\nrested up! Great!"))
+            msgbox(format("You and your POKéMON rested up!\nGreat!"))
             if (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) != 6)
             {
                 addvar(VAR_DAY_DATE, 1)
+                addvar(VAR_TIME_DAYS_PLAYED, 1)
                 setvar(VAR_TIME_HOUR, 8)
             }
             elif (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) == 6)
             {
                 setvar(VAR_DAY_DATE, 0)
+                addvar(VAR_TIME_DAYS_PLAYED, 1)
                 setvar(VAR_TIME_HOUR, 8)
             }
             else
@@ -83,11 +82,13 @@ script PalletTown_PlayersHouse_2F_EventScript_Bed
             if (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) != 6)
             {
                 addvar(VAR_DAY_DATE, 1)
+                addvar(VAR_TIME_DAYS_PLAYED, 1)
                 setvar(VAR_TIME_HOUR, 8)
             }
             elif (var(VAR_TIME_HOUR) >= 20 && var(VAR_DAY_DATE) == 6)
             {
                 setvar(VAR_DAY_DATE, 0)
+                addvar(VAR_TIME_DAYS_PLAYED, 1)
                 setvar(VAR_TIME_HOUR, 8)
             }
             else
@@ -111,8 +112,6 @@ script PalletTown_PlayersHouse_2F_EventScript_NES
 {
     lock
     msgbox(format("{PLAYER} played with the NES."))
-    waitmessage
-    closemessage
     if (!flag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED))
     {
         if (var(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB) == 4)
@@ -199,4 +198,32 @@ script PalletTown_PlayersHouse_2F_EventScript_NES
             end
         }
     }
+}
+
+script PalletTown_PlayersHouse_2F_Calendar 
+{
+    lock
+    fadenewbgm(MUS_SLOW_PALLET)
+    msgbox(format("It's your CALENDAR!\nWhat a neat little throwback!\pMONDAY, FEBRUARY 26, 1996 -\nAn ordinary day of NES gaming."))
+    if (var(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB) >= 4)
+    {
+        msgbox(format("TUESDAY, FEBRUARY 27, 1996 -\nPOKéMON DAY! PROF. OAK'S big task!"))
+    }
+    if (flag(FLAG_BADGE01_GET) == TRUE)
+    {
+        msgbox(format("SUNDAY, MARCH 3, 1996 -\nFirst victory! BROCK'S BOULDER BADGE!"))
+    }
+    if (flag(FLAG_BADGE02_GET) == TRUE)
+    {
+        msgbox(format("THURSDAY, MARCH 21, 1996 -\nAnother victory! MISTY'S CASCADE BADGE!"))
+    }
+    if (flag(FLAG_BADGE03_GET) == TRUE)
+    {
+
+    }
+    msgbox(format("Seems like that's it...\n...Okay! It's time to go!"))
+    closemessage
+    fadedefaultbgm
+    release
+    end
 }

@@ -35,7 +35,7 @@ KaieteurJungle_Route7_Sign::
 KaieteurJungle_Route7_FujiMemo_Sign_Text_0:
 # 9 "data/maps/KaieteurJungle_Route7/scripts.pory"
 	.string "It's a notice from DR. FUJI,\n"
-	.string "dated: July 5th, 1996.\p"
+	.string "dated: JULY 5, 1996.\p"
 	.string "Following our success, advancements\n"
 	.string "in research are quite impressive.$"
 

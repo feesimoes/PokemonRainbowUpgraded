@@ -4,9 +4,6 @@ PewterCity_Museum_1F_MapScripts::
 PewterCity_Museum_1F_EventScript_Scientist1::
 	lock
 	faceplayer
-	goto_if_eq VAR_FACING, DIR_WEST, PewterCity_Museum_1F_EventScript_Scientist1BehindCounter
-	goto_if_eq VAR_FACING, DIR_SOUTH, PewterCity_Museum_1F_EventScript_Scientist1BehindCounter
-	goto_if_eq VAR_FACING, DIR_NORTH, PewterCity_Museum_1F_EventScript_Scientist1BehindCounter
 	msgbox PewterCity_Museum_1F_Text_PleaseEnjoyYourself
 	release
 	end

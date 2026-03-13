@@ -74,6 +74,132 @@ VioletCity_School_Earl_14:
 	goto VioletCity_School_Earl_1
 
 
+VioletCity_School_Blackboard::
+# 59 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 60 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Blackboard_Text_0
+# 61 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 62 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Empty_Notebook::
+# 68 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 69 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Empty_Notebook_Text_0
+# 70 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 71 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Smart_Notebook::
+# 77 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 78 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Smart_Notebook_Text_0
+# 79 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 80 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Lass_Alyssa::
+# 86 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 87 "data/maps/VioletCity_School/scripts.pory"
+	faceplayer
+# 88 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Lass_Alyssa_Text_0
+# 89 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 90 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Dummy_Notebook::
+# 96 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 97 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Dummy_Notebook_Text_0
+# 98 "data/maps/VioletCity_School/scripts.pory"
+	applymovement LOCALID_VIOLET_SCHOOL_GARRETT, VioletCity_School_FaceUp
+# 99 "data/maps/VioletCity_School/scripts.pory"
+	waitmovement
+# 100 "data/maps/VioletCity_School/scripts.pory"
+	applymovement LOCALID_VIOLET_SCHOOL_GARRETT, VioletCity_School_ExclamationEmote
+# 101 "data/maps/VioletCity_School/scripts.pory"
+	waitmovement
+# 102 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Dummy_Notebook_Text_1
+# 103 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 104 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+# 108 "data/maps/VioletCity_School/scripts.pory"
+VioletCity_School_ExclamationEmote:
+# 110 "data/maps/VioletCity_School/scripts.pory"
+	emote_exclamation_mark
+# 111 "data/maps/VioletCity_School/scripts.pory"
+	step_end
+
+# 114 "data/maps/VioletCity_School/scripts.pory"
+VioletCity_School_FaceUp:
+# 116 "data/maps/VioletCity_School/scripts.pory"
+	face_up_fast
+# 117 "data/maps/VioletCity_School/scripts.pory"
+	step_end
+
+VioletCity_School_Boy_Garrett::
+# 122 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 123 "data/maps/VioletCity_School/scripts.pory"
+	faceplayer
+# 124 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Boy_Garrett_Text_0
+# 125 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 126 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Field_Notebook::
+# 132 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 133 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Field_Notebook_Text_0
+# 134 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 135 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
+VioletCity_School_Picnicker_Jean::
+# 141 "data/maps/VioletCity_School/scripts.pory"
+	lock
+# 142 "data/maps/VioletCity_School/scripts.pory"
+	faceplayer
+# 143 "data/maps/VioletCity_School/scripts.pory"
+	msgbox VioletCity_School_Picnicker_Jean_Text_0
+# 144 "data/maps/VioletCity_School/scripts.pory"
+	closemessage
+# 145 "data/maps/VioletCity_School/scripts.pory"
+	release
+	end
+
+
 VioletCity_School_Earl_Text_0:
 # 7 "data/maps/VioletCity_School/scripts.pory"
 	.string "Bonjour! You are TRAINER? Battle\n"
@@ -145,3 +271,55 @@ VioletCity_School_Earl_Text_11:
 # 39 "data/maps/VioletCity_School/scripts.pory"
 	.string "You come again later, yes?\n"
 	.string "EARL teach you whenever!$"
+
+VioletCity_School_Blackboard_Text_0:
+# 60 "data/maps/VioletCity_School/scripts.pory"
+	.string "Wow! Useful information on here!\n"
+	.string "It's quite like VIRIDIAN'S SCHOOL!$"
+
+VioletCity_School_Empty_Notebook_Text_0:
+# 69 "data/maps/VioletCity_School/scripts.pory"
+	.string "It's an empty notebook.\n"
+	.string "Perfect for any new student!$"
+
+VioletCity_School_Smart_Notebook_Text_0:
+# 78 "data/maps/VioletCity_School/scripts.pory"
+	.string "It's ALYSSA'S educational notebook.\n"
+	.string "Oh! Seems like she's very smart.$"
+
+VioletCity_School_Lass_Alyssa_Text_0:
+# 88 "data/maps/VioletCity_School/scripts.pory"
+	.string "Hi! Are you here to learn?\n"
+	.string "Let me know if you need help!$"
+
+VioletCity_School_Dummy_Notebook_Text_0:
+# 97 "data/maps/VioletCity_School/scripts.pory"
+	.string "It's GARRETT'S personal notebook.\n"
+	.string "Hmm...\p"
+	.string "Wait, that can't be right!\n"
+	.string "They need an educational one...\p"
+	.string "There is a note attached:$"
+
+VioletCity_School_Dummy_Notebook_Text_1:
+# 102 "data/maps/VioletCity_School/scripts.pory"
+	.string "GARRETT was here!\n"
+	.string "ASHLEY is a dummy!\p"
+	.string "Signed,\n"
+	.string "EARL'S star pupil!$"
+
+VioletCity_School_Boy_Garrett_Text_0:
+# 124 "data/maps/VioletCity_School/scripts.pory"
+	.string "That pop quiz? Yeah, of course I'm\n"
+	.string "gonna ace it, It's so easy!$"
+
+VioletCity_School_Field_Notebook_Text_0:
+# 133 "data/maps/VioletCity_School/scripts.pory"
+	.string "The wide open fields up north\n"
+	.string "have an interesting climate!\p"
+	.string "Culturally, KITAKAMI follows a\n"
+	.string "similar tradition to JOHTO.$"
+
+VioletCity_School_Picnicker_Jean_Text_0:
+# 143 "data/maps/VioletCity_School/scripts.pory"
+	.string "Did you know that a lot of\n"
+	.string "far-off academies study here?$"

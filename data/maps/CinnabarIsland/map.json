@@ -15,14 +15,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE20",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE21_SOUTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -57,7 +57,7 @@
   ],
   "warp_events": [
     {
-      "x": 8,
+      "x": 7,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_1F",
@@ -71,7 +71,7 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 8,
+      "x": 7,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND_POKEMON_LAB_ENTRANCE",
@@ -90,6 +90,13 @@
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND_MART",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION_1F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [
@@ -106,7 +113,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 12,
+      "x": 16,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -114,7 +121,7 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 8,
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -130,7 +137,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 9,
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

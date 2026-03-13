@@ -23,6 +23,11 @@
       "map": "MAP_RUINS_OF_ALPH",
       "offset": 52,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE37",
+      "offset": 13,
+      "direction": "up"
     }
   ],
   "object_events": [

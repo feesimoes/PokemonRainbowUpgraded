@@ -2,12 +2,10 @@ mapscripts Cherrygrove_PokemonCenter_MapScripts
 {
     MAP_SCRIPT_ON_LOAD
     {
-        call(CableClub_OnLoad)
         setworldmapflag(FLAG_WORLD_MAP_CHERRYGROVE_CITY)
     }
     MAP_SCRIPT_ON_TRANSITION
     {
-        call(CableClub_OnTransition)
         setrespawn(HEAL_LOCATION_CHERRYGROVE_CITY)
     }
     MAP_SCRIPT_ON_RESUME

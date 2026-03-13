@@ -1,1 +1,11 @@
 mapscripts VioletCity_House1_MapScripts {}
+
+script VioletCity_House1_BaldingMan 
+{
+    lock
+    faceplayer
+    msgbox(format("The mysterious RUINS OF ALPH\nseem to predate early JOHTO...\pI'm talking at least 1,000 year-\nold ruins! Hm..."))
+    closemessage
+    release
+    end    
+}

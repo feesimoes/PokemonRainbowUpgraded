@@ -8,3 +8,87 @@ script AzaleaTown_Test_Gold_Kris_VS_Music
     release
     end    
 }
+
+script AzaleaTown_Kurts_House_Sign
+{
+    lock
+    msgbox(format("KURT'S HOUSE"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Sign
+{
+    lock
+    msgbox(format("AZALEA TOWN POKéMON GYM\nLEADER: KURT\pThe masterful artisan from times\nthought to be long gone!"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_IlexForest_Ahead_Sign
+{
+    lock
+    msgbox(format("AZALEA TOWN - ILEX FOREST\nROUTE 34 to GOLDENROD CITY ahead!"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Charcoal_Kiln_Sign
+{
+    lock
+    msgbox(format("AZALEA TOWN -\nCHARCOAL KILN\pWe let our FARFETCH'D fetch us\nbranches for charcoal!"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Sign
+{
+    lock
+    msgbox(format("AZALEA TOWN -\nLiving happily with POKéMON!"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Slowpoke_Well_Sign
+{
+    lock
+    msgbox(format("AZALEA TOWN - SLOWPOKE WELL\nAlso known as RAINMAKER WELL!\pIt is believed that SLOWPOKE'S\nYAWN summons the rain...\pRecords dated 400 years ago prove\nthis very assumption."))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Balding_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("Some of these BUG CATCHERS are\nquite bothersome younglings...\pBUGSY is no exception! He's not too\nuseful at our CHARCOAL KILN..."))   
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Youngster 
+{
+    lock
+    faceplayer
+    msgbox(format("Some grown-ups feel like comfy\nclothing shouldn't be year-round.\pYou know what I mean?"))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Little_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("They say sometimes kids who go into\nILEX FOREST return differently...\pBut sometimes they don't return!\nThat's kind of scary..."))
+    closemessage
+    release
+    end
+}

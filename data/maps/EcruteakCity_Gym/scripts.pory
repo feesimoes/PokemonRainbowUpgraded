@@ -1,0 +1,119 @@
+mapscripts EcruteakCity_Gym_MapScripts {}
+
+script EcruteakCity_Gym_Guide 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE04_GET) == TRUE)
+    {
+        msgbox(format("Yeah! Keep going for the win!\nNice job!"))
+    }
+    else
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nThis GYM'S a spooky one!\pIt's the perfect place to go\nback outside and touch grass!"))
+        msgbox(format("But, just in case, here's a tip!\nGHOST-types ironically despise DARK!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Statue
+{
+    lock
+    if (flag(FLAG_JOHTO_BADGE04_GET) == TRUE)
+    {
+        msgbox(format("ECRUTEAK CITY GYM\nLEADER: MORTY\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+    }
+    else
+    {
+        msgbox(format("ECRUTEAK CITY GYM\nLEADER: MORTY\pWINNING TRAINERS:\n{RIVAL}"))
+    }
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Channeler_Georgina
+{    
+    trainerbattle_single(TRAINER_CHANNELER_GEORGINA, format("I saw your past!\nIt's time to ward you off!"), format("Tch... I was unsuccessful!"))
+    msgbox(format("There's definitely a challenger's\nspirit in you... You'll go far."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Channeler_Grace
+{    
+    trainerbattle_single(TRAINER_CHANNELER_GRACE, format("Waah!\nDon't scare me like that...\pWait... No, that's not right.\nI'm supposed to scare you!"), format("MORTY sees all, and knows all."))
+    msgbox(format("Doesn't this place look familiar?\nKekeke... {PLAYER}..."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Channeler_Edith
+{    
+    trainerbattle_single(TRAINER_CHANNELER_EDITH, format("I need to channel my inner\nCHANNELER spirits..."), format("I'm not good at this!"))
+    msgbox(format("My morale is at an all-time\nlow... But, you are strong."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Channeler_Martha
+{    
+    trainerbattle_single(TRAINER_CHANNELER_MARTHA, format("Although it may not look like\nit, I'm a STEWARDESS, back in UNOVA."), format("Oh no... Am I cooked?!"))
+    msgbox(format("I come from a long line of\nSTEWARDS... It runs in the family."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Leader_Morty
+{    
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE04_GET) == TRUE)
+    {
+        msgbox(format("You should be strong enough to\ngo across the sea...\pWhen you go west and then head\nsouth, you'll reach OLIVINE CITY."))
+        msgbox(format("Be careful, {PLAYER}..."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("It's good of you to have come.\nI'm MORTY, ECRUTEAK'S GYM LEADER.\pPOKéMON have long been revered\nhere, in ECRUTEAK..."))
+            msgbox(format("It's said a rainbow POKéMON will\nappear before a powerful TRAINER.\pI've always believed that tale,\nso I've always trained here."))
+            msgbox(format("As a result, I can see what others\ncannot... I know it is you.\pYou're that truly powerful TRAINER\nfrom my past visions, yes..."))
+            call(EcruteakCity_Gym_Leader_Morty_Battle)
+        }
+        else
+        {
+            msgbox(format("It's good of you to visit.\nEnjoying ECRUTEAK?\pHere, POKéMON have long been\nrevered... I've trained in secrecy."))
+            msgbox(format("You want my badge? Oh! I...\nI don't challenge tourists, sorry..."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Leader_Morty_Battle
+{
+    trainerbattle_single(TRAINER_LEADER_MORTY, format("...Or, you are going to help\nme reach that level, {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("I'm still not good enough...\nI see..."), EcruteakCity_Gym_Morty_PostBattle, NO_MUSIC)
+    call(EcruteakCity_Gym_Morty_PostBattle)
+}
+
+script EcruteakCity_Gym_Morty_PostBattle 
+{
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("I don't think our potentials are\ntoo different, but...\pYou seem to have something more\nthan that... So be it."))
+    msgbox(format("The FOG BADGE is yours...\nYou are certainly worthy."))
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("{PLAYER} received the FOG\nBADGE from MORTY!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("You should be strong enough to\ngo across the sea...\pWhen you go west and then head\nsouth, you'll reach OLIVINE CITY."))
+    msgbox(format("You've seen the ruins of BRASS\nTOWER, yes?\pI'm sure something quite frightening's\nbrewing there... Be cautious, {PLAYER}."))
+    setflag(FLAG_JOHTO_BADGE04_GET)
+}

@@ -1363,6 +1363,7 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+	.include "data/scripts/overworld_multiplayer_receptionist_template.inc"
 
 	.include "data/maps/Route22_WestEntrance_1F/scripts.inc"
 	.include "data/maps/Route22_WestEntrance_1F/text.inc"
@@ -1849,3 +1850,84 @@ Text_TestMsg::
 
 	.include "data/maps/Route109/scripts.inc"
 	.include "data/maps/Route109/text.inc"
+
+	.include "data/maps/Route37/scripts.inc"
+	.include "data/maps/Route37/text.inc"
+
+	.include "data/maps/EcruteakCity/scripts.inc"
+	.include "data/maps/EcruteakCity/text.inc"
+
+	.include "data/maps/Route38/scripts.inc"
+	.include "data/maps/Route38/text.inc"
+
+	.include "data/maps/Route38_EcruteakCityEntrance/scripts.inc"
+	.include "data/maps/Route38_EcruteakCityEntrance/text.inc"
+
+	.include "data/maps/GoldenrodCity_BikeShop/scripts.inc"
+	.include "data/maps/GoldenrodCity_BikeShop/text.inc"
+
+	.include "data/maps/EcruteakCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/EcruteakCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route39/scripts.inc"
+	.include "data/maps/Route39/text.inc"
+
+	.include "data/maps/JubilifeCity/scripts.inc"
+	.include "data/maps/JubilifeCity/text.inc"
+
+	.include "data/maps/PalletTown_2/scripts.inc"
+	.include "data/maps/PalletTown_2/text.inc"
+
+	.include "data/maps/OlivineCity/scripts.inc"
+	.include "data/maps/OlivineCity/text.inc"
+
+	.include "data/maps/IcePath_1F/scripts.inc"
+	.include "data/maps/IcePath_1F/text.inc"
+
+	.include "data/maps/IcePath_B1F/scripts.inc"
+	.include "data/maps/IcePath_B1F/text.inc"
+
+	.include "data/maps/Route42/scripts.inc"
+	.include "data/maps/Route42/text.inc"
+
+	.include "data/maps/Route42_EcruteakCityEntrance/scripts.inc"
+	.include "data/maps/Route42_EcruteakCityEntrance/text.inc"
+
+	.include "data/maps/OlivineCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/OlivineCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Cherrygrove_PokemonCenter_B1F/scripts.inc"
+	.include "data/maps/Cherrygrove_PokemonCenter_B1F/text.inc"
+
+	.include "data/maps/BurnedTower_1F/scripts.inc"
+	.include "data/maps/BurnedTower_1F/text.inc"
+
+	.include "data/maps/EcruteakCity_Gym/scripts.inc"
+	.include "data/maps/EcruteakCity_Gym/text.inc"
+
+	.include "data/maps/OlivineCity_Mart/scripts.inc"
+	.include "data/maps/OlivineCity_Mart/text.inc"
+
+	.include "data/maps/EcruteakCity_Mart/scripts.inc"
+	.include "data/maps/EcruteakCity_Mart/text.inc"
+
+	.include "data/maps/AzaleaTown_Mart/scripts.inc"
+	.include "data/maps/AzaleaTown_Mart/text.inc"
+
+	.include "data/maps/GlitterLighthouse_1F/scripts.inc"
+	.include "data/maps/GlitterLighthouse_1F/text.inc"
+
+	.include "data/maps/SkyKanto/scripts.inc"
+	.include "data/maps/SkyKanto/text.inc"
+
+	.include "data/maps/BurnedTower_B1F/scripts.inc"
+	.include "data/maps/BurnedTower_B1F/text.inc"
+
+	.include "data/maps/GoldenrodCity_DepartmentStore_1F/scripts.inc"
+	.include "data/maps/GoldenrodCity_DepartmentStore_1F/text.inc"
+
+	.include "data/maps/Route40/scripts.inc"
+	.include "data/maps/Route40/text.inc"
+
+	.include "data/maps/Route41/scripts.inc"
+	.include "data/maps/Route41/text.inc"

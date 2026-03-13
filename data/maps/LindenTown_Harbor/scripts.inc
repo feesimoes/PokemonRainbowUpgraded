@@ -50,7 +50,7 @@ LindenTown_Harbor_Sailor_LtSurge_Reference_Dialogue_Text_0:
 
 LindenTown_Harbor_Sailor_LtSurge_Reference_Dialogue_Text_1:
 # 18 "data/maps/LindenTown_Harbor/scripts.pory"
-	.string "LT. SURGE knew how to blend\n"
-	.string "in with the surrounding jungle.\p"
-	.string "He did so well, you'd be\n"
-	.string "caught off guard if attacked.$"
+	.string "LT. SURGE knew how to blend in with\n"
+	.string "the surrounding jungle.\p"
+	.string "He did so well, you'd be caught off-\n"
+	.string "guard if attacked, during the war.$"

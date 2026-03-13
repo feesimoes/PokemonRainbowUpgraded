@@ -381,7 +381,7 @@ gSongTable::
 	song mus_legend_trainer_challenge, 0, 0
 	song mus_vs_prof_oak, 0, 0
 	song mus_vs_trainer_sinnoh, 0, 0
-	song mus_music_menu, 0, 0
+	song mus_goldenrod_whimsical, 0, 0
 	song mus_tohjo_falls_depths, 0, 0
 	song mus_route23_gate, 0, 0
 	song mus_route23_badge1, 0, 0
@@ -434,7 +434,7 @@ gSongTable::
 	song mus_vs_calypso, 0, 0
 	song mus_encounter_xxvii, 0, 0
 	song mus_vs_xxvii, 0, 0
-	song mus_encounter_johto_kid, 0, 0
+	song mus_encounter_boy_johto, 0, 0
 	song mus_encounter_kimono, 0, 0
 	song mus_encounter_rival_champ, 0, 0
 	song mus_ice_path, 0, 0
@@ -453,6 +453,29 @@ gSongTable::
 	song mus_route218, 0, 0
 	song mus_vs_wild_sinnoh, 0, 0
 	song mus_brigettes_room, 0, 0
+	song mus_route38, 0, 0
+	song mus_poke_mart_hoenn, 0, 0
+	song mus_pewter_museum, 0, 0
+	song mus_encounter_shady, 0, 0
+	song mus_surf_sinnoh, 0, 0
+	song mus_encounter_sbc, 0, 0
+	song mus_route110, 0, 0
+	song mus_cycling_sinnoh, 0, 0
+	song mus_surf_hoenn, 0, 0
+	song mus_cycling_hoenn, 0, 0
+	song mus_vs_wild_sevii, 0, 0
+	song mus_new_game_intro_johto, 0, 0
+	song mus_burned_tower, 0, 0
+	song mus_encounter_girl_johto, 0, 0
+	song mus_poke_mart_johto, 0, 0
+	song mus_poke_center_johto, 0, 0
+	song mus_encounter_eusine, 0, 0
+	song mus_vs_rival, 0, 0
+	song mus_new_game_intro_hoenn, 0, 0
+	song mus_azalea, 0, 0
+	song mus_encounter_battle_zone, 0, 0
+	song mus_vs_rank_match, 0, 0
+	song mus_new_game_intro_guyana, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

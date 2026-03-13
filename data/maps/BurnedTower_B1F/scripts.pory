@@ -1,0 +1,174 @@
+mapscripts BurnedTower_B1F_MapScripts {}
+
+script BurnedTower_B1F_Beasts_Event_Trigger
+{
+    lock
+    applymovement(LOCALID_PLAYER, BurnedTower_B1F_Approach_Up_Slow)
+    waitmovement
+    delay(30)
+    textcolor(NPC_TEXT_COLOR_MALE)
+    playse(SE_EXIT)
+    waitse
+    playbgm(MUS_ENCOUNTER_EUSINE, TRUE)
+    clearflag(FLAG_HIDE_BURND_T_EUSINE)
+    addobject(LOCALID_BURNED_TOWER_EUSINE)
+    msgbox(format("???: Hey, you there!\nThis place isn't safe... Get out!"))
+    applymovement(LOCALID_BURNED_TOWER_EUSINE, BurnedTower_B1F_Eusine_Enters)
+    waitmovement
+    closemessage
+    delay(20)
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Emote_Exlamation_Mark)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Jump_In_Place_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_ENTEI, BurnedTower_B1F_Beast_Jump_2_Left)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Jump_2_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_RAIKOU, BurnedTower_B1F_Beast_Jump_2_Right)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_ENTEI, BurnedTower_B1F_Beast_Jump_1_Left)
+    playse(SE_LEDGE)
+    waitmovement
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Jump_1_Up)
+    playse(SE_LEDGE)
+    waitmovement
+    applymovement(LOCALID_BURNED_TOWER_RAIKOU, BurnedTower_B1F_Beast_Jump_1_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_ENTEI, BurnedTower_B1F_Beast_Jump_1_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Jump_2_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_RAIKOU, BurnedTower_B1F_Beast_Jump_1_Right)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_ENTEI, BurnedTower_B1F_Beast_Jump_1_Left)
+    waitmovement
+    applymovement(LOCALID_BURNED_TOWER_SUICUNE, BurnedTower_B1F_Beast_Jump_2_Up)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_ENTEI, BurnedTower_B1F_Beast_Jump_2_Left)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_RAIKOU, BurnedTower_B1F_Beast_Jump_2_Right)
+    waitmovement
+    playse(SE_LEDGE)
+    applymovement(LOCALID_BURNED_TOWER_RAIKOU, BurnedTower_B1F_Beast_Jump_1_Right)
+    waitmovement
+    applymovement(LOCALID_BURNED_TOWER_EUSINE, BurnedTower_B1F_Eusine_Walks_Shocked_Face_Player)
+    waitmovement
+    msgbox(format("???: That... Was... Did... You...\n...You did see that... Right?!"))
+    msgbox(format("EUSINE: My name's EUSINE...\nAnd you are...? {PLAYER}?\pGlad to meet you! I was shocked!\nSUICUNE raced by like a blur!"))
+    msgbox(format("Right in front of my eyes, no less!\nI've been searching for SUICUNE...\pIt's been nearly eight years, and...\nI finally got to see it!"))
+    msgbox(format("I'm all choked up! {PLAYER}...\nI owe this all to you! Thank you!\pI'm going to track SUICUNE down...\n{PLAYER}, let's meet again! Farewell!"))
+    closemessage
+    applymovement(LOCALID_BURNED_TOWER_EUSINE, BurnedTower_B1F_Eusine_Leaves)
+    waitmovement
+    playse(SE_EXIT)
+    waitse
+    setvar(VAR_JOHTO_STORY_PROGRESS, 2)
+    setflag(FLAG_HIDE_BURND_T_BEASTS)
+    setflag(FLAG_HIDE_BURND_T_EUSINE)
+    removeobject(LOCALID_BURNED_TOWER_EUSINE)
+    removeobject(LOCALID_BURNED_TOWER_ENTEI)
+    removeobject(LOCALID_BURNED_TOWER_SUICUNE)
+    removeobject(LOCALID_BURNED_TOWER_RAIKOU)
+    fadedefaultbgm
+    release
+    end
+}
+
+movement BurnedTower_B1F_Beast_Emote_Exlamation_Mark
+{
+    emote_exclamation_mark
+    step_end
+}
+
+movement BurnedTower_B1F_Beast_Jump_In_Place_Up 
+{
+    jump_in_place_up
+    jump_in_place_up
+    step_end
+}
+
+movement BurnedTower_B1F_Beast_Jump_2_Up
+{
+    jump_2_up
+    step_end    
+}
+
+movement BurnedTower_B1F_Beast_Jump_1_Up
+{
+    jump_up
+    step_end    
+}
+
+movement BurnedTower_B1F_Beast_Jump_2_Left
+{
+    jump_2_left
+    step_end    
+}
+
+movement BurnedTower_B1F_Beast_Jump_2_Right
+{
+    jump_2_right
+    step_end    
+}
+
+movement BurnedTower_B1F_Beast_Jump_1_Left
+{
+    jump_left
+    step_end    
+}
+
+movement BurnedTower_B1F_Beast_Jump_1_Right
+{
+    jump_right
+    step_end    
+}
+
+movement BurnedTower_B1F_Approach_Up_Slow 
+{
+    walk_up
+    step_end
+}
+
+movement BurnedTower_B1F_Approach_Left_Face_Up_Slow 
+{
+    walk_left
+    delay_4
+    face_up
+    delay_4
+    step_end
+}
+
+movement BurnedTower_B1F_Eusine_Enters 
+{
+    set_visible
+    walk_down * 2
+    walk_right   
+    step_end
+}
+
+movement BurnedTower_B1F_Eusine_Walks_Shocked_Face_Player 
+{
+    walk_right * 3
+    delay_8
+    face_down
+    step_end
+}
+
+movement BurnedTower_B1F_Eusine_Leaves 
+{
+    walk_fast_left * 4
+    walk_fast_up * 4
+    step_end    
+}

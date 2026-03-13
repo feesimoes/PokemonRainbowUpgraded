@@ -71,6 +71,24 @@
       "var": "VAR_MEW_QUEST_PROGRESS",
       "var_value": "8",
       "script": "KaieteurJungle_LindenPath_EventScript_Blaine"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "8",
+      "script": "KaieteurJungle_LindenPath_EventScript_OverwhelmingUrgeTurnBack"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_MEW_QUEST_PROGRESS",
+      "var_value": "8",
+      "script": "KaieteurJungle_LindenPath_EventScript_OverwhelmingUrgeTurnBack"
     }
   ],
   "bg_events": []

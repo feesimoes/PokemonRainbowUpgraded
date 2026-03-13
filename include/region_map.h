@@ -5,14 +5,14 @@
 #include "bg.h"
 
 enum Region {
+    REGIONMAP_JOHTO,
+    REGIONMAP_GUYANA,
+    REGIONMAP_HOENN,
+    REGIONMAP_SINNOH,
     REGIONMAP_KANTO,
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
-    REGIONMAP_SINNOH,
-    REGIONMAP_JOHTO,
-    REGIONMAP_GUYANA,
-    REGIONMAP_HOENN,
     REGIONMAP_COUNT
 };
 
@@ -29,5 +29,8 @@ u8 *GetMapNameGeneric_(u8 *dest, u16 mapsec);
 void InitRegionMapWithExitCB(u8 type, void (*callback)(void));
 void CB2_OpenFlyMap(void);
 u8 GetCurrentRegionIfNotKanto(u16 mapHeaderMapSecId);
+u16 GetPlayerCurrentMapSectionId(void);
+u16 GetMapSectionIdAtPlayerPosition(void);
+u16 GetActualMapSectionId(void);
 
 #endif // GUARD_REGION_MAP_H

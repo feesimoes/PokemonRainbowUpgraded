@@ -8,8 +8,15 @@ OneIsland_OnTransition::
 	end
 
 OneIsland_OnFrame::
-	map_script_2 VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 2, OneIsland_EventScript_EnterOneIslandFirstTime
+	map_script_2 VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 2, OneIsland_EventScript_CheckIfFirstTime
 	.2byte 0
+
+OneIsland_EventScript_CheckIfFirstTime::
+	lockall
+	goto_if_unset FLAG_HIDE_ONE_ISLAND_BILL, OneIsland_EventScript_EnterOneIslandFirstTime
+	setvar VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 3
+	releaseall
+	end
 
 OneIsland_EventScript_EnterOneIslandFirstTime::
 	lockall

@@ -2,7 +2,7 @@
   "heal_locations": [
     {
       "id": "HEAL_LOCATION_PALLET_TOWN",
-      "map": "MAP_PALLET_TOWN",
+      "map": "MAP_PALLET_TOWN_2",
       "x": 6,
       "y": 8,
       "respawn_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
@@ -287,6 +287,22 @@
       "y": 8,
       "respawn_map": "MAP_ROUTE32_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ROUTE32_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ECRUTEAK_CITY",
+      "map": "MAP_ECRUTEAK_CITY",
+      "x": 33,
+      "y": 56,
+      "respawn_map": "MAP_ECRUTEAK_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_ECRUTEAK_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_OLIVINE_CITY",
+      "map": "MAP_OLIVINE_CITY",
+      "x": 21,
+      "y": 44,
+      "respawn_map": "MAP_OLIVINE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_OLIVINE_NURSE"
     }
   ]
 }

@@ -53,3 +53,95 @@ script VioletCity_School_Earl
     release
     end
 }
+
+script VioletCity_School_Blackboard 
+{
+    lock
+    msgbox(format("Wow! Useful information on here!\nIt's quite like VIRIDIAN'S SCHOOL!"))
+    closemessage
+    release
+    end
+}
+
+script VioletCity_School_Empty_Notebook 
+{
+    lock
+    msgbox(format("It's an empty notebook.\nPerfect for any new student!"))
+    closemessage
+    release
+    end
+}
+
+script VioletCity_School_Smart_Notebook 
+{
+    lock
+    msgbox(format("It's ALYSSA'S educational notebook.\nOh! Seems like she's very smart."))    
+    closemessage
+    release
+    end
+}
+
+script VioletCity_School_Lass_Alyssa 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi! Are you here to learn?\nLet me know if you need help!"))
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_School_Dummy_Notebook 
+{
+    lock
+    msgbox(format("It's GARRETT'S personal notebook.\nHmm...\pWait, that can't be right!\nThey need an educational one...\pThere is a note attached:"))
+    applymovement(LOCALID_VIOLET_SCHOOL_GARRETT, VioletCity_School_FaceUp)
+    waitmovement
+    applymovement(LOCALID_VIOLET_SCHOOL_GARRETT, VioletCity_School_ExclamationEmote)
+    waitmovement
+    msgbox(format("GARRETT was here!\nASHLEY is a dummy!\pSigned,\nEARL'S star pupil!"))
+    closemessage
+    release
+    end
+}
+
+movement VioletCity_School_ExclamationEmote 
+{
+    emote_exclamation_mark    
+    step_end
+}
+
+movement VioletCity_School_FaceUp
+{
+    face_up_fast    
+    step_end
+}
+
+script VioletCity_School_Boy_Garrett
+{
+    lock
+    faceplayer
+    msgbox(format("That pop quiz? Yeah, of course I'm\ngonna ace it, It's so easy!"))
+    closemessage
+    release
+    end    
+}
+
+script VioletCity_School_Field_Notebook 
+{
+    lock
+    msgbox(format("The wide open fields up north\nhave an interesting climate!\pCulturally, KITAKAMI follows a\nsimilar tradition to JOHTO."))
+    closemessage
+    release
+    end   
+}
+
+script VioletCity_School_Picnicker_Jean
+{
+    lock
+    faceplayer
+    msgbox(format("Did you know that a lot of\nfar-off academies study here?"))
+    closemessage
+    release
+    end
+}

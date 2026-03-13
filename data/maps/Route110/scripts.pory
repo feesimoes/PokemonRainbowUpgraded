@@ -1,1 +1,42 @@
 mapscripts Route110_MapScripts {}
+
+script Route110_CyclingRoad_North_Sign
+{
+    lock
+    msgbox(format("ROUTE 110 - NORTH\nSEASIDE CYCLING ROAD"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route110_CyclingRoad_South_Sign
+{
+    lock
+    msgbox(format("ROUTE 110 - SOUTH\nSEASIDE CYCLING ROAD"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route110_Sign
+{
+    lock
+    msgbox(format("SEASIDE ROUTE 110 -\nSLATEPORT CITY - MAUVILLE CITY"))
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route110_Boy 
+{
+    lock
+    faceplayer
+    msgbox(format("Tch...\nYou've got a BICYCLE, huh?\pI wouldn't be surprised...\nRYDEL puts that stuff everywhere..."))
+    waitmessage
+    closemessage
+    release
+    end
+}

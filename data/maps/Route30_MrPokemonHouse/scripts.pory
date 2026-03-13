@@ -54,6 +54,7 @@ movement Movement_Player_Faces_Up {
 script Event_Talking_To_Professor_Oak_If_Busy {
     lock
     msgbox(format("PROF. OAK: Haha! This is great!\nYes, this should go in here...\pPut that in this...\nBut I can't forget this..."))
+    closemessage
     release
     end   
 }
@@ -63,66 +64,76 @@ script Event_Talking_To_Mr_Pokemon {
     {
         lock
         applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
+        waitmovement
         msgbox(format("MR. POKéMON: Life is delightful!\nAlways, new discoveries to be made!"))
+        closemessage
         release
         end
     }
     else {
         lock
         applymovement(1, Movement_Mr_Pokemon_FacesPlayer)
+        waitmovement
         msgbox(format("Hello, hello! You must be {PLAYER}.\nPROF. OAK has told me about you.\pI hear you are working on\ncompiling a detailed POKéDEX."))
+        closemessage
         msgbox(format("MR. POKéMON: I am MR. POKéMON.\nThere's something I want you to have."))
-        waitmessage
+        closemessage
         specialvar(VAR_RESULT, CalculatePlayerPartyCount)
         if (var(VAR_RESULT) == 6)
         {
             msgbox(format("Please come back when you\nhave room in your party for it."))
+            closemessage
             release
             end
         }
         else {
             giveegg(SPECIES_TOGEPI)
         }
-        msgbox(format("MR. POKéMON: I got it from a couple\nwho run a POKéMON DAY-CARE\pnear GOLDENROD CITY.\nPlease take good care of it!"))
-        waitmessage
+        msgbox(format("MR. POKéMON: I got it from a couple\nwho run a POKéMON DAY-CARE.\pPlease take good care of it!"))
+        closemessage
         applymovement(2, Movement_ProfessorOakSpotsPlayer)
         waitmovement
         playbgm(MUS_OAK, FALSE)
         msgbox(format("PROF. OAK: {PLAYER}?\nWhat are you doing here?"))
-        waitmessage
+        closemessage
         applymovement(2, Movement_ProfessorOakWalksCloser)
         waitmovement
         getplayerxy(VAR_TEMP_8, VAR_TEMP_9)
-        if (var(VAR_TEMP_8) == 3 && var(VAR_TEMP_9) == 5)
+        if (var(VAR_TEMP_8) == 2 && var(VAR_TEMP_9) == 3)
         {
             applymovement(2, Movement_ProfessorOakWalksToTablePlayerNorth)
+            waitmovement
             applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Right)
+            waitmovement
         }
-        elif (var(VAR_TEMP_8) == 3 && var(VAR_TEMP_9) == 7)
+        elif (var(VAR_TEMP_8) == 2 && var(VAR_TEMP_9) == 5)
         {
             applymovement(2, Movement_ProfessorOakWalksToTablePlayerSouth)
+            waitmovement
             applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Down)
+            waitmovement
         }
-        elif (var(VAR_TEMP_8) == 2 && var(VAR_TEMP_9) == 6)
+        elif (var(VAR_TEMP_8) == 1 && var(VAR_TEMP_9) == 4)
         {
             applymovement(2, Movement_ProfessorOakWalksToTablePlayerLeft)
+            waitmovement
             applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Faces_Up)
+            waitmovement
         }
-        waitmovement
         msgbox(format("PROF. OAK: It's been a while\nsince you started your journey.\pThere's no doubt you are talented\nas a POKéMON TRAINER.\pIt's time for your POKéDEX\nto match who you are.\pLet me see your POKéDEX..."))
-        waitmessage
+        closemessage
         special(EnableNationalPokedex)
         msgbox(format("PROF. OAK: Now, {PLAYER}, it won't be\neasy to complete the POKéDEX.\pHowever, I am sure you will\nmake an honest attempt on my behalf!"))
-        waitmessage
+        closemessage
         msgbox(format("Oh, time flies!\nI have a radio show to set up at GOLDENROD CITY.\pYou must be heading for VIOLET CITY.\nI will let the POKéMON LEAGUE HQ\pknow you are adventuring here\nin JOHTO."))
-        waitmessage
+        closemessage
         msgbox(format("Good luck in your journey\n{PLAYER}, I must be going!"))
-        waitmessage
+        closemessage
         fadescreen(FADE_TO_BLACK)
         removeobject(2)
         fadescreen(FADE_FROM_BLACK)
         playbgm(MUS_ROUTE_30, TRUE)
-        release
+        releaseall
         end
     }
 }

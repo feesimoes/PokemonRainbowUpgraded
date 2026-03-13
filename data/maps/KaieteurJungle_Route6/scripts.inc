@@ -90,7 +90,7 @@ KaieteurJungle_Route6_Sign_Text_0:
 KaieteurJungle_Route6_DrFuji_Memo_Sign_Text_0:
 # 16 "data/maps/KaieteurJungle_Route6/scripts.pory"
 	.string "It's a notice from DR. FUJI,\n"
-	.string "dated: September 6th, 1996.\p"
+	.string "dated: SEPTEMBER 6, 1996.\p"
 	.string "If any human sets foot\n"
 	.string "here, again...\p"
 	.string "Let it be a kind-hearted person.\p"

@@ -30,6 +30,8 @@
 #include "constants/sound.h"
 #include "constants/region_map_sections.h"
 #include "constants/map_types.h"
+#include "region_map.h"
+#include "field_specials.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -438,22 +440,29 @@ static void FieldEffectScript_LoadTiles(const u8 **script)
 
 void ApplyGlobalFieldPaletteTint(u8 paletteIdx)
 {
-    switch (gGlobalFieldTintMode)
+    if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
     {
-    case 0:
-        return;
-    case 1:
-        TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-        break;
-    case 2:
-        TintPalette_SepiaTone(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-        break;
-    case 3:
-        QuestLog_BackUpPalette(OBJ_PLTT_ID2(paletteIdx), 16);
-        TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-        break;
-    default:
-        return;
+        ApplyUnderwaterTint();
+    }
+    else 
+    {
+        switch (gGlobalFieldTintMode)
+        {
+        case 0:
+            return;
+        case 1:
+            TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+            break;
+        case 2:
+            TintPalette_SepiaTone(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+            break;
+        case 3:
+            QuestLog_BackUpPalette(OBJ_PLTT_ID2(paletteIdx), 16);
+            TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+            break;
+        default:
+            return;
+        }
     }
     CpuFastCopy(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], &gPlttBufferFaded[OBJ_PLTT_ID2(paletteIdx)], PLTT_SIZE_4BPP);
 }
@@ -3011,13 +3020,19 @@ u8 FldEff_UseSurf(void)
     Overworld_ClearSavedMusic();
     if (Overworld_MusicCanOverrideMapMusic(MUS_SURF))
     {
-        if (GetCurrentRegionMapSectionId() >= MAPSEC_NEW_BARK_TOWN)
+        switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
         {
-            Overworld_ChangeMusicTo(MUS_SURF_JOHTO);
-        }
-        else
-        {
-            Overworld_ChangeMusicTo(MUS_SURF);
+            case REGIONMAP_JOHTO:
+                Overworld_ChangeMusicTo(MUS_SURF_JOHTO);
+                break;
+            case REGIONMAP_HOENN:
+                Overworld_ChangeMusicTo(MUS_SURF_HOENN);
+                break;
+            case REGIONMAP_SINNOH:
+                Overworld_ChangeMusicTo(MUS_SURF_SINNOH);
+                break;
+            default:
+                Overworld_ChangeMusicTo(MUS_SURF);
         }
     }
     return FALSE;

@@ -1,6 +1,7 @@
 EventScript_PkmnCenterNurse::
 	goto_if_questlog EventScript_ReleaseEnd
-	msgbox Text_WelcomeWantToHealPkmn
+	message Text_WelcomeWantToHealPkmn
+	waitmessage
 	multichoice 19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1)
 	switch VAR_RESULT
 	case 0, EventScript_PkmnCenterNurse_HealPkmn
@@ -10,7 +11,8 @@ EventScript_PkmnCenterNurse::
 
 EventScript_PkmnCenterNurse_HealPkmn::
 	incrementgamestat GAME_STAT_USED_POKECENTER
-	msgbox Text_TakeYourPkmnForFewSeconds
+	message Text_TakeYourPkmnForFewSeconds
+	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	special SetUsedPkmnCenterQuestLogEvent
 	goto EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom
@@ -36,7 +38,8 @@ EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom::
 	end
 
 EventScript_PkmnCenterNurse_ReturnPkmn::
-	msgbox Text_RestoredPkmnToFullHealth
+	message Text_RestoredPkmnToFullHealth
+	waitmessage
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
 	msgbox Text_WeHopeToSeeYouAgain
@@ -46,7 +49,8 @@ EventScript_PkmnCenterNurse_PlayerWaitingInUnionRoom::
 	goto_if_set FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER, EventScript_PkmnCenterNurse_ReturnPkmn
 	msgbox Text_RestoredPkmnToFullHealth
 	setflag FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER
-	msgbox Text_PlayerIsPlayingRightNowGoForIt
+	message Text_PlayerIsPlayingRightNowGoForIt
+	waitmessage
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
 	msgbox Text_WeHopeToSeeYouAgain

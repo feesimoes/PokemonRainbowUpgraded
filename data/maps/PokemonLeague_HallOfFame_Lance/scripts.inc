@@ -79,19 +79,19 @@ PokemonLeague_HallOfFame_Lance_EventScript_EnterRoom::
 # 40 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	fadescreenspeed FADE_TO_BLACK, 24
 # 41 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	special EnterHallOfFame
+	setvar VAR_GAME_CLEAR_ENDING, 2
 # 42 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	waitstate
+	special EnterHallOfFame
 # 43 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	releaseall
+	waitstate
 # 44 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	end
+	releaseall
 # 45 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-
+	end
 # 46 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-PokemonLeague_HallOfFame_Lance_Movement_EnterRoom::
+
 # 47 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	walk_up
+PokemonLeague_HallOfFame_Lance_Movement_EnterRoom::
 # 48 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	walk_up
 # 49 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
@@ -107,34 +107,36 @@ PokemonLeague_HallOfFame_Lance_Movement_EnterRoom::
 # 54 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	walk_up
 # 55 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+	walk_up
+# 56 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	step_end
 
 PokemonLeague_HallOfFame_Lance_Congratulations::
-# 61 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	msgbox PokemonLeague_HallOfFame_Lance_Congratulations_Text_0
 # 62 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+	msgbox PokemonLeague_HallOfFame_Lance_Congratulations_Text_0
+# 63 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	msgbox PokemonLeague_HallOfFame_Lance_Congratulations_Text_1
 	return
 
 
-# 65 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+# 66 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 PokemonLeague_HallOfFame_Lance_PutPokemonInHallOfFame_Movement:
-# 67 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	walk_up
 # 68 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
-	face_left
+	walk_up
 # 69 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+	face_left
+# 70 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	step_end
 
 PokemonLeague_HallOfFame_Lance_Congratulations_Text_0:
-# 61 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+# 62 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	.string "This is where we commemorate\n"
 	.string "LEAGUE CHAMPIONS for eternity.\p"
 	.string "You've been here before, yes?\n"
 	.string "Your compassion torward POKéMON...$"
 
 PokemonLeague_HallOfFame_Lance_Congratulations_Text_1:
-# 62 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
+# 63 "data/maps/PokemonLeague_HallOfFame_Lance/scripts.pory"
 	.string "You succeeded through perseverance\n"
 	.string "and determination...\p"
 	.string "{PLAYER}, allow me to register you\n"

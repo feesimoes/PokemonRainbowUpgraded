@@ -582,6 +582,9 @@ const u8 *const gMonIconTable[] = {
     [SPECIES_SHAYMIN_LAND]        = gMonIcon_ShayminLand,
     [SPECIES_SHAYMIN_SKY]         = gMonIcon_ShayminSky,
     [SPECIES_ARCEUS_NORMAL]       = gMonIcon_ArceusNormal,
+    [SPECIES_SANDSLASH_ALOLA]     = gMonIcon_Sandslash,
+    [SPECIES_GOLEM_ALOLA]         = gMonIcon_Golem,
+    [SPECIES_MAROWAK_ALOLA]       = gMonIcon_Marowak,
 };
 
 const u8 gMonIconPaletteIndices[] = {
@@ -1084,8 +1087,8 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_CHINGLING]           = 1,
     [SPECIES_STUNKY]              = 0,
     [SPECIES_SKUNTANK]            = 0,
-    [SPECIES_BRONZOR]             = 2,
-    [SPECIES_BRONZONG]            = 2,
+    [SPECIES_BRONZOR]             = 0,
+    [SPECIES_BRONZONG]            = 0,
     [SPECIES_BONSLY]              = 1,
     [SPECIES_MIME_JR]             = 0,
     [SPECIES_HAPPINY]             = 0,
@@ -1112,7 +1115,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_WEAVILE]             = 0,
     [SPECIES_MAGNEZONE]           = 0,
     [SPECIES_LICKILICKY]          = 1,
-    [SPECIES_RHYPERIOR]           = 1,
+    [SPECIES_RHYPERIOR]           = 0,
     [SPECIES_TANGROWTH]           = 0,
     [SPECIES_ELECTIVIRE]          = 1,
     [SPECIES_MAGMORTAR]           = 0,
@@ -1144,6 +1147,10 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_SHAYMIN_LAND]        = 1,
     [SPECIES_SHAYMIN_SKY]         = 1,
     [SPECIES_ARCEUS_NORMAL]       = 1,
+
+    [SPECIES_SANDSLASH_ALOLA]     = 2,
+    [SPECIES_GOLEM_ALOLA]         = 1,
+    [SPECIES_MAROWAK_ALOLA]       = 1,
 };
 
 const struct SpritePalette gMonIconPaletteTable[] = {

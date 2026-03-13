@@ -2634,5 +2634,20 @@ const struct MonCoords gMonFrontPicCoords[] =
     {
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 0,
+    },
+    [SPECIES_SANDSLASH_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 1,
+    },
+    [SPECIES_GOLEM_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(64, 48),
+        .y_offset = 1,
+    },
+    [SPECIES_MAROWAK_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 2,
     }
 };

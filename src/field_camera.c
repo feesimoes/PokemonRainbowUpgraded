@@ -8,6 +8,9 @@
 #include "overworld.h"
 #include "constants/vars.h"
 #include "event_data.h"
+#include "constants/maps.h"
+#include "region_map.h"
+#include "constants/region_map_sections.h"
 
 EWRAM_DATA bool8 gBikeCameraAheadPanback = FALSE;
 
@@ -75,8 +78,16 @@ void move_tilemap_camera_to_upper_left_corner(void)
 void FieldUpdateBgTilemapScroll(void)
 {
     u32 r4, r5;
+    s32 verticalPan = sVerticalCameraPan;
+
+    // A trick to "show" the horizon
+    if (IsSoaringMap())
+    {
+        verticalPan -= 40; 
+    }
+
     r5 = sFieldCameraOffset.xPixelOffset + sHorizontalCameraPan;
-    r4 = sVerticalCameraPan + sFieldCameraOffset.yPixelOffset + 8;
+    r4 = verticalPan + sFieldCameraOffset.yPixelOffset + 8;
 
     SetGpuReg(REG_OFFSET_BG1HOFS, r5);
     SetGpuReg(REG_OFFSET_BG1VOFS, r4);
@@ -88,8 +99,15 @@ void FieldUpdateBgTilemapScroll(void)
 
 void FieldCameraGetPixelOffsetAtGround(s16 *hofs_p, s16 *vofs_p)
 {
+    s32 verticalPan = sVerticalCameraPan;
+
+    if (IsSoaringMap())
+    {
+        verticalPan -= 40;
+    }
+
     *hofs_p = sFieldCameraOffset.xPixelOffset + sHorizontalCameraPan;
-    *vofs_p = sFieldCameraOffset.yPixelOffset + sVerticalCameraPan + 8;
+    *vofs_p = sFieldCameraOffset.yPixelOffset + verticalPan + 8;
 }
 
 void DrawWholeMapView(void)
@@ -522,11 +540,15 @@ void InstallCameraPanAheadCallback(void)
 
 void UpdateCameraPanning(void)
 {
+    s32 verticalPan = sVerticalCameraPan;
+
+    if (IsSoaringMap())
+        verticalPan -= 40;
     if (sFieldCameraPanningCallback != NULL)
         sFieldCameraPanningCallback();
     // Update sprite offset of overworld objects
     gSpriteCoordOffsetX = gTotalCameraPixelOffsetX - sHorizontalCameraPan;
-    gSpriteCoordOffsetY = gTotalCameraPixelOffsetY - sVerticalCameraPan - 8;
+    gSpriteCoordOffsetY = gTotalCameraPixelOffsetY - verticalPan - 8;
 }
 
 static void CameraPanningCB_PanAhead(void)
@@ -571,4 +593,15 @@ static void CameraPanningCB_PanAhead(void)
             sVerticalCameraPan -= 2;
         }
     }
+}
+
+// Check for the "Sky" map sections, if the player is on it
+bool8 IsSoaringMap(void)
+{
+    if (GetActualMapSectionId() == MAPSEC_SKY_KANTO)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
 }

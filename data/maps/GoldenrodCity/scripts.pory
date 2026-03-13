@@ -1,5 +1,14 @@
 mapscripts GoldenrodCity_MapScripts {}
 
+script GoldenrodCity_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nA happening, big city!"))
+    closemessage
+    release
+    end
+}
+
 script GoldenrodCity_GameCorner_Sign 
 {
     lock
@@ -27,6 +36,87 @@ script GoldenrodCity_MiniGameFortuneTelling_Sign
     end
 }
 
+script GoldenrodCity_Gym_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY POKéMON GYM -\nLEADER: NORMAN\pA man in pursuit of power!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_DeptStore_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD DEPT. STORE -\nFull selection of goods, all here!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_MiracleCycleShop_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nMIRACLE CYCLE SHOP\pYou won't believe it's not even a\nmiracle... It's a new BICYCLE!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Condominiums_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY HEIGHTS -\nAffordable JOHTO CONDOMINIUMS!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_FiveStarHotel_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY HEIGHTS -\nJOHTO'S FIVE-STAR GOLDENROD HOTEL!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_FlowerShop_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nFLOWER SHOP\pA small shop, providing lots\nof natural beauty!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Underground_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nUNDERGROUND TUNNEL ENTRANCE\pWatch out! Stay off of your\nbike in the tunnel."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_MagnetTrainStation_Sign 
+{
+    lock
+    msgbox(format("JOHTO-KANTO MAGNET TRAIN LINE\nGOLDENROD CITY STATION"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_RadioTower_Sign 
+{
+    lock
+    msgbox(format("GOLDENROD CITY -\nRADIO TOWER\pA network providing the WORLD\nwith useful, interesting information!"))
+    closemessage
+    release
+    end
+}
+
 script GoldenrodCity_Woman_1
 {
     lock
@@ -37,10 +127,82 @@ script GoldenrodCity_Woman_1
     end
 }
 
-script GoldenrodCity_Gym_Sign 
+script GoldenrodCity_Woman_2
 {
     lock
-    msgbox(format("GOLDENROD CITY POKéMON GYM -\nLEADER: NORMAN\pA man in pursuit of power!"))
+    faceplayer
+    msgbox(format("It might be a silly name\nfor it, but...\pYou definitely need a SQUIRT BOTTLE\nto pass by those weird trees."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Lass
+{
+    lock
+    faceplayer
+    msgbox(format("Huh, you're from KANTO?\nI've been there, actually...\pTo be honest, it's just a\nbit disappointing..."))
+    msgbox(format("For starters, you know, everything\nin KANTO is basic and overpriced.\pThere's a BICYCLE SHOP here too,\nso, take a good look around!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Beauty
+{
+    lock
+    faceplayer
+    msgbox(format("If you haven't seen GOLDENROD'S\nDEPT. STORE, it's a must!\pEspecially for TRAINERS!\nThey have almost everything!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Balding_Man
+{
+    lock
+    faceplayer
+    msgbox(format("MIRACLE CYCLE does wonders with\nany kind of BICYCLE!\pI left my broken BICYCLE with\nthem for a day...\pCame back, and... Wow!\nGood as new! No charge at all!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_Boy
+{
+    lock
+    faceplayer
+    msgbox(format("A mini-device that can play my\nfavorite RADIO CHANNEL anywhere...\pHonestly, that would be sweet.\nI think SILPH CO.'S on it!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GuardTom
+{
+    lock
+    faceplayer
+    msgbox(format("GOLDENROD CITY... It's generally\npretty safe...\pI don't question it, though.\nThe pay here's slightly better."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GuardJerry
+{
+    lock
+    faceplayer
+    msgbox(format("My associate is honestly the\nonly threat to my peace...\pI need more time off..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_LittleGirl
+{
+    lock
+    faceplayer
+    msgbox(format("Oh, you know BILL?!\nThat's awesome!\pHe needs to come visit us\nagain soon! I miss him!"))
     closemessage
     release
     end

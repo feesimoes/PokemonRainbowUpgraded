@@ -20,6 +20,7 @@ ViridianCity_Gym_EventScript_Hide_Rival_If_Not_Hidden::
 	clearflag FLAG_HIDE_MISC_KANTO_ROCKETS
 	clearflag FLAG_DEFEATED_LEADER_GIOVANNI
 	addobject LOCALID_VIRIDIAN_GIOVANNI
+	cleartrainerflag TRAINER_LEADER_GIOVANNI
 	release
 	end
 
@@ -60,6 +61,11 @@ ViridianCity_Gym_EventScript_Giovanni::
 	msgbox ViridianCity_Gym_Text_Rival_SmellYaLater
 	closemessage
 	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
+	clearflag FLAG_HIDE_ONE_ISLAND_BILL
+	clearflag FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL
+	clearflag FLAG_GOT_HM06
+	setvar VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 2
+	setvar VAR_MAP_SCENE_VERMILION_CITY, 3
 	fadedefaultbgm
 	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
 	release
@@ -87,6 +93,11 @@ ViridianCity_Gym_EventScript_MovePlayerOutOfTheWay::
 	msgbox ViridianCity_Gym_Text_Rival_SmellYaLater
 	closemessage
 	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
+	clearflag FLAG_HIDE_ONE_ISLAND_BILL
+	clearflag FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL
+	clearflag FLAG_GOT_HM06
+	setvar VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 2
+	setvar VAR_MAP_SCENE_VERMILION_CITY, 3
 	fadedefaultbgm
 	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
 	release

@@ -34,3 +34,22 @@ SlateportCity_PokemonCenter_1F_Nurse::
 	release
 	end
 
+
+SlateportCity_PokemonCenter_1F_DeliveryMan::
+# 28 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	lock
+# 29 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	faceplayer
+# 30 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	msgbox SlateportCity_PokemonCenter_1F_DeliveryMan_Text_0
+# 31 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	closemessage
+# 32 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	release
+	end
+
+
+SlateportCity_PokemonCenter_1F_DeliveryMan_Text_0:
+# 30 "data/maps/SlateportCity_PokemonCenter_1F/scripts.pory"
+	.string "Hello. I am waiting for a very\n"
+	.string "important... Thing. Any moment, now...$"

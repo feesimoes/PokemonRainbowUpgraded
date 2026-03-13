@@ -188,9 +188,9 @@ script NewBarkTown_ProfessorElmsLab_Heal_Dialogue
 script NewBarkTown_ProfessorElmsLab_Elm_Dialogue
 {
     lock
-    applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
     if (flag(FLAG_MEW_QUEST_STARTED))
     {
+        applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
         if (var(VAR_MEW_QUEST_PROGRESS) == 10)
         {
             msgbox(format("{PLAYER}! There you are!\nI heard of your adventure!\pI'm just glad the POKéGEAR'S\ndevelopment may resume..."))
@@ -222,19 +222,14 @@ script NewBarkTown_ProfessorElmsLab_Elm_Dialogue
         applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
         waitmovement
         msgbox(format("Uh, hi!\nWho are you?\p{PLAYER}? It's nice to meet you!\nYour timing is perfect, actually!\pI'm PROF. ELM, by the way!"))
-        closemessage
         msgbox(format("An associate of mine, MR. POKéMON,\njust sent me a lengthy email.\pIf you'd be so kind to\nassist, I would appreciate it!"))
-        closemessage
         msgbox(format("I see that you have POKéMON already,\nso this should be easy, right?\pJust head west to CHERRYGROVE CITY.\nHis house is north from there!"))
-        closemessage
         msgbox(format("Oh, right! On your way there,\nstop by the POKéMON CENTER.\pMake sure you have free\nspace in your party."))
         closemessage
         applymovement(1, Movement_ProfessorElmNoticesPlayer)
         waitmovement
         msgbox(format("Oh, wait!\nI almost forgot!\pSILPH CO. has resumed operations,\nand recently sent me an email."))
-        closemessage
         msgbox(format("They were looking for help testing\ntheir new prototype device.\pThey need experienced TRAINERS,\na specific criteria you fit!"))
-        closemessage
         msgbox(format("Ah... I apologize!\nWe've only just met...\pI hope it's not too much to\nask of you!"))
         closemessage
         setflag(FLAG_MEW_QUEST_STARTED)

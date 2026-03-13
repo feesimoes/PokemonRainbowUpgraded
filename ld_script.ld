@@ -998,7 +998,6 @@ SECTIONS {
         sound/songs/midi/mus_legend_trainer_challenge.o(.rodata);
         sound/songs/midi/mus_vs_prof_oak.o(.rodata);
         sound/songs/midi/mus_vs_trainer_sinnoh.o(.rodata);
-        sound/songs/midi/mus_music_menu.o(.rodata);
         sound/songs/midi/mus_tohjo_falls_depths.o(.rodata);
         sound/songs/midi/mus_route23_gate.o(.rodata);
         sound/songs/midi/mus_route23_badge1.o(.rodata);
@@ -1035,6 +1034,7 @@ SECTIONS {
         sound/songs/midi/mus_route47.o(.rodata);
         sound/songs/midi/mus_mt_ember.o(.rodata);
         sound/songs/midi/mus_goldenrod.o(.rodata);
+        sound/songs/midi/mus_goldenrod_whimsical.o(.rodata);
         sound/songs/midi/mus_vs_trainer_sevii.o(.rodata);
         sound/songs/midi/mus_encounter_rocket_exec.o(.rodata);
         sound/songs/midi/mus_national_park.o(.rodata);
@@ -1051,7 +1051,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_calypso.o(.rodata);
         sound/songs/midi/mus_encounter_xxvii.o(.rodata);
         sound/songs/midi/mus_vs_xxvii.o(.rodata);
-        sound/songs/midi/mus_encounter_johto_kid.o(.rodata);
+        sound/songs/midi/mus_encounter_boy_johto.o(.rodata);
         sound/songs/midi/mus_encounter_kimono.o(.rodata);
         sound/songs/midi/mus_encounter_rival_champ.o(.rodata);
         sound/songs/midi/mus_ice_path.o(.rodata);
@@ -1070,6 +1070,29 @@ SECTIONS {
         sound/songs/midi/mus_route218.o(.rodata);
         sound/songs/midi/mus_vs_wild_sinnoh.o(.rodata);
         sound/songs/midi/mus_brigettes_room.o(.rodata);
+        sound/songs/midi/mus_route38.o(.rodata);
+        sound/songs/midi/mus_poke_mart_hoenn.o(.rodata);
+        sound/songs/midi/mus_pewter_museum.o(.rodata);
+        sound/songs/midi/mus_encounter_shady.o(.rodata);
+        sound/songs/midi/mus_surf_sinnoh.o(.rodata);
+        sound/songs/midi/mus_encounter_sbc.o(.rodata);
+        sound/songs/midi/mus_route110.o(.rodata);
+        sound/songs/midi/mus_cycling_sinnoh.o(.rodata);
+        sound/songs/midi/mus_surf_hoenn.o(.rodata);
+        sound/songs/midi/mus_cycling_hoenn.o(.rodata);
+        sound/songs/midi/mus_vs_wild_sevii.o(.rodata);
+        sound/songs/midi/mus_new_game_intro_johto.o(.rodata);
+        sound/songs/midi/mus_burned_tower.o(.rodata);
+        sound/songs/midi/mus_encounter_girl_johto.o(.rodata);
+        sound/songs/midi/mus_poke_mart_johto.o(.rodata);
+        sound/songs/midi/mus_poke_center_johto.o(.rodata);
+        sound/songs/midi/mus_encounter_eusine.o(.rodata);
+        sound/songs/midi/mus_vs_rival.o(.rodata);
+        sound/songs/midi/mus_new_game_intro_hoenn.o(.rodata);
+        sound/songs/midi/mus_azalea.o(.rodata);
+        sound/songs/midi/mus_encounter_battle_zone.o(.rodata);
+        sound/songs/midi/mus_vs_rank_match.o(.rodata);
+        sound/songs/midi/mus_new_game_intro_guyana.o(.rodata);
     } > ROM =0
 
     lib_rodata :

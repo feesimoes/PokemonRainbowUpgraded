@@ -22,3 +22,13 @@ script SlateportCity_PokemonCenter_1F_Nurse
     release
     end
 }
+
+script SlateportCity_PokemonCenter_1F_DeliveryMan 
+{
+    lock
+    faceplayer
+    msgbox(format("Hello. I am waiting for a very\nimportant... Thing. Any moment, now..."))    
+    closemessage
+    release
+    end
+}

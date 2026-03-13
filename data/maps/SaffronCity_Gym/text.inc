@@ -37,7 +37,11 @@ SaffronCity_Gym_Text_ReceivedTM04FromSabrina::
 SaffronCity_Gym_Text_ExplainTM04::
     .string "TM04 is CALM MIND.\p"
     .string "It makes the POKéMON concentrate\n"
-    .string "to raise both SP. ATK and SP. DEF.$"
+    .string "to raise both SP. ATK and SP. DEF.\p"
+    .string "I shall use my psychic ability to\n"
+    .string "place a warp panel for you.\p"
+    .string "Teehee... I had fun, and I know for\n"
+    .string "fact we will battle again later...$"
 
 SaffronCity_Gym_Text_BagFullOfOtherItems::
     .string "Your BAG is full of other items.$"

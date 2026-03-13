@@ -13,7 +13,6 @@ script BlackthornCity_Gym_Trainer_Battle_2
 {
     trainerbattle_single(TRAINER_COOLTRAINER_PAUL_JOHTO, format("I've never seen you around.\nBut you already got 8 BADGES?"), format("Wait a second!\nThose aren't JOHTO BADGES..."))
     msgbox(format("You can't seriously be here\nfrom KANTO, right?\pYou don't even need more\nthan 8 BADGES for the LEAGUE..."))
-    cleartrainerflag(TRAINER_COOLTRAINER_PAUL_JOHTO)
     closemessage
     release
     end
@@ -66,6 +65,7 @@ script BlackthornCity_Gym_Leader_Clair_Battle
     if (var(VAR_RESULT) == TRUE)
     {
         trainerbattle_single(TRAINER_LEADER_CLAIR, format("All right!\nI recognize your worthiness.\pAs LEADER, I'll be using my\nfull power against any opponent!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("Congratulations!\nYou were really tough...\pBattling you made me realize\nwhat I was missing..."), BlackthornCity_Gym_Leader_Clair_Post_Battle, NO_MUSIC)
+        setflag(FLAG_JOHTO_BADGE08_GET)
     }
     else
     {

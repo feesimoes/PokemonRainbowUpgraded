@@ -50,10 +50,30 @@ void GameDateTime_Update(void)
                         {
                             day = 0;
                             VarSet(VAR_DAY_DATE, 0);
+                            
+                            // Mainly just a safety function to prevent bugs if the player is somehow on the last day
+                            if (VarGet(VAR_TIME_DAYS_PLAYED) > 65535)
+                            {
+                                VarSet(VAR_TIME_DAYS_PLAYED, 0);
+                            }
+                            else
+                            {
+                                VarSet(VAR_TIME_DAYS_PLAYED, VarGet(VAR_TIME_DAYS_PLAYED) + 1);
+                            }
                         }
                         else
                         {
                             VarSet(VAR_DAY_DATE, day);
+
+                            // Mainly just a safety function to prevent bugs if the player is somehow on the last day
+                            if (VarGet(VAR_TIME_DAYS_PLAYED) > 65535)
+                            {
+                                VarSet(VAR_TIME_DAYS_PLAYED, 0);
+                            }
+                            else
+                            {
+                                VarSet(VAR_TIME_DAYS_PLAYED, VarGet(VAR_TIME_DAYS_PLAYED) + 1);
+                            }
                         }
                     }
                     else

@@ -62,7 +62,13 @@
     "gMapGroup_IndoorTopsoil",
     "gMapGroup_IndoorAzalea",
     "gMapGroup_IndoorRoute34",
-    "gMapGroup_IndoorGoldenrod"
+    "gMapGroup_IndoorGoldenrod",
+    "gMapGroup_IndoorRoute38",
+    "gMapGroup_IndoorEcruteak",
+    "gMapGroup_TownsAndRoutesJohto",
+    "gMapGroup_IndoorRoute42",
+    "gMapGroup_IndoorOlivine",
+    "gMapGroup_Sky"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -323,32 +329,15 @@
     "SevenIsland_TanobyRuins",
     "Route26_Ocean",
     "Route27",
-    "NewBarkTown",
-    "CherrygroveCity",
-    "Route30",
-    "CanalaveCity",
     "Route_218",
-    "Route46",
-    "Route31",
-    "VioletCity",
-    "Route32",
-    "Route32_Bay",
-    "Route29",
-    "Route28",
-    "Route45",
-    "BlackthornCity",
     "LindenTown",
-    "Route36",
-    "Route33",
-    "AzaleaTown",
     "TopsoilTown",
     "SlateportCity",
     "OneIsland_TreasureBeach_Underwater",
-    "Route34",
-    "GoldenrodCity",
-    "GoldenrodCity_GTS_Outside",
     "Route110",
-    "Route109"
+    "Route109",
+    "JubilifeCity",
+    "PalletTown_2"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -632,7 +621,8 @@
     "Cherrygrove_Mart",
     "Cherrygrove_GuidesHouse",
     "Cherrygrove_RobertosHouse",
-    "Cherrygrove_RobertitasHouse"
+    "Cherrygrove_RobertitasHouse",
+    "Cherrygrove_PokemonCenter_B1F"
   ],
   "gMapGroup_IndoorRoute30": [
     "Route30_MrPokemonHouse",
@@ -691,7 +681,11 @@
     "KaieteurJungle_Route11",
     "KaieteurJungle_Route12",
     "KaieteurJungle_Route13",
-    "IlexForest"
+    "IlexForest",
+    "IcePath_1F",
+    "IcePath_B1F",
+    "BurnedTower_1F",
+    "BurnedTower_B1F"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -761,7 +755,8 @@
   "gMapGroup_IndoorAzalea": [
     "AzaleaTown_IlexForest_Entrance",
     "AzaleaTown_PokemonCenter_1F",
-    "AzaleaTown_Gym"
+    "AzaleaTown_Gym",
+    "AzaleaTown_Mart"
   ],
   "gMapGroup_IndoorRoute34": [
     "Route34_IlexForestEntrance",
@@ -775,6 +770,56 @@
     "GoldenrodCity_GTS_3F",
     "GoldenrodCity_GTS_3F_PokemonBoxRoom",
     "GoldenrodCity_GameCorner",
-    "GoldenrodCity_Gym"
+    "GoldenrodCity_Gym",
+    "GoldenrodCity_BikeShop",
+    "GoldenrodCity_DepartmentStore_1F"
+  ],
+  "gMapGroup_IndoorRoute38": [
+    "Route38_EcruteakCityEntrance"
+  ],
+  "gMapGroup_IndoorEcruteak": [
+    "EcruteakCity_PokemonCenter_1F",
+    "EcruteakCity_Gym",
+    "EcruteakCity_Mart"
+  ],
+  "gMapGroup_TownsAndRoutesJohto": [
+    "NewBarkTown",
+    "CherrygroveCity",
+    "Route30",
+    "CanalaveCity",
+    "Route46",
+    "Route31",
+    "VioletCity",
+    "Route32",
+    "Route32_Bay",
+    "Route29",
+    "Route28",
+    "Route45",
+    "BlackthornCity",
+    "Route36",
+    "Route33",
+    "AzaleaTown",
+    "Route34",
+    "GoldenrodCity",
+    "GoldenrodCity_GTS_Outside",
+    "Route37",
+    "EcruteakCity",
+    "Route38",
+    "Route39",
+    "OlivineCity",
+    "Route42",
+    "Route40",
+    "Route41"
+  ],
+  "gMapGroup_IndoorRoute42": [
+    "Route42_EcruteakCityEntrance"
+  ],
+  "gMapGroup_IndoorOlivine": [
+    "OlivineCity_PokemonCenter_1F",
+    "OlivineCity_Mart",
+    "GlitterLighthouse_1F"
+  ],
+  "gMapGroup_Sky": [
+    "SkyKanto"
   ]
 }

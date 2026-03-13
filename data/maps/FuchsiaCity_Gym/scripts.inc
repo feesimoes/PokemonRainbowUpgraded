@@ -186,68 +186,90 @@ FuchsiaCity_Gym_MapScripts::
 
 FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD:
 # 98 "data/maps/FuchsiaCity_Gym/scripts.pory"
-	goto_if_set FLAG_SYS_GAME_CLEAR, FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_1
-# 104 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_2
+FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+# 110 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	goto_if_set FLAG_SYS_GAME_CLEAR, FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_4
+# 116 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	setflag FLAG_HIDE_FUCHSIA_CITY_GYM_JANINE
 	return
 
-FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 # 100 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 4, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 101 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 5, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 102 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 6, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 103 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 7, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 104 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 8, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 105 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 9, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 106 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	setmetatile 10, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0
+# 107 "data/maps/FuchsiaCity_Gym/scripts.pory"
+	special DrawWholeMapView
+	goto FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_1
+
+FuchsiaCity_Gym_MapScripts_MAP_SCRIPT_ON_LOAD_4:
+# 112 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	clearflag FLAG_HIDE_FUCHSIA_CITY_GYM_JANINE
 	return
 
 
 FuchsiaCity_Gym_EventScript_GymStatue_PostGame::
-# 111 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 123 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	lockall
-# 112 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 124 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	msgbox FuchsiaCity_Gym_EventScript_GymStatue_PostGame_Text_0
-# 113 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 125 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	closemessage
-# 114 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 126 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	releaseall
 	end
 
 
 FuchsiaCity_Gym_EventScript_Koga_Rematch::
-# 120 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 132 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	trainerbattle_single TRAINER_LEADER_KOGA_2, FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_0, FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_1, FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_2, NO_MUSIC
-# 121 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 133 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	msgbox FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_3
-# 122 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 134 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	closemessage
-# 123 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 135 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	cleartrainerflag TRAINER_LEADER_KOGA_2
-# 124 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 136 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	release
 	end
 
 
 FuchsiaCity_Gym_EventScript_Janine_Rematch::
-# 130 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 142 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	trainerbattle_single TRAINER_LEADER_JANINE, FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_0, FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_1, FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_2, NO_MUSIC
-# 131 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 143 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	msgbox FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_2
-# 132 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 144 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	closemessage
-# 133 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 145 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	cleartrainerflag TRAINER_LEADER_JANINE
-# 134 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 146 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	famechecker FAMECHECKER_KOGA, 3
-# 135 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 147 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	release
 	end
 
 
 FuchsiaCity_Gym_EventScript_GymStatue_PostGame_Text_0:
-# 112 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 124 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "FUCHSIA POKéMON GYM\n"
 	.string "LEADER: JANINE\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
 FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_0:
-# 120 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 132 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "Fwahahaha!\n"
 	.string "If it isn't the child...\p"
 	.string "It seems we've fated to meet.\n"
@@ -256,16 +278,16 @@ FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_0:
 	.string "fatherly dignity to JANINE!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_1:
-# 120 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 132 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "...If I am not strong enough,\n"
 	.string "I must hone my skills.$"
 
 FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_2:
-# 120 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 132 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "$"
 
 FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_3:
-# 121 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 133 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "The POKéMON LEAGUE is a place\n"
 	.string "of formidable strength!\p"
 	.string "Truly, it must be something to be\n"
@@ -274,21 +296,23 @@ FuchsiaCity_Gym_EventScript_Koga_Rematch_Text_3:
 	.string "to join the ELITE FOUR, myself.$"
 
 FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_0:
-# 130 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 142 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "Fufufufu...\n"
 	.string "KOGA is no longer here...\p"
 	.string "He moved onto the POKéMON LEAGUE.\n"
 	.string "I'm so sorry...\p"
+	.string "This GYM is closed, for now...\n"
+	.string "...\p"
 	.string "I'm joking! I'm the real deal!\n"
 	.string "JANINE of FUCHSIA GYM, that's me!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_1:
-# 130 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 142 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "You're a tough one! You\n"
 	.string "definitely won!$"
 
 FuchsiaCity_Gym_EventScript_Janine_Rematch_Text_2:
-# 131 "data/maps/FuchsiaCity_Gym/scripts.pory"
+# 143 "data/maps/FuchsiaCity_Gym/scripts.pory"
 	.string "You're so tough! I see how my\n"
 	.string "father, KOGA, lost to you!\p"
 	.string "I'm going to really apply myself\n"

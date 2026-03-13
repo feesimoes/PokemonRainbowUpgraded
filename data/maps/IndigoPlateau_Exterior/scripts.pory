@@ -31,7 +31,7 @@ IndigoPlateau_Exterior_Text_Sign::
 @ immediately after your walking animation.
 @ The script is timed to the music.
 IndigoPlateau_Exterior_EventScript_Credits::
-	goto_if_set FLAG_SYS_GAME_CLEAR, IndigoPlateau_Exterior_EventScript_Credits2
+	call_if_eq VAR_GAME_CLEAR_ENDING, 2, IndigoPlateau_Exterior_EventScript_Credits2
 	lockall
 	delay 105
 
@@ -87,7 +87,6 @@ IndigoPlateau_Exterior_EventScript_Credits::
 	setvar VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0
 	removeobject LOCALID_CREDITS_RIVAL
 	removeobject LOCALID_CREDITS_PROF_OAK
-	setflag FLAG_SYS_GAME_CLEAR
 	special DoCredits
 	waitstate
 	releaseall

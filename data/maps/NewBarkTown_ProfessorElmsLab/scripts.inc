@@ -300,8 +300,6 @@ NewBarkTown_ProfessorElmsLab_Elm_Dialogue::
 # 190 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	lock
 # 191 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	applymovement 1, Movement_ProfessorElmsLabNPCFacesPlayer
-# 192 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	goto_if_set FLAG_MEW_QUEST_STARTED, NewBarkTown_ProfessorElmsLab_Elm_Dialogue_1
 # 217 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	lock
@@ -320,44 +318,36 @@ NewBarkTown_ProfessorElmsLab_Elm_Dialogue::
 # 224 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_6
 # 225 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	closemessage
-# 226 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_7
-# 227 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	closemessage
-# 228 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 226 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_8
-# 229 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	closemessage
-# 230 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 227 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_9
-# 231 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 228 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	closemessage
-# 232 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 229 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	applymovement 1, Movement_ProfessorElmNoticesPlayer
-# 233 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 230 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	waitmovement
-# 234 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 231 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_10
-# 235 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	closemessage
-# 236 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 232 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_11
-# 237 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
-	closemessage
-# 238 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 233 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	msgbox NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_12
-# 239 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 234 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	closemessage
-# 240 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 235 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	setflag FLAG_MEW_QUEST_STARTED
-# 241 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 236 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	setvar VAR_JOHTO_STORY_PROGRESS, 1
-# 242 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 237 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	releaseall
 	end
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_1:
+# 193 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+	applymovement 1, Movement_ProfessorElmsLabNPCFacesPlayer
 # 194 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 10
 	goto_if_eq NewBarkTown_ProfessorElmsLab_Elm_Dialogue_5
@@ -394,18 +384,18 @@ NewBarkTown_ProfessorElmsLab_Elm_Dialogue_6:
 	goto NewBarkTown_ProfessorElmsLab_Elm_Dialogue_4
 
 
-# 247 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 242 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 Movement_ProfessorElmNoticesPlayer:
-# 249 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 244 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	emote_exclamation_mark
-# 250 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 245 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	step_end
 
-# 253 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 248 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 Movement_ProfessorElmsLabNPCFacesPlayer:
-# 255 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 250 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	face_player
-# 256 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 251 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	step_end
 
 NewBarkTown_ProfessorElmsLab_Chikorita_Ball_Text_0:
@@ -532,42 +522,42 @@ NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_6:
 	.string "I'm PROF. ELM, by the way!$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_7:
-# 226 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 225 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "An associate of mine, MR. POKéMON,\n"
 	.string "just sent me a lengthy email.\p"
 	.string "If you'd be so kind to\n"
 	.string "assist, I would appreciate it!$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_8:
-# 228 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 226 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "I see that you have POKéMON already,\n"
 	.string "so this should be easy, right?\p"
 	.string "Just head west to CHERRYGROVE CITY.\n"
 	.string "His house is north from there!$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_9:
-# 230 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 227 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "Oh, right! On your way there,\n"
 	.string "stop by the POKéMON CENTER.\p"
 	.string "Make sure you have free\n"
 	.string "space in your party.$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_10:
-# 234 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 231 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "Oh, wait!\n"
 	.string "I almost forgot!\p"
 	.string "SILPH CO. has resumed operations,\n"
 	.string "and recently sent me an email.$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_11:
-# 236 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 232 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "They were looking for help testing\n"
 	.string "their new prototype device.\p"
 	.string "They need experienced TRAINERS,\n"
 	.string "a specific criteria you fit!$"
 
 NewBarkTown_ProfessorElmsLab_Elm_Dialogue_Text_12:
-# 238 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
+# 233 "data/maps/NewBarkTown_ProfessorElmsLab/scripts.pory"
 	.string "Ah... I apologize!\n"
 	.string "We've only just met...\p"
 	.string "I hope it's not too much to\n"

@@ -33,34 +33,27 @@ script AzaleaTown_Gym_Statue
     end
 }
 
-script AzaleaTown_Gym_Trainer_1
-{
-    lock
-    faceplayer
-    msgbox(format(""))
-    closemessage
-    release
-    end
-}
-
 script AzaleaTown_Gym_Kurt_Intro_Battle 
 {
     lock
     faceplayer
     if (flag(FLAG_JOHTO_BADGE02_GET) == TRUE)
     {
-        msgbox(format("I'm getting too old for this."))
+        msgbox(format("Hello, {PLAYER}... Ancient traditions,\nhistorical landmarks, yes...\pThere is a lot to learn in\nJOHTO, you see..."))
+        msgbox(format("For example, did you know this?\nFirst, POKé BALLS were handmade!\pI'd like to give it a\ngo at improving my craft..."))
+        msgbox(format("Unfortunately, I'm just been so busy,\ncaught up with duties...\pPlease visit me again after seeing\nall JOHTO has to offer."))
     }
     else
     {
         if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
         {
-            msgbox(format("Battle me."))
+            msgbox(format("Hm! You there!\nYou are no ordinary challenger.\pI'll tell you that much, kid!\nI've been GYM LEADER here, since..."))
+            msgbox(format("Well, to be honest, way before\nyou were even born!\pBut there's something about you, yes!\nYou've got commendable strength!"))
             call(AzaleaTown_Gym_Kurt_Battle)
         }
         else
         {
-            msgbox(format("Can't battle me yet."))
+            msgbox(format("Hm...?\nYou can't battle me yet.\pYou'll need LEAGUE'S permission.\nPlease, return another time."))
         }
     }
     closemessage
@@ -70,16 +63,44 @@ script AzaleaTown_Gym_Kurt_Intro_Battle
 
 script AzaleaTown_Gym_Kurt_Battle
 {
-    trainerbattle_single(TRAINER_LEADER_KURT, format("You're going to lose.{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("Wow."), AzaleaTown_Gym_Kurt_PostBattle, NO_MUSIC)
+    trainerbattle_single(TRAINER_LEADER_KURT, format("KANTO is just the 'KIDDIE LEAGUES'!\nYou're going to lose, right here!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("...Just as I thought!\nAn impressive display, truly."), AzaleaTown_Gym_Kurt_PostBattle, NO_MUSIC)
 }
 
 script AzaleaTown_Gym_Kurt_PostBattle 
 {
     textcolor(NPC_TEXT_COLOR_MALE)
-    msgbox(format("Okay...\nTake this."))
+    msgbox(format("Ah, yes... KANTO shares its LEAGUE\nwith us... I know.\pI do trust you will use\ngood judgement, yes?"))
+    msgbox(format("Basically, do not go sharing that I\nsaid they run 'KIDDIE' LEAGUES.\pAh yes, I'm getting old... Here!\nYou deserve this..."))
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(format("{PLAYER} received the HIVE\nBADGE from KURT!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
     textcolor(NPC_TEXT_COLOR_MALE)
-    msgbox(format("Bye, kid."))
+    msgbox(format("Take care now, yes, {PLAYER}?\nYou will go far, very far..."))
     setflag(FLAG_JOHTO_BADGE02_GET)
+}
+
+script AzaleaTown_Gym_Trainer_Battle_1 
+{
+    trainerbattle_single(TRAINER_BATTLE_GIRL_AMY, format("Hey, you there!\nStop right there! Hey!\pSorry, we need to battle! The rules\napply here too, kid! Taste dirt!"), format("Oh, for Pete's sake...\nI'll go touch grass!"))
+    msgbox(format("This GYM is really my only\nexperience of our natural WORLD..."))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Trainer_Battle_2
+{
+    trainerbattle_single(TRAINER_YOUNGSTER_AL, format("Excuse me!\nWhere are your shorts?\pYou can't just wander around,\ndressed like that!"), format("You really have no sense\nof a comforting style!"))
+    msgbox(format("KURT inspired me to wear shorts\nall year round.\pAll the YOUNGSTERS look up\nto him, really..."))
+    closemessage
+    release
+    end
+}
+
+script AzaleaTown_Gym_Trainer_Battle_3
+{
+    trainerbattle_single(TRAINER_BUG_CATCHER_JOSH, format("Oh? Hi!\nYou could have gone around...\pBut, uh, the fact you came\ndirectly at me says a lot...\pHmm, uh...\nWhy are you obsessed with me?"), format("Weird! I know I have an\nobsession with bugs, but..."))
+    msgbox(format("What's your deal?\nAre you in love with me?\pJust grab your BADGE already!\nYou're creeping me out, kid!"))
+    closemessage
+    release
+    end
 }

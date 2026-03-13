@@ -1,0 +1,116 @@
+mapscripts EcruteakCity_MapScripts {}
+
+script EcruteakCity_Sign 
+{
+    lock
+    msgbox(format("ECRUTEAK CITY -\nA historical, mythical city."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Sign 
+{
+    lock
+    msgbox(format("ECRUTEAK CITY POKéMON GYM -\nLEADER: MORTY\pThe mystic seer of the future!"))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_BurnedTower_Sign 
+{
+    lock
+    msgbox(format("ECRUTEAK CITY -\nBURNED TOWER\pIt was destroyed by some mysterious\nflames, it's unsafe... Do not enter."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_BarrierStation_Sign 
+{
+    lock
+    msgbox(format("ECRUTEAK CITY -\nBELLCHIME TRAIL\pNo tresspassing by the\nunworthy...\pBELL TOWER ahead!"))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_KimonoDanceTheater_Sign 
+{
+    lock
+    msgbox(format("ECRUTEAK CITY -\nKIMONO DANCE THEATER HALL\pWitness the elegant choreography\nof JOHTO'S culture and traditions!"))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Old_Man_1
+{
+    lock
+    faceplayer
+    msgbox(format("You're welcome to stroll here\non BELLCHIME TRAIL, but...\pOnly those worthy may pass\ninto BELL TOWER ahead."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Old_Woman
+{
+    lock
+    faceplayer
+    msgbox(format("Lovely weather isn't it? Yes,\nI would say! Ohoho..."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Hiker
+{
+    lock
+    faceplayer
+    msgbox(format("Don't go in BURNED TOWER!\nThere's some sort of curse...\pThe magical fire could spread\nout of nowhere, and...\pOh...\nUh, sorry, kid!"))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Lass
+{
+    lock
+    faceplayer
+    msgbox(format("KIMONO GIRLS are so fancy...\nI wish I could imitate them."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Man
+{
+    lock
+    faceplayer
+    msgbox(format("MORTY is a seer, but not much\nof a FORTUNE-TELLER, honestly.\pProphecies aren't exactly clear...\nThey don't always make sense."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Battle_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("The KIMONO GIRLS are tough!\nBut if you can beat them...\pMaybe you'd be able to visit\nBELL TOWER..."))
+    closemessage
+    release
+    end
+}
+
+script EcruteakCity_Gym_Roadblock_Old_Man 
+{
+    lock
+    faceplayer
+    msgbox(format("Ever since LUGIA'S home burned down,\nMORTY hasn't been able to find it...\pI'm sorry, he is away, for now...\nYou may want to return later."))
+    closemessage
+    release
+    end
+}

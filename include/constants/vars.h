@@ -203,10 +203,10 @@
 #define VAR_TIME_HOUR              0x4095 // Time of the day, in hours
 #define VAR_TIME_MINUTE            0x4096 // The current minute in the curent hour
 #define VAR_TIME_SECOND            0x4097 // The current minute's second
-#define VAR_JOHTO_CARE_MON_SPECIES 0x4098
-#define VAR_JOHTO_CARE_MON_FORM    0x4099 // For determining if Gen 4+ species or not
-#define VAR_0x409A                 0x409A
-#define VAR_0x409B                 0x409B
+#define VAR_TIME_DAYS_PLAYED       0x4098 // Tracks how many days have passed for time-based events. (Limit is roughly 65,535 days)
+#define VAR_MIRACLE_CYCLE_UPGRADE  0x4099 // Holds the value of the current total days played to use in time-based condition
+#define VAR_ROCKET_RELIEF_FUNDS    0x409A // Money donated towards the Team Rocket Relief Funds, to support their plans returning for World Domination
+#define VAR_GAME_CLEAR_ENDING      0x409B // What type of ending should play at Hall of Fame? 1 = First, 2 = Post-Kanto, 3 = Post-Johto...
 #define VAR_0x409C                 0x409C
 #define VAR_0x409D                 0x409D
 #define VAR_0x409E                 0x409E

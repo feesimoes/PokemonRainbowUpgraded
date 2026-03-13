@@ -5111,9 +5111,6 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-            case EVO_ITEM:
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                break;
             }
         }
         break;
@@ -5251,7 +5248,25 @@ u16 SpeciesToCryId(u16 species)
 
     else if (species > SPECIES_EGG)
     {
-        return sSinnohSpeciesIdToCryId[species - SPECIES_TURTWIG];
+        //Special Alolan form cases
+        if (species == SPECIES_SANDSLASH_ALOLA)
+        {
+            return SPECIES_SANDSLASH;
+        }
+        else if (species == SPECIES_GOLEM_ALOLA)
+        {
+            return SPECIES_GOLEM;
+        }
+        else if (species == SPECIES_MAROWAK_ALOLA)
+        {
+            return SPECIES_MAROWAK;
+        }
+
+        //Sinnoh Cry
+        else
+        {
+            return sSinnohSpeciesIdToCryId[species - SPECIES_TURTWIG];
+        }
     }
 
     else
@@ -5922,11 +5937,11 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_BOSS:
             return MUS_VS_TEAM_ROCKET_BOSS;
         case TRAINER_CLASS_TEAM_ROCKET:
-            if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameGrunt)
+            if (StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gString_TrainerNameGrunt) == 0)
             {
                 return MUS_VS_TEAM_ROCKET;
             }
-            else if (gTrainers[gTrainerBattleOpponent_A].trainerName == gString_TrainerNameAdmin)
+            else if (StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gString_TrainerNameAdmin) == 0)
             {
                 return MUS_VS_TEAM_ROCKET_ADMIN;
             }
@@ -5935,7 +5950,35 @@ static u16 GetBattleBGM(void)
                 return MUS_VS_TEAM_ROCKET;
             }
         case TRAINER_CLASS_COOLTRAINER:
+            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+            {
+                case REGIONMAP_SEVII123:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII45:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII67:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_JOHTO:
+                    return MUS_VS_TRAINER_JOHTO;
+                default:
+                    return MUS_VS_TRAINER;
+            }
         case TRAINER_CLASS_GENTLEMAN:
+            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+            {
+                case REGIONMAP_SEVII123:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII45:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_SEVII67:
+                    return MUS_VS_TRAINER_SEVII;
+                case REGIONMAP_JOHTO:
+                    return MUS_VS_TRAINER_JOHTO;
+                default:
+                    return MUS_VS_TRAINER;
+            }
+        case TRAINER_CLASS_RIVAL_EARLY:
+            return MUS_VS_RIVAL; // Custom Rival theme
         case TRAINER_CLASS_RIVAL_LATE:
             return MUS_VS_GYM_LEADER_RIVAL;
         case TRAINER_CLASS_PKMN_TRAINER:
@@ -5950,6 +5993,8 @@ static u16 GetBattleBGM(void)
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_JOHTO:
                     return MUS_VS_TRAINER_JOHTO;
+                case REGIONMAP_GUYANA:
+                    return MUS_VS_RANK_MATCH;
                 default:
                     return MUS_VS_TRAINER;
             }
@@ -5958,11 +6003,11 @@ static u16 GetBattleBGM(void)
     switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
     {
         case REGIONMAP_SEVII123:
-            return MUS_VS_WILD;
+            return MUS_VS_WILD_SEVII;
         case REGIONMAP_SEVII45:
-            return MUS_VS_WILD;
+            return MUS_VS_WILD_SEVII;
         case REGIONMAP_SEVII67:
-            return MUS_VS_WILD;
+            return MUS_VS_WILD_SEVII;
         case REGIONMAP_JOHTO:
             return MUS_VS_WILD_JOHTO;
         case REGIONMAP_GUYANA:

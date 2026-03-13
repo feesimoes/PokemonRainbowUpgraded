@@ -3,7 +3,7 @@ EventScript_CutTree::
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CantCutTree
 	checkpartymove MOVE_CUT
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantCutTreeCheckHM
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
@@ -39,6 +39,17 @@ EventScript_CantCutTree::
 	releaseall
 	end
 
+EventScript_CantCutTreeCheckHM::
+	checkitem ITEM_HM01, 1
+	goto_if_eq VAR_RESULT, FALSE, EventScript_CantCutTree
+	msgbox Text_CutTreeDown, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_DontCutTree
+	msgbox Text_FoundMacheteToUse
+	closemessage
+	waitmessage
+	goto EventScript_CutTreeDown
+	end
+
 EventScript_DontCutTree::
 	closemessage
 	releaseall
@@ -51,6 +62,11 @@ Text_CutTreeDown::
 
 Text_MonUsedMove::
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
+
+Text_FoundMacheteToUse::
+	.string "{PLAYER} rummaged through their BAG,\n"
+	.string "and found a MACHETE!\p"
+	.string "{PLAYER} used CUT!$"
 
 Text_TreeCanBeCutDown::
 	.string "This tree looks like it can be CUT\n"

@@ -21,6 +21,13 @@ movement KaieteurJungle_LindenPath_WalkUp
     step_end    
 }
 
+movement KaieteurJungle_LindenPath_WalkDown
+{
+    emote_exclamation_mark
+    walk_fast_down
+    step_end    
+}
+
 movement KaieteurJungle_LindenPath_WalkUp_6 
 {
     walk_up * 6
@@ -182,6 +189,20 @@ script KaieteurJungle_LindenPath_EventScript_Blaine
     clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
     setvar(VAR_MEW_QUEST_PROGRESS, 9)
     warp(MAP_SILPH_CO_11F, 9, 10)
+    release
+    end
+}
+
+script KaieteurJungle_LindenPath_EventScript_OverwhelmingUrgeTurnBack
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("This cave feels eerily unstable...\nAn overwhelming urge takes over!"))
+    closemessage
+    applymovement(LOCALID_PLAYER, KaieteurJungle_LindenPath_WalkDown)
+    waitmovement
+    msgbox(format("...Phew! Maybe I should...\nExplore other places."))
+    closemessage
     release
     end
 }

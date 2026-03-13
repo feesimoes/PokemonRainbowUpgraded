@@ -13,7 +13,7 @@ script LindenTown_Mansion_1F_BlaineIsOccupied
 {
     lock
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox(format("BLAINE seems to be locked in\na conversation with the man...\pMaybe he will notice if you're\nin front of them?"))
+    msgbox(format("BLAINE seems to be locked in a\ndiscussion with the gentleman...\pMaybe he will notice if you're in\nfront of them?"))
     closemessage
     release
     end
@@ -78,15 +78,15 @@ script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left
         msgbox(format("BLAINE: {PLAYER}?\nExcellent timing!"))
         msgbox(format("GEORGE: Hmm... You know BLAINE?\nWait, what happened...?!"))
     }
-    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I,\neven having earned my BADGE!"))
-    msgbox(format("GEORGE: I'm not sure what any\nof that means, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
+    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I, even\nhaving earned my BADGE!"))
+    msgbox(format("GEORGE: I'm not sure what any of that\nmeans, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
     msgbox(format("BLAINE: Hah, quit judging my past,\nGEORGE, we all had our moments!\p{PLAYER}, go on, tell him!"))
     msgbox(format("GEORGE: Well, is BLAINE a better\nman now? I must know."), MSGBOX_YESNO)
     waitmessage
     closemessage
     if (var(VAR_RESULT) == YES)
     {
-        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not\naware GIOVANNI'S hiding here."))
+        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not aware\nthat GIOVANNI is hiding here."))
         msgbox(format("I will allow you both the\nmeans to investigate GUYANA.\pIf you do find GIOVANNI, he\nis extremely dangerous."))
         msgbox(format("Do not approach him, instead,\ncome straight back... Alert me.\pThere is a cave behind my\nmansion. Surely, BLAINE can explain."))
         applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
@@ -136,9 +136,9 @@ script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Left
         fadedefaultbgm()
         applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
         waitmovement
-        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to\nthis old navigation chart?"))
+        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to this\nold navigation chart?"))
         giveitem(ITEM_OLD_SEA_MAP, 1)
-        msgbox(format("I apologize for bringing you\ninto that heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
+        msgbox(format("I apologize for bringing you into\nthat heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
         msgbox(format("He is quite dangerous, so do not\napproach him... Good luck."))
         closemessage
         setvar(VAR_MEW_QUEST_PROGRESS, 7)
@@ -173,15 +173,15 @@ script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Right
         msgbox(format("BLAINE: {PLAYER}?\nExcellent timing!"))
         msgbox(format("GEORGE: Hmm... You know BLAINE?\nWait, what happened...?!"))
     }
-    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I,\neven having earned my BADGE!"))
-    msgbox(format("GEORGE: I'm not sure what any\nof that means, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
+    msgbox(format("BLAINE: Hah, that's correct!\nI returned to GUYANA with {PLAYER}.\pThey are a lot stronger than I, even\nhaving earned my BADGE!"))
+    msgbox(format("GEORGE: I'm not sure what any of that\nmeans, honestly...\pAh, wait! You're a GYM LEADER?\nAn interesting turn of events..."))
     msgbox(format("BLAINE: Hah, quit judging my past,\nGEORGE, we all had our moments!\p{PLAYER}, go on, tell him!"))
     msgbox(format("GEORGE: Well, is BLAINE a better\nman now? I must know."), MSGBOX_YESNO)
     waitmessage
     closemessage
     if (var(VAR_RESULT) == YES)
     {
-        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not\naware GIOVANNI'S hiding here."))
+        msgbox(format("GEORGE: ...I see.\nBLAINE, {PLAYER}... I am sorry...\pBut, honestly, I was not aware\nthat GIOVANNI is hiding here."))
         msgbox(format("I will allow you both the\nmeans to investigate GUYANA.\pIf you do find GIOVANNI, he\nis extremely dangerous."))
         msgbox(format("Do not approach him, instead,\ncome straight back... Alert me.\pThere is a cave behind my\nmansion. Surely, BLAINE can explain."))
         applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Down)
@@ -231,9 +231,9 @@ script LindenTown_Mansion_1F_EventScript_Mew_Story_Trigger_Right
         fadedefaultbgm()
         applymovement(LOCALID_PLAYER, LindenTown_Mansion_1F_Face_Up)
         waitmovement
-        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to\nthis old navigation chart?"))
+        msgbox(format("...That was quite dramatic.\nHowever, since you are here...\pPerhaps you can find use to this\nold navigation chart?"))
         giveitem(ITEM_OLD_SEA_MAP, 1)
-        msgbox(format("I apologize for bringing you\ninto that heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
+        msgbox(format("I apologize for bringing you into\nthat heated argument...\pIf you do find GIOVANNI in\nGUYANA, please let me know."))
         msgbox(format("He is quite dangerous, so do not\napproach him... Good luck."))
         closemessage
         setvar(VAR_MEW_QUEST_PROGRESS, 7)

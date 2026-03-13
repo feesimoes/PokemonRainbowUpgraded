@@ -3,7 +3,7 @@
   "name": "PalletTown_ProfessorOaksLab",
   "layout": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
   "music": "MUS_OAK_LAB",
-  "region_map_section": "MAPSEC_PALLET_TOWN",
+  "region_map_section": "MAPSEC_PALLET_TOWN_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -168,21 +168,7 @@
       "x": 6,
       "y": 12,
       "elevation": 3,
-      "dest_map": "MAP_PALLET_TOWN",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 7,
-      "y": 12,
-      "elevation": 3,
-      "dest_map": "MAP_PALLET_TOWN",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 5,
-      "y": 12,
-      "elevation": 3,
-      "dest_map": "MAP_PALLET_TOWN",
+      "dest_map": "MAP_PALLET_TOWN_2",
       "dest_warp_id": "2"
     }
   ],

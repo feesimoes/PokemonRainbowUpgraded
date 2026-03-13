@@ -3254,6 +3254,24 @@ extern const u32 gMonShinyPalette_ArceusNormal[];
 extern const u8 gMonIcon_ArceusNormal[];
 extern const u8 gMonFootprint_ArceusNormal[];
 
+extern const u32 gMonFrontPic_Sandslash_Alola[];
+extern const u32 gMonPalette_Sandslash_Alola[];
+extern const u32 gMonBackPic_Sandslash_Alola[];
+extern const u32 gMonShinyPalette_Sandslash_Alola[];
+extern const u8 gMonIcon_Sandslash_Alola[];
+
+extern const u32 gMonFrontPic_Golem_Alola[];
+extern const u32 gMonPalette_Golem_Alola[];
+extern const u32 gMonBackPic_Golem_Alola[];
+extern const u32 gMonShinyPalette_Golem_Alola[];
+extern const u8 gMonIcon_Golem_Alola[];
+
+extern const u32 gMonFrontPic_Marowak_Alola[];
+extern const u32 gMonPalette_Marowak_Alola[];
+extern const u32 gMonBackPic_Marowak_Alola[];
+extern const u32 gMonShinyPalette_Marowak_Alola[];
+extern const u8 gMonIcon_Marowak_Alola[];
+
 // trainer sprites
 extern const u32 gTrainerFrontPic_AquaLeaderArchie[];
 extern const u32 gTrainerFrontPic_AquaGruntM[];
@@ -3409,6 +3427,7 @@ extern const u32 gTrainerFrontPic_LeaderWalker[];
 extern const u32 gTrainerFrontPic_LeaderJanine[];
 extern const u32 gTrainerFrontPic_LeaderClair[];
 extern const u32 gTrainerFrontPic_LeaderKurt[];
+extern const u32 gTrainerFrontPic_LeaderMorty[];
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -3568,6 +3587,7 @@ extern const u32 gTrainerPalette_LeaderWalker[];
 extern const u32 gTrainerPalette_LeaderJanine[];
 extern const u32 gTrainerPalette_LeaderClair[];
 extern const u32 gTrainerPalette_LeaderKurt[];
+extern const u32 gTrainerPalette_LeaderMorty[];
 
 extern const u8 gMenuInfoElements_Gfx[];
 extern const u16 gMenuInfoElements1_Pal[];

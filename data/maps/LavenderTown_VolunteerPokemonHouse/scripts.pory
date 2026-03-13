@@ -119,6 +119,16 @@ script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpe
         release
         end
     }
+	elif (var(VAR_MEW_QUEST_PROGRESS) == 2)
+	{
+        lock
+        faceplayer
+        msgbox(format("MR. FUJI: Bring your strongest\nPOKéMON, and secure the 7th BADGE.\pI will be cheering you on!\n...From distance of CINNABAR ISLAND."))
+        closemessage
+		clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
+        release
+        end
+	}
 	elif (var(VAR_MEW_QUEST_PROGRESS) == 7)
 	{
         lock

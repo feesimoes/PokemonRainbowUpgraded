@@ -6,10 +6,10 @@ script LindenTown_Harbor_FerryToVermilionCity
     faceplayer
     if (var(VAR_MEW_QUEST_PROGRESS) == 4)
     {
-        msgbox(format("Well, we made it.\nBLAINE went running into town.\pSomething about getting a tip\nfrom some rich friends?"))
+        msgbox(format("Well, we made it.\nBLAINE went running into town.\pSomething about getting a tip from\nsome wealthy... Uh, friends?"))
     }
 
-    msgbox(format("Did you want to return\nto KANTO, VERMILION CITY?"), MSGBOX_YESNO)
+    msgbox(format("Did you want to return to KANTO,\nVERMILION CITY?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES)
     {
         msgbox(format("Understood!\nLet's head out."))
@@ -36,7 +36,7 @@ script LindenTown_Fat_Man
 {
     lock
     faceplayer
-    msgbox(format("Is this your first visit?\nPOKéMON LEAGUE? GYM BADGES?\pAs if the jungle isn't\nenough of a challenge..."))
+    msgbox(format("Is this your first visit?\nPOKéMON LEAGUE? GYM BADGES?\pAs if the jungle isn't enough of a\nchallenge for you..."))
     closemessage
     release
     end
@@ -108,8 +108,8 @@ script LindenTown_Mansion_Guards_RaiseSuspicion
     waitmovement
     applymovement(5, LindenTown_Mansion_Guard_Face_Right)
     waitmovement
-    msgbox(format("This is private property... Do\nyou have business being here?\p...\n...Yes, yes, I see."))
-    msgbox(format("Alright.\nYour story checks out...\pBLAINE is inside, waiting for\nyou, {PLAYER}. Good luck."))
+    msgbox(format("This is private property...\nDo you have business being here?\p...\n...Yes, yes, I see."))
+    msgbox(format("Alright!\nYour story checks out...\pBLAINE is inside, waiting for you,\n{PLAYER}. Best of luck in your search!"))
     waitmessage
     applymovement(4, LindenTown_Mansion_Guard_Face_Down)
     waitmovement
@@ -168,7 +168,7 @@ script LindenTown_Bug_Catcher
 {
     lock
     faceplayer
-    msgbox(format("You seem like you had a fair\nshare of POKéMON battles!\pMake sure you're prepared\nif exploring KAIETEUR JUNGLE."))
+    msgbox(format("You seem like you had a fair\nshare of POKéMON battles!\pMake sure you're fully prepared if\nyou're exploring the KAIETEUR JUNGLE."))
     closemessage
     release
     end
@@ -188,7 +188,7 @@ script LindenTown_Beauty
 {
     lock
     faceplayer
-    msgbox(format("Aren't these flowers just so\npretty? Kind of like me!"))
+    msgbox(format("Aren't these flowers just so pretty?\nKind of like me! Teehee..."))
     closemessage
     release
     end
@@ -202,13 +202,16 @@ script LindenTown_Roadblock_GetOffTheFlowers
     waitmovement
     applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Right)
     waitmovement
-    msgbox(format("Hey!\nMove out of the way!\pYou're stepping on the flowers\nwhile I'm admiring them!"))
+    msgbox(format("Hey!\nMove out of the way!\pYou're stepping on the flowers while\nI'm admiring them!"))
     waitmessage
     closemessage
     applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Emote)
     waitmovement
     applymovement(LOCALID_PLAYER, LindenTown_Roadblock_Walk_Up)
     waitmovement
+    msgbox(format("Argh!\nThe audacity! Who was that kid?!"))
+    waitmessage
+    closemessage
     release
     end
 }
@@ -230,7 +233,7 @@ script LindenTown_Roadblock_HeyYoureATrainerRight
     waitmovement
     applymovement(LOCALID_LINDEN_BEAUTY_ROADBLOCK, LindenTown_Roadblock_Face_Left)
     waitmovement
-    msgbox(format("Well, actually, it doesn't matter.\nI think I found a rare flower?\pSorry, but I can't let you\nwander off until I'm done."))
+    msgbox(format("Well, actually, it doesn't matter.\nI think I found a rare flower...?\pSorry, but I can't let you wander\nthrough until I'm done checking."))
     waitmessage
     closemessage
     release

@@ -472,3 +472,6 @@ const u32 gTrainerPalette_LeaderClair[] = INCBIN_U32("graphics/trainers/palettes
 
 const u32 gTrainerFrontPic_LeaderKurt[] = INCBIN_U32("graphics/trainers/front_pics/leader_kurt_front_pic.4bpp.lz");
 const u32 gTrainerPalette_LeaderKurt[] = INCBIN_U32("graphics/trainers/palettes/leader_kurt.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderMorty[] = INCBIN_U32("graphics/trainers/front_pics/leader_morty_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderMorty[] = INCBIN_U32("graphics/trainers/palettes/leader_morty.gbapal.lz");

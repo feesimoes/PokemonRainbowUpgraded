@@ -9,6 +9,8 @@
 #include "constants/map_types.h"
 #include "constants/songs.h"
 #include "constants/region_map_sections.h"
+#include "event_data.h"
+#include "region_map.h"
 
 static u8 GetBikeTransitionId(u8 *, u16, u16);
 static void Bike_SetBikeStill(void);
@@ -173,6 +175,7 @@ static void BikeTransition_MoveDirection(u8 direction)
     else
     {
         u8 collision = GetBikeCollision(direction);
+        bool8 isSpeedShift = (FlagGet(FLAG_GOT_BICYCLE_SPEED_UPGRADE) && FlagGet(FLAG_SYS_B_DASH));
 
         if (collision > COLLISION_NONE && collision <= COLLISION_ISOLATED_HORIZONTAL_RAIL)
         {
@@ -186,13 +189,39 @@ static void BikeTransition_MoveDirection(u8 direction)
         }
         else
         {
-            
             if (collision == COLLISION_COUNT)
-                PlayerWalkFast(direction);
+            {
+                if (isSpeedShift == TRUE)
+                {
+                    PlayerWalkFaster(direction);
+                }
+                else
+                {
+                    PlayerWalkFast(direction);
+                }
+            }
             else if (PlayerIsMovingOnRockStairs(direction))
-                PlayerWalkFast(direction);
+            {
+                if (isSpeedShift == TRUE)
+                {
+                    PlayerWalkFaster(direction);
+                }
+                else
+                {
+                    PlayerWalkFast(direction);
+                }
+            }
             else
-                PlayerRideWaterCurrent(direction);
+            {
+                if (isSpeedShift == TRUE)
+                {
+                    PlayerWalkFaster(direction);
+                }
+                else
+                {
+                    PlayerRideWaterCurrent(direction);
+                }
+            }
         }
     }
 }
@@ -314,6 +343,7 @@ bool8 IsPlayerNotUsingAcroBikeOnBumpySlope(void)
 
 void GetOnOffBike(u8 flags)
 {
+    u16 music = MUS_CYCLING;
     gBikeCameraAheadPanback = FALSE;
     if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
     {
@@ -324,22 +354,25 @@ void GetOnOffBike(u8 flags)
     else
     {
         SetPlayerAvatarTransitionFlags(flags);
-        //Johto maps
-        if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN)
+        if (Overworld_MusicCanOverrideMapMusic(music))
         {
-            if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING_JOHTO))
+            switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
             {
-                Overworld_SetSavedMusic(MUS_CYCLING_JOHTO);
-                Overworld_ChangeMusicTo(MUS_CYCLING_JOHTO);
+                case REGIONMAP_JOHTO:
+                    music = MUS_CYCLING_JOHTO;
+                    break;
+                case REGIONMAP_HOENN:
+                    music = MUS_CYCLING_HOENN;
+                    break;
+                case REGIONMAP_SINNOH:
+                    music = MUS_CYCLING_SINNOH;
+                    break;
+                default:
+                    music = MUS_CYCLING;
+                    break;
             }
-        }
-        //Default to Kanto cycling music
-        else {
-            if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING))
-            {
-                Overworld_SetSavedMusic(MUS_CYCLING);
-                Overworld_ChangeMusicTo(MUS_CYCLING);
-            }
+            Overworld_SetSavedMusic(music);
+            Overworld_ChangeMusicTo(music);
         }
     }
 }
@@ -374,15 +407,46 @@ static void Bike_SetBikeStill(void)
 s16 GetPlayerSpeed(void)
 {
     s16 machBikeSpeeds[] = { PLAYER_SPEED_NORMAL, PLAYER_SPEED_FAST, PLAYER_SPEED_FASTEST };
+    bool8 isSpeedShift = (FlagGet(FLAG_GOT_BICYCLE_SPEED_UPGRADE) && FlagGet(FLAG_SYS_B_DASH));
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+    {
         return machBikeSpeeds[gPlayerAvatar.bikeFrameCounter];
+    }
     else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)
+    {
+        if (isSpeedShift == TRUE)
+        {
+            return PLAYER_SPEED_FASTER;
+        }
+        else
+        {
+            return PLAYER_SPEED_FASTER;
+        }
         return PLAYER_SPEED_FASTER;
+    }
     else if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_DASH))
-        return PLAYER_SPEED_FAST;
+    {
+        if (isSpeedShift == TRUE)
+        {
+            return PLAYER_SPEED_FASTER;
+        }
+        else
+        {
+            return PLAYER_SPEED_FAST;
+        }
+    }
     else
-        return PLAYER_SPEED_NORMAL;
+    {
+        if (isSpeedShift == TRUE)
+        {
+            return PLAYER_SPEED_FAST;
+        }
+        else
+        {
+            return PLAYER_SPEED_NORMAL;
+        }
+    }
 }
 
 void Bike_HandleBumpySlopeJump(void)

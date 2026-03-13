@@ -1,1 +1,86 @@
 mapscripts LindenTown_MansionHall_L_1F_MapScripts {}
+
+script LindenTown_MansionHall_L_1F_RankBattle_LassTaunie_Trigger
+{
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("NOTE: This feature is incomplete,\nbut you can enjoy a quick test!"))
+    closemessage
+    applymovement(LOCALID_PLAYER, LindenTown_MansionHall_L_1F_Player_Face_Right)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    fadenewbgm(MUS_ENCOUNTER_BATTLE_ZONE)
+    msgbox(format("{PLAYER}, was it? Nice!\nI'll be your opponent!\pMaybe after this is over, you can\nhelp me film a cool advertisement?"))
+    applymovement(LOCALID_PLAYER, LindenTown_MansionHall_L_1F_Player_Walk_Right)
+    waitmovement
+    applymovement(LOCALID_LINDEN_LASS_TAUNIE, LindenTown_MansionHall_L_1F_LassTaunie_Walk_Left)
+    waitmovement
+    delay(30)
+    waitmessage
+    closemessage
+    trainerbattle_no_intro(TRAINER_LASS_TAUNIE, format("Oh, wow!\nYou're so strong! I respect that."))
+    release
+    end
+}
+
+script LindenTown_MansionHall_L_1F_LassTaunie
+{
+    lock
+    faceplayer
+    msgbox(format("Hey! I'm ready to battle...\nAre you?\pYou'll need to face me from a\nshort distance away. We need space!"))
+    closemessage
+    applymovement(LOCALID_LINDEN_LASS_TAUNIE, LindenTown_MansionHall_L_1F_LassTaunie_FaceLeft)
+    waitmovement
+    setvar(FLAG_MEW_QUEST_STARTED, 15)
+    release
+    end
+}
+
+script LindenTown_MansionHall_L_1F_RankBattleReceptionist 
+{
+    lock
+    faceplayer
+    msgbox(format("You have enough points from battling,\nso your RANK MATCH is here!\pPlease face against them from a\ndistance, and the match will start."))
+    closemessage
+    applymovement(LOCALID_RANK_MATCH_LADY, LindenTown_MansionHall_L_1F_RankMatchReceptionist_Face_Down)
+    waitmovement
+    release
+    end
+}
+
+movement LindenTown_MansionHall_L_1F_LassTaunie_FaceLeft 
+{
+    face_left
+    step_end    
+}
+
+movement LindenTown_MansionHall_L_1F_RankMatchReceptionist_Face_Down
+{
+    face_down
+    step_end    
+}
+
+movement LindenTown_MansionHall_L_1F_Player_Face_Left 
+{
+    face_left
+    step_end    
+}
+
+movement LindenTown_MansionHall_L_1F_Player_Face_Right 
+{
+    face_right
+    step_end    
+}
+
+movement LindenTown_MansionHall_L_1F_Player_Walk_Right
+{
+    walk_right
+    step_end    
+}
+
+movement LindenTown_MansionHall_L_1F_LassTaunie_Walk_Left
+{
+    walk_left
+    step_end    
+}
+

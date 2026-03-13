@@ -118,7 +118,7 @@ script SlateportCity_SecretBase_FurnitureClerk
     lock
     faceplayer
     msgbox(format("I've got a wide range of\nfurniture for sale!\pDoes anything interest you for\nyour SECRET BASE?"))    
-    pokemartdecoration(SlateportCity_SecretBase_FurnitureDecorItems)
+    pokemart(SlateportCity_SecretBase_FurnitureDecorItems)
     msgbox(format("Please come again!"))
     closemessage
     release
@@ -126,14 +126,8 @@ script SlateportCity_SecretBase_FurnitureClerk
 }
 
 mart SlateportCity_SecretBase_FurnitureDecorItems 
-{
-    DECOR_SMALL_DESK
-    DECOR_SMALL_CHAIR
-    DECOR_COMFORT_DESK
-    DECOR_COMFORT_CHAIR
-    DECOR_TROPICAL_PLANT
-    DECOR_GORGEOUS_PLANT
-    DECOR_NONE   
+{    
+    ITEM_NONE
 }
 
 script SlateportCity_SecretBase_DollClerk
@@ -150,8 +144,7 @@ script SlateportCity_SecretBase_DollClerk
 
 mart SlateportCity_SecretBase_DollDecorItems 
 {
-    ITEM_POKE_DOLL
-    ITEM_FLUFFY_TAIL
+    ITEM_NONE
 }
 
 script SlateportCity_TMClerk1_6

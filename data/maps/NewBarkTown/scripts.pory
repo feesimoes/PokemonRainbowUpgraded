@@ -46,7 +46,7 @@ script LittleGirlWonderingWhereYouAreFrom
 {   
     lock
     applymovement(3, Movement_NewBarkTown_Face_Player)
-    msgbox(format("Hey mister! Where are you from?\nPALLET TOWN? Where is that?\pOh, that's in KANTO?!\nI never knew!"))
+    msgbox(format("Hey! Where are you from?\nPALLET TOWN? Where is that?\pOh, that's in KANTO?!\nI never knew!"))
     closemessage
     releaseall
     end
@@ -112,4 +112,39 @@ movement Movement_NewBarkTown_Face_Player_Up
 {
     face_up
     step_end    
+}
+
+script NewBarkTown_ResetProgress 
+{
+    lock
+    faceplayer
+    msgbox(format("I just reset your progress.\nLeave and come back to update!"))
+    closemessage
+    setvar(VAR_JOHTO_STORY_PROGRESS, 0)
+    setvar(VAR_MEW_QUEST_PROGRESS, 0)
+    clearflag(FLAG_MEW_QUEST_STARTED)
+    clearflag(FLAG_JOHTO_BADGE01_GET)
+    clearflag(FLAG_JOHTO_BADGE02_GET)
+    clearflag(FLAG_JOHTO_BADGE03_GET)
+    clearflag(FLAG_JOHTO_BADGE04_GET)
+    clearflag(FLAG_JOHTO_BADGE05_GET)
+    clearflag(FLAG_JOHTO_BADGE06_GET)
+    clearflag(FLAG_JOHTO_BADGE07_GET)
+    clearflag(FLAG_JOHTO_BADGE08_GET)
+    clearflag(FLAG_SYS_NATIONAL_DEX)
+    clearflag(FLAG_WORLD_MAP_DARK_CAVE)
+    clearflag(FLAG_WORLD_MAP_RUINS_OF_ALPH)
+    clearflag(FLAG_WORLD_MAP_ROUTE32_POKEMON_CENTER_1F)
+    clearflag(FLAG_WORLD_MAP_VIOLET_CITY)
+    clearflag(FLAG_WORLD_MAP_CHERRYGROVE_CITY)
+    setflag(FLAG_HIDE_VIRIDIAN_RIVAL)
+    clearflag(FLAG_HIDE_VIRIDIAN_GIOVANNI)
+    clearflag(FLAG_BADGE08_GET)
+    clearflag(FLAG_WORLD_MAP_NEW_BARK_TOWN)
+    clearflag(FLAG_WORLD_MAP_TOHJO_FALLS)
+    clearflag(FLAG_WORLD_MAP_ROUTE27_REST_HOUSE)
+    clearflag(FLAG_OBTAINED_ROCK_CLIMB_KIT)
+    clearflag(FLAG_WORLD_MAP_CANALAVE_CITY)
+    release
+    end 
 }

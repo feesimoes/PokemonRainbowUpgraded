@@ -174,6 +174,7 @@
 #define TRAINER_PIC_LEADER_JANINE         151
 #define TRAINER_PIC_LEADER_CLAIR          152
 #define TRAINER_PIC_LEADER_KURT           153
+#define TRAINER_PIC_LEADER_MORTY          154
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0

@@ -126,6 +126,10 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                         else
                         {
                             FlagSet(FLAG_SYS_B_DASH);
+                            if (FlagGet(FLAG_GOT_BICYCLE_SPEED_UPGRADE) == TRUE && (gPlayerAvatar.flags == PLAYER_AVATAR_FLAG_ACRO_BIKE || gPlayerAvatar.flags == PLAYER_AVATAR_FLAG_MACH_BIKE))
+                            {
+                                PlaySE(SE_BIKE_BELL);
+                            }
                         }
                         input->pressedBButton = TRUE;
                     }

@@ -193,8 +193,8 @@
 #define FLAG_HIDE_VIRIDIAN_RIVAL 0x0AF
 #define FLAG_HIDE_PROF_OAK_RT26  0x0B0
 #define FLAG_HIDE_MEW            0x0B1
-#define FLAG_0x0B2               0x0B2
-#define FLAG_0x0B3               0x0B3
+#define FLAG_HIDE_BURND_T_EUSINE 0x0B2
+#define FLAG_HIDE_BURND_T_BEASTS 0x0B3
 #define FLAG_0x0B4               0x0B4
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
@@ -611,7 +611,7 @@
 #define FLAG_BOUGHT_MAGIKARP                             0x249
 #define FLAG_DID_ZYNX_TRADE                              0x24A
 #define FLAG_DID_MS_NIDO_TRADE                           0x24B
-#define FLAG_0x24C                                       0x24C
+#define FLAG_DID_ROCKY_TRADE                             0x24C
 #define FLAG_DID_CH_DING_TRADE                           0x24D
 #define FLAG_GOT_TM38_FROM_BLAINE                        0x24E
 #define FLAG_OAK_SKIP_22_RIVAL_CHECK                     0x24F
@@ -799,8 +799,8 @@
 #define FLAG_HIDE_VIRIDIAN_POKECENTER_ROCKETS            0x301
 #define FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER               0x302
 #define FLAG_CAUGHT_MEW                                  0x303
-#define FLAG_0x304                                       0x304
-#define FLAG_0x305                                       0x305
+#define FLAG_WAITING_FOR_BICYCLE_UPGRADE                 0x304
+#define FLAG_GOT_BICYCLE_SPEED_UPGRADE                   0x305
 #define FLAG_0x306                                       0x306
 #define FLAG_0x307                                       0x307
 #define FLAG_0x308                                       0x308
@@ -1433,15 +1433,15 @@
 #define FLAG_WORLD_MAP_VIRIDIAN_FOREST                              (SYS_FLAGS + 0xA4)
 #define FLAG_WORLD_MAP_MT_MOON_1F                                   (SYS_FLAGS + 0xA5)
 #define FLAG_WORLD_MAP_SSANNE_EXTERIOR                              (SYS_FLAGS + 0xA6)
-#define FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL          (SYS_FLAGS + 0xA7)
-#define FLAG_WORLD_MAP_UNDERGROUND_PATH_EAST_WEST_TUNNEL            (SYS_FLAGS + 0xA8)
+#define FLAG_WORLD_MAP_DARK_CAVE                                    (SYS_FLAGS + 0xA7) // Originally for Underground Path North-South (Kanto), repurposed due to redundancy.
+#define FLAG_WORLD_MAP_RUINS_OF_ALPH                                (SYS_FLAGS + 0xA8) // Originally for Underground Path East-West (Kanto), repurposed due to redundancy.
 #define FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F                            (SYS_FLAGS + 0xA9)
 #define FLAG_WORLD_MAP_VICTORY_ROAD_1F                              (SYS_FLAGS + 0xAA)
 #define FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F                           (SYS_FLAGS + 0xAB)
 #define FLAG_WORLD_MAP_SILPH_CO_1F                                  (SYS_FLAGS + 0xAC)
 #define FLAG_WORLD_MAP_POKEMON_MANSION_1F                           (SYS_FLAGS + 0xAD)
 #define FLAG_WORLD_MAP_SAFARI_ZONE_CENTER                           (SYS_FLAGS + 0xAE)
-#define FLAG_WORLD_MAP_POKEMON_LEAGUE_LORELEIS_ROOM                 (SYS_FLAGS + 0xAF)
+#define FLAG_WORLD_MAP_UNION_CAVE                                   (SYS_FLAGS + 0xAF) // Originally for Lorelei's Room (Kanto's Indigo League), repurposed due to redundancy.
 #define FLAG_WORLD_MAP_ROCK_TUNNEL_1F                               (SYS_FLAGS + 0xB0)
 #define FLAG_WORLD_MAP_SEAFOAM_ISLANDS_1F                           (SYS_FLAGS + 0xB1)
 #define FLAG_WORLD_MAP_POKEMON_TOWER_1F                             (SYS_FLAGS + 0xB2)
@@ -1500,26 +1500,26 @@
 #define FLAG_WORLD_MAP_AZALEA_TOWN_POKEMON_CENTER_1F                (SYS_FLAGS + 0xE6)
 #define FLAG_WORLD_MAP_GOLDENROD_CITY_POKEMON_CENTER_1F             (SYS_FLAGS + 0xE7)
 #define FLAG_WORLD_MAP_SLATEPORT_CITY_POKEMON_CENTER_1F             (SYS_FLAGS + 0xE8)
-#define FLAG_0x8E9                                                  (SYS_FLAGS + 0xE9)
-#define FLAG_0x8EA                                                  (SYS_FLAGS + 0xEA)
-#define FLAG_0x8EB                                                  (SYS_FLAGS + 0xEB)
-#define FLAG_0x8EC                                                  (SYS_FLAGS + 0xEC)
-#define FLAG_0x8ED                                                  (SYS_FLAGS + 0xED)
-#define FLAG_0x8EE                                                  (SYS_FLAGS + 0xEE)
-#define FLAG_0x8EF                                                  (SYS_FLAGS + 0xEF)
-#define FLAG_0x8F0                                                  (SYS_FLAGS + 0xF0)
-#define FLAG_0x8F1                                                  (SYS_FLAGS + 0xF1)
-#define FLAG_0x8F2                                                  (SYS_FLAGS + 0xF2)
-#define FLAG_0x8F3                                                  (SYS_FLAGS + 0xF3)
-#define FLAG_0x8F4                                                  (SYS_FLAGS + 0xF4)
-#define FLAG_0x8F5                                                  (SYS_FLAGS + 0xF5)
-#define FLAG_0x8F6                                                  (SYS_FLAGS + 0xF6)
-#define FLAG_0x8F7                                                  (SYS_FLAGS + 0xF7)
-#define FLAG_0x8F8                                                  (SYS_FLAGS + 0xF8)
-#define FLAG_0x8F9                                                  (SYS_FLAGS + 0xF9)
-#define FLAG_0x8FA                                                  (SYS_FLAGS + 0xFA)
-#define FLAG_0x8FB                                                  (SYS_FLAGS + 0xFB)
-#define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
+#define FLAG_WORLD_MAP_ECRUTEAK_CITY_POKEMON_CENTER_1F              (SYS_FLAGS + 0xE9)
+#define FLAG_WORLD_MAP_SLOWPOKE_WELL                                (SYS_FLAGS + 0xEA)
+#define FLAG_WORLD_MAP_ILEX_FOREST                                  (SYS_FLAGS + 0xEB)
+#define FLAG_WORLD_MAP_NATIONAL_PARK                                (SYS_FLAGS + 0xEC)
+#define FLAG_WORLD_MAP_WHIRL_ISLANDS                                (SYS_FLAGS + 0xED)
+#define FLAG_WORLD_MAP_OLIVINE_LIGHTHOUSE                           (SYS_FLAGS + 0xEE)
+#define FLAG_WORLD_MAP_CLIFF_EDGE_GATE                              (SYS_FLAGS + 0xEF)
+#define FLAG_WORLD_MAP_EMBEDDED_TOWER                               (SYS_FLAGS + 0xF0)
+#define FLAG_WORLD_MAP_BURNED_TOWER                                 (SYS_FLAGS + 0xF1)
+#define FLAG_WORLD_MAP_BELL_TOWER                                   (SYS_FLAGS + 0xF2)
+#define FLAG_WORLD_MAP_LAKE_OF_RAGE                                 (SYS_FLAGS + 0xF3)
+#define FLAG_WORLD_MAP_MT_MORTAR                                    (SYS_FLAGS + 0xF4)
+#define FLAG_WORLD_MAP_DRAGONS_DEN                                  (SYS_FLAGS + 0xF5)
+#define FLAG_WORLD_MAP_ICE_PATH                                     (SYS_FLAGS + 0xF6)
+#define FLAG_WORLD_MAP_MT_SILVER                                    (SYS_FLAGS + 0xF7)
+#define FLAG_WORLD_MAP_MAHOGANY_TOWN_POKEMON_CENTER_1F              (SYS_FLAGS + 0xF8)
+#define FLAG_WORLD_MAP_OLIVINE_CITY_POKEMON_CENTER_1F               (SYS_FLAGS + 0xF9)
+#define FLAG_WORLD_MAP_BATTLE_RESORT                                (SYS_FLAGS + 0xFA)
+#define FLAG_WORLD_MAP_CIANWOOD_CITY_POKEMON_CENTER_1F              (SYS_FLAGS + 0xFB)
+#define FLAG_WORLD_MAP_PAL_PARK                                     (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
 #define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)
 #define FLAG_0x8FF                                                  (SYS_FLAGS + 0xFF)

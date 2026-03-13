@@ -170,11 +170,11 @@ script VermilionHarbor_EventScript_MrFuji
 	{
 		lock
 		faceplayer
-		msgbox(format("Hm...\n{PLAYER}, welcome.\pI do apologize for the\nconfusion, if any...\pQuizzes sure do have a\nway of keeping minds sharp!"))
+		msgbox(format("Hm...\n{PLAYER}, welcome.\pI do apologize for the confusion,\nif any...\pQuizzes sure do have a nifty way\nof keeping our minds sharp!"))
 		closemessage
 		applymovement(LOCALID_VERMILION_MR_FUJI, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
 		waitmovement
-		msgbox(format("BLAINE, my dear friend.\nIt was good to see you.\pTake care in your journey,\nthe GUYANA REGION can be...\pVery unforgiving, to say,\nat the least."))
+		msgbox(format("BLAINE, my dear friend...\nIt was so good to see you.\pTake care in your journey, the\nGUYANA REGION can be...\pVery unforgiving, to say least..."))
 		msgbox(format("GIOVANNI will use the harsh,\nunfamiliar ecosystem to advantage.\p{PLAYER} is in good hands...\nTheir heart is true."))
 		closemessage
 		fadescreen(FADE_TO_BLACK)
@@ -198,7 +198,7 @@ script VermilionHarbor_EventScript_MrFuji
 		{
 			setvar(VAR_MEW_QUEST_PROGRESS, 4)
 			setflag(FLAG_HIDE_VERMILION_BLAINE)
-			msgbox(format("Hah! I'll burn the way\nforward! Fear not!"))
+			msgbox(format("Hah! I'll burn the way forward!\nFear not!"))
 			waitmessage
 			applymovement(LOCALID_VERMILION_BLAINE, VermilionHarbor_EventScript_GuyanaFerry_FaceRight)
 			waitmovement
@@ -217,7 +217,7 @@ script VermilionHarbor_EventScript_MrFuji
 		}
 		else
 		{
-			msgbox(format("Hah! Don't be afraid!\nI'm capable of helping you!\pSee, my plan is simple...\nI'll burn the way forward!\pTrees cannot use BURN HEAL,\nso GIOVANNI will be exposed!"))
+			msgbox(format("Hah! Don't be afraid!\nI'm capable of helping you!\pSee, my plan is simple...\nI'll burn the way forward!\pTrees cannot use BURN HEAL, and so\nGIOVANNI will be exposed!"))
 			msgbox(format("Trust me, it's perfectly safe!\nI've done the sort before.\pCome back when you're ready!"))
 			closemessage
 		}
@@ -277,7 +277,7 @@ script VermilionHarbor_EventScript_Blaine
 	}
 	else
 	{
-		msgbox(format("Hah, don't be afraid!\nCome back if you're ready!\pI'll be here, thinking about\nhow to expose GIOVANNI..."))
+		msgbox(format("Hah, don't be afraid!\nCome back if you're ready!\pI'll be here, thinking about how to...\nAhem, safely... Expose GIOVANNI..."))
 		closemessage
 	}
 	release

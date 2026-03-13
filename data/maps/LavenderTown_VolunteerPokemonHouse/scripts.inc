@@ -181,17 +181,20 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 	compare VAR_MEW_QUEST_PROGRESS, 1
 	goto_if_eq LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_2
 # 122 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
-	compare VAR_MEW_QUEST_PROGRESS, 7
+	compare VAR_MEW_QUEST_PROGRESS, 2
 	goto_if_eq LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_3
-# 133 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+# 132 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	compare VAR_MEW_QUEST_PROGRESS, 7
+	goto_if_eq LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_4
+# 143 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	lock
-# 134 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+# 144 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	faceplayer
-# 135 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
-	msgbox LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_9
-# 136 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+# 145 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	msgbox LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_10
+# 146 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	closemessage
-# 137 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+# 147 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	release
 	end
 
@@ -253,6 +256,21 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 # 127 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	closemessage
 # 128 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	clearflag FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE
+# 129 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	release
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_4:
+# 134 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	lock
+# 135 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	faceplayer
+# 136 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	msgbox LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_9
+# 137 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	closemessage
+# 138 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	release
 	end
 
@@ -317,6 +335,13 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 
 LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_8:
 # 126 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+	.string "MR. FUJI: Bring your strongest\n"
+	.string "POKéMON, and secure the 7th BADGE.\p"
+	.string "I will be cheering you on!\n"
+	.string "...From distance of CINNABAR ISLAND.$"
+
+LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_9:
+# 136 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	.string "MR. FUJI: ...BLAINE is not\n"
 	.string "a bad man.\p"
 	.string "His intentions are noble,\n"
@@ -324,7 +349,7 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 	.string "{PLAYER}, I'm sorry, you don't\n"
 	.string "understand... Focus on GIOVANNI.$"
 
-LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_9:
-# 135 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
+LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_10:
+# 145 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	.string "MR. FUJI: Has my wisdom\n"
 	.string "helped you?$"

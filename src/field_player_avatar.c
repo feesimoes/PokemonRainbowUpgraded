@@ -185,11 +185,23 @@ static void npc_clear_strange_bits(struct ObjectEvent *objEvent)
 
 static void MovePlayerAvatarUsingKeypadInput(u8 direction, u16 newKeys, u16 heldKeys)
 {
-    if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
-        || (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        MovePlayerOnBike(direction, newKeys, heldKeys);
+    if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE) || (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE))
+    {
+        if (FlagGet(FLAG_GOT_BICYCLE_SPEED_UPGRADE) && FlagGet(FLAG_SYS_B_DASH))
+        {
+            gPlayerAvatar.bikeFrameCounter = 2; 
+            gPlayerAvatar.bikeSpeed = 2;   
+            MovePlayerOnBike(direction, newKeys, heldKeys);
+        }
+        else
+        {
+            MovePlayerOnBike(direction, newKeys, heldKeys);
+        }
+    }
     else
+    {
         MovePlayerNotOnBike(direction, heldKeys);
+    }
 }
 
 static void PlayerAllowForcedMovementIfMovingSameDirection(void)
@@ -513,8 +525,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         return;
     }
 
-    if (FlagGet(FLAG_SYS_B_DASH)
-        && !IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior))
+    if (FlagGet(FLAG_SYS_B_DASH) && !IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior))
     {
         if (PlayerIsMovingOnRockStairs(direction))
             PlayerRunSlow(direction);

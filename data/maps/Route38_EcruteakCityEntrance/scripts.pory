@@ -1,0 +1,11 @@
+mapscripts Route38_EcruteakCityEntrance_MapScripts {}
+
+script Route38_EcruteakCityEntrance_Guard 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi, how's it going?\nNeed directions? No worries!\pROUTE 38 is out west.\nECRUTEAK CITY is to the east."))
+    closemessage
+    release
+    end
+}

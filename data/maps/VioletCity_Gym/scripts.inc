@@ -172,7 +172,7 @@ VioletCity_Gym_EventScript_Walker_Battle_Text_0:
 	.string "You guessed it! I'm the LEADER!\p"
 	.string "KANTO was easy, huh? Well, then!\n"
 	.string "I don't play easy, I play hard!\p"
-	.string "{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}WAHAHA! Bring it on, KANTO kid!\n"
+	.string "{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}Wahahah!\n"
 	.string "Don't sweat it if you lose!$"
 
 VioletCity_Gym_EventScript_Walker_Battle_Text_1:
@@ -206,7 +206,7 @@ VioletCity_Gym_EventScript_Walker_Battle_Text_6:
 # 49 "data/maps/VioletCity_Gym/scripts.pory"
 	.string "Yo, kid!\n"
 	.string "What's that? You want to battle?\p"
-	.string "WAHAHAH! Quite the joke!\n"
+	.string "Wahahah! Quite the joke!\n"
 	.string "Hah, but listen, kiddo!\p"
 	.string "KANTO was the first test, which\n"
 	.string "you graciously flew through!\p"

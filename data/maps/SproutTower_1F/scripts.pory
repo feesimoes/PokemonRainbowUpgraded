@@ -1,4 +1,48 @@
 mapscripts SproutTower_1F_MapScripts
 {
-    
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_SPROUT_TOWER)
+    }
 }
+
+script SproutTower_1F_Statues
+{
+    lock
+    faceplayer
+    msgbox(format("SPROUT TOWER"))
+    closemessage
+    release
+    end  
+}
+
+script SproutTower_1F_Old_Woman 
+{
+    lock
+    faceplayer
+    msgbox(format("Hello, young one...\nThis is SPROUT TOWER.\pA bit far from home, are we?\nELDER LI is quite tough!"))
+    closemessage
+    release
+    end  
+}
+
+script SproutTower_1F_Old_Man_1
+{
+    lock
+    faceplayer
+    msgbox(format("SPROUT TOWER can withstand the\nharshest natural conditions...\pIf you have what it takes,\nthe real challenge lies above."))
+    closemessage
+    release
+    end  
+}
+
+script SproutTower_1F_Battle_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("Hyah! Ugh, not again!\nI'm still training, yet...\pI always make it to ELDER LI,\nand return in defeat..."))
+    closemessage
+    release
+    end  
+}
+

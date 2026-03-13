@@ -530,19 +530,18 @@ VermilionHarbor_EventScript_MrFuji_Text_0:
 # 173 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "Hm...\n"
 	.string "{PLAYER}, welcome.\p"
-	.string "I do apologize for the\n"
-	.string "confusion, if any...\p"
-	.string "Quizzes sure do have a\n"
-	.string "way of keeping minds sharp!$"
+	.string "I do apologize for the confusion,\n"
+	.string "if any...\p"
+	.string "Quizzes sure do have a nifty way\n"
+	.string "of keeping our minds sharp!$"
 
 VermilionHarbor_EventScript_MrFuji_Text_1:
 # 177 "data/maps/SSAnne_Exterior/scripts.pory"
-	.string "BLAINE, my dear friend.\n"
-	.string "It was good to see you.\p"
-	.string "Take care in your journey,\n"
-	.string "the GUYANA REGION can be...\p"
-	.string "Very unforgiving, to say,\n"
-	.string "at the least.$"
+	.string "BLAINE, my dear friend...\n"
+	.string "It was so good to see you.\p"
+	.string "Take care in your journey, the\n"
+	.string "GUYANA REGION can be...\p"
+	.string "Very unforgiving, to say least...$"
 
 VermilionHarbor_EventScript_MrFuji_Text_2:
 # 178 "data/maps/SSAnne_Exterior/scripts.pory"
@@ -560,8 +559,8 @@ VermilionHarbor_EventScript_MrFuji_Text_3:
 
 VermilionHarbor_EventScript_MrFuji_Text_4:
 # 201 "data/maps/SSAnne_Exterior/scripts.pory"
-	.string "Hah! I'll burn the way\n"
-	.string "forward! Fear not!$"
+	.string "Hah! I'll burn the way forward!\n"
+	.string "Fear not!$"
 
 VermilionHarbor_EventScript_MrFuji_Text_5:
 # 205 "data/maps/SSAnne_Exterior/scripts.pory"
@@ -574,8 +573,8 @@ VermilionHarbor_EventScript_MrFuji_Text_6:
 	.string "I'm capable of helping you!\p"
 	.string "See, my plan is simple...\n"
 	.string "I'll burn the way forward!\p"
-	.string "Trees cannot use BURN HEAL,\n"
-	.string "so GIOVANNI will be exposed!$"
+	.string "Trees cannot use BURN HEAL, and so\n"
+	.string "GIOVANNI will be exposed!$"
 
 VermilionHarbor_EventScript_MrFuji_Text_7:
 # 221 "data/maps/SSAnne_Exterior/scripts.pory"
@@ -597,5 +596,5 @@ VermilionHarbor_EventScript_Blaine_Text_1:
 # 280 "data/maps/SSAnne_Exterior/scripts.pory"
 	.string "Hah, don't be afraid!\n"
 	.string "Come back if you're ready!\p"
-	.string "I'll be here, thinking about\n"
-	.string "how to expose GIOVANNI...$"
+	.string "I'll be here, thinking about how to...\n"
+	.string "Ahem, safely... Expose GIOVANNI...$"

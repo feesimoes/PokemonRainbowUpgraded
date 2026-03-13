@@ -38,5 +38,6 @@ void FieldUpdateBgTilemapScroll(void);
 void ResetCameraUpdateInfo(void);
 u32 InitCameraUpdateCallback(u8 trackedSpriteId);
 void CameraUpdateNoObjectRefresh(void);
+bool8 IsSoaringMap(void);
 
 #endif //GUARD_FIELD_CAMERA_H

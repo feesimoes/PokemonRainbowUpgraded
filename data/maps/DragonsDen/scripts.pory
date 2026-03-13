@@ -1,4 +1,10 @@
-mapscripts DragonsDen_MapScripts {}
+mapscripts DragonsDen_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_DRAGONS_DEN)
+    }
+}
 
 script DragonsDen_PagodaShrine_Sign
 {
@@ -25,7 +31,6 @@ script DragonsDen_ElderDragonMaster
     if (flag(FLAG_JOHTO_BADGE08_GET) == TRUE)
     {
         msgbox(format("Congratulations on the RISING BADGE.\nAh, but...\pThe DRAGONS' SHRINE still does not\nexpect you here so soon."))
-        clearflag(FLAG_JOHTO_BADGE08_GET)
     }
     else
     {

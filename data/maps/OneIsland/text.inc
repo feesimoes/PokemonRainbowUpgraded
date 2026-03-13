@@ -1,14 +1,16 @@
 OneIsland_Text_BillLetsGoSeeCelio::
-    .string "BILL: Here we are!\n"
+    .string "BILL: Hey! {PLAYER}!\n"
     .string "This is ONE ISLAND.\p"
     .string "There are several islands around\n"
     .string "here, and this is one of them.\p"
-    .string "My friend CELIO sent the boat to\n"
-    .string "fetch me here.\p"
+    .string "I wasn't sure that {RIVAL} would\n"
+    .string "find you as soon as he did!\p"
+    .string "I'm glad, though. My friend CELIO\n"
+    .string "sent a boat to fetch me here.\p"
     .string "He's in charge of the island's PC\n"
     .string "network by his lonesome.\p"
-    .string "…Why am I telling you this now?\n"
-    .string "Let's just go see CELIO!$"
+    .string "So, you're just in time, actually.\n"
+    .string "Come on, let's go see CELIO!$"
 
 Text_WhereDoYouWantToSail::
     .string "Ahoy, there!\n"
@@ -29,8 +31,8 @@ OneIsland_Text_LuckyToHaveCelioHere::
 OneIsland_Text_HavePCLinkageWithKanto::
     .string "My granddaughter was in a tizzy\n"
     .string "over a new breakthrough.\p"
-    .string "She said we now have PC linkage\n"
-    .string "with people in KANTO.\p"
+    .string "She said we now have PC systems\n"
+    .string "back up on the main power.\p"
     .string "I'm not sure what that means, but\n"
     .string "CELIO is quite the man!$"
 
@@ -38,7 +40,7 @@ OneIsland_Text_HavePCLinkageWithHoenn::
     .string "My granddaughter was in a tizzy\n"
     .string "over a new breakthrough.\p"
     .string "She said we finally have PC linkage\n"
-    .string "with people in HOENN.\p"
+    .string "with people all over the WORLD.\p"
     .string "I'm not sure what that means, but\n"
     .string "CELIO is quite the man.\p"
     .string "He would make a fine husband for\n"

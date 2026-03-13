@@ -1,0 +1,84 @@
+mapscripts GoldenrodCity_BikeShop_MapScripts {}
+
+script GoldenrodCity_BikeShop_Clerk 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi, there.\nThanks for stopping by!"))
+    if (flag(FLAG_GOT_BICYCLE) == TRUE)
+    {
+        if (flag(FLAG_GOT_BICYCLE_SPEED_UPGRADE) == TRUE)
+        {
+            msgbox(format("Please spread the word about\nMIRACLE CYCLE, loyal customer!\pThank you so much!\nBy the way, if you forgot..."))
+            msgbox(format("Your upgraded BICYCLE should be\nsimilar to your RUNNING SHOES.\pPress that 'B' button there to\ntoggle the speed shift!"))
+        }
+        else
+        {
+            if (flag(FLAG_WAITING_FOR_BICYCLE_UPGRADE) == TRUE)
+            {
+                setvar(VAR_RESULT, 0)
+                copyvar(VAR_RESULT, VAR_TIME_DAYS_PLAYED)
+                subvar(VAR_RESULT, VAR_MIRACLE_CYCLE_UPGRADE)
+
+                if (var(VAR_RESULT) == 0)
+                {
+                    msgbox(format("I'm still working on it.\nCome back in 2 days, okay?"))
+                }
+                elif (var(VAR_RESULT) == 1)
+                {
+                    msgbox(format("Hey! Your BICYCLE should be\nready by tomorrow, first thing!\pCome back later, okay?\nSpread word of my SHOP!"))
+                }
+                elif(var(VAR_RESULT) == 2)
+                {
+                    msgbox(format("Hey, just on time!\nYour BICYCLE is ready now."))
+                    closemessage
+                    giveitem(ITEM_BICYCLE, 1)
+                    clearflag(FLAG_WAITING_FOR_BICYCLE_UPGRADE)
+                    setflag(FLAG_GOT_BICYCLE_SPEED_UPGRADE)
+                    textcolor(NPC_TEXT_COLOR_MALE)
+                    msgbox(format("Your upgraded BICYCLE should be\nsimilar to your RUNNING SHOES.\pPress that 'B' button there to\ntoggle the speed shift!"))
+                    msgbox(format("Thank you so much for stopping\nby. Please spread the word!"))
+                }
+                else
+                {
+                    msgbox(format("Hey, you took your time!\nYour BICYCLE is ready now."))
+                    closemessage
+                    giveitem(ITEM_BICYCLE, 1)
+                    clearflag(FLAG_WAITING_FOR_BICYCLE_UPGRADE)
+                    setflag(FLAG_GOT_BICYCLE_SPEED_UPGRADE)
+                    textcolor(NPC_TEXT_COLOR_MALE)
+                    msgbox(format("Your upgraded BICYCLE should be\nsimilar to your RUNNING SHOES.\pPress that 'B' button there to\ntoggle the speed shift!"))
+                    msgbox(format("Thank you so much for stopping\nby. Please spread the word!"))
+                }
+            }
+            else
+            {
+                msgbox(format("This is MIRACLE CYCLE!\nWe're a small BICYCLE SHOP...\pYour BICYCLE seems to be in\nbad shape! I could fix it..."))
+                msgbox(format("No, it won't cost you a cent!\nI might need time, though.\pAt most, give me a couple days.\nSo, how about it?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(format("{PLAYER} handed over the BICYCLE\nto the MIRACLE CYCLE shopkeeper."))
+                    closemessage
+                    removeitem(ITEM_BICYCLE, 1)
+                    copyvar(VAR_MIRACLE_CYCLE_UPGRADE, VAR_TIME_DAYS_PLAYED)
+                    setflag(FLAG_WAITING_FOR_BICYCLE_UPGRADE)
+                    textcolor(NPC_TEXT_COLOR_MALE)
+                    msgbox(format("Great! Hmm... I got this.\nCome back in 2 days, okay?"))
+                }
+                else
+                {
+                    msgbox(format("No worries!\nCome back whenever...\pPlease refer MIRACLE CYCLE to your\nfriends, too!"))
+                }
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("Hmm... You travelled a very\nlong way to get here!\pA BICYCLE could be useful,\nbut I don't sell them..."))
+        msgbox(format("I really only deal in repairs\nand upgrades to your BICYCLE.\pSorry, please come again!\nSpread the word, too!"))
+    }
+    closemessage
+    release
+    end
+}

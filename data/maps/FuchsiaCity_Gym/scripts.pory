@@ -95,6 +95,18 @@ mapscripts FuchsiaCity_Gym_MapScripts
 {
     MAP_SCRIPT_ON_LOAD
     {
+		if (flag(FLAG_BADGE05_GET) == TRUE)
+		{
+			setmetatile(4, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(5, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(6, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(7, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(8, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(9, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+			setmetatile(10, 16, METATILE_FuchsiaGym_FuchsiaGymFloorTile, 0)
+            special(DrawWholeMapView)
+		}
+
         if (flag(FLAG_SYS_GAME_CLEAR) == TRUE)
         {
             clearflag(FLAG_HIDE_FUCHSIA_CITY_GYM_JANINE)
@@ -127,7 +139,7 @@ script FuchsiaCity_Gym_EventScript_Koga_Rematch
 
 script FuchsiaCity_Gym_EventScript_Janine_Rematch 
 {
-    trainerbattle_single(TRAINER_LEADER_JANINE, format("Fufufufu...\nKOGA is no longer here...\pHe moved onto the POKéMON LEAGUE.\nI'm so sorry...\pI'm joking! I'm the real deal!\nJANINE of FUCHSIA GYM, that's me!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("You're a tough one! You\ndefinitely won!"), format(""), NO_MUSIC)
+    trainerbattle_single(TRAINER_LEADER_JANINE, format("Fufufufu...\nKOGA is no longer here...\pHe moved onto the POKéMON LEAGUE.\nI'm so sorry...\pThis GYM is closed, for now...\n...\pI'm joking! I'm the real deal!\nJANINE of FUCHSIA GYM, that's me!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("You're a tough one! You\ndefinitely won!"), format(""), NO_MUSIC)
     msgbox(format("You're so tough! I see how my\nfather, KOGA, lost to you!\pI'm going to really apply myself\nand improve my skills.\pI want to become much better\n than my father and you!\pI'll win next time!"))
     closemessage
     cleartrainerflag(TRAINER_LEADER_JANINE)

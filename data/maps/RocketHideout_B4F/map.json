@@ -164,11 +164,48 @@
       "x": 21,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
+      "dest_map": "MAP_SILPH_CO_11F",
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "RocketHideout_B4F_EnterGiovanniRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "RocketHideout_B4F_EnterGiovanniRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "RocketHideout_B4F_ExitGiovanniRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "RocketHideout_B4F_ExitGiovanniRoom"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

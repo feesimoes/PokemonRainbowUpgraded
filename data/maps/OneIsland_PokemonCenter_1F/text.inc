@@ -1,30 +1,33 @@
 OneIsland_PokemonCenter_1F_Text_BillHeyThereCelio::
     .string "BILL: Hey, there!\n"
-    .string "CELIO!$"
+    .string "CELIO! Look who joined us!$"
 
 OneIsland_PokemonCenter_1F_Text_CelioCantBelieveYouCameOut::
-    .string "CELIO: BILL!\n"
-    .string "I can't believe you came out here.$"
+    .string "CELIO: Oh? BILL!\n"
+    .string "I can't believe they're here.$"
 
 OneIsland_PokemonCenter_1F_Text_BillHowsYourResearchComing::
     .string "BILL: Well, absolutely!\n"
-    .string "How's your research coming along?\p"
-    .string "…Oh, wait a sec.$"
+    .string "How's your research coming along?$"
 
 OneIsland_PokemonCenter_1F_Text_ThisIsMyBuddyCelio::
     .string "{PLAYER}, this is my buddy CELIO.\n"
     .string "He's one dedicated PC MANIAC!$"
 
 OneIsland_PokemonCenter_1F_Text_PlayerIsRisingPokemonChamp::
-    .string "CELIO, this is {PLAYER}, a rising\n"
-    .string "contender as the POKéMON CHAMP!$"
+    .string "CELIO, this is {PLAYER}, a strong,\n"
+    .string "respectable POKéMON TRAINER!\p"
+    .string "They recently just achieved all 8\n"
+    .string "KANTO BADGES, it seems like!$"
 
 OneIsland_PokemonCenter_1F_Text_PlayerIsReigningPokemonChamp::
-    .string "CELIO, this is {PLAYER}, the\n"
-    .string "reigning POKéMON CHAMP!$"
+    .string "CELIO, this is {PLAYER}, a strong,\n"
+    .string "respectable POKéMON TRAINER!\p"
+    .string "They rival any POKéMON LEAGUE, and\n"
+    .string "any POKéMON CHAMPION!$"
 
 OneIsland_PokemonCenter_1F_Text_CelioThatsReallyImpressive::
-    .string "CELIO: That's really impressive.\p"
+    .string "CELIO: That's really impressive...\p"
     .string "I hate to say it, but I have zero\n"
     .string "aptitude for battling.\p"
     .string "Anyways, I'm glad to meet you.$"

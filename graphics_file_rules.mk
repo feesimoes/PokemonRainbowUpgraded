@@ -626,6 +626,12 @@ $(MAPPREVIEWGFXDIR)/seafoam_islands/tiles.4bpp: %.4bpp: %.png
 $(MAPPREVIEWGFXDIR)/silph_co/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 355 -Wnum_tiles
 
+$(MAPPREVIEWGFXDIR)/vermilion_harbor/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 400 -Wnum_tiles
+
+$(MAPPREVIEWGFXDIR)/dark_cave/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 416 -Wnum_tiles
+
 $(MAPPREVIEWGFXDIR)/victory_road/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 375 -Wnum_tiles
 

@@ -33,7 +33,7 @@
     {
       "local_id": "LOCALID_DEV_TRUTHSEEKER",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 5,
       "y": 5,
       "elevation": 0,
@@ -63,7 +63,7 @@
     {
       "local_id": "LOCALID_DEV_CALYPSO",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CALYPSO",
       "x": 8,
       "y": 6,
       "elevation": 0,

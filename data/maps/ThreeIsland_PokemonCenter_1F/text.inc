@@ -1,9 +1,8 @@
 ThreeIsland_PokemonCenter_1F_Text_PCNetworkCanLinkWithKanto::
-    .string "Hey, did you hear the news?\p"
-    .string "The PC network here can now link\n"
-    .string "with PCs in KANTO.\p"
-    .string "I don't know how that came about,\n"
-    .string "but it's fantastic!$"
+    .string "Hey, did you hear the news?\n"
+    .string "We've discovered more POKéMON!\p"
+    .string "I wonder how many there are?\n"
+    .string "There are still so many to find!$"
 
 ThreeIsland_PokemonCenter_1F_Text_ImpossibleToSurfBetweenIslands::
     .string "It's impossible to SURF between the\n"

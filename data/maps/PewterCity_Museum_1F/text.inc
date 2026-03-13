@@ -14,7 +14,8 @@ PewterCity_Museum_1F_Text_DontHaveEnoughMoney::
     .string "You don't have enough money.$"
 
 PewterCity_Museum_1F_Text_PleaseEnjoyYourself::
-    .string "Please enjoy yourself.$"
+    .string "Welcome! This is PEWTER'S MUSEUM\n"
+    .string "OF SCIENCE! Please enjoy yourself.$"
 
 PewterCity_Museum_1F_Text_DoYouKnowWhatAmberIs::
     .string "You can't sneak in the back way!\n"

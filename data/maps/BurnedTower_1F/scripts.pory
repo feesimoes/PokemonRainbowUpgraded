@@ -1,0 +1,25 @@
+mapscripts BurnedTower_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setflag(FLAG_HIDE_BURND_T_EUSINE)
+        setworldmapflag(FLAG_WORLD_MAP_BURNED_TOWER)
+    }
+}
+
+script BurnedTower_1F_Statues
+{
+    lock
+    msgbox(format("The text is too faded to read.\nThere is an unsettling air around..."))
+    closemessage
+    release
+    end
+}
+
+script BurnedTower_1F_EventProgress_Debug
+{
+    lock
+    setvar(VAR_JOHTO_STORY_PROGRESS, 1)
+    release
+    end
+}

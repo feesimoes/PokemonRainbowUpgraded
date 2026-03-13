@@ -114,7 +114,7 @@
       "x": 34,
       "y": 60,
       "elevation": 0,
-      "dest_map": "MAP_VIOLET_CITY",
+      "dest_map": "MAP_VIOLET_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
@@ -142,7 +142,7 @@
       "x": 14,
       "y": 39,
       "elevation": 0,
-      "dest_map": "MAP_VIOLET_CITY",
+      "dest_map": "MAP_VIOLET_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {

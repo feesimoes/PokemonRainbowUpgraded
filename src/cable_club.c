@@ -537,6 +537,14 @@ void TryRecordMixLinkup(void)
     CreateLinkupTask(2, 4);
 }
 
+void TryOverworldMultiplayerLinkup(void)
+{
+    gSpecialVar_Result = LINKUP_ONGOING;
+    gLinkType = LINKTYPE_RECORD_MIX_BEFORE; // Utilizes the robust multi-player exchange channel
+    gBattleTypeFlags = 0;
+    CreateLinkupTask(2, 4);
+}
+
 void TryContestLinkup(void)
 {
     gLinkType = LINKTYPE_CONTEST_GMODE;

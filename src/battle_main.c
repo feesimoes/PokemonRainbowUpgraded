@@ -42,6 +42,7 @@
 #include "constants/pokemon.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "overworld.h"
 
 static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
 static void HandleAction_UseMove(void);
@@ -3935,6 +3936,7 @@ static void ReturnFromBattleToOverworld(void)
         }
         m4aSongNumStop(SE_LOW_HEALTH);
         SetMainCallback2(gMain.savedCallback);
+        Overworld_ChangeMusicToDefault();
     }
 }
 

@@ -64,6 +64,7 @@ SilphCo_11F_EventScript_GiovanniTriggerRight::
 	end
 
 SilphCo_11F_EventScript_BattleGiovanni::
+	playbgm MUS_ENCOUNTER_ROCKET_BOSS, FALSE
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
@@ -80,6 +81,7 @@ SilphCo_11F_EventScript_BattleGiovanni::
 	removeobject LOCALID_SILPH_CO_GIOVANNI
 	removeobject LOCALID_SILPH_CO_11F_GRUNT1
 	removeobject LOCALID_SILPH_CO_11F_GRUNT2
+	fadedefaultbgm
 	fadescreen FADE_FROM_BLACK
 	setvar VAR_MAP_SCENE_SILPH_CO_11F, 1
 	setflag FLAG_HIDE_SAFFRON_ROCKETS

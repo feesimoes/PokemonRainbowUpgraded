@@ -6,6 +6,7 @@
 #include "script.h"
 #include "field_player_avatar.h"
 #include "overworld.h"
+#include "overworld_multiplayer.h" // for map overlay helpers
 #include "field_message_box.h"
 #include "event_data.h"
 #include "strings.h"
@@ -183,10 +184,21 @@ u8 GetLeadMonFriendship(void)
         return 0;
 }
 
+// forward declaration of the overlay hide function
+void HideMultiplayerMapWindow(void);
+void ShowMultiplayerMapWindow(void);
+
+// custom exit callback that hides the multiplayer overlay
+static void CB2_TownMapOverlayExit(void)
+{
+    HideMultiplayerMapWindow();
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
 void ShowTownMap(void)
 {
     QuestLog_CutRecording();
-    InitRegionMapWithExitCB(REGIONMAP_TYPE_WALL, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    InitRegionMapWithExitCB(REGIONMAP_TYPE_WALL, CB2_TownMapOverlayExit);
+    ShowMultiplayerMapWindow();
 }
 
 bool8 PlayerHasGrassPokemonInParty(void)
@@ -1149,46 +1161,46 @@ void GetElevatorFloor(void)
         switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
         {
         case MAP_NUM(MAP_SILPH_CO_1F):
-            floor = 4;
-            break;
-        case MAP_NUM(MAP_SILPH_CO_2F):
-            floor = 5;
-            break;
-        case MAP_NUM(MAP_SILPH_CO_3F):
-            floor = 6;
-            break;
-        case MAP_NUM(MAP_SILPH_CO_4F):
-            floor = 7;
-            break;
-        case MAP_NUM(MAP_SILPH_CO_5F):
             floor = 8;
             break;
-        case MAP_NUM(MAP_SILPH_CO_6F):
+        case MAP_NUM(MAP_SILPH_CO_2F):
             floor = 9;
             break;
-        case MAP_NUM(MAP_SILPH_CO_7F):
+        case MAP_NUM(MAP_SILPH_CO_3F):
             floor = 10;
             break;
-        case MAP_NUM(MAP_SILPH_CO_8F):
+        case MAP_NUM(MAP_SILPH_CO_4F):
             floor = 11;
             break;
-        case MAP_NUM(MAP_SILPH_CO_9F):
+        case MAP_NUM(MAP_SILPH_CO_5F):
             floor = 12;
             break;
-        case MAP_NUM(MAP_SILPH_CO_10F):
+        case MAP_NUM(MAP_SILPH_CO_6F):
             floor = 13;
             break;
-        case MAP_NUM(MAP_SILPH_CO_11F):
+        case MAP_NUM(MAP_SILPH_CO_7F):
             floor = 14;
             break;
+        case MAP_NUM(MAP_SILPH_CO_8F):
+            floor = 15;
+            break;
+        case MAP_NUM(MAP_SILPH_CO_9F):
+            floor = 16;
+            break;
+        case MAP_NUM(MAP_SILPH_CO_10F):
+            floor = 17;
+            break;
+        case MAP_NUM(MAP_SILPH_CO_11F):
+            floor = 18;
+            break;
         case MAP_NUM(MAP_ROCKET_HIDEOUT_B1F):
-            floor = 3;
+            floor = 7;
             break;
         case MAP_NUM(MAP_ROCKET_HIDEOUT_B2F):
-            floor = 2;
+            floor = 6;
             break;
         case MAP_NUM(MAP_ROCKET_HIDEOUT_B4F):
-            floor = 0;
+            floor = 4;
             break;
         }
     }
@@ -1197,19 +1209,19 @@ void GetElevatorFloor(void)
         switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
         {
         case MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_1F):
-            floor = 4;
+            floor = 8;
             break;
         case MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_2F):
-            floor = 5;
+            floor = 9;
             break;
         case MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_3F):
-            floor = 6;
+            floor = 10;
             break;
         case MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_4F):
-            floor = 7;
+            floor = 11;
             break;
         case MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_5F):
-            floor = 8;
+            floor = 12;
             break;
         }
     }

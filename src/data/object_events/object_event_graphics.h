@@ -236,3 +236,7 @@ const u16 gObjectEventPic_Silver[] = INCBIN_U16("graphics/object_events/pics/peo
 const u16 gObjectEventPic_Clair[] = INCBIN_U16("graphics/object_events/pics/people/clair.4bpp");
 const u16 gObjectEventPic_Norman[] = INCBIN_U16("graphics/object_events/pics/people/norman.4bpp");
 const u16 gObjectEventPic_Kurt[] = INCBIN_U16("graphics/object_events/pics/people/kurt.4bpp");
+const u16 gObjectEventPic_Calypso[] = INCBIN_U16("graphics/object_events/pics/people/calypso.4bpp");
+const u16 gObjectEventPic_Walker[] = INCBIN_U16("graphics/object_events/pics/people/walker.4bpp");
+const u16 gObjectEventPic_Whirlpool[] = INCBIN_U16("graphics/object_events/pics/misc/whirlpool.4bpp");
+const u16 gObjectEventPal_Whirlpool[] = INCBIN_U16("graphics/object_events/palettes/whirlpool.gbapal");

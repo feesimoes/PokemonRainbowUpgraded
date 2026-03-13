@@ -6,7 +6,7 @@ mapscripts KaieteurJungle_Route7_MapScripts
 script KaieteurJungle_Route7_FujiMemo_Sign 
 {
     lock
-    msgbox(format("It's a notice from DR. FUJI,\ndated: July 5th, 1996.\pFollowing our success, advancements\nin research are quite impressive."))
+    msgbox(format("It's a notice from DR. FUJI,\ndated: JULY 5, 1996.\pFollowing our success, advancements\nin research are quite impressive."))
     msgbox(format("It has been a year since the\ndiscovery of MEW in GUYANA.\pWe are flooded with support\nfrom a respectable, private investor."))
     msgbox(format("Our science fellow, DR. BLAINE,\nhas also proved to be of help.\pWe brought MEWTWO into GUYANA\nto meet their parent."))
     msgbox(format("MEWTWO and MEW seem to get\nalong very well, lovingly, even!\pWe are truly touched, deep in\nour hearts, filled with hope."))
