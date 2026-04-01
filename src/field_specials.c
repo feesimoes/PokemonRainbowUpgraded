@@ -716,7 +716,7 @@ void IncrementResortGorgeousStepCounter(void)
 
 void MakeMewLegalJPNEmeraldEvent(void)
 {
-    //Change Mew's specific data for Gen 3 legality checks. Emerald MAPSEC 201 = Faraway Island, would be Route 117 in pokerainbow.
+    //Change Mew's specific data for Gen 3 legality checks. Emerald MAPSEC 201 = Faraway Island
     u32 language = LANGUAGE_JAPANESE;
     u8 metlocation = 201;
     u8 metGame = VERSION_EMERALD;
@@ -737,6 +737,193 @@ void MakeMewLegalJPNEmeraldEvent(void)
             SetMonData(&gPlayerParty[partyMon], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
         }
     }
+}
+
+// GameCube RNG Constants, per PkHex
+#define GC_RNG_MULT 0x000343FD
+#define GC_RNG_ADD  0x00269EC3
+
+static u16 GCRNG_Next(u32 *seed)
+{
+    *seed = (*seed * GC_RNG_MULT) + GC_RNG_ADD;
+    return *seed >> 16;
+}
+
+static bool8 IsColoXDShiny(u32 otId, u32 pid)
+{
+    u16 tid = otId & 0xFFFF;
+    u16 sid = otId >> 16;
+    u16 pid_lo = pid & 0xFFFF;
+    u16 pid_hi = pid >> 16;
+    
+    return (tid ^ sid ^ pid_lo ^ pid_hi) < 8;
+}
+
+void FixCaughtBeastsToLegalColosseumEvent(void)
+{
+    // Change the legendary beasts specific data for Gen 3 legality checks.
+    u32 language = LANGUAGE_ENGLISH;
+    u8 metlocationEntei = 76; // Colosseum's Met Location ID
+    u8 metGame = VERSION_GAMECUBE;
+    u8 isModernFatefulEncounter = FALSE;
+    u8 purifiedRibbon = TRUE;
+    u8 partyMon;
+    
+    // GameCube RNG variables
+    u32 gcSeed;
+    u16 history[5];
+    u16 iv1, iv2;
+    u32 hpIv, atkIv, defIv, speIv, spaIv, spdIv;
+    u32 pid;
+    u32 enemyOtId; // Used to emulate the NPC Enemy Trainer in Colosseum
+
+    // Variables to preserve the original capture states
+    u8 level;
+    u32 pokeball;
+    u16 move1, move2, move3, move4;
+    u32 currentHp, status;
+
+    for (partyMon = 0; partyMon < PARTY_SIZE; partyMon++)
+    {
+        if (GetMonData(&gPlayerParty[partyMon], MON_DATA_SPECIES, NULL) == SPECIES_ENTEI)
+        {
+            gcSeed = Random() | (Random() << 16);
+
+            enemyOtId = Random() | (Random() << 16);
+
+            // The GameCube RNG generates IVs, Ability, and PID in exactly 5 consecutive frames.
+            history[0] = GCRNG_Next(&gcSeed); // IV Block 1
+            history[1] = GCRNG_Next(&gcSeed); // IV Block 2
+            history[2] = GCRNG_Next(&gcSeed); // Ability Frame (Consumed)
+            history[3] = GCRNG_Next(&gcSeed); // PID High
+            history[4] = GCRNG_Next(&gcSeed); // PID Low
+            
+            pid = (history[3] << 16) | history[4];
+
+            while (!IsColoXDShiny(enemyOtId, pid))
+            {
+                history[0] = history[1]; // Shift IV 1
+                history[1] = history[2]; // Shift IV 2
+                history[2] = history[3]; // Shift Ability
+                history[3] = history[4]; // Shift PID High
+                history[4] = GCRNG_Next(&gcSeed); // Generate new PID Low
+                
+                pid = (history[3] << 16) | history[4];
+            }
+
+            // Map the legally-bound GameCube IVs
+            iv1 = history[0] & 0x7FFF;
+            iv2 = history[1] & 0x7FFF;
+            hpIv  = iv1 & 0x1F;
+            atkIv = (iv1 >> 5) & 0x1F;
+            defIv = (iv1 >> 10) & 0x1F;
+            speIv = iv2 & 0x1F;
+            spaIv = (iv2 >> 5) & 0x1F;
+            spdIv = (iv2 >> 10) & 0x1F;
+
+            level = GetMonData(&gPlayerParty[partyMon], MON_DATA_LEVEL, NULL);
+            pokeball = GetMonData(&gPlayerParty[partyMon], MON_DATA_POKEBALL, NULL);
+            move1 = GetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE1, NULL);
+            move2 = GetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE2, NULL);
+            move3 = GetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE3, NULL);
+            move4 = GetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE4, NULL);
+            currentHp = GetMonData(&gPlayerParty[partyMon], MON_DATA_HP, NULL);
+            status = GetMonData(&gPlayerParty[partyMon], MON_DATA_STATUS, NULL);
+
+            CreateMon(&gPlayerParty[partyMon], SPECIES_ENTEI, level, USE_RANDOM_IVS, TRUE, pid, OT_ID_PLAYER_ID, 0);
+
+            // Safely apply our linked GameCube IVs
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_HP_IV, &hpIv);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_ATK_IV, &atkIv);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_DEF_IV, &defIv);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_SPEED_IV, &speIv);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_SPATK_IV, &spaIv);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_SPDEF_IV, &spdIv);
+
+            // Apply Colosseum aesthetic data
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_LANGUAGE, &language);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MET_LOCATION, &metlocationEntei);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MET_GAME, &metGame);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_NATIONAL_RIBBON, &purifiedRibbon);
+
+            // Restore the battle states
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_POKEBALL, &pokeball);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE1, &move1);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE2, &move2);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE3, &move3);
+            SetMonData(&gPlayerParty[partyMon], MON_DATA_MOVE4, &move4);
+
+            // Final re-calculation of stats to ensure decency
+            CalculateMonStats(&gPlayerParty[partyMon]);
+        }
+    }
+}
+
+u8 CheckBadgeCount(void)
+{
+    u8 numBadges;
+    int flagId;
+
+    // Kanto Badges
+    for (flagId = FLAG_BADGE01_GET, numBadges = 0; flagId < FLAG_BADGE01_GET + 8; flagId++)
+    {
+        if (FlagGet(flagId) == TRUE)
+        {
+            numBadges++;
+        }
+    }
+    
+    //Sinnoh Badge 1
+    if (FlagGet(FLAG_OBTAINED_ROCK_CLIMB_KIT) == TRUE)
+    {
+        numBadges++;
+    }
+    
+    //Johto Badge 1
+    if (FlagGet(FLAG_JOHTO_BADGE01_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 2
+    if (FlagGet(FLAG_JOHTO_BADGE02_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 3
+    if (FlagGet(FLAG_JOHTO_BADGE03_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 4
+    if (FlagGet(FLAG_JOHTO_BADGE04_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 5
+    if (FlagGet(FLAG_JOHTO_BADGE05_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 6
+    if (FlagGet(FLAG_JOHTO_BADGE06_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 7
+    if (FlagGet(FLAG_JOHTO_BADGE07_GET))
+    {
+        numBadges++;
+    }
+    //Johto Badge 8
+    if (FlagGet(FLAG_JOHTO_BADGE08_GET))
+    {
+        numBadges++;
+    }
+
+    return numBadges;
 }
 
 // VERY basic implementation of a Day Care, like Kanto's, but avoids using extra save blocks.
@@ -2466,6 +2653,12 @@ void DoPokemonLeagueLightingEffect(void)
             data[2] = 8;
             LoadPalette(sChampionRoomLightingPalettes[0], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
         }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM_LANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM_LANCE))
+        {
+            data[0] = sChampionRoomLightingTimers[0];
+            data[2] = 8;
+            LoadPalette(sChampionRoomLightingPalettes[0], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        }
         else
         {
             data[0] = sEliteFourLightingTimers[0];
@@ -2510,6 +2703,8 @@ static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
     if (FlagGet(FLAG_TEMP_4) != FALSE)
     {
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM))
+            LoadPalette(sChampionRoomLightingPalettes[8], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM_LANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM_LANCE))
             LoadPalette(sChampionRoomLightingPalettes[8], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
         else
             LoadPalette(sEliteFourLightingPalettes[11], BG_PLTT_ID(7), PLTT_SIZE_4BPP);
@@ -2901,9 +3096,9 @@ u8 gCurrentTintCoeff;
 #define GENERAL_LIGHT_SOURCE_INTENSITY 6
 
 //Palette slot for light sources from underwater maps
-#define UNDERWATER_INTENSITY 12
 #define PALETTE_SLOT_LIGHT_SOURCE_UNDERWATER 11
-#define UNDERWATER_LIGHT_SOURCE_INTENSITY 8
+#define UNDERWATER_INTENSITY 13
+#define UNDERWATER_LIGHT_SOURCE_INTENSITY 12
 
 void StartBackgroundTintLoop(void)
 {

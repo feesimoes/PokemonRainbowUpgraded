@@ -288,7 +288,7 @@
 #define MUS_LAVENDER              280 // MUS_SHION
 #define MUS_HEAL_UNUSED           281 // MUS_KAIHUKU
 #define MUS_CYCLING               282 // MUS_CYCLING
-#define MUS_ENCOUNTER_ROCKET      283 // MUS_ROCKET = Remix by TruthSeeker Music! (Unreviewed, inserted as-is)
+#define MUS_ENCOUNTER_ROCKET      283 // MUS_ROCKET = HG/SS Radio Tower takeover theme, FR/LG Mix, slowed down a bit
 #define MUS_ENCOUNTER_GIRL        284 // MUS_SHOUJO
 #define MUS_ENCOUNTER_BOY         285 // MUS_SHOUNEN
 #define MUS_HALL_OF_FAME          286 // MUS_DENDOU
@@ -296,10 +296,10 @@
 #define MUS_MT_MOON               288 // MUS_OTSUKIMI
 #define MUS_POKE_MANSION          289 // MUS_POKEYASHI
 #define MUS_CREDITS               290 // MUS_ENDING
-#define MUS_ROUTE1                291 // MUS_LOAD01
-#define MUS_ROUTE24               292 // MUS_OPENING
-#define MUS_ROUTE3                293 // MUS_LOAD02
-#define MUS_ROUTE11               294 // MUS_LOAD03
+#define MUS_ROUTE1                291 // MUS_LOAD01 = Remix/Mashup of HG/SS and R/B/G/Y Route 1 in FR/LG engine
+#define MUS_ROUTE24               292 // MUS_OPENING = Gen 1 theme with HG/SS elements, FR/LG Mix
+#define MUS_ROUTE3                293 // MUS_LOAD02 = Gen 1 theme with HG/SS elements, FR/LG Mix
+#define MUS_ROUTE11               294 // MUS_LOAD03 = Gen 1 theme with HG/SS and FR/LG elements, FR/LG Mix
 #define MUS_VICTORY_ROAD          295 // MUS_CHAMP_R
 #define MUS_VS_GYM_LEADER         296 // MUS_VS_GYM
 #define MUS_VS_TRAINER            297 // MUS_VS_TORE
@@ -436,8 +436,8 @@
 
 #define MUS_VS_JESSIE_JAMES       424 // MUS_VS_JESSIE_JAMES = remix by TruthSeeker, an in-between variation of Grunt & Admin battle theme
 #define MUS_ENCOUNTER_JOHTO_SHADY 425 // MUS_ENCOUNTER_JOHTO_SHADY = remix by TruthSeeker
-#define MUS_MAHOGANY              426 // MUS_MAHOGANY = remix by TruthSeeker
 
+#define MUS_MAHOGANY              426 // MUS_MAHOGANY = HG/SS Cherrygrove City, FR/LG Mix
 #define MUS_ROCK_TUNNEL           427 // MUS_ROCK_TUNNEL = HG/SS Mt. Moon
 
 #define MUS_ENCOUNTER_JOHTO_SAGE  428 // MUS_ENCOUNTER_JOHTO_SAGE = remix by TruthSeeker
@@ -496,6 +496,16 @@
 #define MUS_ENCOUNTER_BATTLE_ZONE 474 // MUS_ENCOUNTER_BATTLE_ZONE = Legends Z-A Battle Zone Trainer theme intro loop, FR/LG Mix
 #define MUS_VS_RANK_MATCH         475 // MUS_VS_RANK_MATCH = Legends Z-A Rank Match Trainer Battle theme, FR/LG Mix
 #define MUS_NEW_GAME_INTRO_GUYANA 476 // MUS_NEW_GAME_INTRO_GUYANA = oR/aS Southern Island, FR/LG Mix
+#define MUS_LAKE_OF_RAGE          477 // MUS_LAKE_OF_RAGE = Custom variation of Route 42 from HG/SS, with G/S title theme intro, FR/LG Mix
+#define MUS_CIANWOOD              478 // MUS_CIANWOOD = HG/SS Cianwood theme in G/S/C pitch and tempo, FR/LG Mix
+#define MUS_VS_ENTEI              479 // MUS_VS_ENTEI = HG/SS Entei Battle with Suicune's Crystal elements and tempo, FR/LG Mix
+#define MUS_CLIMBING_BELL_TOWER   480 // MUS_CLIMBING_BELL_TOWER = Custom Bell Tower remix for FR/LG, done by Calypso!
+#define MUS_FORTUNE_TELLING       481 // MUS_FORTUNE_TELLING = Fateen's Fortune Telling from Colosseum/XD, FR/LG Mix
+#define MUS_ROUTE103              482 // MUS_ROUTE103 = Route 101 (Hoenn Sounds) from HG/SS, FR/LG Mix
+#define MUS_ROUTE109              483 // MUS_ROUTE109 = Route 104 from R/S/E with elements of OR/AS, FR/LG Mix
+#define MUS_NEW_GAME_INTRO_UNOVA  484 // MUS_NEW_GAME_INTRO_UNOVA = The starting theme loop from Black, White, Black 2, and White 2, FR/LG Mix
+#define MUS_UNITY_ISLAND          485 // MUS_UNITY_ISLAND = Route 4 Unova (Summer), from B/W/B2/W2, FR/LG Mix
+#define MUS_UNITY_TOWER           486 // MUS_UNITY_TOWER = Unity Tower/United Nations, from B/W/B2/W2, FR/LG Mix
 
 #define MUS_NONE                  0xFFFF
 

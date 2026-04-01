@@ -23,5 +23,5 @@ TopsoilTown_Sign::
 
 TopsoilTown_Sign_Text_0:
 # 12 "data/maps/TopsoilTown/scripts.pory"
-	.string "TOPTOIL TOWN -\n"
+	.string "TOPSOIL TOWN -\n"
 	.string "GUYANA'S hidden agricultural haven.$"

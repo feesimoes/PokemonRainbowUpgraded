@@ -179,8 +179,6 @@ Route22_EventScript_LateRival::
 	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_LateRivalApproachBottom
 	msgbox Route22_Text_LateRivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_ROUTE22_RIVAL
-	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_LateRivalSquirtle
-	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_LateRivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_LateRivalCharmander
 	msgbox Route22_Text_LateRivalPostBattle
 	closemessage
@@ -203,14 +201,6 @@ Route22_EventScript_LateRivalApproachBottom::
 	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproachBottom
 	applymovement LOCALID_PLAYER, Route22_Movement_PlayerFaceRival
 	waitmovement 0
-	return
-
-Route22_EventScript_LateRivalSquirtle::
-	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, Route22_Text_LateRivalDefeat
-	return
-
-Route22_EventScript_LateRivalBulbasaur::
-	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Route22_Text_LateRivalDefeat
 	return
 
 Route22_EventScript_LateRivalCharmander::

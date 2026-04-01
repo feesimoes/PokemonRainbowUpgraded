@@ -131,7 +131,7 @@
     {
       "id": "HEAL_LOCATION_FOUR_ISLAND",
       "map": "MAP_FOUR_ISLAND",
-      "x": 18,
+      "x": 26,
       "y": 21,
       "respawn_map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FOUR_ISLAND_NURSE"
@@ -303,6 +303,46 @@
       "y": 44,
       "respawn_map": "MAP_OLIVINE_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_OLIVINE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MAHOGANY_TOWN",
+      "map": "MAP_MAHOGANY_TOWN",
+      "x": 27,
+      "y": 29,
+      "respawn_map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_MAHOGANY_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_JUBILIFE_CITY",
+      "map": "MAP_JUBILIFE_CITY",
+      "x": 55,
+      "y": 39,
+      "respawn_map": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_JUBILIFE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "x": 6,
+      "y": 6,
+      "respawn_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
+      "respawn_npc": "LOCALID_MOM"
+    },
+    {
+      "id": "HEAL_LOCATION_CIANWOOD_CITY",
+      "map": "MAP_CIANWOOD_CITY",
+      "x": 29,
+      "y": 40,
+      "respawn_map": "MAP_CIANWOOD_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_CIANWOOD_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_UNITY_ISLAND",
+      "map": "MAP_UNITY_ISLAND",
+      "x": 17,
+      "y": 19,
+      "respawn_map": "MAP_SAFFRON_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_SAFFRON_NURSE"
     }
   ]
 }

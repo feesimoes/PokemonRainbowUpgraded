@@ -761,7 +761,7 @@ void QL_RestoreMapLayoutId(void)
     if (gSaveBlock1Ptr->mapLayoutId == 0)
     {
         struct MapHeader header = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
-        gSaveBlock1Ptr->mapLayoutId = header.mapLayoutId;
+        gSaveBlock1Ptr->mapLayoutId = header.mapLayoutId; // TODO: Maybe this is where the fix is for the map name?
     }
 }
 
@@ -1152,7 +1152,7 @@ static void Task_QuestLogScene_SavedGame(u8 taskId)
     {
         if (sPlaybackControl.endMode != END_MODE_FINISH)
         {
-            GetMapNameGeneric(gStringVar1, gMapHeader.regionMapSectionId);
+            GetMapNameGeneric(gStringVar1, GetActualMapSectionId());
             StringExpandPlaceholders(gStringVar4, gText_QuestLog_SavedGameAtLocation);
             DrawSceneDescription();
         }

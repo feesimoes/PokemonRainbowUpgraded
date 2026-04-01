@@ -31,7 +31,7 @@ script Picknicker_Jamie_Route26_Battle {
 script Route26_Kanto_Biker_Dialogue {
     lock
     applymovement(2, movement_route26_npc_face_player)
-    msgbox(format("You're from KANTO, aren't you?\nMe too!\pIt's a shame though, POKéMON\non this route aren't legit?\pINDIGO LEAGUE said so,\nor something..."))
+    msgbox(format("You're from KANTO, aren't you?\nMe too!\pIt's a bit weird though, POKéMON\nfound here aren't from KANTO?\pINDIGO LEAGUE said so,\nor something..."))
     closemessage
     releaseall
     end

@@ -1,0 +1,13 @@
+mapscripts EcruteakCity_BarrierStation_MapScripts {}
+
+script EcruteakCity_BarrierStation_OldMan_Placeholder 
+{
+    lock
+    faceplayer
+    msgbox(format("Hm?\nAre you with maintenance?\pThank goodness! My apartment's\nplumbing broke again, and..."))
+    msgbox(format("Oh, wait, you aren't...\nYou're not even MR. HAN'S...\pNever mind...\nOh, but do you like this song?"))
+    msgbox(format("CALYPSO from the DEV CLUB in\nGOLDENROD CITY made this for me!"))
+    closemessage
+    release
+    end
+}

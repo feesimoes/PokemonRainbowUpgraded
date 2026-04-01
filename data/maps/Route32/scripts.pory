@@ -1,1 +1,67 @@
 mapscripts Route32_MapScripts {}
+
+script Route32_Sign 
+{
+    lock
+    msgbox(format("ROUTE 32 - CHERRYGROVE BAY\nROUTE 33 - UNION CAVE\pA path crossed by MAGNET TRAIN\nBRIDGE. Nature meets technology!"))
+    closemessage
+    release
+    end
+}
+
+script Route32_RuinsOfAlph_Sign 
+{
+    lock
+    msgbox(format("ROUTE 32 - RUINS OF ALPH\nVIOLET CITY is also up ahead!"))
+    closemessage
+    release
+    end
+}
+
+script Route32_ToCherrygrove_Sign 
+{
+    lock
+    msgbox(format("ROUTE 32 - CHERRYGROVE BAY\nPath to CHERRYGROVE CITY ahead!"))
+    closemessage
+    release
+    end
+}
+
+script Route32_Hiker
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE01_GET) == TRUE)
+    {
+        if (flag(FLAG_GOT_SHELL_BELL_ROUTE32) == TRUE)
+        {
+            checkitemspace(ITEM_SHELL_BELL, 1)
+            if (var(VAR_RESULT) == TRUE)
+            {
+                msgbox(format("Oh, that's...\nThe ZEPHYR BADGE, isn't it?\pVery nice, well done!\nI think I could part with this."))
+                giveitem(ITEM_SHELL_BELL, 1)
+                waitfanfare
+                msgbox(format("That's a SHELL BELL.\nI got it from HOENN'S SHOAL CAVE.\pI just had to give the old-\ntimer four SHOAL SALTS and SHELLS."))
+                msgbox(format("If you have a POKéMON in your\nPARTY hold it...\pThey should regain some lost HP,\nif they deal damage, that is!"))
+            }
+            else
+            {
+                msgbox(format("Oh, that's...\nThe ZEPHYR BADGE, isn't it?\pVery nice, well done!\nI'd give you something, but..."))
+                msgbox(format("Do you think you could clear up\nsome space in your BAG, first?"))
+            }
+        }
+        else
+        {
+            msgbox(format("That's a SHELL BELL.\nI got it from HOENN'S SHOAL CAVE.\pI just had to give the old-\ntimer four SHOAL SALTS and SHELLS."))
+            msgbox(format("If you have a POKéMON in your\nPARTY hold it...\pThey should regain some lost HP,\nif they deal damage, that is!"))
+        }
+    }
+    else
+    {
+        msgbox(format("Oh, is that right?\nYou came all the way from KANTO?\pThat's impressive. Are you thinking\nof earning JOHTO BADGES, too?"))
+        msgbox(format("Let me know when you get\nWALKER'S ZEPHYR BADGE, alright?"))
+    }
+    closemessage
+    release
+    end
+}

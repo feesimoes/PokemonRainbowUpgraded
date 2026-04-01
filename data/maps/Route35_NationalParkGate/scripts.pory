@@ -1,0 +1,25 @@
+mapscripts Route35_NationalParkGate_MapScripts {}
+
+script Route35_NationalParkGate_BugCatchingContest_Info_Clerk 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi, welcome to NATIONAL PARK!\nHome of the BUG CATCHING CONTEST!\pWould you like to know more?"), MSGBOX_YESNO)    
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Of course, I'm happy to explain!\nIn this sport, we use SAFARI BALLS.\pWe will supply 10 SAFARI BALLS,\nand 10 minutes to catch."))
+        msgbox(format("For each GYM BADGE you collect,\nwe'll add another 2 SAFARI BALLS.\pThe timer will also be extended by\nan additional 1 minute each!"))
+        msgbox(format("Everyone is welcome to join in,\nand we're always running it!\pThere is also no fee in any\npart of the CATCHING CONTEST."))
+        msgbox(format("You will need one free space in\nyour PARTY to register.\pOnce you catch a POKéMON in the\ngame, it will be judged!"))
+        msgbox(format("If you run out of time or SAFARI\nBALLS, you'll lose there, too.\pTry to catch rarer POKéMON for a\nchance to claim great rewards!"))
+        msgbox(format("You also get to keep your catches!\nIf that all sounds good...\pYou can talk to my associate,\non the counter across from me."))
+        msgbox(format("Good luck out there!"))
+    }
+    else
+    {
+        msgbox(format("No worries, enjoy the scenery!"))
+    }
+    closemessage
+    release
+    end
+}

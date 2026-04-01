@@ -1,0 +1,55 @@
+mapscripts GoldenrodCity_FlowerShop_MapScripts {}
+
+script GoldenrodCity_FlowerShop_Little_Girl 
+{
+    lock
+    faceplayer
+    msgbox(format("My voice sounds so weird!\nHave you ever listened to yours?"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_FlowerShop_Old_Woman
+{
+    lock
+    faceplayer
+    msgbox(format("What's that, you say?\nI'm so beautiful...?\pI know it!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_FlowerShop_Beauty
+{
+    lock
+    faceplayer
+    msgbox(format("Every day is a constant struggle...\nIn the mirror, I look so ugly!"))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_FlowerShop_Woman_1
+{
+    lock
+    faceplayer
+    checkitem(ITEM_SQUIRT_BOTTLE, 1)
+    if (var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("Plants are like POKéMON, you know...\nTreat them with love and care!"))
+    }
+    else
+    {
+        msgbox(format("Hello! Oh, you're from KANTO?!\nHmm... You definitely need this!"))
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        giveitem_msg(msgbox(format("{PLAYER} got a SQUIRT BOTTLE from\nthe enthusiastic woman.")), ITEM_SQUIRT_BOTTLE, 1, MUS_OBTAIN_KEY_ITEM)
+        waitmessage
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox(format("With that, you can grow BERRIES!\nTreat all plants with love and care!"))
+    }
+    closemessage
+    release
+    end
+}

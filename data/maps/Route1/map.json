@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_VIRIDIAN_CITY",
-      "offset": -12,
+      "offset": -6,
       "direction": "up"
     },
     {
       "map": "MAP_PALLET_TOWN_2",
-      "offset": 0,
+      "offset": 6,
       "direction": "down"
     }
   ],
@@ -29,7 +29,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 5,
+      "x": 11,
       "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -38,12 +38,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_EventScript_MartClerk",
-      "flag": "0"
+      "flag": "FLAG_GOT_POTION_ON_ROUTE_1"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 17,
+      "x": 23,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -56,22 +56,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_HO_OH",
-      "x": 30,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_ROUTE1_HO_OH_EVENT_HAPPENED"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 25,
+      "x": 31,
       "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -85,7 +71,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 23,
+      "x": 29,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -99,7 +85,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 22,
+      "x": 28,
       "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -113,7 +99,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 24,
+      "x": 30,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -125,12 +111,13 @@
       "flag": "FLAG_ROUTE1_HO_OH_EVENT_HAPPENED"
     },
     {
+      "local_id": "LOCALID_ROUTE1_MISTY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MISTY",
-      "x": 31,
+      "x": 37,
       "y": 19,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -141,7 +128,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 25,
+      "x": 31,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -155,7 +142,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 17,
+      "x": 23,
       "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -169,7 +156,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 18,
+      "x": 24,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -183,7 +170,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
-      "x": 16,
+      "x": 22,
       "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -200,8 +187,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 9,
-      "y": 31,
+      "x": 15,
+      "y": 32,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route1_EventScript_RouteSign"

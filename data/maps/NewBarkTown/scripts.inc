@@ -166,66 +166,88 @@ Movement_NewBarkTown_Face_Player_Up:
 # 114 "data/maps/NewBarkTown/scripts.pory"
 	step_end
 
-NewBarkTown_ResetProgress::
+NewBarkTown_RechooseStarter::
 # 119 "data/maps/NewBarkTown/scripts.pory"
 	lock
 # 120 "data/maps/NewBarkTown/scripts.pory"
 	faceplayer
 # 121 "data/maps/NewBarkTown/scripts.pory"
-	msgbox NewBarkTown_ResetProgress_Text_0
+	msgbox NewBarkTown_RechooseStarter_Text_0
 # 122 "data/maps/NewBarkTown/scripts.pory"
 	closemessage
 # 123 "data/maps/NewBarkTown/scripts.pory"
-	setvar VAR_JOHTO_STORY_PROGRESS, 0
+	setvar VAR_MEW_QUEST_PROGRESS, 11
 # 124 "data/maps/NewBarkTown/scripts.pory"
-	setvar VAR_MEW_QUEST_PROGRESS, 0
+	clearflag FLAG_JOHTO_CHOSE_CHIKORITA
 # 125 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_MEW_QUEST_STARTED
+	clearflag FLAG_JOHTO_CHOSE_TOTODILE
 # 126 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE01_GET
+	clearflag FLAG_JOHTO_CHOSE_CYNDAQUIL
 # 127 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE02_GET
-# 128 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE03_GET
-# 129 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE04_GET
-# 130 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE05_GET
-# 131 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE06_GET
-# 132 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE07_GET
+	release
+	end
+
+
+NewBarkTown_ResetProgress::
 # 133 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_JOHTO_BADGE08_GET
+	lock
 # 134 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_SYS_NATIONAL_DEX
+	faceplayer
 # 135 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_DARK_CAVE
+	msgbox NewBarkTown_ResetProgress_Text_0
 # 136 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_RUINS_OF_ALPH
+	closemessage
 # 137 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_ROUTE32_POKEMON_CENTER_1F
+	setvar VAR_JOHTO_STORY_PROGRESS, 0
 # 138 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_VIOLET_CITY
+	setvar VAR_MEW_QUEST_PROGRESS, 0
 # 139 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_CHERRYGROVE_CITY
+	clearflag FLAG_MEW_QUEST_STARTED
 # 140 "data/maps/NewBarkTown/scripts.pory"
-	setflag FLAG_HIDE_VIRIDIAN_RIVAL
+	clearflag FLAG_JOHTO_BADGE01_GET
 # 141 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_HIDE_VIRIDIAN_GIOVANNI
+	clearflag FLAG_JOHTO_BADGE02_GET
 # 142 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_BADGE08_GET
+	clearflag FLAG_JOHTO_BADGE03_GET
 # 143 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_NEW_BARK_TOWN
+	clearflag FLAG_JOHTO_BADGE04_GET
 # 144 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_TOHJO_FALLS
+	clearflag FLAG_JOHTO_BADGE05_GET
 # 145 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_ROUTE27_REST_HOUSE
+	clearflag FLAG_JOHTO_BADGE06_GET
 # 146 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_OBTAINED_ROCK_CLIMB_KIT
+	clearflag FLAG_JOHTO_BADGE07_GET
 # 147 "data/maps/NewBarkTown/scripts.pory"
-	clearflag FLAG_WORLD_MAP_CANALAVE_CITY
+	clearflag FLAG_JOHTO_BADGE08_GET
 # 148 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_SYS_NATIONAL_DEX
+# 149 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_DARK_CAVE
+# 150 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_RUINS_OF_ALPH
+# 151 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_ROUTE32_POKEMON_CENTER_1F
+# 152 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_VIOLET_CITY
+# 153 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_CHERRYGROVE_CITY
+# 154 "data/maps/NewBarkTown/scripts.pory"
+	setflag FLAG_HIDE_VIRIDIAN_RIVAL
+# 155 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_HIDE_VIRIDIAN_GIOVANNI
+# 156 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_BADGE08_GET
+# 157 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_NEW_BARK_TOWN
+# 158 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_TOHJO_FALLS
+# 159 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_ROUTE27_REST_HOUSE
+# 160 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_OBTAINED_ROCK_CLIMB_KIT
+# 161 "data/maps/NewBarkTown/scripts.pory"
+	clearflag FLAG_WORLD_MAP_CANALAVE_CITY
+# 162 "data/maps/NewBarkTown/scripts.pory"
 	release
 	end
 
@@ -287,7 +309,12 @@ NewBarkTown_Police_Roadblock_Interrupt_Text_1:
 	.string "Sorry, you need to step back.\n"
 	.string "Report any criminal activity.$"
 
-NewBarkTown_ResetProgress_Text_0:
+NewBarkTown_RechooseStarter_Text_0:
 # 121 "data/maps/NewBarkTown/scripts.pory"
+	.string "I gotchu.\n"
+	.string "Bless up.$"
+
+NewBarkTown_ResetProgress_Text_0:
+# 135 "data/maps/NewBarkTown/scripts.pory"
 	.string "I just reset your progress.\n"
 	.string "Leave and come back to update!$"

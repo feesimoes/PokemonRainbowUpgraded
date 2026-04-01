@@ -2,10 +2,10 @@
   "id": "MAP_DIGLETTS_CAVE_B1F",
   "name": "DiglettsCave_B1F",
   "layout": "LAYOUT_DIGLETTS_CAVE_B1F",
-  "music": "MUS_VIRIDIAN_FOREST",
+  "music": "MUS_ROCK_TUNNEL",
   "region_map_section": "MAPSEC_DIGLETTS_CAVE",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
   "allow_escaping": true,
@@ -17,8 +17,8 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 3,
-      "y": 3,
+      "x": 20,
+      "y": 45,
       "elevation": 3,
       "dest_map": "MAP_DIGLETTS_CAVE_NORTH_ENTRANCE",
       "dest_warp_id": "0"
@@ -29,6 +29,13 @@
       "elevation": 3,
       "dest_map": "MAP_DIGLETTS_CAVE_SOUTH_ENTRANCE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_MT_MOON_2F",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [],

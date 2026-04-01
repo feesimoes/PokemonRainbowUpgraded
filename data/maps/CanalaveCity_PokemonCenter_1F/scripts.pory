@@ -13,3 +13,12 @@ mapscripts CanalaveCity_PokemonCenter_1F_MapScripts
         call(CableClub_OnResume)
     }
 }
+
+script CanalaveCity_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}

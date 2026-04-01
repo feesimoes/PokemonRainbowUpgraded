@@ -86,8 +86,50 @@ script GoldenrodCity_GTS_2F_DevClub_Calypso
     faceplayer
     playbgm(MUS_ENCOUNTER_CALYPSO, FALSE)
     msgbox(format("CALYPSO: Hey! I used to be\npart of TEAM ROCKET, so...\pI've heard of you, {PLAYER}, but\nI work with RODOLFO now.\pHe's a pretty chill guy."))
+    msgbox(format("Do you want to battle?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        trainerbattle_earlyrival(TRAINER_CONTRIBUTOR_CALYPSO, 0, format("WHAT?\nOh, man... Wow!"), format("Nice try."))
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox(format("CALYPSO: Wow...\nThat was awesome... Here!"))
+        giveitem(ITEM_MASTER_BALL, 1)
+        waitfanfare
+        waitmessage
+        msgbox(format("One of the perks to being\npart of the DEV CLUB!\pEasy MASTER BALLS, or any item!"))
+        msgbox(format("Come back if you want to\nrematch me, alright?"))
+        cleartrainerflag(TRAINER_CONTRIBUTOR_CALYPSO)
+    }
+    else
+    {
+        msgbox(format("That's fine.\nCome back if you want to!"))
+        fadedefaultbgm
+    }
     closemessage
     fadedefaultbgm
+    release
+    end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_GamingX 
+{
+    lock
+    faceplayer
+    msgbox(format("GAMINGX: There's a special place in\n'HELL' for CLEFAIRY!\pI could say more, but...\nEh, I wouldn't be allowed to."))
+    msgbox(format("If I could store my opponents in my\nPC BOXES, like POKéMON...\pMISTY, KOGA... Yep, they're going\nstraight to my 'HELL' storage!"))
+    msgbox(format("I also... Just...\nReally, really... appreciate LAMPENT.\pI'm not biased, or anything.\nNo way..."))
+    closemessage
+    release
+    end
+}
+
+script GoldenrodCity_GTS_2F_DevClub_GreenJoe
+{
+    lock
+    faceplayer
+    msgbox(format("GREENJOE12345: I'm playing POKéMON\nRAINBOW, and giving feedback on it."))
+    msgbox(format("Did you know, BINOCULARS in ROUTE\n26'S GATEHOUSE had nothing?\pAfter I pointed it out, they started\nshowing MT. SILVER on one.\pThe other showed INDIGO PLATEAU."))
+    msgbox(format("Several typos and bugs I showed...\nThose got fixed too."))
+    closemessage
     release
     end
 }

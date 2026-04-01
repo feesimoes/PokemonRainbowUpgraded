@@ -111,7 +111,7 @@ script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpe
         faceplayer
         msgbox(format("MR. FUJI: Has my POKé FLUTE\nhelped you?\p...Hm? What's the matter?\nSILPH CO.'s prototype, stolen?"))
         msgbox(format("I'm not sure I understand\nwhy the PRESIDENT would...\pHm...\nOh, right..."))
-        msgbox(format("{PLAYER}. I cannot help you.\nHowever...\pIf you truly had deep\nlove for POKéMON...\pYou wouldn't have skipped\nthe 7th GYM BADGE."))
+        msgbox(format("{PLAYER}. I cannot help you.\nHowever...\pIf you truly had deep\nlove for POKéMON...\pYou wouldn't have skipped\nthe VOLCANO BADGE."))
         msgbox(format("So, please speak with BLAINE.\nCINNABAR ISLAND's GYM LEADER...\pYes, that's who you must\nface, of course..."))
         msgbox(format("I will be cheering you on\nfor your final challenge!\pBring out your strongest POKéMON\nand secure the BADGE."))
         setvar(VAR_MEW_QUEST_PROGRESS, 2)
@@ -123,7 +123,7 @@ script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpe
 	{
         lock
         faceplayer
-        msgbox(format("MR. FUJI: Bring your strongest\nPOKéMON, and secure the 7th BADGE.\pI will be cheering you on!\n...From distance of CINNABAR ISLAND."))
+        msgbox(format("MR. FUJI: Bring your strongest\nPOKéMON, secure the VOLCANO BADGE.\pI will be cheering you on!\n...From distance of CINNABAR ISLAND."))
         closemessage
 		clearflag(FLAG_HIDE_CINNABAR_ISLAND_GYM_BLAINE)
         release

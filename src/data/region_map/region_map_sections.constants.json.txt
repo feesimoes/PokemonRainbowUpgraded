@@ -11,7 +11,7 @@ enum {
 };
 
 // Values before KANTO_MAPSEC_START are assumed to have no data.
-#define KANTO_MAPSEC_START   MAPSEC_PALLET_TOWN
+#define KANTO_MAPSEC_START   MAPSEC_LITTLEROOT_TOWN
 
 // Values starting from SEVII_MAPSEC_START are assumed to have data in sSeviiMapsecs.
 #define SEVII_MAPSEC_START   MAPSEC_ONE_ISLAND

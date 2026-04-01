@@ -1,0 +1,10 @@
+mapscripts Route43_SouthEntrance_MapScripts {}
+
+script Route43_SouthEntrance_Guard 
+{
+    lock
+    faceplayer
+    msgbox(format("ROUTE 43 is up ahead, but there is\na pretty bad storm right now...\pAlso, beware the greedy gate!"))
+    release
+    end
+}

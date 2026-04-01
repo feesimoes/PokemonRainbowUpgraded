@@ -528,4 +528,15 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES + 1] =
     [SPECIES_SHAYMIN_LAND] = sShayminLandLevelUpLearnset,
     [SPECIES_SHAYMIN_SKY] = sShayminSkyLevelUpLearnset,
     [SPECIES_ARCEUS_NORMAL] = sArceusLevelUpLearnset,
+    [SPECIES_VENIPEDE] = sVenipedeLevelUpLearnset,
+    [SPECIES_WHIRLIPEDE] = sWhirlipedeLevelUpLearnset,
+    [SPECIES_SCOLIPEDE] = sScolipedeLevelUpLearnset,
+    [SPECIES_SANDSHREW_ALOLA] = sSandshrewLevelUpLearnset,
+    [SPECIES_SANDSLASH_ALOLA] = sSandslashLevelUpLearnset,
+    [SPECIES_GEODUDE_ALOLA] = sGeodudeLevelUpLearnset,
+    [SPECIES_GRAVELER_ALOLA] = sGravelerLevelUpLearnset,
+    [SPECIES_GOLEM_ALOLA] = sGolemLevelUpLearnset,
+    [SPECIES_EXEGGUTOR_ALOLA] = sExeggutorLevelUpLearnset,
+    [SPECIES_MAROWAK_ALOLA] = sMarowakLevelUpLearnset,
+    
 };

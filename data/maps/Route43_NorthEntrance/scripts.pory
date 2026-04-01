@@ -1,0 +1,35 @@
+mapscripts Route43_NorthEntrance_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setvar(VAR_TEMP_0, 0)
+    }
+}
+
+script Route43_TriggerLeft_EnterLakeOfRage 
+{
+    if (var(VAR_DAY_DATE) == 2)
+    {
+        setdynamicwarp(MAP_LAKE_OF_RAGE_SUNNY, 0)
+    }
+    else
+    {
+        setdynamicwarp(MAP_LAKE_OF_RAGE, 0)
+    }
+    release
+    end
+}
+
+script Route43_TriggerRight_EnterLakeOfRage 
+{
+    if (var(VAR_DAY_DATE) == 2)
+    {
+        setdynamicwarp(MAP_LAKE_OF_RAGE_SUNNY, 1)
+    }
+    else
+    {
+        setdynamicwarp(MAP_LAKE_OF_RAGE, 1)
+    }
+    release
+    end
+}

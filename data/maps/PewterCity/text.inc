@@ -47,8 +47,7 @@ PewterCity_Text_ReallyYouHaveToGo::
 
 PewterCity_Text_ThisIsTheMuseum::
     .string "This is it, the MUSEUM.\p"
-    .string "You have to pay to get in, but it's\n"
-    .string "worth it. See you around!$"
+    .string "It's worth it. See you around!$"
 
 PewterCity_Text_DoYouKnowWhatImDoing::
     .string "Psssst!\n"

@@ -693,6 +693,30 @@ extern const u8 gFameCheckerFlavorTextOriginObjectName_Koga0_PostGame[];
 extern const u8 gFameCheckerFlavorText_Koga0_PostGame[];
 extern const u8 gFameCheckerFlavorText_Koga3_PostGame[];
 
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue0[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue1[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue2[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue3[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue4[];
+extern const u8 gFameCheckerFlavorTextOriginObjectName_RivalBlue5[];
+
+extern const u8 gFameCheckerFlavorText_RivalBlue0[];
+extern const u8 gFameCheckerFlavorText_RivalBlue1[];
+extern const u8 gFameCheckerFlavorText_RivalBlue2[];
+extern const u8 gFameCheckerFlavorText_RivalBlue3[];
+extern const u8 gFameCheckerFlavorText_RivalBlue4[];
+extern const u8 gFameCheckerFlavorText_RivalBlue5[];
+
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue0[];
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue1[];
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue2[];
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue3[];
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue4[];
+extern const u8 gFameCheckerFlavorTextOriginLocation_RivalBlue5[];
+
+extern const u8 gFameCheckerPersonName_RivalBlue[];
+extern const u8 gFameCheckerPersonQuote_RivalBlue[];
+
 extern const u8 gOtherText_NewName[];
 extern const u8 gNameChoice_Green[];
 extern const u8 gNameChoice_Red[];

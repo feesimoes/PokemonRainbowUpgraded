@@ -1,1 +1,8 @@
-mapscripts PalletTown_2_MapScripts {}
+mapscripts PalletTown_2_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setweather(WEATHER_SUNNY)
+        doweather
+    }
+}

@@ -2,7 +2,7 @@
   "id": "MAP_ONE_ISLAND_KINDLE_ROAD",
   "name": "OneIsland_KindleRoad",
   "layout": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
-  "music": "MUS_ROUTE3",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_KINDLE_ROAD",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -23,6 +23,11 @@
       "map": "MAP_MT_EMBER_EXTERIOR",
       "offset": -17,
       "direction": "up"
+    },
+    {
+      "map": "MAP_SEVII123_OCEAN_NW",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

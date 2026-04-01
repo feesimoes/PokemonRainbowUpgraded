@@ -175,7 +175,7 @@ static const RecordEventFunc sRecordEventFuncs[] = {
     [QL_EVENT_SCENE_END]                     = NULL,
     [QL_EVENT_OBTAINED_STORY_ITEM]           = (RecordEventFunc) RecordEvent_ObtainedStoryItem,
     [QL_EVENT_WAIT]                          = NULL,
-    [QL_EVENT_ARRIVED]                       = (RecordEventFunc) RecordEvent_ArrivedInLocation
+    [QL_EVENT_ARRIVED]                       = (RecordEventFunc) RecordEvent_ArrivedInLocation,
 };
 
 static const u16 *(*const sLoadEventFuncs[])(const u16 *) = {
@@ -221,7 +221,7 @@ static const u16 *(*const sLoadEventFuncs[])(const u16 *) = {
     [QL_EVENT_SCENE_END]                     = NULL,
     [QL_EVENT_OBTAINED_STORY_ITEM]           = LoadEvent_ObtainedStoryItem,
     [QL_EVENT_WAIT]                          = NULL,
-    [QL_EVENT_ARRIVED]                       = LoadEvent_ArrivedInLocation
+    [QL_EVENT_ARRIVED]                       = LoadEvent_ArrivedInLocation,
 };
 
 static const u8 sQuestLogEventCmdSizes[] = {
@@ -267,7 +267,7 @@ static const u8 sQuestLogEventCmdSizes[] = {
     [QL_EVENT_SCENE_END]                     = 2,
     [QL_EVENT_OBTAINED_STORY_ITEM]           = CMD_HEADER_SIZE + 4,
     [QL_EVENT_WAIT]                          = 4,
-    [QL_EVENT_ARRIVED]                       = CMD_HEADER_SIZE + 2
+    [QL_EVENT_ARRIVED]                       = CMD_HEADER_SIZE + 2,
 };
 
 static const u8 *const sDefeatedOpponentFlavorTexts[] = {
@@ -641,9 +641,8 @@ static bool8 ShouldRegisterEvent_HandleBeatStoryTrainer(u16 eventId, const u16 *
         if (trainerClass == TRAINER_CLASS_RIVAL_EARLY
          || trainerClass == TRAINER_CLASS_RIVAL_LATE
          || trainerClass == TRAINER_CLASS_CHAMPION
+         || trainerClass == TRAINER_CLASS_CHAMPION_2
          || trainerClass == TRAINER_CLASS_BOSS)
-            return FALSE;
-        if (trainerClass == TRAINER_CLASS_CHAMPION_2)
             return FALSE;
         return TRUE;
     }
@@ -1880,6 +1879,7 @@ static u16 *RecordEvent_DefeatedChampion(u16 *dest, const struct QuestLogEvent_T
     dest[2] = data->speciesOpponent;
     dest[3] = data->speciesPlayer;
     *((u8 *)dest + 8) = data->hpFractionId;
+    *((u8 *)dest + 9) = (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION_2);
     sStepRecordingMode = STEP_RECORDING_MODE_DISABLED;
     return dest + 5;
 }
@@ -1887,25 +1887,41 @@ static u16 *RecordEvent_DefeatedChampion(u16 *dest, const struct QuestLogEvent_T
 static const u16 *LoadEvent_DefeatedChampion(const u16 *a0)
 {
     const u8 *r5;
+    bool8 isLance;
     if (!QL_IsRoomToSaveEvent(a0, sQuestLogEventCmdSizes[QL_EVENT_DEFEATED_CHAMPION]))
         return NULL;
 
     r5 = (const u8 *)a0 + 8;
+    isLance = r5[1];
     DynamicPlaceholderTextUtil_Reset();
 
     switch (gQuestLogRepeatEventTracker.counter)
     {
     case 0:
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock2Ptr->playerName);
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gSaveBlock1Ptr->rivalName);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerBattledChampionRival);
+        if (isLance == TRUE)
+        {
+            DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerBattledChampionLance);
+        }
+        else
+        {
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gSaveBlock1Ptr->rivalName);
+            DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerBattledChampionRival);
+        }
         break;
     case 1:
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock1Ptr->rivalName);
-        QuestLog_GetSpeciesName(a0[2], NULL, 1);
+        QuestLog_GetSpeciesName(a0[2], NULL, 1); // Opponent Pokemon
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, gSaveBlock2Ptr->playerName);
-        QuestLog_GetSpeciesName(a0[3], NULL, 3);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerSentOutMon1RivalSentOutMon2);
+        QuestLog_GetSpeciesName(a0[3], NULL, 3); // Player's Pokemon
+        if (isLance == TRUE)
+        {
+            DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerSentOutMon1LanceSentOutMon2);
+        }
+        else
+        {
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock1Ptr->rivalName);
+            DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_PlayerSentOutMon1RivalSentOutMon2);
+        }
         break;
     case 2:
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sDefeatedChampionFlavorTexts[r5[0]]);
@@ -2068,7 +2084,7 @@ static const u16 *LoadEvent_UsedFieldMove(const u16 *eventData)
     // If used Teleport, get name of destination
     if (r5[0] == FIELD_MOVE_TELEPORT)
     {
-        if (r5[1] == MAPSEC_PALLET_TOWN)
+        if (r5[1] == MAPSEC_PALLET_TOWN_2)
             StringCopy(gStringVar3, gText_QuestLog_Home);
         else
             StringCopy(gStringVar3, gText_PokemonCenter);
@@ -2211,7 +2227,7 @@ void SetQuestLogEvent_Arrived(void)
     {
         if (sNewlyEnteredMap)
         {
-            u16 mapSec = gMapHeader.regionMapSectionId;
+            u16 mapSec = GetActualMapSectionId();
             SetQuestLogEvent(QL_EVENT_ARRIVED, &mapSec);
             sNewlyEnteredMap = FALSE;
         }

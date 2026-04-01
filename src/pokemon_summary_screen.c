@@ -2088,10 +2088,14 @@ static void BufferMonInfo(void)
     dexNum = SpeciesToPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES));
     if (dexNum < SPECIES_EGG)
     {
-        if (dexNum == 0xffff)
+        if (dexNum == 0xFFFF)
+        {
             StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
+        }
         else
+        {
             ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
+        }
 
         sMonSkillsPrinterXpos->unk00 = 0;
 
@@ -2103,7 +2107,6 @@ static void BufferMonInfo(void)
         else
         {
             GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, sMonSummaryScreen->summary.speciesNameStrBuf);
-            return;
         }
 
         sMonSummaryScreen->monTypes[0] = gSpeciesInfo[dexNum].types[0];
@@ -2148,8 +2151,27 @@ static void BufferMonInfo(void)
     }
     else
     {
-        StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
-        
+        if (dexNum == 0xFFFF)
+        {
+            StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
+        }
+
+        sMonSkillsPrinterXpos->unk00 = 0;
+
+        if (!sMonSummaryScreen->isEgg)
+        {
+            dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
+            GetSpeciesName(sMonSummaryScreen->summary.speciesNameStrBuf, dexNum);
+        }
+        else
+        {
+            GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_NICKNAME, sMonSummaryScreen->summary.speciesNameStrBuf);
+        }
+
         sMonSummaryScreen->monTypes[0] = gSpeciesInfo[dexNum].types[0];
         sMonSummaryScreen->monTypes[1] = gSpeciesInfo[dexNum].types[1];
 
@@ -2158,6 +2180,7 @@ static void BufferMonInfo(void)
         StringGet_Nickname(sMonSummaryScreen->summary.nicknameStrBuf);
 
         gender = GetMonGender(&sMonSummaryScreen->currentMon);
+        dexNum = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES_OR_EGG);
 
         if (gender == MON_FEMALE)
             StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_FemaleSymbol);
@@ -2165,6 +2188,10 @@ static void BufferMonInfo(void)
             StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gText_MaleSymbol);
         else
             StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
+
+        if (dexNum == SPECIES_NIDORAN_M || dexNum == SPECIES_NIDORAN_F)
+            if (StringCompare(sMonSummaryScreen->summary.nicknameStrBuf, gSpeciesNames[dexNum]) == 0)
+                StringCopy(sMonSummaryScreen->summary.genderSymbolStrBuf, gString_Dummy);
 
         GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_NAME, tempStr);
         StringCopyN_Multibyte(sMonSummaryScreen->summary.otNameStrBuf, tempStr, PLAYER_NAME_LENGTH);
@@ -2657,6 +2684,8 @@ static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
     u8 levelStr[5];
     u8 mapNameStr[32];
     u8 natureMetOrHatchedAtLevelStr[152];
+    u32 rainbowLocationFactor;
+    u16 speciesId;
 
     DynamicPlaceholderTextUtil_Reset();
     nature = GetNature(&sMonSummaryScreen->currentMon);
@@ -2669,9 +2698,26 @@ static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
     ConvertIntToDecimalStringN(levelStr, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, levelStr);
 
-    metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+    speciesId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
+    if (speciesId == SPECIES_MEW)
+    {
+        metLocation = MAPSEC_MT_MORA;
+    }
+    else if (speciesId == SPECIES_ENTEI)
+    {
+        metLocation = MAPSEC_MT_EMBER;
+    }
+    else
+    {
+        metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+        rainbowLocationFactor = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_RAINBOW_LOCATION);
+        if (rainbowLocationFactor == 1)
+        {
+            metLocation += 256;
+        }
+    }
 
-    if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
+    if (metLocation != MAPSEC_RESERVED_METLOC_IN_GAME_TRADE)
         GetMapNameGeneric_(mapNameStr, metLocation);
     else
     {
@@ -2731,6 +2777,8 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
     u8 levelStr[5];
     u8 mapNameStr[32];
     u8 natureMetOrHatchedAtLevelStr[152];
+    u32 rainbowLocationFactor;
+    u16 speciesId;
 
     DynamicPlaceholderTextUtil_Reset();
     nature = GetNature(&sMonSummaryScreen->currentMon);
@@ -2744,7 +2792,24 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
     ConvertIntToDecimalStringN(levelStr, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, levelStr);
 
-    metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+    speciesId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
+    if (speciesId == SPECIES_MEW)
+    {
+        metLocation = MAPSEC_MT_MORA;
+    }
+    else if (speciesId == SPECIES_ENTEI)
+    {
+        metLocation = MAPSEC_MT_EMBER;
+    }
+    else
+    {
+        metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+        rainbowLocationFactor = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_RAINBOW_LOCATION);
+        if (rainbowLocationFactor == 1)
+        {
+            metLocation += 256;
+        }
+    }
 
     if (!MapSecIsInKantoOrSevii(metLocation) || !CurrentMonIsFromGBA())
     {
@@ -2773,7 +2838,7 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
         return;
     }
 
-    if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
+    if (metLocation != MAPSEC_RESERVED_METLOC_IN_GAME_TRADE)
         GetMapNameGeneric_(mapNameStr, metLocation);
     else
         StringCopy(mapNameStr, gText_PokeSum_ATrade);
@@ -2833,8 +2898,27 @@ static void PokeSum_PrintTrainerMemo_Egg(void)
     u16 metLocation;
     u8 version;
     u8 chosenStrIndex = 0;
+    u32 rainbowLocationFactor;
+    u16 speciesId;
 
-    metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+    speciesId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES);
+    if (speciesId == SPECIES_MEW)
+    {
+        metLocation = MAPSEC_MT_MORA;
+    }
+    else if (speciesId == SPECIES_ENTEI)
+    {
+        metLocation = MAPSEC_MT_EMBER;
+    }
+    else
+    {
+        metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
+        rainbowLocationFactor = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_RAINBOW_LOCATION);
+        if (rainbowLocationFactor == 1)
+        {
+            metLocation += 256;
+        }
+    }
 
     if (sMonSummaryScreen->monList.mons != gEnemyParty)
     {
@@ -5252,11 +5336,10 @@ static bool32 CurrentMonIsFromGBA(void)
     return FALSE;
 }
 
+// Sort of redundant code left over from base FR/LG, since the whole world will be in this game, anyways.
 static bool32 MapSecIsInKantoOrSevii(u16 mapSec)
 {
-    if (mapSec < MAPSEC_NEW_BARK_TOWN)
-        return TRUE;
-    return FALSE;
+    return TRUE;
 }
 
 // Unused

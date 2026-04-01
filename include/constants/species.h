@@ -796,11 +796,15 @@
 #define SPECIES_HOOPA_CONFINED                          778
 #define SPECIES_VOLCANION                               779
 
-// Alolan Species, to be added below... Only some unique forms, for now.
+// Alolan Species, to be added below... Only some unique forms, for now. Can't be registered to PokeDex.
 
-#define SPECIES_SANDSLASH_ALOLA                         780
-#define SPECIES_GOLEM_ALOLA                             781
-#define SPECIES_MAROWAK_ALOLA                           782
+#define SPECIES_SANDSHREW_ALOLA                         780
+#define SPECIES_SANDSLASH_ALOLA                         781
+#define SPECIES_GEODUDE_ALOLA                           782
+#define SPECIES_GRAVELER_ALOLA                          783
+#define SPECIES_GOLEM_ALOLA                             784
+#define SPECIES_EXEGGUTOR_ALOLA                         785
+#define SPECIES_MAROWAK_ALOLA                           786
 
 #define NUM_SPECIES SPECIES_MAROWAK_ALOLA
 

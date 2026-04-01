@@ -264,7 +264,7 @@ void StartRoamerBattle(void)
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_ROAMER;
-    CreateBattleStartTask(GetWildBattleTransition(), MUS_VS_LEGEND);
+    CreateBattleStartTask(GetWildBattleTransition(), MUS_VS_ENTEI);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
 }
@@ -365,6 +365,11 @@ void StartLegendaryBattle(void)
     case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_MEWTWO);
         break;
+    case SPECIES_ENTEI:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_ENTEI);
+        break;
+    case SPECIES_RAIKOU:
+    case SPECIES_SUICUNE:
     case SPECIES_DEOXYS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_DEOXYS);
         break;

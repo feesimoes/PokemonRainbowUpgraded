@@ -18,7 +18,7 @@ script CanalaveCity_Gym_2F_Hiker_Gary_Battle
 
 script CanalaveCity_Gym_2F_Lass_Porchia_Battle
 {
-    trainerbattle_single(TRAINER_LASS_PORCHIA, format("Um, did you just touch me?\n...\pJust kidding! I touched you! Haha,\nYou're it!"), format("Argh! Why did my plan fail?"))
+    trainerbattle_single(TRAINER_LASS_PORCHIA, format("Um, did you just touch me?\n...\pJust kidding! I touched you! Haha,\nyou're it!"), format("Argh! Why did my plan fail?"))
     msgbox(format("Please leave me alone!"))
     release
     end

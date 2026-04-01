@@ -13,6 +13,8 @@
 #include "task.h"
 #include "trig.h"
 #include "util.h"
+#include "event_data.h"
+#include "region_map.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
@@ -2052,7 +2054,7 @@ void TryShinyAnimation(u8 battler, struct Pokemon *mon)
     if (IsBattlerSpriteVisible(battler))
     {
         shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-        if (shinyValue < SHINY_ODDS)
+        if (shinyValue < GetCalculatedShinyOddsFromPokemon())
             isShiny = TRUE;
 
         if (isShiny)
@@ -2301,4 +2303,16 @@ void AnimTask_GetBattlersFromArg(u8 taskId)
     gBattleAnimAttacker = gBattleSpritesDataPtr->animationData->animArg;
     gBattleAnimTarget = gBattleSpritesDataPtr->animationData->animArg >> 8;
     DestroyAnimVisualTask(taskId);
+}
+
+u32 GetCalculatedShinyOddsFromPokemon(void) 
+{
+    return SHINY_ODDS;
+    /*
+    if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == VarGet(VAR_SHINY_ODDS_MULTIPLIER_REGION)) 
+    {
+        return 16 * (VarGet(VAR_SHINY_ODDS_MULTIPLIER) + 1);
+    }
+    return 16; // Default odds
+    */
 }

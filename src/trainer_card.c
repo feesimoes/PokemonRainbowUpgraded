@@ -663,8 +663,7 @@ static bool8 LoadCardGfx(void)
 {
     u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
     u8 mapNum = gSaveBlock1Ptr->location.mapNum;
-    u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
-    u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
+    u8 currentRegion = GetCurrentRegionIfNotKanto(GetActualMapSectionId());
 
     switch (sTrainerCardDataPtr->gfxLoadState)
     {
@@ -714,20 +713,15 @@ static bool8 LoadCardGfx(void)
     case 3:
         if (FlagGet(FLAG_SYS_NATIONAL_DEX) == TRUE)
         {
-            switch (currentRegion)
+            if (currentRegion == REGIONMAP_HOENN || currentRegion == REGIONMAP_SINNOH)
             {
-                case REGIONMAP_HOENN:
-                    LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
-                    LZ77UnCompWram(sSinnohTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
-                    break;
-                case REGIONMAP_SINNOH:
-                    LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
-                    LZ77UnCompWram(sSinnohTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
-                    break;
-                default:
-                    LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
-                    LZ77UnCompWram(sJohtoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
-                    break;
+                LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+                LZ77UnCompWram(sSinnohTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
+            }
+            else
+            {
+                LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+                LZ77UnCompWram(sJohtoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTilesJohto);
             }
         }
         else
@@ -969,8 +963,7 @@ static void SetDataFromTrainerCard(void)
     
     u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
     u8 mapNum = gSaveBlock1Ptr->location.mapNum;
-    u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
-    u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
+    u8 currentRegion = GetCurrentRegionIfNotKanto(GetActualMapSectionId());
 
     sTrainerCardDataPtr->hasPokedex = FALSE;
     sTrainerCardDataPtr->hasHofResult = FALSE;
@@ -1000,7 +993,7 @@ static void SetDataFromTrainerCard(void)
         sTrainerCardDataPtr->hasTrades++;
 
     // Switch between Kanto/Johto badges & Hoenn/Sinnoh badges depending on current region player is in
-    if (currentRegion == REGIONMAP_HOENN)
+    if (currentRegion == REGIONMAP_HOENN || currentRegion == REGIONMAP_SINNOH)
     {
         for (i = 0; i < 8; i++)
         {

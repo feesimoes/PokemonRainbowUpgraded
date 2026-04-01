@@ -1179,10 +1179,10 @@ static u16 GetLocationMusic(struct WarpData * warp)
             return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
         }
     }
-    //If Team Rocket is driven out of kanto entirely
+    //If Team Rocket is driven out of Kanto entirely (Usually by 8th Badge)
     else if (Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->regionMapSectionId == MAPSEC_VIRIDIAN_FOREST) 
     {
-        if (FlagGet(FLAG_HIDE_MISC_KANTO_ROCKETS))
+        if (FlagGet(FLAG_BADGE08_GET) == TRUE)
         {
             return MUS_VIRIDIAN_FOREST_PEACE;
         }
@@ -1256,7 +1256,7 @@ void Overworld_PlaySpecialMapMusic(void)
         music = gSaveBlock1Ptr->savedMusic;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
     {
-        switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
+        switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
         {
             case REGIONMAP_JOHTO:
                 music = MUS_SURF_JOHTO;
@@ -1305,16 +1305,19 @@ static void Overworld_TryMapConnectionMusicTransition(void)
         currentMusic = GetCurrentMapMusic();
         if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
         {
-            switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
+            switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
             {
-                case REGIONMAP_KANTO:
-                    newMusic = MUS_SURF;
-                    break;
                 case REGIONMAP_JOHTO:
                     newMusic = MUS_SURF_JOHTO;
                     break;
+                case REGIONMAP_HOENN:
+                    newMusic = MUS_SURF_HOENN;
+                    break;
                 case REGIONMAP_SINNOH:
                     newMusic = MUS_SURF_SINNOH;
+                    break;
+                default:
+                    newMusic = MUS_SURF;
                     break;
             }
         }
@@ -1439,9 +1442,10 @@ bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
         return FALSE;
     }
     
-    if (music == MUS_CYCLING || music == MUS_SURF)
+    if (music == MUS_CYCLING || music == MUS_CYCLING_JOHTO || music == MUS_CYCLING_HOENN || music == MUS_CYCLING_SINNOH
+        || music == MUS_SURF || music == MUS_SURF_JOHTO || music == MUS_SURF_HOENN || music == MUS_SURF_SINNOH)
     {
-        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU)
+        if (GetActualMapSectionId() == MAPSEC_KANTO_VICTORY_ROAD || GetActualMapSectionId() == MAPSEC_ROUTE_23 || GetActualMapSectionId() == MAPSEC_INDIGO_PLATEAU)
             return FALSE;
     }
     return TRUE;
@@ -1511,7 +1515,8 @@ static u8 GetSavedWarpRegionMapSectionId(void)
 
 u16 GetCurrentRegionMapSectionId(void)
 {
-    return (u16)(Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId);
+    return GetActualMapSectionId();
+    //return (u16)(Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId);
 }
 
 u8 GetCurrentMapBattleScene(void)
@@ -2175,10 +2180,10 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 inLink)
         (*state)++;
         break;
     case 12:
-        if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId && MapHasPreviewScreen_HandleQLState2(gMapHeader.regionMapSectionId, MPS_TYPE_FOREST) == TRUE)
+        if (GetLastUsedWarpMapSectionId() != GetActualMapSectionId() && MapHasPreviewScreen_HandleQLState2(gMapHeader.regionMapSectionId, MPS_TYPE_FOREST) == TRUE)
         {
-            MapPreview_LoadGfx(gMapHeader.regionMapSectionId);
-            MapPreview_StartForestTransition(gMapHeader.regionMapSectionId);
+            MapPreview_LoadGfx(GetActualMapSectionId());
+            MapPreview_StartForestTransition(GetActualMapSectionId());
         }
         else if (gMapHeader.showMapName == TRUE)
         {

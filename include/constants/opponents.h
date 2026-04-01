@@ -37,7 +37,7 @@
 //#define TRAINER_SR_AND_JR                         32
 //#define TRAINER_POKEFAN_M                         33
 //#define TRAINER_POKEFAN_F                         34
-#define TRAINER_EXPERT_M                          35
+//#define TRAINER_EXPERT_M                          35
 #define TRAINER_EXPERT_F                          36
 #define TRAINER_RS_YOUNGSTER                      37
 #define TRAINER_RS_CHAMPION                       38
@@ -438,8 +438,8 @@
 #define TRAINER_RIVAL_SILPH_SQUIRTLE             432
 #define TRAINER_RIVAL_SILPH_BULBASAUR            433
 #define TRAINER_RIVAL_SILPH_CHARMANDER           434
-#define TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE      435
-#define TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR     436
+#define TRAINER_RIVAL_CIANWOOD_CHAMPION          435 // TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE - repurposed, for while he's still champion, Cianwood City Battle
+#define TRAINER_RIVAL_CIANWOOD_FORMER_CHAMPION   436 // TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR - repurposed, for when no longer champion, Cianwood City Battle
 #define TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER    437
 #define TRAINER_CHAMPION_FIRST_SQUIRTLE          438
 #define TRAINER_CHAMPION_FIRST_BULBASAUR         439
@@ -806,6 +806,7 @@
 #define TRAINER_CHANNELER_EDITH                  32
 #define TRAINER_CHANNELER_MARTHA                 33
 #define TRAINER_LEADER_MORTY                     34
+#define TRAINER_CONTRIBUTOR_CALYPSO              35
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.

@@ -361,363 +361,343 @@ Route22_EventScript_LateRival::
 # 181 "data/maps/Route22/scripts.pory"
 	setvar VAR_LAST_TALKED, LOCALID_ROUTE22_RIVAL
 # 182 "data/maps/Route22/scripts.pory"
-	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_LateRivalSquirtle
-# 183 "data/maps/Route22/scripts.pory"
-	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_LateRivalBulbasaur
-# 184 "data/maps/Route22/scripts.pory"
 	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_LateRivalCharmander
-# 185 "data/maps/Route22/scripts.pory"
+# 183 "data/maps/Route22/scripts.pory"
 	msgbox Route22_Text_LateRivalPostBattle
-# 186 "data/maps/Route22/scripts.pory"
+# 184 "data/maps/Route22/scripts.pory"
 	closemessage
-# 187 "data/maps/Route22/scripts.pory"
+# 185 "data/maps/Route22/scripts.pory"
 	delay 10
-# 188 "data/maps/Route22/scripts.pory"
+# 186 "data/maps/Route22/scripts.pory"
 	playbgm MUS_RIVAL_EXIT, 0
-# 189 "data/maps/Route22/scripts.pory"
+# 187 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_LateRivalExit
-# 190 "data/maps/Route22/scripts.pory"
+# 188 "data/maps/Route22/scripts.pory"
 	waitmovement 0
-# 191 "data/maps/Route22/scripts.pory"
+# 189 "data/maps/Route22/scripts.pory"
 	fadedefaultbgm
-# 192 "data/maps/Route22/scripts.pory"
+# 190 "data/maps/Route22/scripts.pory"
 	removeobject LOCALID_ROUTE22_RIVAL
-# 193 "data/maps/Route22/scripts.pory"
+# 191 "data/maps/Route22/scripts.pory"
 	setvar VAR_MAP_SCENE_ROUTE22, 4
-# 194 "data/maps/Route22/scripts.pory"
+# 192 "data/maps/Route22/scripts.pory"
 	releaseall
-# 195 "data/maps/Route22/scripts.pory"
+# 193 "data/maps/Route22/scripts.pory"
 	end
-# 196 "data/maps/Route22/scripts.pory"
+# 194 "data/maps/Route22/scripts.pory"
 
-# 197 "data/maps/Route22/scripts.pory"
+# 195 "data/maps/Route22/scripts.pory"
 Route22_EventScript_LateRivalApproach::
-# 198 "data/maps/Route22/scripts.pory"
+# 196 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproach
+# 197 "data/maps/Route22/scripts.pory"
+	waitmovement 0
+# 198 "data/maps/Route22/scripts.pory"
+	return
 # 199 "data/maps/Route22/scripts.pory"
-	waitmovement 0
+
 # 200 "data/maps/Route22/scripts.pory"
-	return
-# 201 "data/maps/Route22/scripts.pory"
-
-# 202 "data/maps/Route22/scripts.pory"
 Route22_EventScript_LateRivalApproachBottom::
-# 203 "data/maps/Route22/scripts.pory"
+# 201 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE22_RIVAL, Route22_Movement_RivalApproachBottom
-# 204 "data/maps/Route22/scripts.pory"
+# 202 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_PLAYER, Route22_Movement_PlayerFaceRival
-# 205 "data/maps/Route22/scripts.pory"
+# 203 "data/maps/Route22/scripts.pory"
 	waitmovement 0
+# 204 "data/maps/Route22/scripts.pory"
+	return
+# 205 "data/maps/Route22/scripts.pory"
+
 # 206 "data/maps/Route22/scripts.pory"
-	return
-# 207 "data/maps/Route22/scripts.pory"
-
-# 208 "data/maps/Route22/scripts.pory"
-Route22_EventScript_LateRivalSquirtle::
-# 209 "data/maps/Route22/scripts.pory"
-	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, Route22_Text_LateRivalDefeat
-# 210 "data/maps/Route22/scripts.pory"
-	return
-# 211 "data/maps/Route22/scripts.pory"
-
-# 212 "data/maps/Route22/scripts.pory"
-Route22_EventScript_LateRivalBulbasaur::
-# 213 "data/maps/Route22/scripts.pory"
-	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Route22_Text_LateRivalDefeat
-# 214 "data/maps/Route22/scripts.pory"
-	return
-# 215 "data/maps/Route22/scripts.pory"
-
-# 216 "data/maps/Route22/scripts.pory"
 Route22_EventScript_LateRivalCharmander::
-# 217 "data/maps/Route22/scripts.pory"
+# 207 "data/maps/Route22/scripts.pory"
 	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER, Route22_Text_LateRivalDefeat
-# 218 "data/maps/Route22/scripts.pory"
+# 208 "data/maps/Route22/scripts.pory"
 	return
+# 209 "data/maps/Route22/scripts.pory"
+
+# 210 "data/maps/Route22/scripts.pory"
+Route22_Movement_LateRivalExit::
+# 211 "data/maps/Route22/scripts.pory"
+	walk_left
+# 212 "data/maps/Route22/scripts.pory"
+	walk_left
+# 213 "data/maps/Route22/scripts.pory"
+	walk_left
+# 214 "data/maps/Route22/scripts.pory"
+	walk_left
+# 215 "data/maps/Route22/scripts.pory"
+	walk_left
+# 216 "data/maps/Route22/scripts.pory"
+	walk_left
+# 217 "data/maps/Route22/scripts.pory"
+	walk_left
+# 218 "data/maps/Route22/scripts.pory"
+	step_end
 # 219 "data/maps/Route22/scripts.pory"
 
 # 220 "data/maps/Route22/scripts.pory"
-Route22_Movement_LateRivalExit::
-# 221 "data/maps/Route22/scripts.pory"
-	walk_left
-# 222 "data/maps/Route22/scripts.pory"
-	walk_left
-# 223 "data/maps/Route22/scripts.pory"
-	walk_left
-# 224 "data/maps/Route22/scripts.pory"
-	walk_left
-# 225 "data/maps/Route22/scripts.pory"
-	walk_left
-# 226 "data/maps/Route22/scripts.pory"
-	walk_left
-# 227 "data/maps/Route22/scripts.pory"
-	walk_left
-# 228 "data/maps/Route22/scripts.pory"
-	step_end
-# 229 "data/maps/Route22/scripts.pory"
-
-# 230 "data/maps/Route22/scripts.pory"
 Route22_EventScript_LeagueGateSign::
-# 231 "data/maps/Route22/scripts.pory"
+# 221 "data/maps/Route22/scripts.pory"
 	msgbox Route22_Text_LeagueGateSign, MSGBOX_SIGN
-# 232 "data/maps/Route22/scripts.pory"
+# 222 "data/maps/Route22/scripts.pory"
 	end
 
 Route22_MapScripts::
-# 238 "data/maps/Route22/scripts.pory"
+# 228 "data/maps/Route22/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, Route22_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Route22_MapScripts_MAP_SCRIPT_ON_LOAD:
-# 240 "data/maps/Route22/scripts.pory"
+# 230 "data/maps/Route22/scripts.pory"
 	setworldmapflag FLAG_WORLD_MAP_ROUTE22_LEAGUE_GATE
-# 241 "data/maps/Route22/scripts.pory"
+# 231 "data/maps/Route22/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 12
 	goto_if_eq Route22_MapScripts_MAP_SCRIPT_ON_LOAD_1
-# 250 "data/maps/Route22/scripts.pory"
+# 240 "data/maps/Route22/scripts.pory"
 	compare VAR_MEW_QUEST_PROGRESS, 13
 	goto_if_eq Route22_MapScripts_MAP_SCRIPT_ON_LOAD_2
-# 256 "data/maps/Route22/scripts.pory"
+# 246 "data/maps/Route22/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
 	return
 
 Route22_MapScripts_MAP_SCRIPT_ON_LOAD_1:
-# 243 "data/maps/Route22/scripts.pory"
+# 233 "data/maps/Route22/scripts.pory"
 	checkitem ITEM_OLD_SEA_MAP, 1
-# 244 "data/maps/Route22/scripts.pory"
+# 234 "data/maps/Route22/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route22_MapScripts_MAP_SCRIPT_ON_LOAD_6
 	return
 
 Route22_MapScripts_MAP_SCRIPT_ON_LOAD_2:
-# 252 "data/maps/Route22/scripts.pory"
+# 242 "data/maps/Route22/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
 	return
 
 Route22_MapScripts_MAP_SCRIPT_ON_LOAD_6:
-# 246 "data/maps/Route22/scripts.pory"
+# 236 "data/maps/Route22/scripts.pory"
 	setvar VAR_MEW_QUEST_PROGRESS, 13
-# 247 "data/maps/Route22/scripts.pory"
+# 237 "data/maps/Route22/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
 	return
 
 
 Route22_Force_Player_Off_Ledge_Down::
-# 263 "data/maps/Route22/scripts.pory"
+# 253 "data/maps/Route22/scripts.pory"
 	lock
-# 264 "data/maps/Route22/scripts.pory"
+# 254 "data/maps/Route22/scripts.pory"
 	playse SE_LEDGE
-# 265 "data/maps/Route22/scripts.pory"
+# 255 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_PLAYER, Route22_Player_Jump_Off_Ledge_Down
-# 266 "data/maps/Route22/scripts.pory"
+# 256 "data/maps/Route22/scripts.pory"
 	waitmovement
-# 267 "data/maps/Route22/scripts.pory"
+# 257 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_PLAYER, Route22_Player_Face_Left
-# 268 "data/maps/Route22/scripts.pory"
+# 258 "data/maps/Route22/scripts.pory"
 	waitmovement
-# 269 "data/maps/Route22/scripts.pory"
+# 259 "data/maps/Route22/scripts.pory"
 	release
-# 270 "data/maps/Route22/scripts.pory"
+# 260 "data/maps/Route22/scripts.pory"
 	call Route22_EventScript_Giovanni_Silver
 	end
 
 
 Route22_EventScript_Giovanni_Silver::
-# 276 "data/maps/Route22/scripts.pory"
+# 266 "data/maps/Route22/scripts.pory"
 	lock
-# 277 "data/maps/Route22/scripts.pory"
+# 267 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Left_Slowly
-# 278 "data/maps/Route22/scripts.pory"
+# 268 "data/maps/Route22/scripts.pory"
 	waitmovement
-# 279 "data/maps/Route22/scripts.pory"
+# 269 "data/maps/Route22/scripts.pory"
 	textcolor NPC_TEXT_COLOR_MALE
-# 280 "data/maps/Route22/scripts.pory"
+# 270 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_0
-# 281 "data/maps/Route22/scripts.pory"
+# 271 "data/maps/Route22/scripts.pory"
 	fadenewbgm MUS_KANTO_EMOTION
-# 282 "data/maps/Route22/scripts.pory"
+# 272 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_1
-# 283 "data/maps/Route22/scripts.pory"
+# 273 "data/maps/Route22/scripts.pory"
 	delay 30
-# 284 "data/maps/Route22/scripts.pory"
+# 274 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Face_Up_Slowly
-# 285 "data/maps/Route22/scripts.pory"
+# 275 "data/maps/Route22/scripts.pory"
 	waitmovement
-# 286 "data/maps/Route22/scripts.pory"
+# 276 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_2
-# 287 "data/maps/Route22/scripts.pory"
+# 277 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_3
-# 288 "data/maps/Route22/scripts.pory"
+# 278 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Face_Left_Slowly
-# 289 "data/maps/Route22/scripts.pory"
+# 279 "data/maps/Route22/scripts.pory"
 	waitmovement
-# 290 "data/maps/Route22/scripts.pory"
+# 280 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_4
-# 291 "data/maps/Route22/scripts.pory"
+# 281 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_5
-# 292 "data/maps/Route22/scripts.pory"
+# 282 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_6
-# 293 "data/maps/Route22/scripts.pory"
+# 283 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_7
-# 294 "data/maps/Route22/scripts.pory"
+# 284 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_8
-# 295 "data/maps/Route22/scripts.pory"
+# 285 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_9
-# 296 "data/maps/Route22/scripts.pory"
+# 286 "data/maps/Route22/scripts.pory"
 	msgbox Route22_EventScript_Giovanni_Silver_Text_10
-# 297 "data/maps/Route22/scripts.pory"
+# 287 "data/maps/Route22/scripts.pory"
 	applymovement LOCALID_ROUTE_22_GIOVANNI, Route22_Giovanni_Walk_Left_Out_Of_View
+# 288 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 289 "data/maps/Route22/scripts.pory"
+	removeobject LOCALID_ROUTE_22_GIOVANNI
+# 290 "data/maps/Route22/scripts.pory"
+	msgbox Route22_EventScript_Giovanni_Silver_Text_11
+# 291 "data/maps/Route22/scripts.pory"
+	msgbox Route22_EventScript_Giovanni_Silver_Text_12
+# 292 "data/maps/Route22/scripts.pory"
+	msgbox Route22_EventScript_Giovanni_Silver_Text_13
+# 293 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Left_Slowly
+# 294 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 295 "data/maps/Route22/scripts.pory"
+	msgbox Route22_EventScript_Giovanni_Silver_Text_14
+# 296 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 297 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Right
 # 298 "data/maps/Route22/scripts.pory"
 	waitmovement
 # 299 "data/maps/Route22/scripts.pory"
-	removeobject LOCALID_ROUTE_22_GIOVANNI
+	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Emote
 # 300 "data/maps/Route22/scripts.pory"
-	msgbox Route22_EventScript_Giovanni_Silver_Text_11
+	waitmovement
 # 301 "data/maps/Route22/scripts.pory"
-	msgbox Route22_EventScript_Giovanni_Silver_Text_12
+	msgbox Route22_EventScript_Giovanni_Silver_Text_15
 # 302 "data/maps/Route22/scripts.pory"
-	msgbox Route22_EventScript_Giovanni_Silver_Text_13
+	closemessage
 # 303 "data/maps/Route22/scripts.pory"
-	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Left_Slowly
+	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Run_Left_Out_Of_View
 # 304 "data/maps/Route22/scripts.pory"
 	waitmovement
 # 305 "data/maps/Route22/scripts.pory"
-	msgbox Route22_EventScript_Giovanni_Silver_Text_14
-# 306 "data/maps/Route22/scripts.pory"
-	waitmessage
-# 307 "data/maps/Route22/scripts.pory"
-	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Walk_Right
-# 308 "data/maps/Route22/scripts.pory"
-	waitmovement
-# 309 "data/maps/Route22/scripts.pory"
-	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Emote
-# 310 "data/maps/Route22/scripts.pory"
-	waitmovement
-# 311 "data/maps/Route22/scripts.pory"
-	msgbox Route22_EventScript_Giovanni_Silver_Text_15
-# 312 "data/maps/Route22/scripts.pory"
-	closemessage
-# 313 "data/maps/Route22/scripts.pory"
-	applymovement LOCALID_ROUTE_22_SILVER, Route22_Silver_Run_Left_Out_Of_View
-# 314 "data/maps/Route22/scripts.pory"
-	waitmovement
-# 315 "data/maps/Route22/scripts.pory"
 	removeobject LOCALID_ROUTE_22_SILVER
-# 316 "data/maps/Route22/scripts.pory"
+# 306 "data/maps/Route22/scripts.pory"
 	fadedefaultbgm
-# 317 "data/maps/Route22/scripts.pory"
+# 307 "data/maps/Route22/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_22_GIOVANNI_SILVER
-# 318 "data/maps/Route22/scripts.pory"
+# 308 "data/maps/Route22/scripts.pory"
 	setvar VAR_MEW_QUEST_PROGRESS, 15
-# 319 "data/maps/Route22/scripts.pory"
+# 309 "data/maps/Route22/scripts.pory"
 	release
 	end
 
 
-# 323 "data/maps/Route22/scripts.pory"
+# 313 "data/maps/Route22/scripts.pory"
 Route22_Player_Jump_Off_Ledge_Down:
-# 325 "data/maps/Route22/scripts.pory"
+# 315 "data/maps/Route22/scripts.pory"
 	jump_2_down
-# 326 "data/maps/Route22/scripts.pory"
+# 316 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 329 "data/maps/Route22/scripts.pory"
+# 319 "data/maps/Route22/scripts.pory"
 Route22_Player_Face_Left:
-# 331 "data/maps/Route22/scripts.pory"
+# 321 "data/maps/Route22/scripts.pory"
 	face_left
-# 332 "data/maps/Route22/scripts.pory"
+# 322 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 335 "data/maps/Route22/scripts.pory"
+# 325 "data/maps/Route22/scripts.pory"
 Route22_Giovanni_Face_Up_Slowly:
-# 337 "data/maps/Route22/scripts.pory"
+# 327 "data/maps/Route22/scripts.pory"
 	face_up
-# 338 "data/maps/Route22/scripts.pory"
+# 328 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 341 "data/maps/Route22/scripts.pory"
+# 331 "data/maps/Route22/scripts.pory"
 Route22_Giovanni_Walk_Left_Out_Of_View:
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 343 "data/maps/Route22/scripts.pory"
+# 333 "data/maps/Route22/scripts.pory"
 	walk_left
-# 344 "data/maps/Route22/scripts.pory"
+# 334 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 347 "data/maps/Route22/scripts.pory"
+# 337 "data/maps/Route22/scripts.pory"
 Route22_Giovanni_Face_Left_Slowly:
-# 349 "data/maps/Route22/scripts.pory"
+# 339 "data/maps/Route22/scripts.pory"
 	face_left
-# 350 "data/maps/Route22/scripts.pory"
+# 340 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 353 "data/maps/Route22/scripts.pory"
+# 343 "data/maps/Route22/scripts.pory"
 Route22_Silver_Run_Left_Out_Of_View:
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 355 "data/maps/Route22/scripts.pory"
+# 345 "data/maps/Route22/scripts.pory"
 	walk_fast_left
-# 356 "data/maps/Route22/scripts.pory"
+# 346 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 359 "data/maps/Route22/scripts.pory"
+# 349 "data/maps/Route22/scripts.pory"
 Route22_Silver_Walk_Left_Slowly:
-# 361 "data/maps/Route22/scripts.pory"
+# 351 "data/maps/Route22/scripts.pory"
 	walk_slower_left
-# 362 "data/maps/Route22/scripts.pory"
+# 352 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 365 "data/maps/Route22/scripts.pory"
+# 355 "data/maps/Route22/scripts.pory"
 Route22_Silver_Walk_Right:
-# 367 "data/maps/Route22/scripts.pory"
+# 357 "data/maps/Route22/scripts.pory"
 	walk_right
-# 368 "data/maps/Route22/scripts.pory"
+# 358 "data/maps/Route22/scripts.pory"
 	step_end
 
-# 371 "data/maps/Route22/scripts.pory"
+# 361 "data/maps/Route22/scripts.pory"
 Route22_Silver_Emote:
-# 373 "data/maps/Route22/scripts.pory"
+# 363 "data/maps/Route22/scripts.pory"
 	emote_exclamation_mark
-# 374 "data/maps/Route22/scripts.pory"
+# 364 "data/maps/Route22/scripts.pory"
 	step_end
 
 Route22_EventScript_Giovanni_Silver_Text_0:
-# 280 "data/maps/Route22/scripts.pory"
+# 270 "data/maps/Route22/scripts.pory"
 	.string "???: Dad, wait!\n"
 	.string "Hey! Where are you...$"
 
 Route22_EventScript_Giovanni_Silver_Text_1:
-# 282 "data/maps/Route22/scripts.pory"
+# 272 "data/maps/Route22/scripts.pory"
 	.string "...\n"
 	.string "...$"
 
 Route22_EventScript_Giovanni_Silver_Text_2:
-# 286 "data/maps/Route22/scripts.pory"
+# 276 "data/maps/Route22/scripts.pory"
 	.string "GIOVANNI: Son, I must acknowledge\n"
 	.string "defeat here, to move on...$"
 
 Route22_EventScript_Giovanni_Silver_Text_3:
-# 287 "data/maps/Route22/scripts.pory"
+# 277 "data/maps/Route22/scripts.pory"
 	.string "???: You told me...\n"
 	.string "You were number one!\p"
 	.string "Not just here, Dad!\n"
@@ -726,73 +706,73 @@ Route22_EventScript_Giovanni_Silver_Text_3:
 	.string "Where are you going now?$"
 
 Route22_EventScript_Giovanni_Silver_Text_4:
-# 290 "data/maps/Route22/scripts.pory"
+# 280 "data/maps/Route22/scripts.pory"
 	.string "...\n"
 	.string "...\p"
 	.string "GIOVANNI: I will go solo...\n"
 	.string "For now...$"
 
 Route22_EventScript_Giovanni_Silver_Text_5:
-# 291 "data/maps/Route22/scripts.pory"
+# 281 "data/maps/Route22/scripts.pory"
 	.string "...So that one day, I'll return\n"
 	.string "to form a stronger organization!$"
 
 Route22_EventScript_Giovanni_Silver_Text_6:
-# 292 "data/maps/Route22/scripts.pory"
+# 282 "data/maps/Route22/scripts.pory"
 	.string "???: What aspect of you was number\n"
 	.string "one, then?\p"
 	.string "Gathering so many only to be stopped\n"
 	.string "by a mere... child!$"
 
 Route22_EventScript_Giovanni_Silver_Text_7:
-# 293 "data/maps/Route22/scripts.pory"
+# 283 "data/maps/Route22/scripts.pory"
 	.string "GIOVANNI: Putting together the\n"
 	.string "potential of many produced power...\p"
 	.string "That's what an organization is.\n"
 	.string "That's its strength.$"
 
 Route22_EventScript_Giovanni_Silver_Text_8:
-# 294 "data/maps/Route22/scripts.pory"
+# 284 "data/maps/Route22/scripts.pory"
 	.string "But I failed... To make the best use\n"
 	.string "of my subordinates' potential...!\p"
 	.string "You will witness it one day...\n"
 	.string "My TEAM ROCKET'S revival!$"
 
 Route22_EventScript_Giovanni_Silver_Text_9:
-# 295 "data/maps/Route22/scripts.pory"
+# 285 "data/maps/Route22/scripts.pory"
 	.string "???: I don't understand you!\n"
 	.string "You don't make any sense, Dad!\p"
 	.string "If you were number one, you\n"
 	.string "wouldn't just... leave!$"
 
 Route22_EventScript_Giovanni_Silver_Text_10:
-# 296 "data/maps/Route22/scripts.pory"
+# 286 "data/maps/Route22/scripts.pory"
 	.string "GIOVANNI: ...One day, son.\n"
 	.string "You will eventually understand.$"
 
 Route22_EventScript_Giovanni_Silver_Text_11:
-# 300 "data/maps/Route22/scripts.pory"
+# 290 "data/maps/Route22/scripts.pory"
 	.string "???: I don't want to understand\n"
 	.string "you, coward!\p"
 	.string "I will never become someone like you.$"
 
 Route22_EventScript_Giovanni_Silver_Text_12:
-# 301 "data/maps/Route22/scripts.pory"
+# 291 "data/maps/Route22/scripts.pory"
 	.string "A coward when you're alone,\n"
 	.string "but that changes around others!\p"
 	.string "You act like some number one\n"
 	.string "tyrant... a fake BOSS to them!$"
 
 Route22_EventScript_Giovanni_Silver_Text_13:
-# 302 "data/maps/Route22/scripts.pory"
+# 292 "data/maps/Route22/scripts.pory"
 	.string "I will become strong! I'll be a\n"
 	.string "stronger man all by myself!$"
 
 Route22_EventScript_Giovanni_Silver_Text_14:
-# 305 "data/maps/Route22/scripts.pory"
+# 295 "data/maps/Route22/scripts.pory"
 	.string "All... By... Myself!$"
 
 Route22_EventScript_Giovanni_Silver_Text_15:
-# 311 "data/maps/Route22/scripts.pory"
+# 301 "data/maps/Route22/scripts.pory"
 	.string "...What are you staring at?\n"
 	.string "Get lost!$"

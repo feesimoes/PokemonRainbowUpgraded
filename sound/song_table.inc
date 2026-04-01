@@ -476,6 +476,16 @@ gSongTable::
 	song mus_encounter_battle_zone, 0, 0
 	song mus_vs_rank_match, 0, 0
 	song mus_new_game_intro_guyana, 0, 0
+	song mus_lake_of_rage, 0, 0
+	song mus_cianwood, 0, 0
+	song mus_vs_entei, 0, 0
+	song mus_climbing_bell_tower, 0, 0
+	song mus_fortune_telling, 0, 0
+	song mus_route103, 0, 0
+	song mus_route109, 0, 0
+	song mus_new_game_intro_unova, 0, 0
+	song mus_unity_island, 0, 0
+	song mus_unity_tower, 0, 0
 	
 dummy_song_header:
 	.byte 0, 0, 0, 0

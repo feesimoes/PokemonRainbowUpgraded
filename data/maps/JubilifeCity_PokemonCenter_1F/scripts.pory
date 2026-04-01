@@ -1,0 +1,24 @@
+mapscripts JubilifeCity_PokemonCenter_1F_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_JUBILIFE_CITY_POKEMON_CENTER_1F)
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_JUBILIFE_CITY)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script JubilifeCity_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}

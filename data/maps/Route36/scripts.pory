@@ -1,6 +1,18 @@
 mapscripts Route36_MapScripts 
 {
-
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (flag(FLAG_CAUGHT_SUDOWOODO_ROUTE_36) == TRUE)
+        {
+            setflag(FLAG_TEMP_12)
+            removeobject(LOCALID_ROUTE36_WEIRD_TREE)
+        }
+        else
+        {
+            clearflag(FLAG_TEMP_12)
+            addobject(LOCALID_ROUTE36_WEIRD_TREE)
+        }
+    }
 }
 
 script Route36_Youngster_Jack_Battle 
@@ -24,9 +36,8 @@ script Route36_Picnicker_Kristie_Battle
 script Route36_Super_Nerd 
 {
     lock
-    applymovement(5, Route36_NPC_Face_Player)
+    faceplayer
     msgbox(format("Oh, you're filling a POKéDEX for\nPROF. OAK?\pYou must be important if he\nentrusted you with that task."))
-    waitmessage
     closemessage
     release
     end
@@ -35,9 +46,8 @@ script Route36_Super_Nerd
 script Route36_BlackBelt 
 {    
     lock
-    applymovement(7, Route36_NPC_Face_Player)
+    faceplayer
     msgbox(format("This is where the road splits.\nHeaded for NATIONAL PARK?\pI think you'll have to find\na way around, for now..."))
-    waitmessage
     closemessage
     release
     end
@@ -46,9 +56,8 @@ script Route36_BlackBelt
 script Route36_Fat_Man 
 {    
     lock
-    applymovement(3, Route36_NPC_Face_Player)
+    faceplayer
     msgbox(format("Hey, have you checked out\nRUINS OF ALPH yet?\pThat place gives me the creeps."))
-    waitmessage
     closemessage
     release
     end
@@ -57,9 +66,8 @@ script Route36_Fat_Man
 script Route36_Lass 
 {
     lock
-    applymovement(2, Route36_NPC_Face_Player)
+    faceplayer
     msgbox(format("If I were to participate in a\nCONTEST HALL over in HOENN...\pI would blow everyone away\nwith my super cute PIDGEY!\pThat's why I opt out...\nI don't want to ruin it!"))
-    waitmessage
     closemessage
     release
     end
@@ -69,7 +77,6 @@ script Route36_Sign
 {
     lock
     msgbox(format("ROUTE 36\nDensely overgrown road, forking two paths."))
-    waitmessage
     closemessage
     release
     end
@@ -79,7 +86,6 @@ script Route36_NationalPark_Sign
 {
     lock
     msgbox(format("ROUTE 36 - NATIONAL PARK\nEnter a spacious, beautiful park!"))
-    waitmessage
     closemessage
     release
     end
@@ -89,7 +95,6 @@ script Route36_RuinsOfAlph_Sign
 {
     lock
     msgbox(format("ROUTE 36 - RUINS OF ALPH\nAlso connects to ROUTE 32."))
-    waitmessage
     closemessage
     release
     end
@@ -99,22 +104,89 @@ script Route36_Route37_Ahead_Sign
 {
     lock
     msgbox(format("ROUTE 36 - ROUTE 37\nECRUTEAK CITY is further ahead!"))
-    waitmessage
     closemessage
     release
     end
 }
 
+script Route36_Weird_Pidgey 
+{
+    lock
+    msgbox(format("Bark bark!\nI'm a bird."))
+    closemessage
+    clearflag(FLAG_CAUGHT_SUDOWOODO_ROUTE_36)
+    release
+    end   
+}
+
 script Route36_Weird_Tree 
 {
     lock
-    msgbox(format("It's a weird tree...\nIt looks impossible to CUT..."))
-    waitmessage
-    closemessage
+    if (flag(FLAG_TEMP_12) == TRUE)
+    {
+        release
+    }
+    else
+    {
+        checkitem(ITEM_SQUIRT_BOTTLE, 1)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            msgbox(format("A strange, wiggly tree blocks the\npath ahead...\pWould you like to water it with\nthe SQUIRT BOTTLE?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES)
+            {
+                msgbox(format("The weird tree didn't like that!\nIt attacks you... It's a POKéMON!"))
+                closemessage
+                setwildbattle(SPECIES_SUDOWOODO, 20, ITEM_NONE)
+                setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+                dowildbattle
+                clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+                specialvar(VAR_RESULT, GetBattleOutcome)
+                if (var(VAR_RESULT) == 1)
+                {
+                    msgbox(format("The POKéMON fled!\nIt'll come back later..."))
+                    fadescreen(FADE_TO_BLACK)
+                    applymovement(LOCALID_ROUTE36_WEIRD_TREE, Route36_Hide_Sudowoodo)
+                    waitmovement
+                    fadescreen(FADE_FROM_BLACK)
+                }
+                elif (var(VAR_RESULT) == 7)
+                {
+                    setflag(FLAG_CAUGHT_SUDOWOODO_ROUTE_36)
+                    fadescreen(FADE_TO_BLACK)
+                    applymovement(LOCALID_ROUTE36_WEIRD_TREE, Route36_Hide_Sudowoodo)
+                    waitmovement
+                    fadescreen(FADE_FROM_BLACK)
+                }
+                else
+                {
+                    msgbox(format("Darn...\nThe POKéMON is staying put!"))
+                }
+            }
+            else
+            {
+                msgbox(format("Not just yet!"))
+            }
+        }
+        else
+        {
+            msgbox(format("It's a weird, wiggly tree...\nIt looks impossible to CUT..."))
+        }
+        closemessage
+        release
+    }
+    end
 }
 
 movement Route36_NPC_Face_Player 
 {
     face_player
     step_end 
+}
+
+movement Route36_Hide_Sudowoodo 
+{
+    set_invisible
+    walk_right
+    step_end    
 }

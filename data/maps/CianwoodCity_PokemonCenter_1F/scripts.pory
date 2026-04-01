@@ -1,0 +1,45 @@
+mapscripts CianwoodCity_PokemonCenter_1F_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_CIANWOOD_CITY_POKEMON_CENTER_1F)
+    }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        setrespawn(HEAL_LOCATION_CIANWOOD_CITY)
+    }
+    MAP_SCRIPT_ON_RESUME
+    {
+        call(CableClub_OnResume)
+    }
+}
+
+script CianwoodCity_PokemonCenter_1F_Attendant_Out_Of_Service
+{
+    lock
+    faceplayer
+    msgbox(format("I'm terribly sorry, but we\nare undergoing some maintenance."))
+    closemessage
+    release
+    end
+}
+
+script CianwoodCity_PokemonCenter_1F_EventScript_Nurse
+{
+	lock
+    faceplayer
+    call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script CianwoodCity_PokemonCenter_1F_Reset_Beast_Progress 
+{
+    lock
+    faceplayer
+    msgbox(format("Progress reset."))
+    closemessage
+    setvar(VAR_JOHTO_STORY_PROGRESS, 1)
+    release
+    end    
+}

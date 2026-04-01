@@ -42,14 +42,14 @@ Route33_Rocket_F::
 # 29 "data/maps/Route33/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq Route33_Rocket_F_2
-# 46 "data/maps/Route33/scripts.pory"
+# 48 "data/maps/Route33/scripts.pory"
 	msgbox Route33_Rocket_F_Text_3
 Route33_Rocket_F_1:
-# 48 "data/maps/Route33/scripts.pory"
-	closemessage
-# 49 "data/maps/Route33/scripts.pory"
-	hidemoneybox
 # 50 "data/maps/Route33/scripts.pory"
+	closemessage
+# 51 "data/maps/Route33/scripts.pory"
+	hidemoneybox
+# 52 "data/maps/Route33/scripts.pory"
 	release
 	end
 
@@ -59,68 +59,72 @@ Route33_Rocket_F_2:
 # 32 "data/maps/Route33/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route33_Rocket_F_5
-# 41 "data/maps/Route33/scripts.pory"
+# 43 "data/maps/Route33/scripts.pory"
 	msgbox Route33_Rocket_F_Text_2
 	goto Route33_Rocket_F_1
 
 Route33_Rocket_F_5:
 # 34 "data/maps/Route33/scripts.pory"
-	removemoney 10000
+	playse SE_SHOP
 # 35 "data/maps/Route33/scripts.pory"
-	addvar VAR_ROCKET_RELIEF_FUNDS, 1
+	removemoney 10000
 # 36 "data/maps/Route33/scripts.pory"
-	updatemoneybox
+	addvar VAR_ROCKET_RELIEF_FUNDS, 1
 # 37 "data/maps/Route33/scripts.pory"
+	updatemoneybox
+# 38 "data/maps/Route33/scripts.pory"
+	waitse
+# 39 "data/maps/Route33/scripts.pory"
 	msgbox Route33_Rocket_F_Text_1
 	goto Route33_Rocket_F_1
 
 
 Route33_UnionCave_North_Sign::
-# 56 "data/maps/Route33/scripts.pory"
-	lock
-# 57 "data/maps/Route33/scripts.pory"
-	msgbox Route33_UnionCave_North_Sign_Text_0
 # 58 "data/maps/Route33/scripts.pory"
-	closemessage
+	lock
 # 59 "data/maps/Route33/scripts.pory"
+	msgbox Route33_UnionCave_North_Sign_Text_0
+# 60 "data/maps/Route33/scripts.pory"
+	closemessage
+# 61 "data/maps/Route33/scripts.pory"
 	release
 	end
 
 
 Route33_UnionCave_South_Sign::
-# 65 "data/maps/Route33/scripts.pory"
-	lock
-# 66 "data/maps/Route33/scripts.pory"
-	msgbox Route33_UnionCave_South_Sign_Text_0
 # 67 "data/maps/Route33/scripts.pory"
-	closemessage
+	lock
 # 68 "data/maps/Route33/scripts.pory"
+	msgbox Route33_UnionCave_South_Sign_Text_0
+# 69 "data/maps/Route33/scripts.pory"
+	closemessage
+# 70 "data/maps/Route33/scripts.pory"
 	release
 	end
 
 
 Route33_BugCatcher::
-# 74 "data/maps/Route33/scripts.pory"
-	lock
-# 75 "data/maps/Route33/scripts.pory"
-	faceplayer
 # 76 "data/maps/Route33/scripts.pory"
-	msgbox Route33_BugCatcher_Text_0
+	lock
 # 77 "data/maps/Route33/scripts.pory"
-	closemessage
+	faceplayer
 # 78 "data/maps/Route33/scripts.pory"
+	msgbox Route33_BugCatcher_Text_0
+# 79 "data/maps/Route33/scripts.pory"
+	closemessage
+# 80 "data/maps/Route33/scripts.pory"
 	release
 	end
 
 
 Route33_Hiker_Anthony_Battle::
-# 84 "data/maps/Route33/scripts.pory"
-	trainerbattle_single TRAINER_HIKER_ANTHONY, Route33_Hiker_Anthony_Battle_Text_0, Route33_Hiker_Anthony_Battle_Text_1
-# 85 "data/maps/Route33/scripts.pory"
-	msgbox Route33_Hiker_Anthony_Battle_Text_2
 # 86 "data/maps/Route33/scripts.pory"
-	closemessage
+	trainerbattle_single TRAINER_HIKER_ANTHONY, Route33_Hiker_Anthony_Battle_Text_0, Route33_Hiker_Anthony_Battle_Text_1
 # 87 "data/maps/Route33/scripts.pory"
+	msgbox Route33_Hiker_Anthony_Battle_Text_2
+# 88 "data/maps/Route33/scripts.pory"
+	closemessage
+# 89 "data/maps/Route33/scripts.pory"
 	releaseall
 	end
 
@@ -145,44 +149,44 @@ Route33_Rocket_F_Text_0:
 	.string "I'll give you a SLOWPOKE TAIL!$"
 
 Route33_Rocket_F_Text_1:
-# 37 "data/maps/Route33/scripts.pory"
+# 39 "data/maps/Route33/scripts.pory"
 	.string "Aww, thanks, kid!$"
 
 Route33_Rocket_F_Text_2:
-# 41 "data/maps/Route33/scripts.pory"
+# 43 "data/maps/Route33/scripts.pory"
 	.string "Darn!\n"
 	.string "You don't have enough... Shoo!$"
 
 Route33_Rocket_F_Text_3:
-# 46 "data/maps/Route33/scripts.pory"
+# 48 "data/maps/Route33/scripts.pory"
 	.string "Darn! I'd offer you a job, but\n"
 	.string "you're way too young! Shoo!$"
 
 Route33_UnionCave_North_Sign_Text_0:
-# 57 "data/maps/Route33/scripts.pory"
+# 59 "data/maps/Route33/scripts.pory"
 	.string "ROUTE 33 - UNION CAVE\n"
 	.string "AZALEA TOWN is beyond the tunnel!$"
 
 Route33_UnionCave_South_Sign_Text_0:
-# 66 "data/maps/Route33/scripts.pory"
+# 68 "data/maps/Route33/scripts.pory"
 	.string "ROUTE 33 - AZALEA TOWN\n"
 	.string "UNION CAVE ahead!$"
 
 Route33_BugCatcher_Text_0:
-# 76 "data/maps/Route33/scripts.pory"
+# 78 "data/maps/Route33/scripts.pory"
 	.string "Some BUG POKéMON can get pretty\n"
 	.string "big... Like HERACROSS, for example.$"
 
 Route33_Hiker_Anthony_Battle_Text_0:
-# 84 "data/maps/Route33/scripts.pory"
+# 86 "data/maps/Route33/scripts.pory"
 	.string "Hey, now!\n"
 	.string "All that glitters is gold!$"
 
 Route33_Hiker_Anthony_Battle_Text_1:
-# 84 "data/maps/Route33/scripts.pory"
+# 86 "data/maps/Route33/scripts.pory"
 	.string "You're a rock star!$"
 
 Route33_Hiker_Anthony_Battle_Text_2:
-# 85 "data/maps/Route33/scripts.pory"
+# 87 "data/maps/Route33/scripts.pory"
 	.string "Do you think it'll ever rain around\n"
 	.string "here anytime soon?$"

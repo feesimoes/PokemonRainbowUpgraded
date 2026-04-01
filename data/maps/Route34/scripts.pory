@@ -1,1 +1,26 @@
 mapscripts Route34_MapScripts {}
+
+script Route34_DayCareMan
+{
+    lock
+    faceplayer
+    msgbox(format("Ah, it's you!"))
+    closemessage
+    msgbox(format("We were raising your POKéMON, and\nmy goodness, were we surprised!"))
+    msgbox(format("Your POKéMON had thrown it back!"))
+    msgbox(format("We don't know how it did that,\nbut your POKéMON was caked up."))
+    msgbox(format("...You do want it, yes?"), MSGBOX_YESNO)
+    closemessage
+    release
+    end
+}
+
+script Route34_Smells 
+{
+    lock
+    faceplayer
+    msgbox(format("That smell...\nOh my!\pYou're definitely stinky!\nHave you showered yet?"))
+    closemessage
+    release
+    end
+}

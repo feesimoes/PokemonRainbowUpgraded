@@ -73,7 +73,7 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 nationalRibbon:1;           // Given to purified Shadow Pokémon in Colosseum/XD.
  /* 0x0B */ u32 earthRibbon:1;              // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
  /* 0x0B */ u32 worldRibbon:1;              // Distributed during Pokémon Festa '04 and '05 to tournament winners.
- /* 0x0B */ u32 speciesFormsType:4;         // Discarded in Gen 4. Repurposed here for determining different Pokemon forms/species.
+ /* 0x0B */ u32 rainbowLocationFactor:4;    // Discarded in Gen 4. Repurposed here to determine if it came from a newer map within PokeRainbow by adding 256 per each increment of 1.
 
  // The functionality of this bit changed in FRLG:
  // In RS, this bit does nothing, is never set, & is accidentally unset when hatching Eggs.
@@ -424,5 +424,7 @@ bool8 CheckBattleTypeGhost(struct Pokemon *mon, u8 bank);
 struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 battlePosition, u8 mode);
 void DestroyMonSpritesGfxManager(void);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 bufferId);
+
+extern struct Pokemon gPreviewMon;
 
 #endif // GUARD_POKEMON_H

@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_ROUTE1",
-      "offset": 12,
+      "offset": 6,
       "direction": "down"
     },
     {
@@ -162,6 +162,7 @@
       "flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"
     },
     {
+      "local_id": "LOCALID_VIRIDIAN_MISTY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MISTY",
       "x": 26,

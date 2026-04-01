@@ -1858,7 +1858,7 @@
 	.endm
 
 	@ Opens the Music Player, to play unlocked songs
-	@ Songs should be a list of id values determined playable with a flag
+	@ Songs should be a list of id values determined playable with a flag, unused
 	.macro musicplayer mus_id:req, flag:req
 	setvar VAR_MUSIC_PLAYER_TRACK, \mus_id
 	.2byte \flag

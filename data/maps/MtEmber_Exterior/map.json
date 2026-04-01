@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_MT_EMBER_SUMMIT",
-      "offset": 20,
+      "offset": 0,
       "direction": "up"
     },
     {

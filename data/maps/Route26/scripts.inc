@@ -386,8 +386,8 @@ Route26_Kanto_Biker_Dialogue_Text_0:
 # 34 "data/maps/Route26/scripts.pory"
 	.string "You're from KANTO, aren't you?\n"
 	.string "Me too!\p"
-	.string "It's a shame though, POKéMON\n"
-	.string "on this route aren't legit?\p"
+	.string "It's a bit weird though, POKéMON\n"
+	.string "found here aren't from KANTO?\p"
 	.string "INDIGO LEAGUE said so,\n"
 	.string "or something...$"
 

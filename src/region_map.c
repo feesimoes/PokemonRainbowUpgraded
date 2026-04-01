@@ -422,7 +422,6 @@ static const u32 *GetCompressedTilemapForRegion(u8 region);
 static void LoadRegionTilemapIntoBuffer(u8 region);
 static u8 GetRegionMapPlayerIsOn(void);
 static void SetSelectedRegionMap(u8 region);
-static void HideAllMapIcons(bool8 hide);
 static void CreateFlyIconSprite(u8 whichMap, u8 numIcons, u16 x, u16 y);
 
 #include "data/region_map/region_map_entry_strings.h"
@@ -466,6 +465,7 @@ static const u32 sJohto_Tilemap[] = INCBIN_U32("graphics/region_map/johto.bin.lz
 static const u32 sSinnoh_Tilemap[] = INCBIN_U32("graphics/region_map/sinnoh.bin.lz");
 static const u32 sGuyana_Tilemap[] = INCBIN_U32("graphics/region_map/guyana.bin.lz");
 static const u32 sHoenn_Tilemap[] = INCBIN_U32("graphics/region_map/hoenn.bin.lz");
+static const u32 sUnova_Tilemap[] = INCBIN_U32("graphics/region_map/unova.bin.lz");
 
 static const struct BgTemplate sRegionMapBgTemplates[] = {
     {
@@ -693,6 +693,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_VICTORY_ROAD,
         .desc = gText_RegionMap_AreaDesc_VictoryRoad
     }, {
+        .id = MAPSEC_GAME_CORNER,
+        .name = sMapsecName_ROCKET_HIDEOUT,
+        .desc = gText_RegionMap_AreaDesc_RocketHideout
+    },  {
         .id = MAPSEC_SILPH_CO,
         .name = sMapsecName_SILPH_CO_,
         .desc = gText_RegionMap_AreaDesc_SilphCo
@@ -737,6 +741,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_ICEFALL_CAVE,
         .desc = gText_RegionMap_AreaDesc_IcefallCave
     }, {
+        .id = MAPSEC_ROCKET_WAREHOUSE,
+        .name = sMapsecName_ROCKET_WAREHOUSE,
+        .desc = gText_RegionMap_AreaDesc_RocketWarehouse
+    },   {
         .id = MAPSEC_LOST_CAVE,
         .name = sMapsecName_LOST_CAVE,
         .desc = gText_RegionMap_AreaDesc_LostCave
@@ -788,6 +796,58 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_SPROUT_TOWER,
         .name = sMapsecName_SPROUT_TOWER,
         .desc = gText_RegionMap_AreaDesc_Sprout_Tower
+    }, {
+        .id = MAPSEC_EMBEDDED_TOWER,
+        .name = sMapsecName_EMBEDDED_TOWER,
+        .desc = gText_RegionMap_AreaDesc_Embedded_Tower
+    }, {
+        .id = MAPSEC_RUINS_OF_ALPH,
+        .name = sMapsecName_RUINS_OF_ALPH,
+        .desc = gText_RegionMap_AreaDesc_Ruins_Of_Alph
+    }, {
+        .id = MAPSEC_UNION_CAVE,
+        .name = sMapsecName_UNION_CAVE,
+        .desc = gText_RegionMap_AreaDesc_Union_Cave
+    }, {
+        .id = MAPSEC_SLOWPOKE_WELL,
+        .name = sMapsecName_SLOWPOKE_WELL,
+        .desc = gText_RegionMap_AreaDesc_Slowpoke_Well
+    }, {
+        .id = MAPSEC_ILEX_FOREST,
+        .name = sMapsecName_ILEX_FOREST,
+        .desc = gText_RegionMap_AreaDesc_Ilex_Forest
+    }, {
+        .id = MAPSEC_WHIRL_ISLANDS,
+        .name = sMapsecName_WHIRL_ISLANDS,
+        .desc = gText_RegionMap_AreaDesc_Whirl_Islands
+    }, {
+        .id = MAPSEC_OLIVINE_LIGHTHOUSE,
+        .name = sMapsecName_GLITTER_BEACON,
+        .desc = gText_RegionMap_AreaDesc_Olivine_Lighthouse
+    }, {
+        .id = MAPSEC_BELL_TOWER,
+        .name = sMapsecName_BELL_TOWER,
+        .desc = gText_RegionMap_AreaDesc_Bell_Tower
+    }, {
+        .id = MAPSEC_CLIFF_EDGE_GATE,
+        .name = sMapsecName_CLIFF_EDGE_GATE,
+        .desc = gText_RegionMap_AreaDesc_Cliff_Edge_Gate
+    }, {
+        .id = MAPSEC_MT_MORTAR,
+        .name = sMapsecName_MT_MORTAR,
+        .desc = gText_RegionMap_AreaDesc_Mt_Mortar
+    },  {
+        .id = MAPSEC_MT_SILVER,
+        .name = sMapsecName_MT_SILVER,
+        .desc = gText_RegionMap_AreaDesc_Mt_Silver
+    }, {
+        .id = MAPSEC_NATIONAL_PARK,
+        .name = sMapsecName_NATIONAL_PARK,
+        .desc = gText_RegionMap_AreaDesc_National_Park
+    }, {
+        .id = MAPSEC_UNITY_TOWER,
+        .name = sMapsecName_UNITY_TOWER,
+        .desc = gText_RegionMap_AreaDesc_Unity_Tower
     }
 };
 
@@ -902,6 +962,7 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sinnoh.h"
 #include "data/region_map/region_map_layout_guyana.h"
 #include "data/region_map/region_map_layout_hoenn.h"
+#include "data/region_map/region_map_layout_unova.h"
 
 static const struct FlyDestination sMapFlyDestinations[] = 
 {
@@ -1139,6 +1200,30 @@ static const struct FlyDestination sMapFlyDestinations[] =
         .mapNum = MAP_NUM(MAP_OLIVINE_CITY),
         .healLocId = HEAL_LOCATION_OLIVINE_CITY
     },
+    {
+        .mapSecId = MAPSEC_MAHOGANY_TOWN,
+        .mapGroup = MAP_GROUP(MAP_MAHOGANY_TOWN),
+        .mapNum = MAP_NUM(MAP_MAHOGANY_TOWN),
+        .healLocId = HEAL_LOCATION_MAHOGANY_TOWN
+    },
+    {
+        .mapSecId = MAPSEC_JUBILIFE_CITY,
+        .mapGroup = MAP_GROUP(MAP_JUBILIFE_CITY),
+        .mapNum = MAP_NUM(MAP_JUBILIFE_CITY),
+        .healLocId = HEAL_LOCATION_JUBILIFE_CITY
+    },
+    {
+        .mapSecId = MAPSEC_CIANWOOD_CITY,
+        .mapGroup = MAP_GROUP(MAP_CIANWOOD_CITY),
+        .mapNum = MAP_NUM(MAP_CIANWOOD_CITY),
+        .healLocId = HEAL_LOCATION_CIANWOOD_CITY
+    },
+    {
+        .mapSecId = MAPSEC_UNITY_ISLAND,
+        .mapGroup = MAP_GROUP(MAP_UNITY_ISLAND),
+        .mapNum = MAP_NUM(MAP_UNITY_ISLAND),
+        .healLocId = HEAL_LOCATION_UNITY_ISLAND
+    },
 };
 
 // Manual override table for map section ids over 255 to use without breaking FR/LG compatibility. 
@@ -1181,18 +1266,570 @@ static const struct ExpandedMapNameOverride sExpandedMapNameOverrides[] =
     {
         .mapGroup = MAP_GROUP(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB),
         .mapNum = MAP_NUM(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB),
-        .realMapSecId = MAPSEC_PALLET_TOWN_2,
+        .realMapSecId = MAPSEC_PALLET_TOWN,
         .whichMap = REGIONMAP_KANTO,
         .x = 4,
         .y = 11
     },
     {
-        .mapGroup = MAP_GROUP(MAP_SKY_KANTO),
-        .mapNum = MAP_NUM(MAP_SKY_KANTO),
-        .realMapSecId = MAPSEC_SKY_KANTO,
-        .whichMap = REGIONMAP_KANTO,
+        .mapGroup = MAP_GROUP(MAP_SEVII123_OCEAN_NW),
+        .mapNum = MAP_NUM(MAP_SEVII123_OCEAN_NW),
+        .realMapSecId = MAPSEC_SEVII123_OCEAN,
+        .whichMap = REGIONMAP_SEVII123,
         .x = 0,
         .y = 0
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_SEVII45_OCEAN_NW),
+        .mapNum = MAP_NUM(MAP_SEVII45_OCEAN_NW),
+        .realMapSecId = MAPSEC_SEVII45_OCEAN,
+        .whichMap = REGIONMAP_SEVII45,
+        .x = 0,
+        .y = 0
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_NEW_BARK_PATH),
+        .mapNum = MAP_NUM(MAP_NEW_BARK_PATH),
+        .realMapSecId = MAPSEC_NEW_BARK_PATH,
+        .whichMap = REGIONMAP_JOHTO,
+        .x = 19,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_DRAGONS_DEN),
+        .mapNum = MAP_NUM(MAP_DRAGONS_DEN),
+        .realMapSecId = MAPSEC_DRAGONS_DEN,
+        .whichMap = REGIONMAP_JOHTO,
+        .x = 18,
+        .y = 4
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_DRAGONS_DEN_BLACKTHORN_CITY),
+        .mapNum = MAP_NUM(MAP_DRAGONS_DEN_BLACKTHORN_CITY),
+        .realMapSecId = MAPSEC_DRAGONS_DEN,
+        .whichMap = REGIONMAP_JOHTO,
+        .x = 18,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_GYM_1F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_GYM_1F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_GYM_2F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_GYM_2F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_GYM_3F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_GYM_3F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_GYM_4F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_GYM_4F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_POKEMON_CENTER_1F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_POKEMON_CENTER_1F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CANALAVE_CITY_POKEMON_CENTER_2F),
+        .mapNum = MAP_NUM(MAP_CANALAVE_CITY_POKEMON_CENTER_2F),
+        .realMapSecId = MAPSEC_CANALAVE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 0,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_ROUTE_218),
+        .mapNum = MAP_NUM(MAP_ROUTE_218),
+        .realMapSecId = MAPSEC_ROUTE_218,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 1,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_ROUTE_218),
+        .mapNum = MAP_NUM(MAP_ROUTE_218),
+        .realMapSecId = MAPSEC_ROUTE_218,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 1,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_LINDEN_PATH),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_LINDEN_PATH),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HARBOR),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HARBOR),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE1),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE1),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE2),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE2),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE3),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE3),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE4),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE4),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE5),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE5),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE6),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE6),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE7),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE7),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE8),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE8),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE9),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE9),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_HOUSE10),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_HOUSE10),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_MANSION_1F),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_MANSION_1F),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_MANSION_B1F),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_MANSION_B1F),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_MANSION_HALL_L_1F),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_MANSION_HALL_L_1F),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_MANSION_HALL_R_1F),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_MANSION_HALL_R_1F),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_MART),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_MART),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_LINDEN_TOWN_POKEMON_CENTER_1F),
+        .mapNum = MAP_NUM(MAP_LINDEN_TOWN_POKEMON_CENTER_1F),
+        .realMapSecId = MAPSEC_LINDEN_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 6,
+        .y = 3
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA),
+        .mapNum = MAP_NUM(MAP_MT_MORA),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA),
+        .mapNum = MAP_NUM(MAP_MT_MORA),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_B1F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_B1F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_1F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_1F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_2F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_2F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_3F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_3F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_4F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_4F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_5F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_5F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_6F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_6F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_7F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_7F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_MT_MORA_CAVES_8F),
+        .mapNum = MAP_NUM(MAP_MT_MORA_CAVES_8F),
+        .realMapSecId = MAPSEC_MT_MORA,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 1,
+        .y = 7
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE1),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE1),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE2),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE2),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE3),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE3),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE4),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE4),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE5),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE5),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE6),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE6),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE6_UNDERWATER),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE6_UNDERWATER),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE7),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE7),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE8),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE8),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE9),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE9),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE10),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE10),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE11),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE11),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE12),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE12),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_KAIETEUR_JUNGLE_ROUTE13),
+        .mapNum = MAP_NUM(MAP_KAIETEUR_JUNGLE_ROUTE13),
+        .realMapSecId = MAPSEC_KAIETEUR_JUNGLE,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 4,
+        .y = 6
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN_HOUSE1),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN_HOUSE1),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN_HOUSE2),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN_HOUSE2),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN_HOUSE3),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN_HOUSE3),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN_HOUSE4),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN_HOUSE4),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_TOPSOIL_TOWN_MASTER_HOUSE),
+        .mapNum = MAP_NUM(MAP_TOPSOIL_TOWN_MASTER_HOUSE),
+        .realMapSecId = MAPSEC_TOPSOIL_TOWN,
+        .whichMap = REGIONMAP_GUYANA,
+        .x = 8,
+        .y = 9
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_JUBILIFE_CITY),
+        .mapNum = MAP_NUM(MAP_JUBILIFE_CITY),
+        .realMapSecId = MAPSEC_JUBILIFE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 4,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_JUBILIFE_CITY_POKEMON_CENTER_1F),
+        .mapNum = MAP_NUM(MAP_JUBILIFE_CITY_POKEMON_CENTER_1F),
+        .realMapSecId = MAPSEC_JUBILIFE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 4,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_JUBILIFE_CITY_POKEMON_CENTER_2F),
+        .mapNum = MAP_NUM(MAP_JUBILIFE_CITY_POKEMON_CENTER_2F),
+        .realMapSecId = MAPSEC_JUBILIFE_CITY,
+        .whichMap = REGIONMAP_SINNOH,
+        .x = 4,
+        .y = 8
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_CERULEAN_CAPE),
+        .mapNum = MAP_NUM(MAP_CERULEAN_CAPE),
+        .realMapSecId = MAPSEC_CERULEAN_CAPE,
+        .whichMap = REGIONMAP_KANTO,
+        .x = 17,
+        .y = 1
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_UNITY_ISLAND),
+        .mapNum = MAP_NUM(MAP_UNITY_ISLAND),
+        .realMapSecId = MAPSEC_UNITY_ISLAND,
+        .whichMap = REGIONMAP_UNOVA,
+        .x = 6,
+        .y = 14
+    },
+    {
+        .mapGroup = MAP_GROUP(MAP_UNITY_TOWER_1F),
+        .mapNum = MAP_NUM(MAP_UNITY_TOWER_1F),
+        .realMapSecId = MAPSEC_UNITY_TOWER,
+        .whichMap = REGIONMAP_UNOVA,
+        .x = 6,
+        .y = 14
     },
 };
 
@@ -1298,6 +1935,9 @@ static void InitRegionMapType(void)
 
     switch (actualRegionMapSectionId)
     {
+        case MAPSEC_PALLET_TOWN:
+            region = REGIONMAP_KANTO;
+            break;
         case MAPSEC_ONE_ISLAND:
             region = REGIONMAP_SEVII123;
             break;
@@ -2089,8 +2729,29 @@ static void InitRegionMapType(void)
         case MAPSEC_BELLCHIME_TRAIL:
             region = REGIONMAP_JOHTO;
             break;
+        case MAPSEC_SEVII123_OCEAN:
+            region = REGIONMAP_SEVII123;
+            break;
+        case MAPSEC_SEVII45_OCEAN:
+            region = REGIONMAP_SEVII45;
+            break;
+        case MAPSEC_SEVII67_OCEAN:
+            region = REGIONMAP_SEVII67;
+            break;
         case MAPSEC_PALLET_TOWN_2:
             region = REGIONMAP_KANTO;
+            break;
+        case MAPSEC_NEW_BARK_PATH:
+            region = REGIONMAP_JOHTO;
+            break;
+        case MAPSEC_CERULEAN_CAPE:
+            region = REGIONMAP_KANTO;
+            break;
+        case MAPSEC_UNITY_ISLAND:
+            region = REGIONMAP_UNOVA;
+            break;
+        case MAPSEC_UNITY_TOWER:
+            region = REGIONMAP_UNOVA;
             break;
         default:
             region = REGIONMAP_KANTO;
@@ -2334,7 +2995,8 @@ static void Task_RegionMap(u8 taskId)
                 InitDungeonMapPreview(0, taskId, SaveMainMapTask);
             break;
         case MAP_INPUT_SWITCH:
-            HideAllMapIcons(TRUE);
+            if (sMapIcons != NULL)
+                FreeMapIcons();
             InitSwitchMapMenu(sRegionMap->selectedRegion, taskId, SaveMainMapTask);
             break;
         case MAP_INPUT_CANCEL:
@@ -2394,7 +3056,8 @@ static void Task_RegionMap(u8 taskId)
                 }
                 break;
             case MAP_INPUT_SWITCH:
-                HideAllMapIcons(TRUE);
+                if (sMapIcons != NULL)
+                    FreeMapIcons();
                 InitSwitchMapMenu(sRegionMap->selectedRegion, taskId, SaveMainMapTask);
                 break;
             }
@@ -4307,6 +4970,14 @@ static u8 GetMapsecType(u16 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ECRUTEAK_CITY_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_OLIVINE_CITY:
         return FlagGet(FLAG_WORLD_MAP_OLIVINE_CITY_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_MAHOGANY_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_MAHOGANY_TOWN_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_JUBILIFE_CITY:
+        return FlagGet(FLAG_WORLD_MAP_JUBILIFE_CITY_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CIANWOOD_CITY:
+        return FlagGet(FLAG_WORLD_MAP_CIANWOOD_CITY_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_UNITY_ISLAND:
+        return FlagGet(FLAG_WORLD_MAP_UNITY_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -4330,7 +5001,7 @@ static u8 GetDungeonMapsecType(u16 mapsec)
         return FlagGet(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_KANTO_VICTORY_ROAD:
         return FlagGet(FLAG_WORLD_MAP_VICTORY_ROAD_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ROCKET_HIDEOUT:
+    case MAPSEC_GAME_CORNER:
         return FlagGet(FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SILPH_CO:
         return FlagGet(FLAG_WORLD_MAP_SILPH_CO_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -4418,6 +5089,8 @@ static u8 GetDungeonMapsecType(u16 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ICE_PATH) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_MT_SILVER:
         return FlagGet(FLAG_WORLD_MAP_MT_SILVER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_UNITY_TOWER:
+        return FlagGet(FLAG_WORLD_MAP_UNITY_TOWER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -4487,7 +5160,7 @@ static void GetPlayerPositionOnRegionMap(void)
         y = gSaveBlock1Ptr->dynamicWarp.y;
         break;
     case MAP_TYPE_INDOOR:
-        mapSecId = GetPlayerCurrentMapSectionId();
+        mapSecId = GetActualMapSectionId();
         
         if (mapSecId != MAPSEC_SPECIAL_AREA)
         {
@@ -4549,7 +5222,7 @@ static void GetPlayerPositionOnRegionMap(void)
 
 static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
 {
-    switch (GetPlayerCurrentMapSectionId())
+    switch (GetActualMapSectionId())
     {
     case MAPSEC_KANTO_SAFARI_ZONE:
         sMapCursor->x = 12;
@@ -4720,6 +5393,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             GetPlayerPositionOnRegionMap();
         }
         break;
+    case MAPSEC_UNITY_TOWER:
+        sMapCursor->x = 6;
+        sMapCursor->y = 14;
+        break;
     default:
         GetPlayerPositionOnRegionMap();
         break;
@@ -4747,6 +5424,8 @@ static u16 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Guyana[layer][y][x];
     case REGIONMAP_HOENN:
         return sRegionMapSections_Hoenn[layer][y][x];
+    case REGIONMAP_UNOVA:
+        return sRegionMapSections_Unova[layer][y][x];
     default:
         return sRegionMapSections_Kanto[layer][y][x];
     }
@@ -4946,27 +5625,25 @@ static void CreateDungeonIconSprite(u8 whichMap, u8 numIcons, u16 x, u16 y)
 
 static void CreateFlyIcons(void)
 {
-    u16 i, y, x;
+    u16 x, y;
     u8 numIcons = 0;
     u16 mapsec;
+    u8 region = sMapIcons->region;
 
     if (GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
     {
-        for (i = 0; i < REGIONMAP_COUNT; i++)
+        for (y = 0; y < MAP_HEIGHT; y++)
         {
-            for (y = 0; y < MAP_HEIGHT; y++)
+            for (x = 0; x < MAP_WIDTH; x++)
             {
-                for (x = 0; x < MAP_WIDTH; x++)
+                mapsec = GetSelectedMapSection(region, LAYER_MAP, y, x);
+                
+                if (GetMapsecType(mapsec) == MAPSECTYPE_VISITED)
                 {
-                    mapsec = GetSelectedMapSection(i, LAYER_MAP, y, x);
-                    
-                    if (GetMapsecType(mapsec) == MAPSECTYPE_VISITED)
+                    if (GetFlyDestinationData(mapsec) != NULL)
                     {
-                        if (GetFlyDestinationData(mapsec) != NULL)
-                        {
-                            CreateFlyIconSprite(i, numIcons, x, y);
-                            numIcons++;
-                        }
+                        CreateFlyIconSprite(region, numIcons, x, y);
+                        numIcons++;
                     }
                 }
             }
@@ -4976,7 +5653,7 @@ static void CreateFlyIcons(void)
 
 static void CreateDungeonIcons(void)
 {
-    u16 y, x;
+    u16 x, y;
     u8 numIcons = 0;
     u16 mapsec;
     u8 region = sMapIcons->region;
@@ -4987,7 +5664,7 @@ static void CreateDungeonIcons(void)
         {
             mapsec = GetSelectedMapSection(region, LAYER_DUNGEON, y, x);
 
-            if (mapsec != MAPSEC_NONE && numIcons < 100)
+            if (mapsec != MAPSEC_NONE)
             {
                 CreateDungeonIconSprite(region, numIcons, x, y);
                 if (GetDungeonMapsecType(mapsec) != 2)
@@ -5009,13 +5686,19 @@ static void SetFlyIconInvisibility(u8 whichMap, u8 iconNum, bool8 invisible)
         for (i = 0; i < NELEMS(sMapIcons->flyIcons); i++)
         {
             if (sMapIcons->flyIcons[i].region == whichMap || whichMap == 0xFF)
-                sMapIcons->flyIcons[i].sprite->invisible = invisible;
+            {
+                if (sMapIcons->flyIcons[i].sprite != NULL)
+                    sMapIcons->flyIcons[i].sprite->invisible = invisible;
+            }
         }
     }
     else
     {
         if (sMapIcons->flyIcons[iconNum].region == whichMap)
-            sMapIcons->flyIcons[iconNum].sprite->invisible = invisible;
+        {
+            if (sMapIcons->flyIcons[i].sprite != NULL)
+                sMapIcons->flyIcons[i].sprite->invisible = invisible;
+        }
     }
 }
 
@@ -5199,7 +5882,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
 {
     u8 *dst;
     u16 i;
-    u16 idx; 
+    u16 idx;
     
     if (mapsec == MAPSEC_NONE)
     {
@@ -5212,7 +5895,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
 
     if (mapsec < MAPSEC_COUNT)
     {
-        if (mapsec > KANTO_MAPSEC_START)
+        if (mapsec != MAPSEC_NONE)
         {
              idx = mapsec;
         }
@@ -5400,7 +6083,8 @@ static void Task_FlyMap(u8 taskId)
             }
             break;
         case MAP_INPUT_SWITCH:
-            HideAllMapIcons(TRUE);
+            if (sMapIcons != NULL)
+                FreeMapIcons();
             InitSwitchMapMenu(GetSelectedRegionMap(), taskId, SaveMainMapTask);
             break;
         }
@@ -6034,6 +6718,18 @@ u8 GetCurrentRegionIfNotKanto(u16 mapHeaderMapSecId)
             return REGIONMAP_HOENN;
         case MAPSEC_BELLCHIME_TRAIL:
             return REGIONMAP_JOHTO;
+        case MAPSEC_SEVII123_OCEAN:
+            return REGIONMAP_SEVII123;
+        case MAPSEC_SEVII45_OCEAN:
+            return REGIONMAP_SEVII45;
+        case MAPSEC_SEVII67_OCEAN:
+            return REGIONMAP_SEVII67;
+        case MAPSEC_NEW_BARK_PATH:
+            return REGIONMAP_JOHTO;
+        case MAPSEC_UNITY_ISLAND:
+            return REGIONMAP_UNOVA;
+        case MAPSEC_UNITY_TOWER:
+            return REGIONMAP_UNOVA;
         default:
             return REGIONMAP_KANTO;
     }
@@ -6051,6 +6747,7 @@ static const u32 *GetCompressedTilemapForRegion(u8 region)
         case REGIONMAP_SINNOH:     return sSinnoh_Tilemap;
         case REGIONMAP_GUYANA:     return sGuyana_Tilemap;
         case REGIONMAP_HOENN:      return sHoenn_Tilemap;
+        case REGIONMAP_UNOVA:      return sUnova_Tilemap;
         default:                   return sKanto_Tilemap;
     }
 }
@@ -6069,23 +6766,6 @@ static void LoadRegionTilemapIntoBuffer(u8 region)
             LZ77UnCompWram(src, sRegionMap->layoutBuffer);
         else
             CpuCopy16(src, sRegionMap->layoutBuffer, 1200);
-    }
-}
-
-static void HideAllMapIcons(bool8 hide)
-{
-    u16 i;
-    if (sMapIcons == NULL)
-        return;
-    for (i = 0; i < NELEMS(sMapIcons->flyIcons); ++i)
-    {
-        if (sMapIcons->flyIcons[i].sprite != NULL)
-            sMapIcons->flyIcons[i].sprite->invisible = hide;
-    }
-    for (i = 0; i < NELEMS(sMapIcons->dungeonIcons); ++i)
-    {
-        if (sMapIcons->dungeonIcons[i].sprite != NULL)
-            sMapIcons->dungeonIcons[i].sprite->invisible = hide;
     }
 }
 
@@ -6135,6 +6815,7 @@ u16 GetMapSectionIdAtPlayerPosition(void)
     return mapSecId;
 }
 
+// For getting the player's CURRENT actual map section id
 u16 GetActualMapSectionId(void)
 {
     u16 currentGroup = gSaveBlock1Ptr->location.mapGroup;

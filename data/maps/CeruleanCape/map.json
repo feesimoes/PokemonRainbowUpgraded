@@ -1,0 +1,36 @@
+{
+  "id": "MAP_CERULEAN_CAPE",
+  "name": "CeruleanCape",
+  "layout": "LAYOUT_CERULEAN_CAPE",
+  "music": "MUS_ROUTE24",
+  "region_map_section": "MAPSEC_CERULEAN_CAPE",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE25",
+      "offset": 22,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CeruleanCape_Lighthouse"
+    }
+  ]
+}

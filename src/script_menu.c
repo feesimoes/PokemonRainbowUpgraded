@@ -13,6 +13,12 @@
 #include "constants/songs.h"
 #include "constants/seagallop.h"
 #include "constants/menu.h"
+#include "pokedex.h"
+#include "data.h"
+#include "pokemon.h"
+#include "pokemon_storage_system.h"
+#include "palette.h"
+#include "field_weather.h"
 
 #define GFXTAG_FOSSIL 7000
 
@@ -1360,4 +1366,102 @@ u16 GetSelectedSeagallopDestination(void)
             return gSpecialVar_Result;
     }
     return SEAGALLOP_VERMILION_CITY;
+}
+
+// 1. A function to draw the sprite using the stored Pokémon's exact data
+static u8 CreatePreviewMonSprite_PicBox(s16 x, s16 y)
+{
+    u16 species = GetMonData(&gPreviewMon, MON_DATA_SPECIES, NULL);
+    u32 otId = GetMonData(&gPreviewMon, MON_DATA_OT_ID, NULL);
+    u32 personality = GetMonData(&gPreviewMon, MON_DATA_PERSONALITY, NULL);
+    bool8 isShiny = IsMonShiny(&gPreviewMon);
+    
+    // Always use the standard palette tag for memory allocation
+    u16 paletteTag = gMonPaletteTable[species].tag;
+
+    // Create the sprite using the exact PID and OTID (Handles Spinda spots, Unown letters)
+    u16 spriteId = CreateMonSprite_PicBox(species, x, y, FALSE);
+
+    if (spriteId != 0xFFFF)
+    {
+        // If the Pokemon is shiny, forcefully overwrite the loaded standard palette in VRAM with the shiny one
+        if (isShiny == TRUE)
+        {
+            u8 paletteNum = gSprites[spriteId].oam.paletteNum;
+            LoadCompressedPalette(gMonShinyPaletteTable[species].data, 0x100 + (paletteNum * 16), 32);
+            FlagSet(FLAG_GOT_SHINY_POKEMON);
+        }
+        PreservePaletteInWeather(IndexOfSpritePaletteTag(paletteTag) + 0x10);
+    }
+
+    return spriteId;
+}
+
+// 2. A native function called from scripts to Generate the Pokémon into memory
+void Native_GeneratePreviewMon(void)
+{
+    u16 species = VarGet(VAR_0x8000);
+    u8 level = VarGet(VAR_0x8001);
+    
+    // Generates a standard Pokémon with the player's ID so shiny odds work normally
+    CreateMon(&gPreviewMon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    SetMonData(&gPreviewMon, MON_DATA_MET_LEVEL, &level);
+}
+
+// 3. A native function called from scripts to Show the Box (Mimics FireRed's vanilla showmonpic)
+void Native_ShowPreviewMon(void)
+{
+    u8 x = VarGet(VAR_0x8002);
+    u8 y = VarGet(VAR_0x8003);
+    u8 spriteId;
+    u8 taskId;
+
+    // Prevent issues if another picbox is already open
+    if (QL_AvoidDisplay(QL_DestroyAbortedDisplay) == TRUE)
+        return;
+    if (FindTaskIdByFunc(Task_ScriptShowMonPic) != TASK_NONE)
+        return;
+
+    spriteId = CreatePreviewMonSprite_PicBox(8 * x + 40, 8 * y + 40);
+    
+    // Hijack FireRed's vanilla picbox task so hidemonpic works perfectly
+    taskId = CreateTask(Task_ScriptShowMonPic, 80);
+    
+    gTasks[taskId].tWindowId = CreateWindowFromRect(x, y, 8, 8);
+    gTasks[taskId].tState = 0;
+    gTasks[taskId].tSpecies = GetMonData(&gPreviewMon, MON_DATA_SPECIES, NULL);
+    gTasks[taskId].tSpriteId = spriteId;
+    
+    gSprites[spriteId].callback = SpriteCallbackDummy;
+    gSprites[spriteId].oam.priority = 0;
+    
+    SetStdWindowBorderStyle(gTasks[taskId].tWindowId, TRUE);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
+// 4. A native function to give the exact Pokémon to the player
+void Native_GivePreviewMon(void)
+{
+    u16 species = GetMonData(&gPreviewMon, MON_DATA_SPECIES, NULL);
+    u8 sentToPc;
+
+    if (CalculatePlayerPartyCount() < PARTY_SIZE)
+    {
+        // Space in party
+        gPlayerParty[CalculatePlayerPartyCount()] = gPreviewMon;
+        gSpecialVar_Result = 0; // Success (Party)
+    }
+    else
+    {
+        // Party full, send to PC
+        sentToPc = GiveMonToPlayer(&gPreviewMon);
+        if (sentToPc == TRUE)
+            gSpecialVar_Result = 1; // Success (PC)
+        else
+            gSpecialVar_Result = 2; // Failed (Box full)
+    }
+
+    // Register in Pokedex
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
 }

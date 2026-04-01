@@ -57,6 +57,8 @@ struct MonSpritesGfxManager
     struct SpriteFrameImage *frameImages;
 };
 
+struct Pokemon gPreviewMon;
+
 static EWRAM_DATA u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPlayerPartyCount = 0;
 EWRAM_DATA u8 gEnemyPartyCount = 0;
@@ -80,6 +82,7 @@ static void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static u8 GetLevelFromMonExp(struct Pokemon *mon);
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
+static u32 GetCalculatedShinyOdds(void);
 
 #include "data/battle_moves.h"
 
@@ -1817,6 +1820,15 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
     value = GetCurrentRegionMapSectionId();
     SetBoxMonData(boxMon, MON_DATA_MET_LOCATION, &value);
+    if (GetActualMapSectionId() > 255)
+    {
+        value = 1;
+    }
+    else
+    {
+        value = 0;
+    }
+    SetBoxMonData(boxMon, MON_DATA_RAINBOW_LOCATION, &value);
     SetBoxMonData(boxMon, MON_DATA_MET_LEVEL, &level);
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = ITEM_POKE_BALL;
@@ -3239,8 +3251,8 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_WORLD_RIBBON:
         retVal = substruct3->worldRibbon;
         break;
-    case MON_DATA_SPECIES_FORMS_VALUE:
-        retVal = substruct3->speciesFormsType;
+    case MON_DATA_RAINBOW_LOCATION:
+        retVal = substruct3->rainbowLocationFactor;
         break;
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
         retVal = substruct3->modernFatefulEncounter;
@@ -3396,7 +3408,7 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_NATIONAL_RIBBON:
     case MON_DATA_EARTH_RIBBON:
     case MON_DATA_WORLD_RIBBON:
-    case MON_DATA_SPECIES_FORMS_VALUE:
+    case MON_DATA_RAINBOW_LOCATION:
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
     case MON_DATA_KNOWN_MOVES:
     case MON_DATA_RIBBON_COUNT:
@@ -3649,6 +3661,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_WORLD_RIBBON:
         SET8(substruct3->worldRibbon);
+        break;
+    case MON_DATA_RAINBOW_LOCATION:
+        SET8(substruct3->rainbowLocationFactor);
         break;
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
         SET8(substruct3->modernFatefulEncounter);
@@ -3990,7 +4005,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         {                                                                                               \
             if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)                           \
                 friendship++;                                                                           \
-            if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetCurrentRegionMapSectionId())         \
+            if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetActualMapSectionId())                \
                 friendship++;                                                                           \
         }                                                                                               \
         if (friendship < 0)                                                                             \
@@ -5111,6 +5126,31 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_LEVEL_ALOLAN:
+                if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_GUYANA)
+                {
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII123)
+                {
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII45)
+                {
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII67)
+                {
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         break;
@@ -5139,7 +5179,17 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
     case EVO_MODE_ITEM_CHECK:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
-            if (gEvolutionTable[species][i].method == EVO_ITEM
+            if (gEvolutionTable[species][i].method == EVO_ITEM_ALOLAN
+                && gEvolutionTable[species][i].param == evolutionItem &&
+                (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_GUYANA  ||
+                GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII123 ||
+                GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII45  ||
+                GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == REGIONMAP_SEVII67))
+            {
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            }
+            else if (gEvolutionTable[species][i].method == EVO_ITEM
                 && gEvolutionTable[species][i].param == evolutionItem)
             {
                 targetSpecies = gEvolutionTable[species][i].targetSpecies;
@@ -5249,15 +5299,31 @@ u16 SpeciesToCryId(u16 species)
     else if (species > SPECIES_EGG)
     {
         //Special Alolan form cases
+        if (species == SPECIES_SANDSHREW_ALOLA)
+        {
+            return SPECIES_SANDSHREW;
+        }
         if (species == SPECIES_SANDSLASH_ALOLA)
         {
             return SPECIES_SANDSLASH;
         }
-        else if (species == SPECIES_GOLEM_ALOLA)
+        if (species == SPECIES_GEODUDE_ALOLA)
+        {
+            return SPECIES_GEODUDE;
+        }
+        if (species == SPECIES_GRAVELER_ALOLA)
+        {
+            return SPECIES_GRAVELER;
+        }
+        if (species == SPECIES_GOLEM_ALOLA)
         {
             return SPECIES_GOLEM;
         }
-        else if (species == SPECIES_MAROWAK_ALOLA)
+        if (species == SPECIES_EXEGGUTOR_ALOLA)
+        {
+            return SPECIES_EXEGGUTOR;
+        }
+        if (species == SPECIES_MAROWAK_ALOLA)
         {
             return SPECIES_MAROWAK;
         }
@@ -5533,7 +5599,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         {
             if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)
                 friendship++;
-            if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetCurrentRegionMapSectionId())
+            if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetActualMapSectionId())
                 friendship++;
         }
 
@@ -5870,11 +5936,11 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
 u16 SpeciesToPokedexNum(u16 species)
 {
-    species = SpeciesToNationalPokedexNum(species);
     if (species > SPECIES_EGG)
     {
-        species = 0;
+        return 0xFFFF;
     }
+    species = SpeciesToNationalPokedexNum(species);
     if (!IsNationalPokedexEnabled() && species > KANTO_SPECIES_END)
         return 0xFFFF;
     return species;
@@ -5912,25 +5978,30 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_CHAMPION_2:
             return MUS_VS_CHAMPION_LANCE;
         case TRAINER_CLASS_LEADER:
-            //Have all 8 badges and on a Kanto map, this is a Kanto gym leader rematch
-            if (FlagGet(FLAG_BADGE08_GET) && GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId) == REGIONMAP_KANTO)
+            switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
             {
-                return MUS_VS_GYM_LEADER_REMATCH;
-            }
-            //On a Johto map, this is a Johto gym leader battle
-            else if (gMapHeader.regionMapSectionId >= MAPSEC_NEW_BARK_TOWN && gMapHeader.regionMapSectionId <= MAPSEC_DRAGONS_DEN)
-            {
-                return MUS_VS_GYM_LEADER_JOHTO;
-            }
-            
-            //On a Sinnoh map, this is a Sinnoh gym leader battle
-            else if (gMapHeader.regionMapSectionId > MAPSEC_DRAGONS_DEN)
-            {
-                return MUS_VS_GYM_LEADER_SINNOH;
-            }
-            else
-            {
-                return MUS_VS_GYM_LEADER;
+                case REGIONMAP_JOHTO:
+                    if (VarGet(VAR_JOHTO_STORY_PROGRESS) > 20 && GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId) == REGIONMAP_JOHTO)
+                    {
+                        return MUS_VS_GYM_LEADER_JOHTO; // Rematch variation, post-Johto story (to be added)
+                    }
+                    else
+                    {
+                        return MUS_VS_GYM_LEADER_JOHTO;
+                    }
+                case REGIONMAP_HOENN:
+                    return MUS_RS_VS_GYM_LEADER; // Eventually, replace with Hoenn badge check and FR/LG mixes
+                case REGIONMAP_SINNOH:
+                    return MUS_VS_GYM_LEADER_SINNOH;
+                default:
+                    if (FlagGet(FLAG_BADGE08_GET) && GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId) == REGIONMAP_KANTO)
+                    {
+                        return MUS_VS_GYM_LEADER_REMATCH;
+                    }
+                    else
+                    {
+                        return MUS_VS_GYM_LEADER;
+                    }
             }
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
@@ -5950,8 +6021,10 @@ static u16 GetBattleBGM(void)
                 return MUS_VS_TEAM_ROCKET;
             }
         case TRAINER_CLASS_COOLTRAINER:
-            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+            switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
             {
+                case REGIONMAP_GUYANA:
+                    return MUS_VS_RANK_MATCH;
                 case REGIONMAP_SEVII123:
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_SEVII45:
@@ -5960,12 +6033,18 @@ static u16 GetBattleBGM(void)
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_JOHTO:
                     return MUS_VS_TRAINER_JOHTO;
+                case REGIONMAP_HOENN:
+                    return MUS_RS_VS_TRAINER; // Needs to update to FR/LG style eventually
+                case REGIONMAP_SINNOH:
+                    return MUS_VS_TRAINER_SINNOH;
                 default:
                     return MUS_VS_TRAINER;
             }
         case TRAINER_CLASS_GENTLEMAN:
-            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+            switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
             {
+                case REGIONMAP_GUYANA:
+                    return MUS_VS_RANK_MATCH;
                 case REGIONMAP_SEVII123:
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_SEVII45:
@@ -5974,6 +6053,10 @@ static u16 GetBattleBGM(void)
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_JOHTO:
                     return MUS_VS_TRAINER_JOHTO;
+                case REGIONMAP_HOENN:
+                    return MUS_RS_VS_TRAINER; // Needs to update to FR/LG style eventually
+                case REGIONMAP_SINNOH:
+                    return MUS_VS_TRAINER_SINNOH;
                 default:
                     return MUS_VS_TRAINER;
             }
@@ -5983,8 +6066,10 @@ static u16 GetBattleBGM(void)
             return MUS_VS_GYM_LEADER_RIVAL;
         case TRAINER_CLASS_PKMN_TRAINER:
         default:
-            switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+            switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
             {
+                case REGIONMAP_GUYANA:
+                    return MUS_VS_RANK_MATCH;
                 case REGIONMAP_SEVII123:
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_SEVII45:
@@ -5993,15 +6078,19 @@ static u16 GetBattleBGM(void)
                     return MUS_VS_TRAINER_SEVII;
                 case REGIONMAP_JOHTO:
                     return MUS_VS_TRAINER_JOHTO;
-                case REGIONMAP_GUYANA:
-                    return MUS_VS_RANK_MATCH;
+                case REGIONMAP_HOENN:
+                    return MUS_RS_VS_TRAINER; // Needs to update to FR/LG style eventually
+                case REGIONMAP_SINNOH:
+                    return MUS_VS_TRAINER_SINNOH;
                 default:
                     return MUS_VS_TRAINER;
             }
         }
     }
-    switch (GetCurrentRegionIfNotKanto(gMapHeader.regionMapSectionId))
+    switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
     {
+        case REGIONMAP_GUYANA:
+            return MUS_VS_WILD_GUYANA;
         case REGIONMAP_SEVII123:
             return MUS_VS_WILD_SEVII;
         case REGIONMAP_SEVII45:
@@ -6010,8 +6099,6 @@ static u16 GetBattleBGM(void)
             return MUS_VS_WILD_SEVII;
         case REGIONMAP_JOHTO:
             return MUS_VS_WILD_JOHTO;
-        case REGIONMAP_GUYANA:
-            return MUS_VS_WILD_GUYANA;
         case REGIONMAP_HOENN:
             return MUS_VS_WILD_GUYANA;
         case REGIONMAP_SINNOH:
@@ -6050,6 +6137,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
     u32 shinyValue;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
+
     if (shinyValue < SHINY_ODDS)
         return gMonShinyPaletteTable[species].data;
     else
@@ -6069,6 +6157,7 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
     u32 shinyValue;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
+
     if (shinyValue < SHINY_ODDS)
         return &gMonShinyPaletteTable[species];
     else
@@ -6204,6 +6293,7 @@ static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
     u32 shinyValue = GET_SHINY_VALUE(otId, personality);
+
     if (shinyValue < SHINY_ODDS)
         retVal = TRUE;
     return retVal;
@@ -6594,4 +6684,16 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
             spriteNum = 0;
         return sMonSpritesGfxManager->spritePointers[spriteNum];
     }
+}
+
+static u32 GetCalculatedShinyOdds(void) 
+{
+    return SHINY_ODDS;
+    /*
+    if (GetCurrentRegionIfNotKanto(GetActualMapSectionId()) == VarGet(VAR_SHINY_ODDS_MULTIPLIER_REGION)) 
+    {
+        return 16 * (VarGet(VAR_SHINY_ODDS_MULTIPLIER) + 1);
+    }
+    return 16; // Default odds
+    */
 }

@@ -5,3 +5,45 @@ mapscripts RuinsOfAlph_MapScripts
         setworldmapflag(FLAG_WORLD_MAP_RUINS_OF_ALPH)
     }
 }
+
+script RuinsOfAlph_ShinyTest 
+{
+    lock
+    faceplayer
+    setvar(VAR_0x8000, SPECIES_BELDUM)
+    setvar(VAR_0x8001, 5)
+    callnative(Native_GeneratePreviewMon)
+    setvar(VAR_0x8002, 10)
+    setvar(VAR_0x8003, 3)
+    callnative(Native_ShowPreviewMon)
+    msgbox(format("This is a random, weird POKéMON I\nfound, among these rocks, here.\pYou don't want it, or...\nDo you, {PLAYER}?"), MSGBOX_YESNO)
+    closemessage
+    hidemonpic
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Fine, you can have it.\nIt doesn't exist, yet, anyways."))
+        closemessage
+        callnative(Native_GivePreviewMon)
+        playfanfare(MUS_LEVEL_UP)
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
+        {
+            msgbox(format("you got a shiny god\nomg"))
+            clearflag(FLAG_GOT_SHINY_POKEMON)
+        }
+        else
+        {
+            msgbox(format("not shiny\ndarn"))
+        }
+        closemessage
+    }
+    else
+    {
+        msgbox(format("Fine, whatever.\nSee you around."))
+        closemessage
+
+    }
+    release
+    end   
+}

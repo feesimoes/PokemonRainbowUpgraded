@@ -1,0 +1,46 @@
+mapscripts LakeOfRage_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_LAKE_OF_RAGE)
+    }
+}
+
+script LakeOfRage_Sign 
+{
+    lock
+    msgbox(format("LAKE OF RAGE -\nAlso known as GYARADOS LAKE!\pBeware of wild GYARADOS gathering,\na nasty storm may be brewing!"))
+    closemessage
+    release
+    end    
+}
+
+script LakeOfRage_FishingGurus_House_Sign
+{
+    lock
+    msgbox(format("LAKE OF RAGE -\nFISHING GURU'S HOUSE"))
+    closemessage
+    release
+    end    
+}
+
+script LakeOfRage_Beauty
+{
+    lock
+    faceplayer
+    msgbox(format("This lake is so pretty...\nEverything I could ever want...\pIt's here!\nIt's really... All here!"))
+    closemessage
+    release
+    end    
+}
+
+script LakeOfRage_Old_Man_1
+{
+    lock
+    faceplayer
+    msgbox(format("If you see a group of GYARADOS\ngathering on the lakefront...\pYou should leave, immediately.\nHorribly strong RED GYARADOS..."))
+    msgbox(format("It's quite rare...\nBut don't underestimate it, young one."))
+    closemessage
+    release
+    end    
+}

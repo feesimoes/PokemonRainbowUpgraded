@@ -31,9 +31,11 @@ script Route33_Rocket_F
         checkmoney(10000)
         if (var(VAR_RESULT) == TRUE)
         {
+            playse(SE_SHOP)
             removemoney(10000)
             addvar(VAR_ROCKET_RELIEF_FUNDS, 1)
             updatemoneybox
+            waitse
             msgbox(format("Aww, thanks, kid!"))
         }
         else

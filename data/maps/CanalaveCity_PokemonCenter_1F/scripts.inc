@@ -22,3 +22,15 @@ CanalaveCity_PokemonCenter_1F_MapScripts_MAP_SCRIPT_ON_RESUME:
 	call CableClub_OnResume
 	return
 
+
+CanalaveCity_PokemonCenter_1F_EventScript_Nurse::
+# 19 "data/maps/CanalaveCity_PokemonCenter_1F/scripts.pory"
+	lock
+# 20 "data/maps/CanalaveCity_PokemonCenter_1F/scripts.pory"
+	faceplayer
+# 21 "data/maps/CanalaveCity_PokemonCenter_1F/scripts.pory"
+	call EventScript_PkmnCenterNurse
+# 22 "data/maps/CanalaveCity_PokemonCenter_1F/scripts.pory"
+	release
+	end
+

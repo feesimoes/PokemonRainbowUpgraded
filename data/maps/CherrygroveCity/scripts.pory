@@ -6,7 +6,7 @@ script CherrygroveCity_RunningShoes_Guide_Dialogue
 {
     lock
     applymovement(1, Movement_CherrygroveCity_NPC_Face_Player)
-    msgbox(format("Out there is the sea,\nas you can see...\pOhoho...\nDid you not find that funny?\p...Oh, well. Anyhow...\nTo make up for it, how-\pOh, dear, me... I apologize.\nYou already have RUNNING SHOES."))
+    msgbox(format("Out there is the sea,\nas you can see...\pOhoho...\nDid you not find that funny?\p...Oh, well. Anyhow...\nTo make up for it, how-\pOh, dear me... I apologize.\nYou already have RUNNING SHOES."))
     waitmessage
     closemessage
     release

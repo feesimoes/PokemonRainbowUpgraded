@@ -1,0 +1,324 @@
+mapscripts CianwoodCity_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (var(VAR_JOHTO_STORY_PROGRESS) >= 4)
+        {
+            setobjectxyperm(LOCALID_CIANWOOD_SUICUNE, 18, 2)
+        }
+        elif (var(VAR_JOHTO_STORY_PROGRESS) == 3)
+        {
+            setobjectxyperm(LOCALID_CIANWOOD_BLUE, 10, 15)
+            addobject(LOCALID_CIANWOOD_BLUE)
+        }
+        elif (var(VAR_JOHTO_STORY_PROGRESS) == 2)
+        {
+            setobjectxyperm(LOCALID_CIANWOOD_SUICUNE, 18, 11)
+            addobject(LOCALID_CIANWOOD_SUICUNE)
+        }
+    }
+}
+
+script CianwoodCity_Event_Approach_Suicune 
+{
+    lock
+    cleartrainerflag(TRAINER_RIVAL_CIANWOOD_CHAMPION)
+    cleartrainerflag(TRAINER_RIVAL_CIANWOOD_FORMER_CHAMPION)
+    applymovement(LOCALID_PLAYER, CianwoodCity_Player_Faces_Up)
+    waitmovement
+    applymovement(LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Suicune_Escapes_1)
+    playse(SE_LEDGE)
+    waitmovement
+    waitse
+    applymovement(LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Suicune_Escapes_2)
+    playse(SE_LEDGE)
+    waitse
+    playse(SE_LEDGE)
+    waitmovement
+    waitse
+    applymovement(LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Suicune_Escapes_3)
+    playse(SE_LEDGE)
+    waitmovement
+    waitse
+    applymovement(LOCALID_CIANWOOD_SUICUNE, CianwoodCity_Suicune_Escapes_4)
+    playse(SE_LEDGE)
+    waitse
+    playse(SE_FLEE)
+    waitmovement
+    waitse
+    fadeoutbgm(0)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("SUICUNE ran away..."))
+    closemessage
+    setobjectxyperm(LOCALID_CIANWOOD_BLUE, 10, 15)
+    addobject(LOCALID_CIANWOOD_BLUE)
+    applymovement(LOCALID_CIANWOOD_BLUE, CianwoodCity_Rival_Blue_Face_Right_Enter)
+    waitmovement
+    textcolor(NPC_TEXT_COLOR_MALE)
+    if (flag(FLAG_SYS_GAME_CLEAR) == TRUE)
+    {
+        playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+        msgbox(format("{RIVAL}: Yo! {PLAYER}!"))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_PLAYER, CianwoodCity_Player_Face_Down)
+        waitmovement
+        applymovement(LOCALID_CIANWOOD_BLUE, CianwoodCity_Rival_Blue_Catches_Up)
+        waitmovement
+        if (var(VAR_JOHTO_STORY_PROGRESS) == 3)
+        {
+            msgbox(format("That legendary SUICUNE ran away?\nAgain? Tough luck, bud!\pBy the way, did you get stronger\nyet? Come on, I'll take you on!"))
+            closemessage
+        }
+        else
+        {
+            specialvar(VAR_RESULT, CheckBadgeCount)
+            msgbox(format("Thought I saw you here, pal!\nYou're still catching POKéMON?\pYeah... Oops!\nThat was the legendary SUICUNE?"))
+            buffernumberstring(STR_VAR_1, VAR_RESULT)
+            msgbox(format("You only got {STR_VAR_1} BADGES?\nI thought you'd be stronger...\pMe? I've been training up!\nI have 15 BADGES now, bud!"))
+            waitmessage
+            closemessage
+            setvar(VAR_JOHTO_STORY_PROGRESS, 3)
+            msgbox(format("Anyways, I'm wondering...\nCan you still defeat me?\pOr...\pShould I give the LEAGUE CHAMPION\nthing another try, {PLAYER}?"))
+            closemessage
+        }
+        call(CianwoodCity_Rival_Former_Champion_Battle)
+    }
+    else
+    {
+        playbgm(MUS_ENCOUNTER_RIVAL_CHAMP, FALSE)
+        msgbox(format("{RIVAL}: Yo! {PLAYER}!"))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_PLAYER, CianwoodCity_Player_Face_Down)
+        waitmovement
+        applymovement(LOCALID_CIANWOOD_BLUE, CianwoodCity_Rival_Blue_Catches_Up)
+        waitmovement
+        if (var(VAR_JOHTO_STORY_PROGRESS) == 3)
+        {
+            msgbox(format("That legendary SUICUNE ran away?\nAgain? Tough luck, bud!\pBy the way, did you get stronger\nyet? Come on, I'll take you on!"))
+            closemessage
+        }
+        else
+        {
+            specialvar(VAR_RESULT, CheckBadgeCount)
+            msgbox(format("Thought I saw you here, pal!\nYou're still struggling behind here?\pYeah... Oops!\nThat was the legendary SUICUNE?"))
+            buffernumberstring(STR_VAR_1, VAR_RESULT)
+            msgbox(format("You only got {STR_VAR_1} BADGES?\nI expected that, hah!\pMe? I'm strong as ever!\nI'm CHAMPION of JOHTO, too!"))
+            waitmessage
+            closemessage
+            setvar(VAR_JOHTO_STORY_PROGRESS, 3)
+            msgbox(format("A proper CHAMPION of KANTO and\nJOHTO should be a challenge...\pIsn't that right, {PLAYER}?"))
+            closemessage
+        }
+        call(CianwoodCity_Rival_Champion_Battle)
+    }
+    release
+    end
+}
+
+
+script CianwoodCity_Rival_Former_Champion_Battle 
+{
+    trainerbattle_earlyrival(TRAINER_RIVAL_CIANWOOD_FORMER_CHAMPION, 0, format("...Tch, strong as ever."), format("Yeah, haha! No way!\nI'm good enough to be CHAMPION!"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("...Well, whatever.\nCHUCK isn't here, {PLAYER}.\pI tried to help find him, but had no\nluck there... Maybe...\pI'll need to head back to KANTO, to\nthe VIRIDIAN GYM, for now..."))
+    closemessage
+    msgbox(format("{PLAYER}, I'll beat you some day.\nDon't you forget it!\pBe smellin' ya...\nLater!"))
+    closemessage
+    setvar(VAR_JOHTO_STORY_PROGRESS, 4)
+    playbgm(MUS_RIVAL_EXIT, FALSE)
+    applymovement(LOCALID_CIANWOOD_BLUE, CianwoodCity_Rival_Blue_Exits)
+    waitmovement
+    setobjectxyperm(LOCALID_CIANWOOD_BLUE, 18, 3)
+    removeobject(LOCALID_CIANWOOD_BLUE)
+    fadedefaultbgm
+    return
+}
+
+script CianwoodCity_Rival_Champion_Battle 
+{
+    trainerbattle_earlyrival(TRAINER_RIVAL_CIANWOOD_CHAMPION, 0, format("WHAT?! You...\nNO! This isn't good..."), format("See, {PLAYER}?\nTold you I'm the best!"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("CHUCK isn't here, {PLAYER}!\pI tried to help find him, but had no\nluck there...\pThe fact that you beat me, though,\nproves I need to get stronger!"))
+    closemessage
+    msgbox(format("{PLAYER}! Don't you dare come for\nme at the POKéMON LEAGUE!\pSmell ya later!"))
+    closemessage
+    setvar(VAR_JOHTO_STORY_PROGRESS, 4)
+    playbgm(MUS_RIVAL_EXIT, FALSE)
+    applymovement(LOCALID_CIANWOOD_BLUE, CianwoodCity_Rival_Blue_Exits)
+    waitmovement
+    setobjectxyperm(LOCALID_CIANWOOD_BLUE, 18, 3)
+    removeobject(LOCALID_CIANWOOD_BLUE)
+    fadedefaultbgm
+    return
+}
+
+script CianwoodCity_Rival_Blue 
+{
+    lock
+    faceplayer
+    msgbox(format("{RIVAL}: I still don't see CHUCK\naround. SUICUNE is back, though!\pAre you gonna catch it?\nFor gramps?"))
+    msgbox(format("Tch...\nThere's too many POKéMON...\pI gave up, but, you're ready to\nthrow BALLS, right {PLAYER}?"))
+    msgbox(format("With, like, 10,000 ULTRA BALL(s)?\nHah! Be smellin' ya later!"))
+    closemessage
+    release
+    end   
+}
+
+movement CianwoodCity_Player_Faces_Up 
+{
+    face_up_fast
+    step_end    
+}
+
+movement CianwoodCity_Suicune_Escapes_1 
+{
+    emote_exclamation_mark
+    delay_2
+    jump_2_up
+    delay_2
+    step_end
+}
+
+movement CianwoodCity_Suicune_Escapes_2
+{
+    jump_right * 2
+    step_end
+}
+
+movement CianwoodCity_Suicune_Escapes_3
+{
+    jump_2_up
+    step_end
+}
+
+movement CianwoodCity_Suicune_Escapes_4
+{
+    jump_up * 2
+    delay_8
+    step_end
+}
+
+movement CianwoodCity_Rival_Blue_Face_Right_Enter 
+{
+    face_right
+    step_end
+}
+
+movement CianwoodCity_Rival_Blue_Catches_Up 
+{
+    walk_right * 8
+    walk_up * 2
+    step_end
+}
+
+movement CianwoodCity_Rival_Blue_Exits 
+{
+    walk_down * 3
+    walk_left * 4
+    walk_down * 6
+    step_end
+}
+
+movement CianwoodCity_Player_Face_Down 
+{
+    emote_exclamation_mark
+    delay_4
+    face_down
+    step_end
+}
+
+script CianwoodCity_Sign 
+{
+    lock
+    msgbox(format("CIANWOOD CITY\nThe city near rough seas!"))
+    closemessage
+    release
+    end    
+}
+
+script CianwoodCity_Gym_Sign 
+{
+    lock
+    msgbox(format("CIANWOOD CITY POKéMON GYM\nLEADER: CHUCK\pStill reading signs? No need!\nHis roaring fists do the talking!"))
+    closemessage
+    release
+    end    
+}
+
+script CianwoodCity_CliffEdgeGate_Sign 
+{
+    lock
+    msgbox(format("CIANWOOD CITY -\nCLIFF EDGE GATE\pConnecting the JOHTO region to the\nFIORE region! PAL PARK ahead."))
+    closemessage
+    release
+    end    
+}
+
+script CianwoodCity_CameronsHouse_Sign 
+{
+    lock
+    msgbox(format("CIANWOOD CITY\nCAMERON'S HOUSE"))
+    closemessage
+    release
+    end    
+}
+
+script CianwoodCity_Pharmacy_Sign 
+{
+    lock
+    msgbox(format("CIANWOOD CITY\nMEDICAL PHARMACY\pOver 500 years of tradition...\nWe await your medical inquiries."))
+    closemessage
+    release
+    end    
+}
+
+script CianwoodCity_Lass 
+{
+    lock
+    faceplayer
+    msgbox(format("Have you seen PAL PARK yet?\nIt's just past CLIFF EDGE GATE.\pAs rumor has it, CIANWOOD'S GYM\nLEADER - CHUCK, visits frequently."))
+    closemessage
+    release
+    end
+}
+
+script CianwoodCity_Gentleman
+{
+    lock
+    faceplayer
+    msgbox(format("CIANWOOD is such a remote place, it\ndoesn't fit in with JOHTO.\pApparently it resides on a different\nlandmass altogether, too..."))
+    closemessage
+    release
+    end
+}
+
+script CianwoodCity_FatMan
+{
+    lock
+    faceplayer
+    msgbox(format("RAGE CANDY BARS... Oh, man.\nI need to lay off those..."))
+    closemessage
+    release
+    end
+}
+
+script CianwoodCity_BattleGirl
+{
+    lock
+    faceplayer
+    msgbox(format("My husband, CHUCK, has gone off\nagain... I hope he returns...\pAny moment, now..."))
+    closemessage
+    release
+    end
+}
+
+script CianwoodCity_Suicune
+{
+    lock
+    msgbox(format("Wow!\nIt's a shiny new SUICUNE!"))
+    closemessage
+    release
+    end
+}

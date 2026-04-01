@@ -50,10 +50,25 @@ script SilphCo_1F_EventScript_CynthiaEncounter {
     else
     {
         lock
+        msgbox(format("Somebody needs to help me!!!\nI'm stuck in here!!! HELP!"))
+        closemessage
         applymovement(2, Movement_Cynthia_Faces_Player)
         waitmovement
         msgbox(format("Oh, hello...\nWait, no, you aren't with SILPH...\pI'm sorry, I thought you were the\nperson I was here to interview..."))
+        closemessage
         release
         end
     }
+}
+
+script SilphCo_1F_EventScript_StevenEncounter
+{
+    lock
+    faceplayer
+    msgbox(format("My name is STEVEN. I'm the CHAMPION\nfrom the HOENN REGION.\pHave we... Met... Before?\nNo, that's not possible..."))
+    msgbox(format("All the TRAINERS I have battled\nseem to have that same look..."))
+    msgbox(format("Oh, look at the time.\nI really must go.\pPlus, I appear to have run out of\nuseful dialogue for you..."))
+    closemessage
+    release
+    end
 }

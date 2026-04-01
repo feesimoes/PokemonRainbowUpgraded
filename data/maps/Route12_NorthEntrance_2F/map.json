@@ -34,7 +34,7 @@
     {
       "x": 10,
       "y": 9,
-      "elevation": 3,
+      "elevation": 4,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "4"
     }

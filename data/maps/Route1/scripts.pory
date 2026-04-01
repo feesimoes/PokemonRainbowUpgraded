@@ -1,51 +1,71 @@
-raw `
-Route1_MapScripts::
-	.byte 0
+mapscripts Route1_MapScripts 
+{
 
-Route1_EventScript_MartClerk::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_POTION_ON_ROUTE_1, Route1_EventScript_AlreadyGotPotion
-	msgbox Route1_Text_WorkAtPokeMartTakeSample
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	checkitemspace ITEM_POTION
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
-	bufferitemname STR_VAR_2, ITEM_POTION
-	playfanfare MUS_LEVEL_UP
-	message Text_ObtainedTheX
-	waitmessage
-	waitfanfare
-	additem ITEM_POTION
-	msgbox Route1_Text_PutPotionAway
-	call EventScript_RestorePrevTextColor
-	setflag FLAG_GOT_POTION_ON_ROUTE_1
-	release
-	end
+}
 
-Route1_EventScript_AlreadyGotPotion::
-	msgbox Route1_Text_ComeSeeUsIfYouNeedPokeBalls
-	release
-	end
+script Route1_EventScript_RouteSign 
+{
+    lock
+    msgbox(format("ROUTE 1\nPALLET TOWN - VIRIDIAN CITY"))
+    closemessage
+    release
+    end    
+}
 
-Route1_EventScript_Boy::
-	msgbox Route1_Text_CanJumpFromLedges, MSGBOX_NPC
-	end
+script Route1_EventScript_Boy
+{
+    lock
+    faceplayer
+    msgbox(format("See those ledges along the road?"))
+    msgbox(format("It's a bit scary, but you can jump\nfrom them."))
+    msgbox(format("You can get back to PALLET TOWN\nmuch quicker that way."))
+    closemessage
+    release
+    end    
+}
 
-Route1_EventScript_RouteSign::
-	msgbox Route1_Text_RouteSign, MSGBOX_SIGN
-	end
-`
-const Route1_Misty = 0x08
-const Route1_HoOh = 0x03
+script Route1_EventScript_MartClerk
+{
+    lock
+    faceplayer
+    if (!flag(FLAG_GOT_POTION_ON_ROUTE_1))
+    {
+        msgbox(format("Hi!\nI work at the POKé MART.\pHave you checked it out in\nVIRIDIAN CITY yet?"))
+        msgbox(format("Oh, I know!\nI'll give you free samples.\pIt's definitely a big help for\nnew TRAINERS like you.\pHere you go!"))
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        checkitemspace(ITEM_POTION, 5)
+        if (var(VAR_RESULT) == TRUE)
+        {
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox(format("{PLAYER} obtained five POTION(s)\nfrom the POKé MART clerk."))
+            waitfanfare
+            waitmessage
+            additem(ITEM_POTION, 5)
+            msgbox(format("{PLAYER} put the POTION(s) away in\nthe BAG'S ITEMS POCKET."))
+            textcolor(NPC_TEXT_COLOR_MALE)
+            msgbox(format("Stop by a POKé MART to shop,\nany time you want!\pWe aren't exclusive to KANTO!"))
+            setflag(FLAG_GOT_POTION_ON_ROUTE_1)
+        }
+    }
+    else
+    {
+        msgbox(format("Oh, it's you again!\nI was about to head back...\pYou can visit us any time you\nwant! We buy and sell products."))
+        msgbox(format("We aren't exclusive to KANTO\neither, by the way.\pThere are more stores in many\nother regions, it's worldwide!"))
+    }
+    closemessage
+    release
+    end 
+}
 
 script Route1_Spearows_Bite {
     lock
-    playmoncry(SPECIES_SPEAROW, CRY_MODE_NORMAL)
-    waitmoncry
     msgbox(format("It's a wild POKéMON!\nDarn! No way to ID it!"))
     closemessage
     setweather(WEATHER_RAIN)
     doweather
+    faceplayer
+    playmoncry(SPECIES_SPEAROW, CRY_MODE_NORMAL)
+    waitmoncry
     msgbox(format("Ow!\nIt gave you a vicious PECK!"))
     closemessage
     release
@@ -54,72 +74,146 @@ script Route1_Spearows_Bite {
 
 script Route1_Misty_Thinks_You_Are_Rival {
     lock
-    applymovement(Route1_Misty, Route1_Movement_Face_Player)
+    msgbox(format("Argh!\n...How annoying!"))
+    closemessage
+    faceplayer
     setweather(WEATHER_RAIN)
     doweather
-    msgbox(format("Argh! How annoying!\n...Oh? Well, welcome back, pest!\pAre you returning my BIKE?"), MSGBOX_YESNO)
-    msgbox(format("...Huh? I appreciate that\nunexpected honesty, but...\pSorry, I've had a rough day!\nSome loser took off with my BIKE!"))
-    closemessage
-    setweather(WEATHER_RAIN_THUNDERSTORM)
-    doweather
-    msgbox(format("I can't seem to reel in any\ngood POKéMON here either!\pIt's getting a bit dark, too, so\nI'll probably head back to CERULEAN."))
-    msgbox(format("You're a new face!\nUh huh...\pOK, so you're {PLAYER}!\nI'll remember that!\pI'm MISTY! Here, come with me!\nI could show you to VIRIDIAN CITY!"))
+    msgbox(format("...Oh?\nAre you that pest's friend...?\pAre you going to apologize?!"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Ugh, I never thought that new\nTRAINERS from PALLET TOWN would...\pOh, never mind that!"))
+        msgbox(format("I'm a decent TRAINER, but I can't\nlie, there's more to learn!"))
+        msgbox(format("I also love WATER-type POKéMON!\nI was fishing here, but..."))
+        msgbox(format("I can't seem to reel in any POKéMON\nat all... Aww...\pIt's getting a bit dark too, so\nI'll probably go back to CERULEAN..."))
+        msgbox(format("You're a new face!\nUh huh...\pOkay, so you're {PLAYER}!\nI'll remember that!\pI'm MISTY! Here, come with me!\nI could show you to VIRIDIAN CITY!"))
+        closemessage
+    }
+    else
+    {
+        msgbox(format("Tch...\nSeriously?!\pIf I even wanted your apology, I\nwould have asked for it!"))
+        msgbox(format("I came here for POKéMON, not to be\nbullied by new TRAINERS!"))
+        msgbox(format("I can't seem to reel in any POKéMON\nat all... Aww...\pIt's getting a bit dark too, so I'll\nprobably go back to CERULEAN..."))
+        closemessage
+        checkplayergender
+        if (var(VAR_RESULT) == MALE)
+        {
+            msgbox(format("You're a new face, though!\nUh huh... Okay...\pWow, you're {PLAYER}'ERY'UHH-GURL?\nWow! I forgot already..."))
+            msgbox(format("Anyways, I'm MISTY! Come with me!\nI have to show you VIRIDIAN CITY!"))
+        }
+        else
+        {
+            msgbox(format("You're a new face, though!\nUh huh... Okay...\pWow, you're {PLAYER}'ERR'UHH-MAN?\nWow! I forgot already..."))
+            msgbox(format("Anyways, I'm MISTY! Come with me!\nI have to show you VIRIDIAN CITY!"))
+        }
+    }
     closemessage
     playbgm(MUS_FOLLOW_ME, TRUE)
-    applymovement(Route1_Misty, Route1_Movement_Walk_Up_9)
+    applymovement(LOCALID_ROUTE1_MISTY, Route1_Misty_Sequence_1)
+    delay(4)
+    applymovement(LOCALID_PLAYER, Route1_Player_Follow_Sequence_1)
     waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_9)
-    waitmovement
-    playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
     setweather(WEATHER_SUNNY)
     doweather
-    applymovement(Route1_Misty, Route1_Movement_Walk_Right_3)
-    waitmovement
-    applymovement(Route1_Misty, Route1_Movement_Walk_Up_1)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_1)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Right_3)
-    waitmovement
-    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
+    applymovement(LOCALID_ROUTE1_MISTY, Route1_Movement_Face_Player)
     waitmovement
     msgbox(format("Well, would you look at that?\nThe rain has finally let up!\pCome on, just a bit more to go!"))
-    waitmessage
     closemessage
-    applymovement(Route1_Misty, Route1_Movement_Walk_Left_2)
+    playmoncry(SPECIES_HO_OH, CRY_MODE_NORMAL)
+    waitmoncry
+    applymovement(LOCALID_PLAYER, Route1_Player_Sequence_1)
     waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Left_2)
+    applymovement(LOCALID_ROUTE1_MISTY, Route1_Misty_Sequence_2)
     waitmovement
-    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
-    waitmovement
-    applymovement(Route1_Misty, Route1_Movement_Walk_Up_5)
-    waitmovement
-    applymovement(Route1_Misty, Route1_Movement_Walk_Right_18)
-    waitmovement
-    delay(60)
     msgbox(format("I'm all the way over here,\nSLOWPOKE! By the big red building!"))
-    waitmessage
     closemessage
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_7)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Left_18)
-    waitmovement
-    applymovement(LOCALID_PLAYER, Route1_Movement_Walk_Up_5)
+    applymovement(LOCALID_PLAYER, Route1_Player_Sequence_2)
     waitmovement
     msgbox(format("We're here!\nThis is the POKéMON CENTER.\pNURSE JOY is always happy to heal\nYour POKéMON to full health!\pThe best part is that it's free!"))
-    msgbox(format("I'm gonna go over to the POKéMART!\nI definitely need to stock up\pon supplies now, since ROUTE 1.\nOK, see ya!\pBe sure to meet lots of POKéMON!"))
-    waitmessage
+    msgbox(format("Anyways, I'll be seeing you!\nI gotta go over to a POKé MART!\pBe sure to meet lots of POKéMON!\nLet's meet again, alright?"))
     closemessage
-    applymovement(10, Route1_Movement_Walk_Right_18)
+    removeobject(LOCALID_ROUTE1_MISTY)
+    addobject(LOCALID_VIRIDIAN_MISTY)
+    applymovement(LOCALID_VIRIDIAN_MISTY, Viridian_Misty_Sequence_1)
     waitmovement
-    removeobject(10)
     setflag(FLAG_ROUTE1_HO_OH_EVENT_HAPPENED)
+    removeobject(LOCALID_VIRIDIAN_MISTY)
     release
     end
+}
+
+movement Route1_Misty_Sequence_1
+{
+    walk_up * 11
+    walk_right * 3
+    walk_up * 3
+    walk_left * 3
+    walk_up * 5
+    step_end
+}
+
+movement Route1_Player_Follow_Sequence_1
+{
+    walk_up * 12
+    walk_right * 3
+    walk_up * 3
+    walk_left * 3
+    walk_up * 4
+    step_end
+}
+
+movement Route1_Misty_Sequence_2
+{
+    walk_up * 6
+    set_invisible
+    step_end
+}
+
+movement Viridian_Misty_Sequence_1
+{
+    walk_right * 4
+    walk_up * 7
+    step_end
+}
+
+movement Route1_Player_Sequence_1
+{
+    emote_question_mark
+    delay_8
+    face_left
+    delay_16
+    delay_16
+    face_right
+    delay_16
+    delay_16
+    face_down
+    delay_16
+    delay_16
+    face_left
+    delay_16
+    delay_16
+    face_right
+    delay_16
+    delay_16
+    face_down
+    delay_16
+    delay_16
+    face_left
+    delay_16
+    emote_exclamation_mark
+    face_up
+    step_end
+}
+
+movement Route1_Player_Sequence_2
+{
+    player_run_up * 6
+    player_run_left * 2
+    player_run_up * 2
+    player_run_left * 15
+    player_run_up * 4
+    walk_up
+    step_end
 }
 
 movement Route1_Movement_Walk_Left_2 {
@@ -142,8 +236,13 @@ movement Route1_Movement_Walk_Right_18 {
     step_end
 }
 
-movement Route1_Movement_Walk_Up_1 {
-    walk_up
+movement Route1_Movement_Walk_Up_3 {
+    walk_up * 3
+    step_end
+}
+
+movement Route1_Movement_Walk_Up_4 {
+    walk_up * 4
     step_end
 }
 
@@ -157,8 +256,13 @@ movement Route1_Movement_Walk_Up_7 {
     step_end
 }
 
-movement Route1_Movement_Walk_Up_9 {
-    walk_up * 9
+movement Route1_Movement_Walk_Up_1 {
+    walk_up
+    step_end
+}
+
+movement Route1_Movement_Walk_Up_11 {
+    walk_up * 11
     step_end
 }
 

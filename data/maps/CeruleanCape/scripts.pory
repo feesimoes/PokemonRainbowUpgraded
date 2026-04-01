@@ -1,0 +1,18 @@
+mapscripts CeruleanCape_MapScripts {}
+
+script CeruleanCape_Lighthouse
+{
+    lock
+    msgbox(format("It's BILL'S LIGHTHOUSE!\nDarn! The door is locked..."))    
+    closemessage
+    release
+    end
+}
+
+script CeruleanCape_Suicune 
+{
+    lock
+    setwildbattle(SPECIES_SUICUNE, 50, ITEM_NONE)
+    release
+    end
+}

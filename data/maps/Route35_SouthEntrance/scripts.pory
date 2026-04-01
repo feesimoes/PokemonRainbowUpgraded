@@ -1,0 +1,11 @@
+mapscripts Route35_SouthEntrance_MapScripts {}
+
+script Route35_SouthEntrance_Guard 
+{
+    lock
+    faceplayer
+    msgbox(format("Up ahead is NATIONAL PARK. The\nBUG-CATCHING CONTEST is fun!\pWill you try it out? Oh, right. Also\nwatch out for odd trees!"))    
+    closemessage
+    release
+    end
+}

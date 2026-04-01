@@ -1093,6 +1093,16 @@ SECTIONS {
         sound/songs/midi/mus_encounter_battle_zone.o(.rodata);
         sound/songs/midi/mus_vs_rank_match.o(.rodata);
         sound/songs/midi/mus_new_game_intro_guyana.o(.rodata);
+        sound/songs/midi/mus_lake_of_rage.o(.rodata);
+        sound/songs/midi/mus_cianwood.o(.rodata);
+        sound/songs/midi/mus_vs_entei.o(.rodata);
+        sound/songs/midi/mus_climbing_bell_tower.o(.rodata);
+        sound/songs/midi/mus_fortune_telling.o(.rodata);
+        sound/songs/midi/mus_route103.o(.rodata);
+        sound/songs/midi/mus_route109.o(.rodata);
+        sound/songs/midi/mus_new_game_intro_unova.o(.rodata);
+        sound/songs/midi/mus_unity_island.o(.rodata);
+        sound/songs/midi/mus_unity_tower.o(.rodata);
     } > ROM =0
 
     lib_rodata :

@@ -597,11 +597,11 @@
 #define FLAG_GOT_HM05                                    0x23B
 #define FLAG_RESCUED_MR_FUJI                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
-#define FLAG_0x23E                                       0x23E
+#define FLAG_CAUGHT_SUDOWOODO_ROUTE_36                   0x23E
 #define FLAG_GOT_TM28_FROM_ROCKET                        0x23F
 #define FLAG_GOT_OLD_ROD                                 0x240
 #define FLAG_GOT_BIKE_VOUCHER                            0x241
-#define FLAG_0x242                                       0x242
+#define FLAG_GOT_SHELL_BELL_ROUTE32                      0x242
 #define FLAG_GOT_COIN_CASE                               0x243
 #define FLAG_GOT_GOOD_ROD                                0x244
 #define FLAG_GOT_TM29_FROM_MR_PSYCHIC                    0x245
@@ -801,8 +801,8 @@
 #define FLAG_CAUGHT_MEW                                  0x303
 #define FLAG_WAITING_FOR_BICYCLE_UPGRADE                 0x304
 #define FLAG_GOT_BICYCLE_SPEED_UPGRADE                   0x305
-#define FLAG_0x306                                       0x306
-#define FLAG_0x307                                       0x307
+#define FLAG_HIDE_MT_EMBER_ENTEI                         0x306
+#define FLAG_CAUGHT_MT_EMBER_ENTEI                       0x307
 #define FLAG_0x308                                       0x308
 #define FLAG_0x309                                       0x309
 #define FLAG_0x30A                                       0x30A
@@ -1249,8 +1249,8 @@
 #define FLAG_DEFEATED_CHAMP           0x4BC // Lance
 
 // Unused?
-#define FLAG_0x4BD               0x4BD
-#define FLAG_0x4BE               0x4BE
+#define FLAG_WORLD_MAP_UNITY_ISLAND               0x4BD
+#define FLAG_WORLD_MAP_UNITY_TOWER                0x4BE
 #define FLAG_0x4BF               0x4BF
 #define FLAG_0x4C0               0x4C0
 #define FLAG_0x4C1               0x4C1
@@ -1397,7 +1397,7 @@
 #define FLAG_OPENED_START_MENU                                      (SYS_FLAGS + 0x3E)
 #define FLAG_0x83F                                                  (SYS_FLAGS + 0x3F)
 #define FLAG_SYS_NATIONAL_DEX                                       (SYS_FLAGS + 0x40)
-#define FLAG_0x841                                                  (SYS_FLAGS + 0x41) // Unused, initially disabled use of the PC in Sevii Islands
+#define FLAG_0x841                                                  (SYS_FLAGS + 0x41) // Initially disabled use of the PC in Sevii Islands. Probably best to not use this.
 #define FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER                  (SYS_FLAGS + 0x42)
 #define FLAG_SHOWN_BOX_WAS_FULL_MESSAGE                             (SYS_FLAGS + 0x43)
 #define FLAG_SYS_CAN_LINK_WITH_RS                                   (SYS_FLAGS + 0x44)
@@ -1468,7 +1468,7 @@
 #define FLAG_WORLD_MAP_NEW_BARK_TOWN                                (SYS_FLAGS + 0xC6)
 #define FLAG_SINNOH_PASS_OBTAINED                                   (SYS_FLAGS + 0xC7)
 #define FLAG_OBTAINED_ROCK_CLIMB_KIT                                (SYS_FLAGS + 0xC8)
-#define FLAG_OBTAINED_MUSIC_PLAYER                                  (SYS_FLAGS + 0xC9)
+#define FLAG_GB_SOUNDS_SWITCH                                       (SYS_FLAGS + 0xC9)
 #define FLAG_WORLD_MAP_CANALAVE_CITY                                (SYS_FLAGS + 0xCA)
 #define FLAG_WORLD_MAP_CHERRYGROVE_CITY                             (SYS_FLAGS + 0xCB)
 #define FLAG_JOHTO_BADGE01_GET                                      (SYS_FLAGS + 0xCC)
@@ -1520,11 +1520,11 @@
 #define FLAG_WORLD_MAP_BATTLE_RESORT                                (SYS_FLAGS + 0xFA)
 #define FLAG_WORLD_MAP_CIANWOOD_CITY_POKEMON_CENTER_1F              (SYS_FLAGS + 0xFB)
 #define FLAG_WORLD_MAP_PAL_PARK                                     (SYS_FLAGS + 0xFC)
-#define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
-#define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)
-#define FLAG_0x8FF                                                  (SYS_FLAGS + 0xFF)
+#define FLAG_WORLD_MAP_JUBILIFE_CITY_POKEMON_CENTER_1F              (SYS_FLAGS + 0xFD)
+#define FLAG_JOHTO_QUEST_COMPLETED                                  (SYS_FLAGS + 0xFE)
+#define FLAG_GOT_SHINY_POKEMON                                      (SYS_FLAGS + 0xFF)
 
-#define FLAGS_COUNT (FLAG_0x8FF + 1)
+#define FLAGS_COUNT (FLAG_GOT_SHINY_POKEMON + 1)
 
 // Special Flags (Stored in EWRAM (sSpecialFlags, not in the SaveBlock)
 #define SPECIAL_FLAGS_START           0x4000

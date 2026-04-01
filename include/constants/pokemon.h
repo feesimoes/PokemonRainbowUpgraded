@@ -81,7 +81,7 @@
 #define MON_DATA_NATIONAL_RIBBON          76
 #define MON_DATA_EARTH_RIBBON             77
 #define MON_DATA_WORLD_RIBBON             78
-#define MON_DATA_SPECIES_FORMS_VALUE      79 // Unused Ribbons, repurposed for determining expanded species/form ids. 0 = normal species, 1+ = expanded_1... etc.
+#define MON_DATA_RAINBOW_LOCATION         79 // Unused Ribbons, repurposed to determine the actual location it came from, in PokeRainbow
 #define MON_DATA_MODERN_FATEFUL_ENCOUNTER 80
 #define MON_DATA_KNOWN_MOVES              81
 #define MON_DATA_RIBBON_COUNT             82
@@ -181,8 +181,9 @@
 #define DEFAULT_STAT_STAGE 6
 #define MAX_STAT_STAGE    12
 
-// Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+// Shiny odds (modified to multiply 8 by 2, uses 16 per Gen 6+ standard)
+#define SHINY_ODDS 8 * 2 //GetCalculatedShinyOdds()
+// Actual probability is SHINY_ODDS/65536
 
 #define MAX_LEVEL 100
 
@@ -278,6 +279,8 @@
 #define EVO_LEVEL_NINJASK    13 // Pokémon reaches the specified level (special value for Ninjask)
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
+#define EVO_LEVEL_ALOLAN     16 // Pokémon reaches the specified level, while the player is in a far-away tropical region
+#define EVO_ITEM_ALOLAN      17 // specified item is used on Pokémon, while the player is in a far-away tropical region
 
 #define EVOS_PER_MON 10 // Originally 5
 

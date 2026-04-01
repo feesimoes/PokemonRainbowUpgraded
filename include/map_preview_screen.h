@@ -51,6 +51,8 @@ enum MapPreviewScreenId
     MPS_WHIRL_ISLANDS,
     MPS_CLIFF_EDGE_GATE,
     MPS_EMBEDDED_TOWER,
+    MPS_GAME_CORNER,
+    MPS_UNITY_TOWER,
     MPS_COUNT
 };
 

@@ -317,7 +317,7 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 	.string "If you truly had deep\n"
 	.string "love for POKéMON...\p"
 	.string "You wouldn't have skipped\n"
-	.string "the 7th GYM BADGE.$"
+	.string "the VOLCANO BADGE.$"
 
 LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_6:
 # 115 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
@@ -336,7 +336,7 @@ LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithB
 LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji_Mew_Quest_PleaseSpeakWithBlaine_Text_8:
 # 126 "data/maps/LavenderTown_VolunteerPokemonHouse/scripts.pory"
 	.string "MR. FUJI: Bring your strongest\n"
-	.string "POKéMON, and secure the 7th BADGE.\p"
+	.string "POKéMON, secure the VOLCANO BADGE.\p"
 	.string "I will be cheering you on!\n"
 	.string "...From distance of CINNABAR ISLAND.$"
 

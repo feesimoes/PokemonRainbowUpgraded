@@ -8289,3 +8289,214 @@ voicegroup193::
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_distortion_guitar_low, 255, 0, 255, 212
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_distortion_guitar_high, 255, 0, 255, 209
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_distortion_guitar_high, 255, 0, 255, 206
+	
+	.align 2
+voicegroup194::
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 206, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 206, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 64, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 64, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 180, 175, 228
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 255, 255, 127
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 242
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 32, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound_no_resample 60, 14, DirectSoundWaveData_gb_sounds_gb_noise, 255, 235, 0, 165
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 30, 54, DirectSoundWaveData_gb_sounds_gb_noise, 255, 246, 0, 216
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 30, 54, DirectSoundWaveData_gb_sounds_gb_noise, 255, 246, 0, 216
+	voice_directsound_no_resample 30, 64, DirectSoundWaveData_gb_sounds_gb_noise, 8, 0, 255, 216
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 72, 104, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 242
+	voice_directsound_no_resample 64, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 32, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound_no_resample 64, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 180, 175, 228
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 255, 255, 127
+	voice_directsound_no_resample 60, 64, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 242
+	voice_directsound 64, 24, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 226
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 226
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound 64, 44, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 226
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound 76, 84, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 226
+	voice_directsound 80, 94, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 226
+	voice_directsound_no_resample 33, 89, DirectSoundWaveData_gb_sounds_gb_noise, 255, 235, 0, 231
+	voice_directsound 84, 104, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 235
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound_no_resample 64, 14, DirectSoundWaveData_gb_sounds_gb_noise, 255, 231, 0, 188
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound_no_resample 64, 24, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 103, 231
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 127, 77, 204
+	voice_directsound_no_resample 64, 89, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 242
+	voice_directsound_no_resample 64, 14, DirectSoundWaveData_gb_sounds_gb_noise, 255, 231, 0, 188
+	voice_directsound_no_resample 64, 29, DirectSoundWaveData_gb_sounds_gb_noise, 255, 235, 0, 231
+	voice_directsound_no_resample 64, 54, DirectSoundWaveData_gb_sounds_gb_noise, 255, 235, 0, 231
+	voice_directsound_no_resample 64, 94, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 64, 34, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 64, 90, DirectSoundWaveData_gb_sounds_gb_noise, 255, 0, 255, 0
+	voice_directsound_no_resample 64, 39, DirectSoundWaveData_gb_sounds_gb_noise, 255, 242, 103, 188
+	voice_directsound_no_resample 64, 79, DirectSoundWaveData_gb_sounds_gb_noise, 255, 242, 103, 188
+	voice_directsound_no_resample 64, 39, DirectSoundWaveData_gb_sounds_gb_noise, 255, 165, 103, 188
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+
+	.align 2
+voicegroup195::	
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 128, 32, 0, 64
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 204, 0, 242
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 250, 0, 221
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 180, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 180, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 137, 154, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 180, 165	
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 250, 0, 221
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 235, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 235, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 204, 51, 242
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 146, 118, 137
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 146, 108, 137
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 76, 133, 137
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 127, 103, 201
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 249, 25, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 64, 216, 51, 224
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 249, 25, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 64, 216, 51, 224
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 204, 103, 64
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 0, 255, 214
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 128, 0, 255, 214
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave0, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave1, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave2, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave3, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave4, 255, 235, 128, 115
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave5, 255, 235, 128, 115
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave6, 255, 252, 0, 115
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave7, 255, 178, 180, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse1, 255, 216, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 193, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 193, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 193, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 224, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 224, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 224, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 224, 165
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 154, 127 @ 71=Clarinet
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse3, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 127, 231, 127 @ 75-Pan Flute
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse1, 255, 191, 97, 165 @ 77-Shakuhachi
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave6, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave7, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave8, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave9, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave8, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_wave7, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse1, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse3, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 242, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse3, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse1, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_pulse2, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_gb_sounds_gb_noise, 0, 0, 0, 0

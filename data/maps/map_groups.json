@@ -68,7 +68,16 @@
     "gMapGroup_TownsAndRoutesJohto",
     "gMapGroup_IndoorRoute42",
     "gMapGroup_IndoorOlivine",
-    "gMapGroup_Sky"
+    "gMapGroup_Sky",
+    "gMapGroup_IndoorMahogany",
+    "gMapGroup_IndoorJubilife",
+    "gMapGroup_Ocean",
+    "gMapGroup_IndoorRoute43",
+    "gMapGroup_TownsAndRoutesHoenn",
+    "gMapGroup_IndoorCianwood",
+    "gMapGroup_IndoorRoute35",
+    "gMapGroup_TownsAndRoutesUnova",
+    "gMapGroup_Dungeons3"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -195,7 +204,8 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "VictoryRoad_B1F"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -332,12 +342,10 @@
     "Route_218",
     "LindenTown",
     "TopsoilTown",
-    "SlateportCity",
     "OneIsland_TreasureBeach_Underwater",
-    "Route110",
-    "Route109",
     "JubilifeCity",
-    "PalletTown_2"
+    "PalletTown_2",
+    "CeruleanCape"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -685,7 +693,12 @@
     "IcePath_1F",
     "IcePath_B1F",
     "BurnedTower_1F",
-    "BurnedTower_B1F"
+    "BurnedTower_B1F",
+    "IcePath_B2F",
+    "IcePath_B3F",
+    "VictoryRoad_6F",
+    "VictoryRoad_7F",
+    "NationalPark"
   ],
   "gMapGroup_IndoorRoute32_Bay": [
     "Route32_Bay_Bounty_House"
@@ -735,7 +748,8 @@
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_Harbor",
-    "SlateportCity_PokemonCenter_1F"
+    "SlateportCity_PokemonCenter_1F",
+    "SlateportCity_ContestHall_Entry"
   ],
   "gMapGroup_IndoorBlackthorn": [
     "BlackthornCity_House1",
@@ -772,7 +786,9 @@
     "GoldenrodCity_GameCorner",
     "GoldenrodCity_Gym",
     "GoldenrodCity_BikeShop",
-    "GoldenrodCity_DepartmentStore_1F"
+    "GoldenrodCity_DepartmentStore_1F",
+    "GoldenrodCity_FlowerShop",
+    "GoldenrodCity_FortuneTeller"
   ],
   "gMapGroup_IndoorRoute38": [
     "Route38_EcruteakCityEntrance"
@@ -780,7 +796,8 @@
   "gMapGroup_IndoorEcruteak": [
     "EcruteakCity_PokemonCenter_1F",
     "EcruteakCity_Gym",
-    "EcruteakCity_Mart"
+    "EcruteakCity_Mart",
+    "EcruteakCity_BarrierStation"
   ],
   "gMapGroup_TownsAndRoutesJohto": [
     "NewBarkTown",
@@ -809,7 +826,15 @@
     "OlivineCity",
     "Route42",
     "Route40",
-    "Route41"
+    "Route41",
+    "MahoganyTown",
+    "Route44",
+    "LakeOfRage",
+    "Route43",
+    "NewBarkPath",
+    "LakeOfRage_Sunny",
+    "CianwoodCity",
+    "Route35"
   ],
   "gMapGroup_IndoorRoute42": [
     "Route42_EcruteakCityEntrance"
@@ -821,5 +846,44 @@
   ],
   "gMapGroup_Sky": [
     "SkyKanto"
+  ],
+  "gMapGroup_IndoorMahogany": [
+    "MahoganyTown_PokemonCenter_1F",
+    "MahoganyTown_SouvenirShop",
+    "MahoganyTown_Gym_1F"
+  ],
+  "gMapGroup_IndoorJubilife": [
+    "JubilifeCity_PokemonCenter_1F",
+    "JubilifeCity_PokemonCenter_2F"
+  ],
+  "gMapGroup_Ocean": [
+    "Sevii123_Ocean_1",
+    "Sevii45_Ocean_NW",
+    "Sevii123_Ocean_NW"
+  ],
+  "gMapGroup_IndoorRoute43": [
+    "Route43_SouthEntrance",
+    "Route43_NorthEntrance"
+  ],
+  "gMapGroup_TownsAndRoutesHoenn": [
+    "SlateportCity",
+    "Route110",
+    "Route109",
+    "Route134",
+    "Route103"
+  ],
+  "gMapGroup_IndoorCianwood": [
+    "CianwoodCity_PokemonCenter_1F",
+    "CliffEdgeGate"
+  ],
+  "gMapGroup_IndoorRoute35": [
+    "Route35_SouthEntrance",
+    "Route35_NationalParkGate"
+  ],
+  "gMapGroup_TownsAndRoutesUnova": [
+    "UnityIsland"
+  ],
+  "gMapGroup_Dungeons3": [
+    "UnityTower_1F"
   ]
 }

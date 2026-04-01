@@ -397,6 +397,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MUSIC_PLAYER]   = {gItemIcon_MusicPlayer, gItemIconPalette_MusicPlayer},
     [ITEM_OLD_SEA_MAP]    = {gItemIcon_Old_Sea_Map, gItemIconPalette_Old_Sea_Map},
     [ITEM_DRAGON_FANG_2]  = {gItemIcon_DragonFang, gItemIconPalette_DragonFang},
+    [ITEM_SQUIRT_BOTTLE]  = {gItemIcon_SquirtBottle, gItemIconPalette_SquirtBottle},
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

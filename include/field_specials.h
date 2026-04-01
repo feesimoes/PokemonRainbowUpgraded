@@ -40,5 +40,7 @@ void ApplyOutdoorTintTimeOfDay(void);
 void ApplyUnderwaterTint(void);
 void StartBackgroundTintLoop(void); // Auto-handle the current map type and route to the appropriate function
 static void Task_PeriodicTintUpdate(u8 taskId);
+u8 CheckBadgeCount(void);
+void FixCaughtBeastsToLegalColosseumEvent(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

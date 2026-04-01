@@ -92,6 +92,9 @@ static const u8 sBurnedTowerMapPreviewTilemap[] = INCBIN_U8("graphics/map_previe
 static const u8 sSproutTowerMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.gbapal");
 static const u8 sSproutTowerMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.4bpp.lz");
 static const u8 sSproutTowerMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/sprout_tower/sprout_tower.bin.lz");
+static const u8 sLakeOfRageMapPreviewPalette[] = INCBIN_U8("graphics/map_preview/lake_of_rage/lake_of_rage.gbapal");
+static const u8 sLakeOfRageMapPreviewTiles[] = INCBIN_U8("graphics/map_preview/lake_of_rage/lake_of_rage.4bpp.lz");
+static const u8 sLakeOfRageMapPreviewTilemap[] = INCBIN_U8("graphics/map_preview/lake_of_rage/lake_of_rage.bin.lz");
 
 static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     [MPS_VIRIDIAN_FOREST] = {
@@ -168,6 +171,14 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_ROCKET_HIDEOUT] = {
         .mapsec = MAPSEC_ROCKET_HIDEOUT,
+        .type = MPS_TYPE_FOREST,
+        .flagId = FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F,
+        .tilesptr = sRocketHideoutMapPreviewTiles,
+        .tilemapptr = sRocketHideoutMapPreviewTilemap,
+        .palptr = sRocketHideoutMapPreviewPalette
+    },
+    [MPS_GAME_CORNER] = {
+        .mapsec = MAPSEC_GAME_CORNER,
         .type = MPS_TYPE_FOREST,
         .flagId = FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F,
         .tilesptr = sRocketHideoutMapPreviewTiles,
@@ -357,6 +368,30 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilesptr = sSproutTowerMapPreviewTiles,
         .tilemapptr = sSproutTowerMapPreviewTilemap,
         .palptr = sSproutTowerMapPreviewPalette
+    },
+    [MPS_ICE_PATH] = {
+        .mapsec = MAPSEC_ICE_PATH,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_ICE_PATH,
+        .tilesptr = sIcefallCaveMapPreviewTiles,
+        .tilemapptr = sIcefallCaveMapPreviewTilemap,
+        .palptr = sIcefallCaveMapPreviewPalette
+    },
+    [MPS_LAKE_OF_RAGE] = {
+        .mapsec = MAPSEC_LAKE_OF_RAGE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_LAKE_OF_RAGE,
+        .tilesptr = sLakeOfRageMapPreviewTiles,
+        .tilemapptr = sLakeOfRageMapPreviewTilemap,
+        .palptr = sLakeOfRageMapPreviewPalette
+    },
+    [MPS_UNITY_TOWER] = {
+        .mapsec = MAPSEC_UNITY_TOWER,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_UNITY_TOWER,
+        .tilesptr = sSilphCoMapPreviewTiles,
+        .tilemapptr = sSilphCoMapPreviewTilemap,
+        .palptr = sSilphCoMapPreviewPalette
     }
 };
 

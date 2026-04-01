@@ -467,4 +467,6 @@ gSpecials::
 	def_special Script_GetOverworldMultiplayerConnectedPlayerCount
 	def_special Script_IsOverworldMultiplayerConnected
 	def_special TryOverworldMultiplayerLinkup
+	def_special CheckBadgeCount
+	def_special FixCaughtBeastsToLegalColosseumEvent
 gSpecialsEnd::

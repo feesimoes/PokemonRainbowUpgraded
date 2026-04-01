@@ -1,6 +1,7 @@
 mapscripts CanalaveCity_Gym_4F_MapScripts {}
 
-script CanalaveCity_Gym_4F_EventScript_Byron_Battle_1 {
+script CanalaveCity_Gym_4F_EventScript_Byron_Battle_1 
+{
 	trainerbattle_single(TRAINER_LEADER_BYRON, format("Ah, it isn't often that we get\na visitor from KANTO...\pWelcome to SINNOH, young TRAINER! I\nspent a long time on IRON ISLAND.\pMy speciality is... you guessed it!\nthe sturdy STEEL-TYPE POKéMON!\p{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}Gwahaha!\nI see, I see!\pYou aren't just a tourist!\nYou've gained CYNTHIA'S respect!\pI, BYRON, accept your challenge!"), format("Hm! My sturdy POKéMON, defeated!"), format(""), NO_MUSIC)
     if (!flag(FLAG_OBTAINED_ROCK_CLIMB_KIT))
     {

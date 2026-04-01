@@ -1,12 +1,18 @@
 mapscripts Route30_MapScripts
 {
-
+    MAP_SCRIPT_ON_LOAD
+    {
+        if (flag(FLAG_TEMP_1) == FALSE)
+        {
+            setobjectmovementtype(LOCALID_ROUTE30_APRICORN_TREE, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
 }
 
 script Route30_EventScript_Youngster_Joey_Battle
 {
     trainerbattle_single(TRAINER_YOUNGSTER_JOEY_ROUTE_30, format("All right, a KANTO kid!\nCheck out my top-percentage POKéMON!"), format("My RATTATA is different from\nregular RATTATA, but I lost..."))
-    msgbox(format("So what did you think of RATTATA?\nBet they don't raise 'em like that in KANTO!"))
+    msgbox(format("So what did you think of my RATTATA?\nBet they aren't like that in KANTO!"))
     closemessage
     releaseall
     end
@@ -92,4 +98,102 @@ movement Route30_NPC_Face_Player
 {
     face_player
     step_end    
+}
+
+script EventScript_ApricornTree_Brown 
+{
+    lock
+    if (flag(FLAG_TEMP_1) == TRUE)
+    {
+        msgbox(format("It's an APRICORN TREE!\nThere's nothing left on it."))
+        closemessage
+    }
+    else
+    {
+        msgbox(format("It's an APRICORN TREE!\nIt bears 3 BROWN APRICORN(s)."))
+        msgbox(format("Pick it?"), MSGBOX_YESNO)
+        closemessage
+        if (var(VAR_RESULT) == YES)
+        {
+            applymovement(LOCALID_ROUTE30_APRICORN_TREE, Movement_DepletedApricornTree)
+            waitmovement
+            playfanfare(MUS_OBTAIN_BERRY)
+            waitfanfare
+            msgbox(format("Since you did not have an\nAPRICORN SATCHEL to store them...\pThe BROWN APRICORN(s) fell to the\nground and spoiled! Aww..."))
+            closemessage
+            setflag(FLAG_TEMP_1)
+            setobjectmovementtype(LOCALID_ROUTE30_APRICORN_TREE, MOVEMENT_TYPE_FACE_UP)
+        }
+    }
+    release
+    end
+}
+
+script EventScript_ApricornTree_Pink 
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 PINK APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_Red 
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 RED APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_Blue 
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 BLUE APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_Green 
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 GREEN APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_Yellow 
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 YELLOW APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_White
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 WHITE APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+script EventScript_ApricornTree_Black
+{
+    lock
+    msgbox(format("It's a APRICORN TREE!\nIt bears 3 BLACK APRICORN(s)."))
+    closemessage
+    release
+    end
+}
+
+movement Movement_DepletedApricornTree 
+{
+    face_up
+    step_end
 }

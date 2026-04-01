@@ -1,7 +1,14 @@
 #include "global.h"
 #include "gba/m4a_internal.h"
+#include "event_data.h"
+#include "constants/flags.h"
 
 extern const u8 gCgb3Vol[];
+
+bool8 gGBSoundsActive;
+
+extern const struct ToneData voicegroup192[];
+extern const struct ToneData voicegroup195[]; // Custom GB Sounds version of the 192 universal voicegroup
 
 #define BSS_CODE __attribute__((section(".bss.code")))
 
@@ -628,7 +635,16 @@ void MPlayStart(struct MusicPlayerInfo *mplayInfo, struct SongHeader *songHeader
         mplayInfo->ident++;
         mplayInfo->status = 0;
         mplayInfo->songHeader = songHeader;
-        mplayInfo->tone = songHeader->tone;
+
+        // Custom "GB Sounds" voicegroup override, if using the universal 192
+        if (FlagGet(FLAG_GB_SOUNDS_SWITCH) == TRUE && songHeader->tone == (struct ToneData *) voicegroup192)
+        {
+            mplayInfo->tone = (struct ToneData *) voicegroup195;
+        }
+        else
+        {
+            mplayInfo->tone = songHeader->tone;
+        }
         mplayInfo->priority = songHeader->priority;
         mplayInfo->clock = 0;
         mplayInfo->tempoD = 150;

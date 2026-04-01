@@ -3644,17 +3644,59 @@ const u32 gMonShinyPalette_ArceusNormal[] = INCBIN_U32("graphics/pokemon/arceus_
 const u8 gMonIcon_ArceusNormal[] = INCBIN_U8("graphics/pokemon/arceus_normal/icon.4bpp");
 const u8 gMonFootprint_ArceusNormal[] = INCBIN_U8("graphics/pokemon/arceus_normal/footprint.1bpp");
 
+const u32 gMonFrontPic_Venipede[] = INCBIN_U32("graphics/pokemon/venipede/anim_front.4bpp.lz");
+const u32 gMonPalette_Venipede[] = INCBIN_U32("graphics/pokemon/venipede/normal.gbapal.lz");
+const u32 gMonBackPic_Venipede[] = INCBIN_U32("graphics/pokemon/venipede/back.4bpp.lz");
+const u32 gMonShinyPalette_Venipede[] = INCBIN_U32("graphics/pokemon/venipede/shiny.gbapal.lz");
+const u8 gMonIcon_Venipede[] = INCBIN_U8("graphics/pokemon/venipede/icon.4bpp");
+
+const u32 gMonFrontPic_Whirlipede[] = INCBIN_U32("graphics/pokemon/whirlipede/anim_front.4bpp.lz");
+const u32 gMonPalette_Whirlipede[] = INCBIN_U32("graphics/pokemon/whirlipede/normal.gbapal.lz");
+const u32 gMonBackPic_Whirlipede[] = INCBIN_U32("graphics/pokemon/whirlipede/back.4bpp.lz");
+const u32 gMonShinyPalette_Whirlipede[] = INCBIN_U32("graphics/pokemon/whirlipede/shiny.gbapal.lz");
+const u8 gMonIcon_Whirlipede[] = INCBIN_U8("graphics/pokemon/whirlipede/icon.4bpp");
+
+const u32 gMonFrontPic_Scolipede[] = INCBIN_U32("graphics/pokemon/scolipede/anim_front.4bpp.lz");
+const u32 gMonPalette_Scolipede[] = INCBIN_U32("graphics/pokemon/scolipede/normal.gbapal.lz");
+const u32 gMonBackPic_Scolipede[] = INCBIN_U32("graphics/pokemon/scolipede/back.4bpp.lz");
+const u32 gMonShinyPalette_Scolipede[] = INCBIN_U32("graphics/pokemon/scolipede/shiny.gbapal.lz");
+const u8 gMonIcon_Scolipede[] = INCBIN_U8("graphics/pokemon/scolipede/icon.4bpp");
+
+const u32 gMonFrontPic_Sandshrew_Alola[] = INCBIN_U32("graphics/pokemon/sandshrew/alola/front.4bpp.lz");
+const u32 gMonPalette_Sandshrew_Alola[] = INCBIN_U32("graphics/pokemon/sandshrew/alola/normal.gbapal.lz");
+const u32 gMonBackPic_Sandshrew_Alola[] = INCBIN_U32("graphics/pokemon/sandshrew/alola/back.4bpp.lz");
+const u32 gMonShinyPalette_Sandshrew_Alola[] = INCBIN_U32("graphics/pokemon/sandshrew/alola/shiny.gbapal.lz");
+const u8 gMonIcon_Sandshrew_Alola[] = INCBIN_U8("graphics/pokemon/sandshrew/alola/icon.4bpp");
+
 const u32 gMonFrontPic_Sandslash_Alola[] = INCBIN_U32("graphics/pokemon/sandslash/alola/front.4bpp.lz");
 const u32 gMonPalette_Sandslash_Alola[] = INCBIN_U32("graphics/pokemon/sandslash/alola/normal.gbapal.lz");
 const u32 gMonBackPic_Sandslash_Alola[] = INCBIN_U32("graphics/pokemon/sandslash/alola/back.4bpp.lz");
 const u32 gMonShinyPalette_Sandslash_Alola[] = INCBIN_U32("graphics/pokemon/sandslash/alola/shiny.gbapal.lz");
 const u8 gMonIcon_Sandslash_Alola[] = INCBIN_U8("graphics/pokemon/sandslash/alola/icon.4bpp");
 
+const u32 gMonFrontPic_Geodude_Alola[] = INCBIN_U32("graphics/pokemon/geodude/alola/front.4bpp.lz");
+const u32 gMonPalette_Geodude_Alola[] = INCBIN_U32("graphics/pokemon/geodude/alola/normal.gbapal.lz");
+const u32 gMonBackPic_Geodude_Alola[] = INCBIN_U32("graphics/pokemon/geodude/alola/back.4bpp.lz");
+const u32 gMonShinyPalette_Geodude_Alola[] = INCBIN_U32("graphics/pokemon/geodude/alola/shiny.gbapal.lz");
+const u8 gMonIcon_Geodude_Alola[] = INCBIN_U8("graphics/pokemon/geodude/alola/icon.4bpp");
+
+const u32 gMonFrontPic_Graveler_Alola[] = INCBIN_U32("graphics/pokemon/graveler/alola/front.4bpp.lz");
+const u32 gMonPalette_Graveler_Alola[] = INCBIN_U32("graphics/pokemon/graveler/alola/normal.gbapal.lz");
+const u32 gMonBackPic_Graveler_Alola[] = INCBIN_U32("graphics/pokemon/graveler/alola/back.4bpp.lz");
+const u32 gMonShinyPalette_Graveler_Alola[] = INCBIN_U32("graphics/pokemon/graveler/alola/shiny.gbapal.lz");
+const u8 gMonIcon_Graveler_Alola[] = INCBIN_U8("graphics/pokemon/graveler/alola/icon.4bpp");
+
 const u32 gMonFrontPic_Golem_Alola[] = INCBIN_U32("graphics/pokemon/golem/alola/front.4bpp.lz");
 const u32 gMonPalette_Golem_Alola[] = INCBIN_U32("graphics/pokemon/golem/alola/normal.gbapal.lz");
 const u32 gMonBackPic_Golem_Alola[] = INCBIN_U32("graphics/pokemon/golem/alola/back.4bpp.lz");
 const u32 gMonShinyPalette_Golem_Alola[] = INCBIN_U32("graphics/pokemon/golem/alola/shiny.gbapal.lz");
 const u8 gMonIcon_Golem_Alola[] = INCBIN_U8("graphics/pokemon/golem/alola/icon.4bpp");
+
+const u32 gMonFrontPic_Exeggutor_Alola[] = INCBIN_U32("graphics/pokemon/exeggutor/alola/front.4bpp.lz");
+const u32 gMonPalette_Exeggutor_Alola[] = INCBIN_U32("graphics/pokemon/exeggutor/alola/normal.gbapal.lz");
+const u32 gMonBackPic_Exeggutor_Alola[] = INCBIN_U32("graphics/pokemon/exeggutor/alola/back.4bpp.lz");
+const u32 gMonShinyPalette_Exeggutor_Alola[] = INCBIN_U32("graphics/pokemon/exeggutor/alola/shiny.gbapal.lz");
+const u8 gMonIcon_Exeggutor_Alola[] = INCBIN_U8("graphics/pokemon/exeggutor/alola/icon.4bpp");
 
 const u32 gMonFrontPic_Marowak_Alola[] = INCBIN_U32("graphics/pokemon/marowak/alola/front.4bpp.lz");
 const u32 gMonPalette_Marowak_Alola[] = INCBIN_U32("graphics/pokemon/marowak/alola/normal.gbapal.lz");

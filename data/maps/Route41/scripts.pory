@@ -1,1 +1,9 @@
 mapscripts Route41_MapScripts {}
+
+script Route41_EventScript_Whirlpool 
+{
+    msgbox(format("A violent whirlpool is in the way!\nIt looks like it could be calmed..."))
+    closemessage
+    release
+    end
+}

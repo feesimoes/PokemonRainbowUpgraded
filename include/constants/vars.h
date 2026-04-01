@@ -99,7 +99,7 @@
 #define VAR_RESET_RTC_ENABLE               0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
-#define VAR_0x4034                         0x4034
+#define VAR_SHINY_ODDS_MULTIPLIER          0x4034 // A number to also multiply to existing Shiny odds e.g. Shiny Charm mechanics
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON             0x4037
@@ -110,7 +110,7 @@
 #define VAR_0x403C                         0x403C // Set to 0x0302, never read
 #define VAR_HERACROSS_SIZE_RECORD          0x403D
 #define VAR_DEOXYS_INTERACTION_NUM         0x403E
-#define VAR_0x403F                         0x403F
+#define VAR_SHINY_ODDS_MULTIPLIER_REGION   0x403F // Corresponds with the region map ids
 #define VAR_MAGIKARP_SIZE_RECORD           0x4040
 #define VAR_0x4041                         0x4041
 #define VAR_TRAINER_CARD_MON_ICON_TINT_IDX 0x4042

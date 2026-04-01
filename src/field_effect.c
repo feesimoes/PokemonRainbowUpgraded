@@ -440,29 +440,22 @@ static void FieldEffectScript_LoadTiles(const u8 **script)
 
 void ApplyGlobalFieldPaletteTint(u8 paletteIdx)
 {
-    if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+    switch (gGlobalFieldTintMode)
     {
-        ApplyUnderwaterTint();
-    }
-    else 
-    {
-        switch (gGlobalFieldTintMode)
-        {
-        case 0:
-            return;
-        case 1:
-            TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-            break;
-        case 2:
-            TintPalette_SepiaTone(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-            break;
-        case 3:
-            QuestLog_BackUpPalette(OBJ_PLTT_ID2(paletteIdx), 16);
-            TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
-            break;
-        default:
-            return;
-        }
+    case 0:
+        return;
+    case 1:
+        TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+        break;
+    case 2:
+        TintPalette_SepiaTone(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+        break;
+    case 3:
+        QuestLog_BackUpPalette(OBJ_PLTT_ID2(paletteIdx), 16);
+        TintPalette_GrayScale(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], 16);
+        break;
+    default:
+        return;
     }
     CpuFastCopy(&gPlttBufferUnfaded[OBJ_PLTT_ID2(paletteIdx)], &gPlttBufferFaded[OBJ_PLTT_ID2(paletteIdx)], PLTT_SIZE_4BPP);
 }
@@ -3020,7 +3013,7 @@ u8 FldEff_UseSurf(void)
     Overworld_ClearSavedMusic();
     if (Overworld_MusicCanOverrideMapMusic(MUS_SURF))
     {
-        switch (GetCurrentRegionIfNotKanto(GetCurrentRegionMapSectionId()))
+        switch (GetCurrentRegionIfNotKanto(GetActualMapSectionId()))
         {
             case REGIONMAP_JOHTO:
                 Overworld_ChangeMusicTo(MUS_SURF_JOHTO);

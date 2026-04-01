@@ -68,7 +68,7 @@ CanalaveCity_Gym_2F_Lass_Porchia_Battle_Text_0:
 	.string "Um, did you just touch me?\n"
 	.string "...\p"
 	.string "Just kidding! I touched you! Haha,\n"
-	.string "You're it!$"
+	.string "you're it!$"
 
 CanalaveCity_Gym_2F_Lass_Porchia_Battle_Text_1:
 # 21 "data/maps/CanalaveCity_Gym_2F/scripts.pory"

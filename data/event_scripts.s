@@ -1931,3 +1931,114 @@ Text_TestMsg::
 
 	.include "data/maps/Route41/scripts.inc"
 	.include "data/maps/Route41/text.inc"
+
+	.include "data/maps/MahoganyTown/scripts.inc"
+	.include "data/maps/MahoganyTown/text.inc"
+
+	.include "data/maps/MahoganyTown_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/MahoganyTown_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/MahoganyTown_SouvenirShop/scripts.inc"
+	.include "data/maps/MahoganyTown_SouvenirShop/text.inc"
+
+	.include "data/maps/MahoganyTown_Gym_1F/scripts.inc"
+	.include "data/maps/MahoganyTown_Gym_1F/text.inc"
+
+	.include "data/maps/JubilifeCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/JubilifeCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/JubilifeCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/JubilifeCity_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/GoldenrodCity_FlowerShop/scripts.inc"
+	.include "data/maps/GoldenrodCity_FlowerShop/text.inc"
+
+	.include "data/maps/IcePath_B2F/scripts.inc"
+	.include "data/maps/IcePath_B2F/text.inc"
+
+	.include "data/maps/IcePath_B3F/scripts.inc"
+	.include "data/maps/IcePath_B3F/text.inc"
+
+	.include "data/maps/Route44/scripts.inc"
+	.include "data/maps/Route44/text.inc"
+
+	.include "data/maps/VictoryRoad_B1F/scripts.inc"
+	.include "data/maps/VictoryRoad_B1F/text.inc"
+
+	.include "data/maps/Sevii123_Ocean_1/scripts.inc"
+	.include "data/maps/Sevii123_Ocean_1/text.inc"
+
+	.include "data/maps/Sevii45_Ocean_NW/scripts.inc"
+	.include "data/maps/Sevii45_Ocean_NW/text.inc"
+
+	.include "data/maps/LakeOfRage/scripts.inc"
+	.include "data/maps/LakeOfRage/text.inc"
+
+	.include "data/maps/Route43/scripts.inc"
+	.include "data/maps/Route43/text.inc"
+
+	.include "data/maps/Route43_SouthEntrance/scripts.inc"
+	.include "data/maps/Route43_SouthEntrance/text.inc"
+
+	.include "data/maps/Route43_NorthEntrance/scripts.inc"
+	.include "data/maps/Route43_NorthEntrance/text.inc"
+
+	.include "data/maps/NewBarkPath/scripts.inc"
+	.include "data/maps/NewBarkPath/text.inc"
+
+	.include "data/maps/Sevii123_Ocean_NW/scripts.inc"
+	.include "data/maps/Sevii123_Ocean_NW/text.inc"
+
+	.include "data/maps/Route134/scripts.inc"
+	.include "data/maps/Route134/text.inc"
+
+	.include "data/maps/LakeOfRage_Sunny/scripts.inc"
+	.include "data/maps/LakeOfRage_Sunny/text.inc"
+
+	.include "data/maps/CianwoodCity/scripts.inc"
+	.include "data/maps/CianwoodCity/text.inc"
+
+	.include "data/maps/CianwoodCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/CianwoodCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/CeruleanCape/scripts.inc"
+	.include "data/maps/CeruleanCape/text.inc"
+
+	.include "data/maps/SlateportCity_ContestHall_Entry/scripts.inc"
+	.include "data/maps/SlateportCity_ContestHall_Entry/text.inc"
+
+	.include "data/maps/Route35/scripts.inc"
+	.include "data/maps/Route35/text.inc"
+
+	.include "data/maps/Route35_SouthEntrance/scripts.inc"
+	.include "data/maps/Route35_SouthEntrance/text.inc"
+
+	.include "data/maps/VictoryRoad_6F/scripts.inc"
+	.include "data/maps/VictoryRoad_6F/text.inc"
+
+	.include "data/maps/VictoryRoad_7F/scripts.inc"
+	.include "data/maps/VictoryRoad_7F/text.inc"
+
+	.include "data/maps/NationalPark/scripts.inc"
+	.include "data/maps/NationalPark/text.inc"
+
+	.include "data/maps/Route35_NationalParkGate/scripts.inc"
+	.include "data/maps/Route35_NationalParkGate/text.inc"
+
+	.include "data/maps/CliffEdgeGate/scripts.inc"
+	.include "data/maps/CliffEdgeGate/text.inc"
+
+	.include "data/maps/EcruteakCity_BarrierStation/scripts.inc"
+	.include "data/maps/EcruteakCity_BarrierStation/text.inc"
+
+	.include "data/maps/GoldenrodCity_FortuneTeller/scripts.inc"
+	.include "data/maps/GoldenrodCity_FortuneTeller/text.inc"
+
+	.include "data/maps/Route103/scripts.inc"
+	.include "data/maps/Route103/text.inc"
+
+	.include "data/maps/UnityIsland/scripts.inc"
+	.include "data/maps/UnityIsland/text.inc"
+
+	.include "data/maps/UnityTower_1F/scripts.inc"
+	.include "data/maps/UnityTower_1F/text.inc"

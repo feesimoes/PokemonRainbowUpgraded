@@ -114,6 +114,20 @@ movement Movement_NewBarkTown_Face_Player_Up
     step_end    
 }
 
+script NewBarkTown_RechooseStarter 
+{
+    lock
+    faceplayer
+    msgbox(format("I gotchu.\nBless up."))
+    closemessage
+    setvar(VAR_MEW_QUEST_PROGRESS, 11)
+    clearflag(FLAG_JOHTO_CHOSE_CHIKORITA)
+    clearflag(FLAG_JOHTO_CHOSE_TOTODILE)
+    clearflag(FLAG_JOHTO_CHOSE_CYNDAQUIL)
+    release
+    end    
+}
+
 script NewBarkTown_ResetProgress 
 {
     lock

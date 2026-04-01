@@ -1,0 +1,59 @@
+mapscripts MahoganyTown_MapScripts {}
+
+script MahoganyTown_Sign
+{
+    lock
+    msgbox(format("MAHOGANY TOWN -\nWelcome to the Home of the Ninja!"))
+    closemessage
+    release
+    end
+}
+
+script MahoganyTown_JustASouvenirShop_Sign
+{
+    lock
+    msgbox(format("JUST A SOUVENIR SHOP\nWe sell unique, high-value items!\pNothing suspicious about this...\nReally, no need to be alarmed..."))
+    closemessage
+    release
+    end
+}
+
+script MahoganyTown_Gym_Sign
+{
+    lock
+    msgbox(format("MAHOGANY TOWN POKéMON GYM\nLEADER: PRYCE\pA mentor on the winter harshness!"))
+    closemessage
+    release
+    end
+}
+
+script MahoganyTown_Woman_1 
+{
+    lock
+    faceplayer
+    msgbox(format("Have you been to the\nSOUVENIR SHOP yet? It's right here!\pIf you're visiting, you should see\nwhat's on sale!"))
+    closemessage
+    release
+    end
+}
+
+script MahoganyTown_OldMan_1 
+{
+    lock
+    faceplayer
+    msgbox(format("PRYCE may be as old as me, but he\nhas ages of knowledge.\pHis long life hardened him into the\nWINTER TRAINER he is now."))
+    closemessage
+    release
+    end
+}
+
+script MahoganyTown_Youngster 
+{
+    lock
+    faceplayer
+    msgbox(format("Nothing ever happens in this boring\nplace... The Ninjas were so cool!\pWe need some sort of high-stakes\naction here against evil..."))
+    msgbox(format("That would just be decent, right?\nI'm so bored here!"))
+    closemessage
+    release
+    end
+}

@@ -2485,6 +2485,11 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 0,
     },
+    [SPECIES_MUNCHLAX] =
+    {
+        .size = MON_COORDS_SIZE(48, 48),
+        .y_offset = 10,
+    },
     [SPECIES_RIOLU] =
     {
         .size = MON_COORDS_SIZE(48, 48),
@@ -2635,14 +2640,49 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 0,
     },
+    [SPECIES_VENIPEDE] =
+    {
+        .size = MON_COORDS_SIZE(48, 32),
+        .y_offset = 16,
+    },
+    [SPECIES_WHIRLIPEDE] =
+    {
+        .size = MON_COORDS_SIZE(56, 40),
+        .y_offset = 13,
+    },
+    [SPECIES_SCOLIPEDE] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_SANDSHREW_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(40, 40),
+        .y_offset = 13,
+    },
     [SPECIES_SANDSLASH_ALOLA] =
     {
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 1,
     },
+    [SPECIES_GEODUDE_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(48, 32),
+        .y_offset = 17,
+    },
+    [SPECIES_GRAVELER_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(64, 56),
+        .y_offset = 8,
+    },
     [SPECIES_GOLEM_ALOLA] =
     {
-        .size = MON_COORDS_SIZE(64, 48),
+        .size = MON_COORDS_SIZE(56, 64),
+        .y_offset = 1,
+    },
+    [SPECIES_EXEGGUTOR_ALOLA] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 1,
     },
     [SPECIES_MAROWAK_ALOLA] =

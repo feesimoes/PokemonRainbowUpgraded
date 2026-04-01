@@ -9,7 +9,7 @@ mapscripts TopsoilTown_MapScripts
 script TopsoilTown_Sign 
 {
     lock
-    msgbox(format("TOPTOIL TOWN -\nGUYANA'S hidden agricultural haven."))
+    msgbox(format("TOPSOIL TOWN -\nGUYANA'S hidden agricultural haven."))
     closemessage
     release
     end   

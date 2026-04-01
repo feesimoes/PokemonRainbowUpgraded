@@ -107,7 +107,7 @@ CherrygroveCity_RunningShoes_Guide_Dialogue_Text_0:
 	.string "Did you not find that funny?\p"
 	.string "...Oh, well. Anyhow...\n"
 	.string "To make up for it, how-\p"
-	.string "Oh, dear, me... I apologize.\n"
+	.string "Oh, dear me... I apologize.\n"
 	.string "You already have RUNNING SHOES.$"
 
 CherrygroveCity_Gossip_Lass_Dialogue_Text_0:

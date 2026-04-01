@@ -1,0 +1,134 @@
+raw `
+MtEmber_Summit_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, MtEmber_Summit_EventScript_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, MtEmber_Summit_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, MtEmber_Summit_OnResume
+	.byte 0
+
+MtEmber_Summit_EventScript_OnLoad::
+    call MtEmber_Summit_EventScript_HandleEnteisAppearance
+	end
+
+MtEmber_Summit_OnResume::
+	call_if_set FLAG_SYS_SPECIAL_WILD_BATTLE, MtEmber_Summit_EventScript_TryRemoveMoltres
+	end
+
+MtEmber_Summit_EventScript_TryRemoveMoltres::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, EventScript_Return
+	removeobject VAR_LAST_TALKED
+	return
+
+MtEmber_Summit_OnTransition::
+	call_if_unset FLAG_FOUGHT_MOLTRES, MtEmber_Summit_EventScript_ShowMoltres
+	end
+
+MtEmber_Summit_EventScript_ShowMoltres::
+	clearflag FLAG_HIDE_MOLTRES
+	return
+
+MtEmber_Summit_EventScript_Moltres::
+	goto_if_questlog EventScript_ReleaseEnd
+	special QuestLog_CutRecording
+	lock
+	faceplayer
+	setwildbattle SPECIES_MOLTRES, 50
+	waitse
+	playmoncry SPECIES_MOLTRES, CRY_MODE_ENCOUNTER
+	message Text_Gyaoo
+	waitmessage
+	waitmoncry
+	delay 10
+	playbgm MUS_ENCOUNTER_GYM_LEADER, 0
+	waitbuttonpress
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	special StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtEmber_Summit_EventScript_DefeatedMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtEmber_Summit_EventScript_RanFromMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtEmber_Summit_EventScript_RanFromMoltres
+	setflag FLAG_FOUGHT_MOLTRES
+	release
+	end
+
+MtEmber_Summit_EventScript_DefeatedMoltres::
+	setflag FLAG_FOUGHT_MOLTRES
+	goto EventScript_RemoveStaticMon
+	end
+
+MtEmber_Summit_EventScript_RanFromMoltres::
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	goto EventScript_MonFlewAway
+	end
+
+`
+
+script MtEmber_Summit_EventScript_Entei 
+{
+    lock
+    specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+    if (var(VAR_RESULT) == 6)
+    {
+        msgbox(format("ENTEI looms over intimidatingly..."))
+        msgbox(format("You'll need to catch it and\nadd ENTEI to your PARTY.\pLet's free up at one spot!"))
+        closemessage
+        playse(SE_PC_LOGIN)
+        special(ShowPokemonStorageSystemPC)
+        waitstate
+    }
+    else
+    {
+        setvar(VAR_0x8004, 1)
+        setvar(VAR_0x8005, 1)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(format("ENTEI looms over intimidatingly...\nFeels like MT. EMBER is erupting!"))
+        waitmessage
+        playse(SE_M_EARTHQUAKE)
+        closemessage
+        special(ShakeScreen)
+        waitse
+        setwildbattle(SPECIES_ENTEI, 40, ITEM_NONE)
+        setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        waitbuttonpress
+        closemessage
+        special(StartLegendaryBattle)
+        waitstate
+        clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        specialvar(VAR_RESULT, GetBattleOutcome)
+        if (var(VAR_RESULT) == 7)
+        {
+            setflag(FLAG_HIDE_MT_EMBER_ENTEI)
+            setflag(FLAG_CAUGHT_MT_EMBER_ENTEI)
+            fadescreen(FADE_TO_BLACK)
+            removeobject(LOCALID_MT_EMBER_ENTEI)
+            fadescreen(FADE_FROM_BLACK)
+            special(FixCaughtBeastsToLegalColosseumEvent)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            msgbox(format("The rumbling from beneath has\ncalmed, as ENTEI joins you."))
+            closemessage
+        }
+        else
+        {
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            msgbox(format("Rwaooowrrr!"))
+            msgbox(format("The rumbling beneath you has\ncalmed, but may not last..."))
+            closemessage
+        }
+    }
+    release
+    end
+}
+
+script MtEmber_Summit_EventScript_HandleEnteisAppearance 
+{
+    if (var(VAR_JOHTO_STORY_PROGRESS) >= 2 && !flag(FLAG_CAUGHT_MT_EMBER_ENTEI))
+    {
+        clearflag(FLAG_HIDE_MT_EMBER_ENTEI)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_MT_EMBER_ENTEI)      
+    }
+}

@@ -140,10 +140,77 @@ GoldenrodCity_GTS_2F_DevClub_Calypso::
 # 88 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
 	msgbox GoldenrodCity_GTS_2F_DevClub_Calypso_Text_0
 # 89 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
-	closemessage
+	msgbox GoldenrodCity_GTS_2F_DevClub_Calypso_Text_1, MSGBOX_YESNO
 # 90 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq GoldenrodCity_GTS_2F_DevClub_Calypso_2
+# 104 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_Calypso_Text_6
+# 105 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
 	fadedefaultbgm
-# 91 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+GoldenrodCity_GTS_2F_DevClub_Calypso_1:
+# 107 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	closemessage
+# 108 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	fadedefaultbgm
+# 109 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	release
+	end
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_2:
+# 92 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	trainerbattle_earlyrival TRAINER_CONTRIBUTOR_CALYPSO, 0, GoldenrodCity_GTS_2F_DevClub_Calypso_Text_2, GoldenrodCity_GTS_2F_DevClub_Calypso_Text_3
+# 93 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	textcolor NPC_TEXT_COLOR_MALE
+# 94 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_Calypso_Text_4
+# 95 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	giveitem ITEM_MASTER_BALL, 1
+# 96 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	waitfanfare
+# 97 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	waitmessage
+# 98 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_TruthSeeker_Text_11
+# 99 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_Calypso_Text_5
+# 100 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	cleartrainerflag TRAINER_CONTRIBUTOR_CALYPSO
+	goto GoldenrodCity_GTS_2F_DevClub_Calypso_1
+
+
+GoldenrodCity_GTS_2F_DevClub_GamingX::
+# 115 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	lock
+# 116 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	faceplayer
+# 117 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GamingX_Text_0
+# 118 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GamingX_Text_1
+# 119 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GamingX_Text_2
+# 120 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	closemessage
+# 121 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	release
+	end
+
+
+GoldenrodCity_GTS_2F_DevClub_GreenJoe::
+# 127 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	lock
+# 128 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	faceplayer
+# 129 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_0
+# 130 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_1
+# 131 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	msgbox GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_2
+# 132 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	closemessage
+# 133 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
 	release
 	end
 
@@ -263,3 +330,70 @@ GoldenrodCity_GTS_2F_DevClub_Calypso_Text_0:
 	.string "I've heard of you, {PLAYER}, but\n"
 	.string "I work with RODOLFO now.\p"
 	.string "He's a pretty chill guy.$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_1:
+# 89 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "Do you want to battle?$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_2:
+# 92 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "WHAT?\n"
+	.string "Oh, man... Wow!$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_3:
+# 92 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "Nice try.$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_4:
+# 94 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "CALYPSO: Wow...\n"
+	.string "That was awesome... Here!$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_5:
+# 99 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "Come back if you want to\n"
+	.string "rematch me, alright?$"
+
+GoldenrodCity_GTS_2F_DevClub_Calypso_Text_6:
+# 104 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "That's fine.\n"
+	.string "Come back if you want to!$"
+
+GoldenrodCity_GTS_2F_DevClub_GamingX_Text_0:
+# 117 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "GAMINGX: There's a special place in\n"
+	.string "'HELL' for CLEFAIRY!\p"
+	.string "I could say more, but...\n"
+	.string "Eh, I wouldn't be allowed to.$"
+
+GoldenrodCity_GTS_2F_DevClub_GamingX_Text_1:
+# 118 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "If I could store my opponents in my\n"
+	.string "PC BOXES, like POKéMON...\p"
+	.string "MISTY, KOGA... Yep, they're going\n"
+	.string "straight to my 'HELL' storage!$"
+
+GoldenrodCity_GTS_2F_DevClub_GamingX_Text_2:
+# 119 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "I also... Just...\n"
+	.string "Really, really... appreciate LAMPENT.\p"
+	.string "I'm not biased, or anything.\n"
+	.string "No way...$"
+
+GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_0:
+# 129 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "GREENJOE12345: I'm playing POKéMON\n"
+	.string "RAINBOW, and giving feedback on it.$"
+
+GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_1:
+# 130 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "Did you know, BINOCULARS in ROUTE\n"
+	.string "26'S GATEHOUSE had nothing?\p"
+	.string "After I pointed it out, they started\n"
+	.string "showing MT. SILVER on one.\p"
+	.string "The other showed INDIGO PLATEAU.$"
+
+GoldenrodCity_GTS_2F_DevClub_GreenJoe_Text_2:
+# 131 "data/maps/GoldenrodCity_GTS_2F_DevClub/scripts.pory"
+	.string "Several typos and bugs I showed...\n"
+	.string "Those got fixed too.$"

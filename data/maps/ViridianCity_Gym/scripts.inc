@@ -70,6 +70,7 @@ ViridianCity_Gym_EventScript_Giovanni::
 	setobjectxyperm LOCALID_VIRIDIAN_RIVAL, 2, 2
 	release
 	end
+
 ViridianCity_Gym_Movement_Face_Rival::
 	walk_right
 	face_up

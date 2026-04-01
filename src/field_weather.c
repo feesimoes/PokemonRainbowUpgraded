@@ -10,6 +10,10 @@
 #include "constants/field_weather.h"
 #include "constants/weather.h"
 #include "constants/songs.h"
+#include "constants/region_map_sections.h"
+#include "region_map.h"
+#include "event_data.h"
+#include "field_specials.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 

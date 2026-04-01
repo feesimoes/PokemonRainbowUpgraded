@@ -23,6 +23,11 @@
       "map": "MAP_GOLDENROD_CITY_GTS_OUTSIDE",
       "offset": 16,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE35",
+      "offset": 42,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -57,7 +62,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 23,
+      "x": 21,
       "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -71,7 +76,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 17,
+      "x": 19,
       "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -187,13 +192,41 @@
       "y": 42,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1"
     },
     {
       "x": 58,
       "y": 42,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 63,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_FLOWER_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 49,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE35_SOUTH_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 50,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE35_SOUTH_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 43,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_FORTUNE_TELLER",
       "dest_warp_id": "0"
     }
   ],

@@ -23,6 +23,11 @@
       "map": "MAP_BLACKTHORN_CITY",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_NEW_BARK_PATH",
+      "offset": 188,
+      "direction": "right"
     }
   ],
   "object_events": [

@@ -12,20 +12,67 @@ script NewBarkTown_ProfessorElmsLab_Chikorita_Ball
     if (var(VAR_MEW_QUEST_PROGRESS) == 11)
     {
         textcolor(NPC_TEXT_COLOR_MALE)
-        showmonpic(SPECIES_CHIKORITA, 10, 3)
+        setvar(VAR_0x8000, SPECIES_CHIKORITA)
+        setvar(VAR_0x8001, 5)
+        callnative(Native_GeneratePreviewMon)
+        setvar(VAR_0x8002, 10)
+        setvar(VAR_0x8003, 3)
+        callnative(Native_ShowPreviewMon)
+		if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
+		{
+			playse(SE_SHINY)
+			waitse
+		}
         msgbox(format("You'll take CHIKORITA, right?\nIt's a GRASS-TYPE POKéMON."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES)
         {
             msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
             hidemonpic
-            givemon(SPECIES_CHIKORITA, 5, ITEM_MIRACLE_SEED)
-            setflag(FLAG_JOHTO_CHOSE_CHIKORITA)
-            removeobject(LOCALID_CHIKORITA_BALL)
-            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
-            if (var(VAR_RESULT) == YES)
+            callnative(Native_GivePreviewMon)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
             {
+                msgbox(format("CHIKORITA looks exceptionally rare...\nWoah, it's a SHINY POKéMON!"))
+                clearflag(FLAG_GOT_SHINY_POKEMON)
+            }
+            textcolor(NPC_TEXT_COLOR_MALE)
+            if (var(VAR_RESULT) == 0)
+            {
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_CHIKORITA)
+                removeobject(LOCALID_CHIKORITA_BALL)
+                hidemonpic
                 call(EventScript_GetGiftMonPartySlot)
-                call(EventScript_ChangePokemonNickname)
+                msgbox(format("Will you give that CHIKORITA\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_ChangePokemonNickname)
+                }
+            }
+            elif (var(VAR_RESULT) == 1)
+            {
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_CHIKORITA)
+                removeobject(LOCALID_CHIKORITA_BALL)
+                hidemonpic
+                msgbox(format("Will you give that CHIKORITA\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_NameReceivedBoxMon)
+                    msgbox(format("Looks like it was sent to\none of your PC boxes, {PLAYER}!"))
+                }
+                else
+                {
+                    msgbox(format("Seems that CHIKORITA got sent to\none of your PC boxes, {PLAYER}!"))
+                }
+            }
+            else
+            {
+                hidemonpic
+                clearflag(FLAG_GOT_SHINY_POKEMON)
+                msgbox(format("...What's this?\nSorry, you've got no room!"))
             }
             if (!flag(FLAG_SYS_NATIONAL_DEX))
             {
@@ -37,6 +84,7 @@ script NewBarkTown_ProfessorElmsLab_Chikorita_Ball
         else
         {
             hidemonpic
+            clearflag(FLAG_GOT_SHINY_POKEMON)
             msgbox(format("Think it over, carefully.\nYour partner is important!"))
             closemessage
         }
@@ -57,20 +105,68 @@ script NewBarkTown_ProfessorElmsLab_Totodile_Ball
     if (var(VAR_MEW_QUEST_PROGRESS) == 11)
     {
         textcolor(NPC_TEXT_COLOR_MALE)
-        showmonpic(SPECIES_TOTODILE, 10, 3)
+        setvar(VAR_0x8000, SPECIES_TOTODILE)
+        setvar(VAR_0x8001, 5)
+        callnative(Native_GeneratePreviewMon)
+        setvar(VAR_0x8002, 10)
+        setvar(VAR_0x8003, 3)
+        callnative(Native_ShowPreviewMon)
+		if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
+		{
+			playse(SE_SHINY)
+			waitse
+		}
         msgbox(format("You'll take TOTODILE, right?\nIt's a WATER-TYPE POKéMON."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES)
         {
             msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
+            closemessage
             hidemonpic
-            givemon(SPECIES_TOTODILE, 5, ITEM_MYSTIC_WATER)
-            setflag(FLAG_JOHTO_CHOSE_TOTODILE)
-            removeobject(LOCALID_TOTODILE_BALL)
-            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
-            if (var(VAR_RESULT) == YES)
+            callnative(Native_GivePreviewMon)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
             {
+                msgbox(format("TOTODILE looks exceptionally rare...\nWoah, it's a SHINY POKéMON!"))
+                clearflag(FLAG_GOT_SHINY_POKEMON)
+            }
+            textcolor(NPC_TEXT_COLOR_MALE)
+            if (var(VAR_RESULT) == 0)
+            {
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_TOTODILE)
+                removeobject(LOCALID_TOTODILE_BALL)
+                hidemonpic
                 call(EventScript_GetGiftMonPartySlot)
-                call(EventScript_ChangePokemonNickname)
+                msgbox(format("Will you give that TOTODILE\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_ChangePokemonNickname)
+                }
+            }
+            elif (var(VAR_RESULT) == 1)
+            {
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_TOTODILE)
+                removeobject(LOCALID_TOTODILE_BALL)
+                hidemonpic
+                msgbox(format("Will you give that TOTODILE\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_NameReceivedBoxMon)
+                    msgbox(format("Looks like it was sent to\none of your PC boxes, {PLAYER}!"))
+                }
+                else
+                {
+                    msgbox(format("Seems that TOTODILE got sent to\none of your PC boxes, {PLAYER}!"))
+                }
+            }
+            else
+            {
+                hidemonpic
+                clearflag(FLAG_GOT_SHINY_POKEMON)
+                msgbox(format("...What's this?\nSorry, you've got no room!"))
             }
             if (!flag(FLAG_SYS_NATIONAL_DEX))
             {
@@ -82,6 +178,7 @@ script NewBarkTown_ProfessorElmsLab_Totodile_Ball
         else
         {
             hidemonpic
+            clearflag(FLAG_GOT_SHINY_POKEMON)
             msgbox(format("Think it over, carefully.\nYour partner is important!"))
             closemessage
         }
@@ -102,24 +199,65 @@ script NewBarkTown_ProfessorElmsLab_Cyndaquil_Ball
     if (var(VAR_MEW_QUEST_PROGRESS) == 11)
     {
         textcolor(NPC_TEXT_COLOR_MALE)
-        showmonpic(SPECIES_CYNDAQUIL, 10, 3)
+        setvar(VAR_0x8000, SPECIES_CYNDAQUIL)
+        setvar(VAR_0x8001, 5)
+        callnative(Native_GeneratePreviewMon)
+        setvar(VAR_0x8002, 10)
+        setvar(VAR_0x8003, 3)
+        callnative(Native_ShowPreviewMon)
+		if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
+		{
+			playse(SE_SHINY)
+			waitse
+		}
         msgbox(format("You'll take CYNDAQUIL, right?\nIt's a FIRE-TYPE POKéMON."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES)
         {
-            msgbox(format("I think that's a great POKéMON,\ntoo! Thanks, {PLAYER}!"))
-            hidemonpic
-            givemon(SPECIES_CYNDAQUIL, 5, ITEM_CHARCOAL)
-            setflag(FLAG_JOHTO_CHOSE_CYNDAQUIL)
-            removeobject(LOCALID_CYNDAQUIL_BALL)
-            msgbox(format("Did you want to give it\na nickname?"), MSGBOX_YESNO)
-            if (var(VAR_RESULT) == YES)
+            callnative(Native_GivePreviewMon)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            if (flag(FLAG_GOT_SHINY_POKEMON) == TRUE)
             {
-                call(EventScript_GetGiftMonPartySlot)
-                call(EventScript_ChangePokemonNickname)
+                msgbox(format("CYNDAQUIL looks exceptionally rare...\nWoah, it's a SHINY POKéMON!"))
+                clearflag(FLAG_GOT_SHINY_POKEMON)
             }
-            if (!flag(FLAG_SYS_NATIONAL_DEX))
+            textcolor(NPC_TEXT_COLOR_MALE)
+            if (var(VAR_RESULT) == 0)
             {
-                msgbox(format("Oh, right!\nI almost forgot...\pMR. POKéMON is still waiting\nfor you on ROUTE 30."))
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_CYNDAQUIL)
+                removeobject(LOCALID_CYNDAQUIL_BALL)
+                hidemonpic
+                call(EventScript_GetGiftMonPartySlot)
+                msgbox(format("Will you give that CYNDAQUIL\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_ChangePokemonNickname)
+                }
+            }
+            elif (var(VAR_RESULT) == 1)
+            {
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+                setflag(FLAG_JOHTO_CHOSE_CYNDAQUIL)
+                removeobject(LOCALID_CYNDAQUIL_BALL)
+                hidemonpic
+                msgbox(format("Will you give that CYNDAQUIL\na nickname?"), MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES)
+                {
+                    call(EventScript_NameReceivedBoxMon)
+                    msgbox(format("Looks like it was sent to\none of your PC boxes, {PLAYER}!"))
+                }
+                else
+                {
+                    msgbox(format("Seems that CYNDAQUIL got sent to\none of your PC boxes, {PLAYER}!"))
+                }
+            }
+            else
+            {
+                hidemonpic
+                clearflag(FLAG_GOT_SHINY_POKEMON)
+                msgbox(format("...What's this?\nSorry, you've got no room!"))
             }
             setvar(VAR_MEW_QUEST_PROGRESS, 12)
             closemessage
@@ -127,6 +265,7 @@ script NewBarkTown_ProfessorElmsLab_Cyndaquil_Ball
         else
         {
             hidemonpic
+            clearflag(FLAG_GOT_SHINY_POKEMON)
             msgbox(format("Think it over, carefully.\nYour partner is important!"))
             closemessage
         }
@@ -215,23 +354,40 @@ script NewBarkTown_ProfessorElmsLab_Elm_Dialogue
     else
     {
         lock
-        msgbox(format("Hmm... What's this?\nEmail from MR. POKéMON?\pUh-huh... I see...\nAh! PROF. OAK is there?\pThis is fascinating!\nI'd better get-"))
+        msgbox(format("Hmm... What's this?\nEmail from...\pUh-huh... I see..."))
         closemessage
-        applymovement(1, Movement_ProfessorElmNoticesPlayer)
-        waitmovement
-        applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
-        waitmovement
-        msgbox(format("Uh, hi!\nWho are you?\p{PLAYER}? It's nice to meet you!\nYour timing is perfect, actually!\pI'm PROF. ELM, by the way!"))
-        msgbox(format("An associate of mine, MR. POKéMON,\njust sent me a lengthy email.\pIf you'd be so kind to\nassist, I would appreciate it!"))
-        msgbox(format("I see that you have POKéMON already,\nso this should be easy, right?\pJust head west to CHERRYGROVE CITY.\nHis house is north from there!"))
-        msgbox(format("Oh, right! On your way there,\nstop by the POKéMON CENTER.\pMake sure you have free\nspace in your party."))
-        closemessage
-        applymovement(1, Movement_ProfessorElmNoticesPlayer)
-        waitmovement
-        msgbox(format("Oh, wait!\nI almost forgot!\pSILPH CO. has resumed operations,\nand recently sent me an email."))
-        msgbox(format("They were looking for help testing\ntheir new prototype device.\pThey need experienced TRAINERS,\na specific criteria you fit!"))
-        msgbox(format("Ah... I apologize!\nWe've only just met...\pI hope it's not too much to\nask of you!"))
-        closemessage
+        if (!flag(FLAG_SYS_NATIONAL_DEX))
+        {
+            msgbox(format("Ah! PROF. OAK is there?\nThis is fascinating!\pI'd better get-"))
+            closemessage
+            applymovement(1, Movement_ProfessorElmNoticesPlayer)
+            waitmovement
+            applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
+            waitmovement
+            msgbox(format("Uh, hi!\nWho are you?\p{PLAYER}? It's nice to meet you!\nYour timing is perfect, actually!\pI'm PROF. ELM, by the way!"))
+            msgbox(format("An associate of mine, MR. POKéMON,\njust sent me a lengthy email.\pIf you'd be so kind to\nassist, I would appreciate it!"))
+            msgbox(format("I see that you have POKéMON already,\nso this should be easy, right?\pJust head west to CHERRYGROVE CITY.\nHis house is north from there!"))
+            msgbox(format("Oh, right! On your way there,\nstop by the POKéMON CENTER.\pMake sure you have free\nspace in your party."))
+            applymovement(1, Movement_ProfessorElmNoticesPlayer)
+            waitmovement
+            msgbox(format("Oh, wait!\nI almost forgot!"))
+            msgbox(format("SILPH CO. has resumed operations,\nand recently sent me an email."))
+            msgbox(format("They were looking for help testing\ntheir new prototype device.\pThey need experienced TRAINERS,\na specific criteria you fit!"))
+            msgbox(format("Ah... I apologize!\nWe've only just met...\pI hope it's not too much to\nask of you!"))
+            closemessage
+        }
+        else
+        {
+            applymovement(1, Movement_ProfessorElmNoticesPlayer)
+            waitmovement
+            applymovement(1, Movement_ProfessorElmsLabNPCFacesPlayer)
+            waitmovement
+            msgbox(format("Uh, hi!\nWho are you?\p{PLAYER}? It's nice to meet you!\nYour timing is perfect, actually!\pI'm PROF. ELM, by the way!"))
+            msgbox(format("SILPH CO. has resumed operations,\nand recently sent me an email."))
+            msgbox(format("They were looking for help testing\ntheir new prototype device.\pThey need experienced TRAINERS,\na specific criteria you fit!"))
+            msgbox(format("Ah... I apologize!\nWe've only just met...\pI hope it's not too much to\nask of you!"))
+            closemessage
+        }
         setflag(FLAG_MEW_QUEST_STARTED)
         setvar(VAR_JOHTO_STORY_PROGRESS, 1)
         releaseall
@@ -249,4 +405,34 @@ movement Movement_ProfessorElmsLabNPCFacesPlayer
 {
     face_player
     step_end    
+}
+
+script NewBarkTown_ProfessorElmsLab_Computer 
+{
+    lock
+    msgbox(format("It's a bunch of numbers and symbols\nthat seem almost like a puzzle..."))    
+    closemessage
+    release
+    end
+}
+
+script NewBarkTown_ProfessorElmsLab_BreedingEvolutionSign 
+{
+    lock
+    msgbox(format("Some POKéMON cannot be caught or\nfound in typical field research.\pMALE and FEMALE POKéMON may often\nbring EGGS to their trainer."))
+    msgbox(format("From recent studies, these EGGS will\nalmost always hatch with time.\pWhat hatches seems to depend on the\nfirst stages of a POKéMON'S species."))    
+    closemessage
+    release
+    end
+}
+
+script NewBarkTown_ProfessorElmsLab_WorldChampionshipSign 
+{
+    lock
+    msgbox(format("Not every REGION has a POKéMON\nLEAGUE, while some do share them.\pSome far-off known REGIONS, such as\nALOLA or GUYANA, lack a LEAGUE."))
+    msgbox(format("Some technical exceptions lie in\nKANTO, JOHTO, and SEVII REGIONS.\pIt's rare, but exceptional TRAINERS\ncan earn more than 8 GYM BADGES."))
+    msgbox(format("LEGENDARY TRAINERS with a hefty\nstack of BADGES need expert skills.\pThey earn the right to participate\nin the POKéMON WORLD TOURNAMENT!"))
+    closemessage
+    release
+    end    
 }

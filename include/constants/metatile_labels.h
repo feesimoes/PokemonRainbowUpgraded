@@ -67,12 +67,16 @@
 #define METATILE_General_DiveWater_TopEdge       0x1D1
 #define METATILE_General_DiveWater_TopLeftEdge   0x1D0
 #define METATILE_General_Door                    0x03D
+#define METATILE_General_EAST_RAPIDS             0x1EF
+#define METATILE_General_NORTH_RAPIDS            0x1EC
 #define METATILE_General_Plain_Grass             0x00D
 #define METATILE_General_Plain_Mowed             0x001
+#define METATILE_General_SOUTH_RAPIDS            0x1ED
 #define METATILE_General_SlidingDoubleDoor       0x15B
 #define METATILE_General_SlidingSingleDoor       0x062
 #define METATILE_General_ThinTreeTop_Grass       0x00A
 #define METATILE_General_ThinTreeTop_Mowed       0x013
+#define METATILE_General_WEST_RAPIDS             0x1EE
 #define METATILE_General_WideTreeTopLeft_Grass   0x00B
 #define METATILE_General_WideTreeTopLeft_Mowed   0x00E
 #define METATILE_General_WideTreeTopRight_Grass  0x00C

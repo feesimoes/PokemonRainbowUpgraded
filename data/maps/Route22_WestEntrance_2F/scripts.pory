@@ -1,6 +1,26 @@
 mapscripts Route22_WestEntrance_2F_MapScripts {
 }
 
+script Route22_WestEntrance_2F_RightBinoculars 
+{
+    lock
+    msgbox(format("Let's see what the binoculars have\nto show…"))
+    msgbox(format("There's a really long path ahead.\nIt leads up to the POKéMON LEAGUE!"))
+    closemessage
+    release
+    end
+}
+
+script Route22_WestEntrance_2F_LeftBinoculars 
+{
+    lock
+    msgbox(format("Let's see what the binoculars have\nto show…"))
+    msgbox(format("There's a really long path ahead.\nMT. SILVER looms intimidatingly!"))
+    closemessage
+    release
+    end
+}
+
 script Route22_WestEntrance_2F_Police_Dialogue {
     lock
     applymovement(3, Movement_Route22_WestEntrance_2F_NPC_Face_Player)

@@ -582,9 +582,16 @@ const u8 *const gMonIconTable[] = {
     [SPECIES_SHAYMIN_LAND]        = gMonIcon_ShayminLand,
     [SPECIES_SHAYMIN_SKY]         = gMonIcon_ShayminSky,
     [SPECIES_ARCEUS_NORMAL]       = gMonIcon_ArceusNormal,
-    [SPECIES_SANDSLASH_ALOLA]     = gMonIcon_Sandslash,
-    [SPECIES_GOLEM_ALOLA]         = gMonIcon_Golem,
-    [SPECIES_MAROWAK_ALOLA]       = gMonIcon_Marowak,
+    [SPECIES_VENIPEDE]            = gMonIcon_Venipede,
+    [SPECIES_WHIRLIPEDE]          = gMonIcon_Whirlipede,
+    [SPECIES_SCOLIPEDE]           = gMonIcon_Scolipede,
+    [SPECIES_SANDSHREW_ALOLA]     = gMonIcon_Sandshrew_Alola,
+    [SPECIES_SANDSLASH_ALOLA]     = gMonIcon_Sandslash_Alola,
+    [SPECIES_GEODUDE_ALOLA]       = gMonIcon_Geodude_Alola,
+    [SPECIES_GRAVELER_ALOLA]      = gMonIcon_Graveler_Alola,
+    [SPECIES_GOLEM_ALOLA]         = gMonIcon_Golem_Alola,
+    [SPECIES_EXEGGUTOR_ALOLA]     = gMonIcon_Exeggutor_Alola,
+    [SPECIES_MAROWAK_ALOLA]       = gMonIcon_Marowak_Alola,
 };
 
 const u8 gMonIconPaletteIndices[] = {
@@ -1097,7 +1104,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_GIBLE]               = 2,
     [SPECIES_GABITE]              = 2,
     [SPECIES_GARCHOMP]            = 2,
-    [SPECIES_MUNCHLAX]            = 2,
+    [SPECIES_MUNCHLAX]            = 0,
     [SPECIES_RIOLU]               = 2,
     [SPECIES_LUCARIO]             = 2,
     [SPECIES_HIPPOPOTAS]          = 1,
@@ -1148,8 +1155,16 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_SHAYMIN_SKY]         = 1,
     [SPECIES_ARCEUS_NORMAL]       = 1,
 
+    [SPECIES_VENIPEDE]            = 1,
+    [SPECIES_WHIRLIPEDE]          = 2,
+    [SPECIES_SCOLIPEDE]           = 2,
+
+    [SPECIES_SANDSHREW_ALOLA]     = 0,
     [SPECIES_SANDSLASH_ALOLA]     = 2,
+    [SPECIES_GEODUDE_ALOLA]       = 2,
+    [SPECIES_GRAVELER_ALOLA]      = 0,
     [SPECIES_GOLEM_ALOLA]         = 1,
+    [SPECIES_EXEGGUTOR_ALOLA]     = 1,
     [SPECIES_MAROWAK_ALOLA]       = 1,
 };
 

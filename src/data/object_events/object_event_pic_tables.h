@@ -1809,13 +1809,12 @@ static const struct SpriteFrameImage sPicTable_Norman[] = {
     overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
     overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
     overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 3),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 4),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 5),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 6),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 7),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 8),
-    overworld_frame(gObjectEventPic_Norman, 2, 4, 9),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Norman, 2, 4, 2),
 };
 
 static const struct SpriteFrameImage sPicTable_Kurt[] = {
@@ -1857,4 +1856,112 @@ static const struct SpriteFrameImage sPicTable_Whirlpool[] = {
     overworld_frame(gObjectEventPic_Whirlpool, 8, 8, 0),
     overworld_frame(gObjectEventPic_Whirlpool, 8, 8, 1),
     overworld_frame(gObjectEventPic_Whirlpool, 8, 8, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Steven[] = {
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Steven, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Black[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Black, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Blue[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Blue, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Green[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Green, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Pink[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Pink, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Red[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Red, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_White[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_White, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_ApricornTree_Yellow[] = {
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ApricornTree_Yellow, 2, 4, 0),
 };

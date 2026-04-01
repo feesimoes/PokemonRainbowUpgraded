@@ -281,10 +281,20 @@ PalletTown_ProfessorOaksLab_Text_DaisyWillGroomMons::
     .string "tell anyone.$"
 
 PalletTown_ProfessorOaksLab_Text_OakIsGoingToHaveRadioShow::
-    .string "PROF. OAK is going to have his own\n"
-    .string "radio show soon.\p"
+    .string "PROF. OAK is going to host his own\n"
+    .string "radio show soon, in JOHTO.\p"
+    .string "It took a bit of convincing, but\n"
+    .string "D.J. MARY's enthusiasm worked!\p"
     .string "The program will be called PROF.\n"
-    .string "OAK's POKéMON SEMINAR.$"
+    .string "OAK's POKéMON TALK.$"
+    
+PalletTown_ProfessorOaksLab_Text_OakHostsRadioShow::
+    .string "PROF. OAK hosts his own radio show\n"
+    .string "in JOHTO, with D.J. MARY.\p"
+    .string "The duo sure know how to inform\n"
+    .string "TRAINERS on mass outbreaks.\p"
+    .string "Have you tuned into PROF. OAK'S\n"
+    .string "POKéMON TALK yet?$"
 
 PalletTown_ProfessorOaksLab_Text_OakIsAuthorityOnMons::
     .string "PROF. OAK may not look like much,\n"

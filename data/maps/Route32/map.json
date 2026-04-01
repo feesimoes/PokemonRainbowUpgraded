@@ -136,7 +136,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route32_Hiker",
       "flag": "0"
     },
     {
@@ -171,7 +171,7 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route32_Sign"
     },
     {
       "type": "sign",
@@ -179,7 +179,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route32_RuinsOfAlph_Sign"
     },
     {
       "type": "sign",
@@ -187,7 +187,7 @@
       "y": 65,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route32_ToCherrygrove_Sign"
     }
   ]
 }

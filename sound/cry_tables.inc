@@ -504,6 +504,9 @@ gCryTable::
 	cry Cry_ShayminLand
 	cry Cry_ShayminSky
 	cry Cry_Arceus
+	cry Cry_Venipede
+	cry Cry_Whirlipede
+	cry Cry_Scolipede
 
 	.align 2
 gCryTable_Reverse::
@@ -1011,3 +1014,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_ShayminLand
 	cry_reverse Cry_ShayminSky
 	cry_reverse Cry_Arceus
+	cry_reverse Cry_Venipede
+	cry_reverse Cry_Whirlipede
+	cry_reverse Cry_Scolipede

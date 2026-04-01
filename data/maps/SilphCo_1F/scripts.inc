@@ -44,12 +44,18 @@ SilphCo_1F_EventScript_CynthiaEncounter::
 # 52 "data/maps/SilphCo_1F/scripts.pory"
 	lock
 # 53 "data/maps/SilphCo_1F/scripts.pory"
-	applymovement 2, Movement_Cynthia_Faces_Player
-# 54 "data/maps/SilphCo_1F/scripts.pory"
-	waitmovement
-# 55 "data/maps/SilphCo_1F/scripts.pory"
 	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_5
+# 54 "data/maps/SilphCo_1F/scripts.pory"
+	closemessage
+# 55 "data/maps/SilphCo_1F/scripts.pory"
+	applymovement 2, Movement_Cynthia_Faces_Player
 # 56 "data/maps/SilphCo_1F/scripts.pory"
+	waitmovement
+# 57 "data/maps/SilphCo_1F/scripts.pory"
+	msgbox SilphCo_1F_EventScript_CynthiaEncounter_Text_6
+# 58 "data/maps/SilphCo_1F/scripts.pory"
+	closemessage
+# 59 "data/maps/SilphCo_1F/scripts.pory"
 	release
 	end
 
@@ -97,6 +103,24 @@ SilphCo_1F_EventScript_CynthiaEncounter_1:
 	end
 
 
+SilphCo_1F_EventScript_StevenEncounter::
+# 66 "data/maps/SilphCo_1F/scripts.pory"
+	lock
+# 67 "data/maps/SilphCo_1F/scripts.pory"
+	faceplayer
+# 68 "data/maps/SilphCo_1F/scripts.pory"
+	msgbox SilphCo_1F_EventScript_StevenEncounter_Text_0
+# 69 "data/maps/SilphCo_1F/scripts.pory"
+	msgbox SilphCo_1F_EventScript_StevenEncounter_Text_1
+# 70 "data/maps/SilphCo_1F/scripts.pory"
+	msgbox SilphCo_1F_EventScript_StevenEncounter_Text_2
+# 71 "data/maps/SilphCo_1F/scripts.pory"
+	closemessage
+# 72 "data/maps/SilphCo_1F/scripts.pory"
+	release
+	end
+
+
 SilphCo_1F_EventScript_CynthiaEncounter_Text_0:
 # 32 "data/maps/SilphCo_1F/scripts.pory"
 	.string "Oh, is that a POKéDEX?\n"
@@ -135,8 +159,32 @@ SilphCo_1F_EventScript_CynthiaEncounter_Text_4:
 	.string "We'll meet again soon, {PLAYER}!$"
 
 SilphCo_1F_EventScript_CynthiaEncounter_Text_5:
-# 55 "data/maps/SilphCo_1F/scripts.pory"
+# 53 "data/maps/SilphCo_1F/scripts.pory"
+	.string "Somebody needs to help me!!!\n"
+	.string "I'm stuck in here!!! HELP!$"
+
+SilphCo_1F_EventScript_CynthiaEncounter_Text_6:
+# 57 "data/maps/SilphCo_1F/scripts.pory"
 	.string "Oh, hello...\n"
 	.string "Wait, no, you aren't with SILPH...\p"
 	.string "I'm sorry, I thought you were the\n"
 	.string "person I was here to interview...$"
+
+SilphCo_1F_EventScript_StevenEncounter_Text_0:
+# 68 "data/maps/SilphCo_1F/scripts.pory"
+	.string "My name is STEVEN. I'm the CHAMPION\n"
+	.string "from the HOENN REGION.\p"
+	.string "Have we... Met... Before?\n"
+	.string "No, that's not possible...$"
+
+SilphCo_1F_EventScript_StevenEncounter_Text_1:
+# 69 "data/maps/SilphCo_1F/scripts.pory"
+	.string "All the TRAINERS I have battled\n"
+	.string "seem to have that same look...$"
+
+SilphCo_1F_EventScript_StevenEncounter_Text_2:
+# 70 "data/maps/SilphCo_1F/scripts.pory"
+	.string "Oh, look at the time.\n"
+	.string "I really must go.\p"
+	.string "Plus, I appear to have run out of\n"
+	.string "useful dialogue for you...$"

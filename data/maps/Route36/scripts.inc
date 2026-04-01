@@ -1,56 +1,56 @@
 Route36_MapScripts::
+# 3 "data/maps/Route36/scripts.pory"
+	map_script MAP_SCRIPT_ON_LOAD, Route36_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
+
+Route36_MapScripts_MAP_SCRIPT_ON_LOAD:
+# 5 "data/maps/Route36/scripts.pory"
+	goto_if_set FLAG_CAUGHT_SUDOWOODO_ROUTE_36, Route36_MapScripts_MAP_SCRIPT_ON_LOAD_1
+# 12 "data/maps/Route36/scripts.pory"
+	clearflag FLAG_TEMP_12
+# 13 "data/maps/Route36/scripts.pory"
+	addobject LOCALID_ROUTE36_WEIRD_TREE
+	return
+
+Route36_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+# 7 "data/maps/Route36/scripts.pory"
+	setflag FLAG_TEMP_12
+# 8 "data/maps/Route36/scripts.pory"
+	removeobject LOCALID_ROUTE36_WEIRD_TREE
+	return
 
 
 Route36_Youngster_Jack_Battle::
-# 8 "data/maps/Route36/scripts.pory"
+# 20 "data/maps/Route36/scripts.pory"
 	trainerbattle_single TRAINER_YOUNGSTER_JACK, Route36_Youngster_Jack_Battle_Text_0, Route36_Youngster_Jack_Battle_Text_1
-# 9 "data/maps/Route36/scripts.pory"
+# 21 "data/maps/Route36/scripts.pory"
 	msgbox Route36_Youngster_Jack_Battle_Text_2
-# 10 "data/maps/Route36/scripts.pory"
+# 22 "data/maps/Route36/scripts.pory"
 	closemessage
-# 11 "data/maps/Route36/scripts.pory"
+# 23 "data/maps/Route36/scripts.pory"
 	releaseall
 	end
 
 
 Route36_Picnicker_Kristie_Battle::
-# 17 "data/maps/Route36/scripts.pory"
+# 29 "data/maps/Route36/scripts.pory"
 	trainerbattle_single TRAINER_PICNICKER_KRISTIE, Route36_Picnicker_Kristie_Battle_Text_0, Route36_Picnicker_Kristie_Battle_Text_1
-# 18 "data/maps/Route36/scripts.pory"
+# 30 "data/maps/Route36/scripts.pory"
 	msgbox Route36_Picnicker_Kristie_Battle_Text_2
-# 19 "data/maps/Route36/scripts.pory"
+# 31 "data/maps/Route36/scripts.pory"
 	closemessage
-# 20 "data/maps/Route36/scripts.pory"
+# 32 "data/maps/Route36/scripts.pory"
 	releaseall
 	end
 
 
 Route36_Super_Nerd::
-# 26 "data/maps/Route36/scripts.pory"
-	lock
-# 27 "data/maps/Route36/scripts.pory"
-	applymovement 5, Route36_NPC_Face_Player
-# 28 "data/maps/Route36/scripts.pory"
-	msgbox Route36_Super_Nerd_Text_0
-# 29 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 30 "data/maps/Route36/scripts.pory"
-	closemessage
-# 31 "data/maps/Route36/scripts.pory"
-	release
-	end
-
-
-Route36_BlackBelt::
-# 37 "data/maps/Route36/scripts.pory"
-	lock
 # 38 "data/maps/Route36/scripts.pory"
-	applymovement 7, Route36_NPC_Face_Player
+	lock
 # 39 "data/maps/Route36/scripts.pory"
-	msgbox Route36_BlackBelt_Text_0
+	faceplayer
 # 40 "data/maps/Route36/scripts.pory"
-	waitmessage
+	msgbox Route36_Super_Nerd_Text_0
 # 41 "data/maps/Route36/scripts.pory"
 	closemessage
 # 42 "data/maps/Route36/scripts.pory"
@@ -58,167 +58,269 @@ Route36_BlackBelt::
 	end
 
 
-Route36_Fat_Man::
+Route36_BlackBelt::
 # 48 "data/maps/Route36/scripts.pory"
 	lock
 # 49 "data/maps/Route36/scripts.pory"
-	applymovement 3, Route36_NPC_Face_Player
+	faceplayer
 # 50 "data/maps/Route36/scripts.pory"
-	msgbox Route36_Fat_Man_Text_0
+	msgbox Route36_BlackBelt_Text_0
 # 51 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 52 "data/maps/Route36/scripts.pory"
 	closemessage
-# 53 "data/maps/Route36/scripts.pory"
+# 52 "data/maps/Route36/scripts.pory"
+	release
+	end
+
+
+Route36_Fat_Man::
+# 58 "data/maps/Route36/scripts.pory"
+	lock
+# 59 "data/maps/Route36/scripts.pory"
+	faceplayer
+# 60 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Fat_Man_Text_0
+# 61 "data/maps/Route36/scripts.pory"
+	closemessage
+# 62 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_Lass::
-# 59 "data/maps/Route36/scripts.pory"
+# 68 "data/maps/Route36/scripts.pory"
 	lock
-# 60 "data/maps/Route36/scripts.pory"
-	applymovement 2, Route36_NPC_Face_Player
-# 61 "data/maps/Route36/scripts.pory"
+# 69 "data/maps/Route36/scripts.pory"
+	faceplayer
+# 70 "data/maps/Route36/scripts.pory"
 	msgbox Route36_Lass_Text_0
-# 62 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 63 "data/maps/Route36/scripts.pory"
+# 71 "data/maps/Route36/scripts.pory"
 	closemessage
-# 64 "data/maps/Route36/scripts.pory"
+# 72 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_Sign::
-# 70 "data/maps/Route36/scripts.pory"
+# 78 "data/maps/Route36/scripts.pory"
 	lock
-# 71 "data/maps/Route36/scripts.pory"
+# 79 "data/maps/Route36/scripts.pory"
 	msgbox Route36_Sign_Text_0
-# 72 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 73 "data/maps/Route36/scripts.pory"
+# 80 "data/maps/Route36/scripts.pory"
 	closemessage
-# 74 "data/maps/Route36/scripts.pory"
+# 81 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_NationalPark_Sign::
-# 80 "data/maps/Route36/scripts.pory"
+# 87 "data/maps/Route36/scripts.pory"
 	lock
-# 81 "data/maps/Route36/scripts.pory"
+# 88 "data/maps/Route36/scripts.pory"
 	msgbox Route36_NationalPark_Sign_Text_0
-# 82 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 83 "data/maps/Route36/scripts.pory"
+# 89 "data/maps/Route36/scripts.pory"
 	closemessage
-# 84 "data/maps/Route36/scripts.pory"
+# 90 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_RuinsOfAlph_Sign::
-# 90 "data/maps/Route36/scripts.pory"
+# 96 "data/maps/Route36/scripts.pory"
 	lock
-# 91 "data/maps/Route36/scripts.pory"
+# 97 "data/maps/Route36/scripts.pory"
 	msgbox Route36_RuinsOfAlph_Sign_Text_0
-# 92 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 93 "data/maps/Route36/scripts.pory"
+# 98 "data/maps/Route36/scripts.pory"
 	closemessage
-# 94 "data/maps/Route36/scripts.pory"
+# 99 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_Route37_Ahead_Sign::
-# 100 "data/maps/Route36/scripts.pory"
+# 105 "data/maps/Route36/scripts.pory"
 	lock
-# 101 "data/maps/Route36/scripts.pory"
+# 106 "data/maps/Route36/scripts.pory"
 	msgbox Route36_Route37_Ahead_Sign_Text_0
-# 102 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 103 "data/maps/Route36/scripts.pory"
+# 107 "data/maps/Route36/scripts.pory"
 	closemessage
-# 104 "data/maps/Route36/scripts.pory"
+# 108 "data/maps/Route36/scripts.pory"
+	release
+	end
+
+
+Route36_Weird_Pidgey::
+# 114 "data/maps/Route36/scripts.pory"
+	lock
+# 115 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Pidgey_Text_0
+# 116 "data/maps/Route36/scripts.pory"
+	closemessage
+# 117 "data/maps/Route36/scripts.pory"
+	clearflag FLAG_CAUGHT_SUDOWOODO_ROUTE_36
+# 118 "data/maps/Route36/scripts.pory"
 	release
 	end
 
 
 Route36_Weird_Tree::
-# 110 "data/maps/Route36/scripts.pory"
+# 124 "data/maps/Route36/scripts.pory"
 	lock
-# 111 "data/maps/Route36/scripts.pory"
-	msgbox Route36_Weird_Tree_Text_0
-# 112 "data/maps/Route36/scripts.pory"
-	waitmessage
-# 113 "data/maps/Route36/scripts.pory"
+# 125 "data/maps/Route36/scripts.pory"
+	goto_if_set FLAG_TEMP_12, Route36_Weird_Tree_2
+# 131 "data/maps/Route36/scripts.pory"
+	checkitem ITEM_SQUIRT_BOTTLE, 1
+# 132 "data/maps/Route36/scripts.pory"
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+# 133 "data/maps/Route36/scripts.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route36_Weird_Tree_6
+# 173 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_5
+Route36_Weird_Tree_5:
+# 175 "data/maps/Route36/scripts.pory"
 	closemessage
-	return
+# 176 "data/maps/Route36/scripts.pory"
+	release
+Route36_Weird_Tree_1:
+	end
+
+Route36_Weird_Tree_2:
+# 127 "data/maps/Route36/scripts.pory"
+	release
+	goto Route36_Weird_Tree_1
+
+Route36_Weird_Tree_6:
+# 135 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_0, MSGBOX_YESNO
+# 136 "data/maps/Route36/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq Route36_Weird_Tree_9
+# 168 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_4
+	goto Route36_Weird_Tree_5
+
+Route36_Weird_Tree_9:
+# 138 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_1
+# 139 "data/maps/Route36/scripts.pory"
+	closemessage
+# 140 "data/maps/Route36/scripts.pory"
+	setwildbattle SPECIES_SUDOWOODO, 20, ITEM_NONE
+# 141 "data/maps/Route36/scripts.pory"
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+# 142 "data/maps/Route36/scripts.pory"
+	dowildbattle
+# 143 "data/maps/Route36/scripts.pory"
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+# 144 "data/maps/Route36/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 145 "data/maps/Route36/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq Route36_Weird_Tree_12
+# 153 "data/maps/Route36/scripts.pory"
+	compare VAR_RESULT, 7
+	goto_if_eq Route36_Weird_Tree_13
+# 163 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_3
+	goto Route36_Weird_Tree_5
+
+Route36_Weird_Tree_12:
+# 147 "data/maps/Route36/scripts.pory"
+	msgbox Route36_Weird_Tree_Text_2
+# 148 "data/maps/Route36/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 149 "data/maps/Route36/scripts.pory"
+	applymovement LOCALID_ROUTE36_WEIRD_TREE, Route36_Hide_Sudowoodo
+# 150 "data/maps/Route36/scripts.pory"
+	waitmovement
+# 151 "data/maps/Route36/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+	goto Route36_Weird_Tree_5
+
+Route36_Weird_Tree_13:
+# 155 "data/maps/Route36/scripts.pory"
+	setflag FLAG_CAUGHT_SUDOWOODO_ROUTE_36
+# 156 "data/maps/Route36/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 157 "data/maps/Route36/scripts.pory"
+	applymovement LOCALID_ROUTE36_WEIRD_TREE, Route36_Hide_Sudowoodo
+# 158 "data/maps/Route36/scripts.pory"
+	waitmovement
+# 159 "data/maps/Route36/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+	goto Route36_Weird_Tree_5
 
 
-# 116 "data/maps/Route36/scripts.pory"
+# 181 "data/maps/Route36/scripts.pory"
 Route36_NPC_Face_Player:
-# 118 "data/maps/Route36/scripts.pory"
+# 183 "data/maps/Route36/scripts.pory"
 	face_player
-# 119 "data/maps/Route36/scripts.pory"
+# 184 "data/maps/Route36/scripts.pory"
+	step_end
+
+# 187 "data/maps/Route36/scripts.pory"
+Route36_Hide_Sudowoodo:
+# 189 "data/maps/Route36/scripts.pory"
+	set_invisible
+# 190 "data/maps/Route36/scripts.pory"
+	walk_right
+# 191 "data/maps/Route36/scripts.pory"
 	step_end
 
 Route36_Youngster_Jack_Battle_Text_0:
-# 8 "data/maps/Route36/scripts.pory"
+# 20 "data/maps/Route36/scripts.pory"
 	.string "All of my friends laughed at me,\n"
 	.string "so now it's my turn!$"
 
 Route36_Youngster_Jack_Battle_Text_1:
-# 8 "data/maps/Route36/scripts.pory"
+# 20 "data/maps/Route36/scripts.pory"
 	.string "Hahaha! Oh, wait,\n"
 	.string "I see why I was laughed at...$"
 
 Route36_Youngster_Jack_Battle_Text_2:
-# 9 "data/maps/Route36/scripts.pory"
+# 21 "data/maps/Route36/scripts.pory"
 	.string "My battling skills are such a\n"
 	.string "big joke, it's hilarious!$"
 
 Route36_Picnicker_Kristie_Battle_Text_0:
-# 17 "data/maps/Route36/scripts.pory"
+# 29 "data/maps/Route36/scripts.pory"
 	.string "Oh no...\n"
 	.string "I lost my SQUIRT BOTTLE!$"
 
 Route36_Picnicker_Kristie_Battle_Text_1:
-# 17 "data/maps/Route36/scripts.pory"
+# 29 "data/maps/Route36/scripts.pory"
 	.string "Um...\n"
 	.string "So, could I borrow yours?$"
 
 Route36_Picnicker_Kristie_Battle_Text_2:
-# 18 "data/maps/Route36/scripts.pory"
+# 30 "data/maps/Route36/scripts.pory"
 	.string "There's a flower shop back in\n"
 	.string "GOLDENROD CITY.\p"
 	.string "Without a way to water this\n"
 	.string "weird tree, it won't budge...$"
 
 Route36_Super_Nerd_Text_0:
-# 28 "data/maps/Route36/scripts.pory"
+# 40 "data/maps/Route36/scripts.pory"
 	.string "Oh, you're filling a POKéDEX for\n"
 	.string "PROF. OAK?\p"
 	.string "You must be important if he\n"
 	.string "entrusted you with that task.$"
 
 Route36_BlackBelt_Text_0:
-# 39 "data/maps/Route36/scripts.pory"
+# 50 "data/maps/Route36/scripts.pory"
 	.string "This is where the road splits.\n"
 	.string "Headed for NATIONAL PARK?\p"
 	.string "I think you'll have to find\n"
 	.string "a way around, for now...$"
 
 Route36_Fat_Man_Text_0:
-# 50 "data/maps/Route36/scripts.pory"
+# 60 "data/maps/Route36/scripts.pory"
 	.string "Hey, have you checked out\n"
 	.string "RUINS OF ALPH yet?\p"
 	.string "That place gives me the creeps.$"
 
 Route36_Lass_Text_0:
-# 61 "data/maps/Route36/scripts.pory"
+# 70 "data/maps/Route36/scripts.pory"
 	.string "If I were to participate in a\n"
 	.string "CONTEST HALL over in HOENN...\p"
 	.string "I would blow everyone away\n"
@@ -227,27 +329,58 @@ Route36_Lass_Text_0:
 	.string "I don't want to ruin it!$"
 
 Route36_Sign_Text_0:
-# 71 "data/maps/Route36/scripts.pory"
+# 79 "data/maps/Route36/scripts.pory"
 	.string "ROUTE 36\n"
 	.string "Densely overgrown road, forking two\l"
 	.string "paths.$"
 
 Route36_NationalPark_Sign_Text_0:
-# 81 "data/maps/Route36/scripts.pory"
+# 88 "data/maps/Route36/scripts.pory"
 	.string "ROUTE 36 - NATIONAL PARK\n"
 	.string "Enter a spacious, beautiful park!$"
 
 Route36_RuinsOfAlph_Sign_Text_0:
-# 91 "data/maps/Route36/scripts.pory"
+# 97 "data/maps/Route36/scripts.pory"
 	.string "ROUTE 36 - RUINS OF ALPH\n"
 	.string "Also connects to ROUTE 32.$"
 
 Route36_Route37_Ahead_Sign_Text_0:
-# 101 "data/maps/Route36/scripts.pory"
+# 106 "data/maps/Route36/scripts.pory"
 	.string "ROUTE 36 - ROUTE 37\n"
 	.string "ECRUTEAK CITY is further ahead!$"
 
+Route36_Weird_Pidgey_Text_0:
+# 115 "data/maps/Route36/scripts.pory"
+	.string "Bark bark!\n"
+	.string "I'm a bird.$"
+
 Route36_Weird_Tree_Text_0:
-# 111 "data/maps/Route36/scripts.pory"
-	.string "It's a weird tree...\n"
+# 135 "data/maps/Route36/scripts.pory"
+	.string "A strange, wiggly tree blocks the\n"
+	.string "path ahead...\p"
+	.string "Would you like to water it with\n"
+	.string "the SQUIRT BOTTLE?$"
+
+Route36_Weird_Tree_Text_1:
+# 138 "data/maps/Route36/scripts.pory"
+	.string "The weird tree didn't like that!\n"
+	.string "It attacks you... It's a POKéMON!$"
+
+Route36_Weird_Tree_Text_2:
+# 147 "data/maps/Route36/scripts.pory"
+	.string "The POKéMON fled!\n"
+	.string "It'll come back later...$"
+
+Route36_Weird_Tree_Text_3:
+# 163 "data/maps/Route36/scripts.pory"
+	.string "Darn...\n"
+	.string "The POKéMON is staying put!$"
+
+Route36_Weird_Tree_Text_4:
+# 168 "data/maps/Route36/scripts.pory"
+	.string "Not just yet!$"
+
+Route36_Weird_Tree_Text_5:
+# 173 "data/maps/Route36/scripts.pory"
+	.string "It's a weird, wiggly tree...\n"
 	.string "It looks impossible to CUT...$"

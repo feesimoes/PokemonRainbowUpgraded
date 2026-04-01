@@ -615,6 +615,9 @@ const u32 gItemIcon_ClawFossil[] = INCBIN_U32("graphics/items/icons/claw_fossil.
 const u32 gItemIcon_DevonScope[] = INCBIN_U32("graphics/items/icons/devon_scope.4bpp.lz");
 const u32 gItemIconPalette_DevonScope[] = INCBIN_U32("graphics/items/icon_palettes/devon_scope.gbapal.lz");
 
+const u32 gItemIcon_SquirtBottle[] = INCBIN_U32("graphics/items/icons/squirt_bottle.4bpp.lz");
+const u32 gItemIconPalette_SquirtBottle[] = INCBIN_U32("graphics/items/icon_palettes/squirt_bottle.gbapal.lz");
+
 // TMs/HMs
 
 const u32 gItemIcon_TMHM[] = INCBIN_U32("graphics/items/icons/tm_hm.4bpp.lz");

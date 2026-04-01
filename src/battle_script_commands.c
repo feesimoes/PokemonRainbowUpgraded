@@ -3216,8 +3216,13 @@ static void Cmd_getexp(void)
                 if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong)
                 {
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    PlayBGM(MUS_VICTORY_WILD); // Opposing Pokemon fainted, regular theme with intro & loop used
                     gBattleStruct->wildVictorySong++;
+                }
+
+                if (!IsBGMPlaying() && gBattleStruct->wildVictorySong != MUS_VICTORY_WILD)
+                {
+                    PlayBGM(MUS_CAUGHT); // Can't catch a pokemon with 0 HP, so use the caught loop after the intro, it was captured.
                 }
 
                 if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP))
@@ -9664,6 +9669,8 @@ static void Cmd_trysetcaughtmondexflags(void)
     u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
     u32 personality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY, NULL);
 
+    gBattlerFainted = gBattlerTarget;
+
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
@@ -9678,10 +9685,15 @@ static void Cmd_trysetcaughtmondexflags(void)
 static void Cmd_displaydexinfo(void)
 {
     u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
-
+    
     switch (gBattleCommunication[0])
     {
     case 0:
+        if (species > SPECIES_EGG)
+        {
+            gBattleCommunication[0] = 5;
+            break;
+        }
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITE);
         gBattleCommunication[0]++;
         break;

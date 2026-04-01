@@ -73,10 +73,11 @@ static void UseFameCheckerFromBag(void);
 static void Task_UseFameCheckerFromField(u8 taskId);
 static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
-static void MusicTask_HandleMenuInput_Main(u8 taskId);
 static void Action_Sound_ME(u8 taskId);
 static void Action_Sound_BGM(u8 taskId);
 static void Task_UseExplorerKitFromField(u8 taskId);
+static void Task_UseMusicPlayerFromField(u8 taskId);
+static void Task_WaitBeforeClosingGBSoundsMsg(u8 taskId);
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -762,25 +763,50 @@ static void Task_UseExplorerKitFromField(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void Task_UseMusicPlayerFromField(u8 taskId)
-{
-    SetFieldCallback2ForItemUse();
-    InitMusicPlayer();
-    DestroyTask(taskId);
-}
-
 void FieldUseFunc_MusicPlayer(u8 taskId)
 {
-    // Use from Bag
+    u16 currentMusic;
+    if (FlagGet(FLAG_GB_SOUNDS_SWITCH))
+        FlagClear(FLAG_GB_SOUNDS_SWITCH);
+    else
+        FlagSet(FLAG_GB_SOUNDS_SWITCH);
+    PlaySE(SE_SELECT);
+    
     if (gTasks[taskId].data[3] == 0)
     {
-        ItemMenu_SetExitCallback(InitMusicPlayer);
-        ItemMenu_StartFadeToExitCallback(taskId);
+        StringExpandPlaceholders(gStringVar4, gText_UsedGBSounds);
+        currentMusic = GetCurrentMapMusic();
+        FadeOutAndPlayNewMapMusic(currentMusic, 4);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
-    // Use from Field (Registered Select button)
     else
     {
         gTasks[taskId].func = Task_UseMusicPlayerFromField;
+    }
+}
+
+static void Task_UseMusicPlayerFromField(u8 taskId)
+{
+    u16 currentMusic;
+    SetFieldCallback2ForItemUse();
+    StringCopy(gStringVar1, ItemId_GetName(gSpecialVar_ItemId));
+    currentMusic = GetCurrentMapMusic();
+    FadeOutAndPlayNewMapMusic(currentMusic, 4);
+    DisplayItemMessageInCurrentContext(taskId, TRUE, FONT_NORMAL, gText_UsedGBSounds);
+    Task_WaitBeforeClosingGBSoundsMsg(taskId);
+}
+
+static void Task_WaitBeforeClosingGBSoundsMsg(u8 taskId)
+{
+    u8 delayCounter;
+    
+    if (delayCounter < 60)
+    {
+        delayCounter++;
+    }
+    else
+    {
+        Task_ItemUse_CloseMessageBoxAndReturnToField(taskId);
     }
 }
 

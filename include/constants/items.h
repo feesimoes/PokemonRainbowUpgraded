@@ -453,8 +453,9 @@
 #define ITEM_MUSIC_PLAYER 377
 #define ITEM_OLD_SEA_MAP 378
 #define ITEM_DRAGON_FANG_2 379
+#define ITEM_SQUIRT_BOTTLE 380
 
-#define ITEMS_COUNT 380
+#define ITEMS_COUNT 381
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

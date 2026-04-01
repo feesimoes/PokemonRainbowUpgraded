@@ -1,0 +1,19 @@
+mapscripts CliffEdgeGate_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD
+    {
+        setworldmapflag(FLAG_WORLD_MAP_CLIFF_EDGE_GATE)
+    }
+}
+
+script CliffEdgeGate_Receptionist 
+{
+    lock
+    faceplayer
+    msgbox(format("Hi! Are you headed out to\nPAL PARK? Ooh, how exciting!\pDo you know who FENNEL is?\nFrom the UNOVA REGION?"))   
+    msgbox(format("Yep, she collaborated with all\nthe big PC MANIACS here!\pBILL, CELIO, BRIGETTE, LANETTE,\nBEBE... So many smarties!"))
+    msgbox(format("Oops! Look at the time!\nI got a little carried away...\pOh, but you should go check the\nPAL PARK out! It's up ahead!"))
+    closemessage
+    release
+    end
+}

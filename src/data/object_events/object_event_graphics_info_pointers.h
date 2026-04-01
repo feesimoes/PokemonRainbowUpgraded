@@ -159,6 +159,15 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kurt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Calypso;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Walker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Whirlpool;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Steven;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Black;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Green;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Pink;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Red;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_White;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree_Yellow;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX + 1] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
@@ -322,4 +331,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CALYPSO]                  = &gObjectEventGraphicsInfo_Calypso,
     [OBJ_EVENT_GFX_WALKER]                   = &gObjectEventGraphicsInfo_Walker,
     [OBJ_EVENT_GFX_WHIRLPOOL]                = &gObjectEventGraphicsInfo_Whirlpool,
+    [OBJ_EVENT_GFX_STEVEN]                   = &gObjectEventGraphicsInfo_Steven,
+    [OBJ_EVENT_GFX_APRICORN_TREE]            = &gObjectEventGraphicsInfo_ApricornTree,
+    [OBJ_EVENT_GFX_APRICORN_TREE_BLACK]      = &gObjectEventGraphicsInfo_ApricornTree_Black,
+    [OBJ_EVENT_GFX_APRICORN_TREE_BLUE]       = &gObjectEventGraphicsInfo_ApricornTree_Blue,
+    [OBJ_EVENT_GFX_APRICORN_TREE_GREEN]      = &gObjectEventGraphicsInfo_ApricornTree_Green,
+    [OBJ_EVENT_GFX_APRICORN_TREE_PINK]       = &gObjectEventGraphicsInfo_ApricornTree_Pink,
+    [OBJ_EVENT_GFX_APRICORN_TREE_RED]        = &gObjectEventGraphicsInfo_ApricornTree_Red,
+    [OBJ_EVENT_GFX_APRICORN_TREE_WHITE]      = &gObjectEventGraphicsInfo_ApricornTree_White,
+    [OBJ_EVENT_GFX_APRICORN_TREE_YELLOW]     = &gObjectEventGraphicsInfo_ApricornTree_Yellow,
 };

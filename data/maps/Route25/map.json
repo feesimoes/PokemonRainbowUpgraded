@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE24",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CERULEAN_CAPE",
+      "offset": -22,
+      "direction": "right"
     }
   ],
   "object_events": [

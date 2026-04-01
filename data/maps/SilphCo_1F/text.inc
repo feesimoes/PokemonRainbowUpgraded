@@ -1,7 +1,12 @@
 SilphCo_1F_Text_WelcomePresidentInBoardroom::
-    .string "Welcome.\p"
-    .string "The PRESIDENT is in the boardroom\n"
-    .string "on 11F.$"
+    .string "Welcome, {PLAYER}!\p"
+    .string "Looking for the PRESIDENT?\n"
+    .string "Of course!\p"
+    .string "The PRESIDENT'S in his suite on\n"
+    .string "11F, as usual.\p"
+    .string "The elevator should get you there\n"
+    .string "a bit faster...\p"
+    .string "Thank you so much for saving us.$"
 
 @ Tentative translation. Unknown origin
 SilphCo_1F_Text_DestroyedWontBeFixedForWhile::

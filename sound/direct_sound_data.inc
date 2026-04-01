@@ -2291,6 +2291,18 @@ Cry_ShayminSky::
 Cry_Arceus::
 	.incbin "sound/direct_sound_samples/cries/arceus.bin"
 
+	.align 2
+Cry_Venipede::
+	.incbin "sound/direct_sound_samples/cries/venipede.bin"
+
+	.align 2
+Cry_Whirlipede::
+	.incbin "sound/direct_sound_samples/cries/whirlipede.bin"
+
+	.align 2
+Cry_Scolipede::
+	.incbin "sound/direct_sound_samples/cries/scolipede.bin"
+
 
 	.align 2
 DirectSoundWaveData_register_noise::
@@ -2343,3 +2355,63 @@ DirectSoundWaveData_sd90_classical_detuned_ep1_high::
 	.align 2
 DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.incbin "sound/direct_sound_samples/sd90_enhanced_delay_shaku.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_noise::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_noise.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_pulse0::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_pulse0.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_pulse1::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_pulse1.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_pulse2::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_pulse2.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_pulse3::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_pulse3.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave0::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave0.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave1::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave1.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave2::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave2.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave3::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave3.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave4::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave4.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave5::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave5.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave6::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave6.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave7::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave7.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave8::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave8.bin"
+
+	.align 2
+DirectSoundWaveData_gb_sounds_gb_wave9::
+	.incbin "sound/direct_sound_samples/gb_sounds/gb_wave9.bin"

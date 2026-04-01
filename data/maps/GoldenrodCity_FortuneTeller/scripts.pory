@@ -1,0 +1,11 @@
+mapscripts GoldenrodCity_FortuneTeller_MapScripts {}
+
+script GoldenrodCity_FortuneTeller_Felicity
+{
+    lock
+    faceplayer
+    msgbox(format("You've found what was sought!\nWelcome to FELICITY'S FORTUNE TENT."))
+    closemessage
+    release
+    end
+}

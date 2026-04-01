@@ -2247,9 +2247,16 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
 {
     u16 partyIndex = VarGet(ScriptReadHalfword(ctx));
     u8 location = ScriptReadByte(ctx);
+    u8 expandedLocation; // Each increment of 1 to this variable means add 256 to the map section id
 
+    // Add similar cases like this, if the map sections continue to go over 512 later on
+    if (GetActualMapSectionId() > 255)
+    {
+        expandedLocation++;
+    }
     if (partyIndex < PARTY_SIZE)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
+        SetMonData(&gPlayerParty[partyIndex], MON_DATA_RAINBOW_LOCATION, &expandedLocation);
     return FALSE;
 }
 

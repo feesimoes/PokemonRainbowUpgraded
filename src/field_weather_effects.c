@@ -900,14 +900,14 @@ static void InitSnowflakeSpriteMovement(struct Sprite *sprite)
 
 static void WaitSnowflakeSprite(struct Sprite *sprite)
 {
-    // Timer is never incremented
-    if (gWeatherPtr->snowflakeTimer > 18)
+    // Use the sprite's individual tFallCounter to count up to 18 frames (Or whatever duration you want)
+    if (++sprite->tFallCounter > 18)
     {
         sprite->invisible = FALSE;
         sprite->callback = UpdateSnowflakeSprite;
         sprite->y = 250 - (gSpriteCoordOffsetY + sprite->centerToCornerVecY);
         sprite->tPosY = sprite->y * 128;
-        gWeatherPtr->snowflakeTimer = 0;
+        sprite->tFallCounter = 0; // Reset the counter for its next fall
     }
 }
 

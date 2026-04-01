@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE40",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CIANWOOD_CITY",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -27,13 +32,55 @@
       "x": 62,
       "y": 12,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route41_EventScript_Whirlpool",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
+      "x": 52,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route41_EventScript_Whirlpool",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
+      "x": 38,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route41_EventScript_Whirlpool",
+      "flag": "FLAG_TEMP_14"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route41_EventScript_Whirlpool",
+      "flag": "FLAG_TEMP_15"
     }
   ],
   "warp_events": [],

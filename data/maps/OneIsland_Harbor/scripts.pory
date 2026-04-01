@@ -1,0 +1,25 @@
+mapscripts OneIsland_Harbor_MapScripts
+{
+
+}
+
+script OneIsland_Harbor_EventScript_Sailor
+{
+    lock
+    faceplayer
+    if (flag(FLAG_BADGE08_GET) == TRUE)
+    {
+        message(Text_WhereDoYouWantToSail)
+        waitmessage
+        closemessage
+        setvar(VAR_0x8004, SEAGALLOP_ONE_ISLAND)
+        goto(EventScript_ChooseDestFromOneIsland)
+    }
+    else
+    {
+        msgbox(format("Can I see your TRI-PASS?\n...You don't have one?\pRules are rules, I can't let\nyou ride the SEAGALLOP."))
+        closemessage
+    }
+    release
+	end    
+}

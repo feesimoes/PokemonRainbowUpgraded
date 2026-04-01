@@ -3254,17 +3254,59 @@ extern const u32 gMonShinyPalette_ArceusNormal[];
 extern const u8 gMonIcon_ArceusNormal[];
 extern const u8 gMonFootprint_ArceusNormal[];
 
+extern const u32 gMonFrontPic_Venipede[];
+extern const u32 gMonPalette_Venipede[];
+extern const u32 gMonBackPic_Venipede[];
+extern const u32 gMonShinyPalette_Venipede[];
+extern const u8 gMonIcon_Venipede[];
+
+extern const u32 gMonFrontPic_Whirlipede[];
+extern const u32 gMonPalette_Whirlipede[];
+extern const u32 gMonBackPic_Whirlipede[];
+extern const u32 gMonShinyPalette_Whirlipede[];
+extern const u8 gMonIcon_Whirlipede[];
+
+extern const u32 gMonFrontPic_Scolipede[];
+extern const u32 gMonPalette_Scolipede[];
+extern const u32 gMonBackPic_Scolipede[];
+extern const u32 gMonShinyPalette_Scolipede[];
+extern const u8 gMonIcon_Scolipede[];
+
+extern const u32 gMonFrontPic_Sandshrew_Alola[];
+extern const u32 gMonPalette_Sandshrew_Alola[];
+extern const u32 gMonBackPic_Sandshrew_Alola[];
+extern const u32 gMonShinyPalette_Sandshrew_Alola[];
+extern const u8 gMonIcon_Sandshrew_Alola[];
+
 extern const u32 gMonFrontPic_Sandslash_Alola[];
 extern const u32 gMonPalette_Sandslash_Alola[];
 extern const u32 gMonBackPic_Sandslash_Alola[];
 extern const u32 gMonShinyPalette_Sandslash_Alola[];
 extern const u8 gMonIcon_Sandslash_Alola[];
 
+extern const u32 gMonFrontPic_Geodude_Alola[];
+extern const u32 gMonPalette_Geodude_Alola[];
+extern const u32 gMonBackPic_Geodude_Alola[];
+extern const u32 gMonShinyPalette_Geodude_Alola[];
+extern const u8 gMonIcon_Geodude_Alola[];
+
+extern const u32 gMonFrontPic_Graveler_Alola[];
+extern const u32 gMonPalette_Graveler_Alola[];
+extern const u32 gMonBackPic_Graveler_Alola[];
+extern const u32 gMonShinyPalette_Graveler_Alola[];
+extern const u8 gMonIcon_Graveler_Alola[];
+
 extern const u32 gMonFrontPic_Golem_Alola[];
 extern const u32 gMonPalette_Golem_Alola[];
 extern const u32 gMonBackPic_Golem_Alola[];
 extern const u32 gMonShinyPalette_Golem_Alola[];
 extern const u8 gMonIcon_Golem_Alola[];
+
+extern const u32 gMonFrontPic_Exeggutor_Alola[];
+extern const u32 gMonPalette_Exeggutor_Alola[];
+extern const u32 gMonBackPic_Exeggutor_Alola[];
+extern const u32 gMonShinyPalette_Exeggutor_Alola[];
+extern const u8 gMonIcon_Exeggutor_Alola[];
 
 extern const u32 gMonFrontPic_Marowak_Alola[];
 extern const u32 gMonPalette_Marowak_Alola[];
@@ -4140,6 +4182,8 @@ extern const u32 gItemIcon_ShinyStone[];
 extern const u32 gItemIconPalette_ShinyStone[];
 extern const u32 gItemIcon_DawnStone[];
 extern const u32 gItemIconPalette_DawnStone[];
+extern const u32 gItemIcon_SquirtBottle[];
+extern const u32 gItemIconPalette_SquirtBottle[];
 
 // battle_anim_utility_funcs
 extern const u32 gFile_graphics_battle_anims_masks_curse_sheet[];

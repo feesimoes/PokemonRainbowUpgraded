@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE109",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE134",
+      "offset": 10,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -320,6 +325,13 @@
       "y": 31,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SLATEPORT_CITY_CONTEST_HALL_ENTRY",
       "dest_warp_id": "0"
     }
   ],

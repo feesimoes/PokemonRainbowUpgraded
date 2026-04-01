@@ -646,10 +646,12 @@ static void SetTitleScreenScene_Run(s16 *data)
         {
             SetTitleScreenScene(data, TITLESCREENSCENE_CRY);
         }
+        /*
         else if (!FuncIsActiveTask(Task_TitleScreenTimer))
         {
             SetTitleScreenScene(data, TITLESCREENSCENE_RESTART);
         }
+        */
         break;
     }
 }
@@ -734,10 +736,7 @@ static void SetTitleScreenScene_Cry(s16 *data)
             {
                 u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
                 u8 mapNum = gSaveBlock1Ptr->location.mapNum;
-
-                u16 mapSecId = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
-
-                u8 currentRegion = GetCurrentRegionIfNotKanto(mapSecId);
+                u8 currentRegion = GetCurrentRegionIfNotKanto(GetActualMapSectionId());
                 
                 if (currentRegion == REGIONMAP_KANTO)
                 {
@@ -754,6 +753,10 @@ static void SetTitleScreenScene_Cry(s16 *data)
                 else if (currentRegion == REGIONMAP_HOENN)
                 {
                     PlayBGM(MUS_NEW_GAME_INTRO_HOENN);
+                }
+                else if (currentRegion == REGIONMAP_UNOVA)
+                {
+                    PlayBGM(MUS_NEW_GAME_INTRO_UNOVA);
                 }
                 else
                 {
