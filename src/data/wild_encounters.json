@@ -34082,6 +34082,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_SPROUT_TOWER_1F",
+          "base_label": "gSproutTower_1F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_BELLSPROUT"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_BELLSPROUT"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_BELLSPROUT"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_WEEPINBELL"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_GASTLY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_MISMAGIUS"
+              },
+              {
+                "min_level": 28,
+                "max_level": 36,
+                "species": "SPECIES_GENGAR"
+              }
+            ]
+          }
         }
       ]
     }
