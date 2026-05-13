@@ -1,9 +1,32 @@
-raw `
-Route22_WestEntrance_1F_EventScript_Guard::
-	msgbox Route22_WestEntrance_1F_Text_LeavingOrEnteringKantoGuard, MSGBOX_NPC
-	end
+script Route22_WestEntrance_1F_EventScript_Guard
+{
+    checkflag(FLAG_SYS_GAME_CLEAR)
+    if (var(VAR_RESULT) == TRUE)
+    {
+        lock
+        msgbox(format("A estrada a frente leva a Johto.\pApenas o Campeao da Liga\nde Kanto pode passar."))
+        closemessage
+        applymovement(LOCALID_PLAYER, Route22_WestEntrance_1F_Player_WalkRightGuard)
+        waitmovement
+        release
+        end
+    }
+    else
+    {
+        lock
+        msgbox(format("Voce eh o Campeao de Kanto!\pPode passar.\nBoa sorte em Johto!"))
+        closemessage
+        release
+        end
+    }
+}
 
-`
+
+movement Route22_WestEntrance_1F_Player_WalkRightGuard
+{
+    walk_right
+    step_end
+}
 
 mapscripts Route22_WestEntrance_1F_MapScripts 
 {

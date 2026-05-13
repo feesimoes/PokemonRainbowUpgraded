@@ -34581,6 +34581,36 @@
               }
             ]
           },
+          "water_mons": {
+            "encounter_rate": 2,
+            "mons": [
+              {
+                "min_level": 26,
+                "max_level": 36,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 26,
+                "max_level": 36,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 26,
+                "max_level": 36,
+                "species": "SPECIES_SLOWPOKE"
+              },
+              {
+                "min_level": 26,
+                "max_level": 36,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 26,
+                "max_level": 36,
+                "species": "SPECIES_SLOWBRO"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 20,
             "mons": [
@@ -34633,36 +34663,6 @@
                 "min_level": 26,
                 "max_level": 36,
                 "species": "SPECIES_OCTILLERY"
-              }
-            ]
-          },
-          "water_mons": {
-            "encounter_rate": 2,
-            "mons": [
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_SLOWPOKE"
-              },
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_SLOWBRO"
               }
             ]
           }
