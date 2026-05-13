@@ -121,6 +121,27 @@ script Fisherman_Bradley_Route26_Battle {
     end
 }
 
+script Route26_EventScript_CooltrainerMarcos
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_MARCOS, 0,
+        Route26_Text_CooltrainerMarcosIntro,
+        Route26_Text_CooltrainerMarcosDefeated)
+    msgbox(format("Boa batalha! Voce eh forte."))
+    closemessage
+    releaseall
+    end
+}
+
+text Route26_Text_CooltrainerMarcosIntro
+{
+    format("Voce veio de Kanto?\pImpressionante. Mas aqui em\nJohto as regras sao outras!")
+}
+
+text Route26_Text_CooltrainerMarcosDefeated
+{
+    format("Nao esperava isso...\pVoce realmente eh o Campeao.")
+}
+
 script TRIGGER_SCRIPT_TEST_1 {
     lockall
     playse(SE_PIN)

@@ -12360,3 +12360,31 @@ static const struct TrainerMonItemCustomMoves sParty_LeaderMorty[] = {
         .moves = {MOVE_SHADOW_BALL, MOVE_AMNESIA, MOVE_AEROBLAST, MOVE_ANCIENT_POWER}
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMarcos[] = {
+    {
+        .iv = 100,
+        .lvl = 27,
+        .species = SPECIES_PIDGEOT,
+    },
+    {
+        .iv = 100,
+        .lvl = 27,
+        .species = SPECIES_MAROWAK,
+    },
+    {
+        .iv = 100,
+        .lvl = 28,
+        .species = SPECIES_FURRET,
+    },
+    {
+        .iv = 100,
+        .lvl = 29,
+        .species = SPECIES_NIDORINA,
+    },
+    {
+        .iv = 100,
+        .lvl = 31,
+        .species = SPECIES_FLAAFFY,
+    },
+};
