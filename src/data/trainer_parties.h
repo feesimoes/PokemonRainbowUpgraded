@@ -11443,17 +11443,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerErin[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_HikerBailey[] = {
     {
         .iv = 50,
-        .lvl = 24,
+        .lvl = 64,
         .species = SPECIES_GEODUDE,
     },
     {
         .iv = 50,
-        .lvl = 32,
+        .lvl = 62,
         .species = SPECIES_GRAVELER,
     },
     {
         .iv = 50,
-        .lvl = 41,
+        .lvl = 61,
         .species = SPECIES_GOLEM,
     },
 };
