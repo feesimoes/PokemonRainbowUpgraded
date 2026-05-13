@@ -1,1 +1,35 @@
 mapscripts MahoganyTown_Gym_1F_MapScripts {}
+
+script MahoganyCity_Gym_Guide 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE07_GET) == TRUE)
+    {
+        msgbox(format("Yeah! Keep going for the win!\nNice job!"))
+    }
+    else
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nThis GYM'S a spooky one!\pIt's the perfect place to go\nback outside and touch grass!"))
+        msgbox(format("But, just in case, here's a tip!\nICE-types despise ROCK, FIRE, STEEL AND FIGHT!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script MahoganyCity_Gym_Statue
+{
+    lock
+    if (flag(FLAG_JOHTO_BADGE07_GET) == TRUE)
+    {
+        msgbox(format("MAHOGANY CITY GYM\nLEADER: PRYCE\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+    }
+    else
+    {
+        msgbox(format("MAHOGANY CITY GYM\nLEADER: PRYCE\pWINNING TRAINERS:\n{RIVAL}"))
+    }
+    closemessage
+    release
+    end
+}
