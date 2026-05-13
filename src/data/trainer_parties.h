@@ -12388,3 +12388,42 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMarcos[] = {
         .species = SPECIES_FLAAFFY,
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_LeaderPryce[] = {
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_DEWGONG,
+        .moves = {MOVE_ICE_BEAM, MOVE_HEADBUTT, MOVE_SURF, MOVE_HAIL}
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_CLOYSTER,
+        .moves = {MOVE_SPIKE_CANNON, MOVE_WATERFALL, MOVE_AURORA_BEAM, MOVE_PROTECT}
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_PILOSWINE,
+        .moves = {MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_BLIZZARD, MOVE_ANCIENT_POWER}
+    },
+    {
+        .iv = 255,
+        .lvl = 54,
+        .species = SPECIES_LAPRAS,
+        .moves = {MOVE_ICE_BALL, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_CONFUSE_RAY}
+    },
+    {
+        .iv = 255,
+        .lvl = 53,
+        .species = SPECIES_SLOWKING,
+        .moves = {MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_SURF, MOVE_CURSE}
+    },
+    {
+        .iv = 255,
+        .lvl = 54,
+        .species = SPECIES_DELIBIRD,
+        .moves = {MOVE_AERIAL_ACE, MOVE_BLIZZARD, MOVE_SWIFT, MOVE_WATER_PULSE}
+    },
+};

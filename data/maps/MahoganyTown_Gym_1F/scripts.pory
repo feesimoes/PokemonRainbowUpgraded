@@ -33,3 +33,55 @@ script MahoganyCity_Gym_Statue
     release
     end
 }
+
+
+
+
+
+script MahoganyCity_Gym_Leader_Pryce
+{    
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE07_GET) == TRUE)
+    {
+        msgbox(format("You should be strong enough to\ngo across the cave...\pWhen you go east and then head\nsouth, you'll reach BLACKTHORN CITY."))
+        msgbox(format("Be careful, {PLAYER}..."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("It's good of you to have come.\nI'm PRYCE, MAHOGANY'S GYM LEADER.\pPOKéMON have long been revered\nhere, in MAHOGANY..."))
+            msgbox(format("It's said a iceberg will break\nafter this match.\pI've always believed that tale,\nso I've always trained for it."))
+            msgbox(format("As a result, I can see what others\ncannot... I know it is you.\pYou're that truly powerful TRAINER\nfrom my past visions, yes..."))
+            call(MahoganyCity_Gym_Leader_Pryce_Battle)
+        }
+        else
+        {
+            msgbox(format("It's good of you to visit.\nEnjoying MAHOGANY?\pHere, POKéMON have long been\nrevered... I've trained in secrecy."))
+            msgbox(format("You want my badge? Oh! I...\nI don't challenge tourists, sorry..."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script MahoganyCity_Gym_Leader_Pryce_Battle
+{
+    trainerbattle_single(TRAINER_LEADER_PRYCE, format("...Or, you are going to help\nme reach that level, {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("I'm still not good enough...\nI see..."), MahoganyCity_Gym_Pryce_PostBattle, NO_MUSIC)
+    call(MahoganyCity_Gym_Pryce_PostBattle)
+}
+
+script MahoganyCity_Gym_Pryce_PostBattle 
+{
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("I don't think our potentials are\ntoo different, but...\pYou seem to have something more\nthan that... So be it."))
+    msgbox(format("The GLACIER BADGE is yours...\nYou are certainly worthy."))
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("{PLAYER} received the GLACIER\nBADGE from PRYCE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("You should be strong enough to\ngo across the cave...\pWhen you go east and then head\nsouth, you'll reach BLACKTHORN CITY."))
+    msgbox(format("You've seen the ruins of BRASS\nTOWER, yes?\pI'm sure something quite frightening's\nbrewing there... Be cautious, {PLAYER}."))
+    setflag(FLAG_JOHTO_BADGE07_GET)
+}
