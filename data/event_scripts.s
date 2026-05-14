@@ -2045,3 +2045,6 @@ Text_TestMsg::
 
 	.include "data/maps/CianwoodCity_Gym/scripts.inc"
 	.include "data/maps/CianwoodCity_Gym/text.inc"
+
+	.include "data/maps/OlivineCity_Gym/scripts.inc"
+	.include "data/maps/OlivineCity_Gym/text.inc"

@@ -842,7 +842,8 @@
   "gMapGroup_IndoorOlivine": [
     "OlivineCity_PokemonCenter_1F",
     "OlivineCity_Mart",
-    "GlitterLighthouse_1F"
+    "GlitterLighthouse_1F",
+    "OlivineCity_Gym"
   ],
   "gMapGroup_Sky": [
     "SkyKanto"

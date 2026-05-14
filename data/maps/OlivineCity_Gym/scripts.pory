@@ -1,0 +1,87 @@
+mapscripts OlivineCity_Gym_MapScripts {}
+
+script OlivineCity_Gym_Guide 
+{
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE06_GET) == TRUE)
+    {
+        msgbox(format("Yeah! Keep going for the win!\nNice job!"))
+    }
+    else
+    {
+        msgbox(format("Yo, WORLD CHAMP in the making!\nThis GYM'S a spooky one!\pIt's the perfect place to go\nback outside and touch grass!"))
+        msgbox(format("But, just in case, here's a tip!\nSTEEL-types despise FIGHT, FIRE AND GROUND!"))
+    }
+    closemessage
+    release
+    end
+}
+
+script OlivineCity_Gym_Statue
+{
+    lock
+    if (flag(FLAG_JOHTO_BADGE06_GET) == TRUE)
+    {
+        msgbox(format("OLIVINE CITY GYM\nLEADER: OLIVIA\pWINNING TRAINERS:\n{RIVAL}, {PLAYER}"))
+    }
+    else
+    {
+        msgbox(format("OLIVINE CITY GYM\nLEADER: OLIVIA\pWINNING TRAINERS:\n{RIVAL}"))
+    }
+    closemessage
+    release
+    end
+}
+
+
+
+
+
+script OlivineCity_Gym_Leader_Olivia
+{    
+    lock
+    faceplayer
+    if (flag(FLAG_JOHTO_BADGE06_GET) == TRUE)
+    {
+        msgbox(format("You should be strong enough to\ngo across the cave...\pWhen you go east and then head\nthe sea, you'll reach MAHOGANY CITY."))
+        msgbox(format("Be careful, {PLAYER}..."))
+    }
+    else
+    {
+        if (flag(FLAG_SYS_NATIONAL_DEX) == TRUE)
+        {
+            msgbox(format("It's good of you to have come.\nI'm OLIVIA, OLIVINE'S GYM LEADER.\pPOKéMON have long been revered\nhere, in OLIVINE..."))
+            msgbox(format("It's said a gold bar will break\nafter this match.\pI've always believed that tale,\nso I've always trained for it."))
+            msgbox(format("As a result, I can see what others\ncannot... I know it is you.\pYou're that truly powerful TRAINER\nfrom my past visions, yes..."))
+            call(OlivineCity_Gym_Leader_Olivia_Battle)
+        }
+        else
+        {
+            msgbox(format("It's good of you to visit.\nEnjoying OLIVINE?\pHere, POKéMON have long been\nrevered... I've trained in secrecy."))
+            msgbox(format("You want my badge? Oh! I...\nI don't challenge tourists, sorry..."))
+        }
+    }
+    closemessage
+    release
+    end
+}
+
+script OlivineCity_Gym_Leader_Olivia_Battle
+{
+    trainerbattle_single(TRAINER_LEADER_OLIVIA, format("...Or, you are going to help\nme reach that level, {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}"), format("I'm still not good enough...\nI see..."), OlivineCity_Gym_Olivia_PostBattle, NO_MUSIC)
+    call(OlivineCity_Gym_Olivia_PostBattle)
+}
+
+script OlivineCity_Gym_Olivia_PostBattle 
+{
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("I don't think our potentials are\ntoo different, but...\pYou seem to have something more\nthan that... So be it."))
+    msgbox(format("The MINERAL BADGE is yours...\nYou are certainly worthy."))
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(format("{PLAYER} received the MINEAL\nBADGE from PRYCE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(format("You should be strong enough to\ngo across the cave...\pWhen you go east and then head\nthe sea, you'll reach MAHOGANY CITY."))
+    msgbox(format("You've seen the ruins of BRASS\nTOWER, yes?\pI'm sure something quite frightening's\nbrewing there... Be cautious, {PLAYER}."))
+    setflag(FLAG_JOHTO_BADGE06_GET)
+}

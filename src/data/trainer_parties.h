@@ -11627,37 +11627,37 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassLola[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderClair[] = {
     {
         .iv = 255,
-        .lvl = 59,
+        .lvl = 65,
         .species = SPECIES_SEADRA,
         .moves = {MOVE_DRAGON_BREATH, MOVE_HYDRO_PUMP, MOVE_EXTREME_SPEED, MOVE_BLIZZARD}
     },
     {
         .iv = 255,
-        .lvl = 62,
+        .lvl = 66,
         .species = SPECIES_DRAGONAIR,
         .moves = {MOVE_OUTRAGE, MOVE_BLIZZARD, MOVE_SURF, MOVE_THUNDER}
     },
     {
         .iv = 255,
-        .lvl = 65,
+        .lvl = 68,
         .species = SPECIES_ARCANINE,
         .moves = {MOVE_FIRE_BLAST, MOVE_DIG, MOVE_DRAGON_RAGE, MOVE_EXTREME_SPEED}
     },
     {
         .iv = 255,
-        .lvl = 62,
+        .lvl = 67,
         .species = SPECIES_GYARADOS,
         .moves = {MOVE_WATERFALL, MOVE_ICE_BEAM, MOVE_DOUBLE_EDGE, MOVE_DRAGON_BREATH}
     },
     {
         .iv = 255,
-        .lvl = 64,
+        .lvl = 69,
         .species = SPECIES_KINGDRA,
         .moves = {MOVE_DRAGON_DANCE, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_DRAGON_BREATH}
     },
     {
         .iv = 255,
-        .lvl = 67,
+        .lvl = 70,
         .species = SPECIES_SALAMENCE,
         .moves = {MOVE_ANCIENT_POWER, MOVE_DRAGON_CLAW, MOVE_FLAMETHROWER, MOVE_FLY}
     },
@@ -12392,38 +12392,116 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMarcos[] = {
 static const struct TrainerMonItemCustomMoves sParty_LeaderPryce[] = {
     {
         .iv = 255,
-        .lvl = 57,
+        .lvl = 62,
         .species = SPECIES_DEWGONG,
         .moves = {MOVE_ICE_BEAM, MOVE_HEADBUTT, MOVE_SURF, MOVE_HAIL}
     },
     {
         .iv = 255,
-        .lvl = 58,
+        .lvl = 63,
         .species = SPECIES_CLOYSTER,
         .moves = {MOVE_SPIKE_CANNON, MOVE_WATERFALL, MOVE_AURORA_BEAM, MOVE_PROTECT}
     },
     {
         .iv = 255,
-        .lvl = 60,
+        .lvl = 65,
         .species = SPECIES_PILOSWINE,
         .moves = {MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_BLIZZARD, MOVE_ANCIENT_POWER}
     },
     {
         .iv = 255,
-        .lvl = 54,
+        .lvl = 63,
         .species = SPECIES_LAPRAS,
         .moves = {MOVE_ICE_BALL, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_CONFUSE_RAY}
     },
     {
         .iv = 255,
-        .lvl = 53,
+        .lvl = 64,
         .species = SPECIES_SLOWKING,
         .moves = {MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_SURF, MOVE_CURSE}
     },
     {
         .iv = 255,
-        .lvl = 54,
+        .lvl = 63,
         .species = SPECIES_DELIBIRD,
         .moves = {MOVE_AERIAL_ACE, MOVE_BLIZZARD, MOVE_SWIFT, MOVE_WATER_PULSE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_LeaderChuck[] = {
+    {
+        .iv = 255,
+        .lvl = 54,
+        .species = SPECIES_MACHAMP,
+        .moves = {MOVE_CROSS_CHOP, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_BULK_UP}
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_PRIMEAPE,
+        .moves = {MOVE_CROSS_CHOP, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_DYNAMIC_PUNCH}
+    },
+    {
+        .iv = 255,
+        .lvl = 55,
+        .species = SPECIES_HERACROSS,
+        .moves = {MOVE_MEGAHORN, MOVE_DYNAMIC_PUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_BLAST}
+    },
+    {
+        .iv = 255,
+        .lvl = 56,
+        .species = SPECIES_SNORLAX,
+        .moves = {MOVE_BODY_SLAM, MOVE_EARTHQUAKE, MOVE_REST, MOVE_DYNAMIC_PUNCH}
+    },
+    {
+        .iv = 255,
+        .lvl = 55,
+        .species = SPECIES_KANGASKHAN,
+        .moves = {MOVE_RETURN, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DYNAMIC_PUNCH}
+    },
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_POLIWRATH,
+        .moves = {MOVE_SURF, MOVE_DIZZY_PUNCH, MOVE_DYNAMIC_PUNCH, MOVE_HYPNOSIS}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_LeaderOlivia[] = {
+    {
+        .iv = 255,
+        .lvl = 57,
+        .species = SPECIES_FORRETRESS,
+        .moves = {MOVE_SPIKES, MOVE_EXPLOSION, MOVE_ROCK_BLAST, MOVE_PROTECT}
+    },
+    {
+        .iv = 255,
+        .lvl = 59,
+        .species = SPECIES_SKARMORY,
+        .moves = {MOVE_FLY, MOVE_STEEL_WING, MOVE_TOXIC, MOVE_AGILITY}
+    },
+    {
+        .iv = 255,
+        .lvl = 58,
+        .species = SPECIES_MAGNETON,
+        .moves = {MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE, MOVE_DOUBLE_TEAM, MOVE_SUPERSONIC}
+    },
+    {
+        .iv = 255,
+        .lvl = 60,
+        .species = SPECIES_SCIZOR,
+        .moves = {MOVE_METAL_CLAW, MOVE_SWORDS_DANCE, MOVE_SLASH, MOVE_BRICK_BREAK}
+    },
+    {
+        .iv = 255,
+        .lvl = 59,
+        .species = SPECIES_TOGETIC,
+        .moves = {MOVE_SOFT_BOILED, MOVE_FLY, MOVE_MAGICAL_LEAF, MOVE_ANCIENT_POWER}
+    },
+    {
+        .iv = 255,
+        .lvl = 62,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
 };

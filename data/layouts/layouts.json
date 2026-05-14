@@ -7104,6 +7104,18 @@
       "secondary_tileset": "gTileset_PewterGym",
       "border_filepath": "data/layouts/CianwoodCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/CianwoodCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLIVINE_CITY_GYM",
+      "name": "OlivineCity_Gym_Layout",
+      "width": 11,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/OlivineCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/OlivineCity_Gym/map.bin"
     }
   ]
 }
