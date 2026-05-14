@@ -12361,7 +12361,7 @@ static const struct TrainerMonItemCustomMoves sParty_LeaderMorty[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMarcos[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerMarcos[] = {
     {
         .iv = 100,
         .lvl = 27,

@@ -817,6 +817,6 @@
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 #define NUM_TRAINERS                             772 // Current count of ALL opponents
-#define MAX_TRAINERS_COUNT                       792 // Original FR/LG limit
+#define MAX_TRAINERS_COUNT                       900 // Original FR/LG limit
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

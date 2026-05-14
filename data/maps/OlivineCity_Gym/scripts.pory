@@ -79,7 +79,7 @@ script OlivineCity_Gym_Olivia_PostBattle
     msgbox(format("I don't think our potentials are\ntoo different, but...\pYou seem to have something more\nthan that... So be it."))
     msgbox(format("The MINERAL BADGE is yours...\nYou are certainly worthy."))
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox(format("{PLAYER} received the MINEAL\nBADGE from PRYCE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
+    msgbox(format("{PLAYER} received the MINERAL\nBADGE from PRYCE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}"))
     textcolor(NPC_TEXT_COLOR_MALE)
     msgbox(format("You should be strong enough to\ngo across the cave...\pWhen you go east and then head\nthe sea, you'll reach MAHOGANY CITY."))
     msgbox(format("You've seen the ruins of BRASS\nTOWER, yes?\pI'm sure something quite frightening's\nbrewing there... Be cautious, {PLAYER}."))

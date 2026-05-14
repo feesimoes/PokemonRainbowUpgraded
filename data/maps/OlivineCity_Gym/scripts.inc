@@ -215,7 +215,7 @@ OlivineCity_Gym_Olivia_PostBattle_Text_1:
 
 OlivineCity_Gym_Olivia_PostBattle_Text_2:
 # 82 "data/maps/OlivineCity_Gym/scripts.pory"
-	.string "{PLAYER} received the MINEAL\n"
+	.string "{PLAYER} received the MINERAL\n"
 	.string "BADGE from PRYCE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}$"
 
 OlivineCity_Gym_Olivia_PostBattle_Text_3:
