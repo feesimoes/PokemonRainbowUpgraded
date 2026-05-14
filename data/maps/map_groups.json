@@ -874,7 +874,8 @@
   ],
   "gMapGroup_IndoorCianwood": [
     "CianwoodCity_PokemonCenter_1F",
-    "CliffEdgeGate"
+    "CliffEdgeGate",
+    "CianwoodCity_Gym"
   ],
   "gMapGroup_IndoorRoute35": [
     "Route35_SouthEntrance",

@@ -715,7 +715,7 @@ CianwoodCity_BattleGirl_Text_0:
 # 311 "data/maps/CianwoodCity/scripts.pory"
 	.string "My husband, CHUCK, has gone off\n"
 	.string "again... I hope he returns...\p"
-	.string "Any moment, now...$"
+	.string "Any moment, check inside GYM now...$"
 
 CianwoodCity_Suicune_Text_0:
 # 320 "data/maps/CianwoodCity/scripts.pory"

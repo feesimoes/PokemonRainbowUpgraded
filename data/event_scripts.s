@@ -2042,3 +2042,6 @@ Text_TestMsg::
 
 	.include "data/maps/UnityTower_1F/scripts.inc"
 	.include "data/maps/UnityTower_1F/text.inc"
+
+	.include "data/maps/CianwoodCity_Gym/scripts.inc"
+	.include "data/maps/CianwoodCity_Gym/text.inc"

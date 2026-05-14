@@ -7092,6 +7092,18 @@
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/UnityTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/UnityTower_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CIANWOOD_CITY_GYM",
+      "name": "CianwoodCity_Gym_Layout",
+      "width": 11,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PewterGym",
+      "border_filepath": "data/layouts/CianwoodCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/CianwoodCity_Gym/map.bin"
     }
   ]
 }
