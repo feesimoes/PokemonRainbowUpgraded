@@ -1,1 +1,22 @@
 mapscripts Route42_MapScripts {}
+
+script Route42_EventScript_CooltrainerJoao
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_JOAO, 0,
+        Route42_Text_CooltrainerJoaoIntro,
+        Route42_Text_CooltrainerJoaoDefeated)
+    msgbox(format("Porque eu sempre perco!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route42_Text_CooltrainerJoaoIntro
+{
+    format("Rapaz, pensa que vai onde...\nVenha pra rinha.")
+}
+
+text Route42_Text_CooltrainerJoaoDefeated
+{
+    format("Hmmm...\pVoce venceu dessa vez.")
+}

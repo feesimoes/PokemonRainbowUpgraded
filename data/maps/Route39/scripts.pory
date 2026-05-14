@@ -1,1 +1,22 @@
 mapscripts Route39_MapScripts {}
+
+script Route39_EventScript_CooltrainerGuilherme
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_GUILHERME, 0,
+        Route39_Text_CooltrainerGuilhermeIntro,
+        Route39_Text_CooltrainerGuilhermeDefeated)
+    msgbox(format("Ahhh... Voce trapaceou!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route39_Text_CooltrainerGuilhermeIntro
+{
+    format("E entao...\nHora do show.")
+}
+
+text Route39_Text_CooltrainerGuilhermeDefeated
+{
+    format("Eh, talvez...\pTe subestimei.")
+}

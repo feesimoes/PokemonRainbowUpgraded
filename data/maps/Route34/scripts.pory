@@ -24,3 +24,24 @@ script Route34_Smells
     release
     end
 }
+
+script Route34_EventScript_CooltrainerLucas
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_LUCAS, 0,
+        Route34_Text_CooltrainerLucasIntro,
+        Route34_Text_CooltrainerLucasDefeated)
+    msgbox(format("Nao creio... Perdi essa!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route34_Text_CooltrainerLucasIntro
+{
+    format("Voce eh o famoso Campeao...\nVamos ver.")
+}
+
+text Route34_Text_CooltrainerLucasDefeated
+{
+    format("Esta explicado...\pVoce eh mesmo o Campeao.")
+}

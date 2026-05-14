@@ -44,3 +44,24 @@ movement Movement_Route29_NPC_Face_Player
     face_player
     step_end    
 }
+
+script Route29_EventScript_CooltrainerAntonio
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_ANTONIO, 0,
+        Route29_Text_CooltrainerAntonioIntro,
+        Route29_Text_CooltrainerAntonioDefeated)
+    msgbox(format("Nao acredito... Voce ganhou."))
+    closemessage
+    releaseall
+    end
+}
+
+text Route29_Text_CooltrainerAntonioIntro
+{
+    format("Daqui voce nao passa!\nPrepara-se para batalha.")
+}
+
+text Route29_Text_CooltrainerAntonioDefeated
+{
+    format("Incrivel...\pVoce tem o molho.")
+}

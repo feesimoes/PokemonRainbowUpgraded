@@ -1,1 +1,22 @@
 mapscripts Route44_MapScripts {}
+
+script Route44_EventScript_CooltrainerElias
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_ELIAS, 0,
+        Route44_Text_CooltrainerEliasIntro,
+        Route44_Text_CooltrainerEliasDefeated)
+    msgbox(format("Voce me estressa..."))
+    closemessage
+    releaseall
+    end
+}
+
+text Route44_Text_CooltrainerEliasIntro
+{
+    format("Quer a ultima badge...\nNao vai ser facil.")
+}
+
+text Route44_Text_CooltrainerEliasDefeated
+{
+    format("Voce...\pVoce esta pronto.")
+}

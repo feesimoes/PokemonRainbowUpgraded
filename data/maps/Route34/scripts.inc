@@ -40,6 +40,18 @@ Route34_Smells::
 	end
 
 
+Route34_EventScript_CooltrainerLucas::
+# 30 "data/maps/Route34/scripts.pory"
+	trainerbattle TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_LUCAS, 0, Route34_Text_CooltrainerLucasIntro, Route34_Text_CooltrainerLucasDefeated
+# 33 "data/maps/Route34/scripts.pory"
+	msgbox Route34_EventScript_CooltrainerLucas_Text_0
+# 34 "data/maps/Route34/scripts.pory"
+	closemessage
+# 35 "data/maps/Route34/scripts.pory"
+	releaseall
+	end
+
+
 Route34_DayCareMan_Text_0:
 # 7 "data/maps/Route34/scripts.pory"
 	.string "Ah, it's you!$"
@@ -68,3 +80,17 @@ Route34_Smells_Text_0:
 	.string "Oh my!\p"
 	.string "You're definitely stinky!\n"
 	.string "Have you showered yet?$"
+
+Route34_EventScript_CooltrainerLucas_Text_0:
+# 33 "data/maps/Route34/scripts.pory"
+	.string "Nao creio... Perdi essa!$"
+
+Route34_Text_CooltrainerLucasIntro::
+# 39 "data/maps/Route34/scripts.pory"
+	.string "Voce eh o famoso Campeao...\n"
+	.string "Vamos ver.$"
+
+Route34_Text_CooltrainerLucasDefeated::
+# 44 "data/maps/Route34/scripts.pory"
+	.string "Esta explicado...\p"
+	.string "Voce eh mesmo o Campeao.$"

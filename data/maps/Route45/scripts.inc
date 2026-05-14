@@ -113,6 +113,18 @@ Route45_DragonsDenRoadblock_Old_Man_1_AllowPlayerPassage:
 # 75 "data/maps/Route45/scripts.pory"
 	step_end
 
+Route45_EventScript_CooltrainerMaciel::
+# 81 "data/maps/Route45/scripts.pory"
+	trainerbattle TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_MACIEL, 0, Route45_Text_CooltrainerMacielIntro, Route45_Text_CooltrainerMacielDefeated
+# 84 "data/maps/Route45/scripts.pory"
+	msgbox Route45_EventScript_CooltrainerMaciel_Text_0
+# 85 "data/maps/Route45/scripts.pory"
+	closemessage
+# 86 "data/maps/Route45/scripts.pory"
+	releaseall
+	end
+
+
 Route45_DarkCave_Sign_Text_0:
 # 15 "data/maps/Route45/scripts.pory"
 	.string "DARK CAVE ENTRANCE -\n"
@@ -151,3 +163,17 @@ Route45_DragonsDenRoadblock_Old_Man_1_Text_3:
 # 63 "data/maps/Route45/scripts.pory"
 	.string "This place is reserved to our\n"
 	.string "rightful DRAGON MASTERS, only.$"
+
+Route45_EventScript_CooltrainerMaciel_Text_0:
+# 84 "data/maps/Route45/scripts.pory"
+	.string "Pode passar!$"
+
+Route45_Text_CooltrainerMacielIntro::
+# 90 "data/maps/Route45/scripts.pory"
+	.string "Indo pro Sul!\n"
+	.string "Uma batalha antes!$"
+
+Route45_Text_CooltrainerMacielDefeated::
+# 95 "data/maps/Route45/scripts.pory"
+	.string "Sim...\p"
+	.string "Siga seu caminho.$"

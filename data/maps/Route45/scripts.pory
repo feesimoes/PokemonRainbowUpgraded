@@ -74,3 +74,25 @@ movement Route45_DragonsDenRoadblock_Old_Man_1_AllowPlayerPassage
     face_down
     step_end
 }
+
+
+script Route45_EventScript_CooltrainerMaciel
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_MACIEL, 0,
+        Route45_Text_CooltrainerMacielIntro,
+        Route45_Text_CooltrainerMacielDefeated)
+    msgbox(format("Pode passar!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route45_Text_CooltrainerMacielIntro
+{
+    format("Indo pro Sul!\nUma batalha antes!")
+}
+
+text Route45_Text_CooltrainerMacielDefeated
+{
+    format("Sim...\pSiga seu caminho.")
+}

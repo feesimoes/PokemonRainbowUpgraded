@@ -65,3 +65,26 @@ script Route32_Hiker
     release
     end
 }
+
+
+
+script Route32_EventScript_CooltrainerMatheus
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_MATHEUS, 0,
+        Route32_Text_CooltrainerMatheusIntro,
+        Route32_Text_CooltrainerMatheusDefeated)
+    msgbox(format("Poxa, eu perdi..."))
+    closemessage
+    releaseall
+    end
+}
+
+text Route32_Text_CooltrainerMatheusIntro
+{
+    format("Aqui não tem moleza!\nVamos nessa batalhar.")
+}
+
+text Route32_Text_CooltrainerMatheusDefeated
+{
+    format("Sensacional...\pVoce eh diferenciado.")
+}

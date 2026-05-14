@@ -57,6 +57,18 @@ Movement_Route29_NPC_Face_Player:
 # 45 "data/maps/Route29/scripts.pory"
 	step_end
 
+Route29_EventScript_CooltrainerAntonio::
+# 50 "data/maps/Route29/scripts.pory"
+	trainerbattle TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_ANTONIO, 0, Route29_Text_CooltrainerAntonioIntro, Route29_Text_CooltrainerAntonioDefeated
+# 53 "data/maps/Route29/scripts.pory"
+	msgbox Route29_EventScript_CooltrainerAntonio_Text_0
+# 54 "data/maps/Route29/scripts.pory"
+	closemessage
+# 55 "data/maps/Route29/scripts.pory"
+	releaseall
+	end
+
+
 Route29_Police_Dialogue_Text_0:
 # 10 "data/maps/Route29/scripts.pory"
 	.string "If someone tries throwing a POKé BALL\n"
@@ -79,3 +91,17 @@ Route29_Sign_To_Cherrygrove_Text_0:
 # 36 "data/maps/Route29/scripts.pory"
 	.string "CHERRYGROVE CITY is up ahead -\n"
 	.string "Leaving ROUTE 29 westward.$"
+
+Route29_EventScript_CooltrainerAntonio_Text_0:
+# 53 "data/maps/Route29/scripts.pory"
+	.string "Nao acredito... Voce ganhou.$"
+
+Route29_Text_CooltrainerAntonioIntro::
+# 59 "data/maps/Route29/scripts.pory"
+	.string "Daqui voce nao passa!\n"
+	.string "Prepara-se para batalha.$"
+
+Route29_Text_CooltrainerAntonioDefeated::
+# 64 "data/maps/Route29/scripts.pory"
+	.string "Incrivel...\p"
+	.string "Voce tem o molho.$"

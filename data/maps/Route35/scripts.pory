@@ -1,1 +1,22 @@
 mapscripts Route35_MapScripts {}
+
+script Route35_EventScript_CooltrainerPedro
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_PEDRO, 0,
+        Route35_Text_CooltrainerPedroIntro,
+        Route35_Text_CooltrainerPedroDefeated)
+    msgbox(format("Essa nao... Por essa eu nao esperava!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route35_Text_CooltrainerPedroIntro
+{
+    format("Esta pronto para perder, novato!\nMaos a obra.")
+}
+
+text Route35_Text_CooltrainerPedroDefeated
+{
+    format("Parabens...\pVoce ganhou.")
+}

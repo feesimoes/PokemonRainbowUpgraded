@@ -1,1 +1,22 @@
 mapscripts Route43_MapScripts {}
+
+script Route43_EventScript_CooltrainerGustavo
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_GUSTAVO, 0,
+        Route43_Text_CooltrainerGustavoIntro,
+        Route43_Text_CooltrainerGustavoDefeated)
+    msgbox(format("Nao foi dessa vez!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route43_Text_CooltrainerGustavoIntro
+{
+    format("Indo para o lake of rage...\nAinda nao, vamos lutar.")
+}
+
+text Route43_Text_CooltrainerGustavoDefeated
+{
+    format("Eh...\pVoce eh forte.")
+}

@@ -1,1 +1,22 @@
 mapscripts Route38_MapScripts {}
+
+script Route38_EventScript_CooltrainerDiogo
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_DIOGO, 0,
+        Route38_Text_CooltrainerDiogoIntro,
+        Route38_Text_CooltrainerDiogoDefeated)
+    msgbox(format("Mais uma derrota... Chateado!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route38_Text_CooltrainerDiogoIntro
+{
+    format("Se prepare, carinha...\nBote pra quebrar.")
+}
+
+text Route38_Text_CooltrainerDiogoDefeated
+{
+    format("No fim...\pQuem quebrou fui eu.")
+}

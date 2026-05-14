@@ -775,6 +775,16 @@
 #define TRAINER_LEADER_PRYCE                     769
 #define TRAINER_LEADER_CHUCK                     770
 #define TRAINER_LEADER_OLIVIA                    771
+#define TRAINER_COOLTRAINER_ANTONIO              772
+#define TRAINER_COOLTRAINER_MATHEUS              773
+#define TRAINER_COOLTRAINER_PEDRO                774
+#define TRAINER_COOLTRAINER_LUCAS                775
+#define TRAINER_COOLTRAINER_DIOGO                776
+#define TRAINER_COOLTRAINER_GUILHERME            777
+#define TRAINER_COOLTRAINER_JOAO                 778
+#define TRAINER_COOLTRAINER_GUSTAVO              779
+#define TRAINER_COOLTRAINER_ELIAS                780
+#define TRAINER_COOLTRAINER_MACIEL               781
 //Trainer flag overflows here, reusing free IDs
 #define TRAINER_PICNICKER_ERIN                   1
 #define TRAINER_HIKER_BAILEY                     2
@@ -816,7 +826,7 @@
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             772 // Current count of ALL opponents
+#define NUM_TRAINERS                             782 // Current count of ALL opponents
 #define MAX_TRAINERS_COUNT                       900 // Original FR/LG limit
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

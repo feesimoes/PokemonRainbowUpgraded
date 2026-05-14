@@ -12505,3 +12505,172 @@ static const struct TrainerMonItemCustomMoves sParty_LeaderOlivia[] = {
         .moves = {MOVE_ROCK_SLIDE, MOVE_IRON_TAIL, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
 };
+
+
+
+
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerAntonio[] = {
+    {
+        .iv = 100,
+        .lvl = 34,
+        .species = SPECIES_NOCTOWL,
+    },
+    {
+        .iv = 100,
+        .lvl = 32,
+        .species = SPECIES_HOPPIP,
+    },
+    {
+        .iv = 100,
+        .lvl = 36,
+        .species = SPECIES_PERSIAN,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerMatheus[] = {
+    {
+        .iv = 100,
+        .lvl = 42,
+        .species = SPECIES_VICTREEBEL,
+    },
+    {
+        .iv = 100,
+        .lvl = 39,
+        .species = SPECIES_SNUBBULL,
+    },
+    {
+        .iv = 100,
+        .lvl = 43,
+        .species = SPECIES_VILEPLUME,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerPedro[] = {
+    {
+        .iv = 100,
+        .lvl = 44,
+        .species = SPECIES_ARCANINE,
+    },
+    {
+        .iv = 100,
+        .lvl = 46,
+        .species = SPECIES_ARBOK,
+    },
+    {
+        .iv = 100,
+        .lvl = 48,
+        .species = SPECIES_CHARIZARD,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerLucas[] = {
+    {
+        .iv = 100,
+        .lvl = 44,
+        .species = SPECIES_ELECTRODE,
+    },
+    {
+        .iv = 100,
+        .lvl = 46,
+        .species = SPECIES_DODRIO,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerDiogo[] = {
+    {
+        .iv = 100,
+        .lvl = 55,
+        .species = SPECIES_RHYDON,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerGuilherme[] = {
+    {
+        .iv = 100,
+        .lvl = 53,
+        .species = SPECIES_TYPHLOSION,
+    },
+    {
+        .iv = 100,
+        .lvl = 55,
+        .species = SPECIES_MAGCARGO,
+    },
+    {
+        .iv = 100,
+        .lvl = 54,
+        .species = SPECIES_MAGMAR,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerJoao[] = {
+    {
+        .iv = 100,
+        .lvl = 56,
+        .species = SPECIES_URSARING,
+    },
+    {
+        .iv = 100,
+        .lvl = 57,
+        .species = SPECIES_MAGNETON,
+    },
+    {
+        .iv = 100,
+        .lvl = 60,
+        .species = SPECIES_HOUNDOOM,
+    },
+    {
+        .iv = 100,
+        .lvl = 58,
+        .species = SPECIES_HITMONTOP,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerGustavo[] = {
+    {
+        .iv = 100,
+        .lvl = 54,
+        .species = SPECIES_ALAKAZAM,
+    },
+    {
+        .iv = 100,
+        .lvl = 58,
+        .species = SPECIES_GENGAR,
+    },
+    {
+        .iv = 100,
+        .lvl = 57,
+        .species = SPECIES_GIRAFARIG,
+    },
+    {
+        .iv = 100,
+        .lvl = 59,
+        .species = SPECIES_WOBBUFFET,
+    },
+    {
+        .iv = 100,
+        .lvl = 64,
+        .species = SPECIES_NINETALES,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerElias[] = {
+    {
+        .iv = 100,
+        .lvl = 64,
+        .species = SPECIES_JYNX,
+    },
+    {
+        .iv = 100,
+        .lvl = 66,
+        .species = SPECIES_KINGLER,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CooltrainerMaciel[] = {
+    {
+        .iv = 100,
+        .lvl = 69,
+        .species = SPECIES_DRAGONITE,
+    },
+};

@@ -91,6 +91,18 @@ Route32_Hiker_8:
 	goto Route32_Hiker_1
 
 
+Route32_EventScript_CooltrainerMatheus::
+# 73 "data/maps/Route32/scripts.pory"
+	trainerbattle TRAINER_BATTLE_SINGLE, TRAINER_COOLTRAINER_MATHEUS, 0, Route32_Text_CooltrainerMatheusIntro, Route32_Text_CooltrainerMatheusDefeated
+# 76 "data/maps/Route32/scripts.pory"
+	msgbox Route32_EventScript_CooltrainerMatheus_Text_0
+# 77 "data/maps/Route32/scripts.pory"
+	closemessage
+# 78 "data/maps/Route32/scripts.pory"
+	releaseall
+	end
+
+
 Route32_Sign_Text_0:
 # 6 "data/maps/Route32/scripts.pory"
 	.string "ROUTE 32 - CHERRYGROVE BAY\n"
@@ -152,3 +164,17 @@ Route32_Hiker_Text_6:
 # 62 "data/maps/Route32/scripts.pory"
 	.string "Let me know when you get\n"
 	.string "WALKER'S ZEPHYR BADGE, alright?$"
+
+Route32_EventScript_CooltrainerMatheus_Text_0:
+# 76 "data/maps/Route32/scripts.pory"
+	.string "Poxa, eu perdi...$"
+
+Route32_Text_CooltrainerMatheusIntro::
+# 82 "data/maps/Route32/scripts.pory"
+	.string "Aqui nao tem moleza!\n"
+	.string "Vamos nessa batalhar.$"
+
+Route32_Text_CooltrainerMatheusDefeated::
+# 87 "data/maps/Route32/scripts.pory"
+	.string "Sensacional...\p"
+	.string "Voce eh diferenciado.$"
