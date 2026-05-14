@@ -221,6 +221,24 @@ PokemonLeague_KarensRoom_Player_Emote:
 # 120 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
 	step_end
 
+PokemonLeague_KarensRoom_Agatha_Text_RematchIntro::
+# 125 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_RematchIntro_Text_0
+	end
+
+
+PokemonLeague_KarensRoom_Agatha_Text_Defeat::
+# 131 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_Defeat_Text_0
+	end
+
+
+PokemonLeague_KarensRoom_Agatha_Text_PostBattle::
+# 137 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	msgbox PokemonLeague_KarensRoom_Agatha_Text_PostBattle_Text_0
+	end
+
+
 PokemonLeague_KarensRoom_DontWanderOff_Text_0:
 # 96 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
 	.string "INDIGO PLATEAU\n"
@@ -236,3 +254,18 @@ PokemonLeague_KarensRoom_DontWanderOff_Text_1:
 	.string "Oof!\n"
 	.string "My back...!\p"
 	.string "...Hurry up already!$"
+
+PokemonLeague_KarensRoom_Agatha_Text_RematchIntro_Text_0:
+# 125 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	.string "So, we meet again...\p"
+	.string "Show me what you've got!$"
+
+PokemonLeague_KarensRoom_Agatha_Text_Defeat_Text_0:
+# 131 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	.string "Impressive...\p"
+	.string "You've grown stronger.$"
+
+PokemonLeague_KarensRoom_Agatha_Text_PostBattle_Text_0:
+# 137 "data/maps/PokemonLeague_KarensRoom/scripts.pory"
+	.string "Well done, Trainer.\p"
+	.string "You've earned this.$"

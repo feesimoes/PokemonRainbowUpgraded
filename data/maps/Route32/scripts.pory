@@ -81,7 +81,7 @@ script Route32_EventScript_CooltrainerMatheus
 
 text Route32_Text_CooltrainerMatheusIntro
 {
-    format("Aqui não tem moleza!\nVamos nessa batalhar.")
+    format("Aqui nao tem moleza!\nVamos nessa batalhar.")
 }
 
 text Route32_Text_CooltrainerMatheusDefeated

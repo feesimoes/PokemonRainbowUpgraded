@@ -119,3 +119,21 @@ movement PokemonLeague_KarensRoom_Player_Emote
     emote_exclamation_mark
     step_end
 }
+
+script PokemonLeague_KarensRoom_Agatha_Text_RematchIntro
+{
+    msgbox(format("So, we meet again...\pShow me what you've got!"))
+    end
+}
+
+script PokemonLeague_KarensRoom_Agatha_Text_Defeat
+{
+    msgbox(format("Impressive...\pYou've grown stronger."))
+    end
+}
+
+script PokemonLeague_KarensRoom_Agatha_Text_PostBattle
+{
+    msgbox(format("Well done, Trainer.\pYou've earned this."))
+    end
+}
