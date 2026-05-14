@@ -205,7 +205,7 @@ Route36_Weird_Tree_9:
 # 139 "data/maps/Route36/scripts.pory"
 	closemessage
 # 140 "data/maps/Route36/scripts.pory"
-	setwildbattle SPECIES_SUDOWOODO, 20, ITEM_NONE
+	setwildbattle SPECIES_SUDOWOODO, 50, ITEM_NONE
 # 141 "data/maps/Route36/scripts.pory"
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 # 142 "data/maps/Route36/scripts.pory"

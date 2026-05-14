@@ -137,7 +137,7 @@ script Route36_Weird_Tree
             {
                 msgbox(format("The weird tree didn't like that!\nIt attacks you... It's a POKéMON!"))
                 closemessage
-                setwildbattle(SPECIES_SUDOWOODO, 20, ITEM_NONE)
+                setwildbattle(SPECIES_SUDOWOODO, 50, ITEM_NONE)
                 setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
                 dowildbattle
                 clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
