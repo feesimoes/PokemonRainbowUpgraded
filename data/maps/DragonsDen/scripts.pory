@@ -34,11 +34,12 @@ script DragonsDen_ElderDragonMaster
     }
     else
     {
-        msgbox(format("Hm... Hello.\nA visitor? Ah, I see...\pIf you wish to earn CLAIR'S\nBADGE, I can offer you a clue."), MSGBOX_YESNO)
+        msgbox(format("Hm... Hello.\nA visitor? Ah, I see...\pIf you wish to earn CLAIR'S\nBADGE, you will need Dragons Janitor's bless."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES)
         {
-            msgbox(format("Without leaving JOHTO, head for\nKANTO, over a body of water.\pRise to the challenge, TRAINER,\nand make haste toward SEVII."))
-            msgbox(format("At land's end, DRAGONS' JANITOR\nawaits... Bestowing upon you...\pThe fabled DRAGON'S FANG."))
+            msgbox(format("I can give you a tip...\nThe only one who knows where he is, is Celio."))
+            msgbox(format("Celio is on Sevii Island One.\nFly there and help with Ruby and Sapphire."))            
+            msgbox(format("Then he will tell you where the Dragons Janitor is."))
         }
         else
         {

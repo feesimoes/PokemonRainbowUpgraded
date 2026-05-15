@@ -16,16 +16,16 @@ script BlackthornCity_DragonsJanitor_OldMan1
 {
     lock
     faceplayer
-    msgbox(format("Hello there...\nWelcome."))
+    msgbox(format("Hello there...\nYou find me."))
     checkitem(ITEM_DRAGON_FANG_2, 1)
     if (var(VAR_RESULT) == FALSE)
     {
-        msgbox(format("Ah, by the way...\nI found this, when cleaning.\pI don't believe it's of any\nuse, so you may have it."))
+        msgbox(format("So, you are the Champion...\nYou deserve this dragon fang bless.\pNow, you can battle Clair in Blackthorn City."))
         giveitem(ITEM_DRAGON_FANG_2, 1)
     }
     else
     {
-        msgbox(format("The DRAGONS' DEN is down\nthrough this cave's path."))
+        msgbox(format("You already have my dragon fang.\nThen, go battle Clair in Blackthorn."))
     }
     closemessage
     release

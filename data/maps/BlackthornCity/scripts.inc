@@ -168,19 +168,19 @@ BlackthornCity_Man::
 BlackthornCity_DragonsJanitor_OldMan1_Text_0:
 # 19 "data/maps/BlackthornCity/scripts.pory"
 	.string "Hello there...\n"
-	.string "Welcome.$"
+	.string "You find me.$"
 
 BlackthornCity_DragonsJanitor_OldMan1_Text_1:
 # 23 "data/maps/BlackthornCity/scripts.pory"
-	.string "Ah, by the way...\n"
-	.string "I found this, when cleaning.\p"
-	.string "I don't believe it's of any\n"
-	.string "use, so you may have it.$"
+	.string "So, you are the Champion...\n"
+	.string "You deserve this dragon fang bless.\p"
+	.string "Now, you can battle Clair in Blackthorn\n"
+	.string "City.$"
 
 BlackthornCity_DragonsJanitor_OldMan1_Text_2:
 # 28 "data/maps/BlackthornCity/scripts.pory"
-	.string "The DRAGONS' DEN is down\n"
-	.string "through this cave's path.$"
+	.string "You already have my dragon fang.\n"
+	.string "Then, go battle Clair in Blackthorn.$"
 
 BlackthornCity_Sign_Text_0:
 # 38 "data/maps/BlackthornCity/scripts.pory"

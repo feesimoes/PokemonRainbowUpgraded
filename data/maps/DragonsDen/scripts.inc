@@ -45,12 +45,12 @@ DragonsDen_ElderDragonMaster::
 # 38 "data/maps/DragonsDen/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq DragonsDen_ElderDragonMaster_5
-# 45 "data/maps/DragonsDen/scripts.pory"
-	msgbox DragonsDen_ElderDragonMaster_Text_4
+# 46 "data/maps/DragonsDen/scripts.pory"
+	msgbox DragonsDen_ElderDragonMaster_Text_5
 DragonsDen_ElderDragonMaster_1:
-# 48 "data/maps/DragonsDen/scripts.pory"
-	closemessage
 # 49 "data/maps/DragonsDen/scripts.pory"
+	closemessage
+# 50 "data/maps/DragonsDen/scripts.pory"
 	release
 	end
 
@@ -64,6 +64,8 @@ DragonsDen_ElderDragonMaster_5:
 	msgbox DragonsDen_ElderDragonMaster_Text_2
 # 41 "data/maps/DragonsDen/scripts.pory"
 	msgbox DragonsDen_ElderDragonMaster_Text_3
+# 42 "data/maps/DragonsDen/scripts.pory"
+	msgbox DragonsDen_ElderDragonMaster_Text_4
 	goto DragonsDen_ElderDragonMaster_1
 
 
@@ -91,23 +93,28 @@ DragonsDen_ElderDragonMaster_Text_1:
 	.string "Hm... Hello.\n"
 	.string "A visitor? Ah, I see...\p"
 	.string "If you wish to earn CLAIR'S\n"
-	.string "BADGE, I can offer you a clue.$"
+	.string "BADGE, you will need Dragons Janitor's\l"
+	.string "bless.$"
 
 DragonsDen_ElderDragonMaster_Text_2:
 # 40 "data/maps/DragonsDen/scripts.pory"
-	.string "Without leaving JOHTO, head for\n"
-	.string "KANTO, over a body of water.\p"
-	.string "Rise to the challenge, TRAINER,\n"
-	.string "and make haste toward SEVII.$"
+	.string "I can give you a tip...\n"
+	.string "The only one who knows where he is, is\l"
+	.string "Celio.$"
 
 DragonsDen_ElderDragonMaster_Text_3:
 # 41 "data/maps/DragonsDen/scripts.pory"
-	.string "At land's end, DRAGONS' JANITOR\n"
-	.string "awaits... Bestowing upon you...\p"
-	.string "The fabled DRAGON'S FANG.$"
+	.string "Celio is on Sevii Island One.\n"
+	.string "Fly there and help with Ruby and\l"
+	.string "Sapphire.$"
 
 DragonsDen_ElderDragonMaster_Text_4:
-# 45 "data/maps/DragonsDen/scripts.pory"
+# 42 "data/maps/DragonsDen/scripts.pory"
+	.string "Then he will tell you where the Dragons\n"
+	.string "Janitor is.$"
+
+DragonsDen_ElderDragonMaster_Text_5:
+# 46 "data/maps/DragonsDen/scripts.pory"
 	.string "Hm.\n"
 	.string "Figure it out yourself, eh?\p"
 	.string "Some smart adventurer you are!$"

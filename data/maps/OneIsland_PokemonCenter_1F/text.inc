@@ -163,8 +163,9 @@ OneIsland_PokemonCenter_1F_Text_CelioCaughtMoreMonMaybeICanBeUseful::
     .string "been for you?\p"
     .string "Oh, is that right?\n"
     .string "You've caught more POKéMON.\p"
-    .string "Do you know what?\n"
-    .string "Maybe I can be useful to you.$"
+    .string "Maybe I can be useful to you.\n"
+    .string "I know where Dragon Janitor is...\n"
+    .string "but before I need your help.$"
 
 OneIsland_PokemonCenter_1F_Text_YoullBeTradingFromTrainersFarAway::
     .string "I'm modifying the Network Machine\n"
@@ -184,8 +185,8 @@ OneIsland_PokemonCenter_1F_Text_NeedsSpecialGemstone::
     .string "Who knows where it could be.$"
 
 OneIsland_PokemonCenter_1F_Text_TryingToFindGem::
-    .string "I was trying to find the gem\n"
-    .string "even while I was studying.\p"
+    .string "I tell where Dragon Janitor is.\n"
+    .string "But first, find the gem.\p"
     .string "As a result, I've made no headway\n"
     .string "in both my search and studies…\p"
     .string "If I relied on BILL, I'm sure my\n"
@@ -235,7 +236,7 @@ OneIsland_PokemonCenter_1F_Text_ObtainedExtraMapPage::
 OneIsland_PokemonCenter_1F_Text_PassLetYouGetToAllIslands::
     .string "This is my own ferry PASS.\p"
     .string "It will let you get to all the\n"
-    .string "SEVII ISLANDS.\p"
+    .string "ISLANDS. Help then I tell about Dragon Janitor.\p"
     .string "{PLAYER}, please, I can't do\n"
     .string "it without your help.$"
 
@@ -268,9 +269,10 @@ OneIsland_PokemonCenter_1F_Text_ManagedToLinkWithHoennThankYou::
     .string "TRAINERS in the HOENN region!\p"
     .string "Finally, the Network Machine is\n"
     .string "fully operational!\p"
-    .string "{PLAYER}, I owe it all to you!\p"
-    .string "Thanks to you, my dream came\n"
-    .string "true…$"
+    .string "{PLAYER}, I owe it all to you!\n"
+    .string "Thanks to you, my dream came true.\p"
+    .string "The Dragon Janitor is in Altering Cave Island 6\n"
+    .string "or Tanoby Ruins Island 7. Who knows?$"
 
 OneIsland_PokemonCenter_1F_Text_WishYouBestOfLuck::
     .string "I…\n"
@@ -278,7 +280,9 @@ OneIsland_PokemonCenter_1F_Text_WishYouBestOfLuck::
     .string "That's enough about me!\p"
     .string "{PLAYER}, you're going to keep\n"
     .string "looking for exotic POKéMON, right?\p"
-    .string "I wish you the best of luck!$"
+    .string "{PLAYER}, you're going to keep\n"
+    .string "The Dragon Janitor is in Altering Cave Island 6\n"
+    .string "or Tanoby Ruins Island 7. Who knows?$"
 
 OneIsland_PokemonCenter_1F_Text_CelioHearingRumorsAboutYou::
     .string "CELIO: Hello!\p"
@@ -290,8 +294,8 @@ OneIsland_PokemonCenter_1F_Text_BillsFirstMonWasAbra::
     .string "of POKéMON?\p"
     .string "BILL is a POKéMANIAC, so he loves\n"
     .string "every kind.\p"
-    .string "Apparently, the first one he caught\n"
-    .string "was an ABRA.$"
+    .string "The Dragon Janitor is in Altering Cave Island 6\n"
+    .string "or Tanoby Ruins Island 7. Who knows?$"
 
 OneIsland_PokemonCenter_1F_Text_BillsHometownInGoldenrod::
     .string "By the way, {PLAYER}, you're from\n"
@@ -300,15 +304,14 @@ OneIsland_PokemonCenter_1F_Text_BillsHometownInGoldenrod::
     .string "pleasant place.\p"
     .string "BILL's hometown is GOLDENROD CITY,\n"
     .string "where his folks still live.\p"
-    .string "I've heard that it's quite the\n"
-    .string "festive, bustling city.\p"
-    .string "I'd like to go there one day.$"
+    .string "The Dragon Janitor is in Altering Cave Island 6\n"
+    .string "or Tanoby Ruins Island 7. Who knows?$"
 
 OneIsland_PokemonCenter_1F_Text_BillCantStomachMilk::
     .string "{PLAYER}, is there anything that\n"
     .string "you can't stand?\p"
-    .string "Apparently, BILL simply can't\n"
-    .string "stomach milk at all.$"
+    .string "The Dragon Janitor is in Altering Cave Island 6\n"
+    .string "or Tanoby Ruins Island 7. Who knows?$"
 
 OneIsland_PokemonCenter_1F_Text_CameFromPalletDontKnowIt::
     .string "Oh, you're a stranger here!\n"
