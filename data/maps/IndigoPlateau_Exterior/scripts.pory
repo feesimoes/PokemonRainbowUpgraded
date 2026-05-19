@@ -319,3 +319,85 @@ movement IndigoPlateau_Exterior_Movement_PlayerWatchLanceAndOakLeave
 	step_end
 }
 
+
+
+
+
+
+script Indigo_Entrace_Badge_Guard
+{
+    lock
+    applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Player)
+    waitmovement
+    if (flag(FLAG_JOHTO_BADGE08_GET))
+    {
+        msgbox(format("...Oh!\nThat is the RISINGBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\pOkay, then.\nPlease, go right ahead."))
+        setvar(VAR_MAP_SCENE_ROUTE28, 1)
+        waitmessage
+        closemessage
+        applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+    else
+    {
+        msgbox(format("Only truly skilled TRAINERS are\nallowed through.\pYou don't have the RISINGBADGE\nyet! Sorry, rules are rules.\pI can't let you pass."))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+}
+
+script Indigo_Entrace_Badge_Guard_Trigger
+{
+    lock
+    applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Player)
+    waitmovement
+    msgbox(format("Halt!"))
+    waitmessage
+    if (flag(FLAG_JOHTO_BADGE08_GET))
+    {
+        msgbox(format("...Oh!\nThat is the RISINGBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\pOkay, then.\nPlease, go right ahead."))
+        setvar(VAR_MAP_SCENE_ROUTE28, 1)
+        waitmessage
+        closemessage
+        applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+    else
+    {
+        msgbox(format("Only truly skilled TRAINERS are\nallowed through.\pYou don't have the RISINGBADGE\nyet! Sorry, rules are rules.\pI can't let you pass."))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_PLAYER, Movement_Indigo_Walk_Down_1)
+        waitmovement
+        applymovement(LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+}
+
+movement Movement_Indigo_Entrace_Badge_Guard_Face_Player
+{
+    face_player
+    step_end   
+}
+
+movement Movement_Indigo_Entrace_Badge_Guard_Face_Down
+{
+    face_down
+    step_end   
+}
+
+movement Movement_Indigo_Walk_Down_1
+{
+    walk_up
+    step_end   
+}

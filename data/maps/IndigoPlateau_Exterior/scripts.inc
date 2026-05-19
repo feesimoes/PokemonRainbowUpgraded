@@ -593,3 +593,133 @@ IndigoPlateau_Exterior_Movement_PlayerWatchLanceAndOakLeave:
 	walk_in_place_faster_down
 # 319 "data/maps/IndigoPlateau_Exterior/scripts.pory"
 	step_end
+
+Indigo_Entrace_Badge_Guard::
+# 329 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	lock
+# 330 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Player
+# 331 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 332 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE08_GET, Indigo_Entrace_Badge_Guard_1
+# 345 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	msgbox Indigo_Entrace_Badge_Guard_Text_1
+# 346 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmessage
+# 347 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	closemessage
+# 348 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down
+# 349 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 350 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	releaseall
+	end
+
+Indigo_Entrace_Badge_Guard_1:
+# 334 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	msgbox Indigo_Entrace_Badge_Guard_Text_0
+# 335 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE28, 1
+# 336 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmessage
+# 337 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	closemessage
+# 338 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down
+# 339 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 340 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	releaseall
+	end
+
+
+Indigo_Entrace_Badge_Guard_Trigger::
+# 357 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	lock
+# 358 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Player
+# 359 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 360 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	msgbox Indigo_Entrace_Badge_Guard_Trigger_Text_0
+# 361 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmessage
+# 362 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE08_GET, Indigo_Entrace_Badge_Guard_Trigger_1
+# 375 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	msgbox Indigo_Entrace_Badge_Guard_Text_1
+# 376 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmessage
+# 377 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	closemessage
+# 378 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_Indigo_Walk_Down_1
+# 379 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 380 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down
+# 381 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 382 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	releaseall
+	end
+
+Indigo_Entrace_Badge_Guard_Trigger_1:
+# 364 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	msgbox Indigo_Entrace_Badge_Guard_Text_0
+# 365 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE28, 1
+# 366 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmessage
+# 367 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	closemessage
+# 368 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	applymovement LOCALID_INDIGO_BADGE_GUARD, Movement_Indigo_Entrace_Badge_Guard_Face_Down
+# 369 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	waitmovement
+# 370 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	releaseall
+	end
+
+
+# 387 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+Movement_Indigo_Entrace_Badge_Guard_Face_Player:
+# 389 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	face_player
+# 390 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	step_end
+
+# 393 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+Movement_Indigo_Entrace_Badge_Guard_Face_Down:
+# 395 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	face_down
+# 396 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	step_end
+
+# 399 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+Movement_Indigo_Walk_Down_1:
+# 401 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	walk_up
+# 402 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	step_end
+
+Indigo_Entrace_Badge_Guard_Text_0:
+# 334 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	.string "...Oh!\n"
+	.string "That is the RISINGBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+	.string "Okay, then.\n"
+	.string "Please, go right ahead.$"
+
+Indigo_Entrace_Badge_Guard_Text_1:
+# 345 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	.string "Only truly skilled TRAINERS are\n"
+	.string "allowed through.\p"
+	.string "You don't have the RISINGBADGE\n"
+	.string "yet! Sorry, rules are rules.\p"
+	.string "I can't let you pass.$"
+
+Indigo_Entrace_Badge_Guard_Trigger_Text_0:
+# 360 "data/maps/IndigoPlateau_Exterior/scripts.pory"
+	.string "Halt!$"
