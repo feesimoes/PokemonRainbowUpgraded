@@ -1,3 +1,10 @@
+raw `
+Route22_WestEntrance_1F_EventScript_Guard::
+	msgbox Route22_WestEntrance_1F_Text_LeavingOrEnteringKantoGuard, MSGBOX_NPC
+	end
+
+`
+
 mapscripts Route22_WestEntrance_1F_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD

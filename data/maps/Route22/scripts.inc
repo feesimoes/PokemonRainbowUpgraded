@@ -681,6 +681,117 @@ Route22_Silver_Emote:
 # 364 "data/maps/Route22/scripts.pory"
 	step_end
 
+Route22_Badge_Guard::
+# 379 "data/maps/Route22/scripts.pory"
+	lock
+# 380 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Player
+# 381 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 382 "data/maps/Route22/scripts.pory"
+	goto_if_set FLAG_SYS_GAME_CLEAR, Route22_Badge_Guard_1
+# 395 "data/maps/Route22/scripts.pory"
+	msgbox Route22_Badge_Guard_Text_1
+# 396 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 397 "data/maps/Route22/scripts.pory"
+	closemessage
+# 398 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Down
+# 399 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 400 "data/maps/Route22/scripts.pory"
+	releaseall
+	end
+
+Route22_Badge_Guard_1:
+# 384 "data/maps/Route22/scripts.pory"
+	msgbox Route22_Badge_Guard_Text_0
+# 385 "data/maps/Route22/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE22KANTOCHECK, 1
+# 386 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 387 "data/maps/Route22/scripts.pory"
+	closemessage
+# 388 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Down
+# 389 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 390 "data/maps/Route22/scripts.pory"
+	releaseall
+	end
+
+
+Route22_Badge_Guard_Trigger::
+# 407 "data/maps/Route22/scripts.pory"
+	lock
+# 408 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Player
+# 409 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 410 "data/maps/Route22/scripts.pory"
+	msgbox Route22_Badge_Guard_Trigger_Text_0
+# 411 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 412 "data/maps/Route22/scripts.pory"
+	goto_if_set FLAG_SYS_GAME_CLEAR, Route22_Badge_Guard_Trigger_1
+# 425 "data/maps/Route22/scripts.pory"
+	msgbox Route22_Badge_Guard_Text_1
+# 426 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 427 "data/maps/Route22/scripts.pory"
+	closemessage
+# 428 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_Route22_Walk_Down_1
+# 429 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 430 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Down
+# 431 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 432 "data/maps/Route22/scripts.pory"
+	releaseall
+	end
+
+Route22_Badge_Guard_Trigger_1:
+# 414 "data/maps/Route22/scripts.pory"
+	msgbox Route22_Badge_Guard_Text_0
+# 415 "data/maps/Route22/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE22KANTOCHECK, 1
+# 416 "data/maps/Route22/scripts.pory"
+	waitmessage
+# 417 "data/maps/Route22/scripts.pory"
+	closemessage
+# 418 "data/maps/Route22/scripts.pory"
+	applymovement LOCALID_ROUTE22_BADGE_GUARD, Movement_Route22_Badge_Guard_Face_Down
+# 419 "data/maps/Route22/scripts.pory"
+	waitmovement
+# 420 "data/maps/Route22/scripts.pory"
+	releaseall
+	end
+
+
+# 437 "data/maps/Route22/scripts.pory"
+Movement_Route22_Badge_Guard_Face_Player:
+# 439 "data/maps/Route22/scripts.pory"
+	face_player
+# 440 "data/maps/Route22/scripts.pory"
+	step_end
+
+# 443 "data/maps/Route22/scripts.pory"
+Movement_Route22_Badge_Guard_Face_Down:
+# 445 "data/maps/Route22/scripts.pory"
+	face_down
+# 446 "data/maps/Route22/scripts.pory"
+	step_end
+
+# 449 "data/maps/Route22/scripts.pory"
+Movement_Route22_Walk_Down_1:
+# 451 "data/maps/Route22/scripts.pory"
+	walk_right
+# 452 "data/maps/Route22/scripts.pory"
+	step_end
+
 Route22_EventScript_Giovanni_Silver_Text_0:
 # 270 "data/maps/Route22/scripts.pory"
 	.string "???: Dad, wait!\n"
@@ -776,3 +887,22 @@ Route22_EventScript_Giovanni_Silver_Text_15:
 # 301 "data/maps/Route22/scripts.pory"
 	.string "...What are you staring at?\n"
 	.string "Get lost!$"
+
+Route22_Badge_Guard_Text_0:
+# 384 "data/maps/Route22/scripts.pory"
+	.string "...Oh!\n"
+	.string "You won the KANTO League!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+	.string "Okay, then.\n"
+	.string "Please, go right ahead.$"
+
+Route22_Badge_Guard_Text_1:
+# 395 "data/maps/Route22/scripts.pory"
+	.string "Only truly skilled TRAINERS are\n"
+	.string "allowed through.\p"
+	.string "You didn't win the KANTO League\n"
+	.string "yet! Sorry, rules are rules.\p"
+	.string "I can't let you pass.$"
+
+Route22_Badge_Guard_Trigger_Text_0:
+# 410 "data/maps/Route22/scripts.pory"
+	.string "Halt!$"
