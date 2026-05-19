@@ -199,6 +199,21 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route26_EventScript_CooltrainerMarcos",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROUTE28_GATE_GUARD",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route26_NorthEntrance_Badge_Guard",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -231,7 +246,17 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_ROUTE28",
+      "var_value": "0",
+      "script": "Route26_NorthEntrance_Badge_Guard_Trigger"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

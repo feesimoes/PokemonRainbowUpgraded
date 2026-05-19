@@ -318,3 +318,4 @@ movement IndigoPlateau_Exterior_Movement_PlayerWatchLanceAndOakLeave
 	walk_in_place_faster_down
 	step_end
 }
+

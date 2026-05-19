@@ -353,6 +353,117 @@ movement_route26_npc_face_player:
 # 231 "data/maps/Route26/scripts.pory"
 	step_end
 
+Route26_NorthEntrance_Badge_Guard::
+# 241 "data/maps/Route26/scripts.pory"
+	lock
+# 242 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Player
+# 243 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 244 "data/maps/Route26/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE08_GET, Route26_NorthEntrance_Badge_Guard_1
+# 257 "data/maps/Route26/scripts.pory"
+	msgbox Route26_NorthEntrance_Badge_Guard_Text_1
+# 258 "data/maps/Route26/scripts.pory"
+	waitmessage
+# 259 "data/maps/Route26/scripts.pory"
+	closemessage
+# 260 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Down
+# 261 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 262 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+Route26_NorthEntrance_Badge_Guard_1:
+# 246 "data/maps/Route26/scripts.pory"
+	msgbox Route26_NorthEntrance_Badge_Guard_Text_0
+# 247 "data/maps/Route26/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE28, 1
+# 248 "data/maps/Route26/scripts.pory"
+	waitmessage
+# 249 "data/maps/Route26/scripts.pory"
+	closemessage
+# 250 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Down
+# 251 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 252 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+Route26_NorthEntrance_Badge_Guard_Trigger::
+# 269 "data/maps/Route26/scripts.pory"
+	lock
+# 270 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Player
+# 271 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 272 "data/maps/Route26/scripts.pory"
+	msgbox Route26_NorthEntrance_Badge_Guard_Trigger_Text_0
+# 273 "data/maps/Route26/scripts.pory"
+	waitmessage
+# 274 "data/maps/Route26/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE08_GET, Route26_NorthEntrance_Badge_Guard_Trigger_1
+# 287 "data/maps/Route26/scripts.pory"
+	msgbox Route26_NorthEntrance_Badge_Guard_Text_1
+# 288 "data/maps/Route26/scripts.pory"
+	waitmessage
+# 289 "data/maps/Route26/scripts.pory"
+	closemessage
+# 290 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_Route26_NorthEntrance_Walk_Down_1
+# 291 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 292 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Down
+# 293 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 294 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+Route26_NorthEntrance_Badge_Guard_Trigger_1:
+# 276 "data/maps/Route26/scripts.pory"
+	msgbox Route26_NorthEntrance_Badge_Guard_Text_0
+# 277 "data/maps/Route26/scripts.pory"
+	setvar VAR_MAP_SCENE_ROUTE28, 1
+# 278 "data/maps/Route26/scripts.pory"
+	waitmessage
+# 279 "data/maps/Route26/scripts.pory"
+	closemessage
+# 280 "data/maps/Route26/scripts.pory"
+	applymovement LOCALID_ROUTE28_GATE_GUARD, Movement_Route26_NorthEntrance_Badge_Guard_Face_Down
+# 281 "data/maps/Route26/scripts.pory"
+	waitmovement
+# 282 "data/maps/Route26/scripts.pory"
+	releaseall
+	end
+
+
+# 299 "data/maps/Route26/scripts.pory"
+Movement_Route26_NorthEntrance_Badge_Guard_Face_Player:
+# 301 "data/maps/Route26/scripts.pory"
+	face_player
+# 302 "data/maps/Route26/scripts.pory"
+	step_end
+
+# 305 "data/maps/Route26/scripts.pory"
+Movement_Route26_NorthEntrance_Badge_Guard_Face_Down:
+# 307 "data/maps/Route26/scripts.pory"
+	face_down
+# 308 "data/maps/Route26/scripts.pory"
+	step_end
+
+# 311 "data/maps/Route26/scripts.pory"
+Movement_Route26_NorthEntrance_Walk_Down_1:
+# 313 "data/maps/Route26/scripts.pory"
+	walk_down
+# 314 "data/maps/Route26/scripts.pory"
+	step_end
+
 Route26_Professor_Oak_Battle_Text_0:
 # 5 "data/maps/Route26/scripts.pory"
 	.string "Ah, {PLAYER}!\n"
@@ -529,6 +640,25 @@ Test_Movement_Script_1_Text_0:
 Test_Movement_Script_1_Text_1:
 # 202 "data/maps/Route26/scripts.pory"
 	.string "Run away!$"
+
+Route26_NorthEntrance_Badge_Guard_Text_0:
+# 246 "data/maps/Route26/scripts.pory"
+	.string "...Oh!\n"
+	.string "That is the RISINGBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+	.string "Okay, then.\n"
+	.string "Please, go right ahead.$"
+
+Route26_NorthEntrance_Badge_Guard_Text_1:
+# 257 "data/maps/Route26/scripts.pory"
+	.string "Only truly skilled TRAINERS are\n"
+	.string "allowed through.\p"
+	.string "You don't have the RISINGBADGE\n"
+	.string "yet! Sorry, rules are rules.\p"
+	.string "I can't let you pass.$"
+
+Route26_NorthEntrance_Badge_Guard_Trigger_Text_0:
+# 272 "data/maps/Route26/scripts.pory"
+	.string "Halt!$"
 
 Route26_Text_CooltrainerMarcosIntro::
 # 135 "data/maps/Route26/scripts.pory"
