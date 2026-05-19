@@ -1,1 +1,22 @@
 mapscripts Route28_MapScripts {}
+
+script Route28_EventScript_PlayerRed
+{
+    trainerbattle(TRAINER_BATTLE_SINGLE, TRAINER_PLAYER_RED, 0,
+        Route26_Text_TrainerPlayerRed,
+        Route26_Text_TrainerPlayerRedDefeated)
+    msgbox(format("Venca liga pela 2a vez\pou voe para novas rotas\nnos barcos de Vermilion!"))
+    closemessage
+    releaseall
+    end
+}
+
+text Route26_Text_TrainerPlayerRed
+{
+    format("Finalmente...\pUm adversario a altura.\nVamos ver quem eh o campeao!")
+}
+
+text Route26_Text_TrainerPlayerRedDefeated
+{
+    format("De fato...\pTenho que treinar mais.")
+}

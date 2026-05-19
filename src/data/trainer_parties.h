@@ -7145,42 +7145,91 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerFranklin2[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_PkmnProfProfOak[] = {
+
+static const struct TrainerMonNoItemCustomMoves sParty_PkmnProfProfOak[] = {
     {
         .iv = 255,
         .lvl = 76,
         .species = SPECIES_TAUROS,
+        .moves = {MOVE_BODY_SLAM, MOVE_EARTHQUAKE, MOVE_BLIZZARD, MOVE_FIRE_BLAST},
     },
     {
         .iv = 255,
         .lvl = 78,
         .species = SPECIES_ARCANINE,
+        .moves = {MOVE_FLAMETHROWER, MOVE_EXTREME_SPEED, MOVE_BODY_SLAM, MOVE_IRON_TAIL},
     },
     {
         .iv = 255,
         .lvl = 77,
         .species = SPECIES_EXEGGUTOR,
+        .moves = {MOVE_PSYCHIC, MOVE_SLEEP_POWDER, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY},
     },
     {
         .iv = 255,
         .lvl = 79,
         .species = SPECIES_VENUSAUR,
+        .moves = {MOVE_PETAL_DANCE, MOVE_SLEEP_POWDER, MOVE_SLUDGE_BOMB, MOVE_SYNTHESIS},
     },
     {
         .iv = 255,
         .lvl = 80,
         .species = SPECIES_GYARADOS,
+        .moves = {MOVE_SURF, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_HYPER_BEAM},
     },
     {
         .iv = 255,
-        .lvl = 76,
+        .lvl = 78,
         .species = SPECIES_DRAGONITE,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_OUTRAGE, MOVE_THUNDERBOLT, MOVE_FLY},
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PlayerBrendan[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_PlayerMay[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_PlayerRed[] = {DUMMY_TRAINER_MON};
+
+
+static const struct TrainerMonNoItemCustomMoves sParty_PlayerRed[] = {
+    {
+        .iv = 255,
+        .lvl = 84,
+        .species = SPECIES_PIKACHU,
+        .moves = {MOVE_THUNDER, MOVE_THUNDER_WAVE, MOVE_IRON_TAIL, MOVE_QUICK_ATTACK},
+    },
+    {
+        .iv = 255,
+        .lvl = 82,
+        .species = SPECIES_LAPRAS,
+        .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_PERISH_SONG},
+    },
+    {
+        .iv = 255,
+        .lvl = 83,
+        .species = SPECIES_SNORLAX,
+        .moves = {MOVE_BODY_SLAM, MOVE_EARTHQUAKE, MOVE_REST, MOVE_SNORE},
+    },
+    {
+        .iv = 255,
+        .lvl = 85,
+        .species = SPECIES_VENUSAUR,
+        .moves = {MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY, MOVE_LEECH_SEED, MOVE_SLEEP_POWDER},
+    },
+    {
+        .iv = 255,
+        .lvl = 85,
+        .species = SPECIES_CHARIZARD,
+        .moves = {MOVE_FLAMETHROWER, MOVE_DRAGON_CLAW, MOVE_EARTHQUAKE, MOVE_AERIAL_ACE},
+    },
+        {
+        .iv = 255,
+        .lvl = 85,
+        .species = SPECIES_BLASTOISE,
+        .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_RAIN_DANCE, MOVE_EARTHQUAKE},
+    },
+};
+
+
+
 static const struct TrainerMonNoItemDefaultMoves sParty_PlayerLeaf[] = {DUMMY_TRAINER_MON};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt42[] = {
