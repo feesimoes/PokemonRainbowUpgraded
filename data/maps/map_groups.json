@@ -788,7 +788,8 @@
     "GoldenrodCity_BikeShop",
     "GoldenrodCity_DepartmentStore_1F",
     "GoldenrodCity_FlowerShop",
-    "GoldenrodCity_FortuneTeller"
+    "GoldenrodCity_FortuneTeller",
+    "GoldenrodCity_MagnetTrainStation"
   ],
   "gMapGroup_IndoorRoute38": [
     "Route38_EcruteakCityEntrance"

@@ -1,1 +1,11 @@
 mapscripts OlivineCity_MapScripts {}
+
+script OlivineCity_Gym_Roadblock_Battle_Girl
+{
+    lock
+    faceplayer
+    msgbox(format("I will only let you pass if you are\na master fighter.\pTo do that, you need to beat\nCHUCK in Cianwood City Gym."))
+    closemessage
+    release
+    end
+}

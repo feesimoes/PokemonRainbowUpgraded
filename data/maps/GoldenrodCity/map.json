@@ -228,6 +228,13 @@
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_FORTUNE_TELLER",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_MAGNET_TRAIN_STATION",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

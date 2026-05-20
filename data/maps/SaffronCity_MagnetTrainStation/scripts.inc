@@ -125,141 +125,236 @@ SaffronCity_MagnetTrainStation_EventScript_Boy_2:
 	goto SaffronCity_MagnetTrainStation_EventScript_Boy_1
 
 
-SaffronCity_MagnetTrainStation_EventScript_Attendant::
+SaffronCity_MagnetTrainStation_EventScript_Rodolfo::
 # 91 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	lock
 # 92 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	faceplayer
 # 93 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	msgbox SaffronCity_MagnetTrainStation_EventScript_Attendant_Text_0
-# 94 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	waitmessage
-# 95 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	closemessage
-# 96 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	release
-	end
-
-
-SaffronCity_MagnetTrainStation_EventScript_Rodolfo::
-# 101 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	lock
-# 102 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	faceplayer
-# 103 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	call_if_defeated TRAINER_RODOLFO, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle
-# 104 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 94 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	goto_if_set FLAG_HIDE_SILPH_ROCKETS, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_1
-# 131 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 121 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_6
-# 132 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 122 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
-# 133 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 123 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_7
-# 134 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 124 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
-# 135 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 125 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
-# 136 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 126 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	release
 	end
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_1:
-# 106 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 96 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_0
+# 97 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 98 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 99 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_1
+# 100 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 101 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 102 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_2, MSGBOX_YESNO
+# 103 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 104 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	compare VAR_RESULT, NO
+	goto_if_eq SaffronCity_MagnetTrainStation_EventScript_Rodolfo_4
+# 114 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	trainerbattle_single TRAINER_RODOLFO, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_4, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_5
+# 115 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	release
+	end
+
+SaffronCity_MagnetTrainStation_EventScript_Rodolfo_4:
+# 106 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_3
 # 107 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
 # 108 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
 # 109 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_1
-# 110 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	waitmessage
-# 111 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	closemessage
-# 112 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_2, MSGBOX_YESNO
-# 113 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	waitmessage
-# 114 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	compare VAR_RESULT, NO
-	goto_if_eq SaffronCity_MagnetTrainStation_EventScript_Rodolfo_4
-# 124 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	trainerbattle_single TRAINER_RODOLFO, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_4, SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_5
-# 125 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	release
-	end
-
-SaffronCity_MagnetTrainStation_EventScript_Rodolfo_4:
-# 116 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_3
-# 117 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	waitmessage
-# 118 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	closemessage
-# 119 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	release
 	end
 
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle::
-# 143 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 133 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	checkitem ITEM_MUSIC_PLAYER, 1
-# 144 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 134 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_2
-# 155 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 145 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_1
-# 156 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 146 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
-# 157 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 147 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
-# 158 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 148 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	playfanfare MUS_OBTAIN_KEY_ITEM
-# 159 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 149 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	giveitem ITEM_MUSIC_PLAYER, 1
-# 160 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 150 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitfanfare
-# 161 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 151 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_2
-# 162 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 152 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
-# 163 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 153 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
-# 164 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 154 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_3
-# 165 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 155 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	waitmessage
-# 166 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 156 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
-# 167 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 157 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	setflag FLAG_TEMP_1
-# 168 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 158 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 169 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 159 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	removeobject LOCALID_RODOLFO
-# 170 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 160 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_1:
-# 172 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 162 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	release
 	end
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_2:
-# 146 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 136 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	msgbox SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_0
-# 147 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 137 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	closemessage
-# 148 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 138 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	setflag FLAG_TEMP_1
-# 149 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 139 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 150 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 140 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	removeobject LOCALID_RODOLFO
-# 151 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 141 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 	goto SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_1
 
+
+SaffronCity_Badge_Guard::
+# 174 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	lock
+# 175 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Player
+# 176 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 177 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE03_GET, SaffronCity_Badge_Guard_1
+# 190 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_Badge_Guard_Text_1
+# 191 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 192 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 193 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down
+# 194 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 195 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	releaseall
+	end
+
+SaffronCity_Badge_Guard_1:
+# 179 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_Badge_Guard_Text_0
+# 180 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	setvar VAR_MAP_SCENE_SAFFRONTRAIN, 1
+# 181 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 182 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 183 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down
+# 184 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 185 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	releaseall
+	end
+
+
+SaffronCity_Badge_Guard_Trigger::
+# 202 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	lock
+# 203 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Player
+# 204 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 205 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_Badge_Guard_Trigger_Text_0
+# 206 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 207 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	goto_if_set FLAG_JOHTO_BADGE03_GET, SaffronCity_Badge_Guard_Trigger_1
+# 220 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_Badge_Guard_Text_1
+# 221 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 222 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 223 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_PLAYER, Movement_SaffronStation_Walk_Down
+# 224 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 225 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down
+# 226 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 227 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	releaseall
+	end
+
+SaffronCity_Badge_Guard_Trigger_1:
+# 209 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	msgbox SaffronCity_Badge_Guard_Text_0
+# 210 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	setvar VAR_MAP_SCENE_SAFFRONTRAIN, 1
+# 211 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmessage
+# 212 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	closemessage
+# 213 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	applymovement LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down
+# 214 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	waitmovement
+# 215 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	releaseall
+	end
+
+
+# 232 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+Movement_SaffronCity_Badge_Guard_Face_Player:
+# 234 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	face_player
+# 235 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	step_end
+
+# 238 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+Movement_SaffronCity_Badge_Guard_Face_Down:
+# 240 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	face_down
+# 241 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	step_end
+
+# 244 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+Movement_SaffronStation_Walk_Down:
+# 246 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	walk_down
+# 247 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	step_end
 
 SaffronCity_MagnetTrainStation_EventScript_Lass_Text_0:
 # 20 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
@@ -316,15 +411,8 @@ SaffronCity_MagnetTrainStation_EventScript_Boy_Text_1:
 	.string "I just want him to shut up!\n"
 	.string "He's the worst! TEAM ROCKET'S better!$"
 
-SaffronCity_MagnetTrainStation_EventScript_Attendant_Text_0:
-# 93 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
-	.string "Hello. May I please see your\n"
-	.string "MAGNET TRAIN PASS?\p"
-	.string "...I'm terribly sorry, seems like\n"
-	.string "you don't have one yet.$"
-
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_0:
-# 106 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 96 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Hey, good job on beating TEAM\n"
 	.string "ROCKET! Uh, well I mean...\p"
 	.string "Technically, you didn't beat them\n"
@@ -333,7 +421,7 @@ SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_0:
 	.string "and SILPH...$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_1:
-# 109 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 99 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Anyways, I'm RODOLFO!\n"
 	.string "So, uh, you're {PLAYER}? Yeah, I know.\p"
 	.string "Hah! That look on your face!\n"
@@ -342,30 +430,30 @@ SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_1:
 	.string "pretty well-known in KANTO, duh.$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_2:
-# 112 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 102 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "I've got something for you, {PLAYER}!\n"
 	.string "But you have to beat me in battle!\p"
 	.string "Ready?$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_3:
-# 116 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 106 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Well, you're a lucky TRAINER!\n"
 	.string "Can you believe I even asked?\p"
 	.string "You can go prepare, I'll just be...\n"
 	.string "Uh, here... Yeah...$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_4:
-# 124 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 114 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "No, wait!\n"
 	.string "I don't have a catchy phrase yet!$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_5:
-# 124 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 114 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Uh, I lost...\n"
 	.string "But, how did you like my battle theme?$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_6:
-# 131 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 121 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Hey, good job on beating TEAM\n"
 	.string "ROCKET! Uh, well I mean...\p"
 	.string "Technically, you didn't beat them\n"
@@ -373,21 +461,21 @@ SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_6:
 	.string "You did drive them out of SAFFRON...$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_Text_7:
-# 133 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 123 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Yeah, but, anyways...\n"
 	.string "you should come back later!\p"
 	.string "Drive 'em out of SILPH,\n"
 	.string "then, we'll talk!$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_0:
-# 146 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 136 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Sorry, you caught me at a bad\n"
 	.string "time, I was just heading back!\p"
 	.string "I'm gonna be in GOLDENROD CITY.\n"
 	.string "You're welcome to stop by.$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_1:
-# 155 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 145 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "Wow, you defeated me, huh?\n"
 	.string "That's crazy... Anyways!\p"
 	.string "That thing I had for you...\n"
@@ -395,7 +483,7 @@ SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_1:
 	.string "Here you go!$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_2:
-# 161 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 151 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "The GB SOUNDS is a device that\n"
 	.string "lets you change the music.\p"
 	.string "But wait, here's the catch!\n"
@@ -403,7 +491,26 @@ SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_2:
 	.string "Some sort of GEN 1-2 shenanigans...$"
 
 SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle_Text_3:
-# 164 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+# 154 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
 	.string "So, yeah, that's the basics!\n"
 	.string "I'm gonna be in GOLDENROD CITY.\p"
 	.string "You're welcome to stop by.$"
+
+SaffronCity_Badge_Guard_Text_0:
+# 179 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	.string "...Oh!\n"
+	.string "That is the PLAINBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+	.string "Okay, then.\n"
+	.string "Please, go right ahead.$"
+
+SaffronCity_Badge_Guard_Text_1:
+# 190 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	.string "Only truly skilled TRAINERS are\n"
+	.string "allowed through.\p"
+	.string "You don't have the PLAINBADGE\n"
+	.string "yet! Sorry, rules are rules.\p"
+	.string "I can't let you pass.$"
+
+SaffronCity_Badge_Guard_Trigger_Text_0:
+# 205 "data/maps/SaffronCity_MagnetTrainStation/scripts.pory"
+	.string "Halt!$"

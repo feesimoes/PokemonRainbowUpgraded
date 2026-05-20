@@ -160,6 +160,20 @@ EcruteakCity_Gym_Roadblock_Old_Man::
 	end
 
 
+MahoganyCity_Gym_Roadblock_Hiker::
+# 120 "data/maps/EcruteakCity/scripts.pory"
+	lock
+# 121 "data/maps/EcruteakCity/scripts.pory"
+	faceplayer
+# 122 "data/maps/EcruteakCity/scripts.pory"
+	msgbox MahoganyCity_Gym_Roadblock_Hiker_Text_0
+# 123 "data/maps/EcruteakCity/scripts.pory"
+	closemessage
+# 124 "data/maps/EcruteakCity/scripts.pory"
+	release
+	end
+
+
 EcruteakCity_Sign_Text_0:
 # 6 "data/maps/EcruteakCity/scripts.pory"
 	.string "ECRUTEAK CITY -\n"
@@ -239,3 +253,10 @@ EcruteakCity_Gym_Roadblock_Old_Man_Text_0:
 	.string "MORTY hasn't been able to find it...\p"
 	.string "I'm sorry, he is away, for now...\n"
 	.string "You may want to return later.$"
+
+MahoganyCity_Gym_Roadblock_Hiker_Text_0:
+# 122 "data/maps/EcruteakCity/scripts.pory"
+	.string "The road and cave ahead is blocked\n"
+	.string "due to a landslide risk.\p"
+	.string "Beat OLIVIA in Olivine City so I can let\n"
+	.string "you pass safely without worrying.$"

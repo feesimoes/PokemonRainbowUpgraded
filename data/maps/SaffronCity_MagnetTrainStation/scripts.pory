@@ -86,16 +86,6 @@ script SaffronCity_MagnetTrainStation_EventScript_Boy
     end
 }
 
-script SaffronCity_MagnetTrainStation_EventScript_Attendant
-{
-    lock
-    faceplayer
-    msgbox(format("Hello. May I please see your\nMAGNET TRAIN PASS?\p...I'm terribly sorry, seems like\nyou don't have one yet."))
-    waitmessage
-    closemessage
-    release
-    end
-}
 
 script SaffronCity_MagnetTrainStation_EventScript_Rodolfo {
     lock
@@ -171,4 +161,88 @@ script SaffronCity_MagnetTrainStation_EventScript_Rodolfo_PostBattle
     }
     release
     end
+}
+
+
+
+
+
+
+
+script SaffronCity_Badge_Guard
+{
+    lock
+    applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Player)
+    waitmovement
+    if (flag(FLAG_JOHTO_BADGE03_GET))
+    {
+        msgbox(format("...Oh!\nThat is the PLAINBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\pOkay, then.\nPlease, go right ahead."))
+        setvar(VAR_MAP_SCENE_SAFFRONTRAIN, 1)
+        waitmessage
+        closemessage
+        applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+    else
+    {
+        msgbox(format("Only truly skilled TRAINERS are\nallowed through.\pYou don't have the PLAINBADGE\nyet! Sorry, rules are rules.\pI can't let you pass."))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+}
+
+script SaffronCity_Badge_Guard_Trigger
+{
+    lock
+    applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Player)
+    waitmovement
+    msgbox(format("Halt!"))
+    waitmessage
+    if (flag(FLAG_JOHTO_BADGE03_GET))
+    {
+        msgbox(format("...Oh!\nThat is the PLAINBADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\pOkay, then.\nPlease, go right ahead."))
+        setvar(VAR_MAP_SCENE_SAFFRONTRAIN, 1)
+        waitmessage
+        closemessage
+        applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+    else
+    {
+        msgbox(format("Only truly skilled TRAINERS are\nallowed through.\pYou don't have the PLAINBADGE\nyet! Sorry, rules are rules.\pI can't let you pass."))
+        waitmessage
+        closemessage
+        applymovement(LOCALID_PLAYER, Movement_SaffronStation_Walk_Down)
+        waitmovement
+        applymovement(LOCALID_SAFFRONCITY_GUARD, Movement_SaffronCity_Badge_Guard_Face_Down)
+        waitmovement
+        releaseall
+        end
+    }
+}
+
+movement Movement_SaffronCity_Badge_Guard_Face_Player
+{
+    face_player
+    step_end   
+}
+
+movement Movement_SaffronCity_Badge_Guard_Face_Down
+{
+    face_down
+    step_end   
+}
+
+movement Movement_SaffronStation_Walk_Down
+{
+    walk_down
+    step_end   
 }

@@ -7116,6 +7116,18 @@
       "secondary_tileset": "gTileset_ViridianGym",
       "border_filepath": "data/layouts/OlivineCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/OlivineCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_GOLDENROD_CITY_MAGNET_TRAIN_STATION",
+      "name": "GoldenrodCity_MagnetTrainStation_Layout",
+      "width": 23,
+      "height": 23,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PowerPlant",
+      "border_filepath": "data/layouts/GoldenrodCity_MagnetTrainStation/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenrodCity_MagnetTrainStation/map.bin"
     }
   ]
 }

@@ -2048,3 +2048,6 @@ Text_TestMsg::
 
 	.include "data/maps/OlivineCity_Gym/scripts.inc"
 	.include "data/maps/OlivineCity_Gym/text.inc"
+
+	.include "data/maps/GoldenrodCity_MagnetTrainStation/scripts.inc"
+	.include "data/maps/GoldenrodCity_MagnetTrainStation/text.inc"

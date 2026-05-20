@@ -128,6 +128,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EcruteakCity_Gym_Roadblock_Old_Man",
       "flag": "FLAG_HIDE_BURND_T_BEASTS"
+    },
+    {
+      "local_id": "LOCALID_MAHOGANY_GYM_ROADBLOCK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 51,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MahoganyCity_Gym_Roadblock_Hiker",
+      "flag": "FLAG_JOHTO_BADGE06_GET"
     }
   ],
   "warp_events": [

@@ -114,3 +114,13 @@ script EcruteakCity_Gym_Roadblock_Old_Man
     release
     end
 }
+
+script MahoganyCity_Gym_Roadblock_Hiker
+{
+    lock
+    faceplayer
+    msgbox(format("The road and cave ahead is blocked\ndue to a landslide risk.\pBeat OLIVIA in Olivine City so I can let\nyou pass safely without worrying."))
+    closemessage
+    release
+    end
+}

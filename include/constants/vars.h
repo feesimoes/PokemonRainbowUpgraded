@@ -208,7 +208,7 @@
 #define VAR_ROCKET_RELIEF_FUNDS    0x409A // Money donated towards the Team Rocket Relief Funds, to support their plans returning for World Domination
 #define VAR_GAME_CLEAR_ENDING      0x409B // What type of ending should play at Hall of Fame? 1 = First, 2 = Post-Kanto, 3 = Post-Johto...
 #define VAR_MAP_SCENE_ROUTE22KANTOCHECK      0x409C
-#define VAR_0x409D                 0x409D
+#define VAR_MAP_SCENE_SAFFRONTRAIN                 0x409D
 #define VAR_0x409E                 0x409E
 #define VAR_0x409F                 0x409F
 #define VAR_0x40A0                 0x40A0

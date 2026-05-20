@@ -95,6 +95,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_OLIVINE_GYM_ROADBLOCK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 16,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OlivineCity_Gym_Roadblock_Battle_Girl",
+      "flag": "FLAG_JOHTO_BADGE05_GET"
     }
   ],
   "warp_events": [
