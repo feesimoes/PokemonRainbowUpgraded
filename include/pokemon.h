@@ -425,6 +425,11 @@ struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 battlePosition, u8 mo
 void DestroyMonSpritesGfxManager(void);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 bufferId);
 
+void MakeEnemyPartyMonShinyWithMoves(void);
+
 extern struct Pokemon gPreviewMon;
 
+
 #endif // GUARD_POKEMON_H
+
+

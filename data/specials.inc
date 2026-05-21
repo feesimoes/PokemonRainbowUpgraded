@@ -469,4 +469,5 @@ gSpecials::
 	def_special TryOverworldMultiplayerLinkup
 	def_special CheckBadgeCount
 	def_special FixCaughtBeastsToLegalColosseumEvent
+	def_special MakeEnemyPartyMonShinyWithMoves
 gSpecialsEnd::

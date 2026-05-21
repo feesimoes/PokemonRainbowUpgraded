@@ -57,3 +57,16 @@ script MahoganyTown_Youngster
     release
     end
 }
+
+
+script MahoganyTown_GyaradosRoadblock
+{
+        lock
+        faceplayer
+        msgbox(format("Sorry, you cannot pass right now.\nPRYCE is not here."))
+        msgbox(format("There is a strange red creature\nin the Lake of Rage...\pIt has been scaring the townspeople.\nPRYCE went to calm things down."))
+        msgbox(format("If you can deal with\nthat creature at the lake...\pI am sure PRYCE will return\nand the gym will open."))
+        closemessage
+        release
+        end
+}

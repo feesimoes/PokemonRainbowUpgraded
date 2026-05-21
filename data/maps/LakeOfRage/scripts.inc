@@ -63,6 +63,38 @@ LakeOfRage_Old_Man_1::
 	end
 
 
+LakeOfRage_RedGyarados::
+# 50 "data/maps/LakeOfRage/scripts.pory"
+	lock
+# 51 "data/maps/LakeOfRage/scripts.pory"
+	faceplayer
+# 52 "data/maps/LakeOfRage/scripts.pory"
+	msgbox LakeOfRage_RedGyarados_Text_0
+# 53 "data/maps/LakeOfRage/scripts.pory"
+	closemessage
+# 54 "data/maps/LakeOfRage/scripts.pory"
+	waitse
+# 55 "data/maps/LakeOfRage/scripts.pory"
+	setwildbattle SPECIES_GYARADOS, 60, ITEM_NONE
+# 56 "data/maps/LakeOfRage/scripts.pory"
+	special MakeEnemyPartyMonShinyWithMoves
+# 57 "data/maps/LakeOfRage/scripts.pory"
+	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
+# 58 "data/maps/LakeOfRage/scripts.pory"
+	special StartLegendaryBattle
+# 59 "data/maps/LakeOfRage/scripts.pory"
+	waitstate
+# 60 "data/maps/LakeOfRage/scripts.pory"
+	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
+# 61 "data/maps/LakeOfRage/scripts.pory"
+	setflag FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS
+# 62 "data/maps/LakeOfRage/scripts.pory"
+	removeobject LOCALID_LAKE_OF_RAGE_GYARADOS
+# 63 "data/maps/LakeOfRage/scripts.pory"
+	release
+	end
+
+
 LakeOfRage_Sign_Text_0:
 # 12 "data/maps/LakeOfRage/scripts.pory"
 	.string "LAKE OF RAGE -\n"
@@ -86,10 +118,18 @@ LakeOfRage_Old_Man_1_Text_0:
 # 41 "data/maps/LakeOfRage/scripts.pory"
 	.string "If you see a group of GYARADOS\n"
 	.string "gathering on the lakefront...\p"
-	.string "You should leave, immediately.\n"
-	.string "Horribly strong RED GYARADOS...$"
+	.string "You should leave, immediately.$"
 
 LakeOfRage_Old_Man_1_Text_1:
 # 42 "data/maps/LakeOfRage/scripts.pory"
-	.string "It's quite rare...\n"
-	.string "But don't underestimate it, young one.$"
+	.string "But on stormy days\n"
+	.string "when the rain won't stop...\p"
+	.string "A crimson shadow moves beneath the\n"
+	.string "surface.\n"
+	.string "Only comes when the storm does.$"
+
+LakeOfRage_RedGyarados_Text_0:
+# 52 "data/maps/LakeOfRage/scripts.pory"
+	.string "A strange crimson GYARADOS...\n"
+	.string "It stares at you with fury.\p"
+	.string "This is no ordinary creature.$"

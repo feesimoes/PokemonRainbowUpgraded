@@ -6697,3 +6697,22 @@ static u32 GetCalculatedShinyOdds(void)
     return 16; // Default odds
     */
 }
+
+
+void MakeEnemyPartyMonShinyWithMoves(void)
+{
+    u16 move1;
+    u16 move2;
+    u16 move3;
+    u16 move4;
+
+    move1 = MOVE_OUTRAGE;
+    move2 = MOVE_EARTHQUAKE;
+    move3 = MOVE_THUNDERBOLT;
+    move4 = MOVE_FLAMETHROWER;
+
+    SetMonData(&gEnemyParty[0], MON_DATA_MOVE1, &move1);
+    SetMonData(&gEnemyParty[0], MON_DATA_MOVE2, &move2);
+    SetMonData(&gEnemyParty[0], MON_DATA_MOVE3, &move3);
+    SetMonData(&gEnemyParty[0], MON_DATA_MOVE4, &move4);
+}

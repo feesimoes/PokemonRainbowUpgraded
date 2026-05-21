@@ -82,6 +82,24 @@ MahoganyTown_Youngster::
 	end
 
 
+MahoganyTown_GyaradosRoadblock::
+# 64 "data/maps/MahoganyTown/scripts.pory"
+	lock
+# 65 "data/maps/MahoganyTown/scripts.pory"
+	faceplayer
+# 66 "data/maps/MahoganyTown/scripts.pory"
+	msgbox MahoganyTown_GyaradosRoadblock_Text_0
+# 67 "data/maps/MahoganyTown/scripts.pory"
+	msgbox MahoganyTown_GyaradosRoadblock_Text_1
+# 68 "data/maps/MahoganyTown/scripts.pory"
+	msgbox MahoganyTown_GyaradosRoadblock_Text_2
+# 69 "data/maps/MahoganyTown/scripts.pory"
+	closemessage
+# 70 "data/maps/MahoganyTown/scripts.pory"
+	release
+	end
+
+
 MahoganyTown_Sign_Text_0:
 # 6 "data/maps/MahoganyTown/scripts.pory"
 	.string "MAHOGANY TOWN -\n"
@@ -125,3 +143,22 @@ MahoganyTown_Youngster_Text_1:
 # 55 "data/maps/MahoganyTown/scripts.pory"
 	.string "That would just be decent, right?\n"
 	.string "I'm so bored here!$"
+
+MahoganyTown_GyaradosRoadblock_Text_0:
+# 66 "data/maps/MahoganyTown/scripts.pory"
+	.string "Sorry, you cannot pass right now.\n"
+	.string "PRYCE is not here.$"
+
+MahoganyTown_GyaradosRoadblock_Text_1:
+# 67 "data/maps/MahoganyTown/scripts.pory"
+	.string "There is a strange red creature\n"
+	.string "in the Lake of Rage...\p"
+	.string "It has been scaring the townspeople.\n"
+	.string "PRYCE went to calm things down.$"
+
+MahoganyTown_GyaradosRoadblock_Text_2:
+# 68 "data/maps/MahoganyTown/scripts.pory"
+	.string "If you can deal with\n"
+	.string "that creature at the lake...\p"
+	.string "I am sure PRYCE will return\n"
+	.string "and the gym will open.$"

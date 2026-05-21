@@ -14,7 +14,7 @@ Route43_TriggerLeft_EnterLakeOfRage::
 	compare VAR_DAY_DATE, 2
 	goto_if_eq Route43_TriggerLeft_EnterLakeOfRage_2
 # 17 "data/maps/Route43_NorthEntrance/scripts.pory"
-	setdynamicwarp MAP_LAKE_OF_RAGE, 0
+	setdynamicwarp MAP_LAKE_OF_RAGE_SUNNY, 0
 Route43_TriggerLeft_EnterLakeOfRage_1:
 # 19 "data/maps/Route43_NorthEntrance/scripts.pory"
 	release
@@ -22,7 +22,7 @@ Route43_TriggerLeft_EnterLakeOfRage_1:
 
 Route43_TriggerLeft_EnterLakeOfRage_2:
 # 13 "data/maps/Route43_NorthEntrance/scripts.pory"
-	setdynamicwarp MAP_LAKE_OF_RAGE_SUNNY, 0
+	setdynamicwarp MAP_LAKE_OF_RAGE, 0
 	goto Route43_TriggerLeft_EnterLakeOfRage_1
 
 
@@ -31,7 +31,7 @@ Route43_TriggerRight_EnterLakeOfRage::
 	compare VAR_DAY_DATE, 2
 	goto_if_eq Route43_TriggerRight_EnterLakeOfRage_2
 # 31 "data/maps/Route43_NorthEntrance/scripts.pory"
-	setdynamicwarp MAP_LAKE_OF_RAGE, 1
+	setdynamicwarp MAP_LAKE_OF_RAGE_SUNNY, 1
 Route43_TriggerRight_EnterLakeOfRage_1:
 # 33 "data/maps/Route43_NorthEntrance/scripts.pory"
 	release
@@ -39,6 +39,6 @@ Route43_TriggerRight_EnterLakeOfRage_1:
 
 Route43_TriggerRight_EnterLakeOfRage_2:
 # 27 "data/maps/Route43_NorthEntrance/scripts.pory"
-	setdynamicwarp MAP_LAKE_OF_RAGE_SUNNY, 1
+	setdynamicwarp MAP_LAKE_OF_RAGE, 1
 	goto Route43_TriggerRight_EnterLakeOfRage_1
 

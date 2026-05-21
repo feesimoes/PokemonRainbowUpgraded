@@ -38,9 +38,30 @@ script LakeOfRage_Old_Man_1
 {
     lock
     faceplayer
-    msgbox(format("If you see a group of GYARADOS\ngathering on the lakefront...\pYou should leave, immediately.\nHorribly strong RED GYARADOS..."))
-    msgbox(format("It's quite rare...\nBut don't underestimate it, young one."))
+    msgbox(format("If you see a group of GYARADOS\ngathering on the lakefront...\pYou should leave, immediately."))
+    msgbox(format("But on stormy days\nwhen the rain won't stop...\pA crimson shadow moves beneath the surface.\nOnly comes when the storm does."))
     closemessage
     release
     end    
 }
+
+script LakeOfRage_RedGyarados
+{
+        lock
+        faceplayer
+        msgbox(format("A strange crimson GYARADOS...\nIt stares at you with fury.\pThis is no ordinary creature."))
+        closemessage
+        waitse
+        setwildbattle(SPECIES_GYARADOS, 60, ITEM_NONE)
+        special(MakeEnemyPartyMonShinyWithMoves)
+        setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        special(StartLegendaryBattle)
+        waitstate
+        clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+        setflag(FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS)
+        removeobject(LOCALID_LAKE_OF_RAGE_GYARADOS)
+        release
+        end
+}
+
+
