@@ -6699,8 +6699,13 @@ static u32 GetCalculatedShinyOdds(void)
 }
 
 
+
+
+
 void MakeEnemyPartyMonShinyWithMoves(void)
 {
+    u32 otId;
+    u32 personality;
     u16 move1;
     u16 move2;
     u16 move3;
@@ -6710,6 +6715,17 @@ void MakeEnemyPartyMonShinyWithMoves(void)
     move2 = MOVE_EARTHQUAKE;
     move3 = MOVE_THUNDERBOLT;
     move4 = MOVE_FLAMETHROWER;
+
+    otId = (u32)gSaveBlock2Ptr->playerTrainerId[0]
+         | ((u32)gSaveBlock2Ptr->playerTrainerId[1] << 8)
+         | ((u32)gSaveBlock2Ptr->playerTrainerId[2] << 16)
+         | ((u32)gSaveBlock2Ptr->playerTrainerId[3] << 24);
+
+    personality = 0;
+    while (GET_SHINY_VALUE(otId, personality) >= SHINY_ODDS)
+        personality++;
+
+    CreateMonWithIVsPersonality(&gEnemyParty[0], SPECIES_GYARADOS, 60, 31, personality);
 
     SetMonData(&gEnemyParty[0], MON_DATA_MOVE1, &move1);
     SetMonData(&gEnemyParty[0], MON_DATA_MOVE2, &move2);

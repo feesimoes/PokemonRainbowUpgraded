@@ -2051,3 +2051,12 @@ Text_TestMsg::
 
 	.include "data/maps/GoldenrodCity_MagnetTrainStation/scripts.inc"
 	.include "data/maps/GoldenrodCity_MagnetTrainStation/text.inc"
+
+	.include "data/maps/Slowpoke_Well_Cave/scripts.inc"
+	.include "data/maps/Slowpoke_Well_Cave/text.inc"
+
+	.include "data/maps/AzaleaTown_House2/scripts.inc"
+	.include "data/maps/AzaleaTown_House2/text.inc"
+
+	.include "data/maps/AzaleaTown_House1/scripts.inc"
+	.include "data/maps/AzaleaTown_House1/text.inc"

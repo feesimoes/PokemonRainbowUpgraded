@@ -196,7 +196,7 @@
 #define FLAG_HIDE_BURND_T_EUSINE 0x0B2
 #define FLAG_HIDE_BURND_T_BEASTS 0x0B3
 #define FLAG_HIDE_LAKE_OF_RAGE_RED_GYARADOS               0x0B4
-#define FLAG_0x0B5               0x0B5
+#define FLAG_DEFEATED_RED               0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7
 #define FLAG_0x0B8               0x0B8

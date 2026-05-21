@@ -90,7 +90,7 @@
       "x": 53,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_AZALEA_TOWN",
+      "dest_map": "MAP_SLOWPOKE_WELL_CAVE",
       "dest_warp_id": "0"
     },
     {
@@ -98,6 +98,20 @@
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_AZALEA_TOWN_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_AZALEA_TOWN_HOUSE2",
       "dest_warp_id": "0"
     }
   ],

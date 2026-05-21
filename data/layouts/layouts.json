@@ -7128,6 +7128,42 @@
       "secondary_tileset": "gTileset_PowerPlant",
       "border_filepath": "data/layouts/GoldenrodCity_MagnetTrainStation/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_MagnetTrainStation/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLOWPOKE_WELL_CAVE",
+      "name": "Slowpoke_Well_Cave_Layout",
+      "width": 32,
+      "height": 33,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Slowpoke_Well_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/Slowpoke_Well_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZALEA_TOWN_HOUSE1",
+      "name": "AzaleaTown_House1_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/AzaleaTown_House1/border.bin",
+      "blockdata_filepath": "data/layouts/AzaleaTown_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZALEA_TOWN_HOUSE2",
+      "name": "AzaleaTown_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/AzaleaTown_House2/border.bin",
+      "blockdata_filepath": "data/layouts/AzaleaTown_House2/map.bin"
     }
   ]
 }

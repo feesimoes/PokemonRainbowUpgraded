@@ -205,7 +205,8 @@
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
     "SixIsland_AlteringCave",
-    "VictoryRoad_B1F"
+    "VictoryRoad_B1F",
+    "Slowpoke_Well_Cave"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -770,7 +771,9 @@
     "AzaleaTown_IlexForest_Entrance",
     "AzaleaTown_PokemonCenter_1F",
     "AzaleaTown_Gym",
-    "AzaleaTown_Mart"
+    "AzaleaTown_Mart",
+    "AzaleaTown_House1",
+    "AzaleaTown_House2"
   ],
   "gMapGroup_IndoorRoute34": [
     "Route34_IlexForestEntrance",
