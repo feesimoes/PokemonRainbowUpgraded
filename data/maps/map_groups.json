@@ -792,7 +792,17 @@
     "GoldenrodCity_DepartmentStore_1F",
     "GoldenrodCity_FlowerShop",
     "GoldenrodCity_FortuneTeller",
-    "GoldenrodCity_MagnetTrainStation"
+    "GoldenrodCity_MagnetTrainStation",
+    "GoldenrodCity_House1",
+    "GoldenrodCity_House2",
+    "GoldenrodCity_House3",
+    "GoldenrodCity_House4",
+    "GoldenrodCity_House5",
+    "GoldenrodCity_House6",
+    "GoldenrodCity_UnderGroundPath",
+    "GoldenrodCity_UnderGroundPath_NorthEntrace",
+    "GoldenrodCity_UnderGroundPath_SouthEntrace",
+    "EcruteakCity_House1"
   ],
   "gMapGroup_IndoorRoute38": [
     "Route38_EcruteakCityEntrance"
@@ -801,7 +811,10 @@
     "EcruteakCity_PokemonCenter_1F",
     "EcruteakCity_Gym",
     "EcruteakCity_Mart",
-    "EcruteakCity_BarrierStation"
+    "EcruteakCity_BarrierStation",
+    "EcruteakCity_House2",
+    "EcruteakCity_House3",
+    "EcruteakCity_House4"
   ],
   "gMapGroup_TownsAndRoutesJohto": [
     "NewBarkTown",
@@ -838,7 +851,9 @@
     "NewBarkPath",
     "LakeOfRage_Sunny",
     "CianwoodCity",
-    "Route35"
+    "Route35",
+    "LakeOfRage_House1",
+    "Route39_House1"
   ],
   "gMapGroup_IndoorRoute42": [
     "Route42_EcruteakCityEntrance"
@@ -847,7 +862,14 @@
     "OlivineCity_PokemonCenter_1F",
     "OlivineCity_Mart",
     "GlitterLighthouse_1F",
-    "OlivineCity_Gym"
+    "OlivineCity_Gym",
+    "OlivineCity_House1",
+    "OlivineCity_House2",
+    "OlivineCity_House3",
+    "OlivineCity_House4",
+    "GlitterLighthouse_2F",
+    "GlitterLighthouse_3F",
+    "GlitterLighthouse_4F"
   ],
   "gMapGroup_Sky": [
     "SkyKanto"
@@ -855,7 +877,9 @@
   "gMapGroup_IndoorMahogany": [
     "MahoganyTown_PokemonCenter_1F",
     "MahoganyTown_SouvenirShop",
-    "MahoganyTown_Gym_1F"
+    "MahoganyTown_Gym_1F",
+    "MahoganyTown_House1",
+    "MahoganyTown_House2"
   ],
   "gMapGroup_IndoorJubilife": [
     "JubilifeCity_PokemonCenter_1F",
@@ -880,7 +904,12 @@
   "gMapGroup_IndoorCianwood": [
     "CianwoodCity_PokemonCenter_1F",
     "CliffEdgeGate",
-    "CianwoodCity_Gym"
+    "CianwoodCity_Gym",
+    "CianwoodCity_House1",
+    "CianwoodCity_House2",
+    "CianwoodCity_House3",
+    "CianwoodCity_House4",
+    "CianwoodCity_House5"
   ],
   "gMapGroup_IndoorRoute35": [
     "Route35_SouthEntrance",

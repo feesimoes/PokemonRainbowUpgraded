@@ -32947,36 +32947,6 @@
               }
             ]
           },
-          "rock_smash_mons": {
-            "encounter_rate": 50,
-            "mons": [
-              {
-                "min_level": 25,
-                "max_level": 36,
-                "species": "SPECIES_VENIPEDE"
-              },
-              {
-                "min_level": 26,
-                "max_level": 36,
-                "species": "SPECIES_WHIRLIPEDE"
-              },
-              {
-                "min_level": 30,
-                "max_level": 32,
-                "species": "SPECIES_SCOLIPEDE"
-              },
-              {
-                "min_level": 30,
-                "max_level": 32,
-                "species": "SPECIES_SCOLIPEDE"
-              },
-              {
-                "min_level": 30,
-                "max_level": 32,
-                "species": "SPECIES_SCOLIPEDE"
-              }
-            ]
-          },
           "fishing_mons": {
             "encounter_rate": 20,
             "mons": [
@@ -33029,6 +32999,36 @@
                 "min_level": 40,
                 "max_level": 40,
                 "species": "SPECIES_KRABBY"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 50,
+            "mons": [
+              {
+                "min_level": 35,
+                "max_level": 43,
+                "species": "SPECIES_WEEDLE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 43,
+                "species": "SPECIES_CATERPIE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 43,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 43,
+                "species": "SPECIES_SHUCKLE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 43,
+                "species": "SPECIES_LARVITAR"
               }
             ]
           }

@@ -2,7 +2,7 @@
   "id": "MAP_AZALEA_TOWN_HOUSE1",
   "name": "AzaleaTown_House1",
   "layout": "LAYOUT_AZALEA_TOWN_HOUSE1",
-  "music": "MUS_DUMMY",
+  "music": "MUS_AZALEA",
   "region_map_section": "MAPSEC_AZALEA_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

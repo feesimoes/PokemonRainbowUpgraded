@@ -2060,3 +2060,90 @@ Text_TestMsg::
 
 	.include "data/maps/AzaleaTown_House1/scripts.inc"
 	.include "data/maps/AzaleaTown_House1/text.inc"
+
+	.include "data/maps/GoldenrodCity_House1/scripts.inc"
+	.include "data/maps/GoldenrodCity_House1/text.inc"
+
+	.include "data/maps/GoldenrodCity_House3/scripts.inc"
+	.include "data/maps/GoldenrodCity_House3/text.inc"
+
+	.include "data/maps/GoldenrodCity_House5/scripts.inc"
+	.include "data/maps/GoldenrodCity_House5/text.inc"
+
+	.include "data/maps/GoldenrodCity_House6/scripts.inc"
+	.include "data/maps/GoldenrodCity_House6/text.inc"
+
+	.include "data/maps/GoldenrodCity_House2/scripts.inc"
+	.include "data/maps/GoldenrodCity_House2/text.inc"
+
+	.include "data/maps/GoldenrodCity_House4/scripts.inc"
+	.include "data/maps/GoldenrodCity_House4/text.inc"
+
+	.include "data/maps/GoldenrodCity_UnderGroundPath_NorthEntrace/scripts.inc"
+	.include "data/maps/GoldenrodCity_UnderGroundPath_NorthEntrace/text.inc"
+
+	.include "data/maps/GoldenrodCity_UnderGroundPath/scripts.inc"
+	.include "data/maps/GoldenrodCity_UnderGroundPath/text.inc"
+
+	.include "data/maps/GoldenrodCity_UnderGroundPath_SouthEntrace/scripts.inc"
+	.include "data/maps/GoldenrodCity_UnderGroundPath_SouthEntrace/text.inc"
+
+	.include "data/maps/EcruteakCity_House3/scripts.inc"
+	.include "data/maps/EcruteakCity_House3/text.inc"
+
+	.include "data/maps/EcruteakCity_House1/scripts.inc"
+	.include "data/maps/EcruteakCity_House1/text.inc"
+
+	.include "data/maps/EcruteakCity_House2/scripts.inc"
+	.include "data/maps/EcruteakCity_House2/text.inc"
+
+	.include "data/maps/EcruteakCity_House4/scripts.inc"
+	.include "data/maps/EcruteakCity_House4/text.inc"
+
+	.include "data/maps/OlivineCity_House2/scripts.inc"
+	.include "data/maps/OlivineCity_House2/text.inc"
+
+	.include "data/maps/OlivineCity_House3/scripts.inc"
+	.include "data/maps/OlivineCity_House3/text.inc"
+
+	.include "data/maps/OlivineCity_House1/scripts.inc"
+	.include "data/maps/OlivineCity_House1/text.inc"
+
+	.include "data/maps/GlitterLighthouse_4F/scripts.inc"
+	.include "data/maps/GlitterLighthouse_4F/text.inc"
+
+	.include "data/maps/GlitterLighthouse_3F/scripts.inc"
+	.include "data/maps/GlitterLighthouse_3F/text.inc"
+
+	.include "data/maps/GlitterLighthouse_2F/scripts.inc"
+	.include "data/maps/GlitterLighthouse_2F/text.inc"
+
+	.include "data/maps/OlivineCity_House4/scripts.inc"
+	.include "data/maps/OlivineCity_House4/text.inc"
+
+	.include "data/maps/CianwoodCity_House2/scripts.inc"
+	.include "data/maps/CianwoodCity_House2/text.inc"
+
+	.include "data/maps/LakeOfRage_House1/scripts.inc"
+	.include "data/maps/LakeOfRage_House1/text.inc"
+
+	.include "data/maps/MahoganyTown_House1/scripts.inc"
+	.include "data/maps/MahoganyTown_House1/text.inc"
+
+	.include "data/maps/MahoganyTown_House2/scripts.inc"
+	.include "data/maps/MahoganyTown_House2/text.inc"
+
+	.include "data/maps/CianwoodCity_House1/scripts.inc"
+	.include "data/maps/CianwoodCity_House1/text.inc"
+
+	.include "data/maps/CianwoodCity_House3/scripts.inc"
+	.include "data/maps/CianwoodCity_House3/text.inc"
+
+	.include "data/maps/CianwoodCity_House5/scripts.inc"
+	.include "data/maps/CianwoodCity_House5/text.inc"
+
+	.include "data/maps/CianwoodCity_House4/scripts.inc"
+	.include "data/maps/CianwoodCity_House4/text.inc"
+
+	.include "data/maps/Route39_House1/scripts.inc"
+	.include "data/maps/Route39_House1/text.inc"
